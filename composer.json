@@ -1,0 +1,87 @@
+{
+  "name": "o2web/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "A modern WordPress stack",
+  "homepage": "http://roots.io/wordpress-stack/",
+  "authors": [
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    }
+  ],
+  "keywords": [
+    "wordpress", "stack", "capistrano", "composer", "vagrant", "wp"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "http://discourse.roots.io/category/bedrock"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "generate-salts": true
+  },
+  "autoload": {
+    "psr-0": {
+      "Roots\\Bedrock\\Installer": "scripts",
+      "Koodimonni\\Installer": "scripts"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": ["Roots\\Bedrock\\Installer::addSalts"],
+    "post-install-cmd": [
+      "Koodimonni\\Installer::installLanguages"
+    ],
+    "post-update-cmd": [
+      "Koodimonni\\Installer::installLanguages"
+    ]
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "http://languages.koodimonni.fi"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "acf/advanced-custom-fields",
+        "version": "5.0.6",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "***REMOVED***"
+        },
+        "require" : {
+          "composer/installers": "~1.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "johnpbloch/wordpress": "4.0",
+    "composer/installers": "v1.0.12",
+    "vlucas/phpdotenv": "~1.0.9",
+    "koodimonni-language/fr": "dev-master",
+    "acf/advanced-custom-fields": "5.0.6"
+  },
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp",
+    "wordpress-languages-dir":"web/app/languages"
+  }
+}

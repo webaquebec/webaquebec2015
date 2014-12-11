@@ -1,0 +1,93 @@
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+*,
+*:before,
+*:after
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  *behavior: url(boxsizing.htc)
+
+html,
+button,
+input,
+select,
+textarea
+  color: #000
+
+body   
+  background: #fff
+  position: relative
+  margin: 0
+  padding: 0
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+
+a
+  text-decoration: none
+  &:hover,
+  &:active
+    text-decoration: none
+  &:link
+    outline: none
+
+strong, b
+  font-weight: bold
+
+ul
+  padding: 0
+  margin: 0
+
+::-moz-selection
+  background: rgba(0,0,0,0.8)
+  color: #fff
+  border: none
+  outline: none
+  text-shadow: none
+::selection
+  background: rgba(0,0,0,0.8)
+  color: #fff
+  border: none
+  outline: none
+  text-shadow: none
+
+*:focus
+  background: none
+  border: none
+  outline: none
+  text-shadow: none
+
+ul
+  list-style: none
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+img
+  vertical-align: middle
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+textarea
+  resize: vertical
+
+sup,
+sub
+  text-transform: none    
+
+.chromeframe
+  margin: 0.2em 0
+  background: #ccc
+  color: #000
+  padding: 0.2em 0
