@@ -1,0 +1,18 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^(.css) /app/themes/waq2015/assets/$1 [QSA,L]
+RewriteRule ^css/(.*) /app/themes/waq2015/assets/css/$1 [QSA,L]
+RewriteRule ^js/(.*) /app/themes/waq2015/assets/js/$1 [QSA,L]
+RewriteRule ^img/(.*) /app/themes/waq2015/assets/img/$1 [QSA,L]
+RewriteRule ^fonts/(.*) /app/themes/waq2015/assets/fonts/$1 [QSA,L]
+RewriteRule ^svg/(.*) /app/themes/waq2015/assets/svg/$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

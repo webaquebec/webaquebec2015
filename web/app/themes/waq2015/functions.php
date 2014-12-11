@@ -11,11 +11,35 @@ if( function_exists('acf_add_options_page') ) {
 /*------------------------------------*\
     functions custom
 \*------------------------------------*/
+
+
 function has($v){
     return (isset($v)&&!empty($v));
 }
-function retina($size){
-    return ($size . ((isset($_COOKIE["hd"])&&$_COOKIE["hd"]==1) ? ' retina' : ''));
+
+function get_header_once(){
+    global $post, $header_rendered, $main_ID;
+    if(!has($header_rendered)){
+      get_header();
+      $header_rendered = true;
+      $main_ID = $post->ID;
+    }
+}
+function get_footer_once(){
+    global $post, $header_rendered, $main_ID;
+    if(has($main_ID) && $main_ID==$post->ID){
+      get_footer();
+    }
+}
+
+function include_page_part($ID){
+    // global $header_rendered;
+    query_posts(array(
+        'post_type' => 'page',
+        'p'         => $ID
+    ));
+    get_template_part(str_replace('.php','',get_page_template_slug($ID))); 
+    wp_reset_query();
 }
 
 /*------------------------------------*\
@@ -116,7 +140,23 @@ function remove_nav_wrapper($args = '')
     $args['container'] = false;
     return $args;
 }
+function css_class_filter($classes, $item)
+{
+    if(is_array($classes)){
+        $klasses = array();
+        $id = get_post_meta($item->ID, '_menu_item_object_id', true);
+        $post = get_post($id);
+        $slug = $post->post_name;
+        array_push($klasses, $slug);
+        if(in_array('current-menu-item', $classes)){ array_push($klasses, 'active'); }
+        else { array_push($klasses, ''); }
 
+        return $klasses;
+    }  
+    else{
+        return $klasses;
+    }
+}
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
 function my_css_attributes_filter($var)
 {
@@ -405,7 +445,7 @@ add_filter('wp_nav_menu_args', 'remove_nav_wrapper'); // Remove surrounding <div
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter( 'excerpt_length', 'blankwp_index', 999 );
-add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
+add_filter('nav_menu_css_class', 'css_class_filter', 10, 2); // Remove Navigation <li> injected classes (Commented out by default)
 add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
 add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> injected classes (Commented out by default)
