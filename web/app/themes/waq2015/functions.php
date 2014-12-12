@@ -1,15 +1,16 @@
 <?php
-/*------------------------------------*\
-    ACF 5
-\*------------------------------------*/
 
-// REGISTER OPTION PAGE
+
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
+require_once('inc/seo.php');
+require_once('inc/hashbang.php');
+require_once('inc/schedule.php');
+
 /*------------------------------------*\
-    functions custom
+    HELPERS
 \*------------------------------------*/
 
 

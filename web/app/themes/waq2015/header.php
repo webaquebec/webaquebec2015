@@ -1,24 +1,26 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
-		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
-		
+		<meta charset="<?php bloginfo('charset'); ?>">	
 		<!-- dns prefetch -->
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-		
 		<!-- meta -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-		<meta name="description" content="<?php bloginfo('description'); ?>" />
-		
+	
+		<?php 
+		$is404 = is_404();
+		if(!$is404){
+			acf_seo(); // functions_seo.php
+		} 
+		?>
+
 		<!-- icons -->
 		<link href="<?= get_bloginfo('siteurl') ?>/favicon.ico" rel="shortcut icon">
-		<!-- <link href="<?= get_bloginfo('siteurl') ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed"> -->
 			
-		<?php // HASHBANG ?>
-		<?php 
-		if(get_post_type()=="page" && $post->ID != 2):
+		<?php // HASHBANG 
+		$bang = get_post_type()=="page" && get_field('bang');
+		if($bang):
 		// if(get_post_type()=="page" && $post->ID != icl_object_id(2, 'page', true)): // AVEC WPML?>
 		<script type="text/javascript">var bang = true;</script>
 		<?php endif; ?>
@@ -33,12 +35,6 @@
 		<div class="wrapper">
 			<header role="banner" class="container">
 				
-				<div class="logo">
-					<a href="<?php echo home_url(); ?>">
-						<img src="<?= get_bloginfo('siteurl') ?>/img/logo.png" alt="Logo">
-					</a>
-				</div>
-			
 				<nav role="navigation" class="main">
 					<?php wp_nav_menu( array(
 						'theme_location'  => 'main'
