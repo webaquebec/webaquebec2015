@@ -34,38 +34,29 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="wrapper">
-			<header role="banner" class="container">
+			<header role="banner">
 				
-				<nav role="navigation" class="main">
+				<nav role="navigation">
+
+					<ul class="cta">
+						<li>
+							<a class="favorite" href=""><?= __('Mon horaire', 'waq') ?></a>
+						</li>
+					</ul>
+
 					<?php wp_nav_menu( array(
-						'theme_location'  => 'main'
-					)); ?> 
+						'theme_location'  => 'main',
+						'menu_class' => 'main'
+					)); ?>
+	
 				</nav>
 			
-
 				<?php
 				if($is_home){
+					get_template_part('template-intro');
+				}
 				?>
-				<section class="<?= $post->post_name ?>">
-					<div class="bg">
-						<?php
-						$video = array(
-								'mp4' => get_field('video_mp4'),
-								'ogv' => get_field('video_ogv'),
-								'webm' => get_field('video_webm'),
-								'image' => get_field('video_image')
-							);
-						?>
-						<video autoplay <?php if($video['image']): ?>poster="<?= $video['image']['url'] ?>"<?php endif; ?>>
-				      <?php if($video['mp4']): ?><source src="<?= $video['mp4'] ?>" type="video/mp4" /><?php endif; ?>
-				      <?php if($video['webm']): ?><source src="<?= $video['webm'] ?>" type="video/webm" /><?php endif; ?>
-				      <?php if($video['ogv']): ?><source src="<?= $video['ogv'] ?>" type="video/ogg" /><?php endif; ?>
-				 			<?= __('Votre navitageur ne supporte pas les vidéos', 'waq'); ?>
-				    </video>
-				  </div>
-				</section>
-				<?php } ?>
-
+		
 			</header>
 
 			<main role="main" class="container">

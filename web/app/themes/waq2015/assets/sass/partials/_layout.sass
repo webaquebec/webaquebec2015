@@ -21,10 +21,59 @@ html
 
 section
   padding: 100px 0
+  position: relative
+  overflow: hidden
+  &.dark  
+    background: $d-grey
+    color: #fff 
 
 .container
   max-width: 1000px
+  padding: 0 $margin
   margin: 0 auto
+  
 
 .content
   padding: 20px 0
+
+//
+//
+// HEADER
+header[role="banner"]
+  position: relative
+  z-index: 5
+  nav
+    position: absolute
+    bottom: $s-margin - ($nav-height/2)
+    left: $l-margin
+    right: $l-margin
+    height: $nav-height
+    z-index: 5
+
+//
+//
+// COLUMNS
+.cols
+  >*
+    vertical-align: top
+.cols-2
+  @extend .cols
+  +grid(2, $margin)
+  &.small-margins
+    +grid(2, $s-margin)
+  &.xsmall-margins
+    +grid(2, $xs-margin) 
+.cols-3
+  @extend .cols
+  +grid(3, $margin)
+  &.small-margins
+    +grid(3, $s-margin)
+  &.xsmall-margins
+    +grid(3, $xs-margin) 
+.cols-4
+  @extend .cols
+  +grid(4, $margin)
+  &.small-margins
+    +grid(4, $s-margin)
+  &.xsmall-margins
+    +grid(4, $xs-margin) 

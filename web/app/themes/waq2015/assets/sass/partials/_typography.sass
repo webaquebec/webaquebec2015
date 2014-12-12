@@ -1,15 +1,101 @@
 // ==========================================================================
 // TYPOGRAPHY
 // ==========================================================================
+@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700)"
+@import "http://weloveiconfonts.com/api/?family=typicons"
+@import "http://weloveiconfonts.com/api/?family=entypo"
 
-// @import "http://fonts.googleapis.com/css?family=Open+Sans"
 
-
-
-//
-//
-// TYPO STYLES
-
+// Base
 body
-  font-family: $default-family
+  color: $black
+  font-family: $font-titillium
   font-weight: 300
+a
+  text-decoration: none
+p
+  line-height: 1.25
+  margin-bottom: 1.5em
+strong,
+b
+  font-weight: 700
+
+
+//
+//
+// Titles
+.title
+  color: $d-grey
+  font-weight: 700
+  font-size: 1.5em
+  margin-bottom: 0.4em
+  display: block
+  .dark &
+    color: #fff
+  &.main
+    font-size: 3em
+    font-weight: 300
+    text-transform: uppercase
+  &.sub
+    font-size: 1.125em
+    font-weight: 300
+    text-transform: uppercase
+  &.small
+    font-size: 1em
+    text-transform: uppercase
+  &.huge
+    font-size: 2em
+    text-transform: uppercase
+    
+//
+//
+// Notes
+.note
+  color: $grey
+  font-size: 0.875em
+  display: block
+  .dark &
+    color: $l-grey
+  .title + &
+    margin-top: -0.375em
+    margin-bottom: 1em
+
+//
+//
+// Lists
+.list
+  list-style-type: none
+  li
+    width: 100%
+    position: relative
+    padding: 5px 0 5px 20px
+ 
+  &.bullets
+    li
+      @extend .icon-arrow-right
+      &:after
+        position: absolute
+        top: 50%
+        left: 0
+        color: $l-blue
+        margin-top: 0.2em
+        line-height: 0
+  
+  &.numbered
+    list-style-type: none
+    li
+      counter-increment: cntr
+      &:before
+        content: counter(cntr)
+        position: absolute
+        left: 0
+        color: $l-blue
+        font-weight: 700    
+ul
+  .content &
+    @extend .list
+    @extend .list.bullets
+ol
+  .content &
+    @extend .list
+    @extend .list.numbered

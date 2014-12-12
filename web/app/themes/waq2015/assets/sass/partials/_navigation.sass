@@ -1,3 +1,26 @@
 // ==========================================================================
 // NAVIGATION
 // ==========================================================================
+header[role="banner"]
+  nav
+    .main,
+    .cta
+      +align-children(middle)
+      background: #fff
+      padding: $margin
+      z-index: 2
+      a
+        color: $d-blue
+        .no-touch &:hover
+          color: $l-blue
+        &.active
+          color: $l-blue
+    .main
+      display: block
+      margin-right: 200px + $margin
+    .cta
+      float: right
+      width: 200px
+
+
+
