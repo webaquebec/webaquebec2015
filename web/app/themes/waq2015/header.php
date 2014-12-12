@@ -10,9 +10,10 @@
 	
 		<?php 
 		$is404 = is_404();
+		$is_home = get_page_template_slug()=="template-home.php";
 		if(!$is404){
 			acf_seo(); // functions_seo.php
-		} 
+		}
 		?>
 
 		<!-- icons -->
@@ -41,6 +42,30 @@
 					)); ?> 
 				</nav>
 			
+
+				<?php
+				if($is_home){
+				?>
+				<section class="<?= $post->post_name ?>">
+					<div class="bg">
+						<?php
+						$video = array(
+								'mp4' => get_field('video_mp4'),
+								'ogv' => get_field('video_ogv'),
+								'webm' => get_field('video_webm'),
+								'image' => get_field('video_image')
+							);
+						?>
+						<video autoplay <?php if($video['image']): ?>poster="<?= $video['image']['url'] ?>"<?php endif; ?>>
+				      <?php if($video['mp4']): ?><source src="<?= $video['mp4'] ?>" type="video/mp4" /><?php endif; ?>
+				      <?php if($video['webm']): ?><source src="<?= $video['webm'] ?>" type="video/webm" /><?php endif; ?>
+				      <?php if($video['ogv']): ?><source src="<?= $video['ogv'] ?>" type="video/ogg" /><?php endif; ?>
+				 			<?= __('Votre navitageur ne supporte pas les vidéos', 'waq'); ?>
+				    </video>
+				  </div>
+				</section>
+				<?php } ?>
+
 			</header>
 
 			<main role="main" class="container">
