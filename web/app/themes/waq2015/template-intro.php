@@ -7,11 +7,12 @@ global $post;
 setup_postdata($post);
 ?>
 
-<section id="<?= $post->post_name ?>" class="intro dark">
+<section id="<?= $post->post_name ?>" class="intro dark loading">
           
   <div class="container">
     <div class="cols-2">
-      <div class="col left">
+
+      <div class="main col left">
         <div class="top">
           <img src="/img/intro-top.png" alt="5 ans"/> 
         </div>
@@ -22,32 +23,36 @@ setup_postdata($post);
           <img src="/img/intro-bottom.png" alt="Bonne fête"/> 
         </div>
       </div>
-      <div class="col right">
-        <div class="top cols-2 xl-margin">
+
+      <div class="main col right">
+        <div class="top cols-2 xl-margin border-left">
           <?php 
           $intro = get_field('intro')[0];
           ?>
           <div class="date col left">
-            <div class="wrap">
-              <h2 class="huge title"><?= $intro['top'][0]['date'] ?></h2>
-            </div>
+            <h2 class="huge title"><?= $intro['top'][0]['date'] ?></h2>
           </div>
           <div class="location col right">
-            <div class="wrap">
-              <h2 class="huge title"><?= $intro['top'][0]['location'] ?></h2>
-            </div>
+            <h2 class="huge title"><?= $intro['top'][0]['location'] ?></h2>
           </div>
+
+          <div class="border-bottom expandable"></div>
         </div>
+
         <div class="middle">
-            <h1 class="main title"><?= $intro['middle'][0]['tagline'] ?></h1>
+          <h1 class="main title"><?= $intro['middle'][0]['tagline'] ?></h1>
         </div>
-        <div class="bottom">
-            <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url') ?>" target="_blank"></a>
-              <?= $intro['bottom'][0]['cta'] ?>
-              <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" /> 
-            </a>
+
+        <div class="bottom border-left">
+          <div class="border-top expandable"></div>
+          
+          <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url') ?>" target="_blank"></a>
+            <?= $intro['bottom'][0]['cta'] ?>
+            <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" /> 
+          </a>
         </div>
       </div>
+
     </div>
   </div>
 

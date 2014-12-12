@@ -1,14 +1,47 @@
 // ==========================================================================
 // NAVIGATION
 // ==========================================================================
+
+
 header[role="banner"]
   nav
-    .main,
-    .cta
+    .logo
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
       +align-children(middle)
+      a
+        padding: 0 $l-margin
+      img
+        width: 91px
+
+    ul
+      a
+        @extend .title
+        @extend .small.title
+        +inlineb
+        padding: 0.35em 0
+        margin: 0 1em
+        border-bottom: 0 solid #fff
+        +prefix(transition, all 120ms $ease)
+      li.active a,
+      .no-touch & a:hover
+        color: $l-blue
+        padding: 0 0 0.7em
+        margin: 0 1em 0.35em
+        border-bottom: 0.2em solid $l-blue
+
+
+    .main,
+    .secondary
       background: #fff
       padding: $margin
+      height: 100%
       z-index: 2
+      @extend .shadows
+      +align-children(middle)
+      
       a
         color: $d-blue
         .no-touch &:hover
@@ -17,10 +50,40 @@ header[role="banner"]
           color: $l-blue
     .main
       display: block
-      margin-right: 200px + $margin
-    .cta
+      padding-left: 91px + (2*$l-margin)
+      margin-right: 200px + $s-margin
+
+    .secondary
       float: right
       width: 200px
+      padding: $margin $l-margin
+      +gradient($l-blue, $d-blue)
+      &:before
+        margin: 0
+
+      li
+        width: 100%
+      a
+        color: $l-grey
+        width: 100%
+        position: relative
+        margin-left: 0
+        margin-right: 0
+        @extend .icon-favorite
+        &:after
+          float: right
+          line-height: 1.375em
+          margin-right: 0.1em
+
+
+      li.active a,
+      .no-touch & a:hover
+        color: #fff
+        border-color: #fff
+        margin-left: 0
+        margin-right: 0
+
+    
 
 
 

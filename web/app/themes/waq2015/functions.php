@@ -18,6 +18,10 @@ function has($v){
     return (isset($v)&&!empty($v));
 }
 
+function is_login_page() {
+    return $GLOBALS['pagenow'] == 'wp-login.php';
+}
+
 function get_header_once(){
     global $post, $header_rendered, $main_ID;
     if(!has($header_rendered)){
@@ -29,18 +33,21 @@ function get_header_once(){
 function get_footer_once(){
     global $post, $header_rendered, $main_ID;
     if(has($main_ID) && $main_ID==$post->ID){
+      wp_reset_query();
       get_footer();
     }
 }
 
 function include_page_part($ID){
-    // global $header_rendered;
+    global $post;
     query_posts(array(
         'post_type' => 'page',
         'p'         => $ID
     ));
-    get_template_part(str_replace('.php','',get_page_template_slug($ID))); 
-    wp_reset_query();
+    $template = str_replace('.php','',get_page_template_slug($ID));
+    if(!has($template)) $template = 'page';
+    get_template_part($template); 
+    
 }
 
 /*------------------------------------*\
@@ -52,7 +59,8 @@ add_theme_support('menus');
 function register_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'main' => 'Menu principal'
+        'main' => 'Menu principal',
+        'secondary' => 'Menu secondaire'
     ));
 }
 
@@ -77,7 +85,7 @@ function register_menu()
 
 function header_scripts()
 {
-    if (!is_admin()) {
+    if (!is_admin() && !is_login_page()) {
         // wp_register_script('shim', '/js/html5shiv.js', array(), null);
         // wp_enqueue_script('shim'); 
 
@@ -96,6 +104,12 @@ function header_scripts()
 
         wp_register_script('slider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array(), null); 
         wp_enqueue_script('slider');
+
+        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.js', array(), null); 
+        wp_enqueue_script('scrollEvents');
+
+        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.js', array(), null); 
+        wp_enqueue_script('sticky');
 
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
         wp_enqueue_script('custom'); 
@@ -249,7 +263,7 @@ function remove_thumbnail_dimensions( $html )
 // Remove menu items
 function remove_menus() {
     global $menu;
-    $restricted = array(__('Posts'), __('Links'), __('Comments'));
+    $restricted = array(__('Links'), __('Comments'));
     end ($menu);
     while (prev($menu)){
         $value = explode(' ',$menu[key($menu)][0]);
@@ -270,69 +284,10 @@ function remove_comment_support() {
 
 /* -------------------------------------------------------------------------------------------------- Custom Post Types ------- */
 
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
-
-function create_post_type()
-{
-    // register_post_type('projet', // Register Custom Post Type (au singulier)
-    //     array(
-    //     'labels' => array(
-    //         'name' => 'Comptes', // Rename these to suit
-    //         'singular_name' => 'Projet',
-    //         'add_new' => 'Nouveau projet',
-    //         'add_new_item' => 'Ajouter un projet',
-    //         'edit' => 'Modifier',
-    //         'edit_item' => 'Modifier le projet',
-    //         'new_item' => 'Nouveau projet',
-    //         'view' => 'Voir le projet',
-    //         'view_item' => 'Voir le projet',
-    //         'search_items' => 'Chercher un projet',
-    //         'not_found' => 'Aucun projet trouvé',
-    //         'not_found_in_trash' => 'Aucun projet trouvé dans la corbeille'
-    //     ),
-    //     'public' => true,
-    //     'hierarchical' => false, 
-    //     'has_archive' => false,
-    //     'supports' => array(
-    //         'title',
-    //         'editor'
-    //     ),
-    //     'can_export' => true,
-    //     'rewrite' => array( 'slug' => 'portfolio'),
-    // ));
-
-    // register_taxonomy(
-    //     'account-category',
-    //     array('projet'),
-    //     array(
-    //         'hierarchical' => false,
-    //         'label' => __('Categories')
-    //     )
-    // );
-
-}
 
 /*------------------------------------*\
     THEME
 \*------------------------------------*/
-
-
-function add_lang_menu_items($items) {
-  $langSwitch = qtrans_generateLanguageSelectCode( 'li' );
-  // print_r($langSwitch);
-  $items = $items . $langSwitch ;
-  return $items;
-}
-
-/* -------------------------------------------------------------------------------------------------- ShortCodes ------- */
-function doubleSlash($attr){
-    return '<span class="double-slash">//</span>';
-}
-
-
-/* -------------------------------------------------------------------------------------------------- Boutons custom WYSIWYG ------- */
 
 function enable_more_buttons($buttons) {
     $buttons[] = 'hr';
@@ -340,6 +295,7 @@ function enable_more_buttons($buttons) {
     $buttons[] = 'sup';
     return $buttons;
 }
+
 // --------------------------------------------
 //
 // REWRITE RULES
@@ -384,8 +340,6 @@ function themes_dir_add_rewrites() {
 
 
 
-/* ------------------------------------------------------------------------------------------------------- Hooks ------- */
-
 /*------------------------------------*\
     Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -398,7 +352,6 @@ add_action('wp_enqueue_scripts', 'header_styles');
 add_action('admin_enqueue_scripts', 'admin_style');   // Css pour l'admin
 add_action('init', 'header_scripts');
 add_action('init', 'register_menu'); 
-add_action('init', 'create_post_type');
 add_action('init', 'remove_comment_support');
 // add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
@@ -450,7 +403,7 @@ add_filter('nav_menu_css_class', 'css_class_filter', 10, 2); // Remove Navigatio
 add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
 add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> injected classes (Commented out by default)
-// add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
 // add_filter('request', 'set_endpoint_var');  // Ajout d'une variacle après le slug (voir aussi add_action)
  

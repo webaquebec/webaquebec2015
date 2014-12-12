@@ -20,21 +20,22 @@ html
   min-height: 100%
 
 section
-  padding: 100px 0
+  padding: 0
   position: relative
   overflow: hidden
-  &.dark  
-    background: $d-grey
-    color: #fff 
+  header
+    padding: ($xxl-margin + $margin) 0 $l-margin
 
 .container
   max-width: 1000px
   padding: 0 $margin
   margin: 0 auto
-  
 
 .content
   padding: 20px 0
+
+.group
+  margin-bottom: 1em
 
 //
 //
@@ -43,12 +44,19 @@ header[role="banner"]
   position: relative
   z-index: 5
   nav
-    position: absolute
-    bottom: $s-margin - ($nav-height/2)
-    left: $l-margin
-    right: $l-margin
+    position: fixed
+    top: $margin
+    left: $margin
+    right: $margin
     height: $nav-height
     z-index: 5
+  .intro+nav
+    position: absolute
+    top: auto
+    bottom: ($nav-height/-2) 
+    &.fixed
+      position: fixed
+      top: $margin
 
 //
 //

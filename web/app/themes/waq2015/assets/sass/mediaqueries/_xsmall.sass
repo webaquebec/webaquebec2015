@@ -4,6 +4,76 @@
 // =====================================================================================
 
 @media screen and (max-width: 580px)
+  //
+  //
+  // COLUMNS
+
+  .cols-2
+    +grid(1,0)
+    &.small-margins
+      +grid(1,0)
+    &.xsmall-margins
+      +grid(1,0)
+
+    .intro &.top
+      +grid(2, $margin)
+
+  .cols-3
+    +grid(3, $margin)
+    &.small-margins
+      +grid(3, $s-margin)
+    &.xsmall-margins
+      +grid(3, $xs-margin) 
+  
+  .cols-4
+    +grid(4, $margin)
+    &.small-margins
+      +grid(4, $s-margin)
+    &.xsmall-margins
+      +grid(4, $xs-margin) 
+
+
+
+  //
+  //
+  // INTRO
+
+  .intro
+    .col.main
+      &.left
+        text-align: center
+      &.left,  
+      &.right
+        >*
+          padding-left: 0
+          padding-right: 0
+    
+    .main.right
+      position: relative
+      top: auto
+      left: auto
+      right: auto
+      bottom: auto
+      >*
+        position: static
+        left: auto
+        width: 100%
+      .top
+        height: auto
+        width: 100%
+        .left
+          padding-right: $l-margin
+          padding-left: 0
+        .right
+          padding-left: $l-margin
+          padding-right: 0
+       
+      .middle
+        top: auto
+        height: auto
+      .bottom
+        top: auto
+        height: auto
 
 
 

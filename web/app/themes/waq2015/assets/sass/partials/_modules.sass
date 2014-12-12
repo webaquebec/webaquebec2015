@@ -2,6 +2,78 @@
 // MODULES
 // ==========================================================================
 
+
+//
+//
+// COLORS
+.dark  
+  background: $d-grey
+  color: #fff 
+.light
+  background: #fff
+  color: $black
+.l-grey
+  background: $l-grey
+  color: $black
+.gradient
+  color: #fff
+  +gradient($l-blue, $d-blue)
+
+
+//
+//
+// SHADOWS
+.shadows
+  +box-shadow($l-shadows)
+
+//
+//
+// BORDERS
+.border
+  position: relative
+  &:after
+    content: "" 
+    display: block
+    width: 1px
+    height: 1px
+    background: $l-blue
+    position: absolute
+  
+.border-left
+  @extend .border
+  &:after
+    top: 0
+    left: 0
+    height: 100%
+
+.border-right
+  @extend .border
+  &:after
+    top: 0
+    right: 0
+    height: 100%
+
+.border-bottom
+  @extend .border
+  &:after
+    bottom: 0
+    left: 0
+    width: 100%
+
+.border-top
+  @extend .border
+  &:after
+    left: 0
+    top: 0
+    width: 100%
+
+//
+//
+// EXPANDABLES
+.expandable
+  width: 10%
+  +prefix(transition, width 200ms $ease)
+
 //
 //
 // Buttons
@@ -69,6 +141,7 @@
  
   // dark context
   .dark &
+    color: #fff
     &:before
       background: $black
     &:after
@@ -183,7 +256,7 @@
     margin-left: -2.4em
     cursor: default
     +prefix(transition, left 320ms $ease, margin-left 320ms $ease)
-    @extend .icon-forward
+    @extend .icon-user
     &:after
       position: absolute
       top: 0

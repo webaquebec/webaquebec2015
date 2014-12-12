@@ -9,10 +9,75 @@ if(typeof(bang)!='undefined' && bang){
   window.location = url;
 }
 
+
+//
+//
+// VAR HOLDER
+window.waq = {};
+
 jQuery(document).ready(function($){
 
 
+  //
+  //
+  // SETUP
+  $win = $(window);
+  waq.$doc = $('html,body');
+  waq.$page = $('.wrapper', document.body);
+  waq.$header = $('>header', waq.$page);
 
+  waq.$menu = $('nav', waq.$header);
+  waq.$menu.$links = $('a', waq.$menu);
+
+  waq.$intro = $('#intro', waq.$header);
+
+  waq.$expandables = $('.expandable'); // Animated width
+  waq.$toggles = $('.toggle');  // Toggles
+
+
+
+
+  //
+  //
+  // STICKY NAV
+  if(waq.$intro.length){
+    waq.$menu.sticky({
+      offset: 20,
+      sticked: function(e){
+        e.selection.addClass('fixed');
+      },
+      reset: function(e){
+        e.selection.removeClass('fixed');
+      }
+
+    });
+  }
+
+  //
+  //
+  // ANIMATE EXPANDABLES
+  if(waq.$expandables.length){
+    waq.$expandables.scrollEvents({
+      flag: 'expandable',
+      travel: function(e){
+        e.data.selection[0].style.width = (e.data.delta()*100)+'%';
+      }
+    })
+  }
+
+  //
+  //
+  // TOGGLE HANDLER
+  function toggleBtn(){
+    return $(this).toggleClass('active').hasClass('active');
+
+  }
+  waq.$toggles.on('click', toggleBtn);
+
+
+
+  //
+  //
   //HASHBANG
   var hash = window.location.hash;
   if(hash.indexOf('!')!=-1){

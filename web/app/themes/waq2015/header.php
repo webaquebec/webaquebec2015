@@ -36,27 +36,34 @@
 		<div class="wrapper">
 			<header role="banner">
 				
-				<nav role="navigation">
 
-					<ul class="cta">
-						<li>
-							<a class="favorite" href=""><?= __('Mon horaire', 'waq') ?></a>
-						</li>
-					</ul>
-
-					<?php wp_nav_menu( array(
-						'theme_location'  => 'main',
-						'menu_class' => 'main'
-					)); ?>
-	
-				</nav>
-			
 				<?php
 				if($is_home){
 					get_template_part('template-intro');
 				}
 				?>
+
+
+				<nav role="navigation">
+					<div class="logo">
+						<a href="/">
+							<img src="/img/@2x/logo-waq.png" alt="<?= __('Web à Québec', 'waq') ?>" />
+						</a>
+					</div>
+
+					<?php wp_nav_menu( array(
+						'theme_location'  => 'secondary',
+						'menu_class' => 'secondary'
+					)); ?>
+
+					<?php wp_nav_menu( array(
+						'theme_location'  => 'main',
+						'menu_class' => 'main'
+					)); ?>
+				</nav>
+			
+				
 		
 			</header>
 
-			<main role="main" class="container">
+			<main role="main">
