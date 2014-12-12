@@ -875,6 +875,172 @@ textarea {
 .intro img {
   max-width: 100%; }
 
+@media screen and (max-width: 760px) {
+  .cols-2 {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .cols-2 > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+    .cols-2.small-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0; }
+      .cols-2.small-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 100%;
+        padding: 0 0 0; }
+    .cols-2.xsmall-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0; }
+      .cols-2.xsmall-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 100%;
+        padding: 0 0 0; }
+    .intro .cols-2.top {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: -10px;
+      margin-right: -10px; }
+      .intro .cols-2.top > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 50%;
+        padding: 0 10px 20px; }
+
+  .cols-3 {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .cols-3 > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 33.33%;
+      padding: 0 10px 20px; }
+    .cols-3.small-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: -5px;
+      margin-right: -5px; }
+      .cols-3.small-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 33.33%;
+        padding: 0 5px 10px; }
+    .cols-3.xsmall-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: -2.5px;
+      margin-right: -2.5px; }
+      .cols-3.xsmall-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 33.33%;
+        padding: 0 2.5px 5px; }
+
+  .cols-4 {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .cols-4 > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 25%;
+      padding: 0 10px 20px; }
+    .cols-4.small-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: -5px;
+      margin-right: -5px; }
+      .cols-4.small-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 25%;
+        padding: 0 5px 10px; }
+    .cols-4.xsmall-margins {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: -2.5px;
+      margin-right: -2.5px; }
+      .cols-4.xsmall-margins > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 25%;
+        padding: 0 2.5px 5px; }
+
+  .intro .col.left {
+    text-align: center; }
+    .intro .col.left > * {
+      padding-right: 0; }
+  .intro .col.right > * {
+    padding-left: 0; }
+  .intro .top .col.left {
+    text-align: right; }
+    .intro .top .col.left > * {
+      padding-right: 30px; }
+  .intro .top .col.right > * {
+    padding-left: 30px; } }
 @media print {
   * {
     background: transparent !important;
