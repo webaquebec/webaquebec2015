@@ -71,8 +71,18 @@
 //
 // EXPANDABLES
 .expandable
-  width: 10%
+  width: 90%
   +prefix(transition, width 200ms $ease)
+
+//
+//
+// THUMBNAILS
+.thumb
+  overflow: hidden
+  +border-radius(50%)
+  img
+    min-width: 100%
+    min-height: 100%
 
 //
 //
@@ -84,7 +94,7 @@
   outline: none
   overflow: hidden
   padding: 0.5em 1em ($shadow-length + 0.45) 1em
-  margin: 3px $xs-margin (-$shadow-length + 0.45) 0
+  margin: 3px $xsmall (-$shadow-length + 0.45) 0
   position: relative
   text-transform: uppercase
   +border-radius(4px)
@@ -131,6 +141,7 @@
     &:before
       background: #fff
       z-index: -2
+
     &:after
       text-align: right
       font-size: 0.8em
@@ -151,6 +162,17 @@
         background: $d-grey
     &.toggle.active:after
       border-color: $d-blue
+
+  // LIGHT GREY CONTEXT
+  .l-grey &
+    &:before
+      background: $l-grey
+    &:after
+      border-color: $grey
+    >*
+      &:before
+        background: $l-grey
+  
        
   //
   //
@@ -169,6 +191,8 @@
       >*:after
         line-height: 2.7em
 
+  //
+  //
   // toggle    
   &.toggle
     padding-right: 2em
@@ -177,7 +201,7 @@
       @extend .icon-more
       &:after
         text-align: right
-        line-height: 2.5em
+        line-height: 2.25em
     &.active
       color: $l-grey
       &:before
@@ -194,7 +218,9 @@
         >*   
           &:after
             color: $l-blue
-          
+   
+  //
+  //       
   // seamless
   &.seamless
     &:before,
@@ -206,7 +232,14 @@
     .no-touch &:hover
       &:after
         +opacity(1)
-  
+
+  //
+  //
+  // SEAMLESS TOGGLE
+  &.seamless.toggle
+    &:before,
+    >*:before
+      display: block
   
 //
 //
@@ -214,7 +247,7 @@
 .profile
   @extend .btn
   padding: 0.2em 0.5em ($shadow-length + 0.15) 0.5em
-  margin: 3px $xs-margin (-$shadow-length + 0.15) 0
+  margin: 3px $xsmall (-$shadow-length + 0.15) 0
   &:before
     display: none
   >*
@@ -226,10 +259,6 @@
     left: 0.875em
     height: 2.4em
     width: 2.4em
-    overflow: hidden
-    +border-radius(50%)
-    img
-      max-width: 100%
   .infos
     height: 100%
     width: 100%

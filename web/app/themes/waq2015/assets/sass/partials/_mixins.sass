@@ -114,19 +114,19 @@
     -moz-osx-font-smoothing: auto
 
 // FLEXIBLE GRID, FIXED MARGINS
-@mixin grid($cols: 3, $margin: 25px)
+@mixin grid($cols: 3, $medium: 25px)
   font-size: 0
   word-spacing: 0
   line-height: 0
-  margin-left: ($margin/-2)
-  margin-right: ($margin/-2)
+  margin-left: ($medium/-2)
+  margin-right: ($medium/-2)
   &>*
     @include inlineb
     font-size: initial
     word-spacing: normal
     line-height: 1
     width: round(100% / $cols * 100) / 100
-    padding: 0 ($margin/2) $margin
+    padding: 0 ($medium/2) $medium
     
 // COLUMNS
 @mixin columns($n, $gap)

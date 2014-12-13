@@ -50,13 +50,33 @@ b
     text-transform: uppercase
 
   &.border-left
-    padding-left: $l-margin
+    padding: ($large/2) $large ($large/2)
+
     .border-bottom
       position: absolute
       left: 0
       bottom: 0
 
-    
+//
+//
+// META
+.meta
+  color: $blue
+  font-size: 0.875em
+  display: block
+  margin-bottom: 0.625em
+  .main.title &
+    font-size: 0.375em
+
+//
+//
+// SEPARATOR    
+.separator
+  font-size: 0.875em
+  margin: 0 0.3em
+  position: relative
+  top: -0.1em
+
 //
 //
 // Notes

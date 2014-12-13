@@ -12,7 +12,7 @@ header[role="banner"]
       height: 100%
       +align-children(middle)
       a
-        padding: 0 $l-margin
+        padding: 0 $large
       img
         width: 91px
 
@@ -30,13 +30,13 @@ header[role="banner"]
         color: $l-blue
         padding: 0 0 0.7em
         margin: 0 1em 0.35em
-        border-bottom: 0.2em solid $l-blue
+        border-bottom: 1px solid $l-blue
 
 
     .main,
     .secondary
       background: #fff
-      padding: $margin
+      padding: $medium
       height: 100%
       z-index: 2
       @extend .shadows
@@ -50,13 +50,13 @@ header[role="banner"]
           color: $l-blue
     .main
       display: block
-      padding-left: 91px + (2*$l-margin)
-      margin-right: 200px + $s-margin
+      padding-left: 91px + (2*$large)
+      margin-right: 200px + $small
 
     .secondary
       float: right
       width: 200px
-      padding: $margin $l-margin
+      padding: $medium $large
       +gradient($l-blue, $d-blue)
       &:before
         margin: 0
@@ -72,7 +72,7 @@ header[role="banner"]
         @extend .icon-favorite
         &:after
           float: right
-          line-height: 1.375em
+          line-height: 1em
           margin-right: 0.1em
 
 

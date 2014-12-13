@@ -19,17 +19,20 @@ html
 .wrapper
   min-height: 100%
 
-section
+section,
+article
   padding: 0
   position: relative
+  z-index: 1
   overflow: hidden
   header
-    padding: ($xxl-margin + $margin) 0 $l-margin
+    padding: ($xxlarge + (2*$medium)) 0 $medium
 
 .container
   max-width: 1000px
-  padding: 0 $margin
+  padding: 0 $medium
   margin: 0 auto
+  +clearfix
 
 .content
   padding: 20px 0
@@ -42,12 +45,12 @@ section
 // HEADER
 header[role="banner"]
   position: relative
-  z-index: 5
+  z-index: 10
   nav
     position: fixed
-    top: $margin
-    left: $margin
-    right: $margin
+    top: $medium
+    left: $medium
+    right: $medium
     height: $nav-height
     z-index: 5
   .intro+nav
@@ -56,7 +59,7 @@ header[role="banner"]
     bottom: ($nav-height/-2) 
     &.fixed
       position: fixed
-      top: $margin
+      top: $medium
 
 //
 //
@@ -66,22 +69,38 @@ header[role="banner"]
     vertical-align: top
 .cols-2
   @extend .cols
-  +grid(2, $margin)
+  +grid(2, $medium)
   &.small-margins
-    +grid(2, $s-margin)
+    +grid(2, $small)
   &.xsmall-margins
-    +grid(2, $xs-margin) 
+    +grid(2, $xsmall) 
 .cols-3
   @extend .cols
-  +grid(3, $margin)
+  +grid(3, $medium)
   &.small-margins
-    +grid(3, $s-margin)
+    +grid(3, $small)
   &.xsmall-margins
-    +grid(3, $xs-margin) 
+    +grid(3, $xsmall) 
 .cols-4
   @extend .cols
-  +grid(4, $margin)
+  +grid(4, $medium)
   &.small-margins
-    +grid(4, $s-margin)
+    +grid(4, $small)
   &.xsmall-margins
-    +grid(4, $xs-margin) 
+    +grid(4, $xsmall) 
+
+.col
+  &:first-child
+    float: left
+    padding-right: $medium
+  &.wide
+    width: $wide
+  &.narrow
+    width: $narrow
+  &+.col
+    display: block
+    width: auto
+    &.narrow
+      padding-left: $wide
+    &.wide
+      padding-left: $narrow

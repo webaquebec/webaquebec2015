@@ -12,11 +12,20 @@ if(typeof(bang)!='undefined' && bang){
 
 //
 //
-// VAR HOLDER
+// VARIABLES HOLDER
 window.waq = {};
+
 
 jQuery(document).ready(function($){
 
+  //
+  //
+  // USEFUL FUNCTIONS
+  function minMax(n, min, max){
+    return  n<min ? min : 
+            n>max ? max : 
+            n;
+  }
 
   //
   //
@@ -60,16 +69,21 @@ jQuery(document).ready(function($){
     waq.$expandables.scrollEvents({
       flag: 'expandable',
       travel: function(e){
-        e.data.selection[0].style.width = (e.data.delta()*100)+'%';
+        var delta = minMax(e.data.delta()/0.66, 0, 1);
+        e.data.selection[0].style.width = (delta*100)+'%';
       }
-    })
+    });
   }
 
   //
   //
   // TOGGLE HANDLER
   function toggleBtn(){
-    return $(this).toggleClass('active').hasClass('active');
+    var $trigger = $(this);
+    var active = $trigger.toggleClass('active').hasClass('active');
+    var content = $trigger.attr('toggle-content');
+    if(content) $trigger.attr('toggle-content', $trigger.children().eq(0).html()).children().eq(0).html(content);
+    return active;
 
   }
   waq.$toggles.on('click', toggleBtn);

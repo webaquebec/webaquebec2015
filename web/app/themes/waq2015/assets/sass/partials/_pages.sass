@@ -6,13 +6,13 @@
 //
 // INTRO
 .intro
-  padding: $margin 0 ($nav-height/2 + $s-margin)
+  padding: $medium 0 ($nav-height/2 + $medium)
   .container
     position: relative
     overflow: hidden
     max-width: 1200px
     z-index: 2
-    padding: $xxl-margin $margin
+    padding: $xxlarge $medium
   .bg
     position: absolute
     top: 0
@@ -28,17 +28,17 @@
   
   .col
     &.main>*
-      padding: $margin
+      padding: $medium
     &.left
       text-align: right
 
   // RIGHT COLUMN
   .main.right
     position: absolute
-    top: $xxl-margin
+    top: $xxlarge
     left: 50%
-    right: $margin
-    bottom: $xxl-margin
+    right: $medium
+    bottom: $xxlarge
     >*
       position: absolute
       left: 0
@@ -59,9 +59,9 @@
       height: 23%
       margin: 0
       .left
-        padding-right: $l-margin*1.5
+        padding-right: $large*1.5
       .right
-        padding-left: $l-margin*1.5
+        padding-left: $large*1.5
       &:after
         height: 300%
         top: auto
@@ -99,16 +99,35 @@
   padding-top: 0
   >header,
   >nav
-    padding-top: $xl-margin
-    padding-bottom: $l-margin
+    padding-top: $xlarge
+    padding-bottom: $large
   
   .days
     ul
-      +grid(3,$margin)
+      +grid(3,$medium)
     .btn
       width: 100%
       text-align: right
     .title
       margin: 0
+
+
+
+//
+//
+// SINGLE
+.single
+  header 
+    .btn
+      float: right
+      position: relative
+      z-index: 100
+      margin-top: 0.3em
+      margin-bottom: -2em
+
+  .thumb
+    width: $xxlarge
+    height: $xxlarge
+    float: left
 
 
