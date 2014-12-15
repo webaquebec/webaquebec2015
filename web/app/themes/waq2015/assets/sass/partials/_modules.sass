@@ -81,8 +81,8 @@
   overflow: hidden
   +border-radius(50%)
   img
-    min-width: 100%
-    min-height: 100%
+    // max-width: 100%
+    max-height: 100%
 
 //
 //
@@ -218,6 +218,26 @@
         >*   
           &:after
             color: $l-blue
+
+    // FAVORITE
+    &.favorite
+      color: $l-blue
+      >*
+        @extend .icon-star
+        &:after
+          +prefix(transition, all 120ms $ease)
+      &.active
+        color: $grey
+        >*
+          @extend .icon-star
+          &:after
+            color: $l-blue
+            font-size: 1em
+            line-height: 1.7em
+            padding: 0.2em 0.6em
+
+      
+
    
   //
   //       
@@ -240,6 +260,16 @@
     &:before,
     >*:before
       display: block
+    &:before
+      +opacity(0)
+      width: 0
+      +prefix(transition, opacity 240ms ease-in-out, width 240ms $ease)
+    .no-touch &:hover
+      &:before
+        width: 100%
+        +opacity(1)
+
+
   
 //
 //
@@ -360,3 +390,36 @@
     .links
       left: 0
       margin-left: 0
+
+//
+//
+// TAGS
+.tags
+  display: block
+  >*
+    display: inline-block
+
+//
+//
+// SOCIAL
+.social 
+  a
+    position: relative
+    padding-left: 1.5em
+    display: block
+    line-height: 1.375
+    &:after 
+      position: absolute
+      left: 0
+      top: 0
+      height: 100%
+    &.twitter
+      @extend .icon-twitter
+    &.facebook
+      @extend .icon-facebook
+    &.instagram
+      @extend .icon-instagram
+    &.linkedin
+      @extend .icon-linkedin 
+    &.website
+      @extend .icon-website

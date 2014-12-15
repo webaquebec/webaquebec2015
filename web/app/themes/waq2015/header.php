@@ -9,40 +9,38 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	
 		<?php 
+		// SET VARIABLES
 		$is404 = is_404();
 		$is_home = get_page_template_slug()=="template-home.php";
-		if(!$is404){
-			acf_seo(); // functions_seo.php
-		}
+		$bang = get_post_type()=="page" && get_field('bang');
+
+		//
+		//
+		// SEO, META, OG TAGS
+		if(!$is404) acf_seo(); // functions_seo.php
 		?>
 
 		<!-- icons -->
 		<link href="<?= get_bloginfo('siteurl') ?>/favicon.ico" rel="shortcut icon">
 			
-		<?php // HASHBANG 
-		$bang = get_post_type()=="page" && get_field('bang');
-		if($bang):
-		// if(get_post_type()=="page" && $post->ID != icl_object_id(2, 'page', true)): // AVEC WPML?>
+		<?php 
+		//
+		//
+		// HASHBANG 
+		if($bang): ?>
 		<script type="text/javascript">var bang = true;</script>
 		<?php endif; ?>
 
 		<!-- css + javascript -->
-		<?php wp_head(); ?>
-		<!-- author's styles -->
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-		
+		<?php wp_head(); ?>		
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="wrapper">
 			<header role="banner">
 				
-
 				<?php
-				if($is_home){
-					get_template_part('template-intro');
-				}
+				if($is_home) get_template_part('template-intro');
 				?>
-
 
 				<nav role="navigation">
 					<div class="logo">

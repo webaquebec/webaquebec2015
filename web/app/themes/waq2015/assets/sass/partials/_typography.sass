@@ -11,14 +11,21 @@ body
   color: $black
   font-family: $font-titillium
   font-weight: 300
-a
-  text-decoration: none
+
 p
-  line-height: 1.25
+  line-height: 1.375
   margin-bottom: 1.5em
 strong,
 b
   font-weight: 700
+a
+  color: $blue
+  .no-touch &:hover
+    color: $l-blue
+  .dark &
+    color: $l-blue
+    .no-touch &:hover
+      color: #fff
 
 
 //
@@ -50,7 +57,7 @@ b
     text-transform: uppercase
 
   &.border-left
-    padding: ($large/2) $large ($large/2)
+    padding: $medium $large $medium
 
     .border-bottom
       position: absolute
@@ -61,12 +68,14 @@ b
 //
 // META
 .meta
-  color: $blue
+  color: $grey
   font-size: 0.875em
   display: block
-  margin-bottom: 0.625em
+  margin-bottom: 1em
   .main.title &
-    font-size: 0.375em
+    font-size: 0.5em
+  .dark &
+    +font-smoothing(on)
 
 //
 //

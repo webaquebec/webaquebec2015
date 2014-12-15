@@ -4,10 +4,10 @@
 
 <article class="single">
 
-  <hgroup class="l-grey">
+  <hgroup class="dark">
     <div class="container">
 
-      <button class="btn seamless favorite toggle" toggle-content="<?= __('Ajouté à mon horaire','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
+      <button class="btn seamless toggle favorite" toggle-content="<?= __('Ajouté à mon horaire','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
 
       <div class="main title border-left">
         
@@ -39,23 +39,54 @@
   <div class="cols container">
     
     <section class="col wide" role="main">
-      <div class="content">
-        <p>Je vais vous jaser de culture. Je vais vous expliquer pourquoi j’ai décidé de m’expatrier en Californie pour travailler pour Twitter. Je vais vous raconter comment je me suis rendu à l’évidence que l’internet allait révolutionner la planète entière (en 1993). Je vais vous parler d’innovation, de hackers, de startups, de hackweek, de github. Je vais explorer avec vous la mémétique en temps réel, l’explosion de données, l’univers derrière la trou de serrure qu’est votre liste d’abonnement Twitter (ou Facebook ou Pinterest). On va se gosser un présent et un futur en réseau au Québec, on va se tisser une ceinture fléchée 2.0. On va se parler des petites affaires pis des grandes (mais pas de « vraies affaires », ok)? On va se faire un conte pas piqué de vers numériques, on va trouver une meilleure conclusion que celle qu’on a pas encore vue, que celle qui va nous arriver inopinément si on ne fait rien. On va se chimer l’univers, on va se retrouver un passé, on va se conversationner un possible. Ça devrait pas être compliqué, ça sera un peu utopique, mais pas trop, surtout pragmatique. Ça serait comme un genre de manifeste de quoi faire, mettons qu’on aurait une politique numérique, le après (qui est le maintenant). En prime, ça devrait pas être plate.</p>  
+      <div class="session">
+        
+        <div class="content">
+          <?php the_content() ?>
+        </div>
+        
+        <div>
+          <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
+          <ul class="tags">
+            <li class="btn">
+              <span>Culture</span>
+            </li>
+            <li class="btn">
+              <span>Données</span>
+            </li>
+            <li class="btn">
+              <span>Médias Sociaux</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <aside class="col narrow" role="complementary">
 
-      <div class="content">
+      <div class="conferencer">
+          <div class="about">
+            <div class="thumb">
+              <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="Sylvain Carle" />
+            </div>
+            <div class="name">
+              <span class="sub title">À propos de</span>
+              <h2 class="title">Sylvain Carles</h2>
+            </div>
+          </div>
 
-        <div class="thumb">
-          <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="Sylvain Carle" />
-        </div>
+          <div class="content">
+            <p>Sylvain Carle est un adepte des technologies émergentes, il s’émerveille et s’amuse au croisement des médias, des technologies et des réseaux depuis 15 ans. L’entrepreneurship, le développement logiciel internet, les médias numériques et sociaux ainsi que les logiciels libres et les standards ouverts font partie de ses compétences et passions. Il habite présentement à San Franciso et travaille pour Twitter comme évangéliste techno. Il est aussi sur le conseil d’administration de la fondation OSMO, derrière le projet de la maison Notman à Montréal. Socialiste, idéaliste et pragmatique, il s’interroge sur le rôle de la technologie à l’ère de la société en réseau. Une de ses obsessions du moment est à propos de l’impact de la culture des hackers (au sens noble) sur les organisations publique et privées, de l’innovation par la collaboration massive, à la manière Github.</p>
+          </div>
 
-        <span class="small title">À propos de</span>
-        <h2 class="sub title">Sylvain Carles</h2>
-
-
+          <ul class="social">
+            <li>
+              <a class="website" href="http://afroginthevalley.com">afroginthevalley.com</a>
+            </li>
+            <li >
+              <a class="twitter" href="http://twitter.com/Sylvain">@Sylvain</a>
+            </li>
+          </ul>
       </div> 
 
     </aside>

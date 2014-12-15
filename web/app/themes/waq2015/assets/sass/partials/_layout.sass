@@ -25,7 +25,8 @@ article
   position: relative
   z-index: 1
   overflow: hidden
-  header
+  header,
+  hgroup
     padding: ($xxlarge + (2*$medium)) 0 $medium
 
 .container
@@ -34,23 +35,21 @@ article
   margin: 0 auto
   +clearfix
 
-.content
-  padding: 20px 0
-
 .group
   margin-bottom: 1em
 
 //
 //
 // HEADER
-header[role="banner"]
+header[role="banner"],
+hgroup
   position: relative
   z-index: 10
   nav
     position: fixed
-    top: $medium
-    left: $medium
-    right: $medium
+    top: $small
+    left: $small
+    right: $small
     height: $nav-height
     z-index: 5
   .intro+nav
@@ -92,7 +91,7 @@ header[role="banner"]
 .col
   &:first-child
     float: left
-    padding-right: $medium
+    padding-right: $large
   &.wide
     width: $wide
   &.narrow

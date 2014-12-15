@@ -1,8 +1,4 @@
-
 <?php
-/*
- * Template Name: Intro
- */
 global $post;
 setup_postdata($post);
 ?>
