@@ -51,7 +51,7 @@ jQuery(document).ready(function($){
   // STICKY NAV
   if(waq.$intro.length){
     waq.$menu.sticky({
-      offset: 20,
+      offset: 10,
       sticked: function(e){
         e.selection.addClass('fixed');
       },

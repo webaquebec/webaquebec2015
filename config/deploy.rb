@@ -1,6 +1,6 @@
-set :application, '<application_name>'
-set :repo_url, '<git@example.com:me/my_repo.git>'
-set :user, '<user>'
+set :application, 'waq2015'
+set :repo_url, 'git@projets.o2web.ca:waq/waq2015.git'
+set :user, 'waq'
 
 # Thoses options are for the WP-CLI. if you use it, uncomment the related line in the Capfile
 #

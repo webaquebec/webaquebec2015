@@ -425,7 +425,7 @@ hgroup {
     header[role="banner"] .intro + nav.fixed,
     hgroup .intro + nav.fixed {
       position: fixed;
-      top: 20px; }
+      top: 10px; }
 
 .cols > *, .cols-2 > *, .cols-3 > *, .cols-4 > * {
   vertical-align: top; }
@@ -1250,6 +1250,18 @@ textarea {
     margin: 0; }
   .intro img {
     max-width: 100%; }
+  .intro .btn.eventbrite, .intro .eventbrite.profile {
+    text-align: center;
+    display: block; }
+    .intro .btn.eventbrite .title, .intro .eventbrite.profile .title, .intro .btn.eventbrite header[role="banner"] nav ul a, header[role="banner"] nav ul .intro .btn.eventbrite a, .intro .eventbrite.profile header[role="banner"] nav ul a, header[role="banner"] nav ul .intro .eventbrite.profile a {
+      padding: 30px 30px 20px; }
+    .intro .btn.eventbrite img, .intro .eventbrite.profile img {
+      margin-bottom: 30px; }
+    .intro .btn.eventbrite:before, .intro .eventbrite.profile:before {
+      display: block;
+      background: #00bfdf; }
+    .intro .btn.eventbrite:after, .intro .eventbrite.profile:after {
+      border-color: #0094C2; }
 
 .program {
   padding-top: 0; }
