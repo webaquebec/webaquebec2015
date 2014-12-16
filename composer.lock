@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "034c62bb75d8df8c99a916c71f7f0193",
+    "hash": "57f65863c41b945f41a204dfd13c6965",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -192,12 +192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/koodimonni-languages/fr.git",
-                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65"
+                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/koodimonni-languages/fr/get/ad262e9ceeaa52e3ca997b99d7f9079104728f65.zip",
-                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65",
+                "url": "https://bitbucket.org/koodimonni-languages/fr/get/e70f75ba9b2db25da9fe3676d1afd0316c5b923c.zip",
+                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c",
                 "shasum": ""
             },
             "type": "wordpress-language",
@@ -211,7 +211,7 @@
                 "language",
                 "wordpress"
             ],
-            "time": "2014-11-25 11:42:32"
+            "time": "2014-10-19 00:40:10"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -263,17 +263,67 @@
                 "environment"
             ],
             "time": "2014-10-16 14:50:21"
+        },
+        {
+            "name": "wpackagist-plugin/acf-field-date-time-picker",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/acf-field-date-time-picker/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/acf-field-date-time-picker.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/acf-field-date-time-picker/",
+            "time": "2014-09-25 00:43:59"
+        },
+        {
+            "name": "wpackagist-plugin/intuitive-custom-post-order",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/intuitive-custom-post-order/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/intuitive-custom-post-order.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/intuitive-custom-post-order/",
+            "time": "2014-04-11 12:57:00"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "koodimonni-language/fr": 20
+        "koodimonni-language/fr": 20,
+        "wpackagist-plugin/acf-field-date-time-picker": 20,
+        "wpackagist-plugin/intuitive-custom-post-order": 20
     },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": []
+    "platform-dev": [
+
+    ]
 }

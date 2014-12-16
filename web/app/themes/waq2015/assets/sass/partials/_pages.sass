@@ -43,7 +43,6 @@
       position: absolute
       left: 0
       width: 100%
-      +align-children(middle)  
 
     .border-top,
     .border-bottom
@@ -56,8 +55,10 @@
     
     // BOX RIGHT TOP
     .top
+      +align-children(top)  
       height: 23%
       margin: 0
+      background: url(../img/marker.png) no-repeat center top
       .left
         padding-right: $large*1.5
       .right
@@ -71,12 +72,14 @@
     
     // BOX RIGHT MIDDLE
     .middle
+      +align-children(middle)  
       top: 23%
       height: 28%
       padding-left: 0
     
     // BOX RIGHT BOTTOM
     .bottom
+      +align-children(middle)  
       text-align: center
       top: 51%
       height: 49%
@@ -111,6 +114,36 @@
     .title
       margin: 0
 
+//
+//
+// FEATURES
+.features
+  .grid
+    width: 100%
+    +grid(2,0)
+    
+  .panel
+    padding-top: 33%
+    position: relative
+    overflow: hidden
+    >*
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+  .image
+    img
+      width: 100%
+
+  figcaption
+    z-index: 1
+    padding: $large
+    +align-children(top)
+
+  .top
+    figcaption
+      +align-children(bottom)
 
 
 //

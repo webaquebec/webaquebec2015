@@ -73,7 +73,9 @@
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "~1.0.9",
     "koodimonni-language/fr": "dev-master",
-    "acf/advanced-custom-fields": "5.0.6"
+    "acf/advanced-custom-fields": "5.0.6",
+    "wpackagist-plugin/acf-field-date-time-picker": "dev-trunk",
+    "wpackagist-plugin/intuitive-custom-post-order": "dev-trunk"
   },
   "extra": {
     "installer-paths": {

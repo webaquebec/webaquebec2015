@@ -6,7 +6,9 @@
 get_header_once();
 ?>
 
-
+<?php
+get_template_part('template-features');
+?>
 
 <?php 
 //  PROGRAMMATION ------> ID 4
