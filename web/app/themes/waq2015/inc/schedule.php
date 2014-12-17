@@ -373,7 +373,7 @@ function create_conferences()
         array(
         'labels' => array(
             'name' => 'Conférences', // Rename these to suit
-            'singular_name' => 'conférence',
+            'singular_name' => 'Conférence',
             'add_new' => 'Nouvelle conférence',
             'add_new_item' => 'Ajouter une conférence',
             'edit' => 'Modifier',
@@ -648,7 +648,7 @@ function create_conferences()
             );
         }}
 
-        // get choices;
+        // get choices
         $choices = array();
         foreach($days as $day){
             $choices[$day['ID']] = $day['title'];
@@ -729,7 +729,36 @@ function create_conferences()
             );
         }
 
-        // REGISTER THE GENERATED FIELD
+        //
+        // append room field
+        array_push($subfields,
+            array (
+              'key' => 'field_5491f516562e5',
+              'label' => 'Salle',
+              'name' => 'room',
+              'prefix' => '',
+              'type' => 'post_object',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'post_type' => array (
+                0 => 'room',
+              ),
+              'taxonomy' => '',
+              'allow_null' => 0,
+              'multiple' => 0,
+              'return_format' => 'object',
+              'ui' => 1,
+            )
+        );
+
+        //
+        // REGISTER THE GENERATED FIELD GROUP
         register_field_group(array (
             'key' => 'group_548f95ddc3d58',
             'title' => 'Sélectionner une plage horaire',
