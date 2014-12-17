@@ -58,7 +58,16 @@ jQuery(document).ready(function($){
       reset: function(e){
         e.selection.removeClass('fixed');
       }
-
+    });
+    waq.$menu.scrollEvents({
+      offset: -100,
+      down: function(e){
+        e.selection.addClass('fixed bottom');
+      },
+      visible: function(e){
+        if(e.selection.hasClass('bottom'))
+          e.selection.removeClass('fixed bottom');
+      }
     });
   }
 
@@ -70,7 +79,7 @@ jQuery(document).ready(function($){
       flag: 'expandable',
       travel: function(e){
         var delta = minMax(e.data.delta()/0.66, 0, 1);
-        e.data.selection[0].style.width = (delta*100)+'%';
+        e.data.selection[0].style.width = Math.round(delta*100)+'%';
       }
     });
   }

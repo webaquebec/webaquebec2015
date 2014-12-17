@@ -426,6 +426,10 @@ hgroup {
     hgroup .intro + nav.fixed {
       position: fixed;
       top: 10px; }
+      header[role="banner"] .intro + nav.fixed.bottom,
+      hgroup .intro + nav.fixed.bottom {
+        top: auto;
+        bottom: 10px; }
 
 .cols > *, .cols-2 > *, .cols-3 > *, .cols-4 > * {
   vertical-align: top; }

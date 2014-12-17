@@ -14,6 +14,7 @@ function minMax(n,min,max){
 
 (function($){
 	$win = $(window);
+  
 
 	window.se = {
 		items: [],
@@ -239,7 +240,6 @@ function minMax(n,min,max){
 	function recalculate(){
 		se.wh = $win.height();
 		for(var i=0; i<se.items.length; i++){
-
 			var $it = $(se.items[i]);
 			var it = $it[0];
 			var h =  $it.outerHeight();
@@ -269,7 +269,7 @@ function minMax(n,min,max){
 				clearTimeout(resizeTimeout);
 				resizeTimeout = setTimeout(function(){
 					recalculate();
-					$win.trigger('hardResize');
+					// $win.trigger('hardResize');
 					// if(typeof(e)=='object'&&e.type=='resize') eventScroller('update');
 				},150);
 				
@@ -379,6 +379,9 @@ function minMax(n,min,max){
 	}
 
 	resizeScroller();	
-	$win.on('load', updateScroller);
+	$win.on('load', function(){
+		eventScroller();
+		// window.scroll(0,se.t+1);
+	});
 
 })(jQuery);
