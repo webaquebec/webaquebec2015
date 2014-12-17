@@ -69,7 +69,7 @@
   ],
   "require": {
     "php": ">=5.4",
-    "johnpbloch/wordpress": "4.0",
+    "johnpbloch/wordpress": "4.0.1",
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "~1.0.9",
     "koodimonni-language/fr": "dev-master",

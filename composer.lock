@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "57f65863c41b945f41a204dfd13c6965",
+    "hash": "22eb10052e868fce1660445ac68a5bfc",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -106,16 +106,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "60ac88e39b85db3f317ac86d71a3474027d03bb9"
+                "reference": "bbc5e56449860b183aafbe7df97ca137594073a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/60ac88e39b85db3f317ac86d71a3474027d03bb9",
-                "reference": "60ac88e39b85db3f317ac86d71a3474027d03bb9",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/bbc5e56449860b183aafbe7df97ca137594073a4",
+                "reference": "bbc5e56449860b183aafbe7df97ca137594073a4",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2014-09-04 16:16:58"
+            "time": "2014-11-20 17:45:59"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -192,12 +192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/koodimonni-languages/fr.git",
-                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c"
+                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/koodimonni-languages/fr/get/e70f75ba9b2db25da9fe3676d1afd0316c5b923c.zip",
-                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c",
+                "url": "https://bitbucket.org/koodimonni-languages/fr/get/ad262e9ceeaa52e3ca997b99d7f9079104728f65.zip",
+                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65",
                 "shasum": ""
             },
             "type": "wordpress-language",
@@ -211,7 +211,7 @@
                 "language",
                 "wordpress"
             ],
-            "time": "2014-10-19 00:40:10"
+            "time": "2014-11-25 11:42:32"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -307,12 +307,8 @@
             "time": "2014-04-11 12:57:00"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "koodimonni-language/fr": 20,
@@ -323,7 +319,5 @@
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
