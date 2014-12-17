@@ -376,21 +376,10 @@ remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
-
-
 //
-// Add Shortcode
-//
-// add_shortcode( 'double-slash', 'doubleSlash' );
-
-
-
 // 
 // Add Filters
-// 
-// add_filter('post_type_link', 'qtrans_convertURL');
 
-// add_filter( 'wp_nav_menu_items', 'add_lang_menu_items' ); // ADD LANG SWITCH TO MENU
 
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails

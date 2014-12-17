@@ -34,46 +34,89 @@ function minMax(n,min,max){
 	    return temp;
 	};
 
-	function checkUp(e, activate, callback){
-		if(e.isVisible && e.b <= se.t){
+	function checkUp(e, activate, callback, update){
+		if(
+				( e.isVisible && e.b <= se.t ) ||
+				( update && e.b <= se.t )
+			){
 			if(activate) e.isVisible=false;
 			if(callback) e.up(e);
 		}
 	}
-	function checkDown(e, activate, callback){
-		if(e.isVisible && e.t >= se.b){
+	function checkDown(e, activate, callback, update){
+		if(
+				( e.isVisible && e.t >= se.b ) ||
+				( update  && e.t >= se.b )
+			){
 			if(activate) e.isVisible=false;
 			if(callback) e.down(e);
 		}
 	}
-	function checkVisible(e, activate, callback){
-		if(!e.isVisible && e.t < se.b && e.b > se.t){
+	function checkVisible(e, activate, callback, update){
+		if(
+				( !e.isVisible && e.t < se.b && e.b > se.t ) ||
+				( update && e.t < se.b && e.b > se.t) 
+			){
 			if(activate) e.isVisible=true;
 			if(callback) e.visible(e);
 		}
 	}
-	function checkTopOut(e, activate, callback){
-		if(e.topIsVisible && e.t <= se.t){
-			if(activate) e.topIsVisible = false;
-			if(callback) e.topOut(e);
+	function checkTopUp(e, activate, callback, update){
+		if(
+			( e.isTopVisible && e.t <= se.t ) ||
+			( update && e.t <= se.t )
+		){
+			if(activate) e.isTopVisible = false;
+			if(callback) e.topUp(e);
 		}
 	}
-	function checkTopIn(e, activate, callback){
-		if(!e.topIsVisible && e.t > se.t){
-			if(activate) e.topIsVisible = true;
-			if(callback) e.topIn(e);
+	function checkTopDown(e, activate, callback, update){
+		if(
+			( !e.isTopVisible && e.t > se.t ) ||
+			( update && e.t > se.t )
+		){
+			if(activate) e.isTopVisible = true;
+			if(callback) e.topDown(e);
+		}
+	}
+	function checkBottomUp(e, activate, callback, update){
+		
+		if(
+			( e.isBottomVisible && e.b < se.b ) ||
+			( update && e.b < se.b )
+		){
+			if(activate) e.isBottomVisible = false;
+			if(callback) e.bottomUp(e);
+		}
+	}
+	function checkBottomDown(e, activate, callback, update){
+		if(
+			( !e.isBottomVisible && e.b >= se.b ) ||
+			( update && e.b >= se.b )
+		){
+			if(activate) e.isBottomVisible = true;
+			if(callback) e.bottomDown(e);
 		}
 	}
 	function checkTravel(e, activate, callback, update){
-		if(e.isVisible && e.b <= se.t){
+		if(
+			( e.isVisible && e.b <= se.t ) ||
+			( update && e.b <= se.t )
+		){
 			if(activate&&!e.up) e.isVisible=false;
 			if(callback) e.container.off('scroll', e.travel);
 		}
-		if(e.isVisible && e.t >= se.b){
+		if(
+			( e.isVisible && e.t >= se.b ) ||
+			( update && e.t >= se.b )
+		){
 			if(activate&&!e.down) e.isVisible=false;
 			if(callback) e.container.off('scroll', e.travel);
 		}
-		if((update || !e.isVisible) && e.t < se.b && e.b > se.t){
+		if(
+			( !e.isVisible && e.t < se.b && e.b > se.t ) ||
+			( update &&  e.t < se.b && e.b > se.t )
+		){
 			if(activate&&!e.visible) e.isVisible=true;
 			if(callback || update){
 				e.container.on('scroll', {
@@ -119,17 +162,31 @@ function minMax(n,min,max){
 
 			)
 		}
-		if(e.topOut || e.topIn){
+		if(e.topUp || e.topDown){
 			e.checks.push(
 				{	
-					fn: checkTopOut,
+					fn: checkTopUp,
 					activate: true,
-					callback: !!e.topOut
+					callback: !!e.topUp
 				},
 				{
-					fn: checkTopIn,
+					fn: checkTopDown,
 					activate: true,
-					callback: !!e.topIn
+					callback: !!e.topDown
+				}
+			)
+		}
+		if(e.bottomUp || e.bottomDown){
+			e.checks.push(
+				{	
+					fn: checkBottomUp,
+					activate: true,
+					callback: !!e.bottomUp
+				},
+				{
+					fn: checkBottomDown,
+					activate: true,
+					callback: !!e.bottomDown
 				}
 			)
 		}
@@ -147,23 +204,27 @@ function minMax(n,min,max){
 			$(this).each(function(k,v){	
 				var e = $.extend(true,{
 						selection: $(this),
+						container: $win,
 						flag: false,
-						offset:0,
+						offset: 0,
+						offsetBottom: 0,
 						//
 						visible: false,
-						up:false,
-						down:false,
-						topOut: false,
-						topIn: false,
+						up: false,
+						down: false,
+						topUp: false,
+						topDown: false,
+						bottomUp: false,
+						bottomDown: false,
 						travel: false,
 						//
-						
-						isVisible:false,
-						topIsVisible: false,
-						container: $win,
-						h:$(this).outerHeight(),
-						t:0,
-						b:$(this).outerHeight(),
+						isVisible: false,
+						isTopVisible: false,
+						isBottomVisible: false,
+						//
+						h: $(this).outerHeight(),
+						t: 0,
+						b: $(this).outerHeight(),
 						i: k,
 						disabled: false,
 						checks: []
@@ -227,12 +288,11 @@ function minMax(n,min,max){
 				if(!e.disabled){
 					for(var k=0; k<e.checks.length; k++){
 						var c = e.checks[k];
-						c.fn(e, c.activate, false, true);
+						c.fn(e, c.activate, c.callback, true);
 					}
 				}
 			})(it.ev[j]);
 		};
-		$win.trigger('scroll');
 	}
 
 	var resizeTimeout;
@@ -254,7 +314,7 @@ function minMax(n,min,max){
 				var e = it.ev[j];
 				e.h = h;
 				e.t = t - e.offset;
-				e.b = e.t+e.h;
+				e.b = e.t + e.h + e.offsetBottom;
 			}
 			
 		}
@@ -363,6 +423,7 @@ function minMax(n,min,max){
 					}
 				}
 			}
+
 			if(args=='remove'){
 				removed.sort(function(a, b){return b.ev.se-a.ev.se});
 				for(var k=0;k<removed.length; k++){
@@ -380,8 +441,7 @@ function minMax(n,min,max){
 
 	resizeScroller();	
 	$win.on('load', function(){
-		eventScroller();
-		// window.scroll(0,se.t+1);
+		resizeScroller('update');
 	});
 
 })(jQuery);

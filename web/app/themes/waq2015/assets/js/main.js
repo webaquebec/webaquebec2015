@@ -51,24 +51,20 @@ jQuery(document).ready(function($){
   // STICKY NAV
   if(waq.$intro.length){
     waq.$menu.sticky({
+      inverted: true,
       offset: 10,
-      sticked: function(e){
-        e.selection.addClass('fixed');
+      offsetBottom: 10,
+      fixedTop: function(e){
+        e.selection.addClass('fixed top');
       },
-      reset: function(e){
-        e.selection.removeClass('fixed');
+      scrolling: function(e){
+        e.selection.removeClass('fixed top bottom');
+      },
+      fixedBottom: function(e){
+         e.selection.addClass('fixed bottom');
       }
     });
-    waq.$menu.scrollEvents({
-      offset: -100,
-      down: function(e){
-        e.selection.addClass('fixed bottom');
-      },
-      visible: function(e){
-        if(e.selection.hasClass('bottom'))
-          e.selection.removeClass('fixed bottom');
-      }
-    });
+
   }
 
   //
@@ -96,8 +92,6 @@ jQuery(document).ready(function($){
 
   }
   waq.$toggles.on('click', toggleBtn);
-
-
 
   //
   //
