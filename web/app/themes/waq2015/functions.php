@@ -51,6 +51,52 @@ function include_page_part($ID){
 }
 
 /*------------------------------------*\
+    TINY MCE
+\*------------------------------------*/
+function tiny_stylesheet() {
+    add_editor_style( 'assets/css/tinymce.css' );
+}
+function enable_style_select( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+function custom_tiny_styles( $init_array ) {  
+    // Define the style_formats array
+    $style_formats = array(  
+        // Each array child is a format with it's own settings
+        array(  
+            'title' => 'Main Title',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'main title' 
+        ),
+        array(  
+            'title' => 'Title',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'title' 
+        ),
+        array(  
+            'title' => 'Sub Title',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'sub title' 
+        ),
+        array(  
+            'title' => 'Small Title',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'small title' 
+        ),
+        array(  
+            'title' => 'Note',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'note' 
+        )
+    );  
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode( $style_formats );  
+    return $init_array;  
+  
+} 
+
+/*------------------------------------*\
 	MENUS
 \*------------------------------------*/
 
@@ -395,6 +441,9 @@ add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> inject
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
 // add_filter('request', 'set_endpoint_var');  // Ajout d'une variacle après le slug (voir aussi add_action)
- 
+add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');  
+add_filter('mce_buttons_2', 'enable_style_select');
+add_action('init', 'tiny_stylesheet' );
+
 
 ?>

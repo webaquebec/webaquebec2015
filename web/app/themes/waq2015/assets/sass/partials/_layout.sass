@@ -21,14 +21,17 @@ html
 
 section,
 article
-  padding: 0
+  padding: $large 0
   position: relative
   z-index: 1
   overflow: hidden
   header,
   hgroup
-    padding: ($xxlarge + (2*$medium)) 0 $medium
-
+    padding: $large 0 $large
+  &.single
+    header,
+    hgroup
+      padding: ($xxlarge + (2*$medium)) 0 $large
 .container
   max-width: 1000px
   padding: 0 $medium

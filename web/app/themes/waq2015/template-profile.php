@@ -11,12 +11,16 @@ get_header_once();
 <section id="<?= $post->post_name ?>" class="program dark">
 
   <header>
+
     <div class="container">
       <h1 class="main title border-left">
         <?= get_the_title() ?>
         <div class="border-bottom expandable">
       </h1>
+      
     </div>
+
+
   </header>
 
 </section>

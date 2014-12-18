@@ -8,9 +8,9 @@ get_header_once();
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="program">
+<section id="<?= $post->post_name ?>" class="program dark">
 
-  <header class="dark">
+  <hgroup>
     <div class="container">
       <h1 class="main title border-left">
         <?= get_the_title() ?>
@@ -49,7 +49,7 @@ get_header_once();
       </nav> -->
 
     </div>
-  </header>
+  </hgroup>
 
 
  <!--  <nav class="filters dark">
@@ -64,7 +64,7 @@ get_header_once();
       </div>
     </div>
   </nav> -->
-  
+
 </section>
 
 <?php endwhile; endif; ?>
