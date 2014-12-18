@@ -22,9 +22,11 @@ get_header_once();
     </div>
   </div>
 
-  <div class="map">
-    <div id="gmap"></div>
-  </div>
+  <?php 
+  // marker location 
+  $loc = get_field('gmap');
+  ?>
+  <div id="gmap" class="map" lat="<?= $loc['lat'] ?>" lng="<?= $loc['lng'] ?>" ></div>
   
 </section>
 

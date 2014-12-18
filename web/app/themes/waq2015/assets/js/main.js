@@ -42,6 +42,7 @@ jQuery(document).ready(function($){
   waq.$menu.$links = $('a', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
+
   waq.$map = $('#gmap');
 
   waq.$expandables = $('.expandable'); // Animated width
@@ -107,25 +108,26 @@ jQuery(document).ready(function($){
 
   // Mobile options
   function setMobileMap(){
-    waq.$map.set('streetViewControl', false);
-    waq.$map.set('draggable', false);
-    waq.$map.set('panControl', false);
-    waq.$map.set('zoomControl', false);
-    waq.$map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_BOTTOM});
+    waq.map.set('streetViewControl', false);
+    waq.map.set('draggable', false);
+    waq.map.set('panControl', false);
+    waq.map.set('zoomControl', false);
+    waq.map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_BOTTOM});
   }
 
   // Desktop options
   function setDesktopMap(){
-    waq.$map.set('draggable', true);
-    waq.$map.set('panControl', false);
-    waq.$map.set('zoomControl', true);
-    waq.$map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_TOP});
-    waq.$map.set('zoomControlOptions',{position: google.maps.ControlPosition.RIGHT_CENTER, style:google.maps.ZoomControlStyle.DEFAULT });
+    waq.map.set('draggable', true);
+    waq.map.set('panControl', false);
+    waq.map.set('zoomControl', true);
+    waq.map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_TOP});
+    waq.map.set('zoomControlOptions',{position: google.maps.ControlPosition.RIGHT_CENTER, style:google.maps.ZoomControlStyle.DEFAULT });
   }
 
 
   if(waq.$map.length){
-    var iconURL = '/img/marker-width-shadow.png';
+
+    var iconURL = '/img/marker-with-shadow.png';
     var styles = [
       {
         "stylers": [
@@ -140,40 +142,38 @@ jQuery(document).ready(function($){
       },{
         "elementType": "labels"  }
     ];
+
+    waq.$map.loc = {
+      lat: waq.$map.attr('lat') ,
+      lng: waq.$map.attr('lng')
+    }
+    waq.$map.latLng = new google.maps.LatLng(parseFloat(waq.$map.loc.lat), parseFloat(waq.$map.loc.lng));
+   
+    var center = new google.maps.LatLng(46.816989, -71.210067);
     
-    // function initMap() {
-    //   var mapOptions = {
-    //     zoom: 7,
-    //     center: new google.maps.LatLng(46.762929, -71.282264),
-    //     scrollwheel: false,
-    //     mapTypeId: 'styled',
-    //     mapTypeControl: false
-    //   };
+    function initMap() {
 
-    //   var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });  
-    //   vneo.map = new google.maps.Map(document.getElementById('map'), mapOptions);       
-    //   vneo.map.mapTypes.set('styled', styledMapType);  
-  
-    //   //
-    //   vneo.mapTriggers = $('.position.trigger', vneo.contact);
-    //   for(var i=0; i<vneo.mapTriggers.length; i++){
-    //     var trigger = $(vneo.mapTriggers[i]);
-    //     var lat = trigger.attr('lat');
-    //     var lng = trigger.attr('lng');
-        
-    //     if(lat&&lng){
-    //       vneo.latLngs.push(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
-    //       vneo.markers.push(new google.maps.Marker({
-    //           map: vneo.map,
-    //           position: vneo.latLngs[vneo.latLngs.length-1],
-    //           icon: iconURL
-    //         })
-    //       );
-    //     }
-    //   }
+      var mapOptions = {
+        zoom: 15,
+        center: center,
+        scrollwheel: false,
+        mapTypeId: 'styled',
+        mapTypeControl: false
+      };
 
+      var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });  
+      waq.map = new google.maps.Map(waq.$map[0], mapOptions);       
+      waq.map.mapTypes.set('styled', styledMapType);  
 
+      var marker = new google.maps.Marker({
+        position: waq.$map.latLng,
+        map: waq.map,
+        icon: iconURL 
+      });
+    }
 
+    initMap();
+    setDesktopMap();
 
   }
 

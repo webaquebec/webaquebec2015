@@ -1,5 +1,5 @@
 @import url(reset.css);
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700));
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700);
 @import url(http://weloveiconfonts.com/api/?family=typicons);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 *,
@@ -1581,7 +1581,8 @@ textarea {
   background: white;
   background: rgba(255, 255, 255, 0.8);
   z-index: 1; }
-.event-location .container {
+.event-location .title, .event-location header[role="banner"] nav ul a, header[role="banner"] nav ul .event-location a,
+.event-location .content {
   position: relative;
   z-index: 2; }
 .event-location .content {
