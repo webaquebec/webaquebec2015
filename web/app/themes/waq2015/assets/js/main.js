@@ -141,6 +141,36 @@ jQuery(document).ready(function($){
         "elementType": "labels"  }
     ];
     
+    // function initMap() {
+    //   var mapOptions = {
+    //     zoom: 7,
+    //     center: new google.maps.LatLng(46.762929, -71.282264),
+    //     scrollwheel: false,
+    //     mapTypeId: 'styled',
+    //     mapTypeControl: false
+    //   };
+
+    //   var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });  
+    //   vneo.map = new google.maps.Map(document.getElementById('map'), mapOptions);       
+    //   vneo.map.mapTypes.set('styled', styledMapType);  
+  
+    //   //
+    //   vneo.mapTriggers = $('.position.trigger', vneo.contact);
+    //   for(var i=0; i<vneo.mapTriggers.length; i++){
+    //     var trigger = $(vneo.mapTriggers[i]);
+    //     var lat = trigger.attr('lat');
+    //     var lng = trigger.attr('lng');
+        
+    //     if(lat&&lng){
+    //       vneo.latLngs.push(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
+    //       vneo.markers.push(new google.maps.Marker({
+    //           map: vneo.map,
+    //           position: vneo.latLngs[vneo.latLngs.length-1],
+    //           icon: iconURL
+    //         })
+    //       );
+    //     }
+    //   }
 
 
 
