@@ -117,6 +117,10 @@ a {
     .no-touch .dark a:hover {
       color: white; }
 
+hr {
+  margin: 1.5em 0;
+  border-color: #b8b9c2; }
+
 .title {
   color: #303030;
   font-weight: 700;

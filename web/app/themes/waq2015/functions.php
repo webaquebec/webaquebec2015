@@ -70,6 +70,11 @@ function custom_tiny_styles( $init_array ) {
             'classes' => 'main title' 
         ),
         array(  
+            'title' => 'Big Title',
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
+            'classes' => 'huge title' 
+        ),
+        array(  
             'title' => 'Title',
             'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
             'classes' => 'title' 

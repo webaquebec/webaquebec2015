@@ -1,3 +1,7 @@
+//
+//
+// MAIN JS
+
 // HASHBANG
 if(typeof(bang)!='undefined' && bang){
   var host = window.location.host;
@@ -9,13 +13,12 @@ if(typeof(bang)!='undefined' && bang){
   window.location = url;
 }
 
-
 //
 //
 // VARIABLES HOLDER
 window.waq = {};
 
-
+// Document ready
 jQuery(document).ready(function($){
 
   //
@@ -39,6 +42,7 @@ jQuery(document).ready(function($){
   waq.$menu.$links = $('a', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
+  waq.$map = $('#gmap');
 
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
@@ -82,6 +86,7 @@ jQuery(document).ready(function($){
   //
   //
   // TOGGLE HANDLER
+
   function toggleBtn(){
     var $trigger = $(this);
     var active = $trigger.toggleClass('active').hasClass('active');
@@ -89,7 +94,59 @@ jQuery(document).ready(function($){
     if(content) $trigger.attr('toggle-content', $trigger.children().eq(0).html()).children().eq(0).html(content);
     return active;
   }
-  waq.$toggles.on('click', toggleBtn);
+
+  if(waq.$toggles.length){
+    waq.$toggles.on('click', toggleBtn);
+  }
+
+
+
+  //
+  //
+  // GOOGLE MAP
+
+  // Mobile options
+  function setMobileMap(){
+    waq.$map.set('streetViewControl', false);
+    waq.$map.set('draggable', false);
+    waq.$map.set('panControl', false);
+    waq.$map.set('zoomControl', false);
+    waq.$map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_BOTTOM});
+  }
+
+  // Desktop options
+  function setDesktopMap(){
+    waq.$map.set('draggable', true);
+    waq.$map.set('panControl', false);
+    waq.$map.set('zoomControl', true);
+    waq.$map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_TOP});
+    waq.$map.set('zoomControlOptions',{position: google.maps.ControlPosition.RIGHT_CENTER, style:google.maps.ZoomControlStyle.DEFAULT });
+  }
+
+
+  if(waq.$map.length){
+    var iconURL = '/img/marker-width-shadow.png';
+    var styles = [
+      {
+        "stylers": [
+          { "saturation": -100 },
+          { "lightness": -6 }
+        ]
+      },{
+        "featureType": "water",
+        "stylers": [
+          { "lightness": 100 }
+        ]
+      },{
+        "elementType": "labels"  }
+    ];
+    
+
+
+
+
+  }
+
 
   //
   //
