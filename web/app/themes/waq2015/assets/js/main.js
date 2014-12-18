@@ -61,7 +61,7 @@ jQuery(document).ready(function($){
         e.selection.removeClass('fixed top bottom');
       },
       fixedBottom: function(e){
-         e.selection.addClass('fixed bottom');
+        e.selection.addClass('fixed bottom');
       }
     });
   }

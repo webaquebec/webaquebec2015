@@ -90,29 +90,7 @@
 					bottomDown: options.fixedBottom
 				});
 			
-
-				function updateOptions(){
-					// if(options.container){
-					// 	$el.scrollEvents('set','inverted sticky bottom', {
-					// 		// offset: -options.container.outerHeight() + $el.outerHeight() + options.offsetBottom + options.offset
-					// 	});
-					// }
-				}
-				$(window).on('hardResize', updateOptions);
 			}
 		}
 	});
 })(jQuery);
-
-
-
-    // waq.$menu.scrollEvents({
-    //   offset: -100,
-    //   down: function(e){
-    //     e.selection.addClass('fixed bottom');
-    //   },
-    //   visible: function(e){
-    //     if(e.selection.hasClass('bottom'))
-    //       e.selection.removeClass('fixed bottom');
-    //   }
-    // });

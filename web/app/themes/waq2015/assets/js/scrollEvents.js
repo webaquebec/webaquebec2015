@@ -63,18 +63,21 @@ function minMax(n,min,max){
 	}
 	function checkTopUp(e, activate, callback, update){
 		if(
-			( e.isTopVisible && e.t <= se.t ) ||
-			( update && e.t <= se.t )
+				( e.isTopVisible && e.t <= se.t ) ||
+				( update && e.t <= se.t )
 		){
+			// console.log('top UP');
 			if(activate) e.isTopVisible = false;
 			if(callback) e.topUp(e);
 		}
 	}
 	function checkTopDown(e, activate, callback, update){
+		
 		if(
-			( !e.isTopVisible && e.t > se.t ) ||
-			( update && e.t > se.t )
+				( !e.isTopVisible && e.t > se.t ) ||
+				( update && e.t > se.t )
 		){
+			// console.log('top DOWN');
 			if(activate) e.isTopVisible = true;
 			if(callback) e.topDown(e);
 		}
@@ -82,40 +85,43 @@ function minMax(n,min,max){
 	function checkBottomUp(e, activate, callback, update){
 		
 		if(
-			( e.isBottomVisible && e.b < se.b ) ||
-			( update && e.b < se.b )
+				( e.isBottomVisible && e.b < se.b ) ||
+				( update && e.b < se.b )
 		){
+			// console.log('bottom UP');
 			if(activate) e.isBottomVisible = false;
 			if(callback) e.bottomUp(e);
 		}
 	}
 	function checkBottomDown(e, activate, callback, update){
+		
 		if(
-			( !e.isBottomVisible && e.b >= se.b ) ||
-			( update && e.b >= se.b )
+				( !e.isBottomVisible && e.b >= se.b ) ||
+				( update && e.b >= se.b )
 		){
+			// console.log('bottom DOWN');
 			if(activate) e.isBottomVisible = true;
 			if(callback) e.bottomDown(e);
 		}
 	}
 	function checkTravel(e, activate, callback, update){
 		if(
-			( e.isVisible && e.b <= se.t ) ||
-			( update && e.b <= se.t )
+				( e.isVisible && e.b <= se.t ) ||
+				( update && e.b <= se.t )
 		){
 			if(activate&&!e.up) e.isVisible=false;
 			if(callback) e.container.off('scroll', e.travel);
 		}
 		if(
-			( e.isVisible && e.t >= se.b ) ||
-			( update && e.t >= se.b )
+				( e.isVisible && e.t >= se.b ) ||
+				( update && e.t >= se.b )
 		){
 			if(activate&&!e.down) e.isVisible=false;
 			if(callback) e.container.off('scroll', e.travel);
 		}
 		if(
-			( !e.isVisible && e.t < se.b && e.b > se.t ) ||
-			( update &&  e.t < se.b && e.b > se.t )
+				( !e.isVisible && e.t < se.b && e.b > se.t ) ||
+				( update &&  e.t < se.b && e.b > se.t )
 		){
 			if(activate&&!e.visible) e.isVisible=true;
 			if(callback || update){
@@ -329,8 +335,7 @@ function minMax(n,min,max){
 				clearTimeout(resizeTimeout);
 				resizeTimeout = setTimeout(function(){
 					recalculate();
-					// $win.trigger('hardResize');
-					// if(typeof(e)=='object'&&e.type=='resize') eventScroller('update');
+					$win.trigger('hardResize');
 				},150);
 				
 			}
@@ -441,6 +446,7 @@ function minMax(n,min,max){
 
 	resizeScroller();	
 	$win.on('load', function(){
+		// console.log('update');
 		resizeScroller('update');
 	});
 

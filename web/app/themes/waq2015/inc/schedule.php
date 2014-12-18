@@ -397,7 +397,33 @@ function create_conferences()
     ));
 
 
-    
+    register_taxonomy( 'theme', 'session', array(
+            'labels'                => array(
+                'name'                       => 'Thématiques',
+                'singular_name'              => 'Thématique',
+                'search_items'               => 'Chercher une thématique',
+                'popular_items'              => 'Thématiques populaires',
+                'all_items'                  => 'Toutes les thématiques',
+                'parent_item'                => null,
+                'parent_item_colon'          => null,
+                'edit_item'                  => 'Modifier la thématique',
+                'update_item'                => 'Mettre a jour la thématique',
+                'add_new_item'               => 'Ajouter une thématique',
+                'new_item_name'              => 'Nouvelle thématique',
+                'separate_items_with_commas' => 'Séparer les thématiques par des virgules',
+                'add_or_remove_items'        => 'Ajouter ou retirer une thématique',
+                'choose_from_most_used'      => 'Choisir parmi les plus utilisées',
+                'not_found'                  => 'Aucune thématique trouvée',
+                'menu_name'                  => 'Thématiques',
+            ),
+            'hierarchical'          => false,
+            'show_ui'               => true,
+            'show_admin_column'     => true,
+            'update_count_callback' => '_update_post_term_count',
+            'query_var'             => true,
+            'rewrite'               => array( 'slug' => 'theme' )
+        )
+    );
 
     if( function_exists('register_field_group') ):
 

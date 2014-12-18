@@ -93,7 +93,7 @@
   cursor: pointer
   outline: none
   overflow: hidden
-  padding: 0.5em 1em ($shadow-length + 0.45) 1em
+  padding-bottom: $shadow-length
   margin: 3px $xsmall (-$shadow-length + 0.45) 0
   position: relative
   text-transform: uppercase
@@ -101,7 +101,7 @@
   font-family: $font-titillium
   line-height: 1.2
   z-index: 0
-  
+
   &:before,
   &:after,
   >*:before,
@@ -130,6 +130,7 @@
     border: 1px solid $l-grey
     +box-shadow($shadows)
     +prefix(transition, border-color 120ms $ease)
+  
   &:before
     right: 100%
     z-index: -1
@@ -137,17 +138,22 @@
     +border-radius(4px)
     +prefix(transition, right 120ms $ease,  background 120ms $ease)
   
-  >*
+  >*   
+    padding: 0.5em 1em 0.5em 1em
+    +inlineb
+    +border-radius(4px)
+    +prefix(transition, color 120ms linear)
+    
     &:before
       background: #fff
       z-index: -2
+      +border-radius(4px)
 
     &:after
       text-align: right
       font-size: 0.8em
       padding: 0.2em 1em
-      color: $grey
-      
+      color: $grey     
       +prefix(transition, color 120ms linear 60ms)
  
   // dark context
@@ -195,13 +201,13 @@
   //
   // toggle    
   &.toggle
-    padding-right: 2em
+    padding-right: 1.2em
     &:before
     >*
       @extend .icon-more
       &:after
         text-align: right
-        line-height: 2.25em
+        line-height: 2.5em
     &.active
       color: $l-grey
       &:before
@@ -219,22 +225,38 @@
           &:after
             color: $l-blue
 
-    // FAVORITE
+    // FAVORITE (icon-star)
     &.favorite
-      color: $l-blue
+      color: $d-blue
       >*
         @extend .icon-star
         &:after
+          color: $d-blue
           +prefix(transition, all 120ms $ease)
       &.active
-        color: $grey
+        color: $m-grey
         >*
           @extend .icon-star
           &:after
             color: $l-blue
             font-size: 1em
-            line-height: 1.7em
-            padding: 0.2em 0.6em
+            line-height: 2em
+            padding: 0.2em 0.75em
+      .dark &
+        color: $l-blue
+        &.active
+          color: $grey
+  //
+  //
+  // link (icon-arrow-right)
+  &.link
+    padding-right: 2em
+    &:before
+    >*
+      @extend .icon-arrow-right
+      &:after
+        text-align: right
+        line-height: 2.5em
 
   //
   //       
@@ -261,6 +283,8 @@
       +opacity(0)
       width: 0
       +prefix(transition, opacity 240ms ease-in-out, width 240ms $ease)
+    >*:before
+      background: none
     .no-touch &:hover
       &:before
         width: 100%

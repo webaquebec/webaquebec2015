@@ -17,7 +17,9 @@ get_header_once();
         <div class="border-bottom expandable">
       </h1>
 
-      <nav class="days">
+      <h2 class="title"><?= __('Disponible bientôt', 'waq') ?></h2>
+
+<!--       <nav class="days">
         <ul>
           <li>
             <button class="btn">
@@ -44,12 +46,13 @@ get_header_once();
             </button>
           </li>
         </ul>
-      </nav>
+      </nav> -->
+
     </div>
   </header>
 
 
-  <nav class="filters dark">
+ <!--  <nav class="filters dark">
     <div class="container">
       <h3 class="title border-middle">
         <?= __('Filtrer par thématique', 'waq') ?>
@@ -60,7 +63,8 @@ get_header_once();
         </button>
       </div>
     </div>
-  </nav>
+  </nav> -->
+  
 </section>
 
 <?php endwhile; endif; ?>
