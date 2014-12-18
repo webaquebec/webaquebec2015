@@ -7,57 +7,51 @@ setup_postdata($post);
 
   <div class="grid">
 
-    <figure class="panel top left" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
+  <?php 
+  //
+  //
+  // FEATURED CONFERENCERS
+  $featured = get_field('featured');
+  $i = 0; // counter
+  foreach($featured as $conference):
+    
+    // the conference
+    $id = $conference['conference'];
+    $title = get_the_title($id);
+    // the conferencer
+    $about = get_field('about', $id);
+    $name = $about[0]['infos'][0]['name'];
+    $job = $about[0]['infos'][0]['job'];
+    // the time
+    $timeframe = get_field('timeframe', $id);
+    $day = get_the_title($timeframe[0]['day']);
+    $frameID = $timeframe[0]['frame_'.$timeframe[0]['day']];
+    // the place
+    $room = $timeframe[0]['room']->post_title;
+    // the image
+    $image = $conference['image']; // custom image
+    if(!has($image)) $image = $about[0]['infos'][0]['image'] // conferencer image fallback
+
+    ?>
+
+    <figure class="panel <?= $i%2==0 ? 'left' : 'right' ?> <?= $i<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
       <figcaption>
+        <?php //var_dump($about) ?>
         <h3>
-          <span class="name" itemprop="name">David Eaves</span>
-          <span class="job" itemprop="jobTitle">Open Data Expert</span>
+          <span class="name" itemprop="name"><?= $name ?></span>
+          <span class="job" itemprop="jobTitle"><?= $job ?></span>
         </h3>
       </figcaption>
 
       <span class="image">
-        <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/davideaves-227x190.jpg" alt="" itemprop="image">
+        <img src="<?= $image['sizes']['wide'] ?>" alt="" itemprop="image"/>
       </span>
     </figure>
 
-    <figure class="panel top right" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
-      <figcaption>
-        <h3>
-          <span class="name" itemprop="name">Sylvain Carle</span>
-          <span class="job" itemprop="jobTitle">Évangéliste Techno, Twitter</span>
-        </h3>
-      </figcaption>
-
-      <span class="image">
-        <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="" itemprop="image">
-      </span>
-    </figure>
-
-    <figure class="panel bottom left" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
-      <figcaption>
-        <h3>
-          <span class="name" itemprop="name">Sylvain Carle</span>
-          <span class="job" itemprop="jobTitle">Évangéliste Techno, Twitter</span>
-        </h3>
-      </figcaption>
-
-      <span class="image">
-        <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="" itemprop="image">
-      </span>
-    </figure>
-
-    <figure class="panel bottom right" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
-      <figcaption>
-        <h3>
-          <span class="name" itemprop="name">David Eaves</span>
-          <span class="job" itemprop="jobTitle">Open Data Expert</span>
-        </h3>
-      </figcaption>
-
-      <span class="image">
-        <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/davideaves-227x190.jpg" alt="" itemprop="image">
-      </span>
-    </figure>
+    <?php 
+    $i++;
+  endforeach;
+  ?> 
     
   </div>
 

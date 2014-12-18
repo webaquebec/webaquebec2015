@@ -64,7 +64,6 @@ jQuery(document).ready(function($){
          e.selection.addClass('fixed bottom');
       }
     });
-
   }
 
   //
@@ -89,7 +88,6 @@ jQuery(document).ready(function($){
     var content = $trigger.attr('toggle-content');
     if(content) $trigger.attr('toggle-content', $trigger.children().eq(0).html()).children().eq(0).html(content);
     return active;
-
   }
   waq.$toggles.on('click', toggleBtn);
 
@@ -99,10 +97,7 @@ jQuery(document).ready(function($){
   var hash = window.location.hash;
   if(hash.indexOf('!')!=-1){
     var klass = hash.replace(/#|!|\//g,'');
-    // var target = lebeau.nav.filter('.'+klass);
-    // if(target.length>0 && $(document).scrollTop()<5){
-    //  $('a',target).trigger('click');
-    // }
+  
   }
   
 });

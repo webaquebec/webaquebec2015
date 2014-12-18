@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22eb10052e868fce1660445ac68a5bfc",
+    "hash": "859e821169e5c6cee35e4b30abfa72a1",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -192,12 +192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/koodimonni-languages/fr.git",
-                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65"
+                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/koodimonni-languages/fr/get/ad262e9ceeaa52e3ca997b99d7f9079104728f65.zip",
-                "reference": "ad262e9ceeaa52e3ca997b99d7f9079104728f65",
+                "url": "https://bitbucket.org/koodimonni-languages/fr/get/e70f75ba9b2db25da9fe3676d1afd0316c5b923c.zip",
+                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c",
                 "shasum": ""
             },
             "type": "wordpress-language",
@@ -211,7 +211,7 @@
                 "language",
                 "wordpress"
             ],
-            "time": "2014-11-25 11:42:32"
+            "time": "2014-10-19 00:40:10"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -305,19 +305,47 @@
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/intuitive-custom-post-order/",
             "time": "2014-04-11 12:57:00"
+        },
+        {
+            "name": "wpackagist-plugin/regenerate-thumbnails",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/regenerate-thumbnails/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/regenerate-thumbnails.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/regenerate-thumbnails/",
+            "time": "2014-04-01 02:48:53"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "koodimonni-language/fr": 20,
         "wpackagist-plugin/acf-field-date-time-picker": 20,
-        "wpackagist-plugin/intuitive-custom-post-order": 20
+        "wpackagist-plugin/intuitive-custom-post-order": 20,
+        "wpackagist-plugin/regenerate-thumbnails": 20
     },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": []
+    "platform-dev": [
+
+    ]
 }

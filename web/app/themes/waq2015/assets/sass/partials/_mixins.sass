@@ -47,7 +47,7 @@
       $val: nth($values, $i)
       $res: ()
       @for $k from 1 through length($val)
-        @if nth($val, $k) == transform
+        @if index( (transform, box-shadow, filter) , nth($val, $k) )
           $res: append($res, #{nth($prefixes, $p)}#{nth($val, $k)}, space)
         @else 
           $res: append($res, #{nth($val, $k)}, space) 

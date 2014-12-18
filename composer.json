@@ -75,7 +75,8 @@
     "koodimonni-language/fr": "dev-master",
     "acf/advanced-custom-fields": "5.0.6",
     "wpackagist-plugin/acf-field-date-time-picker": "dev-trunk",
-    "wpackagist-plugin/intuitive-custom-post-order": "dev-trunk"
+    "wpackagist-plugin/intuitive-custom-post-order": "dev-trunk",
+    "wpackagist-plugin/regenerate-thumbnails": "dev-trunk"
   },
   "extra": {
     "installer-paths": {

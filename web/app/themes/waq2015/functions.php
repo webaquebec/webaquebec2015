@@ -72,7 +72,8 @@ function register_menu()
 // AJOUT DE TAILLES D'IMAGES
 
 // CROP
-// add_image_size('thumbnail retina', 360, 936, true);
+add_image_size('wide', 900, 450, true);
+add_image_size('wide retina', 1800, 900, true);
 
 // RESIZE 
 // add_image_size('huge', 3600, 3600, false);
