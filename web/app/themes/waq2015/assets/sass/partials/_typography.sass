@@ -29,6 +29,8 @@ a
 hr
   margin: 1.5em 0
   border-color: $grey
+  .dark &
+    border-color: $d-grey2
 
 //
 //
@@ -79,6 +81,12 @@ hr
     font-size: 0.5em
   .dark &
     +font-smoothing(on)
+  &.small
+    display: block
+    margin: 0.5em 0
+    font-size: 0.85em
+    color: $grey
+    +font-smoothing(off)
 
 //
 //

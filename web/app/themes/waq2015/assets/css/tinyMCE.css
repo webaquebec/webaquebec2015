@@ -120,6 +120,8 @@ a {
 hr {
   margin: 1.5em 0;
   border-color: #b8b9c2; }
+  .dark hr {
+    border-color: #4b4b4d; }
 
 .title {
   color: #303030;
@@ -160,6 +162,13 @@ hr {
 .dark .meta {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+.meta.small {
+  display: block;
+  margin: 0.5em 0;
+  font-size: 0.85em;
+  color: #b8b9c2;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto; }
 
 .separator {
   font-size: 0.875em;

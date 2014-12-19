@@ -263,6 +263,14 @@
 //
 //
 // BLOGUE
+.blog
+  .blog-container
+    article
+      padding: 0
+      .featured-article
+        h2
+          text-transform: uppercase
+          +font-smoothing(off)
 
 //
 // SINGLE
@@ -283,7 +291,7 @@
     font-size: 1.25em
     .tags
       font-size: 0.875em
-    .content+*
+    .content
       border-top:  1px solid $grey
       padding-top: $medium
       margin-top: $medium
