@@ -19,22 +19,64 @@ header[role="banner"]
         @extend .title
         @extend .small.title
         +inlineb
-        padding: 0.35em 0
+        padding: 37px 0
         margin: 0 1em
         border-bottom: 0 solid #fff
+        position: relative
         +prefix(transition, all 120ms $ease)
+    .main
+      a
+        &:before
+          position: absolute
+          left: 0
+          width: 100%
+          height: 1px
+          background: $l-blue
+          content: ''
+          opacity: 0
+          -webkit-transition: height 0.5s, opacity 0.5s, -webkit-transform 0.5s
+          -moz-transition: height 0.5s, opacity 0.5s, -moz-transform 0.5s
+          transition: height 0.5s, opacity 0.5s, transform 0.5s
+          -webkit-transform: translateY(10px)
+          -moz-transform: translateY(10px)
+          transform: translateY(10px)
+        &:after
+          position: absolute
+          left: 0
+          width: 100%
+          height: 1px
+          background: $l-blue
+          content: ''
+          opacity: 0
+          -webkit-transition: height 0.5s, opacity 0.5s, -webkit-transform 0.5s
+          -moz-transition: height 0.5s, opacity 0.5s, -moz-transform 0.5s
+          transition: height 0.5s, opacity 0.5s, transform 0.5s
+          -webkit-transform: translateY(-10px)
+          -moz-transform: translateY(-10px)
+          transform: translateY(-10px)
       li.active a,
-      .no-touch & a:hover
+      .no-touch & a:hover::after
+        bottom: 0
         color: $l-blue
-        padding: 0 0 0.7em
-        margin: 0 1em 0.35em
-        border-bottom: 1px solid $l-blue
-
+        height: 2px
+        opacity: 1
+        -webkit-transform: translateY(0px)
+        -moz-transform: translateY(0px)
+        transform: translateY(0px)
+      li.active a,
+      .no-touch & a:hover::before
+        top: 0
+        color: $l-blue
+        height: 2px
+        opacity: 1
+        -webkit-transform: translateY(0px)
+        -moz-transform: translateY(0px)
+        transform: translateY(0px)
 
     .main,
     .secondary
       background: #fff
-      padding: $medium
+      // padding: $medium
       height: 100%
       z-index: 2
       @extend .shadows
@@ -54,7 +96,7 @@ header[role="banner"]
     .secondary
       float: right
       width: 200px
-      padding: $medium $large
+      padding: 0 $large
       +gradient($l-blue, $d-blue)
       &:before
         margin: 0
@@ -72,7 +114,6 @@ header[role="banner"]
           float: right
           line-height: 1em
           margin-right: 0.1em
-
 
       li.active a,
       .no-touch & a:hover
