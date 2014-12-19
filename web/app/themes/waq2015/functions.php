@@ -144,6 +144,9 @@ function header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js', array(), null);
         wp_enqueue_script('modernizr'); 
 
+        wp_register_script('googlemap', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), null); 
+        wp_enqueue_script('googlemap');
+        
         wp_deregister_script('jquery'); // Deregister WordPress jQuery
         // wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', array(), '1.10.1'); // Google CDN jQuery
         wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '1.11.1'); // fallback
