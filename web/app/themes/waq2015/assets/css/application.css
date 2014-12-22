@@ -231,6 +231,8 @@ hr {
 .btn.link > :after,
 .link.profile > :after,
 .icon-arrow-left:after,
+.btn.back > :after,
+.back.profile > :after,
 .icon-arrow-top:after,
 .icon-arrow-bottom:after,
 .icon-facebook:after,
@@ -277,7 +279,7 @@ header[role="banner"] nav .secondary a:after,
 .icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link > :after, .link.profile > :after {
   content: "\f103"; }
 
-.icon-arrow-left:after {
+.icon-arrow-left:after, .btn.back > :after, .back.profile > :after {
   content: "\f104"; }
 
 .icon-arrow-top:after {
@@ -369,6 +371,9 @@ form:after {
 
 .clearfix, form {
   *zoom: 1; }
+
+.no-padding {
+  padding: 0; }
 
 html, body {
   width: 100%;
@@ -894,6 +899,11 @@ header[role="banner"] nav .secondary {
     padding-right: 2em; }
     .btn.link > *:after, .link.profile > *:after {
       text-align: right;
+      line-height: 2.5em; }
+  .btn.back, .back.profile {
+    padding-left: 2em; }
+    .btn.back > *:after, .back.profile > *:after {
+      text-align: left;
       line-height: 2.5em; }
   .btn.seamless:before, .seamless.profile:before,
   .btn.seamless > *:before,
@@ -1657,6 +1667,10 @@ textarea {
     text-transform: uppercase;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto; }
+  .blog .blog-container article .lien-status {
+    display: block;
+    text-transform: uppercase;
+    margin: 0.5em 0; }
 
 .single hgroup .btn, .single hgroup .profile {
   float: right;
@@ -1667,6 +1681,13 @@ textarea {
 .single .session,
 .single .conferencer {
   padding: 50px 0; }
+.single .single-article .back {
+  margin-top: 1.25em;
+  display: inline-block;
+  *display: inline;
+  zoom: 1; }
+.single .single-article .image-une {
+  padding-bottom: 1.25em; }
 .single .session {
   font-size: 1.25em; }
   .single .session .tags {

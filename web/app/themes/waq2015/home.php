@@ -1,32 +1,33 @@
-<?php
-/*
- * Template Name: Blogue
- */
+<?php get_header(); ?>	
 
-get_header_once();
-?>
+<article class="single no-padding">
 
-<?php //if(have_posts()): while(have_posts()): the_post(); ?>
+  <hgroup class="dark">
+    <div class="container">
 
-<section id="<?= $post->post_name ?>" class="blog dark">
 
+      <div class="main title border-left">
+        <h1>Actualités</h1>
+        <div class="border-bottom expandable"></div>
+
+    	</div>
+   </div>
+  </hgroup>
+	<section class="blog">
+  
   <div class="container">
-    <h1 class="main title border-left">
-      <?= get_the_title() ?>
-      <div class="border-bottom expandable">
-    </h1>
     <div class="blog-container">
-      <div class="col narrow">
-        <?php if (have_posts()) : ?>
-        <?php query_posts("showposts=1"); // show one latest post only ?>
-        <?php while (have_posts()) : the_post(); ?>
+      
+      <?php if (have_posts()) : ?>
+      <?php while (have_posts()) : the_post(); ?>
+      <div class="col wide">
         <article class="">
           <div class="contenu_article">
             <div class="content">
                 <div class="image-une">                       
                   <?php
                     if ( has_post_thumbnail() ) {
-                        the_post_thumbnail('blog-thumb');
+                        the_post_thumbnail();
                     } 
                   ?>
                 </div>
@@ -41,21 +42,17 @@ get_header_once();
             </div>
           </div>
         </article>
-        <?php endwhile; ?>
-        <div class="btn link">
-         <a href="<?= get_site_url(); ?>/actualites" class=""><span>Voir toutes les articles</span></a>
-        </div>
       </div>
-      <div class="col wide stream-container">
+      <?php endwhile; ?>
 
-      </div>
     </div>
   </div>
-  
+ 
 </section>
 
 <?php endif; ?>
-  
+
+</article>
 <?php 
-get_footer_once();
+get_footer();
 ?>

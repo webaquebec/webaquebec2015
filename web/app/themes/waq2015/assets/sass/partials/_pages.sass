@@ -271,6 +271,10 @@
         h2
           text-transform: uppercase
           +font-smoothing(off)
+      .lien-status
+        display: block
+        text-transform: uppercase
+        margin: 0.5em 0
 
 //
 // SINGLE
@@ -286,7 +290,12 @@
   .session,
   .conferencer
     padding: $xlarge 0 
-
+  .single-article
+    .back
+      margin-top: 1.25em
+      +inlineb()
+    .image-une
+      padding-bottom: 1.25em
   .session
     font-size: 1.25em
     .tags
