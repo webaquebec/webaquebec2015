@@ -2,44 +2,58 @@
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<article class="single">
+<article class="single no-padding">
 
-  <hgroup class="dark">
+  <hgroup class="">
     <div class="container">
 
       <button class="btn seamless toggle favorite" toggle-content="<?= __('Ajouté à mon horaire','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
 
-      <div class="main title border-left">
-        
-        <span class="meta">
-            <span class="date">
-              <time datetime="2014-03-19">mercredi 19 mars</time>
-            </span>
-            <span class="separator">•</span>
-            <span class="time">
-              <time itemprop="startDate" datetime="2014-03-19 14:00">14 h 00</time>
-              à
-              <time itemprop="endDate" datetime="2014-03-19 15:30">15 h 30</time>
-            </span>
-            <span class="separator">•</span>
-            <span class="location" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-                <span itemprop="address" itemscope="" itemtype="http://schema.org/Place">
-                    <span itemprop="name">Grand Hall</span>
-                </span>
-            </span>
-        </span>
-
+      <div class="main title">
+        <div class="name">
+          <h2 class="title">Sylvain Carles</h2>
+        </div>
         <h1><?= get_the_title() ?></h1>
-        <div class="border-bottom expandable">
+      </div>
+      
+      <div class="conference-info-container dark">
+        <div class="conferencer-info btn">
+            <span class="wrap ">
 
+              <span class="meta room-border">
+                <time class="date" datetime="">
+                  <span class="v-align">
+                    <span class="sub title">Mer</span>
+                    <span class="small title">18</span>
+                  </span>
+                </time>
+
+                <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
+                  <span class="v-align">
+                    <span class="sub title">10h</span>
+                    <span class="small title">30</span>
+                  </span>
+                </time>
+              </span>
+
+              <span class="conference-room">
+                <span class="v-align">
+                  <span class="sub title">SALLE</span>
+                  <span class="small title">IXmedia &#183; Communication</span>
+                </span>
+              </span>
+
+            </span>
+        </div>
       </div>
     </div>
   </hgroup>
 
   <div class="cols container">
-    
+
     <section class="col wide" role="main">
-      <div class="session">
+
+      <div class="conference">
         
         <div class="content">
           <?php the_content() ?>
@@ -58,6 +72,7 @@
               <span>Médias Sociaux</span>
             </li>
           </ul>
+          <a href="<?= get_site_url(); ?>/programmation" class="btn back"><span>Retour à l'horaire</span></a>
         </div>
       </div>
     </section>
@@ -70,7 +85,7 @@
               <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="Sylvain Carle" />
             </div>
             <div class="name">
-              <span class="sub title">À propos de</span>
+              <span class="sub title">À propos <br>du Conférencier</span>
               <h2 class="title">Sylvain Carles</h2>
             </div>
           </div>

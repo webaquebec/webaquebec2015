@@ -857,6 +857,11 @@ header[role="banner"] nav .secondary {
     font-size: 1.25em; }
     .btn.big.toggle > *:after, .big.toggle.profile > *:after {
       line-height: 2.7em; }
+  .btn.back, .back.profile {
+    margin-top: 1.25em;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
   .btn.toggle, .toggle.profile {
     padding-right: 1.2em; }
     .btn.toggle > *:after, .toggle.profile > *:after {
@@ -1094,6 +1099,131 @@ header[role="banner"] nav .secondary {
     left: 0;
     margin-left: 0; }
 
+.conferencer-info {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  float: left !important; }
+  .conferencer-info .wrap {
+    padding: 0;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+    .conferencer-info .wrap:after {
+      font-size: 1.25em;
+      padding-right: 0.75em; }
+  .conferencer-info .meta {
+    position: relative;
+    width: 7.5em;
+    text-align: center;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+    .conferencer-info .meta:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -4px; }
+    .conferencer-info .meta > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+    .conferencer-info .meta > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      padding: 0.5em;
+      height: 100%;
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+      .conferencer-info .meta > *:before {
+        content: "";
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        margin-right: -4px; }
+      .conferencer-info .meta > * > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: middle; }
+      .conferencer-info .meta > * + * {
+        border-left: 1px solid #525252; }
+    .conferencer-info .meta .title, .conferencer-info .meta header[role="banner"] nav ul a, header[role="banner"] nav ul .conferencer-info .meta a {
+      margin: 0;
+      line-height: 1;
+      text-align: right; }
+    .conferencer-info .meta.room-border {
+      border-left: 10px solid #19bcd2; }
+  .conferencer-info .conference-room {
+    position: relative;
+    float: right;
+    text-align: center;
+    border-left: 1px solid #525252;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+    .conferencer-info .conference-room:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -4px; }
+    .conferencer-info .conference-room > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+    .conferencer-info .conference-room > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      padding: 0.5em;
+      height: 100%;
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+      .conferencer-info .conference-room > *:before {
+        content: "";
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        margin-right: -4px; }
+      .conferencer-info .conference-room > * > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: middle; }
+      .conferencer-info .conference-room > * .title, .conferencer-info .conference-room > * header[role="banner"] nav ul a, header[role="banner"] nav ul .conferencer-info .conference-room > * a {
+        margin: 0;
+        line-height: 1;
+        text-align: right;
+        float: left; }
+        .conferencer-info .conference-room > * .title.small, .conferencer-info .conference-room > * header[role="banner"] nav ul a, header[role="banner"] nav ul .conferencer-info .conference-room > * a {
+          text-transform: none; }
+
 .tags {
   display: block; }
   .tags > * {
@@ -1187,7 +1317,7 @@ header[role="banner"] nav .main a:after {
 header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav .main a:hover::after {
   bottom: 0;
   color: #00bfdf;
-  height: 2px;
+  height: 1px;
   opacity: 1;
   -webkit-transform: translateY(-10px);
   -moz-transform: translateY(-10px);
@@ -1195,7 +1325,7 @@ header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav
 header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav .main a:hover::before {
   top: 0;
   color: #00bfdf;
-  height: 2px;
+  height: 1px;
   opacity: 1;
   -webkit-transform: translateY(10px);
   -moz-transform: translateY(10px);
@@ -1661,16 +1791,49 @@ textarea {
   height: 100%;
   z-index: 0; }
 
-.blog .blog-container article {
-  padding: 0; }
-  .blog .blog-container article .featured-article h2 {
-    text-transform: uppercase;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto; }
-  .blog .blog-container article .lien-status {
+.blog .blog-container article .featured-article h2 {
+  text-transform: uppercase;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto; }
+.blog .blog-container article .featured-article p {
+  margin-bottom: 0.2em; }
+.blog .blog-container article .lien-status {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  display: inline-block;
+  *display: inline;
+  zoom: 1; }
+.blog .blog-container article .image-une img {
+  width: 100%; }
+
+.pagination-container {
+  zoom: 1;
+  display: block;
+  clear: left;
+  float: left; }
+  .pagination-container:before, .pagination-container:after {
+    content: "\0020";
     display: block;
-    text-transform: uppercase;
-    margin: 0.5em 0; }
+    height: 0;
+    overflow: hidden; }
+  .pagination-container:after {
+    clear: both; }
+
+.actualites article {
+  padding: 20px;
+  margin-bottom: 20px;
+  display: block;
+  border: 1px solid #303030;
+  -webkit-transition: all 400ms ease-in;
+  -moz-transition: all 400ms ease-in;
+  -ms-transition: all 400ms ease-in;
+  -o-transition: all 400ms ease-in;
+  transition: all 400ms ease-in; }
+  .actualites article:hover {
+    border: 1px solid #00bfdf;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px; }
 
 .single hgroup .btn, .single hgroup .profile {
   float: right;
@@ -1678,14 +1841,17 @@ textarea {
   z-index: 100;
   margin-top: 1em;
   margin-bottom: -2em; }
-.single .session,
+.single hgroup .name h2 {
+  font-size: 0.5em; }
+.single .conference {
+  font-size: 1.25em;
+  float: left;
+  margin-top: 5px; }
 .single .conferencer {
+  margin-top: -30%;
+  float: left; }
+.single .session {
   padding: 50px 0; }
-.single .single-article .back {
-  margin-top: 1.25em;
-  display: inline-block;
-  *display: inline;
-  zoom: 1; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single .session {
@@ -1697,19 +1863,28 @@ textarea {
     padding-top: 20px;
     margin-top: 20px; }
 .single .about {
-  text-align: center;
+  width: 100%;
+  text-align: left;
   display: block;
   padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #b8b9c2; }
+  margin-bottom: 17px;
+  zoom: 1; }
+  .single .about:before, .single .about:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .single .about:after {
+    clear: both; }
   .single .about > * {
     display: inline-block; }
   .single .about .name {
-    width: 100%;
+    margin-left: 20px;
     margin-top: 20px; }
 .single .thumb {
-  width: 200px;
-  height: 200px; }
+  width: 93px;
+  height: 93px;
+  float: left; }
   .single .thumb img {
     min-height: 100%; }
 

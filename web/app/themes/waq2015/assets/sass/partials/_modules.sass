@@ -20,7 +20,6 @@
   color: #fff
   +gradient($l-blue, $d-blue)
 
-
 //
 //
 // SHADOWS
@@ -179,8 +178,7 @@
     >*
       &:before
         background: $l-grey
-  
-       
+   
   //
   //
   // HOVER
@@ -197,7 +195,9 @@
     &.toggle
       >*:after
         line-height: 2.7em
-
+  &.back
+    margin-top: 1.25em
+    +inlineb()
   //
   //
   // toggle    
@@ -420,7 +420,57 @@
     .links
       left: 0
       margin-left: 0
-
+//
+//
+// CONFERENCER INFOS
+.conferencer-info
+  +inlineb
+  // width: 50%
+  float: left!important
+  .wrap
+    // padding-left: 8.5em 
+    padding: 0
+    +inlineb
+    &:after
+      font-size: 1.25em
+      padding-right: 0.75em
+  .meta
+    position: relative
+    width: 7.5em      
+    text-align: center
+    +border-radius( 4px 0 0 4px)
+    +align-children(middle)
+    >*
+      +inlineb
+      padding: 0.5em
+      height: 100%
+      +align-children(middle)
+      &+*
+        border-left: 1px solid $m-grey
+    .title
+      margin: 0
+      line-height: 1
+      text-align: right
+    &.room-border
+      border-left: 10px solid $room-1
+  .conference-room
+    position: relative
+    float: right
+    text-align: center
+    border-left: 1px solid $m-grey
+    +align-children(middle)
+    >*
+      +inlineb
+      padding: 0.5em
+      height: 100%
+      +align-children(middle)
+      .title
+        margin: 0
+        line-height: 1
+        text-align: right
+        float: left
+        &.small
+          text-transform: none
 //
 //
 // TAGS
