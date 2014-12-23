@@ -1289,11 +1289,11 @@ header[role="banner"] nav .main a:before {
   background: #00bfdf;
   content: "";
   opacity: 0;
-  -webkit-transition: height 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  -moz-transition: height 0.5s, opacity 0.5s, -moz-transform 0.5s;
-  -ms-transition: height 0.5s, opacity 0.5s, -ms-transform 0.5s;
-  -o-transition: height 0.5s, opacity 0.5s, -o-transform 0.5s;
-  transition: height 0.5s, opacity 0.5s, transform 0.5s;
+  -webkit-transition: height 0.2s, opacity 0.2s, -webkit-transform 0.2s;
+  -moz-transition: height 0.2s, opacity 0.2s, -moz-transform 0.2s;
+  -ms-transition: height 0.2s, opacity 0.2s, -ms-transform 0.2s;
+  -o-transition: height 0.2s, opacity 0.2s, -o-transform 0.2s;
+  transition: height 0.2s, opacity 0.2s, transform 0.2s;
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
   transform: translateY(0px); }
@@ -1306,11 +1306,11 @@ header[role="banner"] nav .main a:after {
   background: #00bfdf;
   content: "";
   opacity: 0;
-  -webkit-transition: height 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  -moz-transition: height 0.5s, opacity 0.5s, -moz-transform 0.5s;
-  -ms-transition: height 0.5s, opacity 0.5s, -ms-transform 0.5s;
-  -o-transition: height 0.5s, opacity 0.5s, -o-transform 0.5s;
-  transition: height 0.5s, opacity 0.5s, transform 0.5s;
+  -webkit-transition: height 0.2s, opacity 0.2s, -webkit-transform 0.2s;
+  -moz-transition: height 0.2s, opacity 0.2s, -moz-transform 0.2s;
+  -ms-transition: height 0.2s, opacity 0.2s, -ms-transform 0.2s;
+  -o-transition: height 0.2s, opacity 0.2s, -o-transform 0.2s;
+  transition: height 0.2s, opacity 0.2s, transform 0.2s;
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
   transform: translateY(0px); }
@@ -1850,10 +1850,13 @@ textarea {
 .single .conference {
   font-size: 1.25em;
   float: left;
-  margin-top: 5px; }
+  margin-top: 5px;
+  margin-right: 20px; }
 .single .conferencer {
   margin-top: -30%;
-  float: left; }
+  float: left;
+  position: relative;
+  z-index: 100; }
 .single .session {
   padding: 50px 0; }
 .single .single-article .image-une {

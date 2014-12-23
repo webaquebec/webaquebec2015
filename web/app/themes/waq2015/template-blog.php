@@ -12,8 +12,7 @@ get_header_once();
   <div class="container">
     <h1 class="main title border-left">
       <?= get_the_title() ?>
-      <div class="border-bottom expandable">
-      </div>
+      <div class="border-bottom expandable"></div>
     </h1>
     <?php endwhile; endif; ?>
     <div class="blog-container">
@@ -22,9 +21,9 @@ get_header_once();
 
           $args = array('showposts' => 1 ); 
           $the_query = new WP_Query( $args ); // New query
-          $temp_query = $wp_query; // Stock the old query
-          $wp_query   = NULL; // Reset the query
-          $wp_query   = $the_query; // Assign the new query to wp_query
+          // $temp_query = $wp_query; // Stock the old query
+          // $wp_query   = NULL; // Reset the query
+          // $wp_query   = $the_query; // Assign the new query to wp_query
 
         ?>
         <?php if( $the_query->have_posts() ): ?>
@@ -44,21 +43,21 @@ get_header_once();
                   <div class="article-info">
                     <span class="meta small"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
                   </div>
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <hr>
-                <?php the_excerpt(); ?>
+                  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                  <hr>
+                  <?php the_excerpt(); ?>
                 </div>            
             </div>
           </div>
         </article>
         <?php endwhile; endif; ?>
         <?php 
-          $wp_query = NULL; // Reset the query
-          $wp_query = $temp_query; // Re-assign the old query to the current one
+          // $wp_query = NULL; // Reset the query
+          // $wp_query = $temp_query; // Re-assign the old query to the current one
         ?>
-        <?php wp_reset_query(); ?>
+        <?php //wp_reset_query(); ?>
         <div class="btn link">
-         <a href="<?= get_site_url(); ?>/actualites" class=""><span>Voir tous les articles</span></a>
+          <a href="<?= get_site_url(); ?>/actualites" class=""><span>Voir tous les articles</span></a>
         </div>
       </div>
       <div class="col wide stream-container">

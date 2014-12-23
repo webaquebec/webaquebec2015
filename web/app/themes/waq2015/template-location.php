@@ -13,7 +13,7 @@ get_header_once();
   <div class="container">
     <h1 class="main title border-left">
       <?= get_the_title() ?>
-      <div class="border-bottom expandable">
+      <div class="border-bottom expandable"></div>
     </h1>
     <div class="cols-2 large-margins">
       <div class="content">

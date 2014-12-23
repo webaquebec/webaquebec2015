@@ -1,6 +1,8 @@
 			</main> <!-- /.container -->
 			<footer role="contentinfo" class="container">
-				
+				<div class="content">
+					<h2>Espace dalhousie : le terminal</h2>
+				</div>
 			</footer>
 		
 		</div>
