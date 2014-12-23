@@ -1843,6 +1843,10 @@ textarea {
   margin-bottom: -2em; }
 .single hgroup .name h2 {
   font-size: 0.5em; }
+.single hgroup .favorite {
+  margin-top: 0; }
+.single hgroup .main.title, .single hgroup header[role="banner"] nav ul a.main, header[role="banner"] nav ul .single hgroup a.main {
+  width: 75%; }
 .single .conference {
   font-size: 1.25em;
   float: left;
