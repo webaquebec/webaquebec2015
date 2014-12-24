@@ -136,6 +136,10 @@ hr {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .black .title, .black header[role="banner"] nav ul a, header[role="banner"] nav ul .black a {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
   .title.main, header[role="banner"] nav ul a.main {
     font-size: 3em;
     font-weight: 300;
@@ -165,6 +169,9 @@ hr {
 .main.title .meta, header[role="banner"] nav ul a.main .meta {
   font-size: 0.5em; }
 .dark .meta {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+.black .meta {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 .meta.small {
@@ -684,6 +691,12 @@ footer {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.black {
+  background: #111111;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 .light {
   background: white;
   color: #111111; }
@@ -857,6 +870,16 @@ header[role="banner"] nav .secondary {
       background: #303030; }
     .dark .btn.toggle.active:after, .dark .toggle.active.profile:after {
       border-color: #005f93; }
+  .black .btn, .black .profile {
+    color: white; }
+    .black .btn:before, .black .profile:before {
+      background: #111111; }
+    .black .btn:after, .black .profile:after {
+      border-color: #525252; }
+    .black .btn > *:before, .black .profile > *:before {
+      background: #303030; }
+    .black .btn.toggle.active:after, .black .toggle.active.profile:after {
+      border-color: #005f93; }
   .l-grey .btn:before, .l-grey .profile:before {
     background: #eeeef0; }
   .l-grey .btn:after, .l-grey .profile:after {
@@ -913,6 +936,10 @@ header[role="banner"] nav .secondary {
       .dark .btn.toggle.favorite, .dark .toggle.favorite.profile {
         color: #00bfdf; }
         .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile {
+          color: #b8b9c2; }
+      .black .btn.toggle.favorite, .black .toggle.favorite.profile {
+        color: #00bfdf; }
+        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile {
           color: #b8b9c2; }
   .btn.link, .link.profile {
     padding-right: 2em; }

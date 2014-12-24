@@ -17,6 +17,10 @@
   background: $d-grey
   color: #fff 
   +font-smoothing(on)
+.black
+  background: $black
+  color: #fff
+  +font-smoothing(on)
 .light
   background: #fff
   color: $black
@@ -175,7 +179,17 @@
         background: $d-grey
     &.toggle.active:after
       border-color: $d-blue
-
+  .black &
+    color: #fff
+    &:before
+      background: $black
+    &:after
+      border-color: $m-grey
+    >*
+      &:before
+        background: $d-grey
+    &.toggle.active:after
+      border-color: $d-blue
   // LIGHT GREY CONTEXT
   .l-grey &
     &:before
@@ -251,6 +265,10 @@
             line-height: 2em
             padding: 0.2em 0.75em
       .dark &
+        color: $l-blue
+        &.active
+          color: $grey
+      .black &
         color: $l-blue
         &.active
           color: $grey

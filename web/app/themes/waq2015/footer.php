@@ -1,6 +1,6 @@
 			</main> <!-- /.container -->
 			
-			<footer role="contentinfo" class="dark">
+			<footer role="contentinfo" class="black">
 				<div class="container">				
 					
 					<div class="clearfix">
@@ -19,12 +19,10 @@
 							<div class="content">
 								<h3 class="thin title">Informations générales</h3>
 								<p>
-									<a href="tel:1 877 334-2547">1 877 334-2547</a><br>
+									1 877 334-2547<br>
 									<a href="mailto:info@webaquebec.org">info@webaquebec.org</a>
-								</p>
-								<p>
 									<h3 class="thin title">Informations médias</h3>
-									<a href="tel:1 418 558-7455">1 418 558-7455</a><br>
+									1 418 558-7455<br>
 									<a href="mailto:medias@webaquebec.org">medias@webaquebec.org</a>
 								</p>
 							</div>

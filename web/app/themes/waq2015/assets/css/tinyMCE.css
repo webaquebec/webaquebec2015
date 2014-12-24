@@ -136,6 +136,10 @@ hr {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .black .title {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
   .title.main {
     font-size: 3em;
     font-weight: 300;
@@ -165,6 +169,9 @@ hr {
 .main.title .meta {
   font-size: 0.5em; }
 .dark .meta {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+.black .meta {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 .meta.small {
