@@ -6,7 +6,7 @@
 get_header_once();
 ?>
 
-<?php if(have_posts()): while(have_posts()): the_post(); //Just enough to fetch the layout name ?>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 <section id="<?= $post->post_name ?>" class="blog dark">
 
   <div class="container">
@@ -21,9 +21,6 @@ get_header_once();
 
           $args = array('showposts' => 1 ); 
           $the_query = new WP_Query( $args ); // New query
-          // $temp_query = $wp_query; // Stock the old query
-          // $wp_query   = NULL; // Reset the query
-          // $wp_query   = $the_query; // Assign the new query to wp_query
 
         ?>
         <?php if( $the_query->have_posts() ): ?>
@@ -51,11 +48,6 @@ get_header_once();
           </div>
         </article>
         <?php endwhile; endif; ?>
-        <?php 
-          // $wp_query = NULL; // Reset the query
-          // $wp_query = $temp_query; // Re-assign the old query to the current one
-        ?>
-        <?php //wp_reset_query(); ?>
         <div class="btn link">
           <a href="<?= get_site_url(); ?>/actualites" class=""><span>Voir tous les articles</span></a>
         </div>

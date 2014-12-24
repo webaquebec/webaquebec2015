@@ -53,7 +53,6 @@
           <a href="<?= get_site_url(); ?>" class="btn back"><span>Retour à l'accueil</span></a>
       </div>
     </div>
-  <hr>
   </section>
 
 </article>
