@@ -358,7 +358,40 @@
     float: left
     img
       min-height: 100%
-
-
+//
+//
+// FOOTER
+footer
+  .sub-footer
+    +clearfix
+    position: relative
+  .info-general
+    +inlineb()
+    width: 100%
+    margin: $medium 0
+    border-bottom: 1px solid $m-grey
+  .accessibility
+    +inlineb
+    margin-bottom: $small
+  .contribute, .archives
+    +clearfix
+    >*
+      +inlineb
+      padding-right: 0.5em 
+  .conception
+    position: absolute
+    right: 0
+    bottom: 0
+    >*
+      +inlineb
+      +align-children(middle)
+    p
+      margin: 0
+  .logo-o2
+    width: 80px
+    height: auto
+    img
+      width: 100%
+      height: auto
 
 

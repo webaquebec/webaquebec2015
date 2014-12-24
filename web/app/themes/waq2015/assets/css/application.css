@@ -150,6 +150,11 @@ hr {
   .title.huge, header[role="banner"] nav ul a.huge {
     font-size: 2em;
     text-transform: uppercase; }
+  .title.lower, header[role="banner"] nav ul a.lower {
+    font-size: 1em; }
+  .title.thin, header[role="banner"] nav ul a.thin {
+    font-size: 1em;
+    font-weight: 300; }
   .title.border-left, header[role="banner"] nav ul a.border-left {
     padding: 20px 30px 20px; }
     .title.border-left .border-bottom, header[role="banner"] nav ul a.border-left .border-bottom {
@@ -451,6 +456,9 @@ hgroup {
         top: auto;
         bottom: 10px; }
 
+footer {
+  padding: 20px 0; }
+
 .cols > *, .cols-2 > *, .cols-3 > *, .cols-4 > * {
   vertical-align: top; }
 
@@ -663,6 +671,12 @@ hgroup {
     padding-left: 66%; }
   .col + .col.wide {
     padding-left: 34%; }
+
+.float-left {
+  float: left; }
+
+.mt1 {
+  margin: 1em 0; }
 
 .dark {
   background: #303030;
@@ -1894,6 +1908,77 @@ textarea {
   float: left; }
   .single .thumb img {
     min-height: 100%; }
+
+footer .sub-footer {
+  zoom: 1;
+  position: relative; }
+  footer .sub-footer:before, footer .sub-footer:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  footer .sub-footer:after {
+    clear: both; }
+footer .info-general {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  width: 100%;
+  margin: 20px 0;
+  border-bottom: 1px solid #525252; }
+footer .accessibility {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  margin-bottom: 10px; }
+footer .contribute, footer .archives {
+  zoom: 1; }
+  footer .contribute:before, footer .contribute:after, footer .archives:before, footer .archives:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  footer .contribute:after, footer .archives:after {
+    clear: both; }
+  footer .contribute > *, footer .archives > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    padding-right: 0.5em; }
+footer .conception {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+  footer .conception > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+    footer .conception > *:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -4px; }
+    footer .conception > * > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+  footer .conception p {
+    margin: 0; }
+footer .logo-o2 {
+  width: 80px;
+  height: auto; }
+  footer .logo-o2 img {
+    width: 100%;
+    height: auto; }
 
 @media screen and (max-width: 580px) {
   .cols-2 {

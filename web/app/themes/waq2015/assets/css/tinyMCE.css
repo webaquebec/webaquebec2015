@@ -150,6 +150,11 @@ hr {
   .title.huge {
     font-size: 2em;
     text-transform: uppercase; }
+  .title.lower {
+    font-size: 1em; }
+  .title.thin {
+    font-size: 1em;
+    font-weight: 300; }
   .title.border-left {
     padding: 20px 30px 20px; }
     .title.border-left .border-bottom {
