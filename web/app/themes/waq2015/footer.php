@@ -56,7 +56,7 @@
 							</div>
 							<div class="col narrow">
 								<span class="conception">
-									<p>Conception et réalisation <div class="logo-o2"><img src="/img/@2x/logo-o2web.png" alt="o2Web" /></div></p>
+									<p>Conception et réalisation <a href="http://www.o2web.ca/" target="_blank" class="logo-o2"><img src="/img/@2x/logo-o2web.png" alt="o2Web" /></a></p>
 								</span>
 							</div>
 						</div>

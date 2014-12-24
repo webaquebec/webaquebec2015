@@ -49,10 +49,11 @@
         <?php else : ?>
           <p><?php _e('Aucun articles correspond à vos critères.'); ?></p>
           <?php endif; ?>
+          <div class="clearfix"></div>
           <a href="<?= get_site_url(); ?>" class="btn back"><span>Retour à l'accueil</span></a>
       </div>
     </div>
- 
+  <hr>
   </section>
 
 </article>
