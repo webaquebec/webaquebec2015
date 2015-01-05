@@ -31,7 +31,7 @@
             <?php
               if ( has_post_thumbnail() ) {
                   the_post_thumbnail('large');
-              } 
+              }
             ?>
           </div>
           <?php the_content() ?>
@@ -59,5 +59,5 @@
 </article>
 
 <?php endwhile; endif; ?>
-	
+
 <?php get_footer(); ?>
