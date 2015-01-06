@@ -37,5 +37,5 @@ include_page_part(45);
 
   
 <?php 
-get_footer_once();
+get_footer();
 ?>

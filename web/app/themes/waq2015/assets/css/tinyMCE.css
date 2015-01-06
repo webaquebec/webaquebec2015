@@ -136,6 +136,8 @@ hr {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .dark .title.lined {
+    background: #303030; }
   .black .title {
     color: white;
     -webkit-font-smoothing: antialiased;
@@ -165,6 +167,21 @@ hr {
       position: absolute;
       left: 0;
       bottom: 0; }
+  .title.lined {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    background: white;
+    padding-right: 1em;
+    position: relative;
+    z-index: 10; }
+
+.sub-line {
+  border-color: #cacaca;
+  border-color: rgba(202, 202, 202, 0.4);
+  margin: 0;
+  position: relative;
+  top: -0.5em; }
 
 .main.title .meta {
   font-size: 0.5em; }

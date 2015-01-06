@@ -46,6 +46,8 @@ hr
   .dark &
     color: #fff
     +font-smoothing(on)
+  .dark &.lined
+    background: $d-grey
   .black &
     color: #fff
     +font-smoothing(on)
@@ -76,6 +78,20 @@ hr
       position: absolute
       left: 0
       bottom: 0
+
+  &.lined
+    @include inlineb
+    background: #fff
+    padding-right: 1em
+    position: relative
+    z-index: 10
+
+.sub-line
+  border-color: $l-grey1
+  border-color: rgba($l-grey1, 0.4)
+  margin: 0
+  position: relative
+  top: -0.5em
 
 //
 //
@@ -129,7 +145,7 @@ hr
     width: 100%
     position: relative
     padding: 5px 0 5px 20px
- 
+
   &.bullets
     li
       @extend .icon-arrow-right

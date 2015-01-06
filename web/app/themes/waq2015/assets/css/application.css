@@ -136,6 +136,8 @@ hr {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .dark .title.lined, .dark header[role="banner"] nav ul a.lined, header[role="banner"] nav ul .dark a.lined {
+    background: #303030; }
   .black .title, .black header[role="banner"] nav ul a, header[role="banner"] nav ul .black a {
     color: white;
     -webkit-font-smoothing: antialiased;
@@ -165,6 +167,21 @@ hr {
       position: absolute;
       left: 0;
       bottom: 0; }
+  .title.lined, header[role="banner"] nav ul a.lined {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    background: white;
+    padding-right: 1em;
+    position: relative;
+    z-index: 10; }
+
+.sub-line {
+  border-color: #cacaca;
+  border-color: rgba(202, 202, 202, 0.4);
+  margin: 0;
+  position: relative;
+  top: -0.5em; }
 
 .main.title .meta, header[role="banner"] nav ul a.main .meta {
   font-size: 0.5em; }
@@ -679,12 +696,6 @@ footer {
   .col + .col.wide {
     padding-left: 34%; }
 
-.float-left {
-  float: left; }
-
-.mt1 {
-  margin: 1em 0; }
-
 .dark {
   background: #303030;
   color: white;
@@ -1019,6 +1030,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1077,6 +1089,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1170,6 +1183,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1194,6 +1208,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1225,6 +1240,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1249,6 +1265,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1296,6 +1313,7 @@ header[role="banner"] nav .logo {
     *display: inline;
     zoom: 1;
     height: 100%;
+    min-height: inherit;
     width: 0;
     vertical-align: middle;
     margin-right: -4px; }
@@ -1387,6 +1405,7 @@ header[role="banner"] nav .secondary {
     *display: inline;
     zoom: 1;
     height: 100%;
+    min-height: inherit;
     width: 0;
     vertical-align: middle;
     margin-right: -4px; }
@@ -1512,6 +1531,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: top;
         margin-right: -4px; }
@@ -1544,6 +1564,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1566,6 +1587,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1685,6 +1707,7 @@ textarea {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: bottom;
       margin-right: -4px; }
@@ -1738,6 +1761,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1762,6 +1786,7 @@ textarea {
           *display: inline;
           zoom: 1;
           height: 100%;
+          min-height: inherit;
           width: 0;
           vertical-align: middle;
           margin-right: -4px; }
@@ -1875,6 +1900,65 @@ textarea {
   transition: all 400ms ease-in; }
   .actualites article:hover {
     border: 1px solid #00bfdf; }
+
+.sub {
+  margin: 1.222em 0 0 0; }
+
+.logos {
+  zoom: 1;
+  margin: 0 0 4.5em 0; }
+  .logos:before, .logos:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .logos:after {
+    clear: both; }
+  .logos li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 25%;
+    padding: 20px;
+    float: left;
+    margin-top: 3.5em; }
+  .logos img {
+    max-width: 100%; }
+  .logos.small li {
+    padding: 0;
+    width: 20%; }
+
+.presenters .logos {
+  text-align: center; }
+  .presenters .logos li {
+    float: none; }
+
+.waq2015 .content {
+  margin-top: 45px; }
+.waq2015 .top,
+.waq2015 .bottom {
+  zoom: 1;
+  margin-bottom: 45px; }
+  .waq2015 .top:before, .waq2015 .top:after,
+  .waq2015 .bottom:before,
+  .waq2015 .bottom:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .waq2015 .top:after,
+  .waq2015 .bottom:after {
+    clear: both; }
+.waq2015 .infos {
+  width: 66.66666%;
+  padding-right: 130px;
+  float: left; }
+.waq2015 .description {
+  padding-right: 40px; }
+.waq2015 .volounteers {
+  width: 33.33333%;
+  float: left;
+  padding-left: 20px; }
 
 .single hgroup .btn, .single hgroup .profile {
   float: right;
@@ -1990,6 +2074,7 @@ footer .conception {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }

@@ -25,7 +25,6 @@
       +inlineb
       min-width: 50%
       min-height: 100%
-  
   .col
     &.main>*
       padding: $medium
@@ -281,7 +280,7 @@
       .image-une
         img
           width: 100%
-.pagination-container 
+.pagination-container
   +clearfix()
   display: block
   clear: left
@@ -297,12 +296,66 @@
     &:hover
       border: 1px solid $l-blue
 
+
+//
+//
+// PARTENAIRES
+
+.sub
+  margin: 1.222em 0 0 0
+
+.logos
+  +clearfix()
+  margin: 0 0 4.5em 0
+  li
+    +inlineb()
+    width: 25%
+    padding: 20px
+    float: left
+    margin-top: 3.5em
+  img
+    max-width: 100%
+  &.small
+    li
+      padding: 0
+      width: 20%
+
+.presenters
+  .logos
+    text-align: center
+    li
+      float: none
+
+
+//
+//
+// WAQ 2015
+
+.waq2015
+  .content
+    margin-top: 45px
+  .top,
+  .bottom
+    +clearfix()
+    margin-bottom: 45px
+  .infos
+    width: 66.66666%
+    padding-right: 130px
+    float: left
+  .description
+    padding-right: 40px
+  .volounteers
+    width: 33.33333%
+    float: left
+    padding-left: 20px
+
+
 //
 //
 // SINGLE
 
 .single
-  hgroup 
+  hgroup
     .btn
       float: right
       position: relative
