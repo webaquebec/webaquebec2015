@@ -136,6 +136,8 @@ hr {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .dark .title.lined {
+    background: #303030; }
   .black .title {
     color: white;
     -webkit-font-smoothing: antialiased;

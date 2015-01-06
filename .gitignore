@@ -39,3 +39,4 @@ bin
 # Custom
 .DS_Store
 .sass-cache
+web/app/themes/waq2015/assets/img/stats_temp.png
