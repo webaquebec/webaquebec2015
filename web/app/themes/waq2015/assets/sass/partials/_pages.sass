@@ -25,7 +25,6 @@
       +inlineb
       min-width: 50%
       min-height: 100%
-  
   .col
     &.main>*
       padding: $medium
@@ -281,7 +280,7 @@
       .image-une
         img
           width: 100%
-.pagination-container 
+.pagination-container
   +clearfix()
   display: block
   clear: left
@@ -296,6 +295,35 @@
     +prefix(transition, all 400ms ease-in)
     &:hover
       border: 1px solid $l-blue
+
+
+//
+//
+// PARTENAIRES
+
+.presenters
+  .logos
+    text-align: center
+    li
+      float: none
+
+.sub
+  margin: 1.222em 0 0 0
+
+.logos
+  +clearfix()
+  margin: 0 0 4.5em 0
+  li
+    +inlineb()
+    width: 25%
+    float: left
+    margin-top: 3.5em
+  img
+    max-width: 100%
+  &.small
+    li
+      width: 20%
+
 
 //
 //

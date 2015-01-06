@@ -165,6 +165,21 @@ hr {
       position: absolute;
       left: 0;
       bottom: 0; }
+  .title.lined, header[role="banner"] nav ul a.lined {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    background: white;
+    padding-right: 1em;
+    position: relative;
+    z-index: 10; }
+
+.sub-line {
+  border-color: #cacaca;
+  border-color: rgba(202, 202, 202, 0.4);
+  margin: 0;
+  position: relative;
+  top: -0.5em; }
 
 .main.title .meta, header[role="banner"] nav ul a.main .meta {
   font-size: 0.5em; }
@@ -1883,6 +1898,36 @@ textarea {
   transition: all 400ms ease-in; }
   .actualites article:hover {
     border: 1px solid #00bfdf; }
+
+.presenters .logos {
+  text-align: center; }
+  .presenters .logos li {
+    float: none; }
+
+.sub {
+  margin: 1.222em 0 0 0; }
+
+.logos {
+  zoom: 1;
+  margin: 0 0 4.5em 0; }
+  .logos:before, .logos:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .logos:after {
+    clear: both; }
+  .logos li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 25%;
+    float: left;
+    margin-top: 3.5em; }
+  .logos img {
+    max-width: 100%; }
+  .logos.small li {
+    width: 20%; }
 
 .single hgroup .btn, .single hgroup .profile {
   float: right;
