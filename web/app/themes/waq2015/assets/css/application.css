@@ -679,12 +679,6 @@ footer {
   .col + .col.wide {
     padding-left: 34%; }
 
-.float-left {
-  float: left; }
-
-.mt1 {
-  margin: 1em 0; }
-
 .dark {
   background: #303030;
   color: white;
@@ -1019,6 +1013,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1077,6 +1072,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1170,6 +1166,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1194,6 +1191,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1225,6 +1223,7 @@ header[role="banner"] nav .secondary {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
@@ -1249,6 +1248,7 @@ header[role="banner"] nav .secondary {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1296,6 +1296,7 @@ header[role="banner"] nav .logo {
     *display: inline;
     zoom: 1;
     height: 100%;
+    min-height: inherit;
     width: 0;
     vertical-align: middle;
     margin-right: -4px; }
@@ -1387,6 +1388,7 @@ header[role="banner"] nav .secondary {
     *display: inline;
     zoom: 1;
     height: 100%;
+    min-height: inherit;
     width: 0;
     vertical-align: middle;
     margin-right: -4px; }
@@ -1512,6 +1514,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: top;
         margin-right: -4px; }
@@ -1544,6 +1547,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1566,6 +1570,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1685,6 +1690,7 @@ textarea {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: bottom;
       margin-right: -4px; }
@@ -1738,6 +1744,7 @@ textarea {
         *display: inline;
         zoom: 1;
         height: 100%;
+        min-height: inherit;
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
@@ -1762,6 +1769,7 @@ textarea {
           *display: inline;
           zoom: 1;
           height: 100%;
+          min-height: inherit;
           width: 0;
           vertical-align: middle;
           margin-right: -4px; }
@@ -1990,6 +1998,7 @@ footer .conception {
       *display: inline;
       zoom: 1;
       height: 100%;
+      min-height: inherit;
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }

@@ -26,13 +26,14 @@
     content: ""
     @include inlineb()
     height: 100%
+    min-height: inherit
     width: 0
     vertical-align: $v-align
     margin-right: -4px
   &>*
     @include inlineb
     vertical-align: $v-align
-    
+
 
 // PREFIXED PROPS
 // exemple :
@@ -54,8 +55,8 @@
       $results: append($results, $res, comma)
     #{nth($prefixes, $p)}#{$prop}: $results
 
-// @function debug($var)
-    @return $var
+@function debug($var)
+  @return $var
 
 // CLEARFIX
 @mixin clearfix()
@@ -108,7 +109,7 @@
   @if $value == on 
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-  
+
   @else 
     -webkit-font-smoothing: subpixel-antialiased
     -moz-osx-font-smoothing: auto
@@ -128,7 +129,7 @@
     line-height: 1
     width: round(100% / $cols * 100) / 100
     padding: 0 ($medium/2) $medium
-    
+
 // COLUMNS
 @mixin columns($n, $gap)
   -webkit-column-count: $n
@@ -139,11 +140,11 @@
     -moz-column-gap: $gap
     column-gap: $gap
 
-// IE : Équivalent ie8 d'un :before
+// IE : Équivalent ie7 d'un :before
 @mixin ieBefore($content)
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '#{$content}' + this.innerHTML)
 
-// IE : Équivalent ie8 d'un :after
+// IE : Équivalent ie7 d'un :after
 @mixin ieAfter($content)
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = this.innerHTML + '#{$content}')
 
