@@ -3,8 +3,6 @@
  * Template Name: Partenaires
  */
 
-
-
 get_header_once();
 ?>
 
