@@ -1922,11 +1922,13 @@ textarea {
     *display: inline;
     zoom: 1;
     width: 25%;
+    padding: 20px;
     float: left;
     margin-top: 3.5em; }
   .logos img {
     max-width: 100%; }
   .logos.small li {
+    padding: 0;
     width: 20%; }
 
 .single hgroup .btn, .single hgroup .profile {
