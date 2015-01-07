@@ -226,7 +226,7 @@ hr {
     top: 50%;
     left: 0;
     color: #00bfdf;
-    margin-top: 0.2em;
+    margin-top: 0.05em;
     line-height: 0; }
   .list.numbered, .content ul.numbered, .content ol {
     list-style-type: none; }
