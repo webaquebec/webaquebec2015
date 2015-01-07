@@ -17,48 +17,300 @@ get_header_once();
     </h1>
     <div class="content">
       <div class="top">
-        <div class="infos">
+        <div class="waq-infos">
           <div class="description">
             <?= get_the_content() ?>
           </div>
         </div>
         <div class="volounteers">
+          <?php
+
+          // featured volounteers
+          $featured_volounteers = get_field('volounteers');
+
+          ?>
           <h2 class="lower title">Des bénévoles essentiels!</h2>
+          <p>Un merci tout spécial à notre équipe du tonnerre!</p>
+          <ul class="volounteers-list">
+          <?php foreach ($featured_volounteers as $featured_volounteer) : ?>
+            <li><?= $featured_volounteer['name']; ?></li>
+          <?php endforeach; ?>
+          </ul>
         </div>
       </div>
     </div>
     <div class="bottom">
-      <div class="board">
+      <div class="board group">
+        <?php
+
+        // board of directors
+        $board_members = get_field('board');
+
+        ?>
         <h2 class="sub title lined">Conseil d'administration</h2>
         <hr class="sub-line">
+        <ul class="board-members-list cols-4">
+        <?php foreach ($board_members as $board_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $board_member['image']['sizes']['thumbnail']; ?>" alt="<?= $board_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $board_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $board_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $board_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $board_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="admin">
+      <div class="admin group">
+        <?php
+
+        // board of directors
+        $admin_members = get_field('admin');
+
+        ?>
         <h2 class="sub title lined">Administration</h2>
         <hr class="sub-line">
+        <ul class="admin-members-list cols-4">
+        <?php foreach ($admin_members as $admin_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $admin_member['image']['sizes']['thumbnail']; ?>" alt="<?= $admin_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $admin_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $admin_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $admin_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $admin_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="welcome">
+      <div class="welcome group">
+        <?php
+
+        // board of directors
+        $welcome_members = get_field('welcome');
+
+        ?>
         <h2 class="sub title lined">Comité d'accueil</h2>
         <hr class="sub-line">
+        <ul class="welcome-members-list cols-4">
+        <?php foreach ($welcome_members as $welcome_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $welcome_member['image']['sizes']['thumbnail']; ?>" alt="<?= $welcome_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $welcome_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $welcome_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $welcome_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $welcome_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="volounteers-committee">
+      <div class="volounteers-committee group">
+        <?php
+
+        // board of directors
+        $volounteers_committee_members = get_field('volounteers_committee');
+
+        ?>
         <h2 class="sub title lined">Comité des bénévoles</h2>
         <hr class="sub-line">
+        <ul class="volounteers-committee-members-list cols-4">
+        <?php foreach ($volounteers_committee_members as $volounteers_committee_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $volounteers_committee_member['image']['sizes']['thumbnail']; ?>" alt="<?= $volounteers_committee_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $volounteers_committee_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $volounteers_committee_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $volounteers_committee_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $volounteers_committee_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="communications">
+      <div class="communications group">
+        <?php
+
+        // board of directors
+        $communications_members = get_field('communications');
+
+        ?>
         <h2 class="sub title lined">Comité des communications</h2>
         <hr class="sub-line">
+        <ul class="communications-members-list cols-4">
+        <?php foreach ($communications_members as $communications_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $communications_member['image']['sizes']['thumbnail']; ?>" alt="<?= $communications_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $communications_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $communications_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $communications_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $communications_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="logisitic">
+      <div class="logisitics group">
+        <?php
+
+        // board of directors
+        $logistics_members = get_field('logistics');
+
+        ?>
         <h2 class="sub title lined">Comité logisitique</h2>
         <hr class="sub-line">
+        <ul class="logistics-members-list cols-4">
+        <?php foreach ($logistics_members as $logistics_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $logistics_member['image']['sizes']['thumbnail']; ?>" alt="<?= $logistics_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $logistics_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $logistics_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $logistics_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $logistics_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="schedule">
+      <div class="schedule group">
+        <?php
+
+        // board of directors
+        $schedule_members = get_field('schedule');
+
+        ?>
         <h2 class="sub title lined">Comité de programmation</h2>
         <hr class="sub-line">
+        <ul class="schedule-members-list cols-4">
+        <?php foreach ($schedule_members as $schedule_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $schedule_member['image']['sizes']['thumbnail']; ?>" alt="<?= $schedule_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $schedule_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $schedule_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $schedule_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $schedule_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
-      <div class="international">
+      <div class="international group">
+        <?php
+
+        // board of directors
+        $international_members = get_field('international');
+
+        ?>
         <h2 class="sub title lined">Comité des relations internationales</h2>
         <hr class="sub-line">
+        <ul class="international-members-list cols-4">
+        <?php foreach ($international_members as $international_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $international_member['image']['sizes']['thumbnail']; ?>" alt="<?= $international_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $international_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $international_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $international_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $international_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
       </div>
     </div>
   </div>
