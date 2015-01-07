@@ -3,38 +3,44 @@
       <footer role="contentinfo" class="black">
         <div class="container">
 
-          <div class="clearfix">
-            <div class="content">
-              <h2 class="sub title">Espace dalhousie : le terminal</h2>
-              <p>
-                84 Dalhousie (Bil) <br>
-                Québec (Québec), G1K 4C4
-              </p>
-              <div class="border-bottom expandable"></div>
-            </div>
-          </div>
-
-          <div class="cols info-general">
-            <div class="col wide">
+          <div class="top-footer cols-2">
+            <div class="col">
               <div class="content">
-                <h3 class="thin title">Informations générales</h3>
+                <h2 class="sub title">Espace dalhousie : le terminal</h2>
                 <p>
-                  1 877 334-2547<br>
-                  <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>
-                  <h3 class="thin title">Informations médias</h3>
-                  1 418 558-7455<br>
-                  <a href="mailto:medias@webaquebec.org">medias@webaquebec.org</a>
+                  84 Dalhousie (Bil) <br>
+                  Québec (Québec), G1K 4C4
                 </p>
+                <div class="border-bottom"></div>
+                <div class="cols-2 no-margins info-general">
+                  <div class="">
+                    <div class="content">
+                      <h3 class="lower title">Informations générales</h3>
+                      <p>
+                        1 877 334-2547<br>
+                        <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>
+                        <h3 class="lower title">Informations médias</h3>
+                        1 418 558-7455<br>
+                        <a href="mailto:medias@webaquebec.org">medias@webaquebec.org</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="">
+                    <div class="content">
+                      <h4 class="lower title">Siège social</h4>
+                      <p>
+                        305 Charest Est, bureau 901,<br>
+                        Québec, (Québec) G1K 3H3<br>
+                        <a href="tel:1 418 647-3877">1 418 647-3877</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col narrow">
-              <div class="content">
-                <h4 class="lower title">Siège social</h4>
-                <p>
-                  305 Charest Est, bureau 901,<br>
-                  Québec, (Québec) G1K 3H3<br>
-                  <a href="tel:1 418 647-3877">1 418 647-3877</a>
-                </p>
+            <div class="col">
+              <div class="contact-general">
+                <h3 class="lower title">Contact</h3>
               </div>
             </div>
           </div>

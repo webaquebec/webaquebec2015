@@ -79,6 +79,8 @@ footer
 .cols-2
   @extend .cols
   +grid(2, $medium)
+  &.no-margins
+    +grid(2, 0)
   &.small-margins
     +grid(2, $small)
   &.xsmall-margins

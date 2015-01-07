@@ -419,17 +419,24 @@
 //
 // FOOTER
 footer
+  .top-footer
+    +clearfix()
   .sub-footer
     +clearfix
     position: relative
+    padding-top: $medium
+    border-top: 1px solid $m-grey
   .info-general
     +inlineb()
     width: 100%
-    margin: $medium 0
-    border-bottom: 1px solid $m-grey
+    margin: $small 0 0 0
+    p
+      margin-bottom: 1em
+      &:last-child
+        margin-bottom: $small
   .accessibility
     +inlineb
-    margin-bottom: $small
+    margin-bottom: $xsmall
   .contribute, .archives
     +clearfix
     >*
@@ -438,7 +445,7 @@ footer
   .conception
     position: absolute
     right: 0
-    bottom: 0
+    bottom: -0.5em
     >*
       +inlineb
       +align-children(middle)
@@ -450,5 +457,7 @@ footer
     img
       width: 100%
       height: auto
+      position: relative
+      top: -0.25em
 
 

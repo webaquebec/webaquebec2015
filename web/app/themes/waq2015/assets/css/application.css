@@ -501,6 +501,22 @@ footer {
     line-height: 1;
     width: 50%;
     padding: 0 10px 20px; }
+  .cols-2.no-margins {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .cols-2.no-margins > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 50%;
+      padding: 0 0 0; }
   .cols-2.small-margins {
     font-size: 0;
     word-spacing: 0;
@@ -2027,9 +2043,20 @@ textarea {
   .single .thumb img {
     min-height: 100%; }
 
+footer .top-footer {
+  zoom: 1; }
+  footer .top-footer:before, footer .top-footer:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  footer .top-footer:after {
+    clear: both; }
 footer .sub-footer {
   zoom: 1;
-  position: relative; }
+  position: relative;
+  padding-top: 20px;
+  border-top: 1px solid #525252; }
   footer .sub-footer:before, footer .sub-footer:after {
     content: "\0020";
     display: block;
@@ -2042,13 +2069,16 @@ footer .info-general {
   *display: inline;
   zoom: 1;
   width: 100%;
-  margin: 20px 0;
-  border-bottom: 1px solid #525252; }
+  margin: 10px 0 0 0; }
+  footer .info-general p {
+    margin-bottom: 1em; }
+    footer .info-general p:last-child {
+      margin-bottom: 10px; }
 footer .accessibility {
   display: inline-block;
   *display: inline;
   zoom: 1;
-  margin-bottom: 10px; }
+  margin-bottom: 5px; }
 footer .contribute, footer .archives {
   zoom: 1; }
   footer .contribute:before, footer .contribute:after, footer .archives:before, footer .archives:after {
@@ -2066,7 +2096,7 @@ footer .contribute, footer .archives {
 footer .conception {
   position: absolute;
   right: 0;
-  bottom: 0; }
+  bottom: -0.5em; }
   footer .conception > * {
     display: inline-block;
     *display: inline;
@@ -2097,7 +2127,9 @@ footer .logo-o2 {
   height: auto; }
   footer .logo-o2 img {
     width: 100%;
-    height: auto; }
+    height: auto;
+    position: relative;
+    top: -0.25em; }
 
 @media screen and (max-width: 580px) {
   .cols-2 {
