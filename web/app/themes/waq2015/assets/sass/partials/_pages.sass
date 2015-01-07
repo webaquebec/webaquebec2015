@@ -426,6 +426,10 @@ footer
     position: relative
     padding-top: $medium
     border-top: 1px solid $m-grey
+  .right-section
+    min-height: 300px
+    text-align: center
+    +align-children(middle)
   .info-general
     +inlineb()
     width: 100%
@@ -434,6 +438,49 @@ footer
       margin-bottom: 1em
       &:last-child
         margin-bottom: $small
+  .contact-general
+    max-width: 75%
+    margin: 0 auto
+    padding: 1.563em 1.563em 1.25em 1.563em
+    border-radius: 5px
+    border: 1px solid $m-grey
+    >*
+      +inlineb
+      +align-children(middle)
+    .title
+      margin: 0 0 $small 0
+    .social
+      list-style-type: none
+      font-size: 1.75em
+      margin-top: 0.5em
+      li
+        +inlineb
+        width: auto
+        padding: 0
+        &:after
+          display: none
+      a
+        text-indent: -9999px
+        display: block
+        width: 1.25em
+        height: 1.25em
+        position: relative
+        color: #fff
+        &:after
+          position: absolute
+          top: 0
+          left: 0
+          line-height: 1.25em
+          height: 100%
+          width: 100%
+        .no-touch &:hover
+          color: $blue
+        &.facebook
+          @extend .icon-facebook
+        &.twitter
+          @extend .icon-twitter
+        &.linkedin
+          @extend .icon-linkedin
   .accessibility
     +inlineb
     margin-bottom: $xsmall

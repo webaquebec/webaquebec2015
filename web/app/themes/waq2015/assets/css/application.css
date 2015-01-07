@@ -266,12 +266,15 @@ hr {
 .icon-facebook:after,
 .profile .links a.facebook:after,
 .social a.facebook:after,
+footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
 .profile .links a.twitter:after,
 .social a.twitter:after,
+footer .contact-general .social a.twitter:after,
 .icon-linkedin:after,
 .profile .links a.linkedin:after,
 .social a.linkedin:after,
+footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
 .social a.instagram:after,
 .icon-retweet:after,
@@ -316,13 +319,13 @@ header[role="banner"] nav .secondary a:after,
 .icon-arrow-bottom:after {
   content: "\f106"; }
 
-.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after {
+.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: "\f107"; }
 
-.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after {
+.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, footer .contact-general .social a.twitter:after {
   content: "\f108"; }
 
-.icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after {
+.icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
   content: "\f109"; }
 
 .icon-instagram:after, .social a.instagram:after {
@@ -2064,6 +2067,28 @@ footer .sub-footer {
     overflow: hidden; }
   footer .sub-footer:after {
     clear: both; }
+footer .right-section {
+  min-height: 300px;
+  text-align: center;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle; }
+  footer .right-section:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: middle;
+    margin-right: -4px; }
+  footer .right-section > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
 footer .info-general {
   display: inline-block;
   *display: inline;
@@ -2074,6 +2099,65 @@ footer .info-general {
     margin-bottom: 1em; }
     footer .info-general p:last-child {
       margin-bottom: 10px; }
+footer .contact-general {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 1.563em 1.563em 1.25em 1.563em;
+  border-radius: 5px;
+  border: 1px solid #525252; }
+  footer .contact-general > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+    footer .contact-general > *:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      min-height: inherit;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -4px; }
+    footer .contact-general > * > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+  footer .contact-general .title, footer .contact-general header[role="banner"] nav ul a, header[role="banner"] nav ul footer .contact-general a {
+    margin: 0 0 10px 0; }
+  footer .contact-general .social {
+    list-style-type: none;
+    font-size: 1.75em;
+    margin-top: 0.5em; }
+    footer .contact-general .social li {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      width: auto;
+      padding: 0; }
+      footer .contact-general .social li:after {
+        display: none; }
+    footer .contact-general .social a {
+      text-indent: -9999px;
+      display: block;
+      width: 1.25em;
+      height: 1.25em;
+      position: relative;
+      color: white; }
+      footer .contact-general .social a:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 1.25em;
+        height: 100%;
+        width: 100%; }
+      .no-touch footer .contact-general .social a:hover {
+        color: #0094c2; }
 footer .accessibility {
   display: inline-block;
   *display: inline;

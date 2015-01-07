@@ -4,7 +4,7 @@
         <div class="container">
 
           <div class="top-footer cols-2">
-            <div class="col">
+            <div class="left-section">
               <div class="content">
                 <h2 class="sub title">Espace dalhousie : le terminal</h2>
                 <p>
@@ -38,9 +38,26 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="right-section">
               <div class="contact-general">
-                <h3 class="lower title">Contact</h3>
+                <div class="content">
+                  <h2 class="sub title">Rejoignez-nous et échangeons!</h2>
+                  <img src="/img/hashtag-waq.png" alt="#WAQ2015" />
+                  <ul class="social">
+                    <li>
+                      <a href="#_" class="facebook">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#_" class="twitter">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#_" class="linkedin">LinkedIn</a>
+                    </li>
+                    <li>
+                      <a href="#_" class="instagram">Instagram</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
