@@ -379,13 +379,15 @@
     float: left
     margin-top: $xsmall
     margin-right: $medium
+    .tags-section
+      font-size: 0.8em
   .conferencer
     margin-top: -30%
     float: left
     position: relative
     z-index: 100
   .session
-    padding: $xlarge 0 
+    padding: $xlarge 0
   .single-article
     .image-une
       padding-bottom: 1.25em
@@ -397,6 +399,13 @@
       border-top:  1px solid $grey
       padding-top: $medium
       margin-top: $medium
+  .content
+    padding-bottom: 2em
+    border-bottom: 1px solid $l-grey1
+  .tags
+    margin: 0.5em 0
+    a
+      color: $d-grey
   .about
     width: 100%
     text-align: left
@@ -404,14 +413,17 @@
     padding-bottom: $medium
     margin-bottom: 17px
     +clearfix()
+    +align-children(middle)
+    min-height: 100px
     >*
       display: inline-block
     .name
       margin-left: $medium
-      margin-top: $medium
+      .title
+        margin-top: 3px
   .thumb
-    width: 93px
-    height: 93px
+    width: 100px
+    height: 100px
     float: left
     img
       min-height: 100%

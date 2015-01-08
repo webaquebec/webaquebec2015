@@ -2003,6 +2003,8 @@ textarea {
   float: left;
   margin-top: 5px;
   margin-right: 20px; }
+  .single .conference .tags-section {
+    font-size: 0.8em; }
 .single .conferencer {
   margin-top: -30%;
   float: left;
@@ -2020,13 +2022,25 @@ textarea {
     border-top: 1px solid #b8b9c2;
     padding-top: 20px;
     margin-top: 20px; }
+.single .content {
+  padding-bottom: 2em;
+  border-bottom: 1px solid #cacaca; }
+.single .tags {
+  margin: 0.5em 0; }
+  .single .tags a {
+    color: #303030; }
 .single .about {
   width: 100%;
   text-align: left;
   display: block;
   padding-bottom: 20px;
   margin-bottom: 17px;
-  zoom: 1; }
+  zoom: 1;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+  min-height: 100px; }
   .single .about:before, .single .about:after {
     content: "\0020";
     display: block;
@@ -2034,14 +2048,30 @@ textarea {
     overflow: hidden; }
   .single .about:after {
     clear: both; }
+  .single .about:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: middle;
+    margin-right: -4px; }
+  .single .about > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
   .single .about > * {
     display: inline-block; }
   .single .about .name {
-    margin-left: 20px;
-    margin-top: 20px; }
+    margin-left: 20px; }
+    .single .about .name .title, .single .about .name header[role="banner"] nav ul a, header[role="banner"] nav ul .single .about .name a {
+      margin-top: 3px; }
 .single .thumb {
-  width: 93px;
-  height: 93px;
+  width: 100px;
+  height: 100px;
   float: left; }
   .single .thumb img {
     min-height: 100%; }
