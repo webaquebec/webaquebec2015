@@ -270,6 +270,7 @@ footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
 .profile .links a.twitter:after,
 .social a.twitter:after,
+.stream-post.twitter:before,
 footer .contact-general .social a.twitter:after,
 .icon-linkedin:after,
 .profile .links a.linkedin:after,
@@ -278,9 +279,12 @@ footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
 .social a.instagram:after,
 .icon-retweet:after,
+.stream-post .share a.retweet:after,
 .icon-reply:after,
+.stream-post .share a.reply:after,
 .icon-favorite:after,
 header[role="banner"] nav .secondary a:after,
+.stream-post .share a.favorite:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
@@ -322,7 +326,7 @@ header[role="banner"] nav .secondary a:after,
 .icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: "\f107"; }
 
-.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, footer .contact-general .social a.twitter:after {
+.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .stream-post.twitter:before, footer .contact-general .social a.twitter:after {
   content: "\f108"; }
 
 .icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
@@ -331,13 +335,13 @@ header[role="banner"] nav .secondary a:after,
 .icon-instagram:after, .social a.instagram:after {
   content: "\f10a"; }
 
-.icon-retweet:after {
+.icon-retweet:after, .stream-post .share a.retweet:after {
   content: "\f10b"; }
 
-.icon-reply:after {
+.icon-reply:after, .stream-post .share a.reply:after {
   content: "\f10c"; }
 
-.icon-favorite:after, header[role="banner"] nav .secondary a:after {
+.icon-favorite:after, header[role="banner"] nav .secondary a:after, .stream-post .share a.favorite:after {
   content: "\f10d"; }
 
 .icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
@@ -1920,6 +1924,81 @@ textarea {
     -moz-osx-font-smoothing: grayscale; }
   .blog .featured .title, .blog .featured header[role="banner"] nav ul a, header[role="banner"] nav ul .blog .featured a {
     margin-top: 0; }
+
+.stream-post {
+  padding: 0.75em 0;
+  position: relative; }
+  .stream-post.border-bottom:after {
+    background: #4b4b4d; }
+  .stream-post.twitter:before {
+    position: absolute;
+    top: 0.75em;
+    right: 0;
+    font-size: 1.25em;
+    color: #cacaca; }
+  .stream-post .post-infos {
+    margin-bottom: 1em; }
+  .stream-post .thumb {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 32px;
+    width: 32px; }
+  .stream-post .user {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    position: relative;
+    top: -0.25em; }
+    .stream-post .user > * {
+      line-height: 0.875em; }
+  .stream-post .name {
+    display: block;
+    color: #b8b9c2;
+    font-size: 0.875em; }
+  .stream-post .username {
+    font-size: 0.875em; }
+  .stream-post .date {
+    color: #b8b9c2;
+    font-size: 0.875em; }
+  .stream-post p {
+    margin-bottom: 0; }
+  .stream-post .share {
+    text-align: center;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    float: right; }
+    .stream-post .share li {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      width: 20px; }
+    .stream-post .share a {
+      display: block;
+      text-indent: -9999px;
+      line-height: 25px;
+      color: #b8b9c2;
+      height: 25px;
+      position: relative; }
+      .stream-post .share a.reply:after, .stream-post .share a.retweet:after, .stream-post .share a.favorite:after {
+        position: absolute;
+        width: 100%;
+        line-height: 0;
+        top: 50%;
+        right: 0; }
+      .stream-post .share a.reply:after {
+        font-size: 0.8em;
+        display: block;
+        text-indent: 0; }
+      .stream-post .share a.retweet:after {
+        font-size: 0.9em;
+        display: block;
+        text-indent: 0; }
+      .stream-post .share a.favorite:after {
+        font-size: 0.9em;
+        display: block;
+        text-indent: 0; }
 
 .sub {
   margin: 1.222em 0 0 0; }

@@ -292,6 +292,86 @@
     .title
       margin-top: 0
 
+.stream-post
+  padding: 0.75em 0
+  position: relative
+  &.border-bottom
+    &:after
+      background: $d-grey2
+  &.twitter
+    &:before
+      @extend .icon-twitter:after
+      position: absolute
+      top: 0.75em
+      right: 0
+      font-size: 1.25em
+      color: $l-grey1
+  .post-infos
+    margin-bottom: 1em
+  .thumb
+    +inlineb()
+    height: 32px
+    width: 32px
+  .user
+    +inlineb()
+    position: relative
+    top: -0.25em
+    > *
+      line-height: 0.875em
+  .name
+    display: block
+    color: $grey
+    font-size: 0.875em
+  .username
+    font-size: 0.875em
+  .date
+    color: $grey
+    font-size: 0.875em
+  p
+    margin-bottom: 0
+  .share
+    text-align: center
+    +inlineb()
+    float: right
+    li
+      +inlineb()
+      width: 20px
+    a
+      display: block
+      text-indent: -9999px
+      line-height: 25px
+      color: $grey
+      height: 25px
+      position: relative
+      &.reply,
+      &.retweet,
+      &.favorite
+        &:after
+          position: absolute
+          width: 100%
+          line-height: 0
+          top: 50%
+          right: 0
+
+      &.reply
+        @extend .icon-reply
+        &:after
+          font-size: 0.8em
+          display: block
+          text-indent: 0
+      &.retweet
+        @extend .icon-retweet
+        &:after
+          font-size: 0.9em
+          display: block
+          text-indent: 0
+      &.favorite
+        @extend .icon-favorite
+        &:after
+          font-size: 0.9em
+          display: block
+          text-indent: 0
+
 
 //
 //
