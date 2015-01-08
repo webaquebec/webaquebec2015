@@ -304,7 +304,7 @@ function blankwp_index($length) // Create 20 Word Callback for Index page Excerp
 }
 //Fonction pour remplacer le [...] du excerpt par un texte plus intuitif
 function new_excerpt_more($output) {
-    return '... <div class="clearfix"></div><a href="'. get_permalink() . '" class="lien-status" title="'. the_title('', '', false).'">Lire la suite</a>';
+    return '... <a href="'. get_permalink() . '" class="link-status" title="'. the_title('', '', false).'">Lire la suite</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 // Remove Admin bar
