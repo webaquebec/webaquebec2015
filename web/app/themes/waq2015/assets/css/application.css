@@ -1941,12 +1941,14 @@ textarea {
     right: 0;
     font-size: 1.25em;
     color: #cacaca; }
-  .stream-post.instagram:before {
-    position: absolute;
-    top: 0.75em;
-    right: 0;
-    font-size: 1.25em;
-    color: #cacaca; }
+  .stream-post.instagram {
+    padding-bottom: 1.25em; }
+    .stream-post.instagram:before {
+      position: absolute;
+      top: 0.75em;
+      right: 0;
+      font-size: 1.25em;
+      color: #cacaca; }
   .stream-post .post-infos {
     margin-bottom: 1em;
     display: inline-block;
