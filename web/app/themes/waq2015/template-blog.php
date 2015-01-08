@@ -46,13 +46,14 @@ get_header_once();
         </article>
         <?php endwhile; endif; ?>
         <div class="btn bold autowidth link">
-          <a href="<?= get_site_url(); ?>/actualites" class=""><span>Voir tous les articles</span></a>
+          <a href="<?= get_permalink(126) ?>" class=""><span>Voir tous les articles</span></a>
         </div>
       </div>
-      <div class="col wide stream">
+      <div class="col wide feed">
+        <?php if(false): ?>
         <div class="cols-2">
           <div class="left col">
-            <article class="stream-post border-bottom twitter">
+            <article class="feed-post border-bottom twitter">
               <div class="post-infos">
                 <div class="thumb">
                   <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
@@ -79,7 +80,7 @@ get_header_once();
                 </li>
               </ul>
             </article>
-            <article class="stream-post instagram">
+            <article class="feed-post instagram">
               <div class="post-infos">
                 <div class="thumb">
                   <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
@@ -96,7 +97,7 @@ get_header_once();
             </article>
           </div>
           <div class="right col">
-            <article class="stream-post border-bottom instagram">
+            <article class="feed-post border-bottom instagram">
               <div class="post-infos">
                 <div class="thumb">
                   <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
@@ -111,7 +112,7 @@ get_header_once();
                 <img src="http://distilleryimage10.ak.instagram.com/624ca586b12a11e3a7b912f132ba8f8e_8.jpg" alt="IMAGENAME">
               </div>
             </article>
-            <article class="stream-post twitter">
+            <article class="feed-post twitter">
               <div class="post-infos">
                 <div class="thumb">
                   <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
@@ -140,6 +141,7 @@ get_header_once();
             </article>
           </div>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

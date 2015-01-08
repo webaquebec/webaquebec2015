@@ -21,7 +21,7 @@
 					offsetBottom: 0,
 					// standard sticky
 					reset: undefined,
-					sticked: undefined,
+					fixed: undefined,
 					contained: undefined,
 					// inverted sticky
 					fixedTop: undefined,
@@ -35,29 +35,41 @@
 			// NORMAL STICKY
 			if(!options.inverted){
 				
+				
 				// STICKED
 				$el.scrollEvents({
+					order: 2,
 					flag: 'sticked',
 					offset: options.offset,
-					topIn: options.reset,
-					topOut: options.sticked
+					topDown: options.reset,
+					topUp: options.fixed
 				});
+
 				// CONTAINED
 				if(options.container){
-					options.container.scrollEvents({
-						selection: $el,
+					
+					$el.scrollEvents({
+						order: 1,
 						flag: 'contained',
-						offset:  -options.container.outerHeight() + $el.outerHeight() + options.offsetBottom + options.offset ,
-						topIn: options.sticked,
-						topOut: options.contained
+						offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
+						topDown: options.fixed,
+						topUp: options.contained
 					})
 				}
 
+
 				function updateOptions(){
 					if(options.container){
-						options.container.scrollEvents('set','contained', {
-							offset: -options.container.outerHeight() + $el.outerHeight() + options.offsetBottom + options.offset
+						var el = $el;
+						var tmpPos = el.style.position;
+						var tmpTop = el.style.top;
+						el.style.position = el.initialStates.position;
+						el.style.top = el.initialStates.top;
+						$el.scrollEvents('set','contained', {
+							offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
 						});
+						el.style.position = tmpPos;
+						el.style.top = tmpTop;
 					}
 				}
 				$(window).on('hardResize', updateOptions);
@@ -70,21 +82,25 @@
 			else{
 
 				$el.scrollEvents({
+					order: 2,
 					flag: 'inverted sticky top',
 					offset: options.offset,
 					topUp: options.fixedTop
 				});
 				$el.scrollEvents({
+					order: 1,
 					flag: 'scrolling top',
 					offset: options.offset,
 					topDown: options.scrolling,
 				});
 				$el.scrollEvents({
+					order: 1,
 					flag: 'scrolling bottom',
 					offsetBottom: options.offsetBottom,
 					bottomUp: options.scrolling,
 				});
 				$el.scrollEvents({
+					order: 2,
 					flag: 'inverted sticky bottom',
 					offsetBottom: options.offsetBottom,
 					bottomDown: options.fixedBottom

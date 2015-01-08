@@ -270,7 +270,7 @@ footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
 .profile .links a.twitter:after,
 .social a.twitter:after,
-.stream-post.twitter:before,
+.feed-post.twitter:before,
 footer .contact-general .social a.twitter:after,
 .icon-linkedin:after,
 .profile .links a.linkedin:after,
@@ -278,14 +278,14 @@ footer .contact-general .social a.twitter:after,
 footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
 .social a.instagram:after,
-.stream-post.instagram:before,
+.feed-post.instagram:before,
 .icon-retweet:after,
-.stream-post .share a.retweet:after,
+.feed-post .share a.retweet:after,
 .icon-reply:after,
-.stream-post .share a.reply:after,
+.feed-post .share a.reply:after,
 .icon-favorite:after,
 header[role="banner"] nav .secondary a:after,
-.stream-post .share a.favorite:after,
+.feed-post .share a.favorite:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
@@ -327,22 +327,22 @@ header[role="banner"] nav .secondary a:after,
 .icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: "\f107"; }
 
-.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .stream-post.twitter:before, footer .contact-general .social a.twitter:after {
+.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .feed-post.twitter:before, footer .contact-general .social a.twitter:after {
   content: "\f108"; }
 
 .icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
   content: "\f109"; }
 
-.icon-instagram:after, .social a.instagram:after, .stream-post.instagram:before {
+.icon-instagram:after, .social a.instagram:after, .feed-post.instagram:before {
   content: "\f10a"; }
 
-.icon-retweet:after, .stream-post .share a.retweet:after {
+.icon-retweet:after, .feed-post .share a.retweet:after {
   content: "\f10b"; }
 
-.icon-reply:after, .stream-post .share a.reply:after {
+.icon-reply:after, .feed-post .share a.reply:after {
   content: "\f10c"; }
 
-.icon-favorite:after, header[role="banner"] nav .secondary a:after, .stream-post .share a.favorite:after {
+.icon-favorite:after, header[role="banner"] nav .secondary a:after, .feed-post .share a.favorite:after {
   content: "\f10d"; }
 
 .icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
@@ -899,7 +899,7 @@ header[role="banner"] nav .secondary {
     .dark .btn:before, .dark .profile:before {
       background: #111111; }
     .dark .btn:after, .dark .profile:after {
-      border-color: #525252; }
+      border-color: #3d3d3d; }
     .dark .btn > *, .dark .profile > * {
       color: white; }
       .dark .btn > *:before, .dark .profile > *:before {
@@ -911,7 +911,7 @@ header[role="banner"] nav .secondary {
     .black .btn:before, .black .profile:before {
       background: #111111; }
     .black .btn:after, .black .profile:after {
-      border-color: #525252; }
+      border-color: #3d3d3d; }
     .black .btn > *:before, .black .profile > *:before {
       background: #303030; }
     .black .btn.toggle.active:after, .black .toggle.active.profile:after {
@@ -963,7 +963,7 @@ header[role="banner"] nav .secondary {
         -o-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1); }
       .btn.toggle.favorite.active, .toggle.favorite.active.profile {
-        color: #525252; }
+        color: #3d3d3d; }
         .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after {
           color: #00bfdf;
           font-size: 1em;
@@ -1258,7 +1258,7 @@ header[role="banner"] nav .secondary {
         zoom: 1;
         vertical-align: middle; }
       .conferencer-info .meta > * + * {
-        border-left: 1px solid #525252; }
+        border-left: 1px solid #3d3d3d; }
     .conferencer-info .meta .title, .conferencer-info .meta header[role="banner"] nav ul a, header[role="banner"] nav ul .conferencer-info .meta a {
       margin: 0;
       line-height: 1;
@@ -1269,7 +1269,7 @@ header[role="banner"] nav .secondary {
     position: relative;
     float: right;
     text-align: center;
-    border-left: 1px solid #525252;
+    border-left: 1px solid #3d3d3d;
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -1840,7 +1840,7 @@ section.intro {
           zoom: 1;
           vertical-align: middle; }
         .features .session .meta > * + * {
-          border-left: 1px solid #525252; }
+          border-left: 1px solid #3d3d3d; }
       .features .session .meta .title, .features .session .meta header[role="banner"] nav ul a, header[role="banner"] nav ul .features .session .meta a {
         margin: 0;
         line-height: 1;
@@ -1932,34 +1932,34 @@ section.intro {
 .blog .col {
   padding-bottom: 0; }
 
-.stream-post {
+.feed-post {
   padding: 0.75em 0;
   position: relative; }
-  .stream-post.border-bottom {
+  .feed-post.border-bottom {
     margin-bottom: 1em; }
-    .stream-post.border-bottom:after {
+    .feed-post.border-bottom:after {
       background: #4b4b4d; }
-  .stream-post.twitter:before {
+  .feed-post.twitter:before {
     position: absolute;
     top: 0.75em;
     right: 0;
     font-size: 1.25em;
     color: #cacaca; }
-  .stream-post.instagram {
+  .feed-post.instagram {
     padding-bottom: 1.25em; }
-    .stream-post.instagram:before {
+    .feed-post.instagram:before {
       position: absolute;
       top: 0.75em;
       right: 0;
       font-size: 1.25em;
       color: #cacaca; }
-  .stream-post .post-infos {
+  .feed-post .post-infos {
     margin-bottom: 1em;
     display: inline-block;
     *display: inline;
     zoom: 1;
     vertical-align: middle; }
-    .stream-post .post-infos:before {
+    .feed-post .post-infos:before {
       content: "";
       display: inline-block;
       *display: inline;
@@ -1969,69 +1969,69 @@ section.intro {
       width: 0;
       vertical-align: middle;
       margin-right: -4px; }
-    .stream-post .post-infos > * {
+    .feed-post .post-infos > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
       vertical-align: middle; }
-  .stream-post .thumb {
+  .feed-post .thumb {
     display: inline-block;
     *display: inline;
     zoom: 1;
     height: 32px;
     width: 32px; }
-  .stream-post .user {
+  .feed-post .user {
     display: inline-block;
     *display: inline;
     zoom: 1; }
-    .stream-post .user > * {
+    .feed-post .user > * {
       line-height: 0.875em; }
-  .stream-post .name {
+  .feed-post .name {
     display: block;
     color: #b8b9c2;
     font-size: 0.875em; }
-  .stream-post .username {
+  .feed-post .username {
     font-size: 0.875em; }
-  .stream-post .date {
+  .feed-post .date {
     color: #b8b9c2;
     font-size: 0.875em; }
-  .stream-post p {
+  .feed-post p {
     margin-bottom: 0; }
-  .stream-post img {
+  .feed-post img {
     max-width: 100%; }
-  .stream-post .share {
+  .feed-post .share {
     text-align: center;
     display: inline-block;
     *display: inline;
     zoom: 1;
     float: right; }
-    .stream-post .share li {
+    .feed-post .share li {
       display: inline-block;
       *display: inline;
       zoom: 1;
       width: 20px; }
-    .stream-post .share a {
+    .feed-post .share a {
       display: block;
       text-indent: -9999px;
       line-height: 25px;
       color: #b8b9c2;
       height: 25px;
       position: relative; }
-      .stream-post .share a.reply:after, .stream-post .share a.retweet:after, .stream-post .share a.favorite:after {
+      .feed-post .share a.reply:after, .feed-post .share a.retweet:after, .feed-post .share a.favorite:after {
         position: absolute;
         width: 100%;
         line-height: 0;
         top: 50%;
         right: 0; }
-      .stream-post .share a.reply:after {
+      .feed-post .share a.reply:after {
         font-size: 0.8em;
         display: block;
         text-indent: 0; }
-      .stream-post .share a.retweet:after {
+      .feed-post .share a.retweet:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
-      .stream-post .share a.favorite:after {
+      .feed-post .share a.favorite:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
@@ -2202,7 +2202,7 @@ footer .sub-footer {
   zoom: 1;
   position: relative;
   padding-top: 20px;
-  border-top: 1px solid #525252; }
+  border-top: 1px solid #3d3d3d; }
   footer .sub-footer:before, footer .sub-footer:after {
     content: "\0020";
     display: block;
@@ -2247,7 +2247,7 @@ footer .contact-general {
   margin: 0 auto;
   padding: 1.563em 1.563em 1.25em 1.563em;
   border-radius: 5px;
-  border: 1px solid #525252; }
+  border: 1px solid #252525; }
   footer .contact-general > * {
     display: inline-block;
     *display: inline;

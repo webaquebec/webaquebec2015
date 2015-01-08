@@ -42,8 +42,8 @@ jQuery(document).ready(function($){
   waq.$menu.$links = $('a', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
-
   waq.$map = $('#gmap');
+  waq.$feed = $('.feed');
 
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
@@ -203,7 +203,6 @@ jQuery(document).ready(function($){
 
 
   if(waq.$map.length){
-
     var iconURL = '/img/marker-with-shadow.png';
     var styles = [
       {
@@ -251,8 +250,13 @@ jQuery(document).ready(function($){
 
     initMap();
     setDesktopMap();
-
   }
+
+
+  //
+  //
+  // SOCIAL FEED
+
 
 
   
