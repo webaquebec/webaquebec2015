@@ -1517,6 +1517,12 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
+.no-schedule .favorite,
+.no-schedule #menu-mon-horaire {
+  display: none; }
+.no-schedule header[role="banner"] nav .main {
+  margin-right: 0; }
+
 section.intro {
   padding: 20px 0 65px; }
   section.intro .container {
