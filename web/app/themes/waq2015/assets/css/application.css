@@ -1730,7 +1730,12 @@ section.intro {
   .features .speaker {
     margin-bottom: 0.5em; }
     .features .speaker .title, .features .speaker header[role="banner"] nav ul a, header[role="banner"] nav ul .features .speaker a {
-      margin-bottom: 0.2em; }
+      margin-bottom: 0.2em;
+      font-size: 1.5em;
+      font-weight: 300;
+      color: #303030; }
+    .features .speaker .job {
+      font-style: italic; }
   .features .infos {
     z-index: 1;
     padding: 30px;
@@ -1790,7 +1795,8 @@ section.intro {
       zoom: 1; }
       .features .session .wrap:after {
         font-size: 1.25em;
-        padding-right: 0.75em; }
+        padding-right: 0.75em;
+        line-height: 2.5em; }
     .features .session .meta {
       position: absolute;
       top: 0;
@@ -1852,9 +1858,11 @@ section.intro {
         line-height: 1;
         text-align: right; }
     .features .session .session-title {
-      padding: 0.25em 0.5em;
-      color: #005f93;
-      margin: 0; }
+      font-size: 1.25em;
+      margin-top: 0;
+      padding: 0.4em 0;
+      font-weight: 500;
+      color: #005f93; }
 
 .program {
   padding-top: 0; }
@@ -2129,11 +2137,10 @@ section.intro {
   float: left;
   position: relative;
   z-index: 100; }
-.single .session {
-  padding: 50px 0; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single .session {
+  padding: 50px 0;
   font-size: 1.25em; }
   .single .session .tags {
     font-size: 0.875em; }
