@@ -79,9 +79,39 @@ get_header_once();
                 </li>
               </ul>
             </article>
+            <article class="stream-post instagram">
+              <div class="post-infos">
+                <div class="thumb">
+                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
+                </div>
+                <div class="user">
+                  <a href="#_" class="username">@webaquebec</a>
+                  <span class="separator">&#183;</span>
+                  <span class="date">6 Nov</span>
+                </div>
+              </div>
+              <div class="content">
+                <img src="http://distilleryimage2.ak.instagram.com/cc743b1eb16011e3b85612a7545bb72a_8.jpg" alt="IMAGENAME">
+              </div>
+            </article>
           </div>
           <div class="right col">
-            <article class="stream-post border-bottom twitter">
+            <article class="stream-post border-bottom instagram">
+              <div class="post-infos">
+                <div class="thumb">
+                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
+                </div>
+                <div class="user">
+                  <a href="#_" class="username">@webaquebec</a>
+                  <span class="separator">&#183;</span>
+                  <span class="date">6 Nov</span>
+                </div>
+              </div>
+              <div class="content">
+                <img src="http://distilleryimage10.ak.instagram.com/624ca586b12a11e3a7b912f132ba8f8e_8.jpg" alt="IMAGENAME">
+              </div>
+            </article>
+            <article class="stream-post twitter">
               <div class="post-infos">
                 <div class="thumb">
                   <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">

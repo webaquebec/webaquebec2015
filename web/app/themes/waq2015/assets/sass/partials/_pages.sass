@@ -291,16 +291,27 @@
       +font-smoothing(on)
     .title
       margin-top: 0
+  .col
+    padding-bottom: 0
 
 .stream-post
   padding: 0.75em 0
   position: relative
   &.border-bottom
+    margin-bottom: 1em
     &:after
       background: $d-grey2
   &.twitter
     &:before
       @extend .icon-twitter:after
+      position: absolute
+      top: 0.75em
+      right: 0
+      font-size: 1.25em
+      color: $l-grey1
+  &.instagram
+    &:before
+      @extend .icon-instagram:after
       position: absolute
       top: 0.75em
       right: 0
@@ -329,6 +340,8 @@
     font-size: 0.875em
   p
     margin-bottom: 0
+  img
+    max-width: 100%
   .share
     text-align: center
     +inlineb()

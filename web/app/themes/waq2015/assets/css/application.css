@@ -278,6 +278,7 @@ footer .contact-general .social a.twitter:after,
 footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
 .social a.instagram:after,
+.stream-post.instagram:before,
 .icon-retweet:after,
 .stream-post .share a.retweet:after,
 .icon-reply:after,
@@ -332,7 +333,7 @@ header[role="banner"] nav .secondary a:after,
 .icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
   content: "\f109"; }
 
-.icon-instagram:after, .social a.instagram:after {
+.icon-instagram:after, .social a.instagram:after, .stream-post.instagram:before {
   content: "\f10a"; }
 
 .icon-retweet:after, .stream-post .share a.retweet:after {
@@ -1924,13 +1925,23 @@ textarea {
     -moz-osx-font-smoothing: grayscale; }
   .blog .featured .title, .blog .featured header[role="banner"] nav ul a, header[role="banner"] nav ul .blog .featured a {
     margin-top: 0; }
+.blog .col {
+  padding-bottom: 0; }
 
 .stream-post {
   padding: 0.75em 0;
   position: relative; }
-  .stream-post.border-bottom:after {
-    background: #4b4b4d; }
+  .stream-post.border-bottom {
+    margin-bottom: 1em; }
+    .stream-post.border-bottom:after {
+      background: #4b4b4d; }
   .stream-post.twitter:before {
+    position: absolute;
+    top: 0.75em;
+    right: 0;
+    font-size: 1.25em;
+    color: #cacaca; }
+  .stream-post.instagram:before {
     position: absolute;
     top: 0.75em;
     right: 0;
@@ -1963,6 +1974,8 @@ textarea {
     font-size: 0.875em; }
   .stream-post p {
     margin-bottom: 0; }
+  .stream-post img {
+    max-width: 100%; }
   .stream-post .share {
     text-align: center;
     display: inline-block;
