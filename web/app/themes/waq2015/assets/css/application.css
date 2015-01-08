@@ -1388,13 +1388,15 @@ header[role="banner"] nav .main a:before {
   background: #00bfdf;
   content: "";
   opacity: 0;
-  -webkit-transition: height 0.2s, opacity 0.2s, -webkit-transform 0.2s;
-  -moz-transition: height 0.2s, opacity 0.2s, -moz-transform 0.2s;
-  -ms-transition: height 0.2s, opacity 0.2s, -ms-transform 0.2s;
-  -o-transition: height 0.2s, opacity 0.2s, -o-transform 0.2s;
-  transition: height 0.2s, opacity 0.2s, transform 0.2s;
+  -webkit-transition: height 240ms, opacity 240ms, -webkit-transform 240ms;
+  -moz-transition: height 240ms, opacity 240ms, -moz-transform 240ms;
+  -ms-transition: height 240ms, opacity 240ms, -ms-transform 240ms;
+  -o-transition: height 240ms, opacity 240ms, -o-transform 240ms;
+  transition: height 240ms, opacity 240ms, transform 240ms;
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
   transform: translateY(0px); }
 header[role="banner"] nav .main a:after {
   position: absolute;
@@ -1405,29 +1407,31 @@ header[role="banner"] nav .main a:after {
   background: #00bfdf;
   content: "";
   opacity: 0;
-  -webkit-transition: height 0.2s, opacity 0.2s, -webkit-transform 0.2s;
-  -moz-transition: height 0.2s, opacity 0.2s, -moz-transform 0.2s;
-  -ms-transition: height 0.2s, opacity 0.2s, -ms-transform 0.2s;
-  -o-transition: height 0.2s, opacity 0.2s, -o-transform 0.2s;
-  transition: height 0.2s, opacity 0.2s, transform 0.2s;
+  -webkit-transition: height 240ms, opacity 240ms, -webkit-transform 240ms;
+  -moz-transition: height 240ms, opacity 240ms, -moz-transform 240ms;
+  -ms-transition: height 240ms, opacity 240ms, -ms-transform 240ms;
+  -o-transition: height 240ms, opacity 240ms, -o-transform 240ms;
+  transition: height 240ms, opacity 240ms, transform 240ms;
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
   transform: translateY(0px); }
-header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav .main a:hover::after {
-  bottom: 0;
-  color: #00bfdf;
-  height: 1px;
+header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav .main a:hover {
+  color: #00bfdf; }
+header[role="banner"] nav .main li.active a:after {
   opacity: 1;
   -webkit-transform: translateY(-10px);
   -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
   transform: translateY(-10px); }
-header[role="banner"] nav .main li.active a, .no-touch header[role="banner"] nav .main a:hover::before {
-  top: 0;
-  color: #00bfdf;
-  height: 1px;
+header[role="banner"] nav .main li.active a:before {
   opacity: 1;
   -webkit-transform: translateY(10px);
   -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
   transform: translateY(10px); }
 header[role="banner"] nav .main,
 header[role="banner"] nav .secondary {
@@ -1513,15 +1517,15 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
-.intro {
+section.intro {
   padding: 20px 0 65px; }
-  .intro .container {
+  section.intro .container {
     position: relative;
     overflow: hidden;
     max-width: 1200px;
     z-index: 2;
     padding: 100px 20px; }
-  .intro .bg {
+  section.intro .bg {
     position: absolute;
     top: 0;
     left: -50%;
@@ -1529,35 +1533,35 @@ textarea {
     height: 100%;
     z-index: 0;
     text-align: center; }
-    .intro .bg > * {
+    section.intro .bg > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
       min-width: 50%;
       min-height: 100%; }
-  .intro .col.main > * {
+  section.intro .col.main > * {
     padding: 20px; }
-  .intro .col.left {
+  section.intro .col.left {
     text-align: right; }
-  .intro .main.right {
+  section.intro .main.right {
     position: absolute;
     top: 100px;
     left: 50%;
     right: 20px;
     bottom: 100px; }
-    .intro .main.right > * {
+    section.intro .main.right > * {
       position: absolute;
       left: 0;
       width: 100%; }
-    .intro .main.right .border-top,
-    .intro .main.right .border-bottom {
+    section.intro .main.right .border-top,
+    section.intro .main.right .border-bottom {
       display: block;
       height: 1px;
       width: 10%;
       padding: 0;
       position: absolute;
       left: 0; }
-    .intro .main.right .top {
+    section.intro .main.right .top {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -1565,7 +1569,7 @@ textarea {
       height: 23%;
       margin: 0;
       background: url(../img/marker.png) no-repeat center top; }
-      .intro .main.right .top:before {
+      section.intro .main.right .top:before {
         content: "";
         display: inline-block;
         *display: inline;
@@ -1575,22 +1579,22 @@ textarea {
         width: 0;
         vertical-align: top;
         margin-right: -4px; }
-      .intro .main.right .top > * {
+      section.intro .main.right .top > * {
         display: inline-block;
         *display: inline;
         zoom: 1;
         vertical-align: top; }
-      .intro .main.right .top .left {
+      section.intro .main.right .top .left {
         padding-right: 45px; }
-      .intro .main.right .top .right {
+      section.intro .main.right .top .right {
         padding-left: 45px; }
-      .intro .main.right .top:after {
+      section.intro .main.right .top:after {
         height: 300%;
         top: auto;
         bottom: 0; }
-      .intro .main.right .top .border-bottom {
+      section.intro .main.right .top .border-bottom {
         bottom: 0; }
-    .intro .main.right .middle {
+    section.intro .main.right .middle {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -1598,7 +1602,7 @@ textarea {
       top: 23%;
       height: 28%;
       padding-left: 0; }
-      .intro .main.right .middle:before {
+      section.intro .main.right .middle:before {
         content: "";
         display: inline-block;
         *display: inline;
@@ -1608,12 +1612,12 @@ textarea {
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
-      .intro .main.right .middle > * {
+      section.intro .main.right .middle > * {
         display: inline-block;
         *display: inline;
         zoom: 1;
         vertical-align: middle; }
-    .intro .main.right .bottom {
+    section.intro .main.right .bottom {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -1621,7 +1625,7 @@ textarea {
       text-align: center;
       top: 51%;
       height: 49%; }
-      .intro .main.right .bottom:before {
+      section.intro .main.right .bottom:before {
         content: "";
         display: inline-block;
         *display: inline;
@@ -1631,30 +1635,30 @@ textarea {
         width: 0;
         vertical-align: middle;
         margin-right: -4px; }
-      .intro .main.right .bottom > * {
+      section.intro .main.right .bottom > * {
         display: inline-block;
         *display: inline;
         zoom: 1;
         vertical-align: middle; }
-      .intro .main.right .bottom:after {
+      section.intro .main.right .bottom:after {
         height: 300%; }
-      .intro .main.right .bottom .border-top {
+      section.intro .main.right .bottom .border-top {
         top: 0; }
-  .intro .title, .intro header[role="banner"] nav ul a, header[role="banner"] nav ul .intro a {
+  section.intro .title, section.intro header[role="banner"] nav ul a, header[role="banner"] nav ul section.intro a {
     margin: 0; }
-  .intro img {
+  section.intro img {
     max-width: 100%; }
-  .intro .btn.eventbrite, .intro .eventbrite.profile {
+  section.intro .btn.eventbrite, section.intro .eventbrite.profile {
     text-align: center;
     display: block; }
-    .intro .btn.eventbrite .title, .intro .eventbrite.profile .title, .intro .btn.eventbrite header[role="banner"] nav ul a, header[role="banner"] nav ul .intro .btn.eventbrite a, .intro .eventbrite.profile header[role="banner"] nav ul a, header[role="banner"] nav ul .intro .eventbrite.profile a {
+    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .btn.eventbrite header[role="banner"] nav ul a, header[role="banner"] nav ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile header[role="banner"] nav ul a, header[role="banner"] nav ul section.intro .eventbrite.profile a {
       padding: 30px 30px 20px; }
-    .intro .btn.eventbrite img, .intro .eventbrite.profile img {
+    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img {
       margin-bottom: 30px; }
-    .intro .btn.eventbrite:before, .intro .eventbrite.profile:before {
+    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before {
       display: block;
       background: #00bfdf; }
-    .intro .btn.eventbrite:after, .intro .eventbrite.profile:after {
+    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after {
       border-color: #0094c2; }
 
 .features {
