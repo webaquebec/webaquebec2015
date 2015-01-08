@@ -1948,7 +1948,26 @@ textarea {
     font-size: 1.25em;
     color: #cacaca; }
   .stream-post .post-infos {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+    .stream-post .post-infos:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      min-height: inherit;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -4px; }
+    .stream-post .post-infos > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
   .stream-post .thumb {
     display: inline-block;
     *display: inline;
@@ -1958,9 +1977,7 @@ textarea {
   .stream-post .user {
     display: inline-block;
     *display: inline;
-    zoom: 1;
-    position: relative;
-    top: -0.25em; }
+    zoom: 1; }
     .stream-post .user > * {
       line-height: 0.875em; }
   .stream-post .name {
