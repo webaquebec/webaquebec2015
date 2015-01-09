@@ -4,7 +4,7 @@ setup_postdata($post);
 ?>
 
 <section id="<?= $post->post_name ?>" class="intro dark loading">
-          
+
   <div class="container">
     <div class="cols-2">
 
@@ -22,7 +22,7 @@ setup_postdata($post);
 
       <div class="main col right">
         <div class="top cols-2 xl-margin border-left">
-          <?php 
+          <?php
           $intro = get_field('intro')[0];
           ?>
           <div class="date col left">
