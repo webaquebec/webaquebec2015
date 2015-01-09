@@ -286,12 +286,12 @@ footer .contact-general .social a.linkedin:after,
 .social a.instagram:after,
 .stream-post.instagram:before,
 .icon-retweet:after,
-.stream-post .share a.retweet:after,
+.stream-post .actions a.retweet:after,
 .icon-reply:after,
-.stream-post .share a.reply:after,
+.stream-post .actions a.reply:after,
 .icon-favorite:after,
 header[role="banner"] nav .secondary a:after,
-.stream-post .share a.favorite:after,
+.stream-post .actions a.favorite:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
@@ -342,13 +342,13 @@ header[role="banner"] nav .secondary a:after,
 .icon-instagram:after, .social a.instagram:after, .stream-post.instagram:before {
   content: "\f10a"; }
 
-.icon-retweet:after, .stream-post .share a.retweet:after {
+.icon-retweet:after, .stream-post .actions a.retweet:after {
   content: "\f10b"; }
 
-.icon-reply:after, .stream-post .share a.reply:after {
+.icon-reply:after, .stream-post .actions a.reply:after {
   content: "\f10c"; }
 
-.icon-favorite:after, header[role="banner"] nav .secondary a:after, .stream-post .share a.favorite:after {
+.icon-favorite:after, header[role="banner"] nav .secondary a:after, .stream-post .actions a.favorite:after {
   content: "\f10d"; }
 
 .icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
@@ -1045,7 +1045,12 @@ header[role="banner"] nav .secondary {
 
 .profile {
   padding: 0.2em 0.5em 1.65em 0.5em;
-  margin: 3px 5px -1.35em 0; }
+  margin: 3px 5px -1.35em 0;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }
   .dark .profile .name {
     color: #00bfdf; }
   .dark .profile .links a {
@@ -2063,8 +2068,8 @@ section.intro {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    height: 32px;
-    width: 32px; }
+    height: 2em;
+    width: 2em; }
   .stream-post .user {
     display: inline-block;
     *display: inline;
@@ -2084,39 +2089,39 @@ section.intro {
     margin-bottom: 0; }
   .stream-post img {
     max-width: 100%; }
-  .stream-post .share {
+  .stream-post .actions {
     text-align: center;
     display: inline-block;
     *display: inline;
     zoom: 1;
     float: right; }
-    .stream-post .share li {
+    .stream-post .actions li {
       display: inline-block;
       *display: inline;
       zoom: 1;
       width: 20px; }
-    .stream-post .share a {
+    .stream-post .actions a {
       display: block;
       text-indent: -9999px;
       line-height: 25px;
       color: #b8b9c2;
       height: 25px;
       position: relative; }
-      .stream-post .share a.reply:after, .stream-post .share a.retweet:after, .stream-post .share a.favorite:after {
+      .stream-post .actions a.reply:after, .stream-post .actions a.retweet:after, .stream-post .actions a.favorite:after {
         position: absolute;
         width: 100%;
         line-height: 0;
         top: 50%;
         right: 0; }
-      .stream-post .share a.reply:after {
+      .stream-post .actions a.reply:after {
         font-size: 0.8em;
         display: block;
         text-indent: 0; }
-      .stream-post .share a.retweet:after {
+      .stream-post .actions a.retweet:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
-      .stream-post .share a.favorite:after {
+      .stream-post .actions a.favorite:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
@@ -2179,6 +2184,25 @@ section.intro {
   width: 33.33333%;
   float: left;
   padding-left: 20px; }
+.waq2015 .grid {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .waq2015 .grid > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 25%;
+    padding: 0 10px 20px; }
+  .waq2015 .grid .profile .name {
+    font-size: 1em;
+    padding: 0 1em 0 1px; }
 .waq2015 .group {
   margin-bottom: 0; }
   .waq2015 .group > ul {
@@ -2454,6 +2478,31 @@ footer .logo-o2 {
 
   .content {
     font-size: 14px !important; } }
+@media screen and (max-width: 1024px) {
+  .features .infos {
+    font-size: 0.688em; }
+    .features .infos .favorite {
+      font-size: 1.125em; }
+
+  .blog .actions {
+    font-size: 1.25em; } }
+@media screen and (max-width: 1024px) {
+  .waq2015 .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .waq2015 .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 33.33%;
+      padding: 0 10px 20px; } }
 @media screen and (max-width: 580px) {
   .cols-2 {
     font-size: 0;
@@ -2662,14 +2711,8 @@ footer .logo-o2 {
   .container {
     max-width: 1280px; }
 
-  .profile {
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0); }
-    .profile .infos:before {
-      margin-right: -5px; } }
+  .profile .infos:before {
+    margin-right: -5px; } }
 @media screen and (min-width: 2000px) {
   html,
   .grid > * > *,

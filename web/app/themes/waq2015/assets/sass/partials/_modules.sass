@@ -349,6 +349,7 @@
   @extend .btn
   padding: 0.2em 0.5em ($shadow-length + 0.15) 0.5em
   margin: 3px $xsmall (-$shadow-length + 0.15) 0
+  +prefix(transform, translateZ(0))
   .dark &
     .name
       color: $l-blue

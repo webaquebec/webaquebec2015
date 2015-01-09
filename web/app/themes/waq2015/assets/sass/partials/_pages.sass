@@ -410,8 +410,8 @@ section.intro
     +align-children(middle)
   .thumb
     +inlineb()
-    height: 32px
-    width: 32px
+    height: 2em
+    width: 2em
   .user
     +inlineb()
     > *
@@ -429,7 +429,7 @@ section.intro
     margin-bottom: 0
   img
     max-width: 100%
-  .share
+  .actions
     text-align: center
     +inlineb()
     float: right
@@ -524,6 +524,12 @@ section.intro
     width: 33.33333%
     float: left
     padding-left: 20px
+  .grid
+    +grid(4,$medium)
+    .profile
+      .name
+        font-size: 1em
+        padding: 0 1em 0 1px
   .group
     margin-bottom: 0
     > ul
