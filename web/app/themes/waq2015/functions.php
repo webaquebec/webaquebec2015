@@ -168,10 +168,7 @@ function header_scripts()
 
         wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.min.js', array(), null); 
         wp_enqueue_script('sticky');
-
-        wp_register_script('socialFeed', get_template_directory_uri() . '/assets/js/socialFeed.js', array(), null); 
-        wp_enqueue_script('socialFeed');
-
+        
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
         wp_enqueue_script('custom'); 
 
