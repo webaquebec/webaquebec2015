@@ -7,14 +7,14 @@ setup_postdata($post);
 
   <div class="grid">
 
-  <?php 
+  <?php
   //
   //
   // FEATURED CONFERENCERS
   $featured = get_field('featured');
   $i = 0; // counter
   foreach($featured as $conference):
-    
+
     // the conference
     $id = $conference['conference'];
     $title = get_the_title($id);
@@ -38,23 +38,23 @@ setup_postdata($post);
     ?>
 
     <figure class="panel <?= $i%2==0 ? 'left' : 'right' ?> <?= $i<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
-      
+
       <span class="image">
         <img src="<?= $image['sizes']['wide'] ?>" alt="" itemprop="image"/>
       </span>
 
       <figcaption class="infos">
         <div class="wrap">
-          
+
           <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="3|10">
             <span>
               <?= __('Ajouter à mon horaire', 'waq') ?>
             </span>
           </button>
-          
+
           <div class="speaker">
             <span class="name title" itemprop="name"><?= $name ?></span>
-            <span class="job sub title" itemprop="jobTitle"><?= $job ?></span>
+            <span class="job" itemprop="jobTitle"><?= $job ?></span>
           </div>
 
           <a class="session btn link" href="<?= $url ?>">
@@ -76,21 +76,20 @@ setup_postdata($post);
                 </time>
               </span>
 
-              <span class="title session-title"><?= $title ?></span>
+              <span class="session-title sub title"><?= $title ?></span>
 
             </span>
           </a>
-          
+
         </div>
       </figcaption>
-      
+
     </figure>
 
-    <?php 
+    <?php
     $i++;
   endforeach;
-  ?> 
-    
+  ?>
   </div>
 
 </section>

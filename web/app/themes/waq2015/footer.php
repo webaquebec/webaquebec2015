@@ -42,7 +42,7 @@
               <div class="contact-general">
                 <div class="content">
                   <h2 class="sub title">Rejoignez-nous et échangeons!</h2>
-                  <img src="/img/hashtag-waq.png" alt="#WAQ2015" />
+                  <img src="/img/hashtag-waq.png" class="hashtag" alt="#WAQ2015" />
                   <ul class="social">
                     <li>
                       <a href="#_" class="facebook">Facebook</a>

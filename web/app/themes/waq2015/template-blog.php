@@ -123,7 +123,7 @@ get_header_once();
               <div class="content">
                 <p>Petite danse de la victoire! Merci aux 150 personnes qui ont déjà confirmé leur présence pour le <a href="#_">#WAQ15</a></p>
               </div>
-              <ul class="share">
+              <ul class="actions">
                 <li>
                   <a href="#_" class="reply">Répondre</a>
                 </li>
@@ -182,7 +182,7 @@ get_header_once();
               <div class="content">
                 <p>Petite danse de la victoire! Merci aux 150 personnes qui ont déjà confirmé leur présence pour le <a href="#_">#WAQ15</a></p>
               </div>
-              <ul class="share">
+              <ul class="actions">
                 <li>
                   <a href="#_" class="reply">Répondre</a>
                 </li>

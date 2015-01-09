@@ -17,6 +17,9 @@ select,
 textarea {
   color: black; }
 
+html {
+  font-size: 16px; }
+
 body {
   background: white;
   position: relative;
