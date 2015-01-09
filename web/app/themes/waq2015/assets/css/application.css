@@ -266,15 +266,18 @@ hr {
 .icon-facebook:after,
 .profile .links a.facebook:after,
 .social a.facebook:after,
+.event-location .social a.facebook:after,
 footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
 .profile .links a.twitter:after,
 .social a.twitter:after,
+.event-location .social a.twitter:after,
 .stream-post.twitter:before,
 footer .contact-general .social a.twitter:after,
 .icon-linkedin:after,
 .profile .links a.linkedin:after,
 .social a.linkedin:after,
+.event-location .social a.linkedin:after,
 footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
 .social a.instagram:after,
@@ -324,13 +327,13 @@ header[role="banner"] nav .secondary a:after,
 .icon-arrow-bottom:after {
   content: "\f106"; }
 
-.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, footer .contact-general .social a.facebook:after {
+.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: "\f107"; }
 
-.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .stream-post.twitter:before, footer .contact-general .social a.twitter:after {
+.icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .event-location .social a.twitter:after, .stream-post.twitter:before, footer .contact-general .social a.twitter:after {
   content: "\f108"; }
 
-.icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
+.icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, .event-location .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
   content: "\f109"; }
 
 .icon-instagram:after, .social a.instagram:after, .stream-post.instagram:before {
@@ -1901,12 +1904,76 @@ section.intro {
   background: white;
   background: rgba(255, 255, 255, 0.8);
   z-index: 1; }
+.event-location a {
+  color: #005f93; }
 .event-location .title, .event-location header[role="banner"] nav ul a, header[role="banner"] nav ul .event-location a,
 .event-location .content {
   position: relative;
   z-index: 2; }
+.event-location .title.small, .event-location header[role="banner"] nav ul a, header[role="banner"] nav ul .event-location a {
+  text-transform: none;
+  margin: 1em 0 0 0;
+  line-height: 1.25em; }
 .event-location .content {
   margin-top: 30px; }
+  .event-location .content p {
+    margin-bottom: 0;
+    line-height: 1.25em; }
+.event-location .hashtag {
+  overflow: hidden;
+  text-align: center;
+  margin-top: 1.875em; }
+  .event-location .hashtag .img {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 27px;
+    position: relative;
+    padding: 0 1em; }
+    .event-location .hashtag .img img {
+      height: 100%; }
+    .event-location .hashtag .img:before, .event-location .hashtag .img:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      height: 1px;
+      background: #b8b9c2;
+      width: 500px;
+      top: 50%;
+      margin-top: -1px; }
+    .event-location .hashtag .img:before {
+      right: 100%; }
+    .event-location .hashtag .img:after {
+      left: 100%; }
+.event-location .social {
+  list-style-type: none;
+  font-size: 1.25em;
+  margin-top: 0.5em;
+  text-align: center; }
+  .event-location .social li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: auto;
+    padding: 0; }
+    .event-location .social li:after {
+      display: none; }
+  .event-location .social a {
+    text-indent: -9999px;
+    display: block;
+    width: 0.5em;
+    height: 1.25em;
+    position: relative;
+    color: #005f93; }
+    .event-location .social a:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 1.25em;
+      height: 100%;
+      width: 100%; }
+    .no-touch .event-location .social a:hover {
+      color: #0094c2; }
 .event-location .map {
   position: absolute;
   top: 0;

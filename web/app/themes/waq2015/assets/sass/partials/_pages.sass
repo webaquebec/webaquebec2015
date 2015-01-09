@@ -264,12 +264,80 @@ section.intro
     background: #fff
     background: rgba(255,255,255,0.8)
     z-index: 1
+  a
+    color: $d-blue
   .title,
   .content
     position: relative
     z-index: 2
+  .title
+    &.small
+      text-transform: none
+      margin: 1em 0 0 0
+      line-height: 1.25em
   .content
     margin-top: $large
+    p
+      margin-bottom: 0
+      line-height: 1.25em
+  .hashtag
+    overflow: hidden
+    text-align: center
+    margin-top: 1.875em
+    .img
+      +inlineb()
+      height: 27px
+      position: relative
+      padding: 0 1em
+      img
+        height: 100%
+      &:before,
+      &:after
+        content: ' '
+        display: block
+        position: absolute
+        height: 1px
+        background: $grey
+        width: 500px
+        top: 50%
+        margin-top: -1px
+      &:before
+        right: 100%
+      &:after
+        left: 100%
+  .social
+    list-style-type: none
+    font-size: 1.25em
+    margin-top: 0.5em
+    text-align: center
+    li
+      +inlineb
+      width: auto
+      padding: 0
+      &:after
+        display: none
+    a
+      text-indent: -9999px
+      display: block
+      width: 0.5em
+      height: 1.25em
+      position: relative
+      color: $d-blue
+      &:after
+        position: absolute
+        top: 0
+        left: 0
+        line-height: 1.25em
+        height: 100%
+        width: 100%
+      .no-touch &:hover
+        color: $blue
+      &.facebook
+        @extend .icon-facebook
+      &.twitter
+        @extend .icon-twitter
+      &.linkedin
+        @extend .icon-linkedin
 
   .map
     position: absolute
