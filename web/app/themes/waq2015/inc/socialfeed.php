@@ -4,6 +4,8 @@ require_once(__DIR__.'/../vendor/twitter-api-php/TwitterAPIExchange.php');
 require_once(__DIR__.'/../vendor/Instagram-PHP-API/src/Instagram.php');
 
 
+
+
 //
 //
 // POST OBJECT
@@ -68,7 +70,34 @@ class social_feed{
 
   }
 
+  public function rich_text($text){
+    $text = preg_replace(
+        '@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@',
+         '<a href="$1">$1</a>',
+        $text);
+    if($this->type=='tweet'){
+      $text = preg_replace(
+          '/@(\w+)/',
+          '<a href="http://twitter.com/$1">@$1</a>',
+          $text);
+      $text = preg_replace(
+          '/\s+#(\w+)/',
+          ' <a href="http://twitter.com/search?q=%23$1">#$1</a>',
+          $text);
+    }
+    else{
+      $text = preg_replace(
+          '/@(\w+)/',
+          '<a href="http://instagram.com/$1">@$1</a>',
+          $text);
+      // $text = preg_replace(
+      //     '/\s+#(\w+)/',
+      //     ' <a href="http://instagram.com/search?q=%23$1">#$1</a>',
+      //     $text);
+    }
 
+    return $text;
+  }
 
   public function social_feed(){
     // RESULT FEED
@@ -80,7 +109,9 @@ class social_feed{
     $twitter_json = $this->get_twitter();
     $this->twitter_feed = json_decode($twitter_json);
     foreach($this->twitter_feed->statuses as $post){
+      // print_r($post);
       array_push( $this->feed, array(
+          'id' => $post->id,
           'type' => 'tweet',
           'timestamp' => intval(strtotime($post->created_at)),
           'name' => $post->user->name,

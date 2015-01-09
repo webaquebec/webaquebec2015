@@ -45,15 +45,15 @@ get_header_once();
           </div>
         </article>
         <?php endwhile; endif; ?>
-        <div class="btn bold autowidth link">
+        <div class="view-all btn bold link">
           <a href="<?= get_permalink(126) ?>" class=""><span>Voir tous les articles</span></a>
         </div>
       </div>
       <div class="col wide feed">
 
       <?php 
-      $tag = 'waq';
-      $count = 4;
+      $tag = str_replace('#','',get_field('hashtag', 'options'));
+      $count = get_field('tagboard_count', 'options');
       $socialfeed = new social_feed(array(
           'tag' => $tag,
           'count' => $count,
@@ -92,21 +92,23 @@ get_header_once();
                     </video>
                   <?php 
                   elseif(isset($post->images)): ?>
-                    <img src="<?= $post->images->standard_resolution->url ?>" alt="Image de <?= $post->name ?>" />
+                    <div class="image">
+                      <img src="<?= $post->images->standard_resolution->url ?>" alt="Image de <?= $post->name ?>" />
+                    </div>
                   <?php endif; ?>
-                  <p><?= $post->text ?></p>
+                  <p><?= $socialfeed->rich_text($post->text) ?></p>
                 </div>
 
                 <?php if($post->type =='tweet'): ?>
                 <ul class="actions">
                   <li>
-                    <a href="#_" class="reply">Répondre</a>
+                    <a href="https://twitter.com/intent/tweet?in_reply_to=<?= $post->id ?>" class="reply" target="_blank">Répondre</a>
                   </li>
                   <li>
-                    <a href="#_" class="retweet">Retweeter</a>
+                    <a href="https://twitter.com/intent/retweet?tweet_id=<?= $post->id ?>" class="retweet" target="_blank">Retweeter</a>
                   </li>
                   <li>
-                    <a href="#_" class="favorite">Ajouter aux favoris</a>
+                    <a href="https://twitter.com/intent/favorite?tweet_id=<?= $post->id ?>" class="favorite" target="_blank">Ajouter aux favoris</a>
                   </li>
                 </ul>
                 <?php endif ?>
