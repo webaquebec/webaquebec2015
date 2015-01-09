@@ -53,8 +53,8 @@ get_header_once();
 
       <?php 
       $tag = 'waq';
-      $count = 6;
-      $socialfeed = new socialfeed(array(
+      $count = 4;
+      $socialfeed = new social_feed(array(
           'tag' => $tag,
           'count' => $count,
         ));
@@ -62,12 +62,16 @@ get_header_once();
         ?>
 
         <div class="cols-2">
-          <div class="left col">
+          <div class="left">
           
           <?php
           while($socialfeed->have_posts()):
             $post = $socialfeed->the_post();
+            if($socialfeed->post_counter-1 == floor($socialfeed->count/2)):
             ?>
+          </div>
+          <div class="right">
+            <?php endif; ?>
             <article class="feed-post border-bottom <?= $post->type=='tweet' ? 'twitter' : 'instagram' ?>">
                 <div class="post-infos">
                   <div class="thumb">
@@ -77,13 +81,24 @@ get_header_once();
                     <span class="name"><?= $post->name ?></span>
                     <a href="<?= $post->profile_url ?>" class="username" target="_blank"><?= $post->username ?></a>
                     <span class="separator">&#183;</span>
-                    <span class="date">6 Nov</span>
+                    <span class="date"><?= strftime('%e %b %Y',$post->timestamp) ?></span>
                   </div>
                 </div>
                 <div class="content">
+                  <?php if($post->type =='video'): ?>
+                    <video controls <?php if(isset($post->images)): ?>poster="<?= $post->images->standard_resolution->url ?>"<?php endif; ?>>
+                      <?php if(isset($post->videos)): ?><source src="<?= $post->videos->standard_resolution->url ?>" type="video/mp4" /><?php endif; ?>
+                      <?= __('Votre navigateur ne supporte pas les vidéos', 'waq'); ?>
+                    </video>
+                  <?php 
+                  elseif(isset($post->images)): ?>
+                    <img src="<?= $post->images->standard_resolution->url ?>" alt="Image de <?= $post->name ?>" />
+                  <?php endif; ?>
                   <p><?= $post->text ?></p>
                 </div>
-                <ul class="share">
+
+                <?php if($post->type =='tweet'): ?>
+                <ul class="actions">
                   <li>
                     <a href="#_" class="reply">Répondre</a>
                   </li>
@@ -94,12 +109,11 @@ get_header_once();
                     <a href="#_" class="favorite">Ajouter aux favoris</a>
                   </li>
                 </ul>
+                <?php endif ?>
               </article>
 
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>    
-          </div>
-          <div class="right col">
               
           </div>
         </div>

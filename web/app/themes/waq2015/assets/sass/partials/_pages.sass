@@ -381,6 +381,10 @@ section.intro
   .col
     padding-bottom: 0
 
+.col + .col.wide.feed
+  padding-left: ($narrow + 2%)
+
+
 .feed-post
   padding: 0.75em 0
   position: relative
@@ -429,7 +433,9 @@ section.intro
     margin-bottom: 0
   img
     max-width: 100%
-  .share
+  video
+    max-width: 100%
+  .actions
     text-align: center
     +inlineb()
     float: right
