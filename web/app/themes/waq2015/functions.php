@@ -1,13 +1,14 @@
 <?php
-
+require_once('inc/seo.php');
+require_once('inc/hashbang.php');
+require_once('inc/schedule.php');
+require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
-require_once('inc/seo.php');
-require_once('inc/hashbang.php');
-require_once('inc/schedule.php');
+
 
 /*------------------------------------*\
     HELPERS
@@ -49,6 +50,7 @@ function include_page_part($ID){
     get_template_part($template); 
     
 }
+
 
 /*------------------------------------*\
     TINY MCE

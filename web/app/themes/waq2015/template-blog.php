@@ -50,9 +50,64 @@ get_header_once();
         </div>
       </div>
       <div class="col wide feed">
-        <?php if(false): ?>
+
+      <?php 
+      $tag = 'waq';
+      $count = 6;
+      $socialfeed = new socialfeed(array(
+          'tag' => $tag,
+          'count' => $count,
+        ));
+      if($socialfeed->have_posts()):
+        ?>
+
         <div class="cols-2">
           <div class="left col">
+          
+          <?php
+          while($socialfeed->have_posts()):
+            $post = $socialfeed->the_post();
+            ?>
+            <article class="feed-post border-bottom <?= $post->type=='tweet' ? 'twitter' : 'instagram' ?>">
+                <div class="post-infos">
+                  <div class="thumb">
+                    <img src="<?= $post->profile_picture ?>" alt="<?= $post->username ?>">
+                  </div>
+                  <div class="user">
+                    <span class="name"><?= $post->name ?></span>
+                    <a href="<?= $post->profile_url ?>" class="username" target="_blank"><?= $post->username ?></a>
+                    <span class="separator">&#183;</span>
+                    <span class="date">6 Nov</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <p><?= $post->text ?></p>
+                </div>
+                <ul class="share">
+                  <li>
+                    <a href="#_" class="reply">Répondre</a>
+                  </li>
+                  <li>
+                    <a href="#_" class="retweet">Retweeter</a>
+                  </li>
+                  <li>
+                    <a href="#_" class="favorite">Ajouter aux favoris</a>
+                  </li>
+                </ul>
+              </article>
+
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>    
+          </div>
+          <div class="right col">
+              
+          </div>
+        </div>
+
+        <?php endif; ?>
+
+        <?php if(false): ?>
+        
             <article class="feed-post border-bottom twitter">
               <div class="post-infos">
                 <div class="thumb">
