@@ -37,5 +37,6 @@ include_page_part(45);
 
   
 <?php 
-get_footer();
+wp_reset_query();
+get_footer_once();
 ?>

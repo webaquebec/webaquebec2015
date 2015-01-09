@@ -35,10 +35,9 @@ header[role="banner"]
           background: $l-blue
           content: ''
           opacity: 0
-          +prefix(transition, height 0.2s, opacity 0.2s, transform 0.2s)
-          -webkit-transform: translateY(0px)
-          -moz-transform: translateY(0px)
-          transform: translateY(0px)
+          +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
+          +prefix(transform,translateY(0px))
+         
         &:after
           position: absolute
           bottom: 0
@@ -48,28 +47,20 @@ header[role="banner"]
           background: $l-blue
           content: ''
           opacity: 0
-          +prefix(transition, height 0.2s, opacity 0.2s, transform 0.2s)
-          -webkit-transform: translateY(0px)
-          -moz-transform: translateY(0px)
-          transform: translateY(0px)
+          +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
+          +prefix(transform,translateY(0px))
+
       li.active a,
-      .no-touch & a:hover::after
-        bottom: 0
+      .no-touch & a:hover
         color: $l-blue
-        height: 1px
+
+      li.active a:after
         opacity: 1
-        -webkit-transform: translateY(-10px)
-        -moz-transform: translateY(-10px)
-        transform: translateY(-10px)
-      li.active a,
-      .no-touch & a:hover::before
-        top: 0
-        color: $l-blue
-        height: 1px
+        +prefix(transform,translateY(-0.625em))
+
+      li.active a:before
         opacity: 1
-        -webkit-transform: translateY(10px)
-        -moz-transform: translateY(10px)
-        transform: translateY(10px)
+        +prefix(transform,translateY(0.625em))
 
     .main,
     .secondary
@@ -79,7 +70,6 @@ header[role="banner"]
       z-index: 2
       @extend .shadows
       +align-children(middle)
-      
       a
         color: $d-blue
         .no-touch &:hover
@@ -119,8 +109,6 @@ header[role="banner"]
         border-color: #fff
         margin-left: 0
         margin-right: 0
-
-    
 
 
 

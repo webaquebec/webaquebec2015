@@ -1,13 +1,14 @@
 <?php
-
+require_once('inc/seo.php');
+require_once('inc/hashbang.php');
+require_once('inc/schedule.php');
+require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
-require_once('inc/seo.php');
-require_once('inc/hashbang.php');
-require_once('inc/schedule.php');
+
 
 /*------------------------------------*\
     HELPERS
@@ -49,6 +50,7 @@ function include_page_part($ID){
     get_template_part($template); 
     
 }
+
 
 /*------------------------------------*\
     TINY MCE
@@ -161,15 +163,12 @@ function header_scripts()
         wp_register_script('cookies', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), null); 
         wp_enqueue_script('cookies'); 
 
-        wp_register_script('slider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array(), null); 
-        wp_enqueue_script('slider');
-
-        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.js', array(), null); 
+        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.min.js', array(), null); 
         wp_enqueue_script('scrollEvents');
 
-        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.js', array(), null); 
+        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.min.js', array(), null); 
         wp_enqueue_script('sticky');
-
+        
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
         wp_enqueue_script('custom'); 
 
@@ -304,7 +303,7 @@ function blankwp_index($length) // Create 20 Word Callback for Index page Excerp
 }
 //Fonction pour remplacer le [...] du excerpt par un texte plus intuitif
 function new_excerpt_more($output) {
-    return '... <div class="clearfix"></div><a href="'. get_permalink() . '" class="lien-status" title="'. the_title('', '', false).'">Lire la suite</a>';
+    return '... <a href="'. get_permalink() . '" class="link-status" title="'. the_title('', '', false).'">Lire la suite</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 // Remove Admin bar

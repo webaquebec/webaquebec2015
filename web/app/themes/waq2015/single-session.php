@@ -15,7 +15,6 @@
         </div>
         <h1><?= get_the_title() ?></h1>
       </div>
-      
       <div class="conference-info-container dark">
         <div class="conferencer-info btn">
             <span class="wrap ">
@@ -38,7 +37,7 @@
 
               <span class="conference-room">
                 <span class="v-align">
-                  <span class="sub title">SALLE</span>
+                  <span class="sub title">Salle</span>
                   <span class="small title">IXmedia &#183; Communication</span>
                 </span>
               </span>
@@ -54,22 +53,28 @@
     <section class="col wide" role="main">
 
       <div class="conference">
-        
+
         <div class="content">
           <?php the_content() ?>
         </div>
-        
-        <div>
+
+        <div class="tags-section">
           <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
           <ul class="tags">
             <li class="btn">
-              <span>Culture</span>
+              <span>
+                <a href="#_">Culture</a>
+              </span>
             </li>
             <li class="btn">
-              <span>Données</span>
+              <span>
+                <a href="#_">Données</a>
+              </span>
             </li>
             <li class="btn">
-              <span>Médias Sociaux</span>
+              <span>
+                <a href="#_">Médias Sociaux</a>
+              </span>
             </li>
           </ul>
           <a href="<?= get_site_url(); ?>/programmation" class="btn back"><span>Retour à l'horaire</span></a>
@@ -102,14 +107,14 @@
               <a class="twitter" href="http://twitter.com/Sylvain">@Sylvain</a>
             </li>
           </ul>
-      </div> 
+      </div>
 
     </aside>
-    
+
   </div>
 
 </article>
 
 <?php endwhile; endif; ?>
-	
+
 <?php get_footer(); ?>

@@ -198,7 +198,12 @@ function minMax(n,min,max){
 		}
 	}
 
-
+	//
+	function sortEvents(a,b){
+		return 	a.order < b.order ? -1
+					: a.order > b.order ? 1
+					: 0
+	}
 
 	$.extend($.fn, {
 		scrollEvents: function(args, flag, options){
@@ -212,6 +217,7 @@ function minMax(n,min,max){
 						selection: $(this),
 						container: $win,
 						flag: false,
+						order: 0,
 						offset: 0,
 						offsetBottom: 0,
 						//
@@ -258,7 +264,8 @@ function minMax(n,min,max){
 				if(!this.ev){
 					this.ev = [];
 				}
-				this.ev.push(e);				
+				this.ev.push(e);	
+				this.ev.sort(sortEvents);
 			});
 
 			$win.off('scroll', eventScroller).off('resize',resizeScroller);

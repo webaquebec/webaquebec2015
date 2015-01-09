@@ -49,7 +49,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Conseil d'administration</h2>
         <hr class="sub-line">
-        <ul class="board-members-list cols-4">
+        <ul class="board-members-list grid">
         <?php foreach ($board_members as $board_member) : ?>
           <li>
             <figure class="profile">
@@ -83,7 +83,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Administration</h2>
         <hr class="sub-line">
-        <ul class="admin-members-list cols-4">
+        <ul class="admin-members-list grid">
         <?php foreach ($admin_members as $admin_member) : ?>
           <li>
             <figure class="profile">
@@ -117,7 +117,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité d'accueil</h2>
         <hr class="sub-line">
-        <ul class="welcome-members-list cols-4">
+        <ul class="welcome-members-list grid">
         <?php foreach ($welcome_members as $welcome_member) : ?>
           <li>
             <figure class="profile">
@@ -151,7 +151,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité des bénévoles</h2>
         <hr class="sub-line">
-        <ul class="volounteers-committee-members-list cols-4">
+        <ul class="volounteers-committee-members-list grid">
         <?php foreach ($volounteers_committee_members as $volounteers_committee_member) : ?>
           <li>
             <figure class="profile">
@@ -185,7 +185,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité des communications</h2>
         <hr class="sub-line">
-        <ul class="communications-members-list cols-4">
+        <ul class="communications-members-list grid">
         <?php foreach ($communications_members as $communications_member) : ?>
           <li>
             <figure class="profile">
@@ -219,7 +219,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité logisitique</h2>
         <hr class="sub-line">
-        <ul class="logistics-members-list cols-4">
+        <ul class="logistics-members-list grid">
         <?php foreach ($logistics_members as $logistics_member) : ?>
           <li>
             <figure class="profile">
@@ -253,7 +253,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité de programmation</h2>
         <hr class="sub-line">
-        <ul class="schedule-members-list cols-4">
+        <ul class="schedule-members-list grid">
         <?php foreach ($schedule_members as $schedule_member) : ?>
           <li>
             <figure class="profile">
@@ -287,7 +287,7 @@ get_header_once();
         ?>
         <h2 class="sub title lined">Comité des relations internationales</h2>
         <hr class="sub-line">
-        <ul class="international-members-list cols-4">
+        <ul class="international-members-list grid">
         <?php foreach ($international_members as $international_member) : ?>
           <li>
             <figure class="profile">

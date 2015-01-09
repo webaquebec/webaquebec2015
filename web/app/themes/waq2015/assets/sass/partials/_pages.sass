@@ -2,10 +2,21 @@
 // PAGES
 // ==========================================================================
 
+
+//
+//
+// NO SCHEDULE
+.no-schedule
+  .favorite,
+  #menu-mon-horaire
+    display: none
+  header[role="banner"] nav .main
+    margin-right: 0
+
 //
 //
 // INTRO
-.intro
+section.intro
   padding: $medium 0 ($nav-height/2 + $medium)
   .container
     position: relative
@@ -117,16 +128,14 @@
   .grid
     width: 100%
     +grid(2,0)
-    
+
   .panel
     padding-top: 28%
     position: relative
     overflow: hidden
     z-index: 0
-   
     +box-shadow(0 0 0 0 rgba(0,0,0,0.1), 0 0 0 0 rgba(0,0,0,0.06))
     +prefix(transition, box-shadow 240ms $ease, z-index 0 linear 120ms)
-    
     .no-touch &:hover,
     &.active
       z-index: 1
@@ -149,11 +158,16 @@
     float: right
     margin-right: 0
     margin-left: 1em
-  
+
   .speaker
     margin-bottom: 0.5em
-    .title 
+    .title
       margin-bottom: 0.2em
+      font-size: 1.5em
+      font-weight: 300
+      color: $d-grey
+    .job
+      font-style: italic
 
   .infos
     z-index: 1
@@ -179,17 +193,18 @@
     +inlineb
     width: 100%
     .wrap
-      padding-left: 8.5em 
+      padding-left: 8.5em
       +inlineb
       &:after
         font-size: 1.25em
         padding-right: 0.75em
+        line-height: 2.5em
     .meta
       position: absolute
       top: 0
       bottom: $shadow-length
       left: 0
-      width: 7.5em      
+      width: 7.5em
       text-align: center
       +border-radius( 4px 0 0 4px)
       +align-children(middle)
@@ -204,12 +219,14 @@
         margin: 0
         line-height: 1
         text-align: right
-    
+
     .session-title
-      padding: 0.25em 0.5em
+      font-size: 1.25em
+      margin-top: 0
+      padding: 0.4em 0
+      font-weight: 500
       color: $d-blue
-      margin: 0
-    
+
 
 //
 //
@@ -245,14 +262,82 @@
     background: #fff
     background: rgba(255,255,255,0.8)
     z-index: 1
+  a
+    color: $d-blue
   .title,
   .content
     position: relative
     z-index: 2
+  .title
+    &.small
+      text-transform: none
+      margin: 1em 0 0 0
+      line-height: 1.25em
   .content
     margin-top: $large
+    p
+      margin-bottom: 0
+      line-height: 1.25em
+  .hashtag
+    overflow: hidden
+    text-align: center
+    margin-top: 1.875em
+    .img
+      +inlineb()
+      height: 1.688em
+      position: relative
+      padding: 0 1em
+      img
+        height: 100%
+      &:before,
+      &:after
+        content: ' '
+        display: block
+        position: absolute
+        height: 1px
+        background: $grey
+        width: 500px
+        top: 50%
+        margin-top: -1px
+      &:before
+        right: 100%
+      &:after
+        left: 100%
+  .social
+    list-style-type: none
+    font-size: 1.25em
+    margin-top: 0.5em
+    text-align: center
+    li
+      +inlineb
+      width: auto
+      padding: 0
+      &:after
+        display: none
+    a
+      text-indent: -9999px
+      display: block
+      width: 0.5em
+      height: 1.25em
+      position: relative
+      color: $d-blue
+      &:after
+        position: absolute
+        top: 0
+        left: 0
+        line-height: 1.25em
+        height: 100%
+        width: 100%
+      .no-touch &:hover
+        color: $blue
+      &.facebook
+        @extend .icon-facebook
+      &.twitter
+        @extend .icon-twitter
+      &.linkedin
+        @extend .icon-linkedin
 
-  .map  
+  .map
     position: absolute
     top: 0
     left: 0
@@ -265,36 +350,135 @@
 // BLOGUE
 
 .blog
-  .blog-container
-    article
-      .featured-article
-        h2
-          text-transform: uppercase
-          +font-smoothing(off)
-        p
-          margin-bottom: 0.2em
-      .lien-status
-        text-transform: uppercase
-        margin-bottom: 1em
-        +inlineb()
-      .image-une
-        img
-          width: 100%
-.pagination-container
-  +clearfix()
-  display: block
-  clear: left
-  float: left
-.actualites
-  article
-    padding: $medium
-    margin-bottom: $medium
-    display: block
-    border: 1px solid $m-grey
+  .featured
+    border: 1px solid $l-blue
     +border-radius(4px)
-    +prefix(transition, all 400ms ease-in)
-    &:hover
-      border: 1px solid $l-blue
+    padding: 0
+    margin-bottom: 0.25em
+
+    .image
+      img
+        max-width: 100%
+    .article-info
+      margin-bottom: 0.625em
+      padding-bottom: 0.625em
+      border-bottom: 1px solid $d-grey2
+    .content
+      padding: 1em
+      p
+        margin-bottom: 0
+        line-height: 1.25em
+      .link-status
+        display: block
+        margin-top: 0.5em
+        font-size: 0.875em
+        text-transform: uppercase
+    .meta
+      +font-smoothing(on)
+    .title
+      margin-top: 0
+  .view-all
+    margin-right: 0
+  .col
+    padding-bottom: 0
+
+.col + .col.wide.feed
+  padding-left: ($narrow + 2%)
+
+
+.feed-post
+  padding: 0.75em 0
+  position: relative
+  &.border-bottom
+    margin-bottom: 1em
+    &:after
+      background: $d-grey2
+  &.twitter
+    &:before
+      @extend .icon-twitter:after
+      position: absolute
+      top: 0.75em
+      right: 0
+      font-size: 1.25em
+      color: $l-grey1
+  &.instagram
+    padding-bottom: 1.25em
+    &:before
+      @extend .icon-instagram:after
+      position: absolute
+      top: 0.75em
+      right: 0
+      font-size: 1.25em
+      color: $l-grey1
+  .post-infos
+    margin-bottom: 1em
+    +align-children(middle)
+  .thumb
+    +inlineb()
+    height: 2em
+    width: 2em
+  .user
+    +inlineb()
+    > *
+      line-height: 0.875em
+  .name
+    display: block
+    color: $grey
+    font-size: 0.875em
+  .username
+    font-size: 0.875em
+  .date
+    color: $grey
+    font-size: 0.875em
+  p
+    margin-bottom: 0
+  img,
+  video
+    max-width: 100%
+    margin-bottom: 1em
+    
+  .actions
+    text-align: center
+    +inlineb()
+    float: right
+    li
+      +inlineb()
+      width: 20px
+    a
+      display: block
+      text-indent: -9999px
+      line-height: 25px
+      color: $grey
+      height: 25px
+      position: relative
+      &.reply,
+      &.retweet,
+      &.favorite
+        &:after
+          position: absolute
+          width: 100%
+          line-height: 0
+          top: 50%
+          right: 0
+
+      &.reply
+        @extend .icon-reply
+        &:after
+          font-size: 0.8em
+          display: block
+          text-indent: 0
+      &.retweet
+        @extend .icon-retweet
+        &:after
+          font-size: 0.9em
+          display: block
+          text-indent: 0
+      &.favorite
+        @extend .icon-favorite
+        &:after
+          font-size: 0.9em
+          display: block
+          text-indent: 0
 
 
 //
@@ -348,6 +532,12 @@
     width: 33.33333%
     float: left
     padding-left: 20px
+  .grid
+    +grid(4,$medium)
+    .profile
+      .name
+        font-size: 1em
+        padding: 0 1em 0 1px
   .group
     margin-bottom: 0
     > ul
@@ -379,17 +569,18 @@
     float: left
     margin-top: $xsmall
     margin-right: $medium
+    .tags-section
+      font-size: 0.8em
   .conferencer
     margin-top: -30%
     float: left
     position: relative
     z-index: 100
-  .session
-    padding: $xlarge 0 
   .single-article
     .image-une
       padding-bottom: 1.25em
   .session
+    padding: $xlarge 0
     font-size: 1.25em
     .tags
       font-size: 0.875em
@@ -397,6 +588,13 @@
       border-top:  1px solid $grey
       padding-top: $medium
       margin-top: $medium
+  .content
+    padding-bottom: 2em
+    border-bottom: 1px solid $l-grey1
+  .tags
+    margin: 0.5em 0
+    a
+      color: $d-grey
   .about
     width: 100%
     text-align: left
@@ -404,14 +602,17 @@
     padding-bottom: $medium
     margin-bottom: 17px
     +clearfix()
+    +align-children(middle)
+    min-height: 100px
     >*
       display: inline-block
     .name
       margin-left: $medium
-      margin-top: $medium
+      .title
+        margin-top: 3px
   .thumb
-    width: 93px
-    height: 93px
+    width: 100px
+    height: 100px
     float: left
     img
       min-height: 100%
@@ -443,12 +644,14 @@ footer
     margin: 0 auto
     padding: 1.563em 1.563em 1.25em 1.563em
     border-radius: 5px
-    border: 1px solid $m-grey
+    border: 1px solid $d-grey3
     >*
       +inlineb
       +align-children(middle)
     .title
       margin: 0 0 $small 0
+    .hashtag
+      height: 2.625em
     .social
       list-style-type: none
       font-size: 1.75em
@@ -499,7 +702,7 @@ footer
     p
       margin: 0
   .logo-o2
-    width: 80px
+    width: 5em
     height: auto
     img
       width: 100%
