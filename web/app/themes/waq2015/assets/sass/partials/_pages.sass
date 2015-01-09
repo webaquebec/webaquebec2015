@@ -128,16 +128,14 @@ section.intro
   .grid
     width: 100%
     +grid(2,0)
-    
+
   .panel
     padding-top: 28%
     position: relative
     overflow: hidden
     z-index: 0
-   
     +box-shadow(0 0 0 0 rgba(0,0,0,0.1), 0 0 0 0 rgba(0,0,0,0.06))
     +prefix(transition, box-shadow 240ms $ease, z-index 0 linear 120ms)
-    
     .no-touch &:hover,
     &.active
       z-index: 1
