@@ -286,12 +286,12 @@ footer .contact-general .social a.linkedin:after,
 .social a.instagram:after,
 .feed-post.instagram:before,
 .icon-retweet:after,
-.feed-post .actions a.retweet:after,
+.feed-post .share a.retweet:after,
 .icon-reply:after,
-.feed-post .actions a.reply:after,
+.feed-post .share a.reply:after,
 .icon-favorite:after,
 header[role="banner"] nav .secondary a:after,
-.feed-post .actions a.favorite:after,
+.feed-post .share a.favorite:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
@@ -342,13 +342,13 @@ header[role="banner"] nav .secondary a:after,
 .icon-instagram:after, .social a.instagram:after, .feed-post.instagram:before {
   content: "\f10a"; }
 
-.icon-retweet:after, .feed-post .actions a.retweet:after {
+.icon-retweet:after, .feed-post .share a.retweet:after {
   content: "\f10b"; }
 
-.icon-reply:after, .feed-post .actions a.reply:after {
+.icon-reply:after, .feed-post .share a.reply:after {
   content: "\f10c"; }
 
-.icon-favorite:after, header[role="banner"] nav .secondary a:after, .feed-post .actions a.favorite:after {
+.icon-favorite:after, header[role="banner"] nav .secondary a:after, .feed-post .share a.favorite:after {
   content: "\f10d"; }
 
 .icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
@@ -2089,39 +2089,39 @@ section.intro {
     margin-bottom: 0; }
   .feed-post img {
     max-width: 100%; }
-  .feed-post .actions {
+  .feed-post .share {
     text-align: center;
     display: inline-block;
     *display: inline;
     zoom: 1;
     float: right; }
-    .feed-post .actions li {
+    .feed-post .share li {
       display: inline-block;
       *display: inline;
       zoom: 1;
       width: 20px; }
-    .feed-post .actions a {
+    .feed-post .share a {
       display: block;
       text-indent: -9999px;
       line-height: 25px;
       color: #b8b9c2;
       height: 25px;
       position: relative; }
-      .feed-post .actions a.reply:after, .feed-post .actions a.retweet:after, .feed-post .actions a.favorite:after {
+      .feed-post .share a.reply:after, .feed-post .share a.retweet:after, .feed-post .share a.favorite:after {
         position: absolute;
         width: 100%;
         line-height: 0;
         top: 50%;
         right: 0; }
-      .feed-post .actions a.reply:after {
+      .feed-post .share a.reply:after {
         font-size: 0.8em;
         display: block;
         text-indent: 0; }
-      .feed-post .actions a.retweet:after {
+      .feed-post .share a.retweet:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
-      .feed-post .actions a.favorite:after {
+      .feed-post .share a.favorite:after {
         font-size: 0.9em;
         display: block;
         text-indent: 0; }
