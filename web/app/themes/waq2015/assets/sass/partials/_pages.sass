@@ -31,7 +31,7 @@ section.intro
     width: 200%
     height: 100%
     z-index: 0
-    text-align: center  
+    text-align: center
     >*
       +inlineb
       min-width: 50%
@@ -62,10 +62,10 @@ section.intro
       padding: 0
       position: absolute
       left: 0
-    
+
     // BOX RIGHT TOP
     .top
-      +align-children(top)  
+      +align-children(top)
       height: 23%
       margin: 0
       background: url(../img/marker.png) no-repeat center top
@@ -79,17 +79,17 @@ section.intro
         bottom: 0
       .border-bottom
         bottom: 0
-    
+
     // BOX RIGHT MIDDLE
     .middle
-      +align-children(middle)  
+      +align-children(middle)
       top: 23%
       height: 28%
       padding-left: 0
-    
+
     // BOX RIGHT BOTTOM
     .bottom
-      +align-children(middle)  
+      +align-children(middle)
       text-align: center
       top: 51%
       height: 49%
@@ -188,6 +188,7 @@ section.intro
       width: 100%
       height: 110%
       background: url(../img/gradient-alpha-vertical-fff.png) repeat-x left bottom
+      background-size: 100% 100%
 
   .session
     +inlineb
@@ -652,6 +653,7 @@ footer
       margin: 0 0 $small 0
     .hashtag
       height: 2.625em
+      max-width: 100%
     .social
       list-style-type: none
       font-size: 1.75em

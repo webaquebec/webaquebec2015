@@ -44,7 +44,7 @@
         ?>
 
         <nav role="navigation">
-          <div class="intro logo">
+          <div class="logo">
             <a href="/">
               <img src="/img/@2x/logo-waq.png" alt="<?= __('Web à Québec', 'waq') ?>" />
             </a>

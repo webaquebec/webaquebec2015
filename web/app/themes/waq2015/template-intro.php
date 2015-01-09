@@ -8,7 +8,7 @@ setup_postdata($post);
   <div class="container">
     <div class="cols-2">
 
-      <div class="main col left">
+      <div class="anniversary main col left">
         <div class="top">
           <img src="/img/intro-top.png" alt="5 ans"/> 
         </div>
