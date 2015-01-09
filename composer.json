@@ -55,7 +55,7 @@
       "type": "package",
       "package": {
         "name": "acf/advanced-custom-fields",
-        "version": "5.0.6",
+        "version": "5.1.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -69,11 +69,11 @@
   ],
   "require": {
     "php": ">=5.4",
-    "johnpbloch/wordpress": "4.0.1",
+    "johnpbloch/wordpress": "4.1",
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "~1.0.9",
     "koodimonni-language/fr": "dev-master",
-    "acf/advanced-custom-fields": "5.0.6",
+    "acf/advanced-custom-fields": "5.1.5",
     "wpackagist-plugin/acf-field-date-time-picker": "dev-trunk",
     "wpackagist-plugin/intuitive-custom-post-order": "dev-trunk",
     "wpackagist-plugin/regenerate-thumbnails": "dev-trunk"

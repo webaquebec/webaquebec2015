@@ -4,11 +4,11 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "859e821169e5c6cee35e4b30abfa72a1",
+    "hash": "aef0123a1d55189a99679cb2685eaa07",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
-            "version": "5.0.6",
+            "version": "5.1.5",
             "dist": {
                 "type": "zip",
                 "url": "***REMOVED***",
@@ -106,16 +106,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.0.1",
+            "version": "4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "bbc5e56449860b183aafbe7df97ca137594073a4"
+                "reference": "fced41fbfeb6b6a1f48f505426da0cb392d44274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/bbc5e56449860b183aafbe7df97ca137594073a4",
-                "reference": "bbc5e56449860b183aafbe7df97ca137594073a4",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/fced41fbfeb6b6a1f48f505426da0cb392d44274",
+                "reference": "fced41fbfeb6b6a1f48f505426da0cb392d44274",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2014-11-20 17:45:59"
+            "time": "2014-12-18 18:31:41"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
