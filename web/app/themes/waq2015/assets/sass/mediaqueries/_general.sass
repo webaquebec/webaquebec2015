@@ -18,9 +18,32 @@
   .content
     font-size: 14px !important
 
+  //
+  //
+  // INTRO
+  .intro
+    .title
+      &.main
+        font-size: 2.5em
+
 
 
 @media screen and (max-width: 1024px)
+
+  //
+  //
+  // INTRO
+  .intro
+    .anniversary
+      padding: 0 2.5em 0 5em
+    .title
+      &.huge
+        font-size: 1.5em
+    .main
+      &.right
+        .top
+          +align-children(middle)
+
 
   //
   //
@@ -40,12 +63,58 @@
 
 
 
-@media screen and (max-width: 1024px)
+@media screen and (max-width: 1023px)
+
+  //
+  //
+  // INTRO
+  .intro
+    .title
+      &.main
+        font-size: 2em
+    .top
+      .huge
+        font-size: 1.25em
 
   //
   //
   // WAQ 2015
-
   .waq2015
     .grid
       +grid(3,$medium)
+
+
+
+@media screen and (max-width: 768px)
+
+  //
+  //
+  // WAQ2015
+  .waq2015
+    .grid
+      +grid(2,$small)
+
+  //
+  //
+  // FOOTER
+  footer
+    .contact-general
+      .hashtag
+        height: auto
+        width: 100%
+      .social
+        font-size: 1.5em
+
+
+@media screen and (max-width: 767px)
+
+  //
+  //
+  // INTRO
+  .intro
+    .title
+      &.main
+        font-size: 1.5em
+    .top
+      .huge
+        font-size: 1em

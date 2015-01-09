@@ -10,7 +10,7 @@ require_once(__DIR__.'/../vendor/Instagram-PHP-API/src/Instagram.php');
 //
 // POST OBJECT
 class social_post{
-  
+
   public function __construct($feed) {
     $props = $feed->feed[$feed->post_counter-1];
     foreach($props as $k => $v){

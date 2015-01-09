@@ -45,13 +45,13 @@ get_header_once();
           </div>
         </article>
         <?php endwhile; endif; ?>
-        <div class="view-all btn bold link">
+        <div class="view-all btn autowidth bold link">
           <a href="<?= get_permalink(126) ?>" class=""><span>Voir tous les articles</span></a>
         </div>
       </div>
       <div class="col wide feed">
 
-      <?php 
+      <?php
       $tag = str_replace('#','',get_field('hashtag', 'options'));
       $count = get_field('tagboard_count', 'options');
       $socialfeed = new social_feed(array(
@@ -63,7 +63,7 @@ get_header_once();
 
         <div class="cols-2">
           <div class="left">
-          
+
           <?php
           while($socialfeed->have_posts()):
             $post = $socialfeed->the_post();
@@ -115,103 +115,17 @@ get_header_once();
               </article>
 
             <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>    
-              
+            <?php wp_reset_postdata(); ?>
+
           </div>
         </div>
 
         <?php endif; ?>
 
         <?php if(false): ?>
-        
-            <article class="feed-post border-bottom twitter">
-              <div class="post-infos">
-                <div class="thumb">
-                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
-                </div>
-                <div class="user">
-                  <span class="name">Web à Québec</span>
-                  <a href="#_" class="username">@webaquebec</a>
-                  <span class="separator">&#183;</span>
-                  <span class="date">6 Nov</span>
-                </div>
-              </div>
-              <div class="content">
-                <p>Petite danse de la victoire! Merci aux 150 personnes qui ont déjà confirmé leur présence pour le <a href="#_">#WAQ15</a></p>
-              </div>
-              <ul class="actions">
-                <li>
-                  <a href="#_" class="reply">Répondre</a>
-                </li>
-                <li>
-                  <a href="#_" class="retweet">Retweeter</a>
-                </li>
-                <li>
-                  <a href="#_" class="favorite">Ajouter aux favoris</a>
-                </li>
-              </ul>
-            </article>
-            <article class="feed-post instagram">
-              <div class="post-infos">
-                <div class="thumb">
-                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
-                </div>
-                <div class="user">
-                  <a href="#_" class="username">@webaquebec</a>
-                  <span class="separator">&#183;</span>
-                  <span class="date">6 Nov</span>
-                </div>
-              </div>
-              <div class="content">
-                <img src="http://distilleryimage2.ak.instagram.com/cc743b1eb16011e3b85612a7545bb72a_8.jpg" alt="IMAGENAME">
-              </div>
-            </article>
-          </div>
-          <div class="right col">
-            <article class="feed-post border-bottom instagram">
-              <div class="post-infos">
-                <div class="thumb">
-                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
-                </div>
-                <div class="user">
-                  <a href="#_" class="username">@webaquebec</a>
-                  <span class="separator">&#183;</span>
-                  <span class="date">6 Nov</span>
-                </div>
-              </div>
-              <div class="content">
-                <img src="http://distilleryimage10.ak.instagram.com/624ca586b12a11e3a7b912f132ba8f8e_8.jpg" alt="IMAGENAME">
-              </div>
-            </article>
-            <article class="feed-post twitter">
-              <div class="post-infos">
-                <div class="thumb">
-                  <img src="http://2014.webaquebec.org/wp-content/uploads/2013/12/martin_huard.png" alt="USERNAME">
-                </div>
-                <div class="user">
-                  <span class="name">Web à Québec</span>
-                  <a href="#_" class="username">@webaquebec</a>
-                  <span class="separator">&#183;</span>
-                  <span class="date">6 Nov</span>
-                </div>
-              </div>
-              <div class="content">
-                <p>Petite danse de la victoire! Merci aux 150 personnes qui ont déjà confirmé leur présence pour le <a href="#_">#WAQ15</a></p>
-              </div>
-              <ul class="actions">
-                <li>
-                  <a href="#_" class="reply">Répondre</a>
-                </li>
-                <li>
-                  <a href="#_" class="retweet">Retweeter</a>
-                </li>
-                <li>
-                  <a href="#_" class="favorite">Ajouter aux favoris</a>
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
+
+          <p class="note">Il n'y a aucun article à afficher.</p>
+
         <?php endif; ?>
       </div>
     </div>
