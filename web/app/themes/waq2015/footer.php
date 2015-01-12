@@ -3,7 +3,7 @@
       <footer role="contentinfo" class="black">
         <div class="container">
 
-          <div class="top-footer cols-2">
+          <div class="top-footer">
             <div class="left-section">
               <div class="content">
                 <h2 class="sub title">Espace dalhousie : le terminal</h2>
@@ -12,7 +12,7 @@
                   Québec (Québec), G1K 4C4
                 </p>
                 <div class="border-bottom"></div>
-                <div class="cols-2 no-margins info-general">
+                <div class="info-general">
                   <div class="">
                     <div class="content">
                       <h3 class="lower title">Informations générales</h3>

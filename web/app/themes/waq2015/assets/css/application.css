@@ -1577,6 +1577,22 @@ section.intro {
       zoom: 1;
       min-width: 50%;
       min-height: 100%; }
+  section.intro .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    section.intro .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 50%;
+      padding: 0 10px 20px; }
   section.intro .col.main > * {
     padding: 20px; }
   section.intro .col.left {
@@ -1606,7 +1622,12 @@ section.intro {
       vertical-align: top;
       height: 23%;
       margin: 0;
-      background: url(../img/marker.png) no-repeat center top; }
+      background: url(../img/marker.png) no-repeat center top;
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0; }
       section.intro .main.right .top:before {
         content: "";
         display: inline-block;
@@ -1622,6 +1643,16 @@ section.intro {
         *display: inline;
         zoom: 1;
         vertical-align: top; }
+      section.intro .main.right .top > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: 16px;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 50%;
+        padding: 0 0 0; }
       section.intro .main.right .top .left {
         padding-right: 45px; }
       section.intro .main.right .top .right {
@@ -1934,6 +1965,22 @@ section.intro {
   background: white;
   background: rgba(255, 255, 255, 0.8);
   z-index: 1; }
+.event-location .infos {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -15px;
+  margin-right: -15px; }
+  .event-location .infos > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 15px 30px; }
 .event-location a {
   color: #005f93; }
 .event-location .title, .event-location header[role="banner"] nav ul a, header[role="banner"] nav ul .event-location a,
@@ -2054,6 +2101,23 @@ section.intro {
 
 .col.wide.feed {
   margin-left: 34%; }
+
+.feed .grid {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .feed .grid > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 10px 20px; }
 
 .feed-post {
   padding: 0.75em 0;
@@ -2357,14 +2421,40 @@ section.intro {
     min-height: 100%; }
 
 footer .top-footer {
-  zoom: 1; }
-  footer .top-footer:before, footer .top-footer:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  footer .top-footer:after {
-    clear: both; }
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top; }
+  footer .top-footer > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 10px 20px; }
+  footer .top-footer:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: top;
+    margin-right: -0.25em; }
+  footer .top-footer > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top; }
 footer .sub-footer {
   zoom: 1;
   position: relative;
@@ -2378,7 +2468,7 @@ footer .sub-footer {
   footer .sub-footer:after {
     clear: both; }
 footer .right-section {
-  min-height: 300px;
+  min-height: 15.625em;
   text-align: center;
   display: inline-block;
   *display: inline;
@@ -2400,11 +2490,43 @@ footer .right-section {
     zoom: 1;
     vertical-align: middle; }
 footer .info-general {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: 0;
+  margin-right: 0;
   display: inline-block;
   *display: inline;
   zoom: 1;
-  width: 100%;
-  margin: 10px 0 0 0; }
+  vertical-align: top;
+  width: 100%; }
+  footer .info-general > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 0 0; }
+  footer .info-general:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: top;
+    margin-right: -0.25em; }
+  footer .info-general > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top; }
+  footer .info-general > * {
+    padding-top: 0.875em; }
   footer .info-general p {
     margin-bottom: 1em; }
     footer .info-general p:last-child {
