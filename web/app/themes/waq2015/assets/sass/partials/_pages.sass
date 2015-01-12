@@ -36,6 +36,8 @@ section.intro
       +inlineb
       min-width: 50%
       min-height: 100%
+  .grid
+    +grid(2, $medium)
   .col
     &.main>*
       padding: $medium
@@ -69,6 +71,7 @@ section.intro
       height: 23%
       margin: 0
       background: url(../img/marker.png) no-repeat center top
+      +grid(2, 0)
       .left
         padding-right: $large*1.5
       .right
@@ -263,6 +266,8 @@ section.intro
     background: #fff
     background: rgba(255,255,255,0.8)
     z-index: 1
+  .infos
+    +grid(2, $large)
   a
     color: $d-blue
   .title,
@@ -386,6 +391,9 @@ section.intro
 .col + .col.wide.feed
   padding-left: ($narrow + 2%)
 
+.feed
+  .grid
+    +grid(2, $medium)
 
 .feed-post
   padding: 0.75em 0
@@ -437,7 +445,7 @@ section.intro
   video
     max-width: 100%
     margin-bottom: 1em
-    
+
   .actions
     text-align: center
     +inlineb()
@@ -619,20 +627,23 @@ section.intro
 // FOOTER
 footer
   .top-footer
-    +clearfix()
+    +grid(2, $medium)
+    +align-children(top)
   .sub-footer
     +clearfix
     position: relative
     padding-top: $medium
     border-top: 1px solid $m-grey
   .right-section
-    min-height: 300px
+    min-height: 15.625em
     text-align: center
     +align-children(middle)
   .info-general
-    +inlineb()
+    +grid(2, 0)
+    +align-children(top)
     width: 100%
-    margin: $small 0 0 0
+    > *
+      padding-top: 0.875em
     p
       margin-bottom: 1em
       &:last-child

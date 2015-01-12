@@ -61,7 +61,7 @@ get_header_once();
       if($socialfeed->have_posts()):
         ?>
 
-        <div class="cols-2">
+        <div class="grid">
           <div class="left">
 
           <?php
