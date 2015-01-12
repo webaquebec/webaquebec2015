@@ -10,6 +10,7 @@ set :branch, :staging
 # Extended Server Syntax
 # ======================
 server 'waq.o2web.biz', user: 'waq', roles: %w{web app db}
+set :wpcli_remote_url, "http://dev.waq.o2web.biz"
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

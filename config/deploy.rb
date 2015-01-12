@@ -6,11 +6,11 @@ set :user, 'waq'
 #
 # Url of the Wordpress root installation on the REMOTE server
 # (used by search-replace command).
-#set :wpcli_remote_url, "http://something.o2web.biz"
+# set :wpcli_remote_url, "http://dev.waq.o2web.biz"
 
 # Url of the Wordpress root installation on the LOCAL server
 # (used by search-replace command).
-#set :wpcli_local_url, "http://localhost:8888"
+set :wpcli_local_url, "http://localhost:8888"
 
 # You can pass arguments directly to WPCLI using this var.
 # By default it will try to load values from ENV['WPCLI_ARGS'].

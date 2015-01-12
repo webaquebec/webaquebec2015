@@ -89,6 +89,12 @@
 
   //
   //
+  // TEMPORARY
+  #menu-main
+    display: none
+
+  //
+  //
   // WAQ2015
   .waq2015
     .grid
@@ -127,3 +133,13 @@
       +grid(1,0)
       > *
         padding-top: 50%
+
+  //
+  //
+  // PARTNERS
+  .logos
+    +grid(2, $medium)
+    li
+      margin: 2.5em 0 1.5em 0
+    &.small
+      +grid(4, 0)

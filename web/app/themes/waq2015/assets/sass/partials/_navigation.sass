@@ -10,7 +10,7 @@ header[role="banner"]
       height: 100%
       +align-children(middle)
       a
-        padding: 0 $large
+        padding: 0 1.875em
       img
         width: 91px
 
@@ -60,6 +60,14 @@ header[role="banner"]
       li.active a:before
         opacity: 1
         +prefix(transform,translateY(0.625em))
+
+      .acheter-mon-billet
+        float: right
+        a
+          padding-right: 2em
+          margin-right: 2em
+          background: url(../img/@2x/logo-eventbrite-small.png) no-repeat right center
+          background-size: 1.25em
 
     .main,
     .secondary
