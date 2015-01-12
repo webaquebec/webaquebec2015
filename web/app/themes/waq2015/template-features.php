@@ -11,9 +11,13 @@ setup_postdata($post);
   //
   //
   // FEATURED CONFERENCERS
-  $featured = get_field('featured');
-  $i = 0; // counter
-  foreach($featured as $conference):
+  $featured_sessions = get_field('featured');
+  foreach($featured_sessions as $k=>$featured_session):
+
+
+    $session = new session($featured_session['id']);
+
+
 
     // the conference
     $id = $conference['conference'];
@@ -37,7 +41,7 @@ setup_postdata($post);
 
     ?>
 
-    <figure class="panel <?= $i%2==0 ? 'left' : 'right' ?> <?= $i<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
+    <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
 
       <span class="image">
         <img src="<?= $image['sizes']['wide'] ?>" alt="" itemprop="image"/>
@@ -86,10 +90,7 @@ setup_postdata($post);
 
     </figure>
 
-    <?php
-    $i++;
-  endforeach;
-  ?>
+    <?php endforeach; ?>
   </div>
 
 </section>

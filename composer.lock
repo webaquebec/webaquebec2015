@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aef0123a1d55189a99679cb2685eaa07",
+    "hash": "e109357c6471cd8d2bdf0e4f291d3777",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -282,8 +282,29 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-field-date-time-picker/",
+            "homepage": "http://wordpress.org/plugins/acf-field-date-time-picker/",
             "time": "2014-09-25 00:43:59"
+        },
+        {
+            "name": "wpackagist-plugin/acf-range-field",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/acf-range-field/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/acf-range-field.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/acf-range-field/",
+            "time": "2014-08-30 23:41:39"
         },
         {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
@@ -303,7 +324,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/",
+            "homepage": "http://wordpress.org/plugins/intuitive-custom-post-order/",
             "time": "2014-04-11 12:57:00"
         },
         {
@@ -324,7 +345,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/",
+            "homepage": "http://wordpress.org/plugins/regenerate-thumbnails/",
             "time": "2014-04-01 02:48:53"
         }
     ],
@@ -335,10 +356,10 @@
         "koodimonni-language/fr": 20,
         "wpackagist-plugin/acf-field-date-time-picker": 20,
         "wpackagist-plugin/intuitive-custom-post-order": 20,
-        "wpackagist-plugin/regenerate-thumbnails": 20
+        "wpackagist-plugin/regenerate-thumbnails": 20,
+        "wpackagist-plugin/acf-range-field": 20
     },
     "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4"
     },

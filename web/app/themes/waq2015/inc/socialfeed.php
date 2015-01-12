@@ -54,7 +54,7 @@ class social_feed{
     
     $url = 'https://api.twitter.com/1.1/search/tweets.json';
     if(gettype($this->tag)=='string'){
-      $getfield = '?q=#'.$this->tag.'&result_type=recent&count='.$this->count;
+      $getfield = '?q=#'.$this->tag.'-filter:retweets&result_type=recent&count='.$this->count;
     }
     elseif(gettype($this->tag)=='array'){
       $q = '';

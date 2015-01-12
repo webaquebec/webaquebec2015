@@ -1,7 +1,8 @@
 <?php
 require_once('inc/seo.php');
 require_once('inc/hashbang.php');
-require_once('inc/schedule.php');
+require_once('inc/schedule-frontend.php');
+require_once('inc/schedule-backend.php');
 require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
