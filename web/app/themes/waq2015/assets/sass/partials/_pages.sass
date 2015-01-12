@@ -491,19 +491,13 @@ section.intro
 
 .logos
   +clearfix()
-  margin: 0 0 4.5em 0
+  +grid(4,$xlarge)
   li
-    +inlineb()
-    width: 25%
-    padding: 20px
-    float: left
-    margin-top: 3.5em
+    margin: 3.5em 0 2.25em 0
   img
     max-width: 100%
   &.small
-    li
-      padding: 0
-      width: 20%
+    +grid(5,0)
 
 .presenters
   .logos

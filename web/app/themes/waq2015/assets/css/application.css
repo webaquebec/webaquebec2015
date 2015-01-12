@@ -2139,7 +2139,11 @@ section.intro {
 
 .logos {
   zoom: 1;
-  margin: 0 0 4.5em 0; }
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -25px;
+  margin-right: -25px; }
   .logos:before, .logos:after {
     content: "\0020";
     display: block;
@@ -2147,19 +2151,36 @@ section.intro {
     overflow: hidden; }
   .logos:after {
     clear: both; }
-  .logos li {
+  .logos > * {
     display: inline-block;
     *display: inline;
     zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
     width: 25%;
-    padding: 20px;
-    float: left;
-    margin-top: 3.5em; }
+    padding: 0 25px 50px; }
+  .logos li {
+    margin: 3.5em 0 2.25em 0; }
   .logos img {
     max-width: 100%; }
-  .logos.small li {
-    padding: 0;
-    width: 20%; }
+  .logos.small {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .logos.small > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 20%;
+      padding: 0 0 0; }
 
 .presenters .logos {
   text-align: center; }
@@ -2572,7 +2593,26 @@ footer .logo-o2 {
   .intro .title.main, .intro header[role="banner"] nav ul a.main, header[role="banner"] nav ul .intro a.main {
     font-size: 1.5em; }
   .intro .top .huge {
-    font-size: 1em; } }
+    font-size: 1em; }
+
+  .features .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .features .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+    .features .grid > * {
+      padding-top: 50%; } }
 @media screen and (max-width: 580px) {
   .cols-2 {
     font-size: 0;
