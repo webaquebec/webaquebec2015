@@ -76,6 +76,26 @@
     top: 0
     width: 100%
 
+
+//
+//
+// STICKY
+.sticky
+  position: absolute
+  width: 100%
+  top: 0 
+  &.fixed
+    position: fixed
+    top: 120px
+    @extend .container
+    margin-left: -$medium
+
+  &.contained
+    position: absolute
+    top: auto
+    bottom: 30px
+
+
 //
 //
 // EXPANDABLES

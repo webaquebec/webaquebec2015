@@ -6,7 +6,7 @@ setup_postdata($post);
 <section id="<?= $post->post_name ?>" class="intro dark loading">
 
   <div class="container">
-    <div class="cols-2">
+    <div class="grid">
 
       <div class="anniversary main col left">
         <div class="top">
@@ -21,7 +21,7 @@ setup_postdata($post);
       </div>
 
       <div class="main col right">
-        <div class="top cols-2 xl-margin border-left">
+        <div class="top border-left">
           <?php
           $intro = get_field('intro')[0];
           ?>
@@ -44,7 +44,7 @@ setup_postdata($post);
           <h3>
             <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url') ?>" target="_blank">
               <div class="huge title"><?= $intro['bottom'][0]['cta'] ?></div>
-              <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" /> 
+              <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" />
             </a>
           </h3>
         </div>

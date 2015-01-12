@@ -32,7 +32,7 @@ class social_feed{
   }
 
 
-  function __construct($args) {
+  function __construct($args=array()) {
     $this->count = isset($args['count']) ? $args['count'] : 10;
     $this->tag = isset($args['tag']) ? $args['tag'] : 'o2web';
     $this->social_feed();
@@ -53,7 +53,19 @@ class social_feed{
       ));
     
     $url = 'https://api.twitter.com/1.1/search/tweets.json';
-    $getfield = '?q=#'.$this->tag.'&count='.$this->count;
+    if(gettype($this->tag)=='string'){
+      $getfield = '?q=#'.$this->tag.'&result_type=recent&count='.$this->count;
+    }
+    elseif(gettype($this->tag)=='array'){
+      $q = '';
+      foreach($this->tag as $k=>$tag){
+        
+        if($k>0) $q .= '+OR+';
+        $q .= '#'.$tag;
+      }
+      $getfield = '?q='.$q.'&result_type=recent&count='.$this->count;
+      // var_dump($getfield);
+    }
     $requestMethod = 'GET';
     
     $tweets = $twitter->setGetfield($getfield)
@@ -65,17 +77,25 @@ class social_feed{
 
   private function get_instagram(){
     $instagram = new MetzWeb\Instagram\Instagram('***REMOVED***');
-    $pics = $instagram->getTagMedia($this->tag, $this->count);
+    if(gettype($this->tag)=='string'){
+      $pics = $instagram->getTagMedia($this->tag, $this->count)->data;
+    }
+    elseif(gettype($this->tag)=='array'){
+      $pics = array();
+      foreach($this->tag as $tag){
+        $pics = array_merge($pics, $instagram->getTagMedia($tag, $this->count)->data);
+      }
+    }
     return $pics;
 
   }
 
-  public function rich_text($text){
+  public function rich_text($text, $type){
     $text = preg_replace(
         '@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@',
          '<a href="$1">$1</a>',
         $text);
-    if($this->type=='tweet'){
+    if($type=='tweet'){
       $text = preg_replace(
           '/@(\w+)/',
           '<a href="http://twitter.com/$1">@$1</a>',
@@ -104,11 +124,11 @@ class social_feed{
     $this->feed = array();
 
 
-
     // TWITTER
     $twitter_json = $this->get_twitter();
     $this->twitter_feed = json_decode($twitter_json);
     foreach($this->twitter_feed->statuses as $post){
+     
       // print_r($post);
       array_push( $this->feed, array(
           'id' => $post->id,
@@ -126,7 +146,8 @@ class social_feed{
 
     // INSTAGRAM
     $this->instagram_feed = $this->get_instagram();
-    foreach($this->instagram_feed->data as $post){
+
+    foreach($this->instagram_feed as $post){
     
      // print_r($post);
 

@@ -23,14 +23,22 @@
     &.small-margins
       +grid(3, $small)
     &.xsmall-margins
-      +grid(3, $xsmall) 
-  
+      +grid(3, $xsmall)
+
   .cols-4
     +grid(4, $medium)
     &.small-margins
       +grid(4, $small)
     &.xsmall-margins
-      +grid(4, $xsmall) 
+      +grid(4, $xsmall)
+
+
+  //
+  //
+  // PARTNERS
+  .logos
+    &.small
+      +grid(3, 0)
 
 
 
@@ -42,12 +50,12 @@
     .col.main
       &.left
         text-align: center
-      &.left,  
+      &.left,
       &.right
         >*
           padding-left: 0
           padding-right: 0
-    
+
     .main.right
       position: relative
       top: auto
@@ -67,7 +75,7 @@
         .right
           padding-left: $large
           padding-right: 0
-       
+
       .middle
         top: auto
         height: auto
@@ -78,3 +86,5 @@
 
 
 @media screen and (max-width: 480px)
+
+

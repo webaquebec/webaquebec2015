@@ -15,7 +15,7 @@ get_header_once();
       <?= get_the_title() ?>
       <div class="border-bottom expandable"></div>
     </h1>
-    <div class="cols-2 large-margins">
+    <div class="infos">
       <div class="content">
         <?php the_content() ?>
         <div class="hashtag">
