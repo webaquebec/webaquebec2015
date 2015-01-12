@@ -42,7 +42,7 @@ setup_postdata($post);
         <div class="bottom border-left">
           <div class="border-top expandable"></div>
           <h3>
-            <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_link', 'options') ?>" target="_blank">
+            <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url') ?>" target="_blank">
               <div class="huge title"><?= $intro['bottom'][0]['cta'] ?></div>
               <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" />
             </a>
