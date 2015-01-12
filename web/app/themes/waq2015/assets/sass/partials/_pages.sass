@@ -351,6 +351,7 @@ section.intro
 // BLOGUE
 
 .blog
+  position: relative
   .featured
     border: 1px solid $l-blue
     +border-radius(4px)
@@ -380,11 +381,12 @@ section.intro
       margin-top: 0
   .view-all
     margin-right: 0
+    +prefix(transform, translate3d(0,0,0))
   .col
     padding-bottom: 0
 
-.col + .col.wide.feed
-  padding-left: ($narrow + 2%)
+.col.wide.feed
+  margin-left: $narrow 
 
 
 .feed-post
