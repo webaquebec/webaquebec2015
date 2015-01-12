@@ -1375,7 +1375,7 @@ header[role="banner"] nav .logo {
     zoom: 1;
     vertical-align: middle; }
   header[role="banner"] nav .logo a {
-    padding: 0 30px; }
+    padding: 0 1.875em; }
   header[role="banner"] nav .logo img {
     width: 91px; }
 header[role="banner"] nav ul a {
@@ -1445,6 +1445,13 @@ header[role="banner"] nav .main li.active a:before {
   -ms-transform: translateY(0.625em);
   -o-transform: translateY(0.625em);
   transform: translateY(0.625em); }
+header[role="banner"] nav .main .acheter-mon-billet {
+  float: right; }
+  header[role="banner"] nav .main .acheter-mon-billet a {
+    padding-right: 2em;
+    margin-right: 2em;
+    background: url(../img/@2x/logo-eventbrite-small.png) no-repeat right center;
+    background-size: 1.25em; }
 header[role="banner"] nav .main,
 header[role="banner"] nav .secondary {
   background: white;
