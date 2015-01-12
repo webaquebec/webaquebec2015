@@ -2162,9 +2162,12 @@ section.intro {
     width: 25%;
     padding: 0 25px 50px; }
   .logos li {
-    margin: 3.5em 0 2.25em 0; }
+    margin: 3.5em 0 2.25em 0;
+    padding-bottom: 0;
+    text-align: center; }
   .logos img {
-    max-width: 100%; }
+    max-width: 100%;
+    margin: 0 auto; }
   .logos.small {
     font-size: 0;
     word-spacing: 0;
@@ -2567,6 +2570,9 @@ footer .logo-o2 {
       width: 33.33%;
       padding: 0 10px 20px; } }
 @media screen and (max-width: 768px) {
+  #menu-main {
+    display: none; }
+
   .waq2015 .grid {
     font-size: 0;
     word-spacing: 0;
@@ -2612,7 +2618,42 @@ footer .logo-o2 {
       width: 100%;
       padding: 0 0 0; }
     .features .grid > * {
-      padding-top: 50%; } }
+      padding-top: 50%; }
+
+  .logos {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .logos > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 50%;
+      padding: 0 10px 20px; }
+    .logos li {
+      margin: 2.5em 0 1.5em 0; }
+    .logos.small {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0; }
+      .logos.small > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: 16px;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 25%;
+        padding: 0 0 0; } }
 @media screen and (max-width: 580px) {
   .cols-2 {
     font-size: 0;
@@ -2776,6 +2817,23 @@ footer .logo-o2 {
         line-height: 1;
         width: 25%;
         padding: 0 2.5px 5px; }
+
+  .logos.small {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .logos.small > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 33.33%;
+      padding: 0 0 0; }
 
   .intro .col.main.left {
     text-align: center; }
