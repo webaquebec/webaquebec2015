@@ -114,16 +114,16 @@ jQuery(document).ready(function($){
             flag: 'anchor',
             offset: 150,
             topUp: function(e){
-               var $target = waq.$menu.$links.parent().filter('.'+e.selection.attr('id'));
-               if($target.length){
-                  waq.$menu.$links.parent().removeClass('active');
-                  $target.addClass('active');
-               };
+              var $target = waq.$menu.$links.parent().filter('.'+e.selection.attr('id'));
+              waq.$menu.$links.parent().removeClass('active');
+              if($target.length){
+                $target.addClass('active');
+              };
             },
             topDown: function(e){
               var $target = waq.$menu.$links.parent().filter('.'+$(se.items[minMax(e.i,0,100)]).attr('id'));
+              waq.$menu.$links.parent().removeClass('active');
               if($target.length){
-                waq.$menu.$links.parent().removeClass('active');
                 $target.addClass('active');
               }
             }
