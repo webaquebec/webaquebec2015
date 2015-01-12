@@ -39,7 +39,7 @@ get_header_once();
     </div>
 
     <div class="main_partners">
-      <h2 class="sub title lined">Partenaires principaux</h2>
+      <h2 class="sub title lined">Principaux</h2>
       <hr class="sub-line">
       <ul class="logos">
       <?php foreach ($main_partners as $main_partner) : ?>
@@ -74,18 +74,6 @@ get_header_once();
       </ul>
     </div>
 
-    <div class="medias">
-      <h2 class="sub title lined">Médias</h2>
-      <hr class="sub-line">
-      <ul class="logos small">
-      <?php foreach ($medias as $media) : ?>
-        <li>
-          <img src="<?= $media['image']['url']; ?>" alt="<?= $media['name']; ?>">
-        </li>
-      <?php endforeach; ?>
-      </ul>
-    </div>
-
     <div class="supporters">
       <h2 class="sub title lined">Supporteurs</h2>
       <hr class="sub-line">
@@ -93,6 +81,18 @@ get_header_once();
       <?php foreach ($supporters as $supporter) : ?>
         <li>
           <img src="<?= $supporter['image']['url']; ?>" alt="<?= $supporter['name']; ?>">
+        </li>
+      <?php endforeach; ?>
+      </ul>
+    </div>
+
+    <div class="medias">
+      <h2 class="sub title lined">Médias</h2>
+      <hr class="sub-line">
+      <ul class="logos small">
+      <?php foreach ($medias as $media) : ?>
+        <li>
+          <img src="<?= $media['image']['url']; ?>" alt="<?= $media['name']; ?>">
         </li>
       <?php endforeach; ?>
       </ul>
