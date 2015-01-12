@@ -58,9 +58,9 @@
 				}
 
 
-				function updateOptions(){
-					if(options.container){
-						var el = $el;
+				if(options.container){
+					function updateOptions(){
+						var el = $el[0];
 						var tmpPos = el.style.position;
 						var tmpTop = el.style.top;
 						el.style.position = el.initialStates.position;
@@ -71,8 +71,8 @@
 						el.style.position = tmpPos;
 						el.style.top = tmpTop;
 					}
+					$(window).on('hardResize', updateOptions);
 				}
-				$(window).on('hardResize', updateOptions);
 
 			}
 
