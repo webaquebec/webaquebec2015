@@ -74,10 +74,44 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <div class="welcome group">
+        <?php
+
+        // welcome
+        $welcome_members = get_field('welcome');
+
+        ?>
+        <h2 class="sub title lined">Accueil</h2>
+        <hr class="sub-line">
+        <ul class="welcome-members-list grid">
+        <?php foreach ($welcome_members as $welcome_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $welcome_member['image']['sizes']['thumbnail']; ?>" alt="<?= $welcome_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $welcome_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $welcome_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $welcome_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $welcome_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
+      </div>
       <div class="admin group">
         <?php
 
-        // board of directors
+        // admin
         $admin_members = get_field('admin');
 
         ?>
@@ -108,48 +142,14 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
-      <div class="welcome group">
-        <?php
-
-        // board of directors
-        $welcome_members = get_field('welcome');
-
-        ?>
-        <h2 class="sub title lined">Comité d'accueil</h2>
-        <hr class="sub-line">
-        <ul class="welcome-members-list grid">
-        <?php foreach ($welcome_members as $welcome_member) : ?>
-          <li>
-            <figure class="profile">
-              <div>
-                <div class="thumb">
-                  <img src="<?= $welcome_member['image']['sizes']['thumbnail']; ?>" alt="<?= $welcome_member['name']; ?>" />
-                </div>
-
-                <figcaption class="infos">
-                  <h3 class="name"><?= $welcome_member['name']; ?></h3>
-                  <nav class="links">
-                    <ul>
-                      <li><a href="<?= $welcome_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
-                      <li><a href="<?= $welcome_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
-                      <li><a href="<?= $welcome_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
-                    </ul>
-                  </nav>
-                </figcaption>
-              </div>
-            </figure>
-          </li>
-        <?php endforeach; ?>
-        </ul>
-      </div>
       <div class="volounteers-committee group">
         <?php
 
-        // board of directors
+        // volounteers
         $volounteers_committee_members = get_field('volounteers_committee');
 
         ?>
-        <h2 class="sub title lined">Comité des bénévoles</h2>
+        <h2 class="sub title lined">Bénévoles</h2>
         <hr class="sub-line">
         <ul class="volounteers-committee-members-list grid">
         <?php foreach ($volounteers_committee_members as $volounteers_committee_member) : ?>
@@ -179,11 +179,11 @@ get_header_once();
       <div class="communications group">
         <?php
 
-        // board of directors
+        // communications
         $communications_members = get_field('communications');
 
         ?>
-        <h2 class="sub title lined">Comité des communications</h2>
+        <h2 class="sub title lined">Communications</h2>
         <hr class="sub-line">
         <ul class="communications-members-list grid">
         <?php foreach ($communications_members as $communications_member) : ?>
@@ -213,11 +213,11 @@ get_header_once();
       <div class="logisitics group">
         <?php
 
-        // board of directors
+        // logistics
         $logistics_members = get_field('logistics');
 
         ?>
-        <h2 class="sub title lined">Comité logisitique</h2>
+        <h2 class="sub title lined">Logisitique</h2>
         <hr class="sub-line">
         <ul class="logistics-members-list grid">
         <?php foreach ($logistics_members as $logistics_member) : ?>
@@ -247,11 +247,11 @@ get_header_once();
       <div class="schedule group">
         <?php
 
-        // board of directors
+        // schedule
         $schedule_members = get_field('schedule');
 
         ?>
-        <h2 class="sub title lined">Comité de programmation</h2>
+        <h2 class="sub title lined">Programmation</h2>
         <hr class="sub-line">
         <ul class="schedule-members-list grid">
         <?php foreach ($schedule_members as $schedule_member) : ?>
@@ -278,14 +278,48 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <div class="welcome group">
+        <?php
+
+        // protocol
+        $protocol_members = get_field('protocol');
+
+        ?>
+        <h2 class="sub title lined">Protocole</h2>
+        <hr class="sub-line">
+        <ul class="wprotocol-list grid">
+        <?php foreach ($protocol_members as $protocol_member) : ?>
+          <li>
+            <figure class="profile">
+              <div>
+                <div class="thumb">
+                  <img src="<?= $protocol_member['image']['sizes']['thumbnail']; ?>" alt="<?= $protocol_member['name']; ?>" />
+                </div>
+
+                <figcaption class="infos">
+                  <h3 class="name"><?= $protocol_member['name']; ?></h3>
+                  <nav class="links">
+                    <ul>
+                      <li><a href="<?= $protocol_member['facebook']; ?>" target="_blank" class="facebook">facebook</a></li>
+                      <li><a href="<?= $protocol_member['twitter']; ?>" target="_blank" class="twitter">twitter</a></li>
+                      <li><a href="<?= $protocol_member['linked_in']; ?>" target="_blank" class="linkedin">Linkedin</a></li>
+                    </ul>
+                  </nav>
+                </figcaption>
+              </div>
+            </figure>
+          </li>
+        <?php endforeach; ?>
+        </ul>
+      </div>
       <div class="international group">
         <?php
 
-        // board of directors
+        // international
         $international_members = get_field('international');
 
         ?>
-        <h2 class="sub title lined">Comité des relations internationales</h2>
+        <h2 class="sub title lined">Relations internationales</h2>
         <hr class="sub-line">
         <ul class="international-members-list grid">
         <?php foreach ($international_members as $international_member) : ?>
