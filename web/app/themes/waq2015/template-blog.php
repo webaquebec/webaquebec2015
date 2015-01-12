@@ -16,48 +16,57 @@ get_header_once();
     </h1>
     <?php endwhile; endif; ?>
     <div class="blog">
-      <div class="col narrow">
-        <?php
+      <div class="sticky">
+        <div class="col narrow">
+          <?php
 
-          $args = array('showposts' => 1 );
-          $the_query = new WP_Query( $args ); // New query
+            $args = array('showposts' => 1 );
+            $the_query = new WP_Query( $args ); // New query
 
-        ?>
-        <?php if( $the_query->have_posts() ): ?>
-        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          ?>
+          <?php if( $the_query->have_posts() ): ?>
+          <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-        <article class="featured">
-          <div class="image">
-            <?php
-              if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('wide');
-              }
-            ?>
+          <article class="featured">
+            <div class="image">
+              <?php
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail('wide');
+                }
+              ?>
+            </div>
+            <div class="content">
+                <div class="article-info">
+                  <span class="meta small"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
+                  <h1 class="sub title">
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                  </h2>
+                </div>
+                <p><?= get_the_excerpt(); ?></p>
+            </div>
+          </article>
+          <?php endwhile; endif; ?>
+          <div class="view-all btn autowidth bold link">
+            <a href="<?= get_permalink(126) ?>" class=""><span>Voir tous les articles</span></a>
           </div>
-          <div class="content">
-              <div class="article-info">
-                <span class="meta small"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
-                <h1 class="sub title">
-                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h2>
-              </div>
-              <p><?= get_the_excerpt(); ?></p>
-          </div>
-        </article>
-        <?php endwhile; endif; ?>
-        <div class="view-all btn autowidth bold link">
-          <a href="<?= get_permalink(126) ?>" class=""><span>Voir tous les articles</span></a>
         </div>
       </div>
       <div class="col wide feed">
 
       <?php
-      $tag = str_replace('#','',get_field('hashtag', 'options'));
+      $hashtags = get_field('hashtags', 'options');
+      $tags = array();
+      foreach($hashtags as $tag ){
+        array_push($tags, str_replace('#','',$tag['hashtag']) );
+      }
+
       $count = get_field('tagboard_count', 'options');
       $socialfeed = new social_feed(array(
-          'tag' => $tag,
+          'tag' => $tags,
           'count' => $count,
         ));
+
+      // var_dump(($socialfeed));
       if($socialfeed->have_posts()):
         ?>
 
@@ -96,7 +105,7 @@ get_header_once();
                       <img src="<?= $post->images->standard_resolution->url ?>" alt="Image de <?= $post->name ?>" />
                     </div>
                   <?php endif; ?>
-                  <p><?= $socialfeed->rich_text($post->text) ?></p>
+                  <p><?= $socialfeed->rich_text($post->text, $post->type) ?></p>
                 </div>
 
                 <?php if($post->type =='tweet'): ?>
