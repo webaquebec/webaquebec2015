@@ -56,23 +56,24 @@ header[role="banner"],
 hgroup
   position: relative
   z-index: 10
-  nav
+  
+nav[role="navigation"]
+  position: fixed
+  top: $small
+  left: $small
+  right: $small
+  height: $nav-height
+  z-index: 5
+.intro+nav
+  position: absolute
+  top: auto
+  bottom: ($nav-height/-2) 
+  &.fixed
     position: fixed
     top: $small
-    left: $small
-    right: $small
-    height: $nav-height
-    z-index: 5
-  .intro+nav
-    position: absolute
-    top: auto
-    bottom: ($nav-height/-2) 
-    &.fixed
-      position: fixed
-      top: $small
-      &.bottom
-        top: auto
-        bottom: $small
+    &.bottom
+      top: auto
+      bottom: $small
 //
 //
 // FOOTER

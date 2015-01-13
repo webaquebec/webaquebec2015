@@ -1,121 +1,121 @@
 // ==========================================================================
 // NAVIGATION
 // ==========================================================================
-header[role="banner"]
-  nav
-    .logo
-      position: absolute
-      top: 0
-      left: 0
-      height: 100%
-      +align-children(middle)
-      a
-        padding: 0 1.75em
-      img
-        width: 130px
+nav[role="navigation"]
+  .logo
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    +align-children(middle)
+    a
+      padding: 0 1.75em
+    img
+      width: 130px
 
-    ul
-      a
-        @extend .title
-        @extend .small.title
-        +inlineb
-        padding: 37px 0
-        margin: 0 0.5em
-        border-bottom: 0 solid #fff
-        position: relative
-        +prefix(transition, all 120ms $ease)
-    .main
-      a
-        &:before
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 1px
-          background: $l-blue
-          content: ''
-          opacity: 0
-          +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
-          +prefix(transform,translateY(0px))
-        &:after
-          position: absolute
-          bottom: 0
-          left: 0
-          width: 100%
-          height: 1px
-          background: $l-blue
-          content: ''
-          opacity: 0
-          +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
-          +prefix(transform,translateY(0px))
-
-      li.active a,
-      .no-touch & a:hover
-        color: $l-blue
-
-      li.active a:after
-        opacity: 1
-        +prefix(transform,translateY(-0.625em))
-
-      li.active a:before
-        opacity: 1
-        +prefix(transform,translateY(0.625em))
-
-      .acheter-mon-billet
-        float: right
-        a
-          padding-right: 2em
-          margin-right: 2em
-          background: url(../img/@2x/logo-eventbrite-small.png) no-repeat right center
-          background-size: 1.25em
-
-    .main,
-    .secondary
-      background: #fff
-      // padding: $medium
-      height: 100%
-      z-index: 2
-      @extend .shadows
-      +align-children(middle)
-      a
-        color: $d-blue
-        .no-touch &:hover
-          color: $l-blue
-        &.active
-          color: $l-blue
-    .main
-      display: block
-      padding-left: 130px + (2*$large)
-      margin-right: 200px + $small
-
-    .secondary
-      float: right
-      width: 200px
-      padding: 0 $large
-      +gradient($l-blue, $d-blue)
+  ul
+    a
+      @extend .title
+      @extend .small.title
+      +inlineb
+      padding: 37px 0
+      margin: 0 0.5em
+      border-bottom: 0 solid #fff
+      position: relative
+      +prefix(transition, all 120ms $ease)
+  .main
+    a
       &:before
-        margin: 0
-
-      li
+        position: absolute
+        top: 0
+        left: 0
         width: 100%
+        height: 1px
+        background: $l-blue
+        content: ''
+        opacity: 0
+        +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
+        +prefix(transform,translateY(0px))
+      &:after
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 1px
+        background: $l-blue
+        content: ''
+        opacity: 0
+        +prefix(transition, height 240ms, opacity 240ms, transform 240ms)
+        +prefix(transform,translateY(0px))
+
+    li.active a,
+    .no-touch & a:hover
+      color: $l-blue
+
+    li.active a:after
+      opacity: 1
+      +prefix(transform,translateY(-0.625em))
+
+    li.active a:before
+      opacity: 1
+      +prefix(transform,translateY(0.625em))
+
+    .acheter-mon-billet
+      display: none // hide for non-media-queries browsers
+      float: right
       a
-        color: $l-grey
-        width: 100%
-        position: relative
-        margin-left: 0
-        margin-right: 0
-        @extend .icon-favorite
-        &:after
-          float: right
-          line-height: 1em
-          margin-right: 0.1em
+        padding-right: 2em
+        margin-right: 2em
+        background: url(../img/@2x/logo-eventbrite-small.png) no-repeat right center
+        background-size: 1.25em
 
-      li.active a,
-      .no-touch & a:hover
-        color: #fff
-        border-color: #fff
-        margin-left: 0
-        margin-right: 0
+  .main,
+  .secondary
+    background: #fff
+    // padding: $medium
+    height: 100%
+    z-index: 2
+    @extend .shadows
+    +align-children(middle)
+    a
+      color: $d-blue
+      .no-touch &:hover
+        color: $l-blue
+      &.active
+        color: $l-blue
+  .main
+    display: block
+    padding-left: 180px
+    margin-right: 200px + $small
+
+  .secondary
+    float: right
+    width: 200px
+    padding: 0 $large
+    +gradient($l-blue, $d-blue)
+    &:before
+      margin: 0
+
+    li
+      width: 100%
+    a
+      color: $l-grey
+      width: 100%
+      position: relative
+      margin-left: 0
+      margin-right: 0
+      @extend .icon-favorite
+      &:after
+        float: right
+        line-height: 1em
+        margin-right: 0.1em
+
+    li.active a,
+    .no-touch & a:hover
+      color: #fff
+      border-color: #fff
+      margin-left: 0
+      margin-right: 0
 
 
 

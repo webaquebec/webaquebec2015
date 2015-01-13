@@ -42,6 +42,7 @@ jQuery(document).ready(function($){
 
   waq.$menu = $('nav', waq.$header);
   waq.$menu.$links = $('a', waq.$menu);
+  waq.$logo = $('.logo', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
   waq.$map = $('#gmap');
@@ -51,6 +52,8 @@ jQuery(document).ready(function($){
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
   waq.$stickys = $('.sticky');
+  waq.$loading = $('.loading');
+
 
   waq.isTouch = $(document.documentElement).hasClass('touch');
 
@@ -58,21 +61,10 @@ jQuery(document).ready(function($){
 
   //
   //
-  // STICKY NAV
-  if(waq.$intro.length){
-    waq.$menu.sticky({
-      inverted: true,
-      offset: 10,
-      offsetBottom: 10,
-      fixedTop: function(e){
-        e.selection.addClass('fixed top');
-      },
-      scrolling: function(e){
-        e.selection.removeClass('fixed top bottom');
-      },
-      fixedBottom: function(e){
-        e.selection.addClass('fixed bottom');
-      }
+  // REMOVE LOADING CLASS
+  if(waq.$loading.length){
+    $win.on('load',function(){
+      waq.$loading.removeClass('loading');
     });
   }
 
@@ -119,22 +111,27 @@ jQuery(document).ready(function($){
             flag: 'anchor',
             offset: 150,
             topUp: function(e){
-              var $target = waq.$menu.$links.parent().filter('.'+e.selection.attr('id'));
+              var slug = e.selection.attr('id');
+              var $target = waq.$menu.$links.parent().filter('.'+slug);
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
                 $target.addClass('active');
+                window.location.replace('#!/'+slug);
               };
             },
             topDown: function(e){
-              var $target = waq.$menu.$links.parent().filter('.'+$(se.items[minMax(e.i,0,100)]).attr('id'));
+              var slug = $(se.items[minMax(e.i-1,0,100)]).attr('id')
+              var $target = waq.$menu.$links.parent().filter('.'+slug);
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
                 $target.addClass('active');
+                window.location.replace('#!/'+slug);
               }
             }
 
         });
     }
+    // dirty fix
     $win.on('load',function(){
       waq.$menu.$links.parent().removeClass('active');
     });
@@ -145,36 +142,76 @@ jQuery(document).ready(function($){
   //
   //
   // SCROLL TO HASHBANG
-  var hash = window.location.hash;
-  if(hash.indexOf('!')!=-1){
-    var klass = hash.replace(/#|!|\//g,'');
-    $win.on('load',function(){
-      scrollTo(klass);
-    });
+  waq.hash = window.location.hash;
+  if(waq.hash.indexOf('!')!=-1){
+    var parts = waq.hash.replace(/^\/|\/$/g, '').split('/');
+    if(parts.length>1){
+      var slug = parts[1];
+      $win.on('load',function(){
+        scrollTo(slug);
+      });
+    }
   }
-
  
 
+ 
   //
   //
-  // ENABLE STICKY
-  if(waq.$stickys.length){
-    for(var i=0; i<waq.$stickys.length; i++){
-      var $sticky = $(waq.$stickys[i]);
-      $sticky.sticky({
-        offset: 120,
-        offsetBottom: 30,
-        container: $sticky.parent(),
-        reset: function(e){
-          e.selection.removeClass('fixed contained');
+  // STICKY NAV
+  if(waq.$intro.length){
+    // enable
+    function enableStickyNav(){
+      waq.$menu.sticky({
+        inverted: true,
+        offset: 10,
+        offsetBottom: 10,
+        fixedTop: function(e){
+          e.selection.addClass('fixed top');
         },
-        fixed: function(e){
-          e.selection.removeClass('contained').addClass('fixed');
+        scrolling: function(e){
+          e.selection.removeClass('fixed top bottom');
         },
-        contained: function(e){
-          e.selection.removeClass('fixed').addClass('contained');
+        fixedBottom: function(e){
+          e.selection.addClass('fixed bottom');
         }
-      });
+      });      
+    }
+    // disable
+    function disableStickyNav(){
+      waq.$menu.sticky('destroy');
+      waq.$menu.removeClass('fixed top bottom');
+    }
+  }
+
+
+  //
+  //
+  // GENERAL STICKYS
+  if(waq.$stickys.length){
+    //enable 
+    function enableStickys(){
+      for(var i=0; i<waq.$stickys.length; i++){
+        var $sticky = $(waq.$stickys[i]);
+        $sticky.sticky({
+          offset: 120,
+          offsetBottom: 30,
+          container: $sticky.parent(),
+          reset: function(e){
+            e.selection.removeClass('fixed contained');
+          },
+          fixed: function(e){
+            e.selection.removeClass('contained').addClass('fixed');
+          },
+          contained: function(e){
+            e.selection.removeClass('fixed').addClass('contained');
+          }
+        });
+      }
+    }
+    // disable 
+    function disableStickys(){
+      waq.$stickys.sticky('destroy');
+      waq.$stickys.removeClass('contained fixed');
     }
   }
 
@@ -240,21 +277,52 @@ jQuery(document).ready(function($){
   //
   // BREAK POINTS
 
-  function largerThan1024(e){
-
+  //
+  //
+  // > 1200px
+  function largerThan1200(e){
+    if(waq.$intro.length) enableStickyNav();
+    if(e=='init') return; 
+    waq.$menu.appendTo(waq.$header);
+    waq.$logo.prependTo(waq.$menu);
+    $win.scrollEvents('update');
+  }
+  // < 1200px
+  function smallerThan1200(e){
+    waq.$menu.insertBefore(waq.$page);
+    waq.$logo.insertBefore(waq.$menu);
+    if(e=='init') return;
+    if(waq.$intro.length) disableStickyNav();
   }
 
-  function smallerThan1024(e){
-
+  //
+  //
+  // > 768px
+  function largerThan768(e){
+    if(waq.$stickys.length) enableStickys();
+    if(e=='init') return;
+    $win.scrollEvents('update');
+  }
+  // < 768px
+  function smallerThan768(e){
+    if(e=='init') return;
+    if(waq.$stickys.length) disableStickys();
   }
 
 
   $win.breakpoints([
       {
-         width: 1024,
+         width: 1200,
          callback: {
-          larger: largerThan1024,
-          smaller: smallerThan1024
+          larger: largerThan1200,
+          smaller: smallerThan1200
+         }
+      },
+      {
+         width: 768,
+         callback: {
+          larger: largerThan768,
+          smaller: smallerThan768
          }
       }
 

@@ -54,7 +54,7 @@
 						offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
 						topDown: options.fixed,
 						topUp: options.contained
-					})
+					});
 				}
 
 
@@ -71,6 +71,7 @@
 						el.style.position = tmpPos;
 						el.style.top = tmpTop;
 					}
+
 					$(window).on('hardResize', updateOptions);
 				}
 
