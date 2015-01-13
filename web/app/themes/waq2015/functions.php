@@ -1,7 +1,8 @@
 <?php
 require_once('inc/seo.php');
 require_once('inc/hashbang.php');
-require_once('inc/schedule.php');
+require_once('inc/schedule-frontend.php');
+require_once('inc/schedule-backend.php');
 require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
@@ -171,6 +172,9 @@ function header_scripts()
 
         wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null); 
         wp_enqueue_script('breakpoints');
+
+        wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null); 
+        wp_enqueue_script('map');
         
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
         wp_enqueue_script('custom'); 

@@ -1,6 +1,8 @@
-<?php get_header(); ?>
-
-<?php if(have_posts()): while(have_posts()): the_post(); ?>
+<?php get_header(); 
+if(have_posts()): while(have_posts()): the_post();
+$session = new session($post->ID);
+print_r($session);
+?>
 
 <article class="single no-padding">
 

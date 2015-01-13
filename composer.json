@@ -76,7 +76,8 @@
     "acf/advanced-custom-fields": "5.1.5",
     "wpackagist-plugin/acf-field-date-time-picker": "dev-trunk",
     "wpackagist-plugin/intuitive-custom-post-order": "dev-trunk",
-    "wpackagist-plugin/regenerate-thumbnails": "dev-trunk"
+    "wpackagist-plugin/regenerate-thumbnails": "dev-trunk",
+    "wpackagist-plugin/acf-range-field": "dev-trunk"
   },
   "extra": {
     "installer-paths": {

@@ -10,13 +10,13 @@ setup_postdata($post);
 
       <div class="anniversary main col left">
         <div class="top">
-          <img src="/img/intro-top.png" alt="5 ans"/> 
+          <img src="/img/intro-top.png" alt="5 ans"/>
         </div>
         <div class="middle">
-          <img src="/img/intro-middle.png" alt="WAQ"/> 
+          <img src="/img/intro-middle.png" alt="WAQ"/>
         </div>
         <div class="bottom">
-          <img src="/img/intro-bottom.png" alt="Bonne fête"/> 
+          <img src="/img/intro-bottom.png" alt="Bonne fête"/>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ setup_postdata($post);
         <div class="bottom border-left">
           <div class="border-top expandable"></div>
           <h3>
-            <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url') ?>" target="_blank">
+            <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url', 'options') ?>" target="_blank">
               <div class="huge title"><?= $intro['bottom'][0]['cta'] ?></div>
               <img class="logo" src="/img/logo-eventbrite.png" alt="Eventbrite" />
             </a>

@@ -2052,13 +2052,21 @@ section.intro {
       width: 100%; }
     .no-touch .event-location .social a:hover {
       color: #0094c2; }
-.event-location .map {
+.event-location .map,
+.event-location .map-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0; }
+.event-location .viewport {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -1; }
 
 .blog {
   position: relative; }
@@ -2108,7 +2116,8 @@ section.intro {
   word-spacing: 0;
   line-height: 0;
   margin-left: -10px;
-  margin-right: -10px; }
+  margin-right: -10px;
+  vertical-align: top; }
   .feed .grid > * {
     display: inline-block;
     *display: inline;

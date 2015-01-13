@@ -15,6 +15,7 @@ get_header_once();
       <?= get_the_title() ?>
       <div class="border-bottom expandable"></div>
     </h1>
+
     <div class="infos">
       <div class="content">
         <?php the_content() ?>
@@ -39,13 +40,19 @@ get_header_once();
         </ul>
       </div>
     </div>
+
   </div>
 
   <?php
   // marker location
   $loc = get_field('gmap');
   ?>
-  <div id="gmap" class="map" lat="<?= $loc['lat'] ?>" lng="<?= $loc['lng'] ?>" ></div>
+  
+  <div class="map-container">
+    <div class="viewport"></div>
+    <div id="gmap" class="map" lat="<?= $loc['lat'] ?>" lng="<?= $loc['lng'] ?>" >
+    </div>
+  </div>
 
 </section>
 

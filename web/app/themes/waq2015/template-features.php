@@ -11,33 +11,19 @@ setup_postdata($post);
   //
   //
   // FEATURED CONFERENCERS
-  $featured = get_field('featured');
-  $i = 0; // counter
-  foreach($featured as $conference):
+  $featured_sessions = get_field('featured');
+  foreach($featured_sessions as $k=>$featured_session):
+
+
+    $session = new session($featured_session['id']);
 
     // the conference
-    $id = $conference['conference'];
-    $title = get_the_title($id);
-    $url = get_the_permalink($id);
-    // the conferencer
-    $about = get_field('about', $id);
-    $name = $about[0]['infos'][0]['name'];
-    $job = $about[0]['infos'][0]['job'];
-    // the time
-    $timeframe = get_field('timeframe', $id);
-    $day = get_the_title($timeframe[0]['day']);
-    $date = get_field('date',$timeframe[0]['day']);
-    $frameID = $timeframe[0]['frame_'.$timeframe[0]['day']];
-    // the place
-    $location = $timeframe[0]['room']->post_title;
-    $color = get_field('color',$timeframe[0]['room']->ID);
-    // the image
-    $image = $conference['image']; // custom image
-    if(!has($image)) $image = $about[0]['infos'][0]['image'] // conferencer image fallback
+    $image = $featured_session['image']; // custom image
+    if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
 
     ?>
 
-    <figure class="panel <?= $i%2==0 ? 'left' : 'right' ?> <?= $i<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
+    <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
 
       <span class="image">
         <img src="<?= $image['sizes']['wide'] ?>" alt="" itemprop="image"/>
@@ -53,30 +39,30 @@ setup_postdata($post);
           </button>
 
           <div class="speaker">
-            <span class="name title" itemprop="name"><?= $name ?></span>
-            <span class="job" itemprop="jobTitle"><?= $job ?></span>
+            <span class="name title" itemprop="name"><?= $session->speaker->name ?></span>
+            <span class="job" itemprop="jobTitle"><?= $session->speaker->job ?></span>
           </div>
 
-          <a class="session btn link" href="<?= $url ?>">
+          <a class="session btn link" href="<?= $session->permalink ?>">
             <span class="wrap">
 
               <span class="meta dark">
-                <time class="date" datetime="<?= $date ?>">
+                <time class="date" datetime="<?= $session->date ?>">
                   <span class="v-align">
-                    <span class="sub title"><?= substr($day,0,3) ?></span>
-                    <span class="small title"><?= '18' ?></span>
+                    <span class="sub title"><?= substr($session->grid,0,3) ?></span>
+                    <span class="small title"><?= strftime('%e', $session->date) ?></span>
                   </span>
                 </time>
 
                 <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
                   <span class="v-align">
-                    <span class="sub title">10h</span>
-                    <span class="small title">30</span>
+                    <span class="sub title"><?= strftime('%H', $session->time->start) ?>h</span>
+                    <span class="small title"><?= strftime('%M', $session->time->end) ?></span>
                   </span>
                 </time>
               </span>
 
-              <span class="session-title sub title"><?= $title ?></span>
+              <span class="session-title sub title"><?= $session->title ?></span>
 
             </span>
           </a>
@@ -86,10 +72,7 @@ setup_postdata($post);
 
     </figure>
 
-    <?php
-    $i++;
-  endforeach;
-  ?>
+    <?php endforeach; ?>
   </div>
 
 </section>
