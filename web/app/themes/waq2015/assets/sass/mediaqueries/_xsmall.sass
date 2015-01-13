@@ -4,34 +4,6 @@
 // =====================================================================================
 
 @media screen and (max-width: 580px)
-  //
-  //
-  // COLUMNS
-
-  .cols-2
-    +grid(1,0)
-    &.small-margins
-      +grid(1,0)
-    &.xsmall-margins
-      +grid(1,0)
-
-    .intro &.top
-      +grid(2, $medium)
-
-  .cols-3
-    +grid(3, $medium)
-    &.small-margins
-      +grid(3, $small)
-    &.xsmall-margins
-      +grid(3, $xsmall)
-
-  .cols-4
-    +grid(4, $medium)
-    &.small-margins
-      +grid(4, $small)
-    &.xsmall-margins
-      +grid(4, $xsmall)
-
 
   //
   //
@@ -39,7 +11,6 @@
   .logos
     &.small
       +grid(3, 0)
-
 
 
   //
@@ -86,5 +57,19 @@
 
 
 @media screen and (max-width: 480px)
+
+  //
+  //
+  // TYPOGRAPHY
+  .title
+    &.main
+      font-size: 1.875em
+
+  //
+  //
+  // WAQ 2015
+  .waq2015
+    .grid
+      +grid(1, 0)
 
 

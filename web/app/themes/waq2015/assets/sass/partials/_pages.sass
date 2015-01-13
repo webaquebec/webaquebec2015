@@ -428,9 +428,8 @@ section.intro
 .feed
   .grid
     +grid(2, $medium)
-    vertical-align: top
     > *
-      float: left
+      vertical-align: top
 
 .feed-post
   padding: 0.75em 0
@@ -561,16 +560,19 @@ section.intro
 .waq2015
   .content
     margin-top: 30px
-  .top,
+  .top > *,
   .bottom
     +clearfix()
-    margin-bottom: 45px
+    margin-bottom: 2.813em
   .waq-infos
     width: 66.66666%
     padding-right: 130px
     float: left
   .description
     padding-right: 40px
+    img
+      display: block
+      max-width: 100%
   .volounteers
     width: 33.33333%
     float: left
@@ -582,6 +584,7 @@ section.intro
         font-size: 1em
         padding: 0 1em 0 1px
   .group
+    +clearfix()
     margin-bottom: 0
     > ul
       margin-top: 20px

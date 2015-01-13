@@ -2168,8 +2168,7 @@ section.intro {
   word-spacing: 0;
   line-height: 0;
   margin-left: -10px;
-  margin-right: -10px;
-  vertical-align: top; }
+  margin-right: -10px; }
   .feed .grid > * {
     display: inline-block;
     *display: inline;
@@ -2181,7 +2180,7 @@ section.intro {
     width: 50%;
     padding: 0 10px 20px; }
   .feed .grid > * {
-    float: left; }
+    vertical-align: top; }
 
 .feed-post {
   padding: 0.75em 0;
@@ -2347,18 +2346,18 @@ section.intro {
 
 .waq2015 .content {
   margin-top: 30px; }
-.waq2015 .top,
+.waq2015 .top > *,
 .waq2015 .bottom {
   zoom: 1;
-  margin-bottom: 45px; }
-  .waq2015 .top:before, .waq2015 .top:after,
+  margin-bottom: 2.813em; }
+  .waq2015 .top > *:before, .waq2015 .top > *:after,
   .waq2015 .bottom:before,
   .waq2015 .bottom:after {
     content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
-  .waq2015 .top:after,
+  .waq2015 .top > *:after,
   .waq2015 .bottom:after {
     clear: both; }
 .waq2015 .waq-infos {
@@ -2367,6 +2366,9 @@ section.intro {
   float: left; }
 .waq2015 .description {
   padding-right: 40px; }
+  .waq2015 .description img {
+    display: block;
+    max-width: 100%; }
 .waq2015 .volounteers {
   width: 33.33333%;
   float: left;
@@ -2391,7 +2393,15 @@ section.intro {
     font-size: 1em;
     padding: 0 1em 0 1px; }
 .waq2015 .group {
+  zoom: 1;
   margin-bottom: 0; }
+  .waq2015 .group:before, .waq2015 .group:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .waq2015 .group:after {
+    clear: both; }
   .waq2015 .group > ul {
     margin-top: 20px; }
 
@@ -2766,6 +2776,24 @@ footer .logo-o2 {
   .intro .top .huge {
     font-size: 1.25em; }
 
+  .waq2015 .top {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -15px;
+    margin-right: -15px; }
+    .waq2015 .top > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 50%;
+      padding: 0 15px 30px; }
+  .waq2015 .waq-infos {
+    padding-right: 0; }
   .waq2015 .grid {
     font-size: 0;
     word-spacing: 0;
@@ -2867,14 +2895,14 @@ footer .logo-o2 {
         line-height: 1;
         width: 25%;
         padding: 0 0 0; } }
-@media screen and (max-width: 580px) {
-  .cols-2 {
+@media screen and (max-width: 760px) {
+  .waq2015 .top {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
     margin-left: 0;
     margin-right: 0; }
-    .cols-2 > * {
+    .waq2015 .top > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -2884,153 +2912,9 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; }
-    .cols-2.small-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: 0;
-      margin-right: 0; }
-      .cols-2.small-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 100%;
-        padding: 0 0 0; }
-    .cols-2.xsmall-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: 0;
-      margin-right: 0; }
-      .cols-2.xsmall-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 100%;
-        padding: 0 0 0; }
-    .intro .cols-2.top {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: -10px;
-      margin-right: -10px; }
-      .intro .cols-2.top > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 50%;
-        padding: 0 10px 20px; }
-
-  .cols-3 {
-    font-size: 0;
-    word-spacing: 0;
-    line-height: 0;
-    margin-left: -10px;
-    margin-right: -10px; }
-    .cols-3 > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      font-size: 16px;
-      font-size: initial;
-      word-spacing: normal;
-      line-height: 1;
-      width: 33.33%;
-      padding: 0 10px 20px; }
-    .cols-3.small-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: -5px;
-      margin-right: -5px; }
-      .cols-3.small-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 33.33%;
-        padding: 0 5px 10px; }
-    .cols-3.xsmall-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: -2.5px;
-      margin-right: -2.5px; }
-      .cols-3.xsmall-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 33.33%;
-        padding: 0 2.5px 5px; }
-
-  .cols-4 {
-    font-size: 0;
-    word-spacing: 0;
-    line-height: 0;
-    margin-left: -10px;
-    margin-right: -10px; }
-    .cols-4 > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      font-size: 16px;
-      font-size: initial;
-      word-spacing: normal;
-      line-height: 1;
-      width: 25%;
-      padding: 0 10px 20px; }
-    .cols-4.small-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: -5px;
-      margin-right: -5px; }
-      .cols-4.small-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 25%;
-        padding: 0 5px 10px; }
-    .cols-4.xsmall-margins {
-      font-size: 0;
-      word-spacing: 0;
-      line-height: 0;
-      margin-left: -2.5px;
-      margin-right: -2.5px; }
-      .cols-4.xsmall-margins > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        font-size: 16px;
-        font-size: initial;
-        word-spacing: normal;
-        line-height: 1;
-        width: 25%;
-        padding: 0 2.5px 5px; }
-
+  .waq2015 .description {
+    padding-bottom: 2.813em; } }
+@media screen and (max-width: 580px) {
   .logos.small {
     font-size: 0;
     word-spacing: 0;
@@ -3078,6 +2962,26 @@ footer .logo-o2 {
     .intro .main.right .bottom {
       top: auto;
       height: auto; } }
+@media screen and (max-width: 480px) {
+  .title.main, header[role="banner"] nav ul a.main {
+    font-size: 1.875em; }
+
+  .waq2015 .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .waq2015 .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; } }
 @media screen and (min-width: 1400px) {
   html,
   .grid > * > *,
