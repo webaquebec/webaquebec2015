@@ -34,6 +34,7 @@ jQuery(document).ready(function($){
   //
   // SETUP
   $win = $(window);
+
   waq.$doc = $('html,body');
   waq.$page = $('.wrapper', document.body);
   waq.$header = $('>header', waq.$page);
@@ -43,11 +44,14 @@ jQuery(document).ready(function($){
 
   waq.$intro = $('#intro', waq.$header);
   waq.$map = $('#gmap');
+  waq.$map.$viewport = $('.map-container .viewport');
   waq.$feed = $('.feed');
 
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
   waq.$stickys = $('.sticky');
+
+  waq.isTouch = $(document.documentElement).hasClass('touch');
 
 
 
@@ -208,73 +212,26 @@ jQuery(document).ready(function($){
   //
   // GOOGLE MAP
 
-  // Mobile options
-  function setMobileMap(){
-    waq.map.set('streetViewControl', false);
-    waq.map.set('draggable', false);
-    waq.map.set('panControl', false);
-    waq.map.set('zoomControl', false);
-    waq.map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_BOTTOM});
-  }
+  if(waq.$map.length && google){
 
-  // Desktop options
-  function setDesktopMap(){
-    waq.map.set('draggable', true);
-    waq.map.set('panControl', false);
-    waq.map.set('zoomControl', true);
-    waq.map.set('panControlOptions',{position: google.maps.ControlPosition.RIGHT_TOP});
-    waq.map.set('zoomControlOptions',{position: google.maps.ControlPosition.RIGHT_CENTER, style:google.maps.ZoomControlStyle.DEFAULT });
-  }
+    function launchInit(){
+       waq.$map.latLng = new google.maps.LatLng(
+        parseFloat(waq.$map.attr('lat')),
+        parseFloat(waq.$map.attr('lng'))
+      );
 
+      waq.map = window.initMap(
+        waq.$map, // map placeholder
+        waq.$map.latLng, // marker latLng
+        waq.$map.$viewport // viewport used for offset center
+      );
 
-  if(waq.$map.length){
-    var iconURL = '/img/marker-with-shadow.png';
-    var styles = [
-      {
-        "stylers": [
-          { "saturation": -100 },
-          { "lightness": -6 }
-        ]
-      },{
-        "featureType": "water",
-        "stylers": [
-          { "lightness": 100 }
-        ]
-      },{
-        "elementType": "labels"  }
-    ];
-
-    waq.$map.loc = {
-      lat: waq.$map.attr('lat') ,
-      lng: waq.$map.attr('lng')
-    }
-    waq.$map.latLng = new google.maps.LatLng(parseFloat(waq.$map.loc.lat), parseFloat(waq.$map.loc.lng));
-   
-    var center = new google.maps.LatLng(46.816989, -71.210067);
-    
-    function initMap() {
-
-      var mapOptions = {
-        zoom: 15,
-        center: center,
-        scrollwheel: false,
-        mapTypeId: 'styled',
-        mapTypeControl: false
-      };
-
-      var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });  
-      waq.map = new google.maps.Map(waq.$map[0], mapOptions);       
-      waq.map.mapTypes.set('styled', styledMapType);  
-
-      var marker = new google.maps.Marker({
-        position: waq.$map.latLng,
-        map: waq.map,
-        icon: iconURL 
-      });
+      if(waq.isTouch) window.setMobileMap(waq.map)
+      else window.setDesktopMap(waq.map);      
     }
 
-    initMap();
-    setDesktopMap();
+    google.maps.event.addDomListener(window, 'load', launchInit);
+
   }
 
 

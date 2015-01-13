@@ -17,8 +17,6 @@ setup_postdata($post);
 
     $session = new session($featured_session['id']);
 
-    var_dump($session);
-
     // the conference
     $image = $featured_session['image']; // custom image
     if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
