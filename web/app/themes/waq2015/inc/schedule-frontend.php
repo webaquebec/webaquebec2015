@@ -9,38 +9,24 @@
 // composer require wpackagist-plugin/intuitive-custom-post-order:dev-trunk
 
 
-
-
 //
 //
-// SESSION
-class session_object{
+// BUILDER
+class obj{
   private $data;
-
-  public function __get($key) {
-      return isset($this->data[$key]) ? $this->data[$key] : false;
-  } 
-
-  public function __construct(array $data) {
-      $this->data = $data;
+  public function __get($key){
+    return isset($this->data[$key]) ? $this->data[$key] : false;
+  }
+  public function __construct(array $data){
+    $this->data = $data;
   }
 }
 
-
-class session{
-
-}
-
-
 //
 //
-// SCHEDULE
-class schedule{
-
-  //
-  //
-  // PRIVATE FUNCTIONS
-  private function sort_sessions($a, $b){
+// HELPER
+class grid_helper{
+  protected function sort_sessions($a, $b){
     if($a->time_start == $b->time_start){
       if($a->col_start == $b->col_start) return 0;
       return ($a->col_start < $b->col_start) ? -1 : 1;
@@ -48,7 +34,7 @@ class schedule{
     return  ($a->time_start < $b->time_start)  ? -1 : 1;
   }
 
-  private function array_empty_columns($count, $timestamp){
+  protected function array_empty_columns($count, $timestamp){
     $cols = array();
     $i = 0;
     while($i<$count){
@@ -59,13 +45,128 @@ class schedule{
     return $cols;
   }
 
-  private function print_empty_cells($timekey){
+  protected function print_empty_cells($timekey){
     $str = '';
     foreach($this->grid[$timekey] as $session_ID)
       if($session_ID==0)
         $str .= '<td></td>';
     return $str;
   }
+
+}
+
+//
+//
+// SESSION
+class session extends grid_helper{
+  
+  public function __construct($ID) {
+    if(isset($ID)){
+      
+      // SESSION ID
+      $this->ID = $ID;
+
+      // SPEAKER
+      $about = get_field('about', $this->ID);      
+      $this->speaker = new obj(array(
+        'image' => $about[0]['infos'][0]['image'],
+        'name' => $about[0]['infos'][0]['name'],
+        'job' => $about[0]['infos'][0]['job']
+      ));
+
+      // LOCATION
+      $location_ID = get_field('location', $this->ID);
+      $location_query = new WP_query(array(
+        'post_type' => 'location',
+        'posts_per_page' => 1,
+        'p' => $location_ID
+      ));
+
+      $location = $location_query->posts[0];
+      $infos = get_field('infos', $location->ID);
+      $labels = $infos[0]['labels'];
+      $settings = $infos[0]['settings'];
+      $title = $labels[0]['alt'];
+      if(!has($title)) $title = get_the_title($location->ID);
+      
+      $this->location = new obj(array(
+        'ID' => $location_ID,
+        'hide' => $labels[0]['hide'],
+        'title' => $title,
+        'subtitle' => $labels[0]['subtitle'],
+        // -------------------------------------
+        'class' => $settings[0]['class'],
+        'color' => $settings[0]['color'],
+      ));
+
+
+      // GRID
+      $grid = array();
+      $grid_ID = get_field('grid', $this->ID);
+      $timeframes = get_field('time_frames', $grid_ID);
+      $column_count = get_field('columns_qty','options');
+      foreach($timeframes as $frame){
+        $frame = $frame['frame'][0];
+        if(!isset($grid[$frame['start']]))
+          $grid[$frame['start']] = $this->array_empty_columns($column_count, $frame['start']);
+        if(!isset($times[$frame['end']]))
+          $grid[$frame['end']] = $this->array_empty_columns($column_count, $frame['end']);
+      }
+
+      // TIME
+      $frame_ID = get_field('frame_'.$grid_ID, $this->ID);
+      $frame = array(
+        'start' => $timeframes[$frame_ID]['frame'][0]['start'],
+        'end' => $timeframes[$frame_ID]['frame'][0]['end'],
+      );
+
+      $time_start_key = array_search($frame['start'], array_keys($grid));
+      $time_end_key = array_search($frame['end'], array_keys($grid));
+      $frame['span'] = $time_end_key - $time_start_key;
+
+      $this->time = new obj(array(
+        'start' => $frame['start'],
+        'end' => $frame['end'],
+        'span' => $frame['span']
+      ));
+
+      // COLUMNS
+      $this->columns = new obj(array(
+        'range' => $settings[0]['range'],
+        'start' => $settings[0]['range']['min'],
+        'end' => $settings[0]['range']['max'],
+        'span' => ($settings[0]['range']['max'] - $settings[0]['range']['min']) + 1,
+      ));
+
+
+
+      // RETURN OBJECT
+      return new obj(array(
+        'ID' => $this->ID,
+        'title'  => get_the_title($this->ID),
+        'permalink' => get_the_permalink($this->ID),
+        'link_to_post' => get_field('link_to_post', $this->ID),
+        'excerpt' => get_field('excerpt', $this->ID),
+        //
+        'location' => $this->location,
+        //
+        'speaker' => $this->speaker,
+        //
+        'time' => $this->time,
+          //
+        'columns' => $this->columns
+      ));
+    }
+
+    return false;
+  }
+}
+
+
+//
+//
+// SCHEDULE
+class schedule extends grid_helper{
 
   //
   //
@@ -242,6 +343,13 @@ class schedule{
   }
 
 
+
+  //
+  //
+  // SETUP CURRENT SESSION
+  public function the_session(){
+    return new session($this->current_session->ID);
+  }
   //
   //
   // PRINT HTML AFTER CURRENT SESSION

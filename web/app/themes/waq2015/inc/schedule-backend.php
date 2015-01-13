@@ -1057,7 +1057,7 @@ function set_session_sortable_columns($columns) {
 }
 
 function print_session_column( $column, $post_ID ) {
-    $grid_ID = get_field('day',$post_ID);
+    $grid_ID = get_field('grid',$post_ID);
     $frame_ID = get_field('frame_'.$grid_ID, $post_ID);
     $timeframes = get_field('time_frames', $grid_ID);
     $frame = array(
@@ -1119,49 +1119,6 @@ add_filter( 'request', 'grid_column_orderby' );
 add_filter( 'request', 'location_column_orderby' );
 
 
-// function append_count_to_timeframes($field){
-//     global $post;
-//     $grid = get_field('day', $post->ID);
-//     $frames = get_field('time_frames', $grid);
-//     $timeframes = array();
-
-//     // TIMEFRAMES
-//     foreach($frames as $frame){
-//       $frame = $frame['frame'][0];
-//       if(!isset($timeframes[$frame['start']]))
-//         $timeframes[$frame['start']] = 0;
-//       if(!isset($times[$frame['end']]))
-//         $timeframes[$frame['end']] = 0;
-//     }
-
-//     // SESSIONS
-//     $sessionsQuery = new WP_query(array(
-//         'post_type' => 'session',
-//         'posts_per_page' => -1,
-//         'meta_query' => array(
-//             array(
-//                 'key' => 'day',
-//                 'compare' => '=',
-//                 'value' => $grid,
-//             )
-//           ),
-//       ));
-    
-//     foreach($sessionsQuery->posts as $session){
-//       if($session->ID != $post->ID){
-
-//           $frameID = get_field('frame_'.$grid, $session->ID);
-//           $timeframes[$frameID]++;
-//       }
-//     }
-
-//     foreach($field['choices'] as $index => $value){
-//        if($timeframes[$index]>0) $value .= ' ('.$timeframes[$index].')';
-//     }
-
-//     // print_r($choices);
-//     return $field;
-// }
-
+// 
 
 ?>

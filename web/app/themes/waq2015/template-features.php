@@ -17,27 +17,12 @@ setup_postdata($post);
 
     $session = new session($featured_session['id']);
 
+    var_dump($session);
 
 
     // the conference
-    $id = $conference['conference'];
-    $title = get_the_title($id);
-    $url = get_the_permalink($id);
-    // the conferencer
-    $about = get_field('about', $id);
-    $name = $about[0]['infos'][0]['name'];
-    $job = $about[0]['infos'][0]['job'];
-    // the time
-    $timeframe = get_field('timeframe', $id);
-    $day = get_the_title($timeframe[0]['day']);
-    $date = get_field('date',$timeframe[0]['day']);
-    $frameID = $timeframe[0]['frame_'.$timeframe[0]['day']];
-    // the place
-    $location = $timeframe[0]['room']->post_title;
-    $color = get_field('color',$timeframe[0]['room']->ID);
-    // the image
-    $image = $conference['image']; // custom image
-    if(!has($image)) $image = $about[0]['infos'][0]['image'] // conferencer image fallback
+    // $image = $featured_session['image']; // custom image
+    // if(!has($image)) $image = $this->image; // conferencer image fallback
 
     ?>
 
@@ -57,30 +42,30 @@ setup_postdata($post);
           </button>
 
           <div class="speaker">
-            <span class="name title" itemprop="name"><?= $name ?></span>
-            <span class="job" itemprop="jobTitle"><?= $job ?></span>
+            <span class="name title" itemprop="name"><?= $session->speaker->name ?></span>
+            <span class="job" itemprop="jobTitle"><?= $session->speaker->job ?></span>
           </div>
 
-          <a class="session btn link" href="<?= $url ?>">
+          <a class="session btn link" href="<?= $session->url ?>">
             <span class="wrap">
 
               <span class="meta dark">
-                <time class="date" datetime="<?= $date ?>">
+                <time class="date" datetime="<?= $session->date ?>">
                   <span class="v-align">
-                    <span class="sub title"><?= substr($day,0,3) ?></span>
-                    <span class="small title"><?= '18' ?></span>
+                    <span class="sub title"><?= substr($session->grid,0,3) ?></span>
+                    <span class="small title"><?= strftime('%b %e', $session->date) ?></span>
                   </span>
                 </time>
 
                 <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
                   <span class="v-align">
-                    <span class="sub title">10h</span>
-                    <span class="small title">30</span>
+                    <span class="sub title"><?= strftime('%hh', $session->time_start) ?></span>
+                    <span class="small title"><?= strftime('%m', $session->time_end) ?></span>
                   </span>
                 </time>
               </span>
 
-              <span class="session-title sub title"><?= $title ?></span>
+              <span class="session-title sub title"><?= $session->title ?></span>
 
             </span>
           </a>
