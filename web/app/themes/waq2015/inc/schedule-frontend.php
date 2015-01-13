@@ -25,7 +25,7 @@ class obj{
 //
 //
 // HELPER
-class grid_helper{
+class helper{
   protected function sort_sessions($a, $b){
     if($a->time_start == $b->time_start){
       if($a->col_start == $b->col_start) return 0;
@@ -58,13 +58,17 @@ class grid_helper{
 //
 //
 // SESSION
-class session extends grid_helper{
+class session extends helper{
   
   public function __construct($ID) {
     if(isset($ID)){
       
       // SESSION ID
       $this->ID = $ID;
+      $this->title = get_the_title($this->ID);
+      $this->is_linked = get_field('link_to_post', $this->ID);
+      $this->permalink = get_the_permalink($this->ID);
+      $this->excerpt = get_field('excerpt', $this->ID);
 
       // SPEAKER
       $about = get_field('about', $this->ID);      
@@ -83,26 +87,29 @@ class session extends grid_helper{
       ));
 
       $location = $location_query->posts[0];
-      $infos = get_field('infos', $location->ID);
-      $labels = $infos[0]['labels'];
-      $settings = $infos[0]['settings'];
-      $title = $labels[0]['alt'];
+      $location_infos = get_field('infos', $location->ID);
+      $location_labels = $location_infos[0]['labels'];
+      $location_settings = $location_infos[0]['settings'];
+      $title = $location_labels[0]['alt'];
       if(!has($title)) $title = get_the_title($location->ID);
       
       $this->location = new obj(array(
         'ID' => $location_ID,
-        'hide' => $labels[0]['hide'],
+        'hide' => $location_labels[0]['hide'],
         'title' => $title,
-        'subtitle' => $labels[0]['subtitle'],
+        'subtitle' => $location_labels[0]['subtitle'],
         // -------------------------------------
-        'class' => $settings[0]['class'],
-        'color' => $settings[0]['color'],
+        'class' => $location_settings[0]['class'],
+        'color' => $location_settings[0]['color'],
       ));
 
 
       // GRID
       $grid = array();
       $grid_ID = get_field('grid', $this->ID);
+      $this->date = DateTime::createFromFormat('d/m/y', get_field('date', $grid_ID))->getTimestamp();
+      $this->grid = get_the_title($grid_ID);
+
       $timeframes = get_field('time_frames', $grid_ID);
       $column_count = get_field('columns_qty','options');
       foreach($timeframes as $frame){
@@ -132,10 +139,10 @@ class session extends grid_helper{
 
       // COLUMNS
       $this->columns = new obj(array(
-        'range' => $settings[0]['range'],
-        'start' => $settings[0]['range']['min'],
-        'end' => $settings[0]['range']['max'],
-        'span' => ($settings[0]['range']['max'] - $settings[0]['range']['min']) + 1,
+        'range' => $location_settings[0]['range'],
+        'start' => $location_settings[0]['range']['min'],
+        'end' => $location_settings[0]['range']['max'],
+        'span' => ($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
       ));
 
 
@@ -143,10 +150,13 @@ class session extends grid_helper{
       // RETURN OBJECT
       return new obj(array(
         'ID' => $this->ID,
-        'title'  => get_the_title($this->ID),
-        'permalink' => get_the_permalink($this->ID),
-        'link_to_post' => get_field('link_to_post', $this->ID),
-        'excerpt' => get_field('excerpt', $this->ID),
+        'date' => $this->date,
+        'title' => $this->title,
+        'permalink' => $this->permalink,
+        'link_to_post' => $this->is_linked,
+        'excerpt' => $this->excerpt,
+        //
+        'grid' => $this->grid,
         //
         'location' => $this->location,
         //
@@ -166,7 +176,7 @@ class session extends grid_helper{
 //
 //
 // SCHEDULE
-class schedule extends grid_helper{
+class schedule extends helper{
 
   //
   //

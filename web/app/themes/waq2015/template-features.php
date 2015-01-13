@@ -19,10 +19,9 @@ setup_postdata($post);
 
     var_dump($session);
 
-
     // the conference
-    // $image = $featured_session['image']; // custom image
-    // if(!has($image)) $image = $this->image; // conferencer image fallback
+    $image = $featured_session['image']; // custom image
+    if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
 
     ?>
 
@@ -46,21 +45,21 @@ setup_postdata($post);
             <span class="job" itemprop="jobTitle"><?= $session->speaker->job ?></span>
           </div>
 
-          <a class="session btn link" href="<?= $session->url ?>">
+          <a class="session btn link" href="<?= $session->permalink ?>">
             <span class="wrap">
 
               <span class="meta dark">
                 <time class="date" datetime="<?= $session->date ?>">
                   <span class="v-align">
                     <span class="sub title"><?= substr($session->grid,0,3) ?></span>
-                    <span class="small title"><?= strftime('%b %e', $session->date) ?></span>
+                    <span class="small title"><?= strftime('%e', $session->date) ?></span>
                   </span>
                 </time>
 
                 <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
                   <span class="v-align">
-                    <span class="sub title"><?= strftime('%hh', $session->time_start) ?></span>
-                    <span class="small title"><?= strftime('%m', $session->time_end) ?></span>
+                    <span class="sub title"><?= strftime('%H', $session->time->start) ?>h</span>
+                    <span class="small title"><?= strftime('%M', $session->time->end) ?></span>
                   </span>
                 </time>
               </span>
