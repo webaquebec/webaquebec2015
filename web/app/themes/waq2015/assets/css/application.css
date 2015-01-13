@@ -259,11 +259,14 @@ hr {
 .list.bullets li:after,
 .content ul li:after,
 .content ol.bullets li:after,
-.btn.link > :after,
-.link.profile > :after,
+.btn.link a > span:after,
+.link.profile a > span:after,
+.features .session .wrap > .title:after,
+.features .session header[role="banner"] nav ul .wrap > a:after,
+header[role="banner"] nav ul .features .session .wrap > a:after,
 .icon-arrow-left:after,
-.btn.back > :after,
-.back.profile > :after,
+.btn.back a > span:after,
+.back.profile a > span:after,
 .icon-arrow-top:after,
 .icon-arrow-bottom:after,
 .icon-facebook:after,
@@ -318,10 +321,10 @@ header[role="banner"] nav .secondary a:after,
 .icon-user:after {
   content: "\f102"; }
 
-.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link > :after, .link.profile > :after {
+.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .features .session .wrap > .title:after, .features .session header[role="banner"] nav ul .wrap > a:after, header[role="banner"] nav ul .features .session .wrap > a:after {
   content: "\f103"; }
 
-.icon-arrow-left:after, .btn.back > :after, .back.profile > :after {
+.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after {
   content: "\f104"; }
 
 .icon-arrow-top:after {
@@ -949,7 +952,9 @@ header[role="banner"] nav .secondary {
     background: #eeeef0; }
   .no-touch .btn:hover:before, .no-touch .profile:hover:before {
     right: 1px; }
-  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after {
+  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after,
+  .no-touch .btn:hover > * > *:after,
+  .no-touch .profile:hover > * > *:after {
     color: #00bfdf; }
   .btn.big, .big.profile {
     font-size: 1.25em; }
@@ -1002,20 +1007,32 @@ header[role="banner"] nav .secondary {
         color: #00bfdf; }
         .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile {
           color: #b8b9c2; }
-  .btn.link, .link.profile {
-    padding-right: 2em; }
-    .btn.link a, .link.profile a {
-      padding-right: 0; }
-    .btn.link > *:after, .link.profile > *:after {
-      font-size: 0.6em;
-      text-align: right;
-      line-height: 3.45em; }
-  .btn.back, .back.profile {
-    padding-left: 2em; }
-    .btn.back > *:after, .back.profile > *:after {
-      font-size: 0.6em;
-      text-align: left;
-      line-height: 3.45em; }
+  .btn.link a, .link.profile a {
+    padding-right: 0; }
+    .btn.link a > span, .link.profile a > span {
+      display: block;
+      padding-right: 2em;
+      position: relative; }
+      .btn.link a > span:after, .link.profile a > span:after {
+        font-size: 0.6em;
+        text-align: right;
+        line-height: 0;
+        position: absolute;
+        top: 50%;
+        right: 1em; }
+  .btn.back a, .back.profile a {
+    padding-left: 0; }
+    .btn.back a > span, .back.profile a > span {
+      display: block;
+      padding-left: 2em;
+      position: relative; }
+      .btn.back a > span:after, .back.profile a > span:after {
+        font-size: 0.6em;
+        text-align: left;
+        line-height: 0;
+        position: absolute;
+        top: 50%;
+        left: 1em; }
   .btn.seamless:before, .seamless.profile:before,
   .btn.seamless > *:before,
   .seamless.profile > *:before {
@@ -1858,16 +1875,37 @@ section.intro {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    width: 100%; }
+    width: 100%;
+    padding-right: 0; }
     .features .session .wrap {
+      padding-right: 2em;
       padding-left: 8.5em;
+      width: 100%;
       display: inline-block;
       *display: inline;
       zoom: 1; }
       .features .session .wrap:after {
         font-size: 1.25em;
         padding-right: 0.75em;
-        line-height: 2.5em; }
+        line-height: 2.5em;
+        content: ""; }
+      .features .session .wrap > .title, .features .session header[role="banner"] nav ul .wrap > a, header[role="banner"] nav ul .features .session .wrap > a {
+        position: relative; }
+        .features .session .wrap > .title:after, .features .session header[role="banner"] nav ul .wrap > a:after, header[role="banner"] nav ul .features .session .wrap > a:after {
+          display: block;
+          font-size: 1em;
+          line-height: 0;
+          position: absolute;
+          top: 50%;
+          right: -1em;
+          color: #b8b9c2;
+          -webkit-transition: color 120ms linear 60ms;
+          -moz-transition: color 120ms linear 60ms;
+          -ms-transition: color 120ms linear 60ms;
+          -o-transition: color 120ms linear 60ms;
+          transition: color 120ms linear 60ms; }
+    .no-touch .features .session:hover .wrap > .title:after, .no-touch .features .session:hover header[role="banner"] nav ul .wrap > a:after, header[role="banner"] nav ul .no-touch .features .session:hover .wrap > a:after, .features .session:active .wrap > .title:after, .features .session:active header[role="banner"] nav ul .wrap > a:after, header[role="banner"] nav ul .features .session:active .wrap > a:after {
+      color: #005f93; }
     .features .session .meta {
       position: absolute;
       top: 0;
@@ -2075,7 +2113,15 @@ section.intro {
   z-index: -1; }
 
 .blog {
+  zoom: 1;
   position: relative; }
+  .blog:before, .blog:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .blog:after {
+    clear: both; }
   .blog .featured {
     border: 1px solid #00bfdf;
     -webkit-border-radius: 4px;
@@ -2122,7 +2168,8 @@ section.intro {
   word-spacing: 0;
   line-height: 0;
   margin-left: -10px;
-  margin-right: -10px; }
+  margin-right: -10px;
+  vertical-align: top; }
   .feed .grid > * {
     display: inline-block;
     *display: inline;
@@ -2134,7 +2181,7 @@ section.intro {
     width: 50%;
     padding: 0 10px 20px; }
   .feed .grid > * {
-    vertical-align: top; }
+    float: left; }
 
 .feed-post {
   padding: 0.75em 0;

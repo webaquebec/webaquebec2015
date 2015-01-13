@@ -225,7 +225,8 @@
   .no-touch &:hover
     &:before
       right: 1px
-    >*:after
+    >*:after,
+    >*>*:after
       color: $l-blue
 
 
@@ -295,25 +296,35 @@
   //
   // link (icon-arrow-right)
   &.link
-    padding-right: 2em
     a
       padding-right: 0
-    &:before
-    >*
-      @extend .icon-arrow-right
-      &:after
-        font-size: 0.6em
-        text-align: right
-        line-height: 3.45em
+      > span
+        display: block
+        padding-right: 2em
+        position: relative
+        @extend .icon-arrow-right
+        &:after
+          font-size: 0.6em
+          text-align: right
+          line-height: 0
+          position: absolute
+          top: 50%
+          right: 1em
   &.back
-    padding-left: 2em
-    &:before
-    >*
-      @extend .icon-arrow-left
-      &:after
-        font-size: 0.6em
-        text-align: left
-        line-height: 3.45em
+    a
+      padding-left: 0
+      > span
+        display: block
+        padding-left: 2em
+        position: relative
+        @extend .icon-arrow-left
+        &:after
+          font-size: 0.6em
+          text-align: left
+          line-height: 0
+          position: absolute
+          top: 50%
+          left: 1em
 
   //
   //

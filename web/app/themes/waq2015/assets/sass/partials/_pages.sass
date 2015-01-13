@@ -194,15 +194,37 @@ section.intro
       background-size: 100% 100%
 
   .session
-    +inlineb
+    +inlineb()
     width: 100%
+    padding-right: 0
     .wrap
+      padding-right: 2em
       padding-left: 8.5em
-      +inlineb
+      width: 100%
+      +inlineb()
       &:after
         font-size: 1.25em
         padding-right: 0.75em
         line-height: 2.5em
+        content: ''
+      > .title
+        @extend .icon-arrow-right
+        position: relative
+        &:after
+          display: block
+          font-size: 1em
+          line-height: 0
+          position: absolute
+          top: 50%
+          right: -1em
+          color: $grey
+          +prefix(transition, color 120ms linear 60ms)
+    .no-touch &:hover,
+    &:active
+      .wrap
+        > .title
+          &:after
+            color: $d-blue
     .meta
       position: absolute
       top: 0
@@ -343,9 +365,6 @@ section.intro
       &.linkedin
         @extend .icon-linkedin
 
-
-  
-
   .map,
   .map-container
     position: absolute
@@ -354,7 +373,7 @@ section.intro
     width: 100%
     height: 100%
     z-index: 0
-  
+
   .viewport
     position: absolute
     left: 50% 
@@ -368,6 +387,7 @@ section.intro
 // BLOGUE
 
 .blog
+  +clearfix()
   position: relative
   .featured
     border: 1px solid $l-blue
@@ -403,13 +423,14 @@ section.intro
     padding-bottom: 0
 
 .col.wide.feed
-  margin-left: $narrow 
+  margin-left: $narrow
 
 .feed
   .grid
     +grid(2, $medium)
-    >*
-      vertical-align: top
+    vertical-align: top
+    > *
+      float: left
 
 .feed-post
   padding: 0.75em 0
