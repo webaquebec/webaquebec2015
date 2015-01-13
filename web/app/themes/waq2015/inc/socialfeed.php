@@ -63,7 +63,7 @@ class social_feed{
         if($k>0) $q .= '+OR+';
         $q .= '#'.$tag;
       }
-      $getfield = '?q='.$q.'&result_type=recent&count='.$this->count;
+      $getfield = '?q='.$q.'+exclude:retweets&result_type=recent&count='.$this->count;
       // var_dump($getfield);
     }
     $requestMethod = 'GET';
