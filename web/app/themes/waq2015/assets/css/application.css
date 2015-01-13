@@ -2393,15 +2393,9 @@ section.intro {
     font-size: 1em;
     padding: 0 1em 0 1px; }
 .waq2015 .group {
-  zoom: 1;
+  float: none;
+  clear: both;
   margin-bottom: 0; }
-  .waq2015 .group:before, .waq2015 .group:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden; }
-  .waq2015 .group:after {
-    clear: both; }
   .waq2015 .group > ul {
     margin-top: 20px; }
 
