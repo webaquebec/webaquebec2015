@@ -31,7 +31,7 @@
         </div>
 
         <div class="tags-section">
-          <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
+          <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
           	<?php the_tags('<ul class="tags"><li class="btn"><span>', '</span></li><li class="btn"><span>','</span></li></ul>'); ?>
         </div>
         <div class="btn back">
