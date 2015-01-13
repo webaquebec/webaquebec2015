@@ -30,6 +30,7 @@
     // HASHBANG
     if($bang): ?>
     <script type="text/javascript">var bang = true;</script>
+    <div class"bang-coverall"></div>
     <?php endif; ?>
 
     <!-- css + javascript -->

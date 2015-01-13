@@ -11,19 +11,6 @@
 
 //
 //
-// BUILDER
-class obj{
-  private $data;
-  public function __get($key){
-    return isset($this->data[$key]) ? $this->data[$key] : false;
-  }
-  public function __construct(array $data){
-    $this->data = $data;
-  }
-}
-
-//
-//
 // HELPER
 class helper{
   protected function sort_sessions($a, $b){
@@ -55,6 +42,7 @@ class helper{
 
 }
 
+
 //
 //
 // SESSION
@@ -63,21 +51,28 @@ class session extends helper{
   public function __construct($ID) {
     if(isset($ID)){
       
-      // SESSION ID
+      //
+      // SESSION
       $this->ID = $ID;
       $this->title = get_the_title($this->ID);
       $this->is_linked = get_field('link_to_post', $this->ID);
       $this->permalink = get_the_permalink($this->ID);
       $this->excerpt = get_field('excerpt', $this->ID);
+      $this->content = apply_filters('the_content',get_the_content($this->ID));
+      $this->themes = wp_get_post_terms($this->ID, 'theme');
 
+      //
       // SPEAKER
-      $about = get_field('about', $this->ID);      
-      $this->speaker = new obj(array(
+      $about = get_field('about', $this->ID);
+      $this->speaker = (object) array(
         'image' => $about[0]['infos'][0]['image'],
         'name' => $about[0]['infos'][0]['name'],
-        'job' => $about[0]['infos'][0]['job']
-      ));
+        'job' => $about[0]['infos'][0]['job'],
+        'bio' => $about[0]['bio'],
+        'social' => $about[0]['infos'][0]['social']
+      );
 
+      //
       // LOCATION
       $location_ID = get_field('location', $this->ID);
       $location_query = new WP_query(array(
@@ -93,7 +88,7 @@ class session extends helper{
       $title = $location_labels[0]['alt'];
       if(!has($title)) $title = get_the_title($location->ID);
       
-      $this->location = new obj(array(
+      $this->location = (object) array(
         'ID' => $location_ID,
         'hide' => $location_labels[0]['hide'],
         'title' => $title,
@@ -101,9 +96,9 @@ class session extends helper{
         // -------------------------------------
         'class' => $location_settings[0]['class'],
         'color' => $location_settings[0]['color'],
-      ));
+      );
 
-
+      //
       // GRID
       $grid = array();
       $grid_ID = get_field('grid', $this->ID);
@@ -120,6 +115,7 @@ class session extends helper{
           $grid[$frame['end']] = $this->array_empty_columns($column_count, $frame['end']);
       }
 
+      //
       // TIME
       $frame_ID = get_field('frame_'.$grid_ID, $this->ID);
       $frame = array(
@@ -131,41 +127,20 @@ class session extends helper{
       $time_end_key = array_search($frame['end'], array_keys($grid));
       $frame['span'] = $time_end_key - $time_start_key;
 
-      $this->time = new obj(array(
+      $this->time = (object) array(
         'start' => $frame['start'],
         'end' => $frame['end'],
         'span' => $frame['span']
-      ));
+      );
 
+      //
       // COLUMNS
-      $this->columns = new obj(array(
+      $this->columns = (object) array(
         'range' => $location_settings[0]['range'],
         'start' => $location_settings[0]['range']['min'],
         'end' => $location_settings[0]['range']['max'],
         'span' => ($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
-      ));
-
-
-
-      // RETURN OBJECT
-      return new obj(array(
-        'ID' => $this->ID,
-        'date' => $this->date,
-        'title' => $this->title,
-        'permalink' => $this->permalink,
-        'link_to_post' => $this->is_linked,
-        'excerpt' => $this->excerpt,
-        //
-        'grid' => $this->grid,
-        //
-        'location' => $this->location,
-        //
-        'speaker' => $this->speaker,
-        //
-        'time' => $this->time,
-          //
-        'columns' => $this->columns
-      ));
+      );
     }
 
     return false;

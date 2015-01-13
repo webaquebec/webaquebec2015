@@ -6,10 +6,11 @@
 if(typeof(bang)!='undefined' && bang){
   var host = window.location.host;
   var parts = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
-  var slug = parts[parts.length-1];
-  parts.splice(-1,1);
-  if(typeof(parts)=="object") parts.join('/');
-  var url = 'http://'+host+(parts.length>0?'/'+parts:'')+'/#!/'+slug
+  var slug = parts[0];
+  parts.shift();
+  console.log(parts);
+  if(typeof(parts)=="object") parts = parts.join('/');
+  var url = 'http://'+host+'/#!/'+slug+(parts.length>0?'/'+parts:'')
   window.location = url;
 }
 
