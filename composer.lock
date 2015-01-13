@@ -282,7 +282,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/acf-field-date-time-picker/",
+            "homepage": "https://wordpress.org/plugins/acf-field-date-time-picker/",
             "time": "2014-09-25 00:43:59"
         },
         {
@@ -324,7 +324,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/intuitive-custom-post-order/",
+            "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/",
             "time": "2014-04-11 12:57:00"
         },
         {
@@ -345,7 +345,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/regenerate-thumbnails/",
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/",
             "time": "2014-04-01 02:48:53"
         }
     ],
@@ -360,6 +360,7 @@
         "wpackagist-plugin/acf-range-field": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4"
     },
