@@ -95,7 +95,7 @@ class social_feed{
           '<a href="http://twitter.com/$1">@$1</a>',
           $text);
       $text = preg_replace(
-          '/\s+#(\w+)/',
+          '/\s+#([A-zÀ-ú0-9_]+)/',
           ' <a href="http://twitter.com/search?q=%23$1">#$1</a>',
           $text);
     }
