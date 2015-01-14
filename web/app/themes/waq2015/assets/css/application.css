@@ -3031,7 +3031,24 @@ footer .logo-o2 {
   .waq2015 .group .profile {
     font-size: 0.875em; }
     .touch .waq2015 .group .profile {
-      font-size: 0.75em; } }
+      font-size: 0.75em; }
+
+  footer .top-footer {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    footer .top-footer > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; } }
 @media screen and (max-width: 768px) {
   html,
   .grid > * > * {
@@ -3039,9 +3056,6 @@ footer .logo-o2 {
 
   .content {
     font-size: 16px !important; }
-
-  .container, .sticky.fixed {
-    max-width: 90%; }
 
   .posts .sticky {
     position: static; }
@@ -3111,6 +3125,45 @@ footer .logo-o2 {
   .features .infos {
     font-size: 1em; }
 
+  .event-location {
+    background: transparent;
+    padding-bottom: 0; }
+    .event-location:after {
+      width: 100%;
+      height: 0; }
+    .event-location .infos {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding-bottom: 30px; }
+      .event-location .infos > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: 16px;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 100%;
+        padding: 0 0 0; }
+    .event-location .map,
+    .event-location .map-container {
+      position: static;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 400px;
+      z-index: 0; }
+    .event-location .viewport {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; }
+
   .logos {
     font-size: 0;
     word-spacing: 0;
@@ -3144,7 +3197,22 @@ footer .logo-o2 {
         word-spacing: normal;
         line-height: 1;
         width: 25%;
-        padding: 0 0 0; } }
+        padding: 0 0 0; }
+
+  footer .col {
+    float: none;
+    clear: both; }
+    footer .col.wide, footer .col.narrow {
+      width: 100%;
+      padding: 0; }
+    footer .col + .col.narrow {
+      padding-left: 0; }
+  footer .conception {
+    position: static;
+    bottom: 0;
+    display: block; }
+    footer .conception p:before {
+      display: none; } }
 @media screen and (max-width: 760px) {
   .waq2015 .top {
     font-size: 0;
@@ -3212,6 +3280,25 @@ footer .logo-o2 {
       top: auto;
       height: auto; }
 
+  .feed .right {
+    display: none; }
+  .feed .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .feed .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+
   .logos.small {
     font-size: 0;
     word-spacing: 0;
@@ -3247,7 +3334,32 @@ footer .logo-o2 {
       padding: 0 0 0; } }
 @media screen and (max-width: 480px) {
   .title.main, nav[role="navigation"] ul a.main {
-    font-size: 1.875em; } }
+    font-size: 1.875em; }
+
+  footer .info-general {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    footer .info-general > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+    footer .info-general > * {
+      padding-top: 0; }
+    footer .info-general .title, footer .info-general nav[role="navigation"] ul a, nav[role="navigation"] ul footer .info-general a {
+      margin-top: 1em; }
+    footer .info-general p:last-child {
+      margin-bottom: 0; }
+  footer .contact-general {
+    max-width: 90%; } }
 @media screen and (min-width: 1200px) {
   nav[role="navigation"] .main .acheter-mon-billet {
     display: block; } }

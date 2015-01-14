@@ -220,6 +220,13 @@
         .touch &
           font-size: 0.75em
 
+  //
+  //
+  // FOOTER
+  footer
+    .top-footer
+      +grid(1, 0)
+
 
 
 @media screen and (max-width: 768px)
@@ -233,9 +240,6 @@
 
   .content
     font-size: 16px !important
-
-  .container
-    max-width: 90%
 
   //
   //
@@ -307,6 +311,35 @@
 
   //
   //
+  // EVENT-LOCATION
+  .event-location
+    background: transparent
+    padding-bottom: 0
+    &:after
+      width: 100%
+      height: 0
+    .infos
+      +grid(1, 0)
+      padding-bottom: 30px
+    .map,
+    .map-container
+      position: static
+      top: 0
+      left: 0
+      width: 100%
+      height: 400px
+      z-index: 0
+
+    .viewport
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      z-index: -1
+
+  //
+  //
   // PARTNERS
   .logos
     +grid(2, $medium)
@@ -314,3 +347,24 @@
       margin: 2.5em 0 1.5em 0
     &.small
       +grid(4, 0)
+
+
+  //
+  //
+  // FOOTER
+  footer
+    .col
+      float: none
+      clear: both
+      &.wide,
+      &.narrow
+        width: 100%
+        padding: 0
+      + .col.narrow
+        padding-left: 0
+    .conception
+      position: static
+      bottom: 0
+      display: block
+      p:before
+        display: none

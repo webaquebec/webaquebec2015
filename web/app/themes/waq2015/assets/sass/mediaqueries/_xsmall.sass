@@ -49,6 +49,16 @@
 
   //
   //
+  // BLOG
+  .feed
+    .right
+      display: none
+    .grid
+      +grid(1, 0)
+
+
+  //
+  //
   // PARTNERS
   .logos
     &.small
@@ -72,5 +82,20 @@
   .title
     &.main
       font-size: 1.875em
+
+  //
+  //
+  // FOOTER
+  footer
+    .info-general
+      +grid(1, 0)
+      > *
+        padding-top: 0
+      .title
+        margin-top: 1em
+      p:last-child
+        margin-bottom: 0
+    .contact-general
+      max-width: 90%
 
 
