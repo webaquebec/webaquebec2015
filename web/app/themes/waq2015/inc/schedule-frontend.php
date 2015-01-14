@@ -174,11 +174,36 @@ class session extends helper{
 // SCHEDULE
 class schedule extends helper{
 
+  private function remove_overlapping_sessions(){
+    $counter = 1;
+    $count = count($this->sessions);
+    while($counter<$count){
+      $session = $this->sessions[$counter];
+      $prev =$this->sessions[$counter-1];
+      $overlapping = false;
+      if($session->time->start == $prev->time->start){
+        if($session->columns->start <= $prev->columns->start){
+          $overlapping = true;
+          $this->throw_message('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
+        }
+      }
+      if($overlapping){
+        unset($this->sessions[$counter]);
+        $this->sessions = array_values($this->sessions);
+        $count = count($this->sessions);
+      }
+      else{
+        $counter++;
+      }
+    }
+  }
+
   private function print_empty_cells_before_session(){
     $session = $this->session;
     if($session->columns->start && $session->columns->start != $this->column_counter){
       while($this->column_counter < $session->columns->start){
         $this->column_counter++;
+        // print_r("\n empty cell before \n");
         echo '<td></td>';
       }
     }
@@ -189,15 +214,18 @@ class schedule extends helper{
     if($this->session_counter<$this->session_count){
       $next_session = $this->sessions[$this->session_counter];
       if($session->time->start != $next_session->time->start){
+        // echo "\n new row, fill rest of the row ";
         $empty_until = $this->column_count;
       }
       else{
         if($session->columns->start < $next_session->columns->start){
-          $empty_until = $next_session->columns->start;             
+          // echo "\n fill until next session";
+          $empty_until = $next_session->columns->start - 1;             
         }
         else{
+          // echo "\n last row, fill rest of the row ";
           $empty_until = $this->column_count;
-          $this->throw_message('Session '.$session->ID.' is overlapping another session');
+          $this->throw_message('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
         }
       }
     }
@@ -207,6 +235,7 @@ class schedule extends helper{
     if($session->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
+        // print_r("\n empty cell after \n");
         echo '<td></td>';
       }
     }
@@ -290,10 +319,10 @@ class schedule extends helper{
                 'value' => $this->grid_ID,
             )
           ),
-      ));
+    ));
 
     $this->sessions = array();
-    foreach($sessionsQuery->posts as $session){
+    foreach($sessionsQuery->posts as $k=>$session){
       $session = new session($session->ID);
       array_push($this->sessions, $session);
     }
@@ -301,6 +330,7 @@ class schedule extends helper{
 
     // SORT SESSIONS
     usort($this->sessions, array('schedule','sort_sessions'));
+    $this->remove_overlapping_sessions();
     
     // SET COUNTERS
     $this->session_count = count($this->sessions);
