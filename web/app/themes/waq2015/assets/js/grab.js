@@ -27,6 +27,24 @@
 		$(window).on('touchcancel', function(e){
 			e.preventDefault();
 		});
+
+	function transitionEndEventName () {
+    var i,
+        undefined,
+        el = document.createElement('div'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+            return transitions[i];
+        }
+    }
+  }
 	
 	function grabIt(e){
 		var drag = this.moGrab.drag;
@@ -275,14 +293,17 @@
 		if(drag.duration>0){
 			setTimeout(function(){
 				if(s.callback) s.callback();
-			},0);
-			target.on()
-			drag.released = setTimeout(function(){
-					target['style'][window.moGrab.transition] = '';
+			},16);
+			console.log(window.moGrab.transitionEnd);
+			$(target).one(window.moGrab.transitionEnd, function(){
+				console.log('ended');
+			// drag.released = setTimeout(function(){
 					drag.duration = s.duration;
 					drag.released = false;
-					if(s.clean && drag.target.x==0&&drag.target.y==0) target['style'][window.moGrab.transform] = '';
-				},drag.duration+32);
+					if(s.clean && drag.target.x==0&&drag.target.y==0) $(target).removeAttr('style');
+				// },drag.duration+32);
+
+			});
 		}
 		else{
 			if(s.callback) s.callback();
@@ -684,10 +705,10 @@
 
 			window.moGrab.has3D =  Modernizr ? Modernizr.csstransforms3d : s.has3D;
 			window.moGrab.transition = Modernizr ? Modernizr.prefixed('transition') : s.transition;
+			window.moGrab.transitionEnd = transitionEndEventName();
 			window.moGrab.transform = Modernizr ? Modernizr.prefixed('transform') : s.tranform;
 			window.moGrab.CSStranslate = {start:'translate'+(window.moGrab.has3D?'3d':''), end: (window.moGrab.has3D?', 0':'')};
-
-			
+	
 			$(document).on("dragstart", function() {return false;});
 			
 			$(this).on('touchstart mousedown',grabIt);
