@@ -2416,29 +2416,35 @@ section.intro {
   width: 33.33333%;
   float: left;
   padding-left: 20px; }
-.waq2015 .grid {
-  font-size: 0;
-  word-spacing: 0;
-  line-height: 0;
-  margin-left: -10px;
-  margin-right: -10px; }
-  .waq2015 .grid > * {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    font-size: 16px;
-    font-size: initial;
-    word-spacing: normal;
-    line-height: 1;
-    width: 25%;
-    padding: 0 10px 20px; }
-  .waq2015 .grid .profile .name {
-    font-size: 1em;
-    padding: 0 1em 0 1px; }
 .waq2015 .group {
   float: none;
   clear: both;
   margin-bottom: 0; }
+  .waq2015 .group .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .waq2015 .group .grid > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 25%;
+      padding: 0 10px 20px; }
+    .waq2015 .group .grid .profile {
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0); }
+      .waq2015 .group .grid .profile .name {
+        font-size: 1em;
+        padding: 0 1em 0 1px; }
   .waq2015 .group > ul {
     margin-top: 20px; }
 
@@ -2977,13 +2983,13 @@ footer .logo-o2 {
       padding: 0 15px 30px; }
   .waq2015 .waq-infos {
     padding-right: 0; }
-  .waq2015 .grid {
+  .waq2015 .group .grid {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
     margin-left: -10px;
     margin-right: -10px; }
-    .waq2015 .grid > * {
+    .waq2015 .group .grid > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -2992,7 +2998,9 @@ footer .logo-o2 {
       word-spacing: normal;
       line-height: 1;
       width: 33.33%;
-      padding: 0 10px 20px; } }
+      padding: 0 10px 20px; }
+  .waq2015 .group .profile {
+    font-size: 14px; } }
 @media screen and (max-width: 768px) {
   html,
   .grid > * > * {
@@ -3004,13 +3012,24 @@ footer .logo-o2 {
   .container, .sticky.fixed {
     max-width: 90%; }
 
+  .posts .sticky {
+    position: static; }
+  .posts .featured {
+    text-align: left; }
+    .posts .featured img {
+      width: 100%; }
   .posts .col {
-    float: none; }
+    float: none;
+    text-align: center; }
     .posts .col.wide, .posts .col.narrow {
       width: 100%;
       padding: 0; }
     .posts .col.feed {
-      margin: 0; }
+      margin: 0;
+      text-align: left; }
+  .posts .view-all {
+    text-align: center;
+    margin: 1em 0 1.5em 0; }
 
   .waq2015 .grid {
     font-size: 0;
@@ -3112,16 +3131,13 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; }
-  .waq2015 .description {
-    padding-bottom: 2.813em; } }
-@media screen and (max-width: 580px) {
-  .logos.small {
+  .waq2015 .group .grid {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
-    margin-left: 0;
-    margin-right: 0; }
-    .logos.small > * {
+    margin-left: -5px;
+    margin-right: -5px; }
+    .waq2015 .group .grid > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -3129,9 +3145,11 @@ footer .logo-o2 {
       font-size: initial;
       word-spacing: normal;
       line-height: 1;
-      width: 33.33%;
-      padding: 0 0 0; }
-
+      width: 50%;
+      padding: 0 5px 10px; }
+  .waq2015 .description {
+    padding-bottom: 2.813em; } }
+@media screen and (max-width: 580px) {
   .intro .col.main.left {
     text-align: center; }
   .intro .col.main.left > *, .intro .col.main.right > * {
@@ -3161,18 +3179,32 @@ footer .logo-o2 {
       height: auto; }
     .intro .main.right .bottom {
       top: auto;
-      height: auto; } }
-@media screen and (max-width: 480px) {
-  .title.main, nav[role="navigation"] ul a.main {
-    font-size: 1.875em; }
+      height: auto; }
 
-  .waq2015 .grid {
+  .logos.small {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
     margin-left: 0;
     margin-right: 0; }
-    .waq2015 .grid > * {
+    .logos.small > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 33.33%;
+      padding: 0 0 0; }
+
+  .waq2015 .group .grid {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .waq2015 .group .grid > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -3182,6 +3214,9 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; } }
+@media screen and (max-width: 480px) {
+  .title.main, nav[role="navigation"] ul a.main {
+    font-size: 1.875em; } }
 @media screen and (min-width: 1200px) {
   nav[role="navigation"] .main .acheter-mon-billet {
     display: block; } }

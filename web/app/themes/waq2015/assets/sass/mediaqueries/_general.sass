@@ -203,8 +203,11 @@
       +grid(2, $large)
     .waq-infos
       padding-right: 0
-    .grid
-      +grid(3, $medium)
+    .group
+      .grid
+        +grid(3, $medium)
+      .profile
+        font-size: 14px
 
 
 
@@ -227,14 +230,25 @@
   //
   // BLOG
   .posts
+    .sticky
+      position: static
+    .featured
+      text-align: left
+      img
+        width: 100%
     .col
       float: none
+      text-align: center
       &.wide,
       &.narrow
         width: 100%
         padding: 0
       &.feed
         margin: 0
+        text-align: left
+    .view-all
+      text-align: center
+      margin: 1em 0 1.5em 0
 
 
   //

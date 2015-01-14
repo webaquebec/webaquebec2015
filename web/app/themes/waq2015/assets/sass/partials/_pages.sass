@@ -388,7 +388,7 @@ section.intro
 
   .viewport
     position: absolute
-    left: 50% 
+    left: 50%
     top: 0
     width: 50%
     height: 100%
@@ -589,16 +589,17 @@ section.intro
     width: 33.33333%
     float: left
     padding-left: 20px
-  .grid
-    +grid(4,$medium)
-    .profile
-      .name
-        font-size: 1em
-        padding: 0 1em 0 1px
   .group
     float: none
     clear: both
     margin-bottom: 0
+    .grid
+      +grid(4,$medium)
+      .profile
+        +prefix(transform, translateZ(0))
+        .name
+          font-size: 1em
+          padding: 0 1em 0 1px
     > ul
       margin-top: 20px
 
