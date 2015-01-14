@@ -52,6 +52,11 @@ class helper{
     array_push($this->errors, $str);
   }
 
+  public function print_messages(){
+    if(!isset($this->messages)) return;
+    echo '<div class="message">' . join('<br>', $this->messages) . '</div>';
+  }
+
 }
 
 
@@ -356,6 +361,7 @@ class schedule extends helper{
     if( $session->time->start == $timekey 
         && $session->columns->start == $this->column_counter ){     
       echo '</td>';
+      $this->column_counter += $session->columns->span-1;
       $this->print_empty_cells_after_session();
       
       // die;

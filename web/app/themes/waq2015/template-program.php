@@ -2,8 +2,8 @@
 /*
  * Template Name: Programmation
  */
-
 get_header_once();
+global $current_user;
 ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
@@ -66,12 +66,12 @@ get_header_once();
   // loop throught schedules
   foreach($schedules->posts as $post):
     ?>
-    <article class="schedule">
+    <article class="schedule container">
     <?php
     // get schedule object
     $schedule = new schedule(array(
       'grid_ID'=>$post->ID,
-      'table_class' => 'container light',
+      'table_class' => 'light',
       'column_headers'=>true,
       'time_labels'=>true,
     ));
@@ -90,6 +90,11 @@ get_header_once();
     endwhile;
     ?>
     </article>
+    <?php 
+    if ( is_user_logged_in() && in_array('administrator', $current_user->roles)){
+      $schedule->print_messages();
+    }
+    ?>
   <?php endforeach; ?>
   </div>
   <?php
