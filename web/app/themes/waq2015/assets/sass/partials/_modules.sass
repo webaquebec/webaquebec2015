@@ -259,14 +259,18 @@
         text-align: right
         line-height: 2.5em
     &.active
-      color: $l-grey
+      // color: $l-grey
+      color: #fff
       &:before
         background: $d-blue
         right: 1px
       &:after
+        +opacity(1)
         border-color: $d-blue
       >*
         @extend .icon-close
+        &:before
+          background: $d-blue
         &:after
           color: $l-grey
       .no-touch &:hover
@@ -284,8 +288,8 @@
           color: $d-blue
           +prefix(transition, all 120ms $ease)
       &.active
-        color: $m-grey
         >*
+          color: #fff
           @extend .icon-star
           &:after
             color: $l-blue
@@ -361,7 +365,8 @@
       +prefix(transition, opacity 240ms ease-in-out, width 240ms $ease)
     >*:before
       background: none
-    .no-touch &:hover
+    .no-touch &:hover,
+    &.active
       &:before
         width: 100%
         +opacity(1)

@@ -152,7 +152,8 @@ section.intro
     +box-shadow(0 0 0 0 rgba(0,0,0,0.1), 0 0 0 0 rgba(0,0,0,0.06))
     +prefix(transition, box-shadow 240ms $ease, z-index 0 linear 120ms)
     .no-touch &:hover,
-    &.active
+    .touch &,
+    &:active
       z-index: 1
       +box-shadow($shadows)
       figcaption
@@ -204,6 +205,8 @@ section.intro
       height: 110%
       background: url(../img/gradient-alpha-vertical-fff.png) repeat-x left bottom
       background-size: 100% 100%
+      .touch &
+        +opacity(0.75)
 
   .session
     +inlineb()
@@ -632,7 +635,7 @@ section.intro
     .tags-section
       font-size: 0.8em
   .conferencer
-    margin-top: -30%
+    margin-top: -100px
     float: left
     position: relative
     z-index: 100
@@ -676,6 +679,18 @@ section.intro
     float: left
     img
       min-height: 100%
+
+  .social
+    padding: 1em 0
+    a
+      padding: 0.5em 0 0.5em 2em
+      &:after
+        font-size: 1.5em
+        position: absolute
+        top: 50%
+        left: 0
+        line-height: 0
+
 //
 //
 // FOOTER

@@ -7,7 +7,7 @@ $session = new session($post->ID);
   <hgroup class="">
     <div class="container">
 
-      <button class="btn seamless toggle favorite" toggle-content="<?= __('Ajouté à mon horaire','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
+      <button class="btn seamless toggle favorite" toggle-content="<?= __('J\'y serai','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
 
       <div class="main title">
         <div class="name">

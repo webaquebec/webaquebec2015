@@ -12,6 +12,7 @@
 			prefix: null,
 			has3D: null,
 			transition: null,
+			transitionEnd: null,
 			transform: null,
 			CSStranslate: null
 		};
@@ -275,6 +276,7 @@
 			setTimeout(function(){
 				if(s.callback) s.callback();
 			},0);
+			target.on()
 			drag.released = setTimeout(function(){
 					target['style'][window.moGrab.transition] = '';
 					drag.duration = s.duration;
