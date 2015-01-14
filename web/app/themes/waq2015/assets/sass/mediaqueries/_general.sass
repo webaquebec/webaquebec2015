@@ -18,8 +18,8 @@
   //
   //
   // MOBILE NAV
-  body >
-    .wrapper
+  body
+    > .wrapper
       position: relative
       z-index: 1
       background: #fff
@@ -41,7 +41,7 @@
           z-index: 20
           +prefix(transition-delay, 0, 0)
 
-    nav[role="navigation"] 
+    > nav[role="navigation"]
       top: 0
       right: 0
       left: auto
@@ -51,6 +51,9 @@
       z-index: 0
       color: #fff
       +gradient($l-blue, $d-blue)
+      .main,
+      .secondary
+        display: block
 
   nav[role="navigation"],
   body >
@@ -78,7 +81,7 @@
       height: auto
       margin: 0
       padding: 0
-      display: block
+      display: none
       +box-shadow(none)
       &:before
         display: none
@@ -169,8 +172,26 @@
   //
   // FEATURES
   .features
+    .panel
+      padding-top: 0
+    .image
+      position: relative
+      +inlineb()
     .infos
       font-size: 0.688em
+      .touch &
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        > *
+          width: 100%
+          padding: 30px
+          position: absolute
+          bottom: 0
+          left: 0
+
       .favorite
         font-size: 1.125em
 
@@ -304,8 +325,6 @@
   .features
     .grid
       +grid(1,0)
-      > *
-        padding-top: 40%
     .infos
       font-size: 1em
 

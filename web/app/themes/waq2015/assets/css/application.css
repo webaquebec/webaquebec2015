@@ -1967,6 +1967,8 @@ section.intro {
     float: right;
     margin-right: 0;
     margin-left: 1em; }
+    .features .favorite > * {
+      padding-left: 0.438em; }
   .features .speaker {
     margin-bottom: 0.5em; }
     .features .speaker .title, .features .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .features .speaker a {
@@ -2946,6 +2948,9 @@ footer .logo-o2 {
     background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
     background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
+    body > nav[role="navigation"] .main,
+    body > nav[role="navigation"] .secondary {
+      display: block; }
 
   nav[role="navigation"] .logo.waq,
   body > .logo.waq {
@@ -2976,7 +2981,7 @@ footer .logo-o2 {
       height: auto;
       margin: 0;
       padding: 0;
-      display: block;
+      display: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
       box-shadow: none; }
@@ -3079,8 +3084,27 @@ footer .logo-o2 {
       zoom: 1;
       vertical-align: middle; }
 
+  .features .panel {
+    padding-top: 0; }
+  .features .image {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
   .features .infos {
     font-size: 0.688em; }
+    .touch .features .infos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%; }
+      .touch .features .infos > * {
+        width: 100%;
+        padding: 30px;
+        position: absolute;
+        bottom: 0;
+        left: 0; }
     .features .infos .favorite {
       font-size: 1.125em; }
 
@@ -3221,8 +3245,6 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; }
-    .features .grid > * {
-      padding-top: 40%; }
   .features .infos {
     font-size: 1em; }
 
@@ -3380,6 +3402,13 @@ footer .logo-o2 {
     .intro .main.right .bottom {
       top: auto;
       height: auto; }
+
+  .features .infos {
+    font-size: 0.625em; }
+    .touch .features .infos > * {
+      padding: 10px; }
+    .features .infos .favorite {
+      font-size: 1em; }
 
   .feed .right {
     display: none; }
