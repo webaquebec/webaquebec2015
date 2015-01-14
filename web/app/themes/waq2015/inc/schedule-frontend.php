@@ -54,7 +54,11 @@ class helper{
 
   public function print_messages(){
     if(!isset($this->messages)) return;
-    echo '<div class="message">' . join('<br>', $this->messages) . '</div>';
+    echo '<div class="messages">' . join('<br>', $this->messages) . '</div>';
+  }
+  public function print_errors(){
+    if(!isset($this->errors)) return;
+    echo '<div class="errors">' . join('<br>', $this->errors) . '</div>';
   }
 
 }
@@ -363,12 +367,9 @@ class schedule extends helper{
       echo '</td>';
       $this->column_counter += $session->columns->span-1;
       $this->print_empty_cells_after_session();
-      
-      // die;
     }
     $new_row =  $this->timeframe_counter<$this->timeframe_count 
                 && $this->column_counter+$session->columns->span >$this->column_count;    
-    // var_dump($new_row);
     if($new_row && $this->session_counter <= $this->session_count){
       echo '</tr><tr>';
       $this->print_empty_cells_after_session();

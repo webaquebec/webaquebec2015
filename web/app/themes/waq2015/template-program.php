@@ -80,7 +80,7 @@ global $current_user;
     while($schedule->have_sessions()):
       $session = $schedule->the_session();
       ?>
-      <div class="btn light">
+      <div class="btn light <?= $session->location->class ?>">
         <div class="wrap">
           <h3 class="title"><?= $session->title ?></h3>
         </div>
@@ -91,9 +91,9 @@ global $current_user;
     ?>
     </article>
     <?php 
-    if ( is_user_logged_in() && in_array('administrator', $current_user->roles)){
+    if(is_user_logged_in() && in_array('administrator', $current_user->roles))
       $schedule->print_messages();
-    }
+      $schedule->print_errors();
     ?>
   <?php endforeach; ?>
   </div>
