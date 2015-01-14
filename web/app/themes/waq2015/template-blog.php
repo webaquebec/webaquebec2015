@@ -15,7 +15,7 @@ get_header_once();
       <div class="border-bottom expandable"></div>
     </h1>
     <?php endwhile; endif; ?>
-    <div class="blog">
+    <div class="posts">
       <div class="sticky">
         <div class="col narrow">
           <?php

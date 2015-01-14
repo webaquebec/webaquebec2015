@@ -130,9 +130,36 @@
 
   //
   //
+  // LAYOUT AND FONTS
+  html,
+  .grid > * > *
+    font-size: 16px
+
+  .content
+    font-size: 16px !important
+
+  .container
+    max-width: 90%
+
+  //
+  //
   // TEMPORARY
   #menu-main
     display: none
+
+  //
+  //
+  // BLOG
+  .posts
+    .col
+      float: none
+      &.wide,
+      &.narrow
+        width: 100%
+        padding: 0
+      &.feed
+        margin: 0
+
 
   //
   //
@@ -173,7 +200,9 @@
     .grid
       +grid(1,0)
       > *
-        padding-top: 50%
+        padding-top: 40%
+    .infos
+      font-size: 1em
 
   //
   //

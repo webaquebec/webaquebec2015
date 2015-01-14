@@ -2155,52 +2155,52 @@ section.intro {
   height: 100%;
   z-index: -1; }
 
-.blog {
+.posts {
   zoom: 1;
   position: relative; }
-  .blog:before, .blog:after {
+  .posts:before, .posts:after {
     content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
-  .blog:after {
+  .posts:after {
     clear: both; }
-  .blog .featured {
+  .posts .featured {
     border: 1px solid #00bfdf;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     padding: 0;
     margin-bottom: 0.25em; }
-    .blog .featured .image img {
+    .posts .featured .image img {
       max-width: 100%; }
-    .blog .featured .article-info {
+    .posts .featured .article-info {
       margin-bottom: 0.625em;
       padding-bottom: 0.625em;
       border-bottom: 1px solid #4b4b4d; }
-    .blog .featured .content {
+    .posts .featured .content {
       padding: 1em; }
-      .blog .featured .content p {
+      .posts .featured .content p {
         margin-bottom: 0;
         line-height: 1.25em; }
-      .blog .featured .content .link-status {
+      .posts .featured .content .link-status {
         display: block;
         margin-top: 0.5em;
         font-size: 0.875em;
         text-transform: uppercase; }
-    .blog .featured .meta {
+    .posts .featured .meta {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
-    .blog .featured .title, .blog .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .blog .featured a {
+    .posts .featured .title, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a {
       margin-top: 0; }
-  .blog .view-all {
+  .posts .view-all {
     margin-right: 0;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
-  .blog .col {
+  .posts .col {
     padding-bottom: 0; }
 
 .col.wide.feed {
@@ -2885,8 +2885,26 @@ footer .logo-o2 {
       width: 33.33%;
       padding: 0 10px 20px; } }
 @media screen and (max-width: 768px) {
+  html,
+  .grid > * > * {
+    font-size: 16px; }
+
+  .content {
+    font-size: 16px !important; }
+
+  .container, .sticky.fixed {
+    max-width: 90%; }
+
   #menu-main {
     display: none; }
+
+  .posts .col {
+    float: none; }
+    .posts .col.wide, .posts .col.narrow {
+      width: 100%;
+      padding: 0; }
+    .posts .col.feed {
+      margin: 0; }
 
   .waq2015 .grid {
     font-size: 0;
@@ -2933,7 +2951,9 @@ footer .logo-o2 {
       width: 100%;
       padding: 0 0 0; }
     .features .grid > * {
-      padding-top: 50%; }
+      padding-top: 40%; }
+  .features .infos {
+    font-size: 1em; }
 
   .logos {
     font-size: 0;
@@ -3061,10 +3081,7 @@ footer .logo-o2 {
     display: block; } }
 @media screen and (min-width: 1400px) {
   html,
-  .grid > * > *,
-  .cols-2 > * > *,
-  .cols-3 > * > *,
-  .cols-4 > * > * {
+  .grid > * > * {
     font-size: 18px; }
 
   .content {
