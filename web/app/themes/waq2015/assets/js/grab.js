@@ -282,7 +282,7 @@
 					drag.duration = s.duration;
 					drag.released = false;
 					if(s.clean && drag.target.x==0&&drag.target.y==0) target['style'][window.moGrab.transform] = '';
-				},drag.duration);
+				},drag.duration+32);
 		}
 		else{
 			if(s.callback) s.callback();

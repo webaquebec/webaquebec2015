@@ -11,6 +11,7 @@
 	var isTouch  = "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
 	// var clickEvent = isTouch ? 'touchend' : 'click';
 	var clickEvent = 'click';
+	var $win = $(window);
 	function updateMinMax(o){
 
 		var s  = o.moGrab.s;
@@ -193,6 +194,9 @@
 
 							if(toggle){
 								$(toggle).on(clickEvent, function(e){
+									var active = o.moSides[key].active;
+									if(args.toggleCallback && typeof(args.toggleCallback)=='function')
+										args.toggleCallback(active);
 									toggleSide(o, key);
 									e.preventDefault();
 								});
@@ -209,10 +213,11 @@
 					
 					var clean = args.clean ? args.clean : false;
 					var preventScroll = args.preventScroll ? args.preventScroll : false;
-					var triggerLength = typeof(args.triggerLength)=="number" ? args.triggerLength : $(window).width()/3;
+					var triggerLength = typeof(args.triggerLength)=="number" ? args.triggerLength : $win.width()/3;
 					var dragCallback = args.dragCallback ? args.dragCallback : null;
 					var grabCallback = args.grabCallback ? args.grabCallback : null;
 					var dropCallback = args.dropCallback ? args.dropCallback : null;
+					var toggleCallback = args.toggleCallback ? args.toggleCallback : null;
 
 					if(s.left.triggerSize || s.right.triggerSize || s.top.triggerSize || s.bottom.triggerSize){
 						triggerLength = {

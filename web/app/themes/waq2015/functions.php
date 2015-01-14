@@ -176,7 +176,7 @@ function header_scripts()
         wp_register_script('grab', get_template_directory_uri() . '/assets/js/grab.min.js', array(), null); 
         wp_enqueue_script('grab');
 
-        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.min.js', array(), null); 
+        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.js', array(), null); 
         wp_enqueue_script('sides');
 
 

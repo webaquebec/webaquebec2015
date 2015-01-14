@@ -590,3 +590,75 @@
       @extend .icon-linkedin 
     &.website
       @extend .icon-website
+
+.menu-toggle
+  height: 3em
+  width: 3em
+  position: relative
+  text-indent: -9999px
+  cursor: pointer
+  .logo & 
+    position: absolute
+    top: 50%
+    right: 3em
+    margin: -1.5em
+  i,
+  &:before,
+  &:after
+    width: 2.4em
+    height: 0.3em
+    background: $d-blue
+    +border-radius(0.16em)
+    position: absolute
+    left: 50%
+    margin: -0.16em -1.2em
+    content: ""
+  i
+    top: 50%
+    +opacity(1)
+    +prefix(transition, width 320ms $bounce, margin 320ms $bounce, opacity 320ms $easeOut)
+
+
+  &:before,
+  &:after
+    +prefix(transform, rotate(0deg))
+    
+  
+  &:before
+    top: 0.9em
+    +prefix(transition, width 320ms $bounce, transform 320ms $bounce, top 320ms $easeOut)
+  &:after
+    bottom: 0.9em
+    +prefix(transition, width 320ms $bounce, transform 320ms $bounce, bottom 320ms $easeOut)
+  
+  &.active
+    i
+      width: 0.3em
+      margin-left: -0.3em
+      margin-right: -0.3em
+      +opacity(0)
+    &:before,
+    &:after
+      width: 1.75em
+      margin-left: -0.875em
+      margin-right: -0.875em
+    &:before
+      top: 1.52em
+      +prefix(transform, rotate(45deg))
+    &:after
+      bottom: 1.5em
+      +prefix(transform, rotate(-45deg))
+
+  +opacity(1)
+  +prefix(transform, translateX(0))
+  +prefix(transition, opacity 720ms $easeOut, transform 720ms $easeOut)
+  &.hidden
+    display: block
+    +opacity(0)
+    +prefix(transform, translateX(1em))
+
+
+
+
+  
+

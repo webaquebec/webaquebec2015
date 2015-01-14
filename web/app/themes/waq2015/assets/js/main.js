@@ -42,6 +42,7 @@ jQuery(document).ready(function($){
 
   waq.$menu = $('nav', waq.$header);
   waq.$menu.$links = $('a', waq.$menu);
+  waq.$menu.$toggle = $('<div class="menu-toggle"><i>Menu</i></div>');
   waq.$logo = $('.logo', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
@@ -282,21 +283,28 @@ jQuery(document).ready(function($){
   // > 1200px
   function largerThan1200(e){
     if(waq.$intro.length) enableStickyNav();
-    if(e=='init') return; // --------------------------
+    if(e=='init') return; // Exit here at init --------------------------
     waq.$page.moSides('destroy');
     waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
-    waq.$logo.prependTo(waq.$menu);
+    waq.$logo.prependTo(waq.$logo);
+    waq.$menu.$toggle.remove();
     $win.scrollEvents('update');
   }
   // < 1200px
   function smallerThan1200(e){
     waq.$menu.insertBefore(waq.$page);
     waq.$logo.insertBefore(waq.$menu);
+    waq.$menu.$toggle.addClass('hidden').prependTo(waq.$logo);
+    setTimeout(function(){waq.$menu.$toggle.removeClass('hidden')},32);
+
     waq.$page.moSides({
       right:{
           size:240,
-          // toggle: $('.trigger')
+          toggle: waq.$menu.$toggle,
+          callback: function(e){
+            waq.$menu.$toggle.toggleClass('active');
+          }
       },
       clean: true
     });
@@ -304,7 +312,8 @@ jQuery(document).ready(function($){
       axis: {x:false, y:true},
       container: $(window)
     });
-    if(e=='init') return; // --------------------------
+
+    if(e=='init') return; // Exit here at init --------------------------
     if(waq.$intro.length) disableStickyNav();
   }
 
@@ -313,12 +322,12 @@ jQuery(document).ready(function($){
   // > 768px
   function largerThan768(e){
     if(waq.$stickys.length) enableStickys();
-    if(e=='init') return; // --------------------------
+    if(e=='init') return; // Exit here at init --------------------------
     $win.scrollEvents('update');
   }
   // < 768px
   function smallerThan768(e){
-    if(e=='init') return; // --------------------------
+    if(e=='init') return; // Exit here at init --------------------------
     if(waq.$stickys.length) disableStickys();
   }
 
