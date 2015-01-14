@@ -16,37 +16,30 @@ get_header_once();
         <?= get_the_title() ?>
         <div class="border-bottom expandable"></div>
       </h1>
+      <?php $schedules = new WP_query(array(
+        'post_type' => 'grid',
+        'posts_per_page' => -1,
+      ));
+      if($schedules->have_posts()): ?>    
 
-      <h2 class="title"><?= __('Disponible bientôt', 'waq') ?></h2>
-
-<!--       <nav class="days">
+      <nav class="days">
         <ul>
+          <?php foreach($schedules->posts as $post): ?>
           <li>
             <button class="btn">
               <div>
-                <span class="sub title">Mercredi</span>
-                <span class="small title">18 mars 2014</span>
+                <span class="sub title"><?= get_the_title($post->ID) ?></span>
+                <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
               </div>
             </button>
           </li>
-          <li>
-            <button class="btn">
-              <div>
-                <span class="sub title">Jeudi</span>
-                <span class="small title">19 mars 2014</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button class="btn">
-              <div>
-                <span class="sub title">Vendredi</span>
-                <span class="small title">20 mars 2014</span>
-              </div>
-            </button>
-          </li>
+          <?php endforeach; ?>
         </ul>
-      </nav> -->
+      </nav>
+    <?php
+    wp_reset_postdata();
+    endif; 
+    ?>
 
     </div>
   </hgroup>
@@ -64,6 +57,35 @@ get_header_once();
       </div>
     </div>
   </nav> -->
+
+
+  <?php if($schedules->have_posts()): ?>
+  <div class="schedules">
+  <?php
+  // loop throught schedules
+  foreach($schedules->posts as $post):
+    ?>
+    <article class="schedule">
+    <?php
+    // get schedule object
+    $schedule = new schedule($post);
+    // loop throught each session of the grid
+    while($schedule->have_sessions()):
+    ?>
+      <div class="btn">
+        <div class="wrap">
+        </div>
+      </div>
+
+    <?php endwhile; ?>
+    </article>
+  <?php endforeach; ?>
+  </div>
+  <?php
+  wp_reset_postdata();
+  endif; 
+  ?>
+
 
 </section>
 
