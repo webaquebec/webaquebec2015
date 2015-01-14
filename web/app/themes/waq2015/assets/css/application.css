@@ -2984,7 +2984,10 @@ footer .logo-o2 {
       font-size: 1.125em; }
 
   .blog .actions {
-    font-size: 1.25em; } }
+    font-size: 1.25em; }
+
+  .touch .waq2015 .profile {
+    font-size: 0.75em; } }
 @media screen and (max-width: 1023px) {
   .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main {
     font-size: 2em; }
@@ -3026,7 +3029,9 @@ footer .logo-o2 {
       width: 33.33%;
       padding: 0 10px 20px; }
   .waq2015 .group .profile {
-    font-size: 14px; } }
+    font-size: 0.875em; }
+    .touch .waq2015 .group .profile {
+      font-size: 0.75em; } }
 @media screen and (max-width: 768px) {
   html,
   .grid > * > * {
