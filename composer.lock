@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e109357c6471cd8d2bdf0e4f291d3777",
+    "hash": "4bf297f09b2c1de445b9d3d7f0bb66c1",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -103,6 +103,88 @@
                 "zikula"
             ],
             "time": "2014-02-24 04:21:34"
+        },
+        {
+            "name": "cosenary/instagram",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cosenary/Instagram-PHP-API.git",
+                "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cosenary/Instagram-PHP-API/zipball/fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+                "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MetzWeb\\Instagram\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Metz",
+                    "email": "christian-metz1@gmx.net",
+                    "homepage": "http://metzweb.net"
+                }
+            ],
+            "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+            "homepage": "https://github.com/cosenary/Instagram-PHP-API",
+            "keywords": [
+                "api",
+                "instagram"
+            ],
+            "time": "2014-11-29 13:10:42"
+        },
+        {
+            "name": "j7mbo/twitter-api-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/J7mbo/twitter-api-php.git",
+                "reference": "ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f",
+                "reference": "ab76f1c1e6bf83f0a257216cbaf9932b7cc19a3f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "TwitterAPIExchange.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU Public License"
+            ],
+            "authors": [
+                {
+                    "name": "James Mallison",
+                    "homepage": "https://github.com/j7mbo/twitter-api-php"
+                }
+            ],
+            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
+            "homepage": "https://github.com/j7mbo/twitter-api-php",
+            "keywords": [
+                "api",
+                "php",
+                "twitter"
+            ],
+            "time": "2013-10-03 10:04:59"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -266,15 +348,15 @@
         },
         {
             "name": "wpackagist-plugin/acf-field-date-time-picker",
-            "version": "dev-trunk",
+            "version": "2.0.18.1",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/acf-field-date-time-picker/",
-                "reference": "trunk"
+                "reference": "tags/2.0.18.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/acf-field-date-time-picker.zip",
+                "url": "http://downloads.wordpress.org/plugin/acf-field-date-time-picker.2.0.18.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -282,20 +364,19 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-field-date-time-picker/",
-            "time": "2014-09-25 00:43:59"
+            "homepage": "https://wordpress.org/plugins/acf-field-date-time-picker/"
         },
         {
             "name": "wpackagist-plugin/acf-range-field",
-            "version": "dev-trunk",
+            "version": "1.1.4",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/acf-range-field/",
-                "reference": "trunk"
+                "reference": "tags/1.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/acf-range-field.zip",
+                "url": "http://downloads.wordpress.org/plugin/acf-range-field.1.1.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -303,12 +384,11 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-range-field/",
-            "time": "2014-08-30 23:41:39"
+            "homepage": "https://wordpress.org/plugins/acf-range-field/"
         },
         {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
-            "version": "dev-trunk",
+            "version": "2.1.0",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/intuitive-custom-post-order/",
@@ -324,20 +404,19 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/",
-            "time": "2014-04-11 12:57:00"
+            "homepage": "https://wordpress.org/plugins/intuitive-custom-post-order/"
         },
         {
             "name": "wpackagist-plugin/regenerate-thumbnails",
-            "version": "dev-trunk",
+            "version": "2.2.4",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/regenerate-thumbnails/",
-                "reference": "trunk"
+                "reference": "tags/2.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/regenerate-thumbnails.zip",
+                "url": "http://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -345,8 +424,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/",
-            "time": "2014-04-01 02:48:53"
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
         }
     ],
     "packages-dev": [],
@@ -354,10 +432,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "koodimonni-language/fr": 20,
-        "wpackagist-plugin/acf-field-date-time-picker": 20,
-        "wpackagist-plugin/intuitive-custom-post-order": 20,
-        "wpackagist-plugin/regenerate-thumbnails": 20,
-        "wpackagist-plugin/acf-range-field": 20
+        "j7mbo/twitter-api-php": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
