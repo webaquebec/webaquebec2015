@@ -4,43 +4,6 @@
 // =====================================================================================
 
 @media screen and (max-width: 580px)
-  //
-  //
-  // COLUMNS
-
-  .cols-2
-    +grid(1,0)
-    &.small-margins
-      +grid(1,0)
-    &.xsmall-margins
-      +grid(1,0)
-
-    .intro &.top
-      +grid(2, $medium)
-
-  .cols-3
-    +grid(3, $medium)
-    &.small-margins
-      +grid(3, $small)
-    &.xsmall-margins
-      +grid(3, $xsmall)
-
-  .cols-4
-    +grid(4, $medium)
-    &.small-margins
-      +grid(4, $small)
-    &.xsmall-margins
-      +grid(4, $xsmall)
-
-
-  //
-  //
-  // PARTNERS
-  .logos
-    &.small
-      +grid(3, 0)
-
-
 
   //
   //
@@ -84,7 +47,69 @@
         height: auto
 
 
+  //
+  //
+  // FEATURES
+  .features
+    .infos
+      font-size: 0.625em
+      .touch &
+        > *
+          padding: 10px
+
+      .favorite
+        font-size: 1em
+
+
+  //
+  //
+  // BLOG
+  .feed
+    .right
+      display: none
+    .grid
+      +grid(1, 0)
+
+
+  //
+  //
+  // PARTNERS
+  .logos
+    &.small
+      +grid(3, 0)
+
+  //
+  //
+  // WAQ 2015
+  .waq2015
+    .group
+      .grid
+        +grid(1, 0)
+
+
 
 @media screen and (max-width: 480px)
+
+  //
+  //
+  // TYPOGRAPHY
+  .title
+    &.main
+      font-size: 1.875em
+
+  //
+  //
+  // FOOTER
+  footer
+    .info-general
+      +grid(1, 0)
+      > *
+        padding-top: 0
+      .title
+        margin-top: 1em
+      p:last-child
+        margin-bottom: 0
+    .contact-general
+      max-width: 90%
 
 

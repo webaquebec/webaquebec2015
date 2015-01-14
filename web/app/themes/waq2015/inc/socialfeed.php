@@ -1,11 +1,5 @@
 <?php
 
-require_once(__DIR__.'/../vendor/twitter-api-php/TwitterAPIExchange.php');
-require_once(__DIR__.'/../vendor/Instagram-PHP-API/src/Instagram.php');
-
-
-
-
 //
 //
 // POST OBJECT
@@ -51,7 +45,7 @@ class social_feed{
         'oauth_access_token'=>'***REMOVED***',
         'oauth_access_token_secret'=>'***REMOVED***'
       ));
-    
+
     $url = 'https://api.twitter.com/1.1/search/tweets.json';
     if(gettype($this->tag)=='string'){
       $getfield = '?q=#'.$this->tag.'-filter:retweets&result_type=recent&count='.$this->count;
@@ -59,7 +53,7 @@ class social_feed{
     elseif(gettype($this->tag)=='array'){
       $q = '';
       foreach($this->tag as $k=>$tag){
-        
+
         if($k>0) $q .= '+OR+';
         $q .= '#'.$tag;
       }
@@ -67,7 +61,7 @@ class social_feed{
       // var_dump($getfield);
     }
     $requestMethod = 'GET';
-    
+
     $tweets = $twitter->setGetfield($getfield)
       ->buildOauth($url, $requestMethod)
       ->performRequest();
@@ -101,7 +95,7 @@ class social_feed{
           '<a href="http://twitter.com/$1">@$1</a>',
           $text);
       $text = preg_replace(
-          '/\s+#(\w+)/',
+          '/\s+#([A-zÀ-ú0-9_]+)/',
           ' <a href="http://twitter.com/search?q=%23$1">#$1</a>',
           $text);
     }
@@ -128,7 +122,7 @@ class social_feed{
     $twitter_json = $this->get_twitter();
     $this->twitter_feed = json_decode($twitter_json);
     foreach($this->twitter_feed->statuses as $post){
-     
+
       // print_r($post);
       array_push( $this->feed, array(
           'id' => $post->id,
@@ -142,13 +136,13 @@ class social_feed{
         )
       );
     }
-    
+
 
     // INSTAGRAM
     $this->instagram_feed = $this->get_instagram();
 
     foreach($this->instagram_feed as $post){
-    
+
      // print_r($post);
 
       array_push( $this->feed, array(
@@ -165,10 +159,10 @@ class social_feed{
         )
       );
 
-       
+
 
     }
-    
+
 
     usort( $this->feed, array('social_feed','sort_posts'));
     $this->feed = array_slice($this->feed, 0, $this->count);
@@ -192,7 +186,7 @@ class social_feed{
     $this->post_counter++;
     return new social_post($this);
   }
-  
+
 
 }
 

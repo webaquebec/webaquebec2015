@@ -9,10 +9,7 @@
   //
   // LAYOUT AND FONTS
   html,
-  .grid > * > *,
-  .cols-2 > * > *,
-  .cols-3 > * > *,
-  .cols-4 > * > *
+  .grid > * > *
     font-size: 14px
 
   .content
@@ -20,12 +17,138 @@
 
   //
   //
+  // MOBILE NAV
+  body
+    > .wrapper
+      position: relative
+      z-index: 1
+      background: #fff
+      &:before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background: rgba($d-blue, 0.3)
+        z-index: -1
+        +opacity(0)
+        +prefix(transition, opacity 320ms ease 0, z-index 0 linear 320ms)
+
+      &[style]
+        &:before
+          +opacity(1)
+          z-index: 20
+          +prefix(transition-delay, 0, 0)
+
+    > nav[role="navigation"]
+      top: 0
+      right: 0
+      left: auto
+      width: 240px
+      height: auto
+      min-height: 100%
+      z-index: 0
+      color: #fff
+      +gradient($l-blue, $d-blue)
+      .main,
+      .secondary
+        display: block
+
+  nav[role="navigation"],
+  body >
+    .logo.waq
+      position: fixed
+      top: $small
+      left: $small
+      right: $small
+      z-index: 5
+      background: #fff
+      padding: $medium 0
+      height: auto
+      display: block
+      +box-shadow($l-shadows)
+      a
+        padding: 0 1.75em
+      img
+        width: 130px
+
+  nav[role="navigation"]
+    padding: ($nav-height + $medium) $small $medium
+    .main,
+    .secondary
+      background: none
+      height: auto
+      margin: 0
+      padding: 0
+      display: none
+      +box-shadow(none)
+      &:before
+        display: none
+      a
+        display: block
+        margin: 0
+        padding: 1em 0
+        color: #fff
+
+      li
+        display: block
+
+    .main
+      .acheter-mon-billet
+        display: block
+        float: none
+        a
+          margin-right: 0
+      a
+        &:before,
+        &:after
+          background: $m-blue
+          +prefix(transition, opacity 240ms, transform 240ms, background 240ms)
+        &:before
+          +opacity(1)
+      li
+        &:first-child
+          a:before
+            +opacity(0)
+          &.active
+            a:before
+              +opacity(1)
+
+        &.active
+          a
+            color: $l-grey
+            &:before,
+            &:after
+              background: $l-grey
+            &:before
+              +prefix(transform,translateY(0.25em))
+            &:after
+              +prefix(transform,translateY(-0.25em))
+          &+li
+            a
+              &:before
+                +opacity(0)
+                +prefix(transform,translateY(-0.25em))
+
+    .secondary
+      float: none
+      width: auto
+      padding-bottom: 0.5em
+      margin-bottom: 1em
+      border-bottom: 1px solid #fff
+
+  //
+  //
   // INTRO
-  .intro
+  section.intro
+    padding-top: ($nav-height + $medium)
+    padding-bottom: $small
     .title
       &.main
         font-size: 2.5em
 
+@media screen and (max-width: 1125px)
 
 
 @media screen and (max-width: 1024px)
@@ -49,8 +172,26 @@
   //
   // FEATURES
   .features
+    .panel
+      padding-top: 0
+    .image
+      position: relative
+      +inlineb()
     .infos
       font-size: 0.688em
+      .touch &
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        > *
+          width: 100%
+          padding: 30px
+          position: absolute
+          bottom: 0
+          left: 0
+
       .favorite
         font-size: 1.125em
 
@@ -60,6 +201,14 @@
   .blog
     .actions
       font-size: 1.25em
+
+  //
+  //
+  // WAQ 2015
+  .waq2015
+    .profile
+      .touch &
+        font-size: 0.75em
 
 
 
@@ -80,8 +229,24 @@
   //
   // WAQ 2015
   .waq2015
-    .grid
-      +grid(3,$medium)
+    .top
+      +grid(2, $large)
+    .waq-infos
+      padding-right: 0
+    .group
+      .grid
+        +grid(3, $medium)
+      .profile
+        font-size: 0.875em
+        .touch &
+          font-size: 0.75em
+
+  //
+  //
+  // FOOTER
+  footer
+    .top-footer
+      +grid(1, 0)
 
 
 
@@ -89,9 +254,38 @@
 
   //
   //
-  // TEMPORARY
-  #menu-main
-    display: none
+  // LAYOUT AND FONTS
+  html,
+  .grid > * > *
+    font-size: 16px
+
+  .content
+    font-size: 16px !important
+
+  //
+  //
+  // BLOG
+  .posts
+    .sticky
+      position: static
+    .featured
+      text-align: left
+      img
+        width: 100%
+    .col
+      float: none
+      text-align: center
+      &.wide,
+      &.narrow
+        width: 100%
+        padding: 0
+      &.feed
+        margin: 0
+        text-align: left
+    .view-all
+      text-align: center
+      margin: 1em 0 1.5em 0
+
 
   //
   //
@@ -131,8 +325,37 @@
   .features
     .grid
       +grid(1,0)
-      > *
-        padding-top: 50%
+    .infos
+      font-size: 1em
+
+  //
+  //
+  // EVENT-LOCATION
+  .event-location
+    background: transparent
+    padding-bottom: 0
+    &:after
+      width: 100%
+      height: 0
+    .infos
+      +grid(1, 0)
+      padding-bottom: 30px
+    .map,
+    .map-container
+      position: static
+      top: 0
+      left: 0
+      width: 100%
+      height: 400px
+      z-index: 0
+
+    .viewport
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      z-index: -1
 
   //
   //
@@ -143,3 +366,24 @@
       margin: 2.5em 0 1.5em 0
     &.small
       +grid(4, 0)
+
+
+  //
+  //
+  // FOOTER
+  footer
+    .col
+      float: none
+      clear: both
+      &.wide,
+      &.narrow
+        width: 100%
+        padding: 0
+      + .col.narrow
+        padding-left: 0
+    .conception
+      position: static
+      bottom: 0
+      display: block
+      p:before
+        display: none

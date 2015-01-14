@@ -172,6 +172,13 @@ function header_scripts()
 
         wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null); 
         wp_enqueue_script('breakpoints');
+        
+        wp_register_script('grab', get_template_directory_uri() . '/assets/js/grab.min.js', array(), null); 
+        wp_enqueue_script('grab');
+
+        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.min.js', array(), null); 
+        wp_enqueue_script('sides');
+
 
         wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null); 
         wp_enqueue_script('map');
@@ -392,18 +399,11 @@ function themes_dir_add_rewrites() {
 // AJOUTER UN VARIABLE À UN "/" APRÈS LE SLUG
 //
 
-// function add_endpoint()
-// {
-//     add_rewrite_endpoint('dons-majeurs', EP_PERMALINK );
-//     add_rewrite_endpoint('dons-individuels', EP_PERMALINK );
-// }
-
-// function set_endpoint_var( $vars )
-// {
-//     isset( $vars['dons-majeurs'] ) and $vars['dons-majeurs'] = true;
-//     isset( $vars['dons-individuels'] ) and $vars['dons-individuels'] = true;
-//     return $vars;
-// }
+function add_endpoint()
+{
+    add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('horaire', EP_PERMALINK | EP_PAGES );
+}
 
 
 
@@ -420,7 +420,7 @@ add_action('admin_enqueue_scripts', 'admin_style');   // Css pour l'admin
 add_action('init', 'header_scripts');
 add_action('init', 'register_menu'); 
 add_action('init', 'remove_comment_support');
-// add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
+add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin

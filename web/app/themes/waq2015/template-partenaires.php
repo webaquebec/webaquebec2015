@@ -29,7 +29,7 @@ get_header_once();
     <div class="presenters">
       <h2 class="sub title lined">Présentateur</h2>
       <hr class="sub-line">
-      <ul class="logos">
+      <ul class="logos grid">
       <?php foreach ($presenters as $presenter) : ?>
         <li>
           <img src="<?= $presenter['image']['url']; ?>" alt="<?= $presenter['name']; ?>">
@@ -41,7 +41,7 @@ get_header_once();
     <div class="main_partners">
       <h2 class="sub title lined">Principaux</h2>
       <hr class="sub-line">
-      <ul class="logos">
+      <ul class="logos grid">
       <?php foreach ($main_partners as $main_partner) : ?>
         <li>
           <img src="<?= $main_partner['image']['url']; ?>" alt="<?= $main_partner['name']; ?>">
@@ -53,7 +53,7 @@ get_header_once();
     <div class="associates">
       <h2 class="sub title lined">Associés</h2>
       <hr class="sub-line">
-      <ul class="logos small">
+      <ul class="logos small grid">
       <?php foreach ($associates as $associate) : ?>
         <li>
           <img src="<?= $associate['image']['url']; ?>" alt="<?= $associate['name']; ?>">
@@ -65,7 +65,7 @@ get_header_once();
     <div class="publics">
       <h2 class="sub title lined">Publics</h2>
       <hr class="sub-line">
-      <ul class="logos small">
+      <ul class="logos small grid">
       <?php foreach ($publics as $public) : ?>
         <li>
           <img src="<?= $public['image']['url']; ?>" alt="<?= $public['name']; ?>">
@@ -77,7 +77,7 @@ get_header_once();
     <div class="supporters">
       <h2 class="sub title lined">Supporteurs</h2>
       <hr class="sub-line">
-      <ul class="logos small">
+      <ul class="logos small grid">
       <?php foreach ($supporters as $supporter) : ?>
         <li>
           <img src="<?= $supporter['image']['url']; ?>" alt="<?= $supporter['name']; ?>">
@@ -89,7 +89,7 @@ get_header_once();
     <div class="medias">
       <h2 class="sub title lined">Médias</h2>
       <hr class="sub-line">
-      <ul class="logos small">
+      <ul class="logos small grid">
       <?php foreach ($medias as $media) : ?>
         <li>
           <img src="<?= $media['image']['url']; ?>" alt="<?= $media['name']; ?>">

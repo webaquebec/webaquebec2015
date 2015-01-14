@@ -98,6 +98,14 @@
 
 //
 //
+// DELAYED
+.delay-1
+  +prefix(transition-delay, 540ms !important)
+.delay-2
+  +prefix(transition-delay, 1080ms !important) 
+
+//
+//
 // EXPANDABLES
 .expandable
   width: 90%
@@ -119,7 +127,7 @@
 .btn
   background: transparent
   border: none
-  cursor: pointer
+  // cursor: pointer
   outline: none
   overflow: hidden
   padding-bottom: $shadow-length
@@ -142,7 +150,7 @@
     left: 0
     width: 100%
     height: 100%
-    cursor: pointer
+    // cursor: pointer
   &:before,
   &:after,
   >*:before
@@ -225,7 +233,8 @@
   .no-touch &:hover
     &:before
       right: 1px
-    >*:after
+    >*:after,
+    >*>*:after
       color: $l-blue
 
 
@@ -250,14 +259,18 @@
         text-align: right
         line-height: 2.5em
     &.active
-      color: $l-grey
+      // color: $l-grey
+      color: #fff
       &:before
         background: $d-blue
         right: 1px
       &:after
+        +opacity(1)
         border-color: $d-blue
       >*
         @extend .icon-close
+        &:before
+          background: $d-blue
         &:after
           color: $l-grey
       .no-touch &:hover
@@ -275,8 +288,8 @@
           color: $d-blue
           +prefix(transition, all 120ms $ease)
       &.active
-        color: $m-grey
         >*
+          color: #fff
           @extend .icon-star
           &:after
             color: $l-blue
@@ -295,25 +308,35 @@
   //
   // link (icon-arrow-right)
   &.link
-    padding-right: 2em
     a
       padding-right: 0
-    &:before
-    >*
-      @extend .icon-arrow-right
-      &:after
-        font-size: 0.6em
-        text-align: right
-        line-height: 3.45em
+      > span
+        display: block
+        padding-right: 2em
+        position: relative
+        @extend .icon-arrow-right
+        &:after
+          font-size: 0.6em
+          text-align: right
+          line-height: 0
+          position: absolute
+          top: 50%
+          right: 1em
   &.back
-    padding-left: 2em
-    &:before
-    >*
-      @extend .icon-arrow-left
-      &:after
-        font-size: 0.6em
-        text-align: left
-        line-height: 3.45em
+    a
+      padding-left: 0
+      > span
+        display: block
+        padding-left: 2em
+        position: relative
+        @extend .icon-arrow-left
+        &:after
+          font-size: 0.6em
+          text-align: left
+          line-height: 0
+          position: absolute
+          top: 50%
+          left: 1em
 
   //
   //
@@ -342,7 +365,8 @@
       +prefix(transition, opacity 240ms ease-in-out, width 240ms $ease)
     >*:before
       background: none
-    .no-touch &:hover
+    .no-touch &:hover,
+    &.active
       &:before
         width: 100%
         +opacity(1)
@@ -566,3 +590,75 @@
       @extend .icon-linkedin 
     &.website
       @extend .icon-website
+
+.menu-toggle
+  height: 3em
+  width: 3em
+  position: relative
+  text-indent: -9999px
+  cursor: pointer
+  .logo & 
+    position: absolute
+    top: 50%
+    right: 3em
+    margin: -1.5em
+  i,
+  &:before,
+  &:after
+    width: 2.4em
+    height: 0.3em
+    background: $d-blue
+    +border-radius(0.16em)
+    position: absolute
+    left: 50%
+    margin: -0.16em -1.2em
+    content: ""
+  i
+    top: 50%
+    +opacity(1)
+    +prefix(transition, width 320ms $easeOut, margin 320ms $easeOut, opacity 320ms $easeOut)
+
+
+  &:before,
+  &:after
+    +prefix(transform, rotate(0deg))
+    
+  
+  &:before
+    top: 0.9em
+    +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, top 320ms $easeOut)
+  &:after
+    bottom: 0.9em
+    +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, bottom 320ms $easeOut)
+  
+  &.active
+    i
+      width: 0.3em
+      margin-left: -0.3em
+      margin-right: -0.3em
+      +opacity(0)
+    &:before,
+    &:after
+      width: 1.75em
+      margin-left: -0.875em
+      margin-right: -0.875em
+    &:before
+      top: 1.52em
+      +prefix(transform, rotate(45deg))
+    &:after
+      bottom: 1.5em
+      +prefix(transform, rotate(-45deg))
+
+  +opacity(1)
+  +prefix(transform, translateX(0))
+  +prefix(transition, opacity 720ms $easeOut, transform 720ms $easeOut)
+  &.hidden
+    display: block
+    +opacity(0)
+    +prefix(transform, translateX(1em))
+
+
+
+
+  
+

@@ -16,7 +16,7 @@ get_header_once();
       <div class="border-bottom expandable"></div>
     </h1>
     <div class="content">
-      <div class="top">
+      <div class="top grid">
         <div class="waq-infos">
           <div class="description">
             <?= get_the_content() ?>

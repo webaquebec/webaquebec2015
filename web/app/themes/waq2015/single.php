@@ -31,10 +31,12 @@
         </div>
 
         <div class="tags-section">
-          <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
+          <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
             <?php the_tags('<ul class="tags"><li class="btn"><span>', '</span></li><li class="btn"><span>','</span></li></ul>'); ?>
         </div>
-        <a href="<?= get_site_url(); ?>/actualites" class="btn back"><span>Retour aux articles</span></a>
+        <div class="btn back">
+          <a href="<?= get_site_url(); ?>/actualites" class=""><span>Retour aux articles</span></a>
+        </div>
       </div>
 
     </section>

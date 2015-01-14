@@ -56,7 +56,7 @@ setup_postdata($post);
 
                 <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
                   <span class="v-align">
-                    <span class="sub title"><?= strftime('%H', $session->time->start) ?>h</span>
+                    <span class="sub title"><?= strftime('%k', $session->time->start) ?>h</span>
                     <span class="small title"><?= strftime('%M', $session->time->end) ?></span>
                   </span>
                 </time>

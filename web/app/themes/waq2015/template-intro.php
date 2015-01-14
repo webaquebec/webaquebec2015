@@ -9,13 +9,13 @@ setup_postdata($post);
     <div class="grid">
 
       <div class="anniversary main col left">
-        <div class="top">
+        <div class="top loading delay-1">
           <img src="/img/intro-top.png" alt="5 ans"/>
         </div>
         <div class="middle">
           <img src="/img/intro-middle.png" alt="WAQ"/>
         </div>
-        <div class="bottom">
+        <div class="bottom loading delay-2">
           <img src="/img/intro-bottom.png" alt="Bonne fête"/>
         </div>
       </div>

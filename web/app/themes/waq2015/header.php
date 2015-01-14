@@ -30,6 +30,7 @@
     // HASHBANG
     if($bang): ?>
     <script type="text/javascript">var bang = true;</script>
+    <div class"bang-coverall"></div>
     <?php endif; ?>
 
     <!-- css + javascript -->
@@ -44,7 +45,7 @@
         ?>
 
         <nav role="navigation">
-          <div class="intro logo">
+          <div class="intro logo waq">
             <a href="/">
               <img src="/img/@2x/logo-waq.png" alt="<?= __('Web à Québec', 'waq') ?>" />
             </a>

@@ -1,7 +1,5 @@
 <?php get_header(); 
-if(have_posts()): while(have_posts()): the_post();
 $session = new session($post->ID);
-print_r($session);
 ?>
 
 <article class="single no-padding">
@@ -9,38 +7,38 @@ print_r($session);
   <hgroup class="">
     <div class="container">
 
-      <button class="btn seamless toggle favorite" toggle-content="<?= __('Ajouté à mon horaire','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
+      <button class="btn seamless toggle favorite" toggle-content="<?= __('J\'y serai','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
 
       <div class="main title">
         <div class="name">
-          <h2 class="title">Sylvain Carles</h2>
+          <h2 class="title"><?= $session->speaker->name ?></h2>
         </div>
-        <h1><?= get_the_title() ?></h1>
+        <h1><?= $session->title ?></h1>
       </div>
       <div class="conference-info-container dark">
         <div class="conferencer-info btn">
             <span class="wrap ">
 
-              <span class="meta room-border">
+              <span class="meta room-border" style="border-left-color:<?= $session->location->color ?>;">
                 <time class="date" datetime="">
                   <span class="v-align">
-                    <span class="sub title">Mer</span>
-                    <span class="small title">18</span>
+                    <span class="sub title"><?= substr($session->grid,0,3) ?></span>
+                    <span class="small title"><?= strftime('%e', $session->date) ?></span>
                   </span>
                 </time>
 
                 <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
                   <span class="v-align">
-                    <span class="sub title">10h</span>
-                    <span class="small title">30</span>
+                    <span class="sub title"><?= strftime('%k', $session->time->start) ?>h</span>
+                    <span class="small title"><?= strftime('%M', $session->time->end) ?></span>
                   </span>
                 </time>
               </span>
 
               <span class="conference-room">
                 <span class="v-align">
-                  <span class="sub title">Salle</span>
-                  <span class="small title">IXmedia &#183; Communication</span>
+                  <span class="sub title"><?= __('Salle','waq') ?></span>
+                  <span class="small title"><?= $session->location->title ?> &#183; <?= $session->location->subtitle ?></span>
                 </span>
               </span>
 
@@ -57,29 +55,25 @@ print_r($session);
       <div class="conference">
 
         <div class="content">
-          <?php the_content() ?>
+          <?= $session->content ?>
         </div>
 
         <div class="tags-section">
           <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
           <ul class="tags">
+            <?php foreach($session->themes as $theme): ?>
             <li class="btn">
-              <span>
-                <a href="#_">Culture</a>
-              </span>
+                <a href="<?= get_permalink(4); ?>filtre/<?= $theme->slug ?>">
+                  <?= $theme->name ?>
+                </a>
             </li>
-            <li class="btn">
-              <span>
-                <a href="#_">Données</a>
-              </span>
-            </li>
-            <li class="btn">
-              <span>
-                <a href="#_">Médias Sociaux</a>
-              </span>
-            </li>
+            <?php endforeach; ?>
           </ul>
-          <a href="<?= get_site_url(); ?>/programmation" class="btn back"><span>Retour à l'horaire</span></a>
+
+          <a href="<?= get_permalink(4); ?>" class="btn back">
+            <span><?= __('Retour à l\'horaire','waq') ?></span>
+          </a>
+
         </div>
       </div>
     </section>
@@ -89,25 +83,24 @@ print_r($session);
       <div class="conferencer">
           <div class="about">
             <div class="thumb">
-              <img src="http://2014.webaquebec.org/wp-content/uploads/2014/01/sylvain_carle-227x190.png" alt="Sylvain Carle" />
+              <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
             </div>
             <div class="name">
-              <span class="sub title">À propos <br>du Conférencier</span>
-              <h2 class="title">Sylvain Carles</h2>
+              <span class="sub title"><?= __('À propos <br>du Conférencier', 'waq') ?></span>
+              <h2 class="title"><?= $session->speaker->name ?></h2>
             </div>
           </div>
 
           <div class="content">
-            <p>Sylvain Carle est un adepte des technologies émergentes, il s’émerveille et s’amuse au croisement des médias, des technologies et des réseaux depuis 15 ans. L’entrepreneurship, le développement logiciel internet, les médias numériques et sociaux ainsi que les logiciels libres et les standards ouverts font partie de ses compétences et passions. Il habite présentement à San Franciso et travaille pour Twitter comme évangéliste techno. Il est aussi sur le conseil d’administration de la fondation OSMO, derrière le projet de la maison Notman à Montréal. Socialiste, idéaliste et pragmatique, il s’interroge sur le rôle de la technologie à l’ère de la société en réseau. Une de ses obsessions du moment est à propos de l’impact de la culture des hackers (au sens noble) sur les organisations publique et privées, de l’innovation par la collaboration massive, à la manière Github.</p>
+            <?= $session->speaker->bio ?>
           </div>
-
+            
           <ul class="social">
+          <?php foreach($session->speaker->social as $social): ?>
             <li>
-              <a class="website" href="http://afroginthevalley.com">afroginthevalley.com</a>
+              <a class="<?= $social['provider'] ?>" href="<?= $social['url'] ?>"><?= $social['label'] ?></a>
             </li>
-            <li >
-              <a class="twitter" href="http://twitter.com/Sylvain">@Sylvain</a>
-            </li>
+          <?php endforeach; ?>
           </ul>
       </div>
 
@@ -116,7 +109,5 @@ print_r($session);
   </div>
 
 </article>
-
-<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

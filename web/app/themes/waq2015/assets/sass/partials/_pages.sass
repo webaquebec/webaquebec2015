@@ -119,6 +119,18 @@ section.intro
       background: $l-blue
     &:after
       border-color: $blue
+  
+  // animate once loaded
+  [class*="delay"]
+    +opacity(1)
+    +prefix(transform, translate3d(0, 0, 0))
+    +prefix(transition, transform 1200ms $easeOut, opacity 1200ms ease)
+    &.loading
+      +opacity(0)
+      &.top
+        +prefix(transform, translate3d(0, 100px, 0))
+      &.bottom
+        +prefix(transform, translate3d(0, -100px, 0))
 
 
 
@@ -140,7 +152,8 @@ section.intro
     +box-shadow(0 0 0 0 rgba(0,0,0,0.1), 0 0 0 0 rgba(0,0,0,0.06))
     +prefix(transition, box-shadow 240ms $ease, z-index 0 linear 120ms)
     .no-touch &:hover,
-    &.active
+    .touch &,
+    &:active
       z-index: 1
       +box-shadow($shadows)
       figcaption
@@ -161,6 +174,8 @@ section.intro
     float: right
     margin-right: 0
     margin-left: 1em
+    > *
+      padding-left: 0.438em
 
   .speaker
     margin-bottom: 0.5em
@@ -192,17 +207,41 @@ section.intro
       height: 110%
       background: url(../img/gradient-alpha-vertical-fff.png) repeat-x left bottom
       background-size: 100% 100%
+      .touch &
+        +opacity(0.75)
 
   .session
-    +inlineb
+    +inlineb()
     width: 100%
+    padding-right: 0
     .wrap
+      padding-right: 2em
       padding-left: 8.5em
-      +inlineb
+      width: 100%
+      +inlineb()
       &:after
         font-size: 1.25em
         padding-right: 0.75em
         line-height: 2.5em
+        content: ''
+      > .title
+        @extend .icon-arrow-right
+        position: relative
+        &:after
+          display: block
+          font-size: 1em
+          line-height: 0
+          position: absolute
+          top: 50%
+          right: -1em
+          color: $grey
+          +prefix(transition, color 120ms linear 60ms)
+    .no-touch &:hover,
+    &:active
+      .wrap
+        > .title
+          &:after
+            color: $d-blue
     .meta
       position: absolute
       top: 0
@@ -343,9 +382,6 @@ section.intro
       &.linkedin
         @extend .icon-linkedin
 
-
-  
-
   .map,
   .map-container
     position: absolute
@@ -354,10 +390,10 @@ section.intro
     width: 100%
     height: 100%
     z-index: 0
-  
+
   .viewport
     position: absolute
-    left: 50% 
+    left: 50%
     top: 0
     width: 50%
     height: 100%
@@ -367,7 +403,8 @@ section.intro
 //
 // BLOGUE
 
-.blog
+.posts
+  +clearfix()
   position: relative
   .featured
     border: 1px solid $l-blue
@@ -403,12 +440,13 @@ section.intro
     padding-bottom: 0
 
 .col.wide.feed
-  margin-left: $narrow 
+  margin-left: $narrow
 
 .feed
   .grid
     +grid(2, $medium)
-    vertical-align: top
+    > *
+      vertical-align: top
 
 .feed-post
   padding: 0.75em 0
@@ -539,28 +577,34 @@ section.intro
 .waq2015
   .content
     margin-top: 30px
-  .top,
+  .top > *,
   .bottom
     +clearfix()
-    margin-bottom: 45px
+    margin-bottom: 2.813em
   .waq-infos
     width: 66.66666%
     padding-right: 130px
     float: left
   .description
     padding-right: 40px
+    img
+      display: block
+      max-width: 100%
   .volounteers
     width: 33.33333%
     float: left
     padding-left: 20px
-  .grid
-    +grid(4,$medium)
-    .profile
-      .name
-        font-size: 1em
-        padding: 0 1em 0 1px
   .group
+    float: none
+    clear: both
     margin-bottom: 0
+    .grid
+      +grid(4,$medium)
+      .profile
+        +prefix(transform, translateZ(0))
+        .name
+          font-size: 1em
+          padding: 0 1em 0 1px
     > ul
       margin-top: 20px
 
@@ -593,7 +637,7 @@ section.intro
     .tags-section
       font-size: 0.8em
   .conferencer
-    margin-top: -30%
+    margin-top: -100px
     float: left
     position: relative
     z-index: 100
@@ -637,6 +681,18 @@ section.intro
     float: left
     img
       min-height: 100%
+
+  .social
+    padding: 1em 0
+    a
+      padding: 0.5em 0 0.5em 2em
+      &:after
+        font-size: 1.5em
+        position: absolute
+        top: 50%
+        left: 0
+        line-height: 0
+
 //
 //
 // FOOTER
