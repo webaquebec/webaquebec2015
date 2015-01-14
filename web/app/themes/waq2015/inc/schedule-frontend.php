@@ -13,6 +13,8 @@
 //
 // HELPER
 class helper{
+
+
   protected function sort_sessions($a, $b){
     if($a->time_start == $b->time_start){
       if($a->col_start == $b->col_start) return 0;
@@ -38,6 +40,16 @@ class helper{
       if($session_ID==0)
         $str .= '<td></td>';
     return $str;
+  }
+
+  protected function throw_message($str){
+    if(!isset($this->messages)) $this->messages = array();
+    array_push($this->messages, $str);
+  }
+
+  protected function throw_error($str){
+    if(!isset($this->errors)) $this->errors = array();
+    array_push($this->errors, $str);
   }
 
 }
@@ -159,12 +171,14 @@ class schedule extends helper{
 
   function __construct($args){
   
+    $options = array_merge(array(
+      'grid_ID'=>null,
+      'column_headers'=>false,
+      'time_labels'=>false,
+    ),$args);
   
     // VARIABLES
-    if(gettype($args) == 'object' && isset($args->ID)) $this->post = $args;
-    if(gettype($args) == 'array' && isset($args['post'])) $this->post = $args['post'];
-
-
+    $this->grid_ID = $options['grid_ID'];
    
     // GET locationS
     $locationsQuery = new WP_query(array(
@@ -199,16 +213,21 @@ class schedule extends helper{
 
  
     // GET TIMEFRAMES
-    $this->timeframes = get_field('time_frames', $this->post->ID);
+    $this->timeframes = get_field('time_frames', $this->grid_ID);
     $this->grid = array();
     $this->column_count = get_field('columns_qty','options');
-    foreach($this->timeframes as $frame){
-      $frame = $frame['frame'][0];
-      if(!isset($this->grid[$frame['start']]))
-        $this->grid[$frame['start']] = $this->array_empty_columns($this->column_count, $frame['start']);
-      if(!isset($times[$frame['end']]))
-        $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $frame['end']);
+    if($this->timeframes){
+      foreach($this->timeframes as $frame){
+        $frame = $frame['frame'][0];
+        if(!isset($this->grid[$frame['start']]))
+          $this->grid[$frame['start']] = $this->array_empty_columns($this->column_count, $frame['start']);
+        if(!isset($times[$frame['end']]))
+          $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $frame['end']);
+      }
     }
+    else{
+      $this->throw_message('No timeframe found for this grid');
+    } 
 
   
     // GET SESSIONS
@@ -219,63 +238,67 @@ class schedule extends helper{
             array(
                 'key' => 'grid',
                 'compare' => '=',
-                'value' => $this->post->ID,
+                'value' => $this->grid_ID,
             )
           ),
       ));
     
+    var_dump($sessionsQuery);
     $this->sessions = array();
     foreach($sessionsQuery->posts as $session){
-      
-      $location_ID = get_field('location', $session->ID);
-      $frame_ID = get_field('frame_'.$this->post->ID, $session->ID);
-
-      // if(isset($location_ID) && isset($frame_ID)){
-
-        $location = $this->locations[$location_ID];
-        $frame = array(
-            'start' => $this->timeframes[$frame_ID]['frame'][0]['start'],
-            'end' => $this->timeframes[$frame_ID]['frame'][0]['end'],
-          );
-        $time_start_key = array_search($frame['start'], array_keys($this->grid));
-        $time_end_key = array_search($frame['end'], array_keys($this->grid));
-        $time_span = $time_end_key - $time_start_key;
-
-        // POPULATE $this->grid
-        $time_counter = $time_start_key;
-        while($time_counter<$time_end_key){
-          $timekey = array_keys($this->grid)[$time_counter];
-          $location_counter = 0;
-          while($location_counter<$this->column_count){
-            if( ( $location_counter >= $location['col_start']-1
-                  && $location_counter <= $location['col_end']-1 )
-                && $this->grid[$timekey][$location_counter] == 0){
-              $this->grid[$timekey][$location_counter] = $session->ID;
-            }
-            $location_counter++;
-          }
-          $time_counter++;
-        }
-      
-        array_push($this->sessions, new session_object(array(
-            'ID' => $session->ID,
-            'title' => get_the_title($session->ID),
-            'permalink' => get_the_permalink($session->ID),
-            'link_to_post' => get_field('link_to_post', $session->ID),
-            'excerpt' => get_field('excerpt', $session->ID),
-            'class' => $location['class'],
-            'location' => $location['title'],
-            'location_ID' => $location_ID,
-            'location_hidden' => $location['hide'],
-            'time_start' => $frame['start'],
-            'time_end' => $frame['end'],
-            'time_span' => $time_span,
-            'col_start' => $location['col_start'],
-            'col_end' => $location['col_end'],
-            'col_span' => $location['col_span'],
-          )));
-      // }
+      $session = new session($session->ID);
+      // var_dump($session);
+      array_push($this->sessions, $session);
     }
+      
+    //   $location_ID = get_field('location', $session->ID);
+    //   $frame_ID = get_field('frame_'.$this->grid_ID, $session->ID);
+
+    //   // if(isset($location_ID) && isset($frame_ID)){
+
+    //     $location = $this->locations[$location_ID];
+    //     $frame = array(
+    //         'start' => $this->timeframes[$frame_ID]['frame'][0]['start'],
+    //         'end' => $this->timeframes[$frame_ID]['frame'][0]['end'],
+    //       );
+    //     $time_start_key = array_search($frame['start'], array_keys($this->grid));
+    //     $time_end_key = array_search($frame['end'], array_keys($this->grid));
+    //     $time_span = $time_end_key - $time_start_key;
+
+    //     // POPULATE $this->grid
+    //     $time_counter = $time_start_key;
+    //     while($time_counter<$time_end_key){
+    //       $timekey = array_keys($this->grid)[$time_counter];
+    //       $location_counter = 0;
+    //       while($location_counter<$this->column_count){
+    //         if( ( $location_counter >= $location['col_start']-1
+    //               && $location_counter <= $location['col_end']-1 )
+    //             && $this->grid[$timekey][$location_counter] == 0){
+    //           $this->grid[$timekey][$location_counter] = $session->ID;
+    //         }
+    //         $location_counter++;
+    //       }
+    //       $time_counter++;
+    //     }
+      
+    //     array_push($this->sessions, new session_object(array(
+    //         'ID' => $session->ID,
+    //         'title' => get_the_title($session->ID),
+    //         'permalink' => get_the_permalink($session->ID),
+    //         'link_to_post' => get_field('link_to_post', $session->ID),
+    //         'excerpt' => get_field('excerpt', $session->ID),
+    //         'class' => $location['class'],
+    //         'location' => $location['title'],
+    //         'location_ID' => $location_ID,
+    //         'location_hidden' => $location['hide'],
+    //         'time_start' => $frame['start'],
+    //         'time_end' => $frame['end'],
+    //         'time_span' => $time_span,
+    //         'col_start' => $location['col_start'],
+    //         'col_end' => $location['col_end'],
+    //         'col_span' => $location['col_span'],
+    //       )));
+    // }
 
     // SORT SESSIONS
     usort($this->sessions, array('schedule','sort_sessions'));
@@ -293,7 +316,7 @@ class schedule extends helper{
   //
   // LOOP THROUGH SESSSONS
   public function have_sessions(){
-    return ($this->session_counter < $this->session_count);
+    return (!isset($this->error) && $this->session_counter < $this->session_count);
   }
 
 

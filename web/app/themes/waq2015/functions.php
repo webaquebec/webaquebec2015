@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_TIME, 'fr_FR');
 require_once('inc/seo.php');
 require_once('inc/hashbang.php');
 require_once('inc/schedule-frontend.php');

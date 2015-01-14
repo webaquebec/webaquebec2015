@@ -19,6 +19,7 @@ get_header_once();
       <?php $schedules = new WP_query(array(
         'post_type' => 'grid',
         'posts_per_page' => -1,
+        'orderby'=> 'menu_order',
       ));
       if($schedules->have_posts()): ?>    
 
@@ -68,7 +69,12 @@ get_header_once();
     <article class="schedule">
     <?php
     // get schedule object
-    $schedule = new schedule($post);
+    $schedule = new schedule(array(
+      'grid_ID'=>$post->ID,
+      'column_headers'=>true,
+      'time_labels'=>true,
+    ));
+    // var_dump($schedule);
     // loop throught each session of the grid
     while($schedule->have_sessions()):
     ?>

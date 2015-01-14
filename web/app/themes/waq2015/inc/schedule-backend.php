@@ -875,19 +875,20 @@ function create_sessions()
         $feild_key = hexdec('548f9681431db');
 
         $schedules = new WP_Query( array(
-                'post_type' => 'schedule',
+                'post_type' => 'grid',
             )
         );
         
 
-        if($schedules->have_posts()){ while($schedules->have_posts()){
+        if($schedules->have_posts()){ 
+            foreach($schedules->posts as $grid){
 
             $schedules->the_post();
             $feild_key++;
             array_push( $grids, array(
-                    'ID' => get_the_ID(),
-                    'title' => get_the_title(),
-                    'timeframes' => get_field('time_frames'),
+                    'ID' => $grid->ID,
+                    'title' => get_the_title($grid->ID),
+                    'timeframes' => get_field('time_frames', $grid->ID),
                     'key' => dechex($feild_key)
                 )
             );
