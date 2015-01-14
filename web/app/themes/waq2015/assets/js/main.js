@@ -245,6 +245,10 @@ jQuery(document).ready(function($){
     waq.$toggles.on('click', toggleBtn);
   }
 
+  function toggleMenu(){
+    waq.$menu.$toggle.trigger('click');
+  }
+
 
 
   //
@@ -296,8 +300,8 @@ jQuery(document).ready(function($){
     waq.$menu.insertBefore(waq.$page);
     waq.$logo.insertBefore(waq.$menu);
     waq.$menu.$toggle.addClass('hidden').prependTo(waq.$logo);
+    waq.$menu.$links.on('click', toggleMenu);
     setTimeout(function(){waq.$menu.$toggle.removeClass('hidden')},32);
-
     waq.$page.moSides({
       right:{
           size:240,
@@ -308,6 +312,7 @@ jQuery(document).ready(function($){
       },
       clean: true
     });
+
     waq.$menu.dragAndDrop({
       axis: {x:false, y:true},
       container: $(window)
