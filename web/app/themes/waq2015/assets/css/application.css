@@ -2763,10 +2763,7 @@ footer .logo-o2 {
 
 @media screen and (max-width: 1200px) {
   html,
-  .grid > * > *,
-  .cols-2 > * > *,
-  .cols-3 > * > *,
-  .cols-4 > * > * {
+  .grid > * > * {
     font-size: 14px; }
 
   .content {
@@ -3182,10 +3179,7 @@ footer .logo-o2 {
     margin-right: -5px; } }
 @media screen and (min-width: 2000px) {
   html,
-  .grid > * > *,
-  .cols-2 > * > *,
-  .cols-3 > * > *,
-  .cols-4 > * > * {
+  .grid > * > * {
     font-size: 20px; }
 
   .content {

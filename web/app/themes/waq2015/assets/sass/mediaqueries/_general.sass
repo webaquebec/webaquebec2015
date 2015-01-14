@@ -9,24 +9,21 @@
   //
   // LAYOUT AND FONTS
   html,
-  .grid > * > *,
-  .cols-2 > * > *,
-  .cols-3 > * > *,
-  .cols-4 > * > *
+  .grid > * > *
     font-size: 14px
 
   .content
     font-size: 14px !important
-  
+
   //
   //
-  // MOBILE NAV 
+  // MOBILE NAV
   body >
     .wrapper
       position: relative
       z-index: 1
       background: #fff
-    nav[role="navigation"] 
+    nav[role="navigation"]
       top: 0
       right: 0
       left: auto
@@ -44,16 +41,16 @@
       top: $small
       left: $small
       right: $small
-      z-index: 5 
+      z-index: 5
       background: #fff
       padding: $medium 0
       height: auto
       display: block
       a
         padding: 0 1.75em
-      img 
+      img
         width: 130px
- 
+
   nav[role="navigation"]
     padding: ($nav-height + $medium) $small $medium
     .main,
@@ -71,14 +68,14 @@
         margin: 0
         padding: 1em 0
         color: #fff
-        
+
       li
         display: block
-        
+
     .main
       .acheter-mon-billet
         display: block
-        float: none 
+        float: none
         a
           margin-right: 0
       a
@@ -96,7 +93,7 @@
             a:before
               +opacity(1)
 
-        &.active 
+        &.active
           a
             color: #fff
             &:before,
@@ -111,7 +108,7 @@
               &:before
                 +opacity(0)
                 +prefix(transform,translateY(-0.25em))
-             
+
     .secondary
       float: none
       width: auto
@@ -130,7 +127,7 @@
         font-size: 2.5em
 
 @media screen and (max-width: 1125px)
-  
+
 
 @media screen and (max-width: 1024px)
 
