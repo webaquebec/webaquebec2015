@@ -23,7 +23,25 @@
       position: relative
       z-index: 1
       background: #fff
-    nav[role="navigation"]
+      &:before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background: rgba($d-blue, 0.3)
+        z-index: -1
+        +opacity(0)
+        +prefix(transition, opacity 320ms ease 0, z-index 0 linear 320ms)
+
+      &[style]
+        &:before
+          +opacity(1)
+          z-index: 20
+          +prefix(transition-delay, 0, 0)
+
+    nav[role="navigation"] 
       top: 0
       right: 0
       left: auto
@@ -95,10 +113,10 @@
 
         &.active
           a
-            color: #fff
+            color: $l-grey
             &:before,
             &:after
-              background: $d-blue
+              background: $l-grey
             &:before
               +prefix(transform,translateY(0.25em))
             &:after

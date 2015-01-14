@@ -2773,6 +2773,33 @@ footer .logo-o2 {
     position: relative;
     z-index: 1;
     background: white; }
+    body > .wrapper:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 95, 147, 0.3);
+      z-index: -1;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      -webkit-transition: opacity 320ms ease 0, z-index 0 linear 320ms;
+      -moz-transition: opacity 320ms ease 0, z-index 0 linear 320ms;
+      -ms-transition: opacity 320ms ease 0, z-index 0 linear 320ms;
+      -o-transition: opacity 320ms ease 0, z-index 0 linear 320ms;
+      transition: opacity 320ms ease 0, z-index 0 linear 320ms; }
+    body > .wrapper[style]:before {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      filter: alpha(opacity=100);
+      opacity: 1;
+      z-index: 20;
+      -webkit-transition-delay: 0, 0;
+      -moz-transition-delay: 0, 0;
+      -ms-transition-delay: 0, 0;
+      -o-transition-delay: 0, 0;
+      transition-delay: 0, 0; }
   body > nav[role="navigation"] {
     top: 0;
     right: 0;
@@ -2857,9 +2884,9 @@ footer .logo-o2 {
       filter: alpha(opacity=100);
       opacity: 1; }
     nav[role="navigation"] .main li.active a {
-      color: white; }
+      color: #eeeef0; }
       nav[role="navigation"] .main li.active a:before, nav[role="navigation"] .main li.active a:after {
-        background: #005f93; }
+        background: #eeeef0; }
       nav[role="navigation"] .main li.active a:before {
         -webkit-transform: translateY(0.25em);
         -moz-transform: translateY(0.25em);
