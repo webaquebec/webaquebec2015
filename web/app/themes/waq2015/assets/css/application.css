@@ -3004,9 +3004,6 @@ footer .logo-o2 {
   .container, .sticky.fixed {
     max-width: 90%; }
 
-  #menu-main {
-    display: none; }
-
   .posts .col {
     float: none; }
     .posts .col.wide, .posts .col.narrow {
