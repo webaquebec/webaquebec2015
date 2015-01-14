@@ -294,16 +294,15 @@
 			setTimeout(function(){
 				if(s.callback) s.callback();
 			},16);
-			console.log(window.moGrab.transitionEnd);
+			// console.log(window.moGrab.transitionEnd);
 			$(target).one(window.moGrab.transitionEnd, function(){
-				console.log('ended');
-			// drag.released = setTimeout(function(){
+			drag.released = setTimeout(function(){
 					drag.duration = s.duration;
 					drag.released = false;
 					if(s.clean && drag.target.x==0&&drag.target.y==0) $(target).removeAttr('style');
-				// },drag.duration+32);
+				},drag.duration+32);
 
-			});
+			// });
 		}
 		else{
 			if(s.callback) s.callback();
