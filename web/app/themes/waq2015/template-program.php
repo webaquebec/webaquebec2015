@@ -27,7 +27,7 @@ global $current_user;
         <ul>
           <?php foreach($schedules->posts as $post): ?>
           <li>
-            <button class="btn">
+            <button class="btn" schedule-ID="<?= $post->ID ?>" >
               <div>
                 <span class="sub title"><?= get_the_title($post->ID) ?></span>
                 <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
@@ -66,16 +66,33 @@ global $current_user;
   // loop throught schedules
   foreach($schedules->posts as $post):
     ?>
-    <article class="schedule container">
+    <article class="schedule container" schedule-ID="<?= $post->ID ?>">
     <?php
     // get schedule object
     $schedule = new schedule(array(
       'grid_ID'=>$post->ID,
       'table_class' => 'light',
-      'column_headers'=>true,
-      'time_labels'=>true,
+      'render_thead'=> true,
+      'render_time_labels'=> true,
     ));
-    // var_dump($schedule);
+ 
+    // loop throught each column header of the grid
+    while($schedule->have_headers()):
+      $header = $schedule->the_header();
+      ?>
+      <div class="btn dark <?= $header->class ?>">
+        <div class="wrap">
+          <h3>
+            <span class="small title"><?= __('Salle','waq') ?></span>
+            <span class="title"><?= $header->title ?></span>
+            <span class="subtitle"><?= $header->subtitle ?></span>
+          </h3>
+        </div>
+      </div>
+      <?php
+      $schedule->after_header();
+    endwhile;
+
     // loop throught each session of the grid
     while($schedule->have_sessions()):
       $session = $schedule->the_session();
@@ -88,13 +105,12 @@ global $current_user;
       <?php
       $schedule->after_session();
     endwhile;
-    ?>
-    </article>
-    <?php 
+    
     if(is_user_logged_in() && in_array('administrator', $current_user->roles))
       $schedule->print_messages();
       $schedule->print_errors();
     ?>
+    </article>
   <?php endforeach; ?>
   </div>
   <?php

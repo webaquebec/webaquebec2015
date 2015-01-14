@@ -23,6 +23,11 @@ class helper{
     return  ($a->time->start < $b->time->start)  ? -1 : 1;
   }
 
+  protected function sort_headers($a, $b){
+    if($a->columns->start == $b->columns->start) return 0;
+    return ($a->columns->start < $b->columns->start) ? -1 : 1;
+  }
+
   protected function array_empty_columns($count, $timestamp){
     $cols = array();
     $i = 0;
@@ -117,6 +122,7 @@ class session extends helper{
         // -------------------------------------
         'class' => $location_settings[0]['class'],
         'color' => $location_settings[0]['color'],
+        'is_column_header' => $location_settings[0]['is_column_header'],
       );
 
       //
@@ -174,6 +180,7 @@ class session extends helper{
 // SCHEDULE
 class schedule extends helper{
 
+  // REMOVE FOR DUPLICATES AND THROW ERRORS
   private function remove_overlapping_sessions(){
     $counter = 1;
     $count = count($this->sessions);
@@ -184,7 +191,7 @@ class schedule extends helper{
       if($session->time->start == $prev->time->start){
         if($session->columns->start <= $prev->columns->start){
           $overlapping = true;
-          $this->throw_message('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
+          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
         }
       }
       if($overlapping){
@@ -198,34 +205,131 @@ class schedule extends helper{
     }
   }
 
+
+  //
+  //
+  // PRINT TABLE PARTS
+
+  // table head
+  private function print_content_before(){
+
+    if($this->session_counter>1) return;
+
+    if(!$this->render_status->open_table){
+      echo '<table'.($this->options->table_class ? ' class="'.$this->options->table_class.'"':'').'>';
+      $this->render_status->open_table = true;
+    }
+
+    if( $this->options->render_thead 
+        && !$this->render_status->open_tbody
+        && $this->header_counter==1){     
+      echo '<thead><tr>';
+      $this->render_status->open_thead = true;
+    }
+
+    if($this->session_counter==1 && !$this->render_status->open_tbody){
+      echo '<tbody>';
+      echo '<tr>';
+      $this->render_status->open_tbody = true;
+    }
+    
+  }
+  // table foot
+  private function print_content_after(){
+    
+    if( $this->options->render_thead
+        && !$this->render_status->close_thead
+        && $this->header_counter >= $this->header_count){
+      echo '</tr></thead>';
+      $this->render_status->close_thead = true;
+      $this->column_counter = 0;
+    }
+
+    if($this->session_counter < $this->session_count) return;
+    if(!$this->render_status->close_tbody){  
+      $this->print_empty_cells_after_session();
+      echo '</tr>';
+      echo '</tbody>'; 
+      $this->render_status->close_tbody = true;
+    } 
+    if(!$this->render_status->close_table){
+      echo '</table>';
+      $this->render_status->close_table = true;
+    }
+  }
+
+
+  //
+  //
+  // PRINT EMPTY HEADER CELLS
+  
+  // before
+  private function print_empty_cells_before_header(){
+    $header = $this->header;
+    if($header->columns->start && $header->columns->start != $this->column_counter){
+      while($this->column_counter < $header->columns->start){
+        $this->column_counter++;
+        echo '<td></td>';
+      }
+    }
+  }
+  // after
+  private function print_empty_cells_after_header(){
+    $header = $this->header;
+    if($this->header_counter<$this->header_count){
+      $next_header = $this->headers[$this->header_counter];
+
+      if($header->columns->start < $next_header->columns->start){
+        $empty_until = $next_header->columns->start - 1;             
+      }
+      else{
+        $empty_until = $this->column_count;
+        $this->throw_error('<a href="'.get_edit_post_link($header->ID).'">header '.$header->ID.'</a> is overlapping another header');
+      }
+    
+    }
+    else{
+      $empty_until = $this->column_count;
+    }
+    if($header->columns->start < $empty_until){
+      while( $this->column_counter < $empty_until){
+        $this->column_counter++;
+        echo '<td></td>';
+      }
+    }
+
+  }
+
+
+  //
+  //
+  // PRINT EMPTY SESSION CELLS
+  
+  // before
   private function print_empty_cells_before_session(){
     $session = $this->session;
     if($session->columns->start && $session->columns->start != $this->column_counter){
       while($this->column_counter < $session->columns->start){
         $this->column_counter++;
-        // print_r("\n empty cell before \n");
         echo '<td></td>';
       }
     }
   }
-
+  // after
   private function print_empty_cells_after_session(){
     $session = $this->session;
     if($this->session_counter<$this->session_count){
       $next_session = $this->sessions[$this->session_counter];
       if($session->time->start != $next_session->time->start){
-        // echo "\n new row, fill rest of the row ";
         $empty_until = $this->column_count;
       }
       else{
         if($session->columns->start < $next_session->columns->start){
-          // echo "\n fill until next session";
           $empty_until = $next_session->columns->start - 1;             
         }
         else{
-          // echo "\n last row, fill rest of the row ";
           $empty_until = $this->column_count;
-          $this->throw_message('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
+          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
         }
       }
     }
@@ -235,11 +339,9 @@ class schedule extends helper{
     if($session->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
-        // print_r("\n empty cell after \n");
         echo '<td></td>';
       }
     }
-
   }
 
   //
@@ -248,15 +350,15 @@ class schedule extends helper{
 
   public function __construct($args){
   
-    $this->options = array_merge(array(
+    $this->options = (object) array_merge(array(
       'grid_ID'=>null,
       'table_class'=> false,
-      'column_headers'=>false,
-      'time_labels'=>false,
+      'render_thead'=>false,
+      'render_time_labels'=>false,
     ),$args);
   
     // VARIABLES
-    $this->grid_ID = $this->options['grid_ID'];
+    $this->grid_ID = $this->options->grid_ID;
    
     // GET locations
     $locationsQuery = new WP_query(array(
@@ -265,15 +367,16 @@ class schedule extends helper{
       ));
     
     $this->locations = array();
-    
+    if($this->options->render_thead) $this->headers = array();
+
     foreach($locationsQuery->posts as $location){
       $infos = get_field('infos', $location->ID);
       $labels = $infos[0]['labels'];
       $settings = $infos[0]['settings'];
       $title = $labels[0]['alt'];
       if(!has($title)) $title = get_the_title($location->ID);
-      
-      $this->locations[$location->ID] = array(
+        
+      $location_object = (object) array(
           'ID' => $location->ID,
           'hide' => $labels[0]['hide'],
           'title' => $title,
@@ -281,11 +384,19 @@ class schedule extends helper{
           // -------------------------------------
           'class' => $settings[0]['class'],
           'color' => $settings[0]['color'],
-          'range' => $settings[0]['range'],
-          'col_start' => $settings[0]['range']['min'],
-          'col_end' => $settings[0]['range']['max'],
-          'col_span' => ($settings[0]['range']['max'] - $settings[0]['range']['min']) + 1,
+          'is_column_header' => $settings[0]['is_column_header'],
+          'columns' => (object) array(
+            'range' => $settings[0]['range'],
+            'start' => intval($settings[0]['range']['min']),
+            'end' => intval($settings[0]['range']['max']),
+            'span' => intval(($settings[0]['range']['max'] - $settings[0]['range']['min']) + 1),
+          ),
         );
+      $this->locations[$location->ID] = $location_object;
+      
+      if($this->options->render_thead && $settings[0]['is_column_header']){
+        array_push($this->headers, $location_object);
+      }
 
     }
 
@@ -323,14 +434,18 @@ class schedule extends helper{
 
     $this->sessions = array();
     foreach($sessionsQuery->posts as $k=>$session){
-      $session = new session($session->ID);
-      array_push($this->sessions, $session);
+      array_push($this->sessions, new session($session->ID));
     }
-   
+       
 
-    // SORT SESSIONS
+    // SORT & REMOVE DUPLICATES
     usort($this->sessions, array('schedule','sort_sessions'));
     $this->remove_overlapping_sessions();
+    
+    if($this->options->render_thead){
+      usort($this->headers, array('schedule','sort_headers'));
+    }
+
     
     // SET COUNTERS
     $this->session_count = count($this->sessions);
@@ -338,17 +453,68 @@ class schedule extends helper{
     $this->timeframe_count = count($this->grid);
     $this->timeframe_counter = 0;
     $this->column_counter = 0;
+    if($this->options->render_thead){
+      $this->header_count = count($this->headers);
+      $this->header_counter = 0;
+    }
+
+    // RENDER STATUS
+    $this->render_status = (object) array(
+      'open_table' => false,
+        'open_thead' => false,
+        'close_thead' => false,
+        'open_tbody' => false,
+        'close_tbody' => false,
+        'open_tfoot' => false,
+        'close_tfoot' => false,
+      'close_table' => false,
+    );
   }
 
 
+
   //
   //
-  // LOOP THROUGH SESSSONS
+  // LOOP THROUGH COLUMN HEADERS
+  public function have_headers(){
+    return ($this->header_counter < $this->header_count);
+  }
+  //
+  //
+  // PRINT HTML BEFORE CURRENT COLUMN HEADER
+  public function the_header(){
+    $this->header = $this->headers[$this->header_counter];
+    $this->header_counter++;
+    $this->column_counter++;
+    $header = $this->header;
+    
+    $this->print_content_before();
+    
+    $this->print_empty_cells_before_header();
+    echo '<th'.($header->columns->span >1 ? ' colspan="'.$header->columns->span .'"' : '').'>';
+    return $header;
+  }
+  //
+  //
+  // PRINT HTML AFTER CURRENT HEADER
+  public function after_header(){
+    $header = $this->header;
+    if($header->columns->start == $this->column_counter ){     
+      echo '</th>';
+      $this->column_counter += $header->columns->span-1;
+      $this->print_empty_cells_after_header();
+    }
+    $this->print_content_after();
+  }
+
+
+
+  //
+  //
+  // LOOP THROUGH SESSIONS
   public function have_sessions(){
-    return (!isset($this->error) && $this->session_counter < $this->session_count);
+    return ($this->session_counter < $this->session_count);
   }
-
-
   //
   //
   // PRINT HTML BEFORE CURRENT SESSION
@@ -359,12 +525,7 @@ class schedule extends helper{
     $session = $this->session;
     $timekey = array_keys($this->grid)[$this->timeframe_counter];
 
-    if($this->session_counter==1){
-      echo '<table'.($this->options['table_class'] ? ' class="'.$this->options['table_class'].'"':'').'>';
-      echo '<tbody>';
-      echo '<tr>';
-    }
-    
+    $this->print_content_before();
 
     if($session->time->start > $timekey){
       while( $session->time->start > $timekey 
@@ -376,15 +537,13 @@ class schedule extends helper{
         $timekey = array_keys($this->grid)[$this->timeframe_counter];
       }
     }
-    // var_dump($session);
-    
+
     if( $session->time->start == $timekey ){
       $this->print_empty_cells_before_session();
       echo '<td'.($session->time->span >1 ? ' rowspan="'.$session->time->span .'"' : '').($session->columns->span >1 ? ' colspan="'.$session->columns->span .'"' : '').'>';
     }
     return $session;
   }
-
   //
   //
   // PRINT HTML AFTER CURRENT SESSION
@@ -407,12 +566,7 @@ class schedule extends helper{
       $this->column_counter = 0;
     }
 
-    if($this->session_counter >= $this->session_count){
-      $this->print_empty_cells_after_session();
-      echo '</tr>';
-      echo '</tbody>'; 
-      echo '</table>';
-    } 
+    $this->print_content_after();
   }
 }
 

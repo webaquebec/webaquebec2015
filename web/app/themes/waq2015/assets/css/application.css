@@ -1532,6 +1532,13 @@ nav[role="navigation"] .secondary {
   border-radius: 4px; }
 .schedules td {
   vertical-align: top; }
+.schedules .messages,
+.schedules .errors {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #00bfdf; }
+.schedules .errors {
+  border-color: #d22630; }
 
 nav[role="navigation"] .logo {
   position: absolute;
