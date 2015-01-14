@@ -21,42 +21,109 @@
   //
   //
   // MOBILE NAV 
-  body
-    > .wrapper
+  body >
+    .wrapper
       position: relative
       z-index: 1
       background: #fff
-  .logo.waq
-    position: fixed
-    top: $small
-    left: $small
-    right: $small
-    z-index: 5 
-    background: #fff
-    padding: $medium
-    img 
-      width: 130px
+    nav[role="navigation"] 
+      top: 0
+      right: 0
+      left: auto
+      width: 240px
+      height: auto
+      min-height: 100%
+      z-index: 0
+      color: #fff
+      +gradient($l-blue, $d-blue)
 
-  nav[role="navigation"] 
-    top: 0
-    right: 0
-    left: auto
-    width: 240px
-    min-height: 100%
-    height: auto
-    z-index: 0
-    color: #fff
-    +gradient($l-blue, $d-blue)
-    
-    .main .acheter-mon-billet
+  nav[role="navigation"],
+  body >
+    .logo.waq
+      position: fixed
+      top: $small
+      left: $small
+      right: $small
+      z-index: 5 
+      background: #fff
+      padding: $medium 0
+      height: auto
       display: block
+      a
+        padding: 0 1.75em
+      img 
+        width: 130px
+ 
+  nav[role="navigation"]
+    padding: ($nav-height + $medium) $small $medium
+    .main,
+    .secondary
+      background: none
+      height: auto
+      margin: 0
+      padding: 0
+      display: block
+      +box-shadow(none)
+      &:before
+        display: none
+      a
+        display: block
+        margin: 0
+        padding: 1em 0
+        color: #fff
+        
+      li
+        display: block
+        
+    .main
+      .acheter-mon-billet
+        display: block
+        float: none 
+        a
+          margin-right: 0
+      a
+        &:before,
+        &:after
+          background: $blue
+          +prefix(transition, opacity 240ms, transform 240ms, background 240ms)
+        &:before
+          +opacity(1)
+      li
+        &:first-child
+          a:before
+            +opacity(0)
+          &.active
+            a:before
+              +opacity(1)
 
-
+        &.active 
+          a
+            color: #fff
+            &:before,
+            &:after
+              background: $d-blue
+            &:before
+              +prefix(transform,translateY(0.25em))
+            &:after
+              +prefix(transform,translateY(-0.25em))
+          &+li
+            a
+              &:before
+                +opacity(0)
+                +prefix(transform,translateY(-0.25em))
+             
+    .secondary
+      float: none
+      width: auto
+      padding-bottom: 0.5em
+      margin-bottom: 1em
+      border-bottom: 1px solid #fff
 
   //
   //
   // INTRO
   section.intro
+    padding-top: ($nav-height + $medium)
     padding-bottom: $small
     .title
       &.main

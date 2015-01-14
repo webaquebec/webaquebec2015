@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
                 $target.addClass('active');
-                window.location.replace('#!/'+slug);
+                // window.location.replace('#!/'+slug);
               };
             },
             topDown: function(e){
@@ -125,7 +125,7 @@ jQuery(document).ready(function($){
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
                 $target.addClass('active');
-                window.location.replace('#!/'+slug);
+                // window.location.replace('#!/'+slug);
               }
             }
 
@@ -282,7 +282,9 @@ jQuery(document).ready(function($){
   // > 1200px
   function largerThan1200(e){
     if(waq.$intro.length) enableStickyNav();
-    if(e=='init') return; 
+    if(e=='init') return; // --------------------------
+    waq.$page.moSides('destroy');
+    waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
     waq.$logo.prependTo(waq.$menu);
     $win.scrollEvents('update');
@@ -291,7 +293,18 @@ jQuery(document).ready(function($){
   function smallerThan1200(e){
     waq.$menu.insertBefore(waq.$page);
     waq.$logo.insertBefore(waq.$menu);
-    if(e=='init') return;
+    waq.$page.moSides({
+      right:{
+          size:240,
+          // toggle: $('.trigger')
+      },
+      clean: true
+    });
+    waq.$menu.dragAndDrop({
+      axis: {x:false, y:true},
+      container: $(window)
+    });
+    if(e=='init') return; // --------------------------
     if(waq.$intro.length) disableStickyNav();
   }
 
@@ -300,12 +313,12 @@ jQuery(document).ready(function($){
   // > 768px
   function largerThan768(e){
     if(waq.$stickys.length) enableStickys();
-    if(e=='init') return;
+    if(e=='init') return; // --------------------------
     $win.scrollEvents('update');
   }
   // < 768px
   function smallerThan768(e){
-    if(e=='init') return;
+    if(e=='init') return; // --------------------------
     if(waq.$stickys.length) disableStickys();
   }
 
