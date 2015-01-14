@@ -287,7 +287,7 @@ jQuery(document).ready(function($){
     waq.$page.moSides('destroy');
     waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
-    waq.$logo.prependTo(waq.$logo);
+    waq.$logo.prependTo(waq.$menu);
     waq.$menu.$toggle.remove();
     $win.scrollEvents('update');
   }
