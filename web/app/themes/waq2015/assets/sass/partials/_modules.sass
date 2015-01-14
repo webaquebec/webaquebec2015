@@ -192,6 +192,7 @@
       color: $grey
       +prefix(transition, color 120ms linear 60ms)
 
+
   // dark context
   .dark &
     color: #fff
@@ -218,7 +219,11 @@
       border-color: $d-blue
 
   // light grey context
+  .light &,
   .l-grey &
+    color: $d-grey
+    >*
+      color: $d-grey
     &:before
       background: $l-grey
     &:after
@@ -226,6 +231,14 @@
     >*
       &:before
         background: $l-grey
+  &.light
+    &:before
+      background: #fff
+    &:after
+      border-color: $l-grey
+    >*
+      &:before
+        background: #fff
 
   //
   //
@@ -666,5 +679,12 @@
   .schedule
     &+.schedule
       display: none
+  table
+    width: 100%
+    table-layout: fixed
+    @extend .shadows
+    +border-radius(4px)
+  td
+    vertical-align: top
   
 

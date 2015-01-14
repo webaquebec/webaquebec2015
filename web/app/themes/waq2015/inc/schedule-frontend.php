@@ -16,11 +16,11 @@ class helper{
 
 
   protected function sort_sessions($a, $b){
-    if($a->time_start == $b->time_start){
-      if($a->col_start == $b->col_start) return 0;
-      return ($a->col_start < $b->col_start) ? -1 : 1;
+    if($a->time->start == $b->time->start){
+      if($a->columns->start == $b->columns->start) return 0;
+      return ($a->columns->start < $b->columns->start) ? -1 : 1;
     }
-    return  ($a->time_start < $b->time_start)  ? -1 : 1;
+    return  ($a->time->start < $b->time->start)  ? -1 : 1;
   }
 
   protected function array_empty_columns($count, $timestamp){
@@ -140,8 +140,8 @@ class session extends helper{
       $frame['span'] = $time_end_key - $time_start_key;
 
       $this->time = (object) array(
-        'start' => $frame['start'],
-        'end' => $frame['end'],
+        'start' => intval($frame['start']),
+        'end' => intval($frame['end']),
         'span' => $frame['span']
       );
 
@@ -149,9 +149,9 @@ class session extends helper{
       // COLUMNS
       $this->columns = (object) array(
         'range' => $location_settings[0]['range'],
-        'start' => $location_settings[0]['range']['min'],
-        'end' => $location_settings[0]['range']['max'],
-        'span' => ($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
+        'start' => intval($location_settings[0]['range']['min']),
+        'end' => intval($location_settings[0]['range']['max']),
+        'span' => intval($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
       );
     }
 
@@ -165,22 +165,62 @@ class session extends helper{
 // SCHEDULE
 class schedule extends helper{
 
+  private function print_empty_cells_before_session(){
+    $session = $this->session;
+    if($session->columns->start && $session->columns->start != $this->column_counter){
+      while($this->column_counter < $session->columns->start){
+        $this->column_counter++;
+        echo '<td></td>';
+      }
+    }
+  }
+
+  private function print_empty_cells_after_session(){
+    $session = $this->session;
+    if($this->session_counter<$this->session_count){
+      $next_session = $this->sessions[$this->session_counter];
+      if($session->time->start != $next_session->time->start){
+        $empty_until = $this->column_count;
+      }
+      else{
+        if($session->columns->start < $next_session->columns->start){
+          $empty_until = $next_session->columns->start;             
+        }
+        else{
+          $empty_until = $this->column_count;
+          $this->throw_message('Session '.$session->ID.' is overlapping another session');
+        }
+      }
+    }
+    else{
+      $empty_until = $this->column_count;
+    }
+    if($session->columns->start < $empty_until){
+      while( $this->column_counter < $empty_until){
+        $this->column_counter++;
+        echo '<td></td>';
+      }
+    }
+
+  }
+
   //
   //
   // CONSTRUCTOR
 
-  function __construct($args){
+  public function __construct($args){
   
-    $options = array_merge(array(
+    $this->options = array_merge(array(
       'grid_ID'=>null,
+      'table_class'=> false,
       'column_headers'=>false,
       'time_labels'=>false,
     ),$args);
   
     // VARIABLES
-    $this->grid_ID = $options['grid_ID'];
+    $this->grid_ID = $this->options['grid_ID'];
    
-    // GET locationS
+    // GET locations
     $locationsQuery = new WP_query(array(
         'post_type' => 'location',
         'posts_per_page' => -1,
@@ -215,7 +255,7 @@ class schedule extends helper{
     // GET TIMEFRAMES
     $this->timeframes = get_field('time_frames', $this->grid_ID);
     $this->grid = array();
-    $this->column_count = get_field('columns_qty','options');
+    $this->column_count = intval(get_field('columns_qty','options'));
     if($this->timeframes){
       foreach($this->timeframes as $frame){
         $frame = $frame['frame'][0];
@@ -242,63 +282,13 @@ class schedule extends helper{
             )
           ),
       ));
-    
-    var_dump($sessionsQuery);
+
     $this->sessions = array();
     foreach($sessionsQuery->posts as $session){
       $session = new session($session->ID);
-      // var_dump($session);
       array_push($this->sessions, $session);
     }
-      
-    //   $location_ID = get_field('location', $session->ID);
-    //   $frame_ID = get_field('frame_'.$this->grid_ID, $session->ID);
-
-    //   // if(isset($location_ID) && isset($frame_ID)){
-
-    //     $location = $this->locations[$location_ID];
-    //     $frame = array(
-    //         'start' => $this->timeframes[$frame_ID]['frame'][0]['start'],
-    //         'end' => $this->timeframes[$frame_ID]['frame'][0]['end'],
-    //       );
-    //     $time_start_key = array_search($frame['start'], array_keys($this->grid));
-    //     $time_end_key = array_search($frame['end'], array_keys($this->grid));
-    //     $time_span = $time_end_key - $time_start_key;
-
-    //     // POPULATE $this->grid
-    //     $time_counter = $time_start_key;
-    //     while($time_counter<$time_end_key){
-    //       $timekey = array_keys($this->grid)[$time_counter];
-    //       $location_counter = 0;
-    //       while($location_counter<$this->column_count){
-    //         if( ( $location_counter >= $location['col_start']-1
-    //               && $location_counter <= $location['col_end']-1 )
-    //             && $this->grid[$timekey][$location_counter] == 0){
-    //           $this->grid[$timekey][$location_counter] = $session->ID;
-    //         }
-    //         $location_counter++;
-    //       }
-    //       $time_counter++;
-    //     }
-      
-    //     array_push($this->sessions, new session_object(array(
-    //         'ID' => $session->ID,
-    //         'title' => get_the_title($session->ID),
-    //         'permalink' => get_the_permalink($session->ID),
-    //         'link_to_post' => get_field('link_to_post', $session->ID),
-    //         'excerpt' => get_field('excerpt', $session->ID),
-    //         'class' => $location['class'],
-    //         'location' => $location['title'],
-    //         'location_ID' => $location_ID,
-    //         'location_hidden' => $location['hide'],
-    //         'time_start' => $frame['start'],
-    //         'time_end' => $frame['end'],
-    //         'time_span' => $time_span,
-    //         'col_start' => $location['col_start'],
-    //         'col_end' => $location['col_end'],
-    //         'col_span' => $location['col_span'],
-    //       )));
-    // }
+   
 
     // SORT SESSIONS
     usort($this->sessions, array('schedule','sort_sessions'));
@@ -323,62 +313,65 @@ class schedule extends helper{
   //
   //
   // PRINT HTML BEFORE CURRENT SESSION
-  public function before_session(){
-    $this->current_session = $this->sessions[$this->session_counter];
+  public function the_session(){
+    $this->session = $this->sessions[$this->session_counter];
     $this->session_counter++;
     $this->column_counter++;
-    $session = $this->current_session;
+    $session = $this->session;
     $timekey = array_keys($this->grid)[$this->timeframe_counter];
-    while(  $session->time_start > $timekey 
-            && $this->timeframe_counter < $this->timeframe_count)
-    {
-      echo $this->print_empty_cells($timekey) . '</tr><tr>';
-      $this->timeframe_counter++;
-      $timekey = array_keys($this->grid)[$this->timeframe_counter];
-    }
 
     if($this->session_counter==1){
-      echo '<table>';
+      echo '<table'.($this->options['table_class'] ? ' class="'.$this->options['table_class'].'"':'').'>';
       echo '<tbody>';
       echo '<tr>';
-    } 
-
-    if( $session->time_start == $timekey
-        && $session->col_start == $this->column_counter)
-    {
-      echo '<td'.($session->time_span>1 ? ' rowspan="'.$session->time_span.'"' : '').($session->col_span>1 ? ' colspan="'.$session->col_span.'"' : '').'>';
     }
+    
+
+    if($session->time->start > $timekey){
+      while( $session->time->start > $timekey 
+              && $this->timeframe_counter < $this->timeframe_count)
+      {
+        $this->print_empty_cells_after_session();
+        echo '</tr><tr>';
+        $this->timeframe_counter++;
+        $timekey = array_keys($this->grid)[$this->timeframe_counter];
+      }
+    }
+    // var_dump($session);
+    
+    if( $session->time->start == $timekey ){
+      $this->print_empty_cells_before_session();
+      echo '<td'.($session->time->span >1 ? ' rowspan="'.$session->time->span .'"' : '').($session->columns->span >1 ? ' colspan="'.$session->columns->span .'"' : '').'>';
+    }
+    return $session;
   }
 
-
-
-  //
-  //
-  // SETUP CURRENT SESSION
-  public function the_session(){
-    return new session($this->current_session->ID);
-  }
   //
   //
   // PRINT HTML AFTER CURRENT SESSION
   public function after_session(){
-    $session = $this->current_session;
+    $session = $this->session;
     $timekey = array_keys($this->grid)[$this->timeframe_counter];
-    $new_row =  $this->timeframe_counter<$this->timeframe_count 
-                && $this->column_counter+$session->col_span>$this->column_count;    
 
-    if( $session->time_start == $timekey 
-        && $session->col_start == $this->column_counter ){     
+    if( $session->time->start == $timekey 
+        && $session->columns->start == $this->column_counter ){     
       echo '</td>';
+      $this->print_empty_cells_after_session();
+      
+      // die;
     }
-    if($new_row && $this->session_counter < $this->session_count){
-      echo '</tr>';
-      echo '<tr>';
+    $new_row =  $this->timeframe_counter<$this->timeframe_count 
+                && $this->column_counter+$session->columns->span >$this->column_count;    
+    // var_dump($new_row);
+    if($new_row && $this->session_counter <= $this->session_count){
+      echo '</tr><tr>';
+      $this->print_empty_cells_after_session();
       $this->timeframe_counter++;
       $this->column_counter = 0;
     }
 
     if($this->session_counter >= $this->session_count){
+      $this->print_empty_cells_after_session();
       echo '</tr>';
       echo '</tbody>'; 
       echo '</table>';

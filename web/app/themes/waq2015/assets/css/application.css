@@ -146,6 +146,8 @@ hr {
     color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .light .title, .light nav[role="navigation"] ul a, nav[role="navigation"] ul .light a {
+    color: #303030; }
   .title.main, nav[role="navigation"] ul a.main {
     font-size: 3em;
     font-weight: 300;
@@ -769,7 +771,7 @@ footer {
   background-image: linear-gradient(to right top, #00bfdf 0%, #005F93 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
-.shadows, nav[role="navigation"] .main,
+.shadows, .schedules table, nav[role="navigation"] .main,
 nav[role="navigation"] .secondary {
   -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
   -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -961,12 +963,22 @@ nav[role="navigation"] .secondary {
       background: #303030; }
     .black .btn.toggle.active:after, .black .toggle.active.profile:after {
       border-color: #005F93; }
-  .l-grey .btn:before, .l-grey .profile:before {
-    background: #eeeef0; }
-  .l-grey .btn:after, .l-grey .profile:after {
-    border-color: #B8B9C2; }
-  .l-grey .btn > *:before, .l-grey .profile > *:before {
-    background: #eeeef0; }
+  .light .btn, .light .profile, .l-grey .btn, .l-grey .profile {
+    color: #303030; }
+    .light .btn > *, .light .profile > *, .l-grey .btn > *, .l-grey .profile > * {
+      color: #303030; }
+    .light .btn:before, .light .profile:before, .l-grey .btn:before, .l-grey .profile:before {
+      background: #eeeef0; }
+    .light .btn:after, .light .profile:after, .l-grey .btn:after, .l-grey .profile:after {
+      border-color: #B8B9C2; }
+    .light .btn > *:before, .light .profile > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before {
+      background: #eeeef0; }
+  .btn.light:before, .light.profile:before {
+    background: #fff; }
+  .btn.light:after, .light.profile:after {
+    border-color: #eeeef0; }
+  .btn.light > *:before, .light.profile > *:before {
+    background: #fff; }
   .no-touch .btn:hover:before, .no-touch .profile:hover:before {
     right: 1px; }
   .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after,
@@ -1512,6 +1524,14 @@ nav[role="navigation"] .secondary {
 
 .schedules .schedule + .schedule {
   display: none; }
+.schedules table {
+  width: 100%;
+  table-layout: fixed;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; }
+.schedules td {
+  vertical-align: top; }
 
 nav[role="navigation"] .logo {
   position: absolute;

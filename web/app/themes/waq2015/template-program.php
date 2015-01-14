@@ -71,19 +71,24 @@ get_header_once();
     // get schedule object
     $schedule = new schedule(array(
       'grid_ID'=>$post->ID,
+      'table_class' => 'container light',
       'column_headers'=>true,
       'time_labels'=>true,
     ));
     // var_dump($schedule);
     // loop throught each session of the grid
     while($schedule->have_sessions()):
-    ?>
-      <div class="btn">
+      $session = $schedule->the_session();
+      ?>
+      <div class="btn light">
         <div class="wrap">
+          <h3 class="title"><?= $session->title ?></h3>
         </div>
       </div>
-
-    <?php endwhile; ?>
+      <?php
+      $schedule->after_session();
+    endwhile;
+    ?>
     </article>
   <?php endforeach; ?>
   </div>
