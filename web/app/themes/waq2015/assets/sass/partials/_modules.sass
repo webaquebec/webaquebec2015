@@ -685,30 +685,59 @@
     table-layout: fixed
     @extend .shadows
     +border-radius(4px)
+
+  // CELLS
+  td,
+  th
+    padding: 3px
+    vertical-align: top
+    &>.btn
+      margin: 0 0 -1.5em
   
+  // HEAD
+  thead 
+    background: $d-grey3
+    text-align: left
+    td
+      width: $xxlarge*0.75
+    th
+      padding: $small
+      vertical-align: bottom
+    .title
+      color: #fff
+    .location
+      border-left: $small solid $l-grey
+      padding-left: $small
+  
+  // BODY
   tbody
     td
       border-top: 1px solid $l-grey
     th
       border-top: 1px solid $m-grey
-  td,
-  th
-    >.btn
-    margin-top: 0
-    margin-right: 0
 
-  td
-    vertical-align: top
-  
-  thead td,
+  // Time labels
   tbody th
-    width: $xxlarge
+    width: $xxlarge*0.75
     text-align: right
     background: $d-grey
-    padding: $medium
+    padding: $small
     .title
       color: #fff
-      margin-top: 0
+  
+  // activity
+  .title
+    margin: 0
+
+  // pause
+  .pause
+    .title
+      text-align: center
+      color: $d-blue
+      width: 100%
+      padding: $medium
+      font-weight: 400
+
 
   .messages,
   .errors

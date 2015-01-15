@@ -49,12 +49,12 @@ class helper{
 
   protected function throw_message($str){
     if(!isset($this->messages)) $this->messages = array();
-    array_push($this->messages, $str);
+    if(!in_array($str, $this->messages)) array_push($this->messages, $str);
   }
 
   protected function throw_error($str){
     if(!isset($this->errors)) $this->errors = array();
-    array_push($this->errors, $str);
+    if(!in_array($str, $this->errors)) array_push($this->errors, $str);
   }
 
   public function print_messages(){
@@ -186,12 +186,12 @@ class schedule extends helper{
     $count = count($this->sessions);
     while($counter<$count){
       $session = $this->sessions[$counter];
-      $prev =$this->sessions[$counter-1];
+      $prev = $this->sessions[$counter-1];
       $overlapping = false;
       if($session->time->start == $prev->time->start){
         if($session->columns->start <= $prev->columns->start){
           $overlapping = true;
-          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
+          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another <a href="'.get_edit_post_link($prev->ID).'">session '.$prev->ID.'</a> at '.strftime('%k:%M',$session->time->start).', column '. $session->columns->start);
         }
       }
       if($overlapping){
@@ -428,7 +428,7 @@ class schedule extends helper{
       }
     }
     else{
-      $this->throw_message('No timeframe found for this grid');
+      $this->throw_error('No timeframe found for this grid');
     } 
 
   
@@ -492,7 +492,7 @@ class schedule extends helper{
   public function have_headers(){
     if($this->options->render_thead && $this->header_count)
       return ($this->header_counter < $this->header_count);
-    $this->throw_error('No headers found for this schedule.');
+    $this->throw_error('No header found for this schedule.');
     return false;
   }
   //
@@ -527,9 +527,9 @@ class schedule extends helper{
   //
   // LOOP THROUGH SESSIONS
   public function have_sessions(){
-    if($this->session_count)
+    if($this->session_count && $this->timeframe_count)
       return ($this->session_counter < $this->session_count);
-    $this->throw_error('No sessions found for this schedule.');
+    $this->throw_error('No session found for this schedule.');
     return false;
   }
   //

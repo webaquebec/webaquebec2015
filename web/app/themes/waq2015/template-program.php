@@ -88,36 +88,48 @@ global $current_user;
     
     //
     // loop throught each column header of the grid
-    while($schedule->have_headers()):
-      $header = $schedule->the_header();
-      ?>
-      <div class="btn dark <?= $header->class ?>">
-        <div class="wrap">
-          <h3>
-            <span class="small title"><?= __('Salle','waq') ?></span>
-            <span class="title"><?= $header->title ?></span>
-            <span class="subtitle"><?= $header->subtitle ?></span>
-          </h3>
+    if($schedule->have_sessions()):
+      while($schedule->have_headers()):
+        $header = $schedule->the_header();
+        ?>
+        <div class="location" style="border-color:<?= $header->color ?>;">
+          <span class="small title"><?= __('Salle','waq') ?></span>
+          <span class="title"><?= $header->title ?></span>
+          <span class="note title" style="color:<?= $header->color ?>;"><?= $header->subtitle ?></span>
         </div>
-      </div>
-      <?php
-      $schedule->after_header();
-    endwhile;
+        <?php
+        $schedule->after_header();
+      endwhile;
+    endif;
 
     //
     // loop throught each session of the grid
-    while($schedule->have_sessions()):
-      $session = $schedule->the_session();
-      ?>
-      <div class="btn light <?= $session->location->class ?>">
-        <div class="wrap">
-          <h3 class="title"><?= $session->title ?></h3>
+    if($schedule->have_sessions()):
+      while($schedule->have_sessions()):
+        $session = $schedule->the_session();
+        if($session->location->hide):
+        ?>
+
+        <div class="pause">
+          <h3 class="sub title"><?= $session->title ?></h3>
         </div>
-      </div>
-      <?php
-      $schedule->after_session();
-    endwhile;
-    
+
+        <?php else: ?>
+
+        <div class="btn light <?= $session->location->class ?>">
+          <div class="wrap">
+            <h3 class="sub title"><?= $session->title ?></h3>
+          </div>
+        </div>
+        
+        <?php
+        endif;
+        $schedule->after_session();
+      endwhile;
+    endif;
+
+    //
+    // Print messages and errors
     if(is_user_logged_in() && in_array('administrator', $current_user->roles))
       $schedule->print_messages();
       $schedule->print_errors();

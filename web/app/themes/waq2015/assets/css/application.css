@@ -1530,28 +1530,46 @@ nav[role="navigation"] .secondary {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; }
+.schedules td,
+.schedules th {
+  padding: 3px;
+  vertical-align: top; }
+  .schedules td > .btn, .schedules td > .profile,
+  .schedules th > .btn,
+  .schedules th > .profile {
+    margin: 0 0 -1.5em; }
+.schedules thead {
+  background: #252525;
+  text-align: left; }
+  .schedules thead td {
+    width: 75px; }
+  .schedules thead th {
+    padding: 10px;
+    vertical-align: bottom; }
+  .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a {
+    color: #fff; }
+  .schedules thead .location {
+    border-left: 10px solid #eeeef0;
+    padding-left: 10px; }
 .schedules tbody td {
   border-top: 1px solid #eeeef0; }
 .schedules tbody th {
   border-top: 1px solid #3d3d3d; }
-.schedules td,
-.schedules th {
-  margin-top: 0;
-  margin-right: 0; }
-.schedules td {
-  vertical-align: top; }
-.schedules thead td,
 .schedules tbody th {
-  width: 100px;
+  width: 75px;
   text-align: right;
   background: #303030;
-  padding: 20px; }
-  .schedules thead td .title, .schedules thead td nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead td a,
-  .schedules tbody th .title,
-  .schedules tbody th nav[role="navigation"] ul a,
-  nav[role="navigation"] ul .schedules tbody th a {
-    color: #fff;
-    margin-top: 0; }
+  padding: 10px; }
+  .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
+    color: #fff; }
+.schedules .title, .schedules nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules a {
+  margin: 0; }
+.schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a {
+  text-align: center;
+  color: #005F93;
+  width: 100%;
+  padding: 20px;
+  font-weight: 400; }
 .schedules .messages,
 .schedules .errors {
   padding: 20px;
