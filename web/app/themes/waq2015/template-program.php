@@ -93,7 +93,7 @@ global $current_user;
         $header = $schedule->the_header();
         ?>
         <div class="location" style="border-color:<?= $header->color ?>;">
-          <span class="small title"><?= __('Salle','waq') ?></span>
+          <span class="sub title"><?= __('Salle','waq') ?></span>
           <span class="title"><?= $header->title ?></span>
           <span class="note title" style="color:<?= $header->color ?>;"><?= $header->subtitle ?></span>
         </div>

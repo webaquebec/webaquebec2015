@@ -1544,7 +1544,7 @@ nav[role="navigation"] .secondary {
   .schedules thead td {
     width: 75px; }
   .schedules thead th {
-    padding: 10px;
+    padding: 3px;
     vertical-align: bottom; }
   .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a {
     color: #fff; }
