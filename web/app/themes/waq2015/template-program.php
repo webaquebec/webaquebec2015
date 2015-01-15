@@ -116,8 +116,17 @@ global $current_user;
 
         <?php else: ?>
 
-        <div class="session btn light <?= $session->location->class ?>">
+        <?php 
+        $wide = $session->columns->span > 1;
+        ?>
+        <div class="session btn light <?= $session->location->class ?><?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
           <div class="wrap">
+
+            <?php if($wide && $session->speaker->image): ?>
+              <div class="thumb">
+                <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+              </div>
+            <?php endif; ?>
 
             <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="3|10">
               <span>
@@ -134,17 +143,20 @@ global $current_user;
             <h3 class="session-title sub title"><?= $session->title ?></h3>
 
             <div class="speaker">
-              <?php if($session->speaker->image): ?>
+              <?php if(!$wide && $session->speaker->image): ?>
               <div class="thumb">
                 <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
               </div>
-              <h4 class="infos">
-                <span class="name small title"><?= $session->speaker->name ?></span>
-                <?php if(has($session->speaker->job)) : ?>
-                <span class="job note"><?= $session->speaker->job ?></span>
-                <?php endif; ?>
-              </h4>
               <?php endif; ?>
+              
+              <h4 class="infos">
+                <span class="wrap">
+                  <span class="name small title"><?= $session->speaker->name ?></span>
+                  <?php if(has($session->speaker->job)) : ?>
+                  <span class="job note"><?= $session->speaker->job ?></span>
+                  <?php endif; ?>
+                </span>
+              </h4>
             </div>
           </div>
         </div>

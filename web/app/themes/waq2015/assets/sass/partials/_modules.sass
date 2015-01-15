@@ -740,7 +740,7 @@ a[href].btn
   
   // SESSION
   .session
-    .wrap
+    >.wrap
       padding: 0.75em
     .favorite
       position: relative
@@ -769,12 +769,13 @@ a[href].btn
         background: $grey
 
     .speaker
-      margin-top: 1em
-      .infos
+      margin-top: 0.75em
       .title,
       .note
         color: $d-blue
         text-transform: none
+      .note
+        margin: -0.125em 0 0
 
     .thumb
       width: 3em
@@ -782,6 +783,22 @@ a[href].btn
       float: left
       &+*
         margin-left: 4em
+      &+.infos
+        min-height: 3em
+        +align-children(middle)
+        display: block
+
+    &.wide
+      .thumb
+        width: 6em
+        height: 6em
+      &.has-thumb>*>*      
+        margin-left: 7em
+        &:first-child
+          margin-left: 0
+        &.session-title
+          margin-left: 6.25em
+
 
 
   // PAUSE

@@ -1585,7 +1585,7 @@ a[href].profile {
   padding: 10px; }
   .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
     color: #fff; }
-.schedules .session .wrap {
+.schedules .session > .wrap {
   padding: 0.75em; }
 .schedules .session .favorite {
   position: relative;
@@ -1630,17 +1630,50 @@ a[href].profile {
 .schedules .session .border-bottom:after {
   background: #B8B9C2; }
 .schedules .session .speaker {
-  margin-top: 1em; }
+  margin-top: 0.75em; }
   .schedules .session .speaker .title, .schedules .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .speaker a,
   .schedules .session .speaker .note {
     color: #005F93;
     text-transform: none; }
+  .schedules .session .speaker .note {
+    margin: -0.125em 0 0; }
 .schedules .session .thumb {
   width: 3em;
   height: 3em;
   float: left; }
   .schedules .session .thumb + * {
     margin-left: 4em; }
+  .schedules .session .thumb + .infos {
+    min-height: 3em;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    display: block; }
+    .schedules .session .thumb + .infos:before {
+      content: "";
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      height: 100%;
+      min-height: inherit;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -0.25em; }
+    .schedules .session .thumb + .infos > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+.schedules .session.wide .thumb {
+  width: 6em;
+  height: 6em; }
+.schedules .session.wide.has-thumb > * > * {
+  margin-left: 7em; }
+  .schedules .session.wide.has-thumb > * > *:first-child {
+    margin-left: 0; }
+  .schedules .session.wide.has-thumb > * > *.session-title {
+    margin-left: 6.25em; }
 .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a {
   text-align: center;
   color: #005F93;
