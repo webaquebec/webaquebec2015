@@ -210,6 +210,14 @@ class schedule extends helper{
   //
   // PRINT TABLE PARTS
 
+
+  // time label
+  private function print_time_label(){
+      $time = $this->timeframes[$this->timeframe_counter]['frame'][0]['start'];
+      echo '<th>'.strftime($this->options->time_labels_format, $time).'</th>';
+  }
+
+
   // table head
   private function print_content_before(){
 
@@ -225,12 +233,14 @@ class schedule extends helper{
         && $this->header_counter==1){     
       echo '<thead><tr>';
       $this->render_status->open_thead = true;
+      if($this->options->render_time_labels) echo '<td class="'.$this->options->empty_class.'"></td>';
     }
 
     if($this->session_counter==1 && !$this->render_status->open_tbody){
       echo '<tbody>';
       echo '<tr>';
       $this->render_status->open_tbody = true;
+      if($this->options->render_time_labels) $this->print_time_label();
     }
     
   }
@@ -269,7 +279,7 @@ class schedule extends helper{
     if($header->columns->start && $header->columns->start != $this->column_counter){
       while($this->column_counter < $header->columns->start){
         $this->column_counter++;
-        echo '<td></td>';
+        echo '<th></th>';
       }
     }
   }
@@ -284,7 +294,7 @@ class schedule extends helper{
       }
       else{
         $empty_until = $this->column_count;
-        $this->throw_error('<a href="'.get_edit_post_link($header->ID).'">header '.$header->ID.'</a> is overlapping another header');
+        $this->throw_error('<a href="'.get_edit_post_link($header->ID).'">Column header '.$header->ID.'</a> is overlapping another column header');
       }
     
     }
@@ -355,6 +365,8 @@ class schedule extends helper{
       'table_class'=> false,
       'render_thead'=>false,
       'render_time_labels'=>false,
+      'time_labels_format' => '%k:%M',
+      'empty_class' => 'empty',
     ),$args);
   
     // VARIABLES
@@ -405,6 +417,7 @@ class schedule extends helper{
     $this->timeframes = get_field('time_frames', $this->grid_ID);
     $this->grid = array();
     $this->column_count = intval(get_field('columns_qty','options'));
+
     if($this->timeframes){
       foreach($this->timeframes as $frame){
         $frame = $frame['frame'][0];
@@ -477,7 +490,10 @@ class schedule extends helper{
   //
   // LOOP THROUGH COLUMN HEADERS
   public function have_headers(){
-    return ($this->header_counter < $this->header_count);
+    if($this->options->render_thead && $this->header_count)
+      return ($this->header_counter < $this->header_count);
+    $this->throw_error('No headers found for this schedule.');
+    return false;
   }
   //
   //
@@ -507,13 +523,14 @@ class schedule extends helper{
     $this->print_content_after();
   }
 
-
-
   //
   //
   // LOOP THROUGH SESSIONS
   public function have_sessions(){
-    return ($this->session_counter < $this->session_count);
+    if($this->session_count)
+      return ($this->session_counter < $this->session_count);
+    $this->throw_error('No sessions found for this schedule.');
+    return false;
   }
   //
   //
@@ -535,6 +552,7 @@ class schedule extends helper{
         echo '</tr><tr>';
         $this->timeframe_counter++;
         $timekey = array_keys($this->grid)[$this->timeframe_counter];
+        if($this->options->render_time_labels) $this->print_time_label();
       }
     }
 
@@ -564,6 +582,7 @@ class schedule extends helper{
       $this->print_empty_cells_after_session();
       $this->timeframe_counter++;
       $this->column_counter = 0;
+      if($this->options->render_time_labels) $this->print_time_label();
     }
 
     $this->print_content_after();

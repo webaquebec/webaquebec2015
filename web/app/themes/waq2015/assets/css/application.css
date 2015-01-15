@@ -1530,8 +1530,28 @@ nav[role="navigation"] .secondary {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; }
+.schedules tbody td {
+  border-top: 1px solid #eeeef0; }
+.schedules tbody th {
+  border-top: 1px solid #3d3d3d; }
+.schedules td,
+.schedules th {
+  margin-top: 0;
+  margin-right: 0; }
 .schedules td {
   vertical-align: top; }
+.schedules thead td,
+.schedules tbody th {
+  width: 100px;
+  text-align: right;
+  background: #303030;
+  padding: 20px; }
+  .schedules thead td .title, .schedules thead td nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead td a,
+  .schedules tbody th .title,
+  .schedules tbody th nav[role="navigation"] ul a,
+  nav[role="navigation"] ul .schedules tbody th a {
+    color: #fff;
+    margin-top: 0; }
 .schedules .messages,
 .schedules .errors {
   padding: 20px;
@@ -2318,7 +2338,8 @@ section.intro {
     -moz-border-radius: 4px;
     border-radius: 4px;
     padding: 0;
-    margin-bottom: 0.25em; }
+    margin-bottom: 0.25em;
+    overflow: visible; }
     .posts .featured .image img {
       max-width: 100%; }
     .posts .featured .article-info {

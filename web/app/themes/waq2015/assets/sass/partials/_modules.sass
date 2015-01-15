@@ -679,14 +679,37 @@
   .schedule
     &+.schedule
       display: none
+  
   table
     width: 100%
     table-layout: fixed
     @extend .shadows
     +border-radius(4px)
+  
+  tbody
+    td
+      border-top: 1px solid $l-grey
+    th
+      border-top: 1px solid $m-grey
+  td,
+  th
+    >.btn
+    margin-top: 0
+    margin-right: 0
+
   td
     vertical-align: top
   
+  thead td,
+  tbody th
+    width: $xxlarge
+    text-align: right
+    background: $d-grey
+    padding: $medium
+    .title
+      color: #fff
+      margin-top: 0
+
   .messages,
   .errors
     padding: $medium

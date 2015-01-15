@@ -13,8 +13,6 @@ setup_postdata($post);
   // FEATURED CONFERENCERS
   $featured_sessions = get_field('featured');
   foreach($featured_sessions as $k=>$featured_session):
-
-
     $session = new session($featured_session['id']);
 
     // the conference

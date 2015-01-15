@@ -63,19 +63,30 @@ global $current_user;
   <?php if($schedules->have_posts()): ?>
   <div class="schedules">
   <?php
+
   // loop throught schedules
   foreach($schedules->posts as $post):
     ?>
     <article class="schedule container" schedule-ID="<?= $post->ID ?>">
     <?php
+
+    //
+    // format for time labels
+    $time_labels_format = '<div class="time">'.
+                            '<span class="sub title">%k h</span>'.
+                            '<span class="small title">%M</span>'.
+                          '<div>';
+
     // get schedule object
     $schedule = new schedule(array(
       'grid_ID'=>$post->ID,
       'table_class' => 'light',
       'render_thead'=> true,
-      'render_time_labels'=> true,
+      'render_time_labels' => true,
+      'time_labels_format' => $time_labels_format,
     ));
- 
+    
+    //
     // loop throught each column header of the grid
     while($schedule->have_headers()):
       $header = $schedule->the_header();
@@ -93,6 +104,7 @@ global $current_user;
       $schedule->after_header();
     endwhile;
 
+    //
     // loop throught each session of the grid
     while($schedule->have_sessions()):
       $session = $schedule->the_session();
