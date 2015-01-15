@@ -398,6 +398,15 @@
   &.bold
     font-weight: bold
 
+button.btn,
+a[href].btn
+  cursor: pointer
+  &:before,
+  &:after,
+  >*:before,
+  >*:after
+    cursor: pointer
+
 
 //
 //
@@ -693,6 +702,10 @@
     vertical-align: top
     &>.btn
       margin: 0 0 -1.5em
+  .title
+    margin: 0
+  .wrap
+    width: 100%
   
   // HEAD
   thead 
@@ -701,7 +714,7 @@
     td
       width: $xxlarge*0.75
     th
-      padding: 3px
+      padding: $small $small $small 0
       vertical-align: bottom
     .title
       color: #fff
@@ -725,11 +738,53 @@
     .title
       color: #fff
   
-  // activity
-  .title
-    margin: 0
+  // SESSION
+  .session
+    .wrap
+      padding: 0.75em
+    .favorite
+      position: relative
+      z-index: 2
+      text-indent: -9999px
+      float: right
+      text-align: left
+      padding-left: 0
+      padding-right: 0
+      padding-top: 0
+      margin-top: 0
+      margin-right: 0
+      >*
+        display: block
+        height: 2.5em
+        width: 2.5em
+        line-height: 2.75em
+    .location
+      margin-right: 3em
+      min-height: 2.5em
+      margin-bottom: 0.5em
+      +align-children(middle)
+      display: block
+    .border-bottom
+      &:after
+        background: $grey
 
-  // pause
+    .speaker
+      margin-top: 1em
+      .infos
+      .title,
+      .note
+        color: $d-blue
+        text-transform: none
+
+    .thumb
+      width: 3em
+      height: 3em
+      float: left
+      &+*
+        margin-left: 4em
+
+
+  // PAUSE
   .pause
     .title
       text-align: center

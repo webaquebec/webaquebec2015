@@ -30,7 +30,7 @@ setup_postdata($post);
       <figcaption class="infos">
         <div class="wrap">
 
-          <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="3|10">
+          <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>">
             <span>
               <?= __('Ajouter à mon horaire', 'waq') ?>
             </span>

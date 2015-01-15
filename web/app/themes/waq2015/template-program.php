@@ -28,7 +28,7 @@ global $current_user;
           <?php foreach($schedules->posts as $post): ?>
           <li>
             <button class="btn" schedule-ID="<?= $post->ID ?>" >
-              <div>
+              <div class="wrap">
                 <span class="sub title"><?= get_the_title($post->ID) ?></span>
                 <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
               </div>
@@ -73,7 +73,7 @@ global $current_user;
     //
     // format for time labels
     $time_labels_format = '<div class="time">'.
-                            '<span class="sub title">%k h</span>'.
+                            '<span class="sub title">%kh</span>'.
                             '<span class="small title">%M</span>'.
                           '<div>';
 
@@ -116,9 +116,36 @@ global $current_user;
 
         <?php else: ?>
 
-        <div class="btn light <?= $session->location->class ?>">
+        <div class="session btn light <?= $session->location->class ?>">
           <div class="wrap">
-            <h3 class="sub title"><?= $session->title ?></h3>
+
+            <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="3|10">
+              <span>
+                <?= __('Ajouter à mon horaire', 'waq') ?>
+              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                <?= __('Salle', 'waq').' '.$session->location->title ?>
+              </span>
+            </div>
+
+            <h3 class="session-title sub title"><?= $session->title ?></h3>
+
+            <div class="speaker">
+              <?php if($session->speaker->image): ?>
+              <div class="thumb">
+                <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+              </div>
+              <h4 class="infos">
+                <span class="name small title"><?= $session->speaker->name ?></span>
+                <?php if(has($session->speaker->job)) : ?>
+                <span class="job note"><?= $session->speaker->job ?></span>
+                <?php endif; ?>
+              </h4>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
         
