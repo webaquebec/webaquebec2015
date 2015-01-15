@@ -25,9 +25,9 @@ global $current_user;
 
       <nav class="days">
         <ul>
-          <?php foreach($schedules->posts as $post): ?>
+          <?php foreach($schedules->posts as $k=>$post): ?>
           <li>
-            <button class="btn" schedule-ID="<?= $post->ID ?>" >
+            <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
               <div class="wrap">
                 <span class="sub title"><?= get_the_title($post->ID) ?></span>
                 <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
@@ -61,13 +61,13 @@ global $current_user;
 
 
   <?php if($schedules->have_posts()): ?>
-  <div class="schedules">
+  <div class="schedules container">
   <?php
 
   // loop throught schedules
-  foreach($schedules->posts as $post):
+  foreach($schedules->posts as $k=>$post):
     ?>
-    <article class="schedule container" schedule-ID="<?= $post->ID ?>">
+    <article class="schedule<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>">
     <?php
 
     //

@@ -258,8 +258,27 @@ jQuery(document).ready(function($){
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
+    waq.$program.$tabs = $('nav .toggle', waq.$program);
+    for(var i=0; i<waq.$program.$tabs.length; i++){
+      var $tab = $(waq.$program.$tabs[i]);
+      $tab[0].$schedule = waq.$schedules.filter('[schedule='+$tab.attr('schedule')+']')
+    }
 
+    function toggleSchedule(e){
+      var $trigger = $(this);
+      var $schedule = $trigger[0].$schedule;
+      var $previousTab = waq.$program.$tabs.filter('.active');
+      var $previousSchedule = waq.$schedules.filter('.active');
 
+      $previousTab.removeClass('active');
+      $previousSchedule.removeClass('active');
+
+      $trigger.addClass('active');
+      $schedule.addClass('active');
+
+    }
+
+    waq.$program.$tabs.on('click', toggleSchedule);
   }
 
   //
@@ -269,12 +288,12 @@ jQuery(document).ready(function($){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
     for(var i=0; i<waq.$schedules.$toggles.length; i++){
       var $trigger = $(waq.$schedules.$toggles[i]);
-      $trigger[0].toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
+      $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
     }
 
     function toggleFavorite(e){
       var $trigger = $(this);
-      var $toggles = $trigger[0].toggles;
+      var $toggles = $trigger[0].$toggles;
       var $previousFavorite = $toggles.filter('.active');
 
       $previousFavorite.removeClass('active');
@@ -282,7 +301,6 @@ jQuery(document).ready(function($){
     }
 
     waq.$schedules.$toggles.on('click', toggleFavorite);
-
   }
 
 

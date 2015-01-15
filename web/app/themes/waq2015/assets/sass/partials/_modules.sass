@@ -684,10 +684,26 @@ a[href].btn
 //
 //
 // SCHEDULES
+.days
+  .btn.toggle
+    &>*:after
+      content: ""
+    &.active
+      &:before,
+      &>*:before
+        background-color: transparent
+        +gradient($l-blue, $d-blue)
+
 .schedules
   .schedule
-    &+.schedule
-      display: none
+    margin-right: -100%
+    float: left
+    width: 100%
+  
+    +opacity(0)
+    +prefix(transition, opacity 540ms $ease 0)
+    &.active
+      +opacity(1)
   
   table
     width: 100%
