@@ -74,7 +74,7 @@ namespace :uploads do
   task :pull do
     run_locally do
       roles(:all).each do |role|
-        execute :rsync, "-avzO --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
+        execute :rsync, "-avzO -e 'ssh -p 522' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
       end
     end
   end
@@ -83,7 +83,7 @@ namespace :uploads do
   task :push do
     run_locally do
       roles(:all).each do |role|
-        execute :rsync, "-avzO --exclude='.DS_Store' web/app/uploads/ #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/"
+        execute :rsync, "-avzO -e 'ssh -p 522' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
       end
     end
   end
