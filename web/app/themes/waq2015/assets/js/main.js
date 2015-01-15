@@ -46,6 +46,8 @@ jQuery(document).ready(function($){
   waq.$logo = $('.logo', waq.$menu);
 
   waq.$intro = $('#intro', waq.$header);
+  waq.$program = $('.program');
+  waq.$schedules = $('.schedule');
   waq.$map = $('#gmap');
   waq.$map.$viewport = $('.map-container .viewport');
   waq.$feed = $('.feed');
@@ -249,6 +251,39 @@ jQuery(document).ready(function($){
     waq.$menu.$toggle.trigger('click');
   }
 
+
+
+
+  //
+  //
+  // PROGRAM (navigate between schedules)
+  if(waq.$program.length && waq.$schedules.length){
+
+
+  }
+
+  //
+  //
+  //
+  if(waq.$schedules.length){
+    waq.$schedules.$toggles = $('.favorite', waq.$schedules);
+    for(var i=0; i<waq.$schedules.$toggles.length; i++){
+      var $trigger = $(waq.$schedules.$toggles[i]);
+      $trigger[0].toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
+    }
+
+    function toggleFavorite(e){
+      var $trigger = $(this);
+      var $toggles = $trigger[0].toggles;
+      var $previousFavorite = $toggles.filter('.active');
+
+      $previousFavorite.removeClass('active');
+
+    }
+
+    waq.$schedules.$toggles.on('click', toggleFavorite);
+
+  }
 
 
   //
