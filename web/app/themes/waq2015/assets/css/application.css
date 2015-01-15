@@ -1560,11 +1560,11 @@ a[href].profile {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1) 0;
-  -moz-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1) 0;
-  -ms-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1) 0;
-  -o-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1) 0;
-  transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1) 0; }
+  -webkit-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1);
+  -moz-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1);
+  -ms-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1);
+  -o-transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1);
+  transition: opacity 540ms cubic-bezier(0.2, 0, 0.4, 1); }
   .schedules .schedule.active {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);

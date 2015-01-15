@@ -258,10 +258,11 @@ jQuery(document).ready(function($){
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
-    waq.$program.$tabs = $('nav .toggle', waq.$program);
+    waq.$program.$tabs = $('nav.days .toggle', waq.$program);
     for(var i=0; i<waq.$program.$tabs.length; i++){
       var $tab = $(waq.$program.$tabs[i]);
       $tab[0].$schedule = waq.$schedules.filter('[schedule='+$tab.attr('schedule')+']')
+      $tab[0].$schedule[0].$sessions = $tab[0].$schedule.find('.session');
     }
 
     function toggleSchedule(e){

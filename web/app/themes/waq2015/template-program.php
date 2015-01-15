@@ -51,6 +51,7 @@ global $current_user;
       <h3 class="title border-middle">
         <?= __('Filtrer par thématique', 'waq') ?>
       </h3>
+      
       <div class="group">
         <button class="btn toggle">
           <span>Accessibilité</span>

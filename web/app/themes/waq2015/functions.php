@@ -183,6 +183,7 @@ function header_scripts()
 
         wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null); 
         wp_enqueue_script('map');
+
         
         wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
         wp_enqueue_script('custom'); 
