@@ -174,7 +174,9 @@ class session extends helper{
 // SCHEDULE
 class schedule extends helper{
 
-  // REMOVE FOR DUPLICATES AND THROW ERRORS
+  //
+  //
+  // REMOVE DUPLICATES AND THROW ERRORS
   private function remove_overlapping_sessions(){
     $counter = 1;
     $count = count($this->sessions);
@@ -196,6 +198,21 @@ class schedule extends helper{
       else{
         $counter++;
       }
+    }
+  }
+
+  //
+  //
+  // REMOVE EMPTY ROWS IN $this->grid
+  private function remove_empty_grid_rows(){
+    foreach($this->grid as $k=>$row){
+      $empty = true;
+      $i = 0;
+      while($i<$this->column_count){
+        if($row[$i]!=0) $empty = false;
+        $i++;
+      }
+      if($empty) unset($this->grid[$k]);
     }
   }
 
@@ -457,6 +474,9 @@ class schedule extends helper{
         if(!isset($times[$frame['end']]))
           $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $k, $frame['end']);
       }
+
+      ksort($this->timeframes);
+
     }
     else{
       $this->throw_error('No timeframe found for this grid');
@@ -468,7 +488,7 @@ class schedule extends helper{
         'post_type' => 'session',
         'posts_per_page' => -1,
         'meta_query' => array(
-            array(
+          array(
                 'key' => 'grid',
                 'compare' => '=',
                 'value' => $this->grid_ID,
@@ -480,25 +500,37 @@ class schedule extends helper{
     foreach($sessionsQuery->posts as $k=>$session){
       $session = new session($session->ID);
       array_push($this->sessions, $session);
+  
 
-      // build $this->session for debugging
+      // build $this->grid for debugging
       if(isset($this->grid[$session->time->start])){
-        if(isset($this->grid[$session->time->start][$session->columns->start-1]) && isset($this->grid[$session->time->start][$session->columns->end-1])){
-          $i = $session->columns->start;
-          while($i<=$session->columns->end){
-            $this->grid[$session->time->start][$i-1] = $session->ID;
-            $i++;
+        $t = 0;
+        $time_keys = array_keys($this->grid);
+        $start_key = array_search($session->time->start, $time_keys);
+      
+        // loop through timespan
+        while($t<$session->time->span){
+          $timestamp = $time_keys[$start_key + $t];
+          if(isset($this->grid[$timestamp][$session->columns->start-1]) && isset($this->grid[$timestamp][$session->columns->end-1])){
+            $c = $session->columns->start-1;
+
+            //loop through colspan
+            while($c<$session->columns->end){
+              $this->grid[$timestamp][$c] = $session->ID;
+              $c++;
+            } 
+          }else{
+            $this->throw_message('Problem with columns '.$session->columns->start.' throught '.$session->columns->end.' on timeframe '.$timestamp.' while building grid for debugging.');
           }
-          
-        }else{
-          $this->throw_message('Problem with columns '.$session->columns->start.' throught '.$session->columns->end.' on timeframe '.$session->time->start.' while building grid for debugging.');
+          $t++;
         }
       }
       else{
         $this->throw_message('Timeframe '.$session->time->start.' not found while building grid for debugging.');
       }
     }
-       
+    
+
 
     // SORT & REMOVE DUPLICATES
     usort($this->sessions, array('schedule','sort_sessions'));
@@ -508,6 +540,7 @@ class schedule extends helper{
       usort($this->headers, array('schedule','sort_headers'));
     }
 
+    $this->remove_empty_grid_rows();
     
     // SET COUNTERS
     $this->session_count = count($this->sessions);

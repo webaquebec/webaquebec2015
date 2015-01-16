@@ -87,8 +87,6 @@ global $current_user;
       'time_labels_format' => $time_labels_format,
     ));
     
-    print_r($schedule->grid);
-
     //
     // loop throught each column header of the grid
     if($schedule->have_sessions()):
