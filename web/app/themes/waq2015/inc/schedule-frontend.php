@@ -28,7 +28,7 @@ class helper{
     return ($a->columns->start < $b->columns->start) ? -1 : 1;
   }
 
-  protected function array_empty_columns($count, $timestamp){
+  protected function array_empty_columns($count, $key, $timestamp){
     $cols = array();
     $i = 0;
     while($i<$count){
@@ -36,15 +36,9 @@ class helper{
       $i++;
     }
     if(has($timestamp)) $cols['time'] = strftime('%H:%M', $timestamp);
-    return $cols;
-  }
+    if(isset($key)) $cols['key'] = $key;
 
-  protected function print_empty_cells($timekey){
-    $str = '';
-    foreach($this->grid[$timekey] as $session_ID)
-      if($session_ID==0)
-        $str .= "<td></td>\n";
-    return $str;
+    return $cols;
   }
 
   protected function throw_message($str){
@@ -134,12 +128,12 @@ class session extends helper{
 
       $timeframes = get_field('time_frames', $grid_ID);
       $column_count = get_field('columns_qty','options');
-      foreach($timeframes as $frame){
+      foreach($timeframes as $k=>$frame){
         $frame = $frame['frame'][0];
         if(!isset($grid[$frame['start']]))
-          $grid[$frame['start']] = $this->array_empty_columns($column_count, $frame['start']);
+          $grid[$frame['start']] = $this->array_empty_columns($column_count, $k, $frame['start']);
         if(!isset($times[$frame['end']]))
-          $grid[$frame['end']] = $this->array_empty_columns($column_count, $frame['end']);
+          $grid[$frame['end']] = $this->array_empty_columns($column_count, $k, $frame['end']);
       }
 
       //
@@ -205,12 +199,41 @@ class schedule extends helper{
     }
   }
 
+  //
+  //
+  // CHECK FOR NEW ROW
+  private function needs_new_row(){
+    return  $this->session_counter < $this->session_count
+            &&(
+                ( 
+                  $this->timeframe_counter < $this->timeframe_count 
+                  && $this->column_counter + $this->session->columns->span > $this->column_count
+                )
+                ||(
+                  isset($this->sessions[$this->session_counter])
+                  && $this->sessions[$this->session_counter]->time->start > array_keys($this->grid)[$this->timeframe_counter]
+                )
+            );
+  }
+
+  private function print_empty_row(){
+    echo "</tr>\n<tr>\n";
+    if($this->options->render_time_labels) $this->print_time_label();
+    $i=0;
+    while($i<$this->column_count){
+      echo '<td class="'.$this->options->empty_class.'">'."</td>\n";
+      $i++;
+    }
+  }
+
+
 
   //
   //
   // PRINT TABLE PARTS
 
 
+ 
   // time label
   private function print_time_label(){
       
@@ -372,6 +395,7 @@ class schedule extends helper{
       'table_class'=> false,
       'render_thead'=>false,
       'render_time_labels'=>false,
+      'render_empty_rows'=>true,
       'time_labels_format' => '%k:%M',
       'empty_class' => 'empty',
     ),$args);
@@ -426,12 +450,12 @@ class schedule extends helper{
     $this->column_count = intval(get_field('columns_qty','options'));
 
     if($this->timeframes){
-      foreach($this->timeframes as $frame){
+      foreach($this->timeframes as $k=>$frame){
         $frame = $frame['frame'][0];
         if(!isset($this->grid[$frame['start']]))
-          $this->grid[$frame['start']] = $this->array_empty_columns($this->column_count, $frame['start']);
+          $this->grid[$frame['start']] = $this->array_empty_columns($this->column_count, $k, $frame['start']);
         if(!isset($times[$frame['end']]))
-          $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $frame['end']);
+          $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $k, $frame['end']);
       }
     }
     else{
@@ -565,26 +589,15 @@ class schedule extends helper{
     $this->session_counter++;
     $this->column_counter++;
     $session = $this->session;
-    $timekey = array_keys($this->grid)[$this->timeframe_counter];
+    $timestamp = array_keys($this->grid)[$this->timeframe_counter];
 
     $this->print_content_before();
 
-    if($session->time->start > $timekey){
-      while( $session->time->start > $timekey 
-              && $this->timeframe_counter < $this->timeframe_count)
-      {
-        $this->print_empty_cells_after_session();
-        echo "</tr>\n<tr>\n";
-        $this->timeframe_counter++;
-        $timekey = array_keys($this->grid)[$this->timeframe_counter];
-        if($this->options->render_time_labels) $this->print_time_label();
-      }
-    }
-
-    if( $session->time->start == $timekey ){
+    if( $session->time->start == $timestamp ){
       $this->print_empty_cells_before_session();
       echo '<td'.($session->time->span >1 ? ' rowspan="'.$session->time->span .'"' : '').($session->columns->span >1 ? ' colspan="'.$session->columns->span .'"' : '').">\n";
     }
+
     return $session;
   }
   //
@@ -592,22 +605,26 @@ class schedule extends helper{
   // PRINT HTML AFTER CURRENT SESSION
   public function after_session(){
     $session = $this->session;
-    $timekey = array_keys($this->grid)[$this->timeframe_counter];
+    $timestamp = array_keys($this->grid)[$this->timeframe_counter];
 
-    if( $session->time->start == $timekey 
+    if( $session->time->start == $timestamp 
         && $session->columns->start == $this->column_counter ){     
       echo "</td>\n";
       $this->column_counter += $session->columns->span-1;
       $this->print_empty_cells_after_session();
     }
-    $new_row =  $this->timeframe_counter<$this->timeframe_count 
-                && $this->column_counter+$session->columns->span >$this->column_count;    
-    if($new_row && $this->session_counter <= $this->session_count){
-      echo "</tr>\n<tr>\n";
-      $this->print_empty_cells_after_session();
+
+    while($this->needs_new_row()){
       $this->timeframe_counter++;
       $this->column_counter = 0;
-      if($this->options->render_time_labels) $this->print_time_label();
+      $timestamp = array_keys($this->grid)[$this->timeframe_counter];  
+      if($this->sessions[$this->session_counter]->time->start == $timestamp){
+       echo "</tr>\n<tr>\n";
+       if($this->options->render_time_labels) $this->print_time_label();
+      }
+      else{
+        if($this->options->render_empty_rows) $this->print_empty_row();
+      }
     }
 
     $this->print_content_after();

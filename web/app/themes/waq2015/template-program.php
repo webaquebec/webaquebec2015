@@ -131,7 +131,7 @@ global $current_user;
               </div>
             <?php endif; ?>
 
-            <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="3|10">
+            <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="<?= $schedule->grid_ID ?>" session="<?= $session->ID ?>">
               <span>
                 <?= __('Ajouter à mon horaire', 'waq') ?>
               </span>

@@ -697,10 +697,12 @@ a[href].btn
     margin-right: -100%
     float: left
     width: 100%
+    z-index: 0
     +opacity(0)
     +prefix(transition, opacity 540ms $ease)
     &.active
       +opacity(1)
+      z-index: 1
   
   table
     width: 100%
