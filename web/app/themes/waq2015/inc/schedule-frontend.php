@@ -454,7 +454,25 @@ class schedule extends helper{
 
     $this->sessions = array();
     foreach($sessionsQuery->posts as $k=>$session){
-      array_push($this->sessions, new session($session->ID));
+      $session = new session($session->ID);
+      array_push($this->sessions, $session);
+
+      // build $this->session for debugging
+      if(isset($this->grid[$session->time->start])){
+        if(isset($this->grid[$session->time->start][$session->columns->start]) && isset($this->grid[$session->time->start][$session->columns->end])){
+          $i = $session->columns->start;
+          while($i<$session->columns->end){
+            $i++;
+            $this->grid[$session->time->start][$i] = $session->ID;
+          }
+          
+        }else{
+          $this->throw_message('Problem with columns '.$session->columns->start.' throught '.$session->columns->end.' on timeframe '.$session->time->start.' while building grid for debugging.');
+        }
+      }
+      else{
+        $this->throw_message('Timeframe '.$session->time->start.' not found while building grid for debugging.');
+      }
     }
        
 
