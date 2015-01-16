@@ -1,8 +1,8 @@
-<?php get_header(); 
+<?php get_header();
 $session = new session($post->ID);
 ?>
 
-<article class="single no-padding">
+<article class="session single no-padding">
 
   <hgroup class="">
     <div class="container">
@@ -94,7 +94,7 @@ $session = new session($post->ID);
           <div class="content">
             <?= $session->speaker->bio ?>
           </div>
-            
+
           <ul class="social">
           <?php foreach($session->speaker->social as $social): ?>
             <li>

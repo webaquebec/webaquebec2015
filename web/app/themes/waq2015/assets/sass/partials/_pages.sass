@@ -406,11 +406,11 @@ section.intro
 .posts
   +clearfix()
   position: relative
-  .featured
+  .post
     border: 1px solid $l-blue
     +border-radius(4px)
     padding: 0
-    margin-bottom: 0.25em
+    margin-bottom: 1.5em
     overflow: visible
     .image
       img
@@ -433,11 +433,20 @@ section.intro
       +font-smoothing(on)
     .title
       margin-top: 0
+  .featured
+    @extend .post
+    margin-bottom: 0.25em
   .view-all
     margin-right: 0
     +prefix(transform, translate3d(0,0,0))
   .col
     padding-bottom: 0
+
+.blog-page
+  .posts
+    +grid(4, $medium)
+    > *
+      vertical-align: top
 
 .col.wide.feed
   margin-left: $narrow
@@ -653,9 +662,8 @@ section.intro
       border-top:  1px solid $grey
       padding-top: $medium
       margin-top: $medium
-  .content
-    padding-bottom: 2em
-    border-bottom: 1px solid $l-grey1
+      padding-bottom: 2em
+      border-bottom: 1px solid $l-grey1
   .tags
     margin: 0.5em 0
     a
@@ -692,6 +700,14 @@ section.intro
         top: 50%
         left: 0
         line-height: 0
+
+//
+//
+// NEWS
+.actualites
+  hgroup
+    .main.title
+      width: 100%
 
 //
 //

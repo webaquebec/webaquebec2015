@@ -99,7 +99,7 @@ get_header_once();
                       <?php if(isset($post->videos)): ?><source src="<?= $post->videos->standard_resolution->url ?>" type="video/mp4" /><?php endif; ?>
                       <?= __('Votre navigateur ne supporte pas les vidéos', 'waq'); ?>
                     </video>
-                  <?php 
+                  <?php
                   elseif(isset($post->images)): ?>
                     <div class="image">
                       <img src="<?= $post->images->standard_resolution->url ?>" alt="Image de <?= $post->name ?>" />

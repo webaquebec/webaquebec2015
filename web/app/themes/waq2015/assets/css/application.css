@@ -2487,35 +2487,37 @@ section.intro {
     overflow: hidden; }
   .posts:after {
     clear: both; }
-  .posts .featured {
+  .posts .post, .posts .featured {
     border: 1px solid #00bfdf;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     padding: 0;
-    margin-bottom: 0.25em;
+    margin-bottom: 1.5em;
     overflow: visible; }
-    .posts .featured .image img {
+    .posts .post .image img, .posts .featured .image img {
       max-width: 100%; }
-    .posts .featured .article-info {
+    .posts .post .article-info, .posts .featured .article-info {
       margin-bottom: 0.625em;
       padding-bottom: 0.625em;
       border-bottom: 1px solid #4b4b4d; }
-    .posts .featured .content {
+    .posts .post .content, .posts .featured .content {
       padding: 1em; }
-      .posts .featured .content p {
+      .posts .post .content p, .posts .featured .content p {
         margin-bottom: 0;
         line-height: 1.25em; }
-      .posts .featured .content .link-status {
+      .posts .post .content .link-status, .posts .featured .content .link-status {
         display: block;
         margin-top: 0.5em;
         font-size: 0.875em;
         text-transform: uppercase; }
-    .posts .featured .meta {
+    .posts .post .meta, .posts .featured .meta {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
-    .posts .featured .title, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a {
+    .posts .post .title, .posts .featured .title, .posts .post nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .post a, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a {
       margin-top: 0; }
+  .posts .featured {
+    margin-bottom: 0.25em; }
   .posts .view-all {
     margin-right: 0;
     -webkit-transform: translate3d(0, 0, 0);
@@ -2525,6 +2527,25 @@ section.intro {
     transform: translate3d(0, 0, 0); }
   .posts .col {
     padding-bottom: 0; }
+
+.blog-page .posts {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .blog-page .posts > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 25%;
+    padding: 0 10px 20px; }
+  .blog-page .posts > * {
+    vertical-align: top; }
 
 .col.wide.feed {
   margin-left: 34%; }
@@ -2805,10 +2826,9 @@ section.intro {
   .single .session .content {
     border-top: 1px solid #b8b9c2;
     padding-top: 20px;
-    margin-top: 20px; }
-.single .content {
-  padding-bottom: 2em;
-  border-bottom: 1px solid #cacaca; }
+    margin-top: 20px;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #cacaca; }
 .single .tags {
   margin: 0.5em 0; }
   .single .tags a {
@@ -2869,6 +2889,9 @@ section.intro {
       top: 50%;
       left: 0;
       line-height: 0; }
+
+.actualites hgroup .main.title, .actualites hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .actualites hgroup a.main {
+  width: 100%; }
 
 footer .top-footer {
   font-size: 0;
@@ -3365,6 +3388,23 @@ footer .logo-o2 {
     .touch .waq2015 .group .profile {
       font-size: 0.75em; }
 
+  .blog-page .posts {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .blog-page .posts > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 33.33%;
+      padding: 0 10px 20px; }
+
   footer .top-footer {
     font-size: 0;
     word-spacing: 0;
@@ -3577,7 +3617,24 @@ footer .logo-o2 {
       width: 50%;
       padding: 0 5px 10px; }
   .waq2015 .description {
-    padding-bottom: 2.813em; } }
+    padding-bottom: 2.813em; }
+
+  .blog-page .posts {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .blog-page .posts > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 50%;
+      padding: 0 10px 20px; } }
 @media screen and (max-width: 580px) {
   .intro .col.main.left {
     text-align: center; }
@@ -3672,6 +3729,23 @@ footer .logo-o2 {
 @media screen and (max-width: 480px) {
   .title.main, nav[role="navigation"] ul a.main {
     font-size: 1.875em; }
+
+  .blog-page .posts {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .blog-page .posts > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
 
   footer .info-general {
     font-size: 0;
