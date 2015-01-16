@@ -630,7 +630,8 @@ section.intro
       z-index: 100
       margin-top: 1em
       margin-bottom: -2em
-    .name
+    .name,
+    .article-info
       h2
         font-size: 0.5em
     .favorite
@@ -653,17 +654,21 @@ section.intro
   .single-article
     .image-une
       padding-bottom: 1.25em
-  .session
+  &.session,
+  &.article
     padding: $xlarge 0
     font-size: 1.25em
     .tags
       font-size: 0.875em
     .content
-      border-top:  1px solid $grey
       padding-top: $medium
       margin-top: $medium
       padding-bottom: 2em
       border-bottom: 1px solid $l-grey1
+  .article-image
+    margin-bottom: 2em
+    img
+      width: 100%
   .tags
     margin: 0.5em 0
     a

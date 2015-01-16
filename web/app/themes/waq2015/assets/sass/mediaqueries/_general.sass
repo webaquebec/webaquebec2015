@@ -13,7 +13,7 @@
     font-size: 14px
 
   .content
-    font-size: 14px !important
+    font-size: 14px
 
   //
   //
@@ -210,6 +210,18 @@
       .touch &
         font-size: 0.75em
 
+  //
+  //
+  // SINGLE
+  .single
+    &.article
+      .col
+        &.wide
+          width: 80%
+          padding-right: 0
+    .content
+      font-size: 1.25em
+
 
 
 @media screen and (max-width: 1023px)
@@ -267,7 +279,7 @@
     font-size: 16px
 
   .content
-    font-size: 16px !important
+    font-size: 16px
 
   //
   //
@@ -300,6 +312,17 @@
   .waq2015
     .grid
       +grid(2,$small)
+
+  //
+  //
+  // SINGLE
+  .single
+    &.article
+      .col
+        &.wide
+          width: 90%
+    .content
+      font-size: 1em
 
   //
   //
@@ -373,6 +396,23 @@
       margin: 2.5em 0 1.5em 0
     &.small
       +grid(4, 0)
+
+  //
+  //
+  // SINGLE
+  .single
+    &.article
+      .col
+        padding-top: 0
+        &.wide
+          width: 100%
+      .content
+        margin-top: 0
+        padding-top: 0
+    .content
+      font-size: 1em
+      margin-top: 0
+      padding-top: 0
 
 
   //

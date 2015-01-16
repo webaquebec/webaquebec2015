@@ -2798,7 +2798,8 @@ section.intro {
   z-index: 100;
   margin-top: 1em;
   margin-bottom: -2em; }
-.single hgroup .name h2 {
+.single hgroup .name h2,
+.single hgroup .article-info h2 {
   font-size: 0.5em; }
 .single hgroup .favorite {
   margin-top: 0; }
@@ -2818,17 +2819,20 @@ section.intro {
   z-index: 100; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
-.single .session {
+.single.session, .single.article {
   padding: 50px 0;
   font-size: 1.25em; }
-  .single .session .tags {
+  .single.session .tags, .single.article .tags {
     font-size: 0.875em; }
-  .single .session .content {
-    border-top: 1px solid #b8b9c2;
+  .single.session .content, .single.article .content {
     padding-top: 20px;
     margin-top: 20px;
     padding-bottom: 2em;
     border-bottom: 1px solid #cacaca; }
+.single .article-image {
+  margin-bottom: 2em; }
+  .single .article-image img {
+    width: 100%; }
 .single .tags {
   margin: 0.5em 0; }
   .single .tags a {
@@ -3129,7 +3133,7 @@ footer .logo-o2 {
     font-size: 14px; }
 
   .content {
-    font-size: 14px !important; }
+    font-size: 14px; }
 
   body > .wrapper {
     position: relative;
@@ -3342,7 +3346,13 @@ footer .logo-o2 {
     font-size: 1.25em; }
 
   .touch .waq2015 .profile {
-    font-size: 0.75em; } }
+    font-size: 0.75em; }
+
+  .single.article .col.wide {
+    width: 80%;
+    padding-right: 0; }
+  .single .content {
+    font-size: 1.25em; } }
 @media screen and (max-width: 1023px) {
   .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main {
     font-size: 2em; }
@@ -3427,7 +3437,7 @@ footer .logo-o2 {
     font-size: 16px; }
 
   .content {
-    font-size: 16px !important; }
+    font-size: 16px; }
 
   .posts .sticky {
     position: static; }
@@ -3464,6 +3474,11 @@ footer .logo-o2 {
       line-height: 1;
       width: 50%;
       padding: 0 5px 10px; }
+
+  .single.article .col.wide {
+    width: 90%; }
+  .single .content {
+    font-size: 1em; }
 
   footer .contact-general .hashtag {
     height: auto;
@@ -3568,6 +3583,18 @@ footer .logo-o2 {
         line-height: 1;
         width: 25%;
         padding: 0 0 0; }
+
+  .single.article .col {
+    padding-top: 0; }
+    .single.article .col.wide {
+      width: 100%; }
+  .single.article .content {
+    margin-top: 0;
+    padding-top: 0; }
+  .single .content {
+    font-size: 1em;
+    margin-top: 0;
+    padding-top: 0; }
 
   footer .col {
     float: none;
@@ -3725,7 +3752,12 @@ footer .logo-o2 {
       word-spacing: normal;
       line-height: 1;
       width: 100%;
-      padding: 0 0 0; } }
+      padding: 0 0 0; }
+
+  .single.article .col.wide {
+    width: 100%; }
+  .single .content {
+    font-size: 0.75em; } }
 @media screen and (max-width: 480px) {
   .title.main, nav[role="navigation"] ul a.main {
     font-size: 1.875em; }
