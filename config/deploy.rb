@@ -36,7 +36,7 @@ set :bedrock_staging_symlink, 'dev'
 set :bedrock_production_symlink, 'public_html'
 
 # Use :debug for more verbose output when troubleshooting
-set :log_level, :info
+set :log_level, :debug
 
 # Apache users with .htaccess files:
 # it needs to be added to linked_files so it persists across deploys:
