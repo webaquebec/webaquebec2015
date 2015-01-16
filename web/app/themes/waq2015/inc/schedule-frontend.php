@@ -459,11 +459,11 @@ class schedule extends helper{
 
       // build $this->session for debugging
       if(isset($this->grid[$session->time->start])){
-        if(isset($this->grid[$session->time->start][$session->columns->start]) && isset($this->grid[$session->time->start][$session->columns->end])){
+        if(isset($this->grid[$session->time->start][$session->columns->start-1]) && isset($this->grid[$session->time->start][$session->columns->end-1])){
           $i = $session->columns->start;
-          while($i<$session->columns->end){
+          while($i<=$session->columns->end){
+            $this->grid[$session->time->start][$i-1] = $session->ID;
             $i++;
-            $this->grid[$session->time->start][$i] = $session->ID;
           }
           
         }else{
