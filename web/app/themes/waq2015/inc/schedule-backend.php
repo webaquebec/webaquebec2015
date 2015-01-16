@@ -1107,7 +1107,7 @@ function print_session_column( $column, $post_ID ) {
 function grid_column_orderby( $vars ) {
     if ( isset( $vars['orderby'] ) && 'grid' == $vars['orderby'] ) {
         $vars = array_merge( $vars, array(
-            'meta_key' => 'day',
+            'meta_key' => 'grid',
             'orderby' => 'meta_value'
         ) );
     }

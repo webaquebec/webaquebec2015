@@ -43,7 +43,7 @@ class helper{
     $str = '';
     foreach($this->grid[$timekey] as $session_ID)
       if($session_ID==0)
-        $str .= '<td></td>';
+        $str .= "<td></td>\n";
     return $str;
   }
 
@@ -191,7 +191,7 @@ class schedule extends helper{
       if($session->time->start == $prev->time->start){
         if($session->columns->start <= $prev->columns->start){
           $overlapping = true;
-          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another <a href="'.get_edit_post_link($prev->ID).'">session '.$prev->ID.'</a> at '.strftime('%k:%M',$session->time->start).', column '. $session->columns->start);
+          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'" target="_blank">Session '.$session->ID.'</a> is overlapping another <a href="'.get_edit_post_link($prev->ID).'" target="_blank">session '.$prev->ID.'</a> at '.strftime('%k:%M',$session->time->start).', column '. $session->columns->start);
         }
       }
       if($overlapping){
@@ -213,8 +213,15 @@ class schedule extends helper{
 
   // time label
   private function print_time_label(){
-      $time = $this->timeframes[$this->timeframe_counter]['frame'][0]['start'];
-      echo '<th>'.strftime($this->options->time_labels_format, $time).'</th>';
+      
+      if(isset($this->timeframes[$this->timeframe_counter])){
+        $time = $this->timeframes[$this->timeframe_counter]['frame'][0]['start'];
+        echo '<th>'.strftime($this->options->time_labels_format, $time).'</th>';
+      }
+      else{
+        $this->throw_error('Timeframe '.$this->timeframe_counter.' is set for <a href="'.get_edit_post_link($this->session->ID).'" target="_blank">session '.$this->session->ID.'</a> but does not exist on grid <a href="'.get_edit_post_link($this->grid_ID).'" target="_blank">'.get_the_title($this->grid_ID).'</a>');
+        echo '<th></th>';
+      }
   }
 
 
@@ -231,14 +238,14 @@ class schedule extends helper{
     if( $this->options->render_thead 
         && !$this->render_status->open_tbody
         && $this->header_counter==1){     
-      echo '<thead><tr>';
+      echo "<thead>\n<tr>\n";
       $this->render_status->open_thead = true;
       if($this->options->render_time_labels) echo '<td class="'.$this->options->empty_class.'"></td>';
     }
 
     if($this->session_counter==1 && !$this->render_status->open_tbody){
-      echo '<tbody>';
-      echo '<tr>';
+      echo "<tbody>\n";
+      echo "\n<tr>";
       $this->render_status->open_tbody = true;
       if($this->options->render_time_labels) $this->print_time_label();
     }
@@ -279,7 +286,7 @@ class schedule extends helper{
     if($header->columns->start && $header->columns->start != $this->column_counter){
       while($this->column_counter < $header->columns->start){
         $this->column_counter++;
-        echo '<th></th>';
+        echo "<th></th>\n";
       }
     }
   }
@@ -294,7 +301,7 @@ class schedule extends helper{
       }
       else{
         $empty_until = $this->column_count;
-        $this->throw_error('<a href="'.get_edit_post_link($header->ID).'">Column header '.$header->ID.'</a> is overlapping another column header');
+        $this->throw_error('<a href="'.get_edit_post_link($header->ID).'" target="_blank">Column header '.$header->ID.'</a> is overlapping another column header');
       }
     
     }
@@ -304,7 +311,7 @@ class schedule extends helper{
     if($header->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
-        echo '<td></td>';
+        echo "<td></td>\n";
       }
     }
 
@@ -321,7 +328,7 @@ class schedule extends helper{
     if($session->columns->start && $session->columns->start != $this->column_counter){
       while($this->column_counter < $session->columns->start){
         $this->column_counter++;
-        echo '<td></td>';
+        echo "<td></td>\n";
       }
     }
   }
@@ -339,7 +346,7 @@ class schedule extends helper{
         }
         else{
           $empty_until = $this->column_count;
-          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'">Session '.$session->ID.'</a> is overlapping another session');
+          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'" target="_blank">Session '.$session->ID.'</a> is overlapping another session');
         }
       }
     }
@@ -349,7 +356,7 @@ class schedule extends helper{
     if($session->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
-        echo '<td></td>';
+        echo "<td></td>\n";
       }
     }
   }
@@ -516,7 +523,7 @@ class schedule extends helper{
   public function after_header(){
     $header = $this->header;
     if($header->columns->start == $this->column_counter ){     
-      echo '</th>';
+      echo "</th>\n";
       $this->column_counter += $header->columns->span-1;
       $this->print_empty_cells_after_header();
     }
@@ -549,7 +556,7 @@ class schedule extends helper{
               && $this->timeframe_counter < $this->timeframe_count)
       {
         $this->print_empty_cells_after_session();
-        echo '</tr><tr>';
+        echo "</tr>\n<tr>\n";
         $this->timeframe_counter++;
         $timekey = array_keys($this->grid)[$this->timeframe_counter];
         if($this->options->render_time_labels) $this->print_time_label();
@@ -558,7 +565,7 @@ class schedule extends helper{
 
     if( $session->time->start == $timekey ){
       $this->print_empty_cells_before_session();
-      echo '<td'.($session->time->span >1 ? ' rowspan="'.$session->time->span .'"' : '').($session->columns->span >1 ? ' colspan="'.$session->columns->span .'"' : '').'>';
+      echo '<td'.($session->time->span >1 ? ' rowspan="'.$session->time->span .'"' : '').($session->columns->span >1 ? ' colspan="'.$session->columns->span .'"' : '').">\n";
     }
     return $session;
   }
@@ -571,14 +578,14 @@ class schedule extends helper{
 
     if( $session->time->start == $timekey 
         && $session->columns->start == $this->column_counter ){     
-      echo '</td>';
+      echo "</td>\n";
       $this->column_counter += $session->columns->span-1;
       $this->print_empty_cells_after_session();
     }
     $new_row =  $this->timeframe_counter<$this->timeframe_count 
                 && $this->column_counter+$session->columns->span >$this->column_count;    
     if($new_row && $this->session_counter <= $this->session_count){
-      echo '</tr><tr>';
+      echo "</tr>\n<tr>\n";
       $this->print_empty_cells_after_session();
       $this->timeframe_counter++;
       $this->column_counter = 0;
