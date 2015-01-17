@@ -138,7 +138,6 @@ class session extends helper{
 
       //
       // TIME
-      var_dump($this->ID);
       $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
       $time_start_key = array_search($frame[0], array_keys($grid));
       $time_end_key = array_search($frame[1], array_keys($grid));

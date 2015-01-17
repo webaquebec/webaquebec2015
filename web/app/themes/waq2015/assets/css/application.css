@@ -1599,12 +1599,20 @@ a[href].profile {
       width: 75px; }
     .schedules thead th {
       padding: 10px 10px 10px 0;
-      vertical-align: bottom; }
+      vertical-align: bottom;
+      position: relative; }
     .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a {
       color: #fff; }
     .schedules thead .location {
-      border-left: 10px solid #eeeef0;
-      padding-left: 10px; }
+      padding-left: 20px; }
+      .schedules thead .location:before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        bottom: 10px;
+        border-right: 10px solid #fff;
+        border-color: inherit; }
   .schedules tbody td {
     border-top: 1px solid #eeeef0; }
   .schedules tbody th {

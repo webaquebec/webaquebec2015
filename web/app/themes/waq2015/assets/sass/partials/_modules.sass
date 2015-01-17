@@ -733,11 +733,20 @@ a[href].btn
     th
       padding: $small $small $small 0
       vertical-align: bottom
+      position: relative
     .title
       color: #fff
     .location
-      border-left: $small solid $l-grey
-      padding-left: $small
+      padding-left: $medium
+      &:before
+        content: ""
+
+        position: absolute
+        top: $small
+        left: 0
+        bottom: $small
+        border-right: $small solid #fff
+        border-color: inherit
   
   // BODY
   tbody
