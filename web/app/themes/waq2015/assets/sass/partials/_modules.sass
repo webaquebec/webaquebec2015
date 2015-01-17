@@ -693,6 +693,8 @@ a[href].btn
         +gradient($l-blue, $d-blue)
 
 .schedules
+  padding: 0 $xlarge
+  margin: 0 auto
   .schedule
     margin-right: -100%
     float: left
@@ -757,6 +759,10 @@ a[href].btn
   .session
     >.wrap
       padding: 0.75em
+
+    .session-title
+      font-size: 1em
+      line-height: 1.2
     .favorite
       position: relative
       z-index: 2
@@ -779,6 +785,8 @@ a[href].btn
       margin-bottom: 0.5em
       +align-children(middle)
       display: block
+      .title
+        font-size: 0.875em
     .border-bottom
       &:after
         background: $grey
@@ -824,6 +832,7 @@ a[href].btn
       width: 100%
       padding: $medium
       font-weight: 400
+      font-size: 1.25em
 
 
   .messages,

@@ -62,7 +62,7 @@ global $current_user;
 
 
   <?php if($schedules->have_posts()): ?>
-  <div class="schedules container">
+  <div class="schedules">
   <?php
 
   // loop throught schedules
@@ -141,7 +141,7 @@ global $current_user;
               </span>
             </div>
 
-            <h3 class="session-title sub title"><?= $session->title ?></h3>
+            <h3 class="session-title title"><?= $session->title ?></h3>
 
             <div class="speaker">
               <?php if(!$wide && $session->speaker->image): ?>
