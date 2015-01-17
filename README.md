@@ -2,6 +2,21 @@
 
 Si vous aidez sur un projet déjà démarré, allez directement à **Aider sur un projet Wordpress**
 
+## Quick start
+
+Pour contributeurs externes à O2 Web.
+On présume PHP Composer, MySQL et PHP déjà installé.
+
+		cp .env.min .env
+		bundle install
+		composer install
+		composer update
+		mysql -u root -e "create database waq2015"
+		mysql -u root waq2015 < ~/Downloads/webaqueb_2015_prod.sql
+		gem install sass -v '~> 3.4'
+		bin/start
+		open http://waq.lvh.me:8000/
+
 ## Contenu
 
 - [Start-up d'un projet Wordpress](#start-up-dun-projet-wordpress)
@@ -47,9 +62,9 @@ Pour plus d'information [Get Composer Windows](https://getcomposer.org/doc/00-in
 2. Utilisez la commande suivante :
 
 		composer create-project roots/bedrock --stability="dev" --repository-url=http://serveurdedev.ca/satis/ <nom-du-projet>
-	
+
 	_Remplacez `<nom-du-projet>`, et gardez l'espace qui le précéde._
-	
+
 3. Répondre **"yes"** aux questions **"Generate salts and append to .env file?"** et **"Do you want to remove the existing VCS (.git, .svn..) history?"**
 4. Ouvrez `.env` ( _situé à la racine de votre nouveau projet_ ) à l'aide de votre éditeur de texte préféré et insérez les informations de votre database local ou remote.
 	* `DB_NAME` - Nom de la database
@@ -59,24 +74,24 @@ Pour plus d'information [Get Composer Windows](https://getcomposer.org/doc/00-in
 	* `WP_ENV` - Spécifier l'environment (`development`, `staging`, `production`)
 	* `WP_HOME` - URL de votre site (http://example.com)
 	* `WP_SITEURL` - URL vers Wordpress (http://example.com/wp)
-5. Utilisez la commande suivante : 
+5. Utilisez la commande suivante :
 
 		cd <nom-du-projet>
 
 	_Remplacez `<nom-du-projet>`._
-	
-5. Utilisez la commande suivante : 
+
+5. Utilisez la commande suivante :
 
 		mkdir -p ./web/app/themes/<nom-du-projet>/ && git archive --remote=git@projets.o2web.ca:cthibault/wp-blanked-theme.git master | tar -x -C ./web/app/themes/<nom-du-projet>/
 
 	_Remplacez `<nom-du-projet>` aux deux endroits._
-	
-6. Utilisez la commande suivante : 
+
+6. Utilisez la commande suivante :
 
 		git archive --remote=git@projets.o2web.ca:cthibault/base-sass.git master | tar -x -C ./web/app/themes/<nom-du-projet>/assets/
 
 	_Remplacez `<nom-du-projet>`._
- 
+
 7. Configurez votre serveur Apache (MAMP ou XAMPP) pour que le root pointe sur exemple : `/Applications/MAMP/htdocs/<nom-du-projet>/web/`
 8. Allez sur votre adresse locale, exemple: `http://localhost:8888`, configurez le Wordpress!
 9. Et voilà!
@@ -89,38 +104,38 @@ Un simple rappel qu'il serait maintenant temps de créer votre projet sur Git et
 1. Créez votre projet sur [Gitlab](http://projets.o2web.ca/gitlab/projects/new)
 2. Faites les commandes suivantes dans votre terminal à la racine de votre projet :
 	* `git init`
-	* `git checkout -b develop` 
-	
+	* `git checkout -b develop`
+
   		_Il est conseillé d'utiliser une branche **"develop"** pour votre développement et non **"master"**._
 	* `git commit -m "first commit" -a`
-	* `git remote add origin git@projets.o2web.ca:<votre-nom>/<nom-du-projet>.git` 
-	
+	* `git remote add origin git@projets.o2web.ca:<votre-nom>/<nom-du-projet>.git`
+
   		_Cette ligne vous est fourni dans les étapes suivant la création de votre projet._
 	* `git push -u origin develop`
-	
+
 ## Changer la langue de l'admin de Wordpress<span id="changer-la-langue-de-ladmin-de-wordpress"></span>
 
-Par défaut, Wordpress est installé en anglais. Si vous désirez avoir l'admin en une autre langue(français par exemple), juste a changer la variable 
+Par défaut, Wordpress est installé en anglais. Si vous désirez avoir l'admin en une autre langue(français par exemple), juste a changer la variable
 
 	define('WPLANG', '');
 
 dans le fichier `config/application.php` par:
 
 	define('WPLANG', 'fr');
-	
+
 Dans le cas très improbable où vous auriez a installer wordpress dans une autre langue, vous pouvez ajouter
 
 	"koodimonni-language/<votre code de langue ici>": "dev-master",
-	
+
 au packages requis dans composer. La liste disponible est ici: [http://languages.koodimonni.fi/](http://languages.koodimonni.fi/)
-	
+
 
 ## Plugins Wordpress<span id="plugins-wordpress"></span>
 
 Les plugins que nous utilisons couramment sont déjà inclus dans le composer.json, Ils seront donc déjà installés dans votre projets. Ceci inclus **Advanced Custom field** et toutes ses extensions. Pour installer un plugin wordpress gratuit (disponible dans le [plugin directory](https://wordpress.org/plugins/)), procédez comme suit:
 
 * Trouver le nom du package / plugin qu'on veut installer en se référant au [wordpress plugin directory](https://wordpress.org/plugins/).
-* Trouver le package associé sur [Wp-Packagist](http://plugins.svn.wordpress.org/) 
+* Trouver le package associé sur [Wp-Packagist](http://plugins.svn.wordpress.org/)
 * Ajouter le plugin au fichier composer.json
 
 ### Exemple<span id="exemple"></span>
@@ -132,7 +147,7 @@ Sur le le repo packagist: [http://plugins.svn.wordpress.org/intuitive-custom-pos
 Utiliserait la commande suivante dans le terminal pour l'ajouter au projet :
 
 	composer require wpackagist-plugin/intuitive-custom-post-order:dev-trunk
-	
+
 ### A propos des versions des plugins<span id="a-propos-des-versions-des-plugins"></span>
 
 Par défaut, les plugins vont avoir une version courante, considérée comme la version la plus récente, appelée `dev-trunk`.
@@ -173,10 +188,10 @@ Gems requis:
 
 Ils peuvent être installés à l'aide de la commande : `gem install <nom-du-gem>` mais nous recommandons d'utiliser [Bundler](http://bundler.io/). Bundler est simplement l'équivalent Ruby de Composer. Tout comme Composer gère les dépendances/packages PHP, Bundler gère les dépendances/gems Ruby. Bundler est lui même un Gem et peut être installé avec la commande : `gem install bundler` (sudo peut être requis).
 
-Le `Gemfile` au root du repo specifie les Gems requises (au même titre que `composer.json`). Une fois Bundler installé, exécutez 
+Le `Gemfile` au root du repo specifie les Gems requises (au même titre que `composer.json`). Une fois Bundler installé, exécutez
 
 	bundle install
-	
+
 pour installer le Gem dans le `Gemfile`. En utilisant Bundler, vous devrez prefixer la commande `cap` avec `bundle exec` comme illustré plus bas (ce qui garanti que vous n'utilisez pas de Gems qui peut provoquer des conflits).
 
 Voir [http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/](http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/) pour la meilleure façon de mettre en place des authentifications de clé SSH à vos serveurs de sans mot de passe (et sécuriser) le déploiement.
@@ -187,28 +202,28 @@ Voir [http://capistranorb.com/documentation/getting-started/authentication-and-a
 
 1. Éditez `config/deploy/<stage>.rb` et `config/deploy.rb` avec les options de connexion et paramètres nécessaires au déploiement.
 2. Avant votre premier déploiement, utilisez la commande suivante pour créer les dossiers/symlinks nécessaires:
-	
+
 		bundle exec cap <stage> deploy:check
 
 
 	Note : Si l'étape 2 retourne une erreur de login, utilisez la commande suivante avant de refaire l'étape 2 à nouveau :
-	
+
 		ssh-copy-id <user>@<host>
-		
+
 	**Alternativement**, si vous n'avez pas installé ssh-copy-id, vous pouvez utiliser la commande suivante (qui est équivalente):
 
 		cat ~/.ssh/id_rsa.pub | ssh <user>@<host> 'mkdir -p .ssh && touch .ssh/authorized_keys && cat >> .ssh/authorized_keys'
-		
+
 	_Remplacez `<user>` et `<host>`._
-	
+
 	**ATTENTION:** n'oubliez pas dans tous les cas de charger votre clef ssh dans *l'agent SSH* en utilisant la commande suivante si vous éprouvez des problèmes de connexion.
-	
+
 		ssh-add
-		
+
 	Vous devriez recevoir une réponse indiquant que votre clé ssh a été chargée ex: *Identity added: /Users/louim/.ssh/id_rsa (/Users/louim/.ssh/id_rsa)*
-	
+
 	Vous aurez une **erreur** spécifiant que le fichier `.env` est manquant, procédez à l'étape 3. **Ceci est normal**.
-	
+
 3. Ajoutez le fichier `.env` (changez les informations nécéssaires une fois le fichier transféré) au dossier `shared/` dans le path `<deploy_to>` (spécifié dans le fichier deploy.rb) sur le remote server (ex: `/home/<user>/<nom-de-l'application>/<stage>/shared/.env`)
 4. Utilisez la commande de déploiement :
 

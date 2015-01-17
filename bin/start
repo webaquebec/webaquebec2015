@@ -1,0 +1,8 @@
+#!/bin/bash
+function finish {
+  # Kill parellel process
+  jobs -p | xargs kill -9
+}
+trap finish EXIT
+
+php -S 127.0.0.1:8000 -t web & sass --sourcemap --watch web/app/themes/waq2015/assets/sass:web/app/themes/waq2015/assets/css
