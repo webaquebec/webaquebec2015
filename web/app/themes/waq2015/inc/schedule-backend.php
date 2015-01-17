@@ -951,7 +951,8 @@ function create_sessions()
                     $frame = $timeframe['frame'][0];
                     $start = has($frame['start']) ? strftime('%H:%M', $frame['start']) : '...';
                     $end = has($frame['end']) ? strftime('%H:%M', $frame['end']) : '...';
-                    $choices[$i] = 'De '. $start .' à '. $end ; 
+                    $key = $frame['start'].'.'.$frame['end'];
+                    $choices[$key] = 'De '. $start .' à '. $end ; 
                     $i++;
                 }
             }

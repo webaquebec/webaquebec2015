@@ -138,20 +138,16 @@ class session extends helper{
 
       //
       // TIME
-      $frame_ID = get_field('frame_'.$grid_ID, $this->ID);
-      $frame = array(
-        'start' => $timeframes[$frame_ID]['frame'][0]['start'],
-        'end' => $timeframes[$frame_ID]['frame'][0]['end'],
-      );
-
-      $time_start_key = array_search($frame['start'], array_keys($grid));
-      $time_end_key = array_search($frame['end'], array_keys($grid));
-      $frame['span'] = $time_end_key - $time_start_key;
+      var_dump($this->ID);
+      $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
+      $time_start_key = array_search($frame[0], array_keys($grid));
+      $time_end_key = array_search($frame[1], array_keys($grid));
+      $span = $time_end_key - $time_start_key;
 
       $this->time = (object) array(
-        'start' => intval($frame['start']),
-        'end' => intval($frame['end']),
-        'span' => $frame['span']
+        'start' => intval($frame[0]),
+        'end' => intval($frame[1]),
+        'span' => $span
       );
 
       //
