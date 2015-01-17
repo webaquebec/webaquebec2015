@@ -120,7 +120,7 @@ global $current_user;
         <?php 
         $wide = $session->columns->span > 1;
         ?>
-        <div class="session btn light <?= $session->location->class ?><?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
+        <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
           <div class="wrap">
 
             <?php if($wide && $session->speaker->image): ?>

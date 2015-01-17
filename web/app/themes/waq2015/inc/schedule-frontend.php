@@ -28,7 +28,14 @@ class helper{
     return ($a->columns->start < $b->columns->start) ? -1 : 1;
   }
 
-  protected function array_empty_columns($count, $key, $timestamp){
+  protected function get_sessions_IDs(){
+    $IDs = array();
+    foreach($this->sessions as $session)
+      array_push($IDs, $session->ID);
+    return $IDs;
+  }
+
+  protected function array_empty_columns($count, $key=null, $timestamp=null){
     $cols = array();
     $i = 0;
     while($i<$count){
@@ -130,22 +137,39 @@ class session extends helper{
       $column_count = get_field('columns_qty','options');
       foreach($timeframes as $k=>$frame){
         $frame = $frame['frame'][0];
-        if(!isset($grid[$frame['start']]))
-          $grid[$frame['start']] = $this->array_empty_columns($column_count, $k, $frame['start']);
-        if(!isset($times[$frame['end']]))
-          $grid[$frame['end']] = $this->array_empty_columns($column_count, $k, $frame['end']);
-      }
+        // get time-only timestamp (seconds elapsed from 0:00)
+        $start = $frame['start'] % 86400;
+        $end = $frame['end'] % 86400;
+  
+        if(!isset($grid[$start])){
+          $grid[$start] = $this->array_empty_columns($column_count, $k, $start);
+        }
+        else{
+          if(!isset($grid[$start]['key'])){
+            $grid[$start]['key'] = $k;
+          }
+        }
+        if(!isset($grid[$end])){
+          $grid[$end] = $this->array_empty_columns($column_count, null, $end);
+        }
 
+      }
       //
       // TIME
+      ksort($grid);
+      $time_keys = array_keys($grid);
+
       $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
-      $time_start_key = array_search($frame[0], array_keys($grid));
-      $time_end_key = array_search($frame[1], array_keys($grid));
+      // get time-only timestamp (seconds elapsed from 0:00)
+      $start = intval($frame[0]) % 86400;
+      $end = intval($frame[1]) % 86400;
+      $time_start_key = array_search( $start , $time_keys);
+      $time_end_key = array_search( $end , $time_keys);
       $span = $time_end_key - $time_start_key;
 
       $this->time = (object) array(
-        'start' => intval($frame[0]),
-        'end' => intval($frame[1]),
+        'start' => $start,
+        'end' => $end,
         'span' => $span
       );
 
@@ -188,6 +212,7 @@ class schedule extends helper{
       if($overlapping){
         unset($this->sessions[$counter]);
         $this->sessions = array_values($this->sessions);
+        $this->sessions_IDs = $this->get_sessions_IDs();
         $count = count($this->sessions);
       }
       else{
@@ -200,14 +225,34 @@ class schedule extends helper{
   //
   // REMOVE EMPTY ROWS IN $this->grid
   private function remove_empty_grid_rows(){
-    foreach($this->grid as $k=>$row){
+    $prev_spans = $this->array_empty_columns($this->column_count);
+    foreach($this->grid as $timestamp=>$row){
       $empty = true;
-      $i = 0;
-      while($i<$this->column_count){
-        if($row[$i]!=0) $empty = false;
-        $i++;
+      $c = 0;
+      while($c<$this->column_count){
+        if($row[$c]!=0){
+          $current_session = $this->sessions[array_search($row[$c],$this->sessions_IDs)];
+          $current_timestamp = $current_session->time->start;
+          if($current_session->time->start == $timestamp){
+            $empty = false;
+            //
+            if($prev_spans[$c]>0){
+              $prev_spans[$c]--;
+            }
+            if($prev_spans[$c]>1){
+              $current_time_key = array_search($current_session->time->start, $this->time_keys);
+              $prev_timestamp = $this->time_keys[$current_time_key - ($prev_spans[$c])];
+              $this->sessions[array_search($this->grid[$prev_timestamp][$c],$this->sessions_IDs)]->time->span--;
+            }
+            $prev_spans[$c] = $current_session->time->span;
+          }
+        }
+        $c++;
       }
-      if($empty) unset($this->grid[$k]);
+      if($empty){
+        unset($this->grid[$timestamp]);
+        $this->time_keys = array_keys($this->grid);
+      };
     }
   }
 
@@ -223,7 +268,7 @@ class schedule extends helper{
                 )
                 ||(
                   isset($this->sessions[$this->session_counter])
-                  && $this->sessions[$this->session_counter]->time->start > array_keys($this->grid)[$this->timeframe_counter]
+                  && $this->sessions[$this->session_counter]->time->start > $this->time_keys[$this->timeframe_counter]
                 )
             );
   }
@@ -249,9 +294,15 @@ class schedule extends helper{
   // time label
   private function print_time_label(){
       
-      if(isset($this->timeframes[$this->timeframe_counter])){
-        $time = $this->timeframes[$this->timeframe_counter]['frame'][0]['start'];
-        echo '<th>'.strftime($this->options->time_labels_format, $time).'</th>';
+      if(isset($this->time_keys[$this->timeframe_counter])){
+        if(isset($this->grid[$this->time_keys[$this->timeframe_counter]]['key'])){
+          $time = $this->timeframes[$this->grid[$this->time_keys[$this->timeframe_counter]]['key']]['frame'][0]['start'];
+          echo '<th>'.strftime($this->options->time_labels_format, $time).'</th>';
+        }
+        else{
+          $this->throw_error("Can't find key for timeframe ".$this->timeframe_counter.' on grid <a href="'.get_edit_post_link($this->grid_ID).'" target="_blank">'.get_the_title($this->grid_ID).'</a>');
+          echo '<th></th>';
+        }
       }
       else{
         $this->throw_error('Timeframe '.$this->timeframe_counter.' is set for <a href="'.get_edit_post_link($this->session->ID).'" target="_blank">session '.$this->session->ID.'</a> but does not exist on grid <a href="'.get_edit_post_link($this->grid_ID).'" target="_blank">'.get_the_title($this->grid_ID).'</a>');
@@ -371,19 +422,12 @@ class schedule extends helper{
   private function print_empty_cells_after_session(){
     $session = $this->session;
     if($this->session_counter<$this->session_count){
-      $next_session = $this->sessions[$this->session_counter];
-      if($session->time->start != $next_session->time->start){
-        $empty_until = $this->column_count;
+      $row = $this->grid[$this->time_keys[$this->timeframe_counter]];
+      $empty_until = $session->columns->start;
+      while(isset($row[$empty_until]) && $row[$empty_until]==0){
+        $empty_until++;
       }
-      else{
-        if($session->columns->start < $next_session->columns->start){
-          $empty_until = $next_session->columns->start - 1;             
-        }
-        else{
-          $empty_until = $this->column_count;
-          $this->throw_error('<a href="'.get_edit_post_link($session->ID).'" target="_blank">Session '.$session->ID.'</a> is overlapping another session');
-        }
-      }
+      $empty_until--;
     }
     else{
       $empty_until = $this->column_count;
@@ -464,14 +508,27 @@ class schedule extends helper{
     if($this->timeframes){
       foreach($this->timeframes as $k=>$frame){
         $frame = $frame['frame'][0];
-        if(!isset($this->grid[$frame['start']]))
-          $this->grid[$frame['start']] = $this->array_empty_columns($this->column_count, $k, $frame['start']);
-        if(!isset($times[$frame['end']]))
-          $this->grid[$frame['end']] = $this->array_empty_columns($this->column_count, $k, $frame['end']);
+        // get time-only timestamp (seconds elapsed from 0:00)
+        $start = $frame['start'] % 86400;
+        $end = $frame['end'] % 86400;
+
+        if(!isset($this->grid[$start])){
+          $this->grid[$start] = $this->array_empty_columns($this->  column_count, $k, $start);
+        }
+        else{
+          if(!isset($this->grid[$start]['key'])){
+            $this->grid[$start]['key'] = $k;
+          }
+        }
+        if(!isset($this->grid[$end])){
+          $this->grid[$end] = $this->array_empty_columns($this->column_count, null, $end);
+        }
+
       }
 
-      ksort($this->timeframes);
-
+      // ksort($this->timeframes);
+      ksort($this->grid);
+      $this->time_keys = array_keys($this->grid);
     }
     else{
       $this->throw_error('No timeframe found for this grid');
@@ -495,14 +552,16 @@ class schedule extends helper{
     foreach($sessionsQuery->posts as $k=>$session){
       $session = new session($session->ID);
       array_push($this->sessions, $session);
-  
+           
+         
 
       // build $this->grid for debugging
       if(isset($this->grid[$session->time->start])){
         $t = 0;
-        $time_keys = array_keys($this->grid);
+        $time_keys = $this->time_keys;
         $start_key = array_search($session->time->start, $time_keys);
-      
+         
+
         // loop through timespan
         while($t<$session->time->span){
           $timestamp = $time_keys[$start_key + $t];
@@ -514,21 +573,23 @@ class schedule extends helper{
               $this->grid[$timestamp][$c] = $session->ID;
               $c++;
             } 
-          }else{
+          }
+          else{
             $this->throw_message('Problem with columns '.$session->columns->start.' throught '.$session->columns->end.' on timeframe '.$timestamp.' while building grid for debugging.');
           }
           $t++;
         }
       }
       else{
-        $this->throw_message('Timeframe '.$session->time->start.' not found while building grid for debugging.');
+        $this->throw_message('Timeframe '.$session->time->start.' from <a href="'.get_edit_post_link($session->ID).'" target="_blank">Session '.$session->ID.'</a> not found while building grid for debugging.');
       }
     }
-    
+
 
 
     // SORT & REMOVE DUPLICATES
     usort($this->sessions, array('schedule','sort_sessions'));
+    $this->sessions_IDs = $this->get_sessions_IDs();
     $this->remove_overlapping_sessions();
     
     if($this->options->render_thead){
@@ -536,7 +597,7 @@ class schedule extends helper{
     }
 
     $this->remove_empty_grid_rows();
-    
+
     // SET COUNTERS
     $this->session_count = count($this->sessions);
     $this->session_counter = 0;
@@ -617,7 +678,7 @@ class schedule extends helper{
     $this->session_counter++;
     $this->column_counter++;
     $session = $this->session;
-    $timestamp = array_keys($this->grid)[$this->timeframe_counter];
+    $timestamp = $this->time_keys[$this->timeframe_counter];
 
     $this->print_content_before();
 
@@ -633,7 +694,7 @@ class schedule extends helper{
   // PRINT HTML AFTER CURRENT SESSION
   public function after_session(){
     $session = $this->session;
-    $timestamp = array_keys($this->grid)[$this->timeframe_counter];
+    $timestamp = $this->time_keys[$this->timeframe_counter];
 
     if( $session->time->start == $timestamp 
         && $session->columns->start == $this->column_counter ){     
@@ -645,7 +706,7 @@ class schedule extends helper{
     while($this->needs_new_row()){
       $this->timeframe_counter++;
       $this->column_counter = 0;
-      $timestamp = array_keys($this->grid)[$this->timeframe_counter];  
+      $timestamp = $this->time_keys[$this->timeframe_counter];  
       if($this->sessions[$this->session_counter]->time->start == $timestamp){
        echo "</tr>\n<tr>\n";
        if($this->options->render_time_labels) $this->print_time_label();

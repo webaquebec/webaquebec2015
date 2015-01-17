@@ -1725,6 +1725,8 @@ a[href].profile {
     padding: 20px;
     font-weight: 400;
     font-size: 1.25em; }
+  .schedules .keynote {
+    font-size: 1.25em; }
   .schedules .messages,
   .schedules .errors {
     padding: 20px;
