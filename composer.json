@@ -55,11 +55,11 @@
       "type": "package",
       "package": {
         "name": "acf/advanced-custom-fields",
-        "version": "5.1.5",
+        "version": "5.1.6",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "***REMOVED***"
+          "url": "vendor-packages/advanced-custom-fields-pro.zip"
         },
         "require" : {
           "composer/installers": "~1.0"
@@ -73,7 +73,7 @@
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "~1.0.9",
     "koodimonni-language/fr": "dev-master",
-    "acf/advanced-custom-fields": "5.1.5",
+    "acf/advanced-custom-fields": "5.1.6",
     "wpackagist-plugin/acf-field-date-time-picker": "2.0.18.1",
     "wpackagist-plugin/intuitive-custom-post-order": "2.1.0",
     "wpackagist-plugin/regenerate-thumbnails": "2.2.4",

@@ -28,7 +28,7 @@ class social_feed{
 
   function __construct($args=array()) {
     $this->count = isset($args['count']) ? $args['count'] : 10;
-    $this->tag = isset($args['tag']) ? $args['tag'] : 'o2web';
+    $this->tag = isset($args['tag']) ? $args['tag'] : 'WAQ15';
     $this->social_feed();
 
   }
@@ -40,10 +40,10 @@ class social_feed{
 
   private function get_twitter(){
     $twitter = new TwitterAPIExchange(array(
-        'consumer_key'=>'***REMOVED***',
-        'consumer_secret'=>'***REMOVED***',
-        'oauth_access_token'=>'***REMOVED***',
-        'oauth_access_token_secret'=>'***REMOVED***'
+        'consumer_key' => getenv('TWITTER_CONSUMER_KEY'),
+        'consumer_secret' => getenv('TWITTER_CONSUMER_SECRET'),
+        'oauth_access_token' => getenv('TWITTER_OAUTH_ACCESS_TOKEN'),
+        'oauth_access_token_secret' => getenv('TWITTER_OAUTH_ACCESS_TOKEN_SECRET')
       ));
 
     $url = 'https://api.twitter.com/1.1/search/tweets.json';
@@ -70,7 +70,7 @@ class social_feed{
   }
 
   private function get_instagram(){
-    $instagram = new MetzWeb\Instagram\Instagram('***REMOVED***');
+    $instagram = new MetzWeb\Instagram\Instagram(getenv('INSTAGRAM_API_KEY'));
     if(gettype($this->tag)=='string'){
       $pics = $instagram->getTagMedia($this->tag, $this->count)->data;
     }

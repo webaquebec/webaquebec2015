@@ -9,7 +9,18 @@ if (file_exists($root_dir . '/.env')) {
   Dotenv::load($root_dir);
 }
 
-Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
+Dotenv::required(array(
+    'DB_NAME',
+    'DB_USER',
+    'DB_PASSWORD',
+    'WP_HOME',
+    'WP_SITEURL',
+    'TWITTER_CONSUMER_KEY',
+    'TWITTER_CONSUMER_SECRET',
+    'TWITTER_OAUTH_ACCESS_TOKEN',
+    'TWITTER_OAUTH_ACCESS_TOKEN_SECRET',
+    'INSTAGRAM_API_KEY'
+));
 
 /**
  * Set up our global environment constant and load its config first
