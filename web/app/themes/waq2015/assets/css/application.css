@@ -1601,7 +1601,8 @@ a[href].profile {
     color: #fff; }
   .schedules thead .location {
     border-left: 10px solid #eeeef0;
-    padding-left: 10px; }
+    padding-left: 10px;
+    min-height: 85px; }
 .schedules tbody td {
   border-top: 1px solid #eeeef0; }
 .schedules tbody th {
