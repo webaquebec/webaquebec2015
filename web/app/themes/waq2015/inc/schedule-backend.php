@@ -1077,14 +1077,9 @@ function set_session_sortable_columns($columns) {
 
 function print_session_column( $column, $post_ID ) {
     $grid_ID = get_field('grid',$post_ID);
-    $frame_ID = get_field('frame_'.$grid_ID, $post_ID);
-    $timeframes = get_field('time_frames', $grid_ID);
-    $frame = array(
-            'start' => $timeframes[$frame_ID]['frame'][0]['start'],
-            'end' => $timeframes[$frame_ID]['frame'][0]['end']
-        );
-    $start = has($frame['start']) ? strftime('%H:%M', $frame['start']) : '...';
-    $end = has($frame['end']) ? strftime('%H:%M', $frame['end']) : '...';
+    $frame = explode('.', get_field('frame_'.$grid_ID, $post_ID));
+    $start = has($frame[0]) ? strftime('%H:%M', $frame[0]) : '...';
+    $end = has($frame[1]) ? strftime('%H:%M', $frame[1]) : '...';
 
     $location_ID = get_field('location',$post_ID);
     switch ( $column ) {
