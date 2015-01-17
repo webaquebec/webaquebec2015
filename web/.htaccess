@@ -16,3 +16,6 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+# Use PHP54CGI as default
+AddHandler fcgid54-script .php

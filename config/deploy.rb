@@ -1,6 +1,9 @@
-set :application, 'waq2015'
-set :repo_url, 'git@projets.o2web.ca:waq/waq2015.git'
-set :user, 'waq'
+set :application, 'webaquebec2015'
+set :repo_url, 'git@github.com:webaquebec/webaquebec2015.git'
+set :user, 'webaqueb'
+
+# Because of bluehost "home#"
+set :home, 'home3'
 
 # Thoses options are for the WP-CLI. if you use it, uncomment the related line in the Capfile
 #
@@ -28,8 +31,8 @@ set :wpcli_local_url, "http://localhost:8888"
 set :branch, :master
 
 # Set the default deploy path to use different folders for different environments
-set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}/#{fetch(:stage)}"
-set :tmp_dir, "/home/#{fetch(:user)}/tmp"
+set :deploy_to, "/#{fetch(:home)}/#{fetch(:user)}/#{fetch(:application)}/#{fetch(:stage)}"
+set :tmp_dir, "/#{fetch(:home)}/#{fetch(:user)}/tmp"
 
 # Set the default symlink folders to symlink after the deployment cycle is done.
 set :bedrock_staging_symlink, 'dev'
@@ -50,7 +53,7 @@ namespace :deploy do
   desc "Link the code folder to the webserver folder"
   task :link_release_to_public do
     on roles(:app) do
-      within "/home/#{fetch(:user)}" do
+      within "/#{fetch(:home)}/#{fetch(:user)}" do
         if fetch(:stage) == :staging
           info " Symlinking to Staging"
           execute "rm -rf #{fetch(:bedrock_staging_symlink)} && ln -sf #{current_path}/web #{fetch(:bedrock_staging_symlink)}"
@@ -83,7 +86,7 @@ namespace :uploads do
   task :push do
     run_locally do
       roles(:all).each do |role|
-        execute :rsync, "-avzO -e 'ssh -p #{fetch(:ssh_options).fetch(:port, 22)}' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
+        execute :rsync, "-avzO -e 'ssh -p #{fetch(:ssh_options).fetch(:port, 22)}' --exclude='.DS_Store' web/app/uploads/ #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/"
       end
     end
   end

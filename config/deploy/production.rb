@@ -9,9 +9,9 @@ set :branch, :master
 
 # Extended Server Syntax
 # ======================
-server 'waq.o2web.biz', user: 'waq', roles: %w{web app db}
+server 'webaquebec.org', user: 'webaqueb', roles: %w{web app db}
 # CHANGE FOR PRODUCTION ENVIRONMENT
-set :wpcli_remote_url, "http://dev.waq.o2web.biz"
+set :wpcli_remote_url, "http://webaquebec.org"
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -28,8 +28,5 @@ fetch(:default_env).merge!(wp_env: :production)
 # Uncomment the following options if Composer is not installed on the server and you need to user it.
 # You will need to install it with "cap production composer::install_executable
 
-# Prefix the command with the right PHP options
-# SSHKit.config.command_map.prefix[:composer].push("php -d allow_url_fopen=1 -d apc.enable_cli=Off")
-
 # Map the command to the composer installation Path
-# SSHKit.config.command_map[:composer] = "#{shared_path.join('composer.phar')}"
+SSHKit.config.command_map[:composer] = "/usr/php/54/usr/bin/php-cli #{shared_path.join('composer.phar')}"
