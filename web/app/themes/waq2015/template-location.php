@@ -26,16 +26,16 @@ get_header_once();
         </div>
         <ul class="social">
           <li>
-            <a href="#_" class="facebook">Facebook</a>
+            <a href="https://www.facebook.com/webaquebec" target="_blank" class="facebook">Facebook</a>
           </li>
           <li>
-            <a href="#_" class="twitter">Twitter</a>
+            <a href="https://twitter.com/webaquebec" target="_blank" class="twitter">Twitter</a>
           </li>
           <li>
-            <a href="#_" class="linkedin">LinkedIn</a>
+            <a href="http://linkedin.com/company/web-qu-bec" target="_blank" class="linkedin">LinkedIn</a>
           </li>
           <li>
-            <a href="#_" class="instagram">Instagram</a>
+            <a href="http://instagram.com/webaquebec" target="_blank" class="instagram">Instagram</a>
           </li>
         </ul>
       </div>
