@@ -31,22 +31,25 @@ get_header_once();
           ?>
           <h2 class="lower title">Des bénévoles essentiels!</h2>
           <p>Un merci tout spécial à notre équipe du tonnerre!</p>
-          <ul class="volounteers-list">
-          <?php foreach ($featured_volounteers as $featured_volounteer) : ?>
-            <li><?= $featured_volounteer['name']; ?></li>
-          <?php endforeach; ?>
-          </ul>
+          <?php if (!empty($featured_volounteers)): ?>
+            <ul class="volounteers-list">
+            <?php foreach ($featured_volounteers as $featured_volounteer) : ?>
+              <li><?= $featured_volounteer['name']; ?></li>
+            <?php endforeach; ?>
+            </ul>
+          <?php endif ?>
         </div>
       </div>
     </div>
     <div class="bottom">
+      <?php
+
+      // board of directors
+      $board_members = get_field('board');
+
+      ?>
+      <?php if (!empty($board_members)): ?>
       <div class="board group">
-        <?php
-
-        // board of directors
-        $board_members = get_field('board');
-
-        ?>
         <h2 class="sub title lined">Conseil d'administration</h2>
         <hr class="sub-line">
         <ul class="board-members-list grid">
@@ -74,13 +77,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // welcome
+      $welcome_members = get_field('welcome');
+
+      ?>
+      <?php if (!empty($welcome_members)): ?>
       <div class="welcome group">
-        <?php
-
-        // welcome
-        $welcome_members = get_field('welcome');
-
-        ?>
         <h2 class="sub title lined">Accueil</h2>
         <hr class="sub-line">
         <ul class="welcome-members-list grid">
@@ -108,13 +113,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // admin
+      $admin_members = get_field('admin');
+
+      ?>
+      <?php if (!empty($admin_members)): ?>
       <div class="admin group">
-        <?php
-
-        // admin
-        $admin_members = get_field('admin');
-
-        ?>
         <h2 class="sub title lined">Administration</h2>
         <hr class="sub-line">
         <ul class="admin-members-list grid">
@@ -142,13 +149,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // volounteers
+      $volounteers_committee_members = get_field('volounteers_committee');
+
+      ?>
+      <?php if (!empty($volounteers_committee_members)): ?>
       <div class="volounteers-committee group">
-        <?php
-
-        // volounteers
-        $volounteers_committee_members = get_field('volounteers_committee');
-
-        ?>
         <h2 class="sub title lined">Bénévoles</h2>
         <hr class="sub-line">
         <ul class="volounteers-committee-members-list grid">
@@ -176,13 +185,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // communications
+      $communications_members = get_field('communications');
+
+      ?>
+      <?php if (!empty($communications_members)): ?>
       <div class="communications group">
-        <?php
-
-        // communications
-        $communications_members = get_field('communications');
-
-        ?>
         <h2 class="sub title lined">Communications</h2>
         <hr class="sub-line">
         <ul class="communications-members-list grid">
@@ -210,13 +221,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // logistics
+      $logistics_members = get_field('logistics');
+
+      ?>
+      <?php if (!empty($logistics_members)): ?>
       <div class="logisitics group">
-        <?php
-
-        // logistics
-        $logistics_members = get_field('logistics');
-
-        ?>
         <h2 class="sub title lined">Logisitique</h2>
         <hr class="sub-line">
         <ul class="logistics-members-list grid">
@@ -244,13 +257,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // schedule
+      $schedule_members = get_field('schedule');
+
+      ?>
+      <?php if (!empty($schedule_members)): ?>
       <div class="schedule group">
-        <?php
-
-        // schedule
-        $schedule_members = get_field('schedule');
-
-        ?>
         <h2 class="sub title lined">Programmation</h2>
         <hr class="sub-line">
         <ul class="schedule-members-list grid">
@@ -278,14 +293,16 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // protocol
+      $protocol_members = get_field('protocol');
+
+      ?>
+      <?php if (!empty($protocol_members)): ?>
       <div class="welcome group">
-        <?php
-
-        // protocol
-        $protocol_members = get_field('protocol');
-
-        ?>
-        <h2 class="sub title lined">Protocole</h2>
+        <h2 class="sub title lined">Protocole et relations internationales</h2>
         <hr class="sub-line">
         <ul class="wprotocol-list grid">
         <?php foreach ($protocol_members as $protocol_member) : ?>
@@ -312,13 +329,15 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
+      <?php
+
+      // international
+      $international_members = get_field('international');
+
+      ?>
+      <?php if (!empty($international_members)): ?>
       <div class="international group">
-        <?php
-
-        // international
-        $international_members = get_field('international');
-
-        ?>
         <h2 class="sub title lined">Relations internationales</h2>
         <hr class="sub-line">
         <ul class="international-members-list grid">
@@ -346,6 +365,7 @@ get_header_once();
         <?php endforeach; ?>
         </ul>
       </div>
+      <?php endif ?>
     </div>
   </div>
 
