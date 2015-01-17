@@ -302,7 +302,7 @@ get_header_once();
       ?>
       <?php if (!empty($protocol_members)): ?>
       <div class="welcome group">
-        <h2 class="sub title lined">Protocole</h2>
+        <h2 class="sub title lined">Protocole et relations internationales</h2>
         <hr class="sub-line">
         <ul class="wprotocol-list grid">
         <?php foreach ($protocol_members as $protocol_member) : ?>
