@@ -1,7 +1,8 @@
+@charset "UTF-8";
 @import url(reset.css);
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700);
-@import url(http://weloveiconfonts.com/api/?family=typicons);
-@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700";
+@import "http://weloveiconfonts.com/api/?family=typicons";
+@import "http://weloveiconfonts.com/api/?family=entypo";
 *,
 *:before,
 *:after {
@@ -15,13 +16,13 @@ button,
 input,
 select,
 textarea {
-  color: black; }
+  color: #000; }
 
 html {
   font-size: 16px; }
 
 body {
-  background: white;
+  background: #fff;
   position: relative;
   margin: 0;
   padding: 0; }
@@ -45,14 +46,14 @@ ul {
 
 ::-moz-selection {
   background: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: #fff;
   border: none;
   outline: none;
   text-shadow: none; }
 
 ::selection {
   background: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: #fff;
   border: none;
   outline: none;
   text-shadow: none; }
@@ -70,7 +71,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0; }
 
@@ -94,12 +95,12 @@ input, button, select, option, textarea {
 
 .chromeframe {
   margin: 0.2em 0;
-  background: #cccccc;
-  color: black;
+  background: #ccc;
+  color: #000;
   padding: 0.2em 0; }
 
 body {
-  color: #111111;
+  color: #111;
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300; }
 
@@ -112,17 +113,17 @@ b {
   font-weight: 700; }
 
 a {
-  color: #0094c2; }
+  color: #0094C2; }
   .no-touch a:hover {
     color: #00bfdf; }
   .dark a {
     color: #00bfdf; }
     .no-touch .dark a:hover {
-      color: white; }
+      color: #fff; }
 
 hr {
   margin: 1.5em 0;
-  border-color: #b8b9c2; }
+  border-color: #B8B9C2; }
   .dark hr {
     border-color: #4b4b4d; }
 
@@ -136,13 +137,13 @@ hr {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
   .dark .title {
-    color: white;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .dark .title.lined {
     background: #303030; }
   .black .title {
-    color: white;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .light .title {
@@ -176,7 +177,7 @@ hr {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    background: white;
+    background: #fff;
     padding-right: 1em;
     position: relative;
     z-index: 10; }
@@ -200,7 +201,7 @@ hr {
   display: block;
   margin: 0.5em 0;
   font-size: 0.85em;
-  color: #b8b9c2;
+  color: #B8B9C2;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
 
@@ -211,7 +212,7 @@ hr {
   top: -0.1em; }
 
 .note {
-  color: #b8b9c2;
+  color: #B8B9C2;
   font-size: 0.875em;
   display: block; }
   .dark .note {
@@ -281,58 +282,60 @@ hr {
   text-indent: 0; }
 
 .icon-blank:after {
-  content: "\f100"; }
+  content: ""; }
 
 .icon-star:after {
-  content: "\f101"; }
+  content: ""; }
 
 .icon-user:after {
-  content: "\f102"; }
+  content: ""; }
 
 .icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after {
-  content: "\f103"; }
+  content: ""; }
 
 .icon-arrow-left:after {
-  content: "\f104"; }
+  content: ""; }
 
 .icon-arrow-top:after {
-  content: "\f105"; }
+  content: ""; }
 
 .icon-arrow-bottom:after {
-  content: "\f106"; }
+  content: ""; }
 
 .icon-facebook:after {
-  content: "\f107"; }
+  content: ""; }
 
 .icon-twitter:after {
-  content: "\f108"; }
+  content: ""; }
 
 .icon-linkedin:after {
-  content: "\f109"; }
+  content: ""; }
 
 .icon-instagram:after {
-  content: "\f10a"; }
+  content: ""; }
 
 .icon-retweet:after {
-  content: "\f10b"; }
+  content: ""; }
 
 .icon-reply:after {
-  content: "\f10c"; }
+  content: ""; }
 
 .icon-favorite:after {
-  content: "\f10d"; }
+  content: ""; }
 
 .icon-more:after {
-  content: "\f10e"; }
+  content: ""; }
 
 .icon-close:after {
-  content: "\f10f"; }
+  content: ""; }
 
 .icon-website:after {
-  content: "\f110"; }
+  content: ""; }
 
 .icon-menu:after {
-  content: "\f111"; }
+  content: ""; }
 
 body.wp-autoresize {
   padding: 20px !important; }
+
+/*# sourceMappingURL=tinymce.css.map */

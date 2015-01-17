@@ -1541,6 +1541,9 @@ a[href].profile {
     -o-transform: translateX(1em);
     transform: translateX(1em); }
 
+.program {
+  padding-bottom: 0; }
+
 .days .btn.toggle > *:after, .days .toggle.profile > *:after {
   content: ""; }
 .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before {
@@ -1554,12 +1557,21 @@ a[href].profile {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
 .schedules {
-  padding: 0 50px;
-  margin: 0 auto; }
+  background: url(../img/@2x/bg-schedule.jpg) no-repeat center center;
+  background-size: cover;
+  zoom: 1; }
+  .schedules:before, .schedules:after {
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .schedules:after {
+    clear: both; }
   .schedules .schedule {
     margin-right: -100%;
     float: left;
     width: 100%;
+    padding: 100px 100px;
     z-index: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
@@ -1576,10 +1588,12 @@ a[href].profile {
       z-index: 1; }
   .schedules table {
     width: 100%;
+    margin: 0 auto;
     table-layout: fixed;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    border-radius: 4px; }
+    border-radius: 4px;
+    overflow: hidden; }
   .schedules td,
   .schedules th {
     padding: 3px;
@@ -1613,22 +1627,30 @@ a[href].profile {
         bottom: 10px;
         border-right: 10px solid #fff;
         border-color: inherit; }
-  .schedules tbody td {
-    border-top: 1px solid #eeeef0; }
   .schedules tbody th {
-    border-top: 1px solid #3d3d3d; }
-  .schedules tbody th {
+    border-top: 1px solid #3d3d3d;
     width: 75px;
     text-align: right;
     background: #303030;
     padding: 10px; }
     .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
       color: #fff; }
+  .schedules tbody td {
+    border-top: 1px solid #eeeef0;
+    height: 1px; }
+    .schedules tbody td[rowspan] > * {
+      height: 100%;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      -ms-box-sizing: content-box;
+      -o-box-sizing: content-box;
+      box-sizing: content-box; }
   .schedules .session > .wrap {
     padding: 0.75em; }
   .schedules .session .session-title {
     font-size: 1em;
-    line-height: 1.2; }
+    line-height: 1.2;
+    color: #005F93; }
   .schedules .session .favorite {
     position: relative;
     z-index: 2;
@@ -1671,13 +1693,15 @@ a[href].profile {
       vertical-align: middle; }
     .schedules .session .location .title, .schedules .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .location a {
       font-size: 0.875em; }
+    .no-schedule .schedules .session .location {
+      margin-right: 0; }
   .schedules .session .border-bottom:after {
     background: #B8B9C2; }
   .schedules .session .speaker {
-    margin-top: 0.75em; }
+    margin-top: 0.25em; }
     .schedules .session .speaker .title, .schedules .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .speaker a,
     .schedules .session .speaker .note {
-      color: #005F93;
+      color: #303030;
       text-transform: none; }
     .schedules .session .speaker .note {
       margin: -0.125em 0 0; }
@@ -1689,6 +1713,7 @@ a[href].profile {
       margin-left: 4em; }
     .schedules .session .thumb + .infos {
       min-height: 3em;
+      margin-top: 0.5em;
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -1727,6 +1752,23 @@ a[href].profile {
     font-size: 1.25em; }
   .schedules .keynote {
     font-size: 1.25em; }
+    .schedules .keynote:before, .schedules .keynote > *:before {
+      background: #005F93; }
+    .schedules .keynote:after {
+      border-color: #0D567E; }
+    .schedules .keynote .title, .schedules .keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote a,
+    .schedules .keynote .speaker {
+      color: #fff; }
+    .schedules .keynote .speaker .title, .schedules .keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote .speaker a,
+    .schedules .keynote .speaker .note {
+      color: #eeeef0;
+      width: auto;
+      display: inline-block;
+      *display: inline;
+      zoom: 1; }
+    .schedules .keynote .session-title,
+    .schedules .keynote .infos {
+      text-align: center; }
   .schedules .messages,
   .schedules .errors {
     padding: 20px;
@@ -3315,9 +3357,10 @@ footer .logo-o2 {
     section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
       font-size: 2.5em; }
 
-  .schedules {
-    max-width: 1000px;
-    padding: 0 20px; } }
+  .schedules .schedule {
+    padding: 50px 20px; }
+  .schedules table {
+    max-width: 960px; } }
 @media screen and (max-width: 1024px) {
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }

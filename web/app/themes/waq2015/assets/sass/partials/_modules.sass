@@ -682,6 +682,8 @@ a[href].btn
 //
 //
 // SCHEDULES
+.program 
+  padding-bottom: 0
 .days
   .btn.toggle
     &>*:after
@@ -693,12 +695,15 @@ a[href].btn
         +gradient($l-blue, $d-blue)
 
 .schedules
-  padding: 0 $xlarge
-  margin: 0 auto
+  
+  background: url(../img/@2x/bg-schedule.jpg) no-repeat center center
+  background-size: cover
+  +clearfix
   .schedule
     margin-right: -100%
     float: left
     width: 100%
+    padding: $xxlarge $xxlarge
     z-index: 0
     +opacity(0)
     +prefix(transition, opacity 540ms $ease)
@@ -708,9 +713,11 @@ a[href].btn
   
   table
     width: 100%
+    margin: 0 auto
     table-layout: fixed
     @extend .shadows
     +border-radius(4px)
+    overflow: hidden
 
   // CELLS
   td,
@@ -750,28 +757,32 @@ a[href].btn
   
   // BODY
   tbody
-    td
-      border-top: 1px solid $l-grey
     th
       border-top: 1px solid $m-grey
-
-  // Time labels
-  tbody th
-    width: $xxlarge*0.75
-    text-align: right
-    background: $d-grey
-    padding: $small
-    .title
-      color: #fff
+      width: $xxlarge*0.75
+      text-align: right
+      background: $d-grey
+      padding: $small
+      .title
+        color: #fff
+    td
+      border-top: 1px solid $l-grey
+      height: 1px
+      &[rowspan]>*
+        height: 100%
+        +prefix(box-sizing, content-box)
+    
   
   // SESSION
   .session
+
     >.wrap
       padding: 0.75em
 
     .session-title
       font-size: 1em
       line-height: 1.2
+      color: $d-blue
     .favorite
       position: relative
       z-index: 2
@@ -796,15 +807,17 @@ a[href].btn
       display: block
       .title
         font-size: 0.875em
+      .no-schedule &
+        margin-right: 0
     .border-bottom
       &:after
         background: $grey
 
     .speaker
-      margin-top: 0.75em
+      margin-top: 0.25em
       .title,
       .note
-        color: $d-blue
+        color: $d-grey
         text-transform: none
       .note
         margin: -0.125em 0 0
@@ -817,8 +830,10 @@ a[href].btn
         margin-left: 4em
       &+.infos
         min-height: 3em
+        margin-top: 0.5em
         +align-children(middle)
         display: block
+
 
     &.wide
       .thumb
@@ -847,8 +862,30 @@ a[href].btn
   //
   // KEYNOTES
   .keynote
-    font-size: 1.25em
+    font-size: 1.25em 
+    &:before,
+    &>*:before
+      background: $d-blue
+    &:after
+      border-color: $d-blue2
+    .title,
+    .speaker
+      color: #fff
+    .speaker
+      .title,
+      .note
+        color: $l-grey
+        width: auto
+        +inlineb
+    .session-title,
+    .infos
+      text-align: center
 
+
+
+  //
+  //
+  // MESSAGES & ERRORS
   .messages,
   .errors
     padding: $medium
