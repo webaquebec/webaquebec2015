@@ -52,10 +52,10 @@ namespace :deploy do
     on roles(:app) do
       within "/home/#{fetch(:user)}" do
         if fetch(:stage) == :staging
-          puts "Symlinking to Staging"
+          info " Symlinking to Staging"
           execute "rm -rf #{fetch(:bedrock_staging_symlink)} && ln -sf #{current_path}/web #{fetch(:bedrock_staging_symlink)}"
         else
-          puts "Symlinking to Production"
+          info " Symlinking to Production"
           execute "rm -rf #{fetch(:bedrock_production_symlink)} && ln -sf #{current_path}/web #{fetch(:bedrock_production_symlink)}"
         end
       end
@@ -74,7 +74,7 @@ namespace :uploads do
   task :pull do
     run_locally do
       roles(:all).each do |role|
-        execute :rsync, "-avzO -e 'ssh -p 522' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
+        execute :rsync, "-avzO -e 'ssh -p #{fetch(:ssh_options).fetch(:port, 22)}' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
       end
     end
   end
@@ -83,7 +83,7 @@ namespace :uploads do
   task :push do
     run_locally do
       roles(:all).each do |role|
-        execute :rsync, "-avzO -e 'ssh -p 522' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
+        execute :rsync, "-avzO -e 'ssh -p #{fetch(:ssh_options).fetch(:port, 22)}' --exclude='.DS_Store' #{role.user}@#{role.hostname}:#{shared_path}/web/app/uploads/ web/app/uploads/"
       end
     end
   end
@@ -100,7 +100,7 @@ namespace :predeploy do
           error "Trying to deploy to production and Google Analytic code is not set. Code was searched in #{footer.first}"
           exit 1
         else
-          puts "Google Analytic code found. Good to go."
+          info " Google Analytic code found. Good to go."
         end
       end
     end
