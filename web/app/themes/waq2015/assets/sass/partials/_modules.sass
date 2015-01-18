@@ -841,10 +841,17 @@ a[href].btn
         height: 6em
       &.has-thumb>*>*
         margin-left: 7em
-        &:first-child
+        text-indent: -7em
+
+        &.thumb
           margin-left: 0
+          text-indent: 0
         &.session-title
           margin-left: 6.25em
+        .infos
+          text-indent:  -6.25em
+          >*
+            text-indent: 0
 
 
 

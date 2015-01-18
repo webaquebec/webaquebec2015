@@ -1730,11 +1730,17 @@ a[href].profile {
     width: 6em;
     height: 6em; }
   .schedules .session.wide.has-thumb > * > * {
-    margin-left: 7em; }
-    .schedules .session.wide.has-thumb > * > *:first-child {
-      margin-left: 0; }
+    margin-left: 7em;
+    text-indent: -7em; }
+    .schedules .session.wide.has-thumb > * > *.thumb {
+      margin-left: 0;
+      text-indent: 0; }
     .schedules .session.wide.has-thumb > * > *.session-title {
       margin-left: 6.25em; }
+    .schedules .session.wide.has-thumb > * > * .infos {
+      text-indent: -6.25em; }
+      .schedules .session.wide.has-thumb > * > * .infos > * {
+        text-indent: 0; }
   .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a {
     text-align: center;
     color: #005f93;
