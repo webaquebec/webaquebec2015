@@ -24,18 +24,18 @@ get_header_once();
         </div>
         <div class="volounteers">
           <?php
-
           // featured volounteers
           $featured_volounteers = get_field('volounteers');
-
           ?>
-          <h2 class="lower title">Des bénévoles essentiels!</h2>
-          <p>Un merci tout spécial à notre équipe du tonnerre!</p>
+          <h2 class="lower title"><?= __('Des bénévoles essentiels!','waq') ?></h2>
+          <p><?= __('Un merci tout spécial à notre équipe du tonnerre!','waq') ?></p>
+          <?php if(has($featured_volounteers)): ?>
           <ul class="volounteers-list">
           <?php foreach ($featured_volounteers as $featured_volounteer) : ?>
             <li><?= $featured_volounteer['name']; ?></li>
           <?php endforeach; ?>
           </ul>
+          <?php endif; ?>
         </div>
       </div>
     </div>
