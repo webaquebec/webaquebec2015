@@ -18,7 +18,7 @@ global $current_user;
       </h1>
       <?php $schedules = new WP_query(array(
         'post_type' => 'grid',
-        'posts_per_page' => 1,
+        'posts_per_page' => -1,
         'orderby'=> 'menu_order',
       ));
       if($schedules->have_posts()): ?>    
