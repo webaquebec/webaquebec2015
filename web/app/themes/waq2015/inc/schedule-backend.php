@@ -4,7 +4,7 @@
 \*------------------------------------*/
 
 // COMPOSER REQUIRE
-// composer require wpackagist-plugin/acf-range-field:dev-trunk 
+// composer require wpackagist-plugin/acf-range-field:dev-trunk
 // composer require wpackagist-plugin/acf-field-date-time-picker:dev-trunk
 // composer require wpackagist-plugin/intuitive-custom-post-order:dev-trunk
 
@@ -91,7 +91,7 @@ function create_schedules()
             'not_found_in_trash' => 'Aucune grille trouvée dans la corbeille'
         ),
         'public' => true,
-        'hierarchical' => false, 
+        'hierarchical' => false,
         'has_archive' => false,
         'supports' => array(
             'title',
@@ -211,7 +211,7 @@ function create_schedules()
                                     'save_as_timestamp' => 'true',
                                     'get_as_timestamp' => 'true',
                                 ),
-                                
+
                             ),
                         ),
                     ),
@@ -236,7 +236,7 @@ function create_schedules()
             ),
         ));
 
-       
+
 
     endif;
 
@@ -267,7 +267,7 @@ function create_locations()
                 'not_found_in_trash' => 'Aucune salle trouvée dans la corbeille'
             ),
             'public' => true,
-            'hierarchical' => false, 
+            'hierarchical' => false,
             'has_archive' => false,
             'supports' => array(
                 'title',
@@ -276,7 +276,7 @@ function create_locations()
             'can_export' => true,
             'rewrite' => array( 'slug' => 'salle'),
         ));
-        
+
         //
         //
         // location infos
@@ -512,7 +512,7 @@ function create_locations()
                 0 => 'the_content',
             ),
         ));
-   
+
     endif;
 } // END CREATE_locationS
 
@@ -535,7 +535,7 @@ function create_sessions()
             'not_found_in_trash' => 'Aucune activité trouvée dans la corbeille'
         ),
         'public' => true,
-        'hierarchical' => false, 
+        'hierarchical' => false,
         'has_archive' => false,
         'supports' => array(
             'title',
@@ -864,7 +864,7 @@ function create_sessions()
                     'readonly' => 0,
                     'disabled' => 0,
                 ),
-                
+
             ),
             'location' => array (
                 array (
@@ -886,7 +886,7 @@ function create_sessions()
         //
         //
         // CONDITIONNAL FIELDS
-        
+
         $grids = array();
         $timeframes = array();
         $feild_key = hexdec('548f9681431db');
@@ -895,9 +895,9 @@ function create_sessions()
                 'post_type' => 'grid',
             )
         );
-        
 
-        if($schedules->have_posts()){ 
+
+        if($schedules->have_posts()){
             foreach($schedules->posts as $grid){
 
             $schedules->the_post();
@@ -943,7 +943,7 @@ function create_sessions()
 
         // append fields
         foreach($grids as $grid){
-    
+
             $choices = array();
             $i = 0;
             if(has($grid['timeframes'])){
@@ -952,11 +952,11 @@ function create_sessions()
                     $start = has($frame['start']) ? strftime('%H:%M', $frame['start']) : '...';
                     $end = has($frame['end']) ? strftime('%H:%M', $frame['end']) : '...';
                     $key = $frame['start'].'.'.$frame['end'];
-                    $choices[$key] = 'De '. $start .' à '. $end ; 
+                    $choices[$key] = 'De '. $start .' à '. $end ;
                     $i++;
                 }
             }
-            
+
             array_push($fields,
                 array (
                     'key' => 'field_'. $grid['key'],
@@ -992,9 +992,9 @@ function create_sessions()
                     'readonly' => 0,
                 )
             );
-            
+
             // add_filter('acf/load_value/name=frame_'. $grid['ID'], 'append_count_to_timeframes', 10, 3);
-        
+
         }
 
         //
@@ -1093,7 +1093,7 @@ function print_session_column( $column, $post_ID ) {
             break;
 
         case 'location':
-            
+
             echo get_the_title($location_ID);
             break;
 
@@ -1120,11 +1120,38 @@ function location_column_orderby( $vars ) {
     return $vars;
 }
 
-    
+//
+//
+// FORMAT TIME FIELDS
+function add_date_to_timestamps($timeframes){
+    // var_dump($timeframes);
+    foreach($timeframes as $row_key=>$timeframe)
+        foreach($timeframe as $frame_key=>$frame)
+            foreach($frame as $time_key=>$time)
+                foreach($time as $value_key=>$value)
+                    $timeframes[$row_key][$frame_key][$time_key][$value_key] = $value % 86400;
+    return $timeframes;
+}
+
+function remove_date_from_timestamps($timeframes){
+    foreach($timeframes as $row_key=>$timeframe)
+        foreach($timeframe as $frame_key=>$frame)
+            foreach($frame as $time_key=>$time)
+                foreach($time as $value_key=>$value)
+                    $timeframes[$row_key][$frame_key][$time_key][$value_key] = $value % 86400;
+    return $timeframes;
+}
+
+
+
+
 add_action('init', 'create_grid');
 add_action('init', 'create_schedules');
 add_action('init', 'create_locations');
 add_action('init', 'create_sessions');
+
+add_filter('acf/load_value/name=time_frames', 'add_date_to_timestamps', 10, 1);
+add_filter('acf/update_value/name=sttime_framesart', 'remove_date_from_timestamps', 10, 1);
 
 add_filter( 'manage_edit-session_columns', 'set_session_columns' );
 add_filter( 'manage_edit-session_sortable_columns', 'set_session_sortable_columns' );
@@ -1133,6 +1160,6 @@ add_filter( 'request', 'grid_column_orderby' );
 add_filter( 'request', 'location_column_orderby' );
 
 
-// 
+//
 
 ?>
