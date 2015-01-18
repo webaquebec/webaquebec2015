@@ -1594,7 +1594,25 @@ a[href].profile {
     .schedules td > .btn, .schedules td > .profile,
     .schedules th > .btn,
     .schedules th > .profile {
-      margin: 0 0 -1.5em; }
+      margin: 0 0 -1.5em;
+      display: block; }
+      .schedules td > .btn:after, .schedules td > .profile:after,
+      .schedules th > .btn:after,
+      .schedules th > .profile:after {
+        -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+        -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+        -webkit-transition: -webkit-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+        -moz-transition: -moz-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+        -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+        -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+        transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
+      .no-touch .schedules td > .btn:hover:after, .no-touch .schedules td > .profile:hover:after, .no-touch
+      .schedules th > .btn:hover:after, .no-touch
+      .schedules th > .profile:hover:after {
+        -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
   .schedules .title, .schedules nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules a {
     margin: 0; }
   .schedules .wrap {

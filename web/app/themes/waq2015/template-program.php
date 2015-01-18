@@ -117,10 +117,10 @@ global $current_user;
 
         <?php else: ?>
 
-        <?php 
+        <?php
         $wide = $session->columns->span > 1;
         ?>
-        <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
+        <a href="<?= $session->permalink ?>" class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
           <div class="wrap">
 
             <?php if($wide && $session->speaker->image): ?>
@@ -149,7 +149,7 @@ global $current_user;
                 <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
               </div>
               <?php endif; ?>
-              
+
               <h4 class="infos">
                 <span class="wrap">
                   <span class="name small title"><?= $session->speaker->name ?></span>
@@ -160,8 +160,8 @@ global $current_user;
               </h4>
             </div>
           </div>
-        </div>
-        
+        </a>
+
         <?php
         endif;
         $schedule->after_session();
