@@ -263,7 +263,7 @@ class schedule extends helper{
     return  $this->session_counter < $this->session_count
             &&(
                 (
-                  $this->timeframe_counter < $this->timeframe_count
+                  $this->timeframe_counter+1 < $this->timeframe_count
                   && $this->column_counter + $this->session->columns->span > $this->column_count
                 )
                 ||(
@@ -710,6 +710,7 @@ class schedule extends helper{
     while($this->needs_new_row()){
       $this->timeframe_counter++;
       $this->column_counter = 0;
+      if(!isset($this->time_keys[$this->timeframe_counter])) die;
       $timestamp = $this->time_keys[$this->timeframe_counter];
       if($this->sessions[$this->session_counter]->time->start == $timestamp){
        echo "</tr>\n<tr>\n";
