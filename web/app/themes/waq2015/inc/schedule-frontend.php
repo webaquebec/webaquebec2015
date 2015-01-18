@@ -4,7 +4,7 @@
 \*------------------------------------*/
 
 // COMPOSER REQUIRE
-// composer require wpackagist-plugin/acf-range-field:dev-trunk 
+// composer require wpackagist-plugin/acf-range-field:dev-trunk
 // composer require wpackagist-plugin/acf-field-date-time-picker:dev-trunk
 // composer require wpackagist-plugin/intuitive-custom-post-order:dev-trunk
 
@@ -74,10 +74,10 @@ class helper{
 //
 // SESSION
 class session extends helper{
-  
+
   public function __construct($ID) {
     if(isset($ID)){
-      
+
       //
       // SESSION
       $this->ID = $ID;
@@ -114,7 +114,7 @@ class session extends helper{
       $location_settings = $location_infos[0]['settings'];
       $title = $location_labels[0]['alt'];
       if(!has($title)) $title = get_the_title($location->ID);
-      
+
       $this->location = (object) array(
         'ID' => $location_ID,
         'hide' => $location_labels[0]['hide'],
@@ -140,7 +140,7 @@ class session extends helper{
         // get time-only timestamp (seconds elapsed from 0:00)
         $start = $frame['start'] % 86400;
         $end = $frame['end'] % 86400;
-  
+
         if(!isset($grid[$start])){
           $grid[$start] = $this->array_empty_columns($column_count, $k, $start);
         }
@@ -262,8 +262,8 @@ class schedule extends helper{
   private function needs_new_row(){
     return  $this->session_counter < $this->session_count
             &&(
-                ( 
-                  $this->timeframe_counter < $this->timeframe_count 
+                (
+                  $this->timeframe_counter < $this->timeframe_count
                   && $this->column_counter + $this->session->columns->span > $this->column_count
                 )
                 ||(
@@ -290,10 +290,10 @@ class schedule extends helper{
   // PRINT TABLE PARTS
 
 
- 
+
   // time label
   private function print_time_label(){
-      
+
       if(isset($this->time_keys[$this->timeframe_counter])){
         if(isset($this->grid[$this->time_keys[$this->timeframe_counter]]['key'])){
           $time = $this->timeframes[$this->grid[$this->time_keys[$this->timeframe_counter]]['key']]['frame'][0]['start'];
@@ -321,9 +321,9 @@ class schedule extends helper{
       $this->render_status->open_table = true;
     }
 
-    if( $this->options->render_thead 
+    if( $this->options->render_thead
         && !$this->render_status->open_tbody
-        && $this->header_counter==1){     
+        && $this->header_counter==1){
       echo "<thead>\n<tr>\n";
       $this->render_status->open_thead = true;
       if($this->options->render_time_labels) echo '<td class="'.$this->options->empty_class.'"></td>';
@@ -335,11 +335,11 @@ class schedule extends helper{
       $this->render_status->open_tbody = true;
       if($this->options->render_time_labels) $this->print_time_label();
     }
-    
+
   }
   // table foot
   private function print_content_after(){
-    
+
     if( $this->options->render_thead
         && !$this->render_status->close_thead
         && $this->header_counter >= $this->header_count){
@@ -349,12 +349,12 @@ class schedule extends helper{
     }
 
     if($this->session_counter < $this->session_count) return;
-    if(!$this->render_status->close_tbody){  
+    if(!$this->render_status->close_tbody){
       $this->print_empty_cells_after_session();
       echo '</tr>';
-      echo '</tbody>'; 
+      echo '</tbody>';
       $this->render_status->close_tbody = true;
-    } 
+    }
     if(!$this->render_status->close_table){
       echo '</table>';
       $this->render_status->close_table = true;
@@ -365,7 +365,7 @@ class schedule extends helper{
   //
   //
   // PRINT EMPTY HEADER CELLS
-  
+
   // before
   private function print_empty_cells_before_header(){
     $header = $this->header;
@@ -383,13 +383,13 @@ class schedule extends helper{
       $next_header = $this->headers[$this->header_counter];
 
       if($header->columns->start < $next_header->columns->start){
-        $empty_until = $next_header->columns->start - 1;             
+        $empty_until = $next_header->columns->start - 1;
       }
       else{
         $empty_until = $this->column_count;
         $this->throw_error('<a href="'.get_edit_post_link($header->ID).'" target="_blank">Column header '.$header->ID.'</a> is overlapping another column header');
       }
-    
+
     }
     else{
       $empty_until = $this->column_count;
@@ -407,14 +407,17 @@ class schedule extends helper{
   //
   //
   // PRINT EMPTY SESSION CELLS
-  
+
   // before
   private function print_empty_cells_before_session(){
     $session = $this->session;
-    if($session->columns->start && $session->columns->start != $this->column_counter){
+    if($session->columns->start != $this->column_counter){
+      $row = $this->grid[$this->time_keys[$this->timeframe_counter]];
       while($this->column_counter < $session->columns->start){
+        if(!$row[$this->column_counter]){
+          echo '<td class="'.$this->options->empty_class.'"></td>'."\n";
+        }
         $this->column_counter++;
-        echo "<td></td>\n";
       }
     }
   }
@@ -435,7 +438,7 @@ class schedule extends helper{
     if($session->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
-        echo "<td></td>\n";
+        echo '<td class="'.$this->options->empty_class.'"></td>'."\n";
       }
     }
   }
@@ -445,7 +448,7 @@ class schedule extends helper{
   // CONSTRUCTOR
 
   public function __construct($args){
-  
+
     $this->options = (object) array_merge(array(
       'grid_ID'=>null,
       'table_class'=> false,
@@ -455,16 +458,16 @@ class schedule extends helper{
       'time_labels_format' => '%k:%M',
       'empty_class' => 'empty',
     ),$args);
-  
+
     // VARIABLES
     $this->grid_ID = $this->options->grid_ID;
-   
+
     // GET locations
     $locationsQuery = new WP_query(array(
         'post_type' => 'location',
         'posts_per_page' => -1,
       ));
-    
+
     $this->locations = array();
     if($this->options->render_thead) $this->headers = array();
 
@@ -474,7 +477,7 @@ class schedule extends helper{
       $settings = $infos[0]['settings'];
       $title = $labels[0]['alt'];
       if(!has($title)) $title = get_the_title($location->ID);
-        
+
       $location_object = (object) array(
           'ID' => $location->ID,
           'hide' => $labels[0]['hide'],
@@ -492,14 +495,14 @@ class schedule extends helper{
           ),
         );
       $this->locations[$location->ID] = $location_object;
-      
+
       if($this->options->render_thead && $settings[0]['is_column_header']){
         array_push($this->headers, $location_object);
       }
 
     }
 
- 
+
     // GET TIMEFRAMES
     $this->timeframes = get_field('time_frames', $this->grid_ID);
     $this->grid = array();
@@ -532,9 +535,9 @@ class schedule extends helper{
     }
     else{
       $this->throw_error('No timeframe found for this grid');
-    } 
+    }
 
-  
+
     // GET SESSIONS
     $sessionsQuery = new WP_query(array(
         'post_type' => 'session',
@@ -552,15 +555,15 @@ class schedule extends helper{
     foreach($sessionsQuery->posts as $k=>$session){
       $session = new session($session->ID);
       array_push($this->sessions, $session);
-           
-         
+
+
 
       // build $this->grid for debugging
       if(isset($this->grid[$session->time->start])){
         $t = 0;
         $time_keys = $this->time_keys;
         $start_key = array_search($session->time->start, $time_keys);
-         
+
 
         // loop through timespan
         while($t<$session->time->span){
@@ -572,7 +575,7 @@ class schedule extends helper{
             while($c<$session->columns->end){
               $this->grid[$timestamp][$c] = $session->ID;
               $c++;
-            } 
+            }
           }
           else{
             $this->throw_message('Problem with columns '.$session->columns->start.' throught '.$session->columns->end.' on timeframe '.$timestamp.' while building grid for debugging.');
@@ -591,12 +594,13 @@ class schedule extends helper{
     usort($this->sessions, array('schedule','sort_sessions'));
     $this->sessions_IDs = $this->get_sessions_IDs();
     $this->remove_overlapping_sessions();
-    
+
     if($this->options->render_thead){
       usort($this->headers, array('schedule','sort_headers'));
     }
 
     $this->remove_empty_grid_rows();
+
 
     // SET COUNTERS
     $this->session_count = count($this->sessions);
@@ -641,9 +645,9 @@ class schedule extends helper{
     $this->header_counter++;
     $this->column_counter++;
     $header = $this->header;
-    
+
     $this->print_content_before();
-    
+
     $this->print_empty_cells_before_header();
     echo '<th'.($header->columns->span >1 ? ' colspan="'.$header->columns->span .'"' : '').'>';
     return $header;
@@ -653,7 +657,7 @@ class schedule extends helper{
   // PRINT HTML AFTER CURRENT HEADER
   public function after_header(){
     $header = $this->header;
-    if($header->columns->start == $this->column_counter ){     
+    if($header->columns->start == $this->column_counter ){
       echo "</th>\n";
       $this->column_counter += $header->columns->span-1;
       $this->print_empty_cells_after_header();
@@ -696,8 +700,8 @@ class schedule extends helper{
     $session = $this->session;
     $timestamp = $this->time_keys[$this->timeframe_counter];
 
-    if( $session->time->start == $timestamp 
-        && $session->columns->start == $this->column_counter ){     
+    if( $session->time->start == $timestamp
+        && $session->columns->start == $this->column_counter ){
       echo "</td>\n";
       $this->column_counter += $session->columns->span-1;
       $this->print_empty_cells_after_session();
@@ -706,7 +710,7 @@ class schedule extends helper{
     while($this->needs_new_row()){
       $this->timeframe_counter++;
       $this->column_counter = 0;
-      $timestamp = $this->time_keys[$this->timeframe_counter];  
+      $timestamp = $this->time_keys[$this->timeframe_counter];
       if($this->sessions[$this->session_counter]->time->start == $timestamp){
        echo "</tr>\n<tr>\n";
        if($this->options->render_time_labels) $this->print_time_label();
