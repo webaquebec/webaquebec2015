@@ -1189,16 +1189,13 @@ a[href].profile {
     color: #005f93;
     text-transform: none;
     padding-right: 2.4em;
-    -webkit-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), -webkit-transform 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -moz-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), -moz-transform 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -ms-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), -ms-transform 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -o-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), -o-transform 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), transform 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0); }
+    position: relative;
+    left: 0;
+    -webkit-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -moz-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -ms-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -o-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1); }
   .profile .links {
     position: absolute;
     left: 100%;
@@ -1284,13 +1281,9 @@ a[href].profile {
         transition: color 240ms linear; }
     .no-touch .profile.mini:hover .links:after {
       color: #b8b9c2; }
-  .profile.active .name, .no-touch .profile:hover .name {
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%); }
-  .profile.active .links, .no-touch .profile:hover .links {
+  .profile.has-social.active .name, .no-touch .profile.has-social:hover .name {
+    left: -100%; }
+  .profile.has-social.active .links, .no-touch .profile.has-social:hover .links {
     left: 0;
     margin-left: 0; }
 

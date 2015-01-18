@@ -451,8 +451,9 @@ a[href].btn
     color: $d-blue
     text-transform: none
     padding-right: 2.4em
-    +prefix(transition, margin 320ms $ease, transform 320ms $ease)
-    +prefix(transform, translateX(0))
+    position: relative
+    left: 0
+    +prefix(transition, margin 320ms $ease, left 320ms $ease)
   .links
     position: absolute
     left: 100%
@@ -522,10 +523,10 @@ a[href].btn
         color: $grey
 
   // HOVER
-  &.active,
-  .no-touch &:hover
+  &.has-social.active,
+  .no-touch &.has-social:hover
     .name
-      +prefix(transform, translateX(-100%))
+      left: -100%
     .links
       left: 0
       margin-left: 0
