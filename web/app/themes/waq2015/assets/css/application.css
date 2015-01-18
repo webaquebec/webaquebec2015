@@ -1150,7 +1150,8 @@ a[href].profile {
     display: none; }
   .profile > * {
     height: 3.6em;
-    padding-left: 4em;
+    padding-left: 3.6em;
+    padding-right: 0.75em;
     width: 100%; }
   .profile .thumb {
     position: absolute;
@@ -1191,11 +1192,11 @@ a[href].profile {
     padding-right: 2.4em;
     position: relative;
     left: 0;
-    -webkit-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -moz-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -ms-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    -o-transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1);
-    transition: margin 320ms cubic-bezier(0.2, 0, 0.4, 1), left 320ms cubic-bezier(0.2, 0, 0.4, 1); }
+    -webkit-transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -moz-transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -ms-transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    -o-transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1);
+    transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1); }
   .profile .links {
     position: absolute;
     left: 100%;
@@ -1203,6 +1204,7 @@ a[href].profile {
     height: 100%;
     width: 100%;
     z-index: 1;
+    margin-left: 0.25em;
     text-align: right;
     cursor: default;
     -webkit-transition: left 320ms cubic-bezier(0.2, 0, 0.4, 1);
@@ -1284,8 +1286,7 @@ a[href].profile {
   .profile.has-social.active .name, .no-touch .profile.has-social:hover .name {
     left: -100%; }
   .profile.has-social.active .links, .no-touch .profile.has-social:hover .links {
-    left: 0;
-    margin-left: 0; }
+    left: 0; }
 
 .conferencer-info {
   display: inline-block;

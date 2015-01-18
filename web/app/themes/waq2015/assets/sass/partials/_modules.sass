@@ -430,7 +430,8 @@ a[href].btn
     display: none
   >*
     height: 3.6em
-    padding-left: 4em
+    padding-left: 3.6em
+    padding-right: 0.75em
     width: 100%
   .thumb
     position: absolute
@@ -453,7 +454,7 @@ a[href].btn
     padding-right: 2.4em
     position: relative
     left: 0
-    +prefix(transition, margin 320ms $ease, left 320ms $ease)
+    +prefix(transition, left 320ms $ease)
   .links
     position: absolute
     left: 100%
@@ -461,6 +462,7 @@ a[href].btn
     height: 100%
     width: 100%
     z-index: 1
+    margin-left: 0.25em
     text-align: right
     cursor: default
     +prefix(transition, left 320ms $ease)
@@ -529,7 +531,6 @@ a[href].btn
       left: -100%
     .links
       left: 0
-      margin-left: 0
 //
 //
 // CONFERENCER INFOS
