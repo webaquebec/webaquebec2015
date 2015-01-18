@@ -2230,7 +2230,8 @@ section.intro {
   .features .image {
     z-index: 0; }
     .features .image img {
-      width: 100%; }
+      min-width: 100%;
+      min-height: 100%; }
   .features .favorite {
     float: right;
     margin-right: 0;
