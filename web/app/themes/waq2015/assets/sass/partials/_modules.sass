@@ -83,7 +83,7 @@
 .sticky
   position: absolute
   width: 100%
-  top: 0 
+  top: 0
   &.fixed
     position: fixed
     top: 120px
@@ -102,7 +102,7 @@
 .delay-1
   +prefix(transition-delay, 540ms !important)
 .delay-2
-  +prefix(transition-delay, 1080ms !important) 
+  +prefix(transition-delay, 1080ms !important)
 
 //
 //
@@ -537,7 +537,7 @@ a[href].btn
   // width: 50%
   float: left!important
   .wrap
-    // padding-left: 8.5em 
+    // padding-left: 8.5em
     padding: 0
     +inlineb
     &:after
@@ -591,13 +591,13 @@ a[href].btn
 //
 //
 // SOCIAL
-.social 
+.social
   a
     position: relative
     padding-left: 1.5em
     display: block
     line-height: 1.375
-    &:after 
+    &:after
       position: absolute
       left: 0
       top: 0
@@ -609,7 +609,7 @@ a[href].btn
     &.instagram
       @extend .icon-instagram
     &.linkedin
-      @extend .icon-linkedin 
+      @extend .icon-linkedin
     &.website
       @extend .icon-website
 
@@ -619,7 +619,7 @@ a[href].btn
   position: relative
   text-indent: -9999px
   cursor: pointer
-  .logo & 
+  .logo &
     position: absolute
     top: 50%
     right: 3em
@@ -644,15 +644,15 @@ a[href].btn
   &:before,
   &:after
     +prefix(transform, rotate(0deg))
-    
-  
+
+
   &:before
     top: 0.9em
     +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, top 320ms $easeOut)
   &:after
     bottom: 0.9em
     +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, bottom 320ms $easeOut)
-  
+
   &.active
     i
       width: 0.3em
@@ -682,7 +682,7 @@ a[href].btn
 //
 //
 // SCHEDULES
-.program 
+.program
   padding-bottom: 0
 .days
   .btn.toggle
@@ -695,7 +695,7 @@ a[href].btn
         +gradient($l-blue, $d-blue)
 
 .schedules
-  
+
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center
   background-size: cover
   +clearfix
@@ -710,7 +710,7 @@ a[href].btn
     &.active
       +opacity(1)
       z-index: 1
-  
+
   table
     width: 100%
     margin: 0 auto
@@ -730,9 +730,9 @@ a[href].btn
     margin: 0
   .wrap
     width: 100%
-  
+
   // HEAD
-  thead 
+  thead
     background: $d-grey3
     text-align: left
     td
@@ -754,7 +754,7 @@ a[href].btn
         bottom: $small
         border-right: $small solid #fff
         border-color: inherit
-  
+
   // BODY
   tbody
     th
@@ -771,8 +771,7 @@ a[href].btn
       &[rowspan]>*
         height: 100%
         +prefix(box-sizing, content-box)
-    
-  
+
   // SESSION
   .session
 
@@ -839,7 +838,7 @@ a[href].btn
       .thumb
         width: 6em
         height: 6em
-      &.has-thumb>*>*      
+      &.has-thumb>*>*
         margin-left: 7em
         &:first-child
           margin-left: 0
@@ -862,7 +861,7 @@ a[href].btn
   //
   // KEYNOTES
   .keynote
-    font-size: 1.25em 
+    font-size: 1.25em
     &:before,
     &>*:before
       background: $d-blue
@@ -895,4 +894,3 @@ a[href].btn
     z-index: 3
   .errors
     border-color: $red
-  
