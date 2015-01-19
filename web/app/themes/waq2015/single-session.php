@@ -96,7 +96,7 @@ $session = new session($post->ID);
           <div class="content">
             <?= $session->speaker->bio ?>
           </div>
-          <?php if has($session->speaker->social): ?>
+          <?php if(has($session->speaker->social)): ?>
             <ul class="social">
             <?php foreach($session->speaker->social as $social): ?>
               <li>
