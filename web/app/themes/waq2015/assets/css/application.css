@@ -3249,11 +3249,19 @@ footer .contact-general {
     margin: 0 0 10px 0; }
   footer .contact-general .hashtag {
     height: 2.625em;
-    max-width: 100%; }
+    max-width: 100%;
+    zoom: 1; }
+    footer .contact-general .hashtag:before, footer .contact-general .hashtag:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden; }
+    footer .contact-general .hashtag:after {
+      clear: both; }
   footer .contact-general .social {
     list-style-type: none;
     font-size: 1.75em;
-    margin-top: 0.5em; }
+    margin: 0.5em 0 0 0; }
     footer .contact-general .social li {
       display: inline-block;
       *display: inline;
@@ -3794,6 +3802,7 @@ footer .logo-o2 {
       padding: 0 10px 20px; }
 
   footer .top-footer {
+    width: 100%;
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
@@ -3808,7 +3817,11 @@ footer .logo-o2 {
       word-spacing: normal;
       line-height: 1;
       width: 100%;
-      padding: 0 0 0; } }
+      padding: 0 0 0; }
+  footer .contact-general .hashtag {
+    height: auto;
+    width: 100%;
+    display: block; } }
 @media screen and (max-width: 768px) {
   html,
   .grid > * > * {
