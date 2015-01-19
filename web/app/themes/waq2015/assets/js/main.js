@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
   }
   function cancelEvents(e){
     e.stopPropagation();
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   //
