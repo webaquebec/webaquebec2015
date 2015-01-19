@@ -221,11 +221,12 @@ hr {
     margin-bottom: 1em; }
 
 .list, .content ul, .content ol {
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 1em 0; }
   .list li, .content ul li, .content ol li {
     width: 100%;
     position: relative;
-    padding: 5px 0 5px 20px; }
+    padding: 0.25em 0 0.25em 1.25em; }
   .list.bullets li:after, .content ul li:after, .content ol.bullets li:after {
     position: absolute;
     top: 50%;

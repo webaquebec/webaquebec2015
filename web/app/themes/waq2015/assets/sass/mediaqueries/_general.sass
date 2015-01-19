@@ -384,6 +384,36 @@
         .touch &
           font-size: 0.75em
 
+
+  //
+  //
+  // SESSION
+  .session
+    .cols
+      +grid(1, 0)
+    .col
+      &.narrow,
+      &.wide
+        padding: 0
+      &.narrow
+        margin-top: 1em
+        padding-top: 2em
+        border-top: 1px solid $l-grey1
+    .conferencer
+      margin-top: 0
+      float: none
+      width: 100%
+      .about
+        font-size: 0.875em
+        padding-bottom: 0
+        margin-bottom: 0
+      .social
+        li,
+        a
+          +inlineb
+        li
+          margin-right: 2em
+
   //
   //
   // BLOG-PAGE
@@ -549,11 +579,6 @@
       font-size: 1em
       margin-top: 0
       padding-top: 0
-
-  //
-  //
-  // SCHEDULE
-
 
 
   //

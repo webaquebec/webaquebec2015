@@ -221,11 +221,12 @@ hr {
     margin-bottom: 1em; }
 
 .list, .content ul, .content ol {
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 1em 0; }
   .list li, .content ul li, .content ol li {
     width: 100%;
     position: relative;
-    padding: 5px 0 5px 20px; }
+    padding: 0.25em 0 0.25em 1.25em; }
   .list.bullets li:after, .content ul li:after, .content ol.bullets li:after {
     position: absolute;
     top: 50%;
@@ -3022,6 +3023,8 @@ section.intro {
   margin-top: -100px; }
   .single .conferencer.has-thumb .name {
     margin-left: 120px; }
+  .single .conferencer .social {
+    font-size: 0.75em; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single.session, .single.article {
@@ -3734,6 +3737,44 @@ footer .logo-o2 {
     font-size: 0.875em; }
     .touch .waq2015 .group .profile {
       font-size: 0.75em; }
+
+  .session .cols, .session .cols-2, .session .cols-3, .session .cols-4 {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .session .cols > *, .session .cols-2 > *, .session .cols-3 > *, .session .cols-4 > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+  .session .col.narrow, .session .col.wide {
+    padding: 0; }
+  .session .col.narrow {
+    margin-top: 1em;
+    padding-top: 2em;
+    border-top: 1px solid #cacaca; }
+  .session .conferencer {
+    margin-top: 0;
+    float: none;
+    width: 100%; }
+    .session .conferencer .about {
+      font-size: 0.875em;
+      padding-bottom: 0;
+      margin-bottom: 0; }
+    .session .conferencer .social li,
+    .session .conferencer .social a {
+      display: inline-block;
+      *display: inline;
+      zoom: 1; }
+    .session .conferencer .social li {
+      margin-right: 2em; }
 
   .blog-page .posts {
     font-size: 0;
