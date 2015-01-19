@@ -2537,7 +2537,8 @@ section.intro {
       padding: 0 10px 20px; }
   .program .days .btn, .program .days .profile {
     width: 100%;
-    text-align: right; }
+    text-align: right;
+    padding-right: 0; }
   .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a {
     margin: 0; }
 
@@ -4103,6 +4104,38 @@ footer .logo-o2 {
     width: 100%; }
   .single .content {
     font-size: 0.75em; }
+
+  .program .days {
+    height: auto; }
+    .program .days .sticky {
+      position: relative;
+      margin-top: 0;
+      top: auto;
+      margin-left: 0;
+      height: auto;
+      padding: 0; }
+    .program .days ul {
+      font-size: 0;
+      word-spacing: 0;
+      line-height: 0;
+      margin-left: 0;
+      margin-right: 0; }
+      .program .days ul > * {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        font-size: 16px;
+        font-size: initial;
+        word-spacing: normal;
+        line-height: 1;
+        width: 100%;
+        padding: 0 0 0; }
+    .program .days .btn, .program .days .profile {
+      text-align: center; }
+    .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a {
+      display: inline-block;
+      *display: inline;
+      zoom: 1; }
 
   .schedules tbody td {
     width: 80%; } }
