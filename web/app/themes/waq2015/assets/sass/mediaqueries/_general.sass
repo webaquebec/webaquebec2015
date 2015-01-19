@@ -55,6 +55,9 @@
       .secondary
         display: block
 
+      // dirty fix
+      .secondary
+        display: none
   nav[role="navigation"],
   body >
     .logo.waq
@@ -93,9 +96,7 @@
 
       li
         display: block
-    // dirty fix
-    .secondary
-      display: none
+    
 
     .main
       .acheter-mon-billet
@@ -253,7 +254,9 @@
       font-size: 0
       width: 100%
       position: relative
-      overflow: auto
+      overflow-x: auto
+      overflow-y: hidden
+
       -webkit-overflow-scrolling: touch
       >*
         +inlineb
@@ -487,6 +490,7 @@
     .image
       img
         max-width: 100%
+        min-height: 0
 
   //
   //
@@ -543,6 +547,11 @@
       font-size: 1em
       margin-top: 0
       padding-top: 0
+
+  //
+  //
+  // SCHEDULE
+
 
 
   //

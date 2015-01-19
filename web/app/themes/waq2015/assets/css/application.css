@@ -3385,6 +3385,8 @@ footer .logo-o2 {
     body > nav[role="navigation"] .main,
     body > nav[role="navigation"] .secondary {
       display: block; }
+    body > nav[role="navigation"] .secondary {
+      display: none; }
 
   nav[role="navigation"] .logo.waq,
   body > .logo.waq {
@@ -3431,8 +3433,6 @@ footer .logo-o2 {
       nav[role="navigation"] .main li,
       nav[role="navigation"] .secondary li {
         display: block; }
-    nav[role="navigation"] .secondary {
-      display: none; }
     nav[role="navigation"] .main .acheter-mon-billet {
       display: block;
       float: none; }
@@ -3578,7 +3578,8 @@ footer .logo-o2 {
     font-size: 0;
     width: 100%;
     position: relative;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch; }
     .schedules thead tr > *, .no-js .schedules tbody tr > *,
     .schedules tbody .swiper > * {
@@ -3843,7 +3844,8 @@ footer .logo-o2 {
   .features .infos {
     font-size: 1em; }
   .features .image img {
-    max-width: 100%; }
+    max-width: 100%;
+    min-height: 0; }
 
   .event-location {
     background: transparent;
