@@ -123,7 +123,7 @@ global $current_user;
         $wide = $session->columns->span > 1;
         ?>
         <div>
-          <a href="<?= $session->permalink ?>" class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
+          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
             <div class="wrap">
 
               <?php if($wide && $session->speaker->image): ?>
@@ -144,26 +144,28 @@ global $current_user;
                 </span>
               </div>
 
-              <h3 class="session-title title"><?= $session->title ?></h3>
+              <a href="<?= $session->permalink ?>">
+                <h3 class="session-title title"><?= $session->title ?></h3>
 
-              <div class="speaker">
-                <?php if(!$wide && $session->speaker->image): ?>
-                <div class="thumb">
-                  <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+                <div class="speaker">
+                  <?php if(!$wide && $session->speaker->image): ?>
+                  <div class="thumb">
+                    <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+                  </div>
+                  <?php endif; ?>
+
+                  <h4 class="infos">
+                    <span class="wrap">
+                      <span class="name small title"><?= $session->speaker->name ?></span>
+                      <?php if(has($session->speaker->job)) : ?>
+                      <span class="job note"><?= $session->speaker->job ?></span>
+                      <?php endif; ?>
+                    </span>
+                  </h4>
                 </div>
-                <?php endif; ?>
-
-                <h4 class="infos">
-                  <span class="wrap">
-                    <span class="name small title"><?= $session->speaker->name ?></span>
-                    <?php if(has($session->speaker->job)) : ?>
-                    <span class="job note"><?= $session->speaker->job ?></span>
-                    <?php endif; ?>
-                  </span>
-                </h4>
-              </div>
+              </a>
             </div>
-          </a>
+          </div>
         </div>
 
         <?php

@@ -281,6 +281,7 @@ jQuery(document).ready(function($){
 
       $trigger.addClass('active');
       $schedule.addClass('active');
+      e.stopPropagation();
 
     }
 

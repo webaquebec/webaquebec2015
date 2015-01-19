@@ -1687,6 +1687,10 @@ a[href].profile {
       box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
   .schedules .session > .wrap {
     padding: 0.75em; }
+  .schedules .session a {
+    display: block;
+    position: relative;
+    z-index: 2; }
   .schedules .session .session-title {
     font-size: 1em;
     line-height: 1.2;
@@ -1782,6 +1786,8 @@ a[href].profile {
     text-indent: -7em; }
     .schedules .session.wide.has-thumb > * > *.thumb {
       margin-left: 0;
+      text-indent: 0; }
+    .schedules .session.wide.has-thumb > * > *.location {
       text-indent: 0; }
     .schedules .session.wide.has-thumb > * > *.session-title {
       margin-left: 6.25em; }
