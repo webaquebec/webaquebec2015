@@ -96,14 +96,15 @@ $session = new session($post->ID);
           <div class="content">
             <?= $session->speaker->bio ?>
           </div>
-
-          <ul class="social">
-          <?php foreach($session->speaker->social as $social): ?>
-            <li>
-              <a class="<?= $social['provider'] ?>" href="<?= $social['url'] ?>"><?= $social['label'] ?></a>
-            </li>
-          <?php endforeach; ?>
-          </ul>
+          <?php if has($session->speaker->social): ?>
+            <ul class="social">
+            <?php foreach($session->speaker->social as $social): ?>
+              <li>
+                <a class="<?= $social['provider'] ?>" href="<?= $social['url'] ?>"><?= $social['label'] ?></a>
+              </li>
+            <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
       </div>
 
     </aside>

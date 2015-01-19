@@ -30,6 +30,10 @@ jQuery(document).ready(function($){
             n>max ? max :
             n;
   }
+  function cancelEvents(e){
+    e.stopPropagation();
+    e.preventDefault();
+  }
 
   //
   //
@@ -216,7 +220,9 @@ jQuery(document).ready(function($){
     // disable
     function disableStickys(){
       waq.$stickys.sticky('destroy');
-      waq.$stickys.removeClass('contained fixed');
+      setTimeout(function(){
+        waq.$stickys.removeClass('contained fixed');
+      },240);
     }
   }
 
@@ -232,6 +238,80 @@ jQuery(document).ready(function($){
       }
     });
   }
+
+
+
+
+  //
+  //
+  // MOBILE SCHEDULES
+
+  function initMobileSchedule(){
+
+  }
+
+  function destroyMobileSchedule(){
+
+  }
+
+
+  function enableMobileSchedules(){
+    waq.$schedules.isMobile = true;
+    for(var i=0; i<waq.$schedules.length; i++){
+      var $schedule = $(waq.$schedules[i]);
+      $schedule[0].$headers = $('thead th', $schedule);
+      $schedule[0].$rows = $('tbody tr', $schedule);
+      $schedule.on('touchstart', cancelEvents);
+      for(var r=0; r<$schedule[0].$rows.length; r++){
+        var $row = $schedule[0].$rows[r];
+        var $cells = $('td',$row);
+        $cells.wrapAll('<div class="swiper"></div>');
+        for(var c=0; c<$cells.length; c++){
+          var $cell = $($cells[c]);
+          var $location = $cell.find('[location]');
+          if($location.length){
+            var locationID = $location.attr('location');
+            var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
+            if($refHeader){
+              var $clonedHeader = $refHeader.clone();
+              $cell.find('.location').prepend($clonedHeader);
+              $cell[0].$clonedHeader = $clonedHeader;
+            }
+          }
+        }
+      }
+    }
+
+    // initMobileSchedule(waq.$schedules.filter('.active'));
+  }
+
+  function disableMobileSchedules(){
+    waq.$schedules.isMobile = false;
+    for(var i=0; i<waq.$schedules.length; i++){
+      var $schedule = $(waq.$schedules[i]);
+      $schedule[0].$headers = $('thead th', $schedule);
+      $schedule[0].$rows = $('tbody tr', $schedule);
+      $schedule.off('touchstart', cancelEvents);
+      for(var r=0; r<$schedule[0].$rows.length; r++){
+        var $row = $schedule[0].$rows[r];
+        var $cells = $('td',$row);
+
+        for(var c=0; c<$cells.length; c++){
+          var $cell = $($cells[c]);
+          if($cell[0].$clonedHeader){
+            $cell[0].$clonedHeader.remove();
+          }
+        }
+
+        $cells.unwrap();
+
+      }
+    }
+
+    // destroyMobileSchedule(waq.$schedules.filter('.active'));
+  }
+
+
 
   //
   //
@@ -278,9 +358,14 @@ jQuery(document).ready(function($){
 
       $previousTab.removeClass('active');
       $previousSchedule.removeClass('active');
+      // if(waq.$schedules.isMobile) destroyMobileSchedule($previousSchedule);
 
       $trigger.addClass('active');
       $schedule.addClass('active');
+      // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
+
+      if(waq.$program.$sticky) waq.$program.$sticky.sticky('update');
+
       e.stopPropagation();
 
     }
@@ -334,7 +419,6 @@ jQuery(document).ready(function($){
     }
 
     google.maps.event.addDomListener(window, 'load', launchInit);
-
   }
 
 
@@ -382,20 +466,22 @@ jQuery(document).ready(function($){
     if(waq.$intro.length) disableStickyNav();
   }
 
+
   //
   //
-  // > 768px
-  function largerThan768(e){
+  // > 1024px
+  function largerThan1024(e){
     if(waq.$stickys.length) enableStickys();
     if(e=='init') return; // Exit here at init --------------------------
+    if(waq.$schedules.length) disableMobileSchedules();
     $win.scrollEvents('update');
   }
-  // < 768px
-  function smallerThan768(e){
+  // < 1024px
+  function smallerThan1024(e){
+    if(waq.$schedules.length) enableMobileSchedules();
     if(e=='init') return; // Exit here at init --------------------------
     if(waq.$stickys.length) disableStickys();
   }
-
 
   $win.breakpoints([
       {
@@ -406,13 +492,12 @@ jQuery(document).ready(function($){
          }
       },
       {
-         width: 768,
+         width: 1024,
          callback: {
-          larger: largerThan768,
-          smaller: smallerThan768
+          larger: largerThan1024,
+          smaller: smallerThan1024
          }
       }
-
     ]);
 
 });

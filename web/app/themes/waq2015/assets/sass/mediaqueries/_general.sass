@@ -93,6 +93,9 @@
 
       li
         display: block
+    // dirty fix
+    .secondary
+      display: none
 
     .main
       .acheter-mon-billet
@@ -230,6 +233,78 @@
           padding-right: 0
     .content
       font-size: 1.25em
+
+  //
+  //
+  // SCHEDULES
+  .schedules
+    table, tbody, thead, tr, td, th
+      display: block
+    thead tr,
+    .no-js & tbody tr,
+    tbody .swiper
+      white-space: nowrap
+      font-size: 0
+      width: 100%
+      position: relative
+      overflow: auto
+      -webkit-overflow-scrolling: touch
+      >*
+        +inlineb
+        white-space: normal
+        font-size: 14px
+    thead
+      display: none
+      .no-js &
+        display: block
+      td
+        display: none
+      th
+        width: 20%
+    tbody
+      tr
+        padding-top: $large
+        position: relative
+
+      th
+        width: 100%
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        padding: 0.25em
+        height: $large
+        .title
+          +inlineb
+      td
+        height: auto
+        width: 40%
+        &[colspan="5"]
+          width: 100%
+        &+td
+          display: none
+          .no-js &
+            display: block
+    .swiper
+      .session
+        .location.border-bottom
+          &:before
+            display: none
+          >.title
+            display: none
+        .location[location]
+          position: relative
+          >*
+            display: block
+            padding-left: $medium
+          &:before
+            position: absolute
+            display: block
+            top: 0
+            left: 0
+            height: 100%
+            border-right: #fff $small solid
+            border-color: inherit
 
 
 
