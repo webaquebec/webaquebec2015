@@ -93,6 +93,9 @@
 
       li
         display: block
+    // dirty fix
+    .secondary
+      display: none
 
     .main
       .acheter-mon-billet
@@ -245,11 +248,15 @@
       width: 100%
       position: relative
       overflow: auto
+      -webkit-overflow-scrolling: touch
       >*
         +inlineb
         white-space: normal
         font-size: 14px
     thead
+      display: none
+      .no-js &
+        display: block
       td
         display: none
       th
@@ -278,6 +285,29 @@
           display: none
           .no-js &
             display: block
+    .swiper
+      .session
+        .location.border-bottom
+          &:before
+            display: none
+          >.title
+            display: none
+        .location[location]
+          position: relative
+          >*
+            display: block
+            padding-left: $medium
+          &:before
+            position: absolute
+            display: block
+            top: 0
+            left: 0
+            height: 100%
+            border-right: #fff $small solid
+            border-color: inherit
+
+
+
 @media screen and (max-width: 1023px)
 
   //

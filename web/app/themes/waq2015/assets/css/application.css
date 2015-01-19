@@ -3389,6 +3389,8 @@ footer .logo-o2 {
       nav[role="navigation"] .main li,
       nav[role="navigation"] .secondary li {
         display: block; }
+    nav[role="navigation"] .secondary {
+      display: none; }
     nav[role="navigation"] .main .acheter-mon-billet {
       display: block;
       float: none; }
@@ -3525,7 +3527,8 @@ footer .logo-o2 {
     font-size: 0;
     width: 100%;
     position: relative;
-    overflow: auto; }
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
     .schedules thead tr > *, .no-js .schedules tbody tr > *,
     .schedules tbody .swiper > * {
       display: inline-block;
@@ -3533,10 +3536,14 @@ footer .logo-o2 {
       zoom: 1;
       white-space: normal;
       font-size: 14px; }
-  .schedules thead td {
+  .schedules thead {
     display: none; }
-  .schedules thead th {
-    width: 20%; }
+    .no-js .schedules thead {
+      display: block; }
+    .schedules thead td {
+      display: none; }
+    .schedules thead th {
+      width: 20%; }
   .schedules tbody tr {
     padding-top: 30px;
     position: relative; }
@@ -3560,7 +3567,24 @@ footer .logo-o2 {
     .schedules tbody td + td {
       display: none; }
       .no-js .schedules tbody td + td {
-        display: block; } }
+        display: block; }
+  .schedules .swiper .session .location.border-bottom:before {
+    display: none; }
+  .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a {
+    display: none; }
+  .schedules .swiper .session .location[location] {
+    position: relative; }
+    .schedules .swiper .session .location[location] > * {
+      display: block;
+      padding-left: 20px; }
+    .schedules .swiper .session .location[location]:before {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-right: white 10px solid;
+      border-color: inherit; } }
 @media screen and (max-width: 1023px) {
   .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main {
     font-size: 2em; }

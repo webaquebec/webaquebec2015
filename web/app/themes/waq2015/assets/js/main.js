@@ -30,6 +30,10 @@ jQuery(document).ready(function($){
             n>max ? max :
             n;
   }
+  function cancelEvents(e){
+    e.stopPropagation();
+    e.preventDefault();
+  }
 
   //
   //
@@ -257,11 +261,24 @@ jQuery(document).ready(function($){
       var $schedule = $(waq.$schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
+      $schedule.on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
         var $row = $schedule[0].$rows[r];
         var $cells = $('td',$row);
         $cells.wrapAll('<div class="swiper"></div>');
-
+        for(var c=0; c<$cells.length; c++){
+          var $cell = $($cells[c]);
+          var $location = $cell.find('[location]');
+          if($location.length){
+            var locationID = $location.attr('location');
+            var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
+            if($refHeader){
+              var $clonedHeader = $refHeader.clone();
+              $cell.find('.location').prepend($clonedHeader);
+              $cell[0].$clonedHeader = $clonedHeader;
+            }
+          }
+        }
       }
     }
 
@@ -274,9 +291,18 @@ jQuery(document).ready(function($){
       var $schedule = $(waq.$schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
+      $schedule.off('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
         var $row = $schedule[0].$rows[r];
         var $cells = $('td',$row);
+
+        for(var c=0; c<$cells.length; c++){
+          var $cell = $($cells[c]);
+          if($cell[0].$clonedHeader){
+            $cell[0].$clonedHeader.remove();
+          }
+        }
+
         $cells.unwrap();
 
       }

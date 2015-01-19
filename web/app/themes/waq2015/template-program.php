@@ -95,7 +95,7 @@ global $current_user;
       while($schedule->have_headers()):
         $header = $schedule->the_header();
         ?>
-        <div class="location" style="border-color:<?= $header->color ?>;">
+        <div class="location" style="border-color:<?= $header->color ?>;" location="<?= $header->ID ?>" >
           <span class="sub title"><?= __('Salle','waq') ?></span>
           <span class="title"><?= $header->title ?></span>
           <span class="note title" style="color:<?= $header->color ?>;"><?= $header->subtitle ?></span>
@@ -135,7 +135,7 @@ global $current_user;
         $wide = $session->columns->span > 1;
         ?>
         <div>
-          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
+          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>">
             <div class="wrap">
 
               <?php if($wide && $session->speaker->image): ?>
