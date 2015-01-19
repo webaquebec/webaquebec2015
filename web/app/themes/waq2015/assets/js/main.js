@@ -26,8 +26,8 @@ jQuery(document).ready(function($){
   //
   // USEFUL FUNCTIONS
   function minMax(n, min, max){
-    return  n<min ? min : 
-            n>max ? max : 
+    return  n<min ? min :
+            n>max ? max :
             n;
   }
 
@@ -89,11 +89,11 @@ jQuery(document).ready(function($){
       var $target = $( '#' + arg );
       if(!$target.length) return;
     }
-    
+
     waq.$doc.stop().animate({
         scrollTop: $target.offset().top - (waq.loggedin ? 142 : 110)
     }, 800, $.bez([0.5, 0, 0.225, 1]));
-    
+
   }
 
   waq.$menu.$links.on('click', scrollTo);
@@ -155,9 +155,9 @@ jQuery(document).ready(function($){
       });
     }
   }
- 
 
- 
+
+
   //
   //
   // STICKY NAV
@@ -177,7 +177,8 @@ jQuery(document).ready(function($){
         fixedBottom: function(e){
           e.selection.addClass('fixed bottom');
         }
-      });      
+      });
+
     }
     // disable
     function disableStickyNav(){
@@ -191,14 +192,15 @@ jQuery(document).ready(function($){
   //
   // GENERAL STICKYS
   if(waq.$stickys.length){
-    //enable 
+    //enable
     function enableStickys(){
       for(var i=0; i<waq.$stickys.length; i++){
         var $sticky = $(waq.$stickys[i]);
+        var is_tabs = (!waq.$program.$sticky || $sticky[0] == waq.$program.$sticky[0]);
         $sticky.sticky({
-          offset: 120,
-          offsetBottom: 30,
-          container: $sticky.parent(),
+          offset: is_tabs ? 110 : 120,
+          offsetBottom: is_tabs ? 40 : 30,
+          container: is_tabs ? waq.$program : $sticky.parent(),
           reset: function(e){
             e.selection.removeClass('fixed contained');
           },
@@ -211,7 +213,7 @@ jQuery(document).ready(function($){
         });
       }
     }
-    // disable 
+    // disable
     function disableStickys(){
       waq.$stickys.sticky('destroy');
       waq.$stickys.removeClass('contained fixed');
@@ -258,7 +260,10 @@ jQuery(document).ready(function($){
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
-    waq.$program.$tabs = $('nav.days .toggle', waq.$program);
+    waq.$program.$tabs = $('.days .toggle', waq.$program);
+    waq.$program.$sticky = $('.sticky', waq.$program);
+    waq.$program.$header = $('hgroup', waq.$program);
+
     for(var i=0; i<waq.$program.$tabs.length; i++){
       var $tab = $(waq.$program.$tabs[i]);
       $tab[0].$schedule = waq.$schedules.filter('[schedule='+$tab.attr('schedule')+']')
@@ -324,7 +329,7 @@ jQuery(document).ready(function($){
       );
 
       if(waq.isTouch) window.setMobileMap(waq.map)
-      else window.setDesktopMap(waq.map);      
+      else window.setDesktopMap(waq.map);
     }
 
     google.maps.event.addDomListener(window, 'load', launchInit);
@@ -408,5 +413,5 @@ jQuery(document).ready(function($){
       }
 
     ]);
-  
+
 });

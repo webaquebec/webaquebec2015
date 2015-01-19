@@ -686,7 +686,37 @@ a[href].btn
 // SCHEDULES
 .program
   padding-bottom: 0
+  position: relative
+  hgroup
+    position: static
 .days
+  height: 4.25em
+  .sticky
+    height: 4.25em
+    position: absolute
+    top: 7em
+    margin-top: $large
+    @extend .container
+    margin-left: -$medium
+    +prefix(transform, translate3d(0,0,0))
+    &.fixed
+      top: 110px
+      position: fixed
+      z-index: 4
+    &.contained
+      top: auto
+      bottom: $small
+    &.fixed,
+    &.contained,
+      margin-top: 0
+      &:before
+        background: $d-grey
+        position: absolute
+        top: -130px
+        bottom: -$small
+        left: -100%
+        right: -100%
+        height: auto
   .btn.toggle
     &>*:after
       content: ""

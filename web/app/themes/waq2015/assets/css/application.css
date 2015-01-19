@@ -460,17 +460,17 @@ article {
   article.single hgroup {
     padding: 140px 0 30px; }
 
-.container, .sticky.fixed {
+.container, .sticky.fixed, .days .sticky {
   max-width: 1000px;
   padding: 0 20px;
   margin: 0 auto;
   zoom: 1; }
-  .container:before, .sticky.fixed:before, .container:after, .sticky.fixed:after {
+  .container:before, .sticky.fixed:before, .days .sticky:before, .container:after, .sticky.fixed:after, .days .sticky:after {
     content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
-  .container:after, .sticky.fixed:after {
+  .container:after, .sticky.fixed:after, .days .sticky:after {
     clear: both; }
 
 .group {
@@ -1535,19 +1535,52 @@ a[href].profile {
     transform: translateX(1em); }
 
 .program {
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  position: relative; }
+  .program hgroup {
+    position: static; }
 
-.days .btn.toggle > *:after, .days .toggle.profile > *:after {
-  content: ""; }
-.days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before {
-  background-color: transparent;
-  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
-  background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
-  background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
-  background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
-  background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
-  background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
+.days {
+  height: 4.25em; }
+  .days .sticky {
+    height: 4.25em;
+    position: absolute;
+    top: 7em;
+    margin-top: 30px;
+    margin-left: -20px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+    .days .sticky.fixed {
+      top: 110px;
+      position: fixed;
+      z-index: 4; }
+    .days .sticky.contained {
+      top: auto;
+      bottom: 10px; }
+    .days .sticky.fixed, .days .sticky.contained {
+      margin-top: 0; }
+      .days .sticky.fixed:before, .days .sticky.contained:before {
+        background: #303030;
+        position: absolute;
+        top: -130px;
+        bottom: -10px;
+        left: -100%;
+        right: -100%;
+        height: auto; }
+  .days .btn.toggle > *:after, .days .toggle.profile > *:after {
+    content: ""; }
+  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before {
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
+    background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
 .schedules {
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center;
@@ -1990,7 +2023,7 @@ textarea {
 
 section.intro {
   padding: 20px 0 65px; }
-  section.intro .container, section.intro .sticky.fixed {
+  section.intro .container, section.intro .sticky.fixed, section.intro .days .sticky, .days section.intro .sticky {
     position: relative;
     overflow: hidden;
     max-width: 1200px;
@@ -3900,7 +3933,7 @@ footer .logo-o2 {
   .content {
     font-size: 18px !important; }
 
-  .container, .sticky.fixed {
+  .container, .sticky.fixed, .days .sticky {
     max-width: 1280px; }
 
   section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
@@ -3916,7 +3949,7 @@ footer .logo-o2 {
   .content {
     font-size: 20px !important; }
 
-  .container, .sticky.fixed {
+  .container, .sticky.fixed, .days .sticky {
     max-width: 1440px; }
 
   section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {

@@ -21,25 +21,27 @@ global $current_user;
         'posts_per_page' => -1,
         'orderby'=> 'menu_order',
       ));
-      if($schedules->have_posts()): ?>    
+      if($schedules->have_posts()): ?>
 
-      <nav class="days">
-        <ul>
-          <?php foreach($schedules->posts as $k=>$post): ?>
-          <li>
-            <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
-              <div class="wrap">
-                <span class="sub title"><?= get_the_title($post->ID) ?></span>
-                <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
-              </div>
-            </button>
-          </li>
-          <?php endforeach; ?>
-        </ul>
-      </nav>
+      <div class="days">
+        <nav class="sticky">
+          <ul>
+            <?php foreach($schedules->posts as $k=>$post): ?>
+            <li>
+              <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
+                <div class="wrap">
+                  <span class="sub title"><?= get_the_title($post->ID) ?></span>
+                  <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
+                </div>
+              </button>
+            </li>
+            <?php endforeach; ?>
+          </ul>
+        </nav>
+      </div>
     <?php
     wp_reset_postdata();
-    endif; 
+    endif;
     ?>
 
     </div>
@@ -51,7 +53,7 @@ global $current_user;
       <h3 class="title border-middle">
         <?= __('Filtrer par thématique', 'waq') ?>
       </h3>
-      
+
       <div class="group">
         <button class="btn toggle">
           <span>Accessibilité</span>
@@ -86,7 +88,7 @@ global $current_user;
       'render_time_labels' => true,
       'time_labels_format' => $time_labels_format,
     ));
-    
+
     //
     // loop throught each column header of the grid
     if($schedule->have_sessions()):
@@ -179,14 +181,14 @@ global $current_user;
   </div>
   <?php
   wp_reset_postdata();
-  endif; 
+  endif;
   ?>
 
 
 </section>
 
 <?php endwhile; endif; ?>
-  
-<?php 
+
+<?php
 get_footer_once();
 ?>
