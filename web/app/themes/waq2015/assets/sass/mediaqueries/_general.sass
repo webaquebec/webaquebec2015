@@ -255,8 +255,6 @@
       position: relative
       overflow-x: auto
       overflow-y: hidden
-
-      -webkit-overflow-scrolling: touch
       >*
         +inlineb
         white-space: normal
@@ -293,6 +291,8 @@
           display: none
           .no-js &
             display: block
+        &.empty
+          display: none
     .swiper
       .session
         .location.border-bottom

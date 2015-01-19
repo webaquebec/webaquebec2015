@@ -3580,8 +3580,7 @@ footer .logo-o2 {
     width: 100%;
     position: relative;
     overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; }
+    overflow-y: hidden; }
     .schedules thead tr > *, .no-js .schedules tbody tr > *,
     .schedules tbody .swiper > * {
       display: inline-block;
@@ -3621,6 +3620,8 @@ footer .logo-o2 {
       display: none; }
       .no-js .schedules tbody td + td {
         display: block; }
+    .schedules tbody td.empty {
+      display: none; }
   .schedules .swiper .session .location.border-bottom:before {
     display: none; }
   .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a {
