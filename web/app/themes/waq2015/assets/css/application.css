@@ -1681,7 +1681,7 @@ a[href].profile {
   .schedules tbody td {
     border-top: 1px solid #eeeef0;
     height: 1px; }
-    .schedules tbody td[rowspan] > * {
+    .schedules tbody td > * {
       height: 100%;
       -webkit-box-sizing: content-box;
       -moz-box-sizing: content-box;
@@ -2927,10 +2927,14 @@ section.intro {
   .single .conference .tags-section {
     font-size: 0.8em; }
 .single .conferencer {
-  margin-top: -100px;
   float: left;
   position: relative;
-  z-index: 100; }
+  z-index: 100;
+  position: relative; }
+  .single .conferencer.has-thumb {
+    margin-top: -100px; }
+    .single .conferencer.has-thumb .name {
+      margin-left: 120px; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single.session, .single.article {
@@ -2987,14 +2991,14 @@ section.intro {
     vertical-align: middle; }
   .single .about > * {
     display: inline-block; }
-  .single .about .name {
-    margin-left: 20px; }
-    .single .about .name .title, .single .about .name nav[role="navigation"] ul a, nav[role="navigation"] ul .single .about .name a {
-      margin-top: 3px; }
+  .single .about .name .title, .single .about .name nav[role="navigation"] ul a, nav[role="navigation"] ul .single .about .name a {
+    margin-top: 3px; }
 .single .thumb {
   width: 100px;
   height: 100px;
-  float: left; }
+  position: absolute;
+  top: 0;
+  left: 0; }
   .single .thumb img {
     min-height: 100%; }
 .single .social {

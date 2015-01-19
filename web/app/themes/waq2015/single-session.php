@@ -79,12 +79,14 @@ $session = new session($post->ID);
     </section>
 
     <aside class="col narrow" role="complementary">
-
-      <div class="conferencer">
+      <?php $has_thumb = has($session->speaker->image); ?>
+      <div class="conferencer<?php if($has_thumb) echo ' has-thumb' ?>">
           <div class="about">
+            <?php if($has_thumb): ?>
             <div class="thumb">
               <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
             </div>
+            <?php endif; ?>
             <div class="name">
               <span class="sub title"><?= __('À propos <br>du Conférencier', 'waq') ?></span>
               <h2 class="title"><?= $session->speaker->name ?></h2>

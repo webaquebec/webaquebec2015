@@ -648,10 +648,14 @@ section.intro
     .tags-section
       font-size: 0.8em
   .conferencer
-    margin-top: -100px
     float: left
     position: relative
     z-index: 100
+    position: relative
+    &.has-thumb
+      margin-top: -100px
+      .name
+        margin-left: $medium+100
   .single-article
     .image-une
       padding-bottom: 1.25em
@@ -686,13 +690,14 @@ section.intro
     >*
       display: inline-block
     .name
-      margin-left: $medium
       .title
         margin-top: 3px
   .thumb
     width: 100px
     height: 100px
-    float: left
+    position: absolute
+    top: 0
+    left: 0
     img
       min-height: 100%
 
