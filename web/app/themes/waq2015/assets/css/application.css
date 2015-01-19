@@ -1795,12 +1795,30 @@ a[href].profile {
       text-indent: -6.25em; }
       .schedules .session.wide.has-thumb > * > * .infos > * {
         text-indent: 0; }
-  .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a {
+  .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a,
+  .schedules .lunch .title,
+  .schedules .lunch nav[role="navigation"] ul a,
+  nav[role="navigation"] ul .schedules .lunch a {
     text-align: center;
     color: #005F93;
     padding: 20px;
     font-weight: 400;
     font-size: 1.25em; }
+  .schedules .pause .location,
+  .schedules .lunch .location {
+    margin-bottom: 0;
+    margin-right: 0em;
+    min-height: 0;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+    .schedules .pause .location:before,
+    .schedules .lunch .location:before {
+      display: none; }
+  .schedules .pause .separator,
+  .schedules .lunch .separator {
+    margin: 0 0.25em; }
   .schedules .keynote {
     font-size: 1.25em; }
     .schedules .keynote:before, .schedules .keynote > *:before {

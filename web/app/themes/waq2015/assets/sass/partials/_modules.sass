@@ -903,13 +903,24 @@ a[href].btn
 
 
   // PAUSE
-  .pause
+  .pause,
+  .lunch
     .title
       text-align: center
       color: $d-blue
       padding: $medium
       font-weight: 400
       font-size: 1.25em
+    .location
+      margin-bottom: 0
+      margin-right: 0em
+      min-height: 0
+      vertical-align: top
+      +inlineb
+      &:before
+        display: none
+    .separator
+      margin: 0 0.25em
 
   //
   //

@@ -117,6 +117,18 @@ global $current_user;
           <h3 class="sub title"><?= $session->title ?></h3>
         </div>
 
+        <?php elseif($session->location->class=='pause'||$session->location->class == 'lunch'): ?>
+
+        <div class="session <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?>">
+          <h3 class="sub title">
+            <span class="location">
+              <?= ($session->location->class!='pause' ? __('Salle', 'waq').' ' : '').$session->location->title?>
+            </span>
+            <span class="separator">·</span>
+            <?= $session->title ?>
+          </h3>
+        </div>
+
         <?php else: ?>
 
         <?php
