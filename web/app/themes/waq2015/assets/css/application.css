@@ -2078,7 +2078,9 @@ section.intro {
     width: 200%;
     height: 100%;
     z-index: 0;
-    text-align: center; }
+    text-align: center;
+    background: url(../img/video-bg-mobile.jpg) no-repeat center center;
+    background-size: cover; }
     section.intro .bg > * {
       display: inline-block;
       *display: inline;
@@ -3499,6 +3501,9 @@ footer .logo-o2 {
     padding: 50px 20px; }
   .schedules table {
     max-width: 960px; } }
+@media screen and (min-width: 1024px) {
+  section.intro .bg {
+    background-image: url(../img/video-bg.jpg); } }
 @media screen and (max-width: 1024px) {
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }
@@ -3524,15 +3529,6 @@ footer .logo-o2 {
       *display: inline;
       zoom: 1;
       vertical-align: middle; }
-  .touch .intro .bg {
-    background: url(../img/video-bg-mobile.jpg) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-    .touch .intro .bg video {
-      display: none; }
 
   .features .panel {
     padding-top: 0; }

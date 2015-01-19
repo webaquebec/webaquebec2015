@@ -160,7 +160,13 @@
     table
       max-width: 960px
 
-@media screen and (max-width: 1125px)
+@media screen and (min-width: 1024px)
+  //
+  //
+  // INTRO
+  section.intro
+    .bg
+      background-image: url(../img/video-bg.jpg)
 
 
 @media screen and (max-width: 1024px)
@@ -178,13 +184,6 @@
       &.right
         .top
           +align-children(middle)
-    .touch &
-      .bg
-        background: url(../img/video-bg-mobile.jpg) no-repeat center center
-        +prefix(background-size, cover)
-        video
-          display: none
-
 
   //
   //
