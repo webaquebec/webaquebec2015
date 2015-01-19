@@ -22,7 +22,7 @@
     ?>
 
     <!-- icons -->
-    <link href="<?= get_bloginfo('siteurl') ?>/favicon.ico" rel="shortcut icon">
+    <link href="<?= get_home_url() ?>/favicon.ico" rel="shortcut icon">
 
     <?php
     //
