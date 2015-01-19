@@ -411,15 +411,26 @@ class schedule extends helper{
   // before
   private function print_empty_cells_before_session(){
     $session = $this->session;
-    if($session->columns->start != $this->column_counter){
+    if($this->session_counter>0){
       $row = $this->grid[$this->time_keys[$this->timeframe_counter]];
-      while($this->column_counter < $session->columns->start){
-        if(!$row[$this->column_counter]){
-          echo '<td class="'.$this->options->empty_class.'"></td>'."\n";
-        }
-        $this->column_counter++;
+      $empty_since = $session->columns->start;
+      while(isset($row[$empty_since-2]) && $row[$empty_since-2]==0){
+        $empty_since--;
       }
+
     }
+    else{
+      $empty_since = 0;
+    }
+    if($session->columns->start > $empty_since){
+      $this->column_counter = $empty_since;
+      while($this->column_counter < $session->columns->start){
+        $this->column_counter++;
+        echo '<td class="before '.$this->options->empty_class.'"></td>'."\n";
+      }
+
+    }
+    $this->column_counter = $session->columns->start;
   }
   // after
   private function print_empty_cells_after_session(){
@@ -438,7 +449,7 @@ class schedule extends helper{
     if($session->columns->start < $empty_until){
       while( $this->column_counter < $empty_until){
         $this->column_counter++;
-        echo '<td class="'.$this->options->empty_class.'"></td>'."\n";
+        echo '<td class="after '.$this->options->empty_class.'"></td>'."\n";
       }
     }
   }
@@ -600,7 +611,6 @@ class schedule extends helper{
     }
 
     $this->remove_empty_grid_rows();
-
 
     // SET COUNTERS
     $this->session_count = count($this->sessions);

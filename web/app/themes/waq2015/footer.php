@@ -65,9 +65,11 @@
           <div class="cols sub-footer">
             <div class="content">
               <div class="col wide">
+                <?php if(false): ?>
                 <span class="accessibility">
                   <a href="<?= get_site_url(); ?>/accessibilite" >Accessibilité</a>
                 </span>
+                <?php endif; ?>
                 <span class="contribute">
                   <h4 class="lower title">Contribuez au site </h4><a href="https://github.com/webaquebec/webaquebec2015" target="_blank" title="WAQ 2015 sur Github">WAQ2015</a>
                 </span>
