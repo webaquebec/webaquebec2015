@@ -3013,11 +3013,10 @@ section.intro {
   float: left;
   position: relative;
   z-index: 100;
-  position: relative; }
-  .single .conferencer.has-thumb {
-    margin-top: -100px; }
-    .single .conferencer.has-thumb .name {
-      margin-left: 120px; }
+  position: relative;
+  margin-top: -100px; }
+  .single .conferencer.has-thumb .name {
+    margin-left: 120px; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single.session, .single.article {
