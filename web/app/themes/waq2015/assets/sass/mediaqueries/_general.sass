@@ -235,14 +235,49 @@
   //
   // SCHEDULES
   .schedules
-    tbody
-      tr,
-      td,
+    table, tbody, thead, tr, td, th
+      display: block
+    thead tr,
+    .no-js & tbody tr,
+    tbody .swiper
+      white-space: nowrap
+      font-size: 0
+      width: 100%
+      position: relative
+      overflow: auto
+      >*
+        +inlineb
+        white-space: normal
+        font-size: 14px
+    thead
+      td
+        display: none
       th
+        width: 20%
+    tbody
+      tr
+        padding-top: $large
+        position: relative
+
+      th
+        width: 100%
         display: block
-
-
-
+        position: absolute
+        top: 0
+        left: 0
+        padding: 0.25em
+        height: $large
+        .title
+          +inlineb
+      td
+        height: auto
+        width: 40%
+        &[colspan="5"]
+          width: 100%
+        &+td
+          display: none
+          .no-js &
+            display: block
 @media screen and (max-width: 1023px)
 
   //
