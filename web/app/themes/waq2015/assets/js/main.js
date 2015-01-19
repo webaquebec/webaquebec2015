@@ -216,6 +216,7 @@ jQuery(document).ready(function($){
           }
         });
       }
+      if(waq.$program.length && waq.$program.$tabs) waq.$program.$tabs.isSticky = true;
     }
     // disable
     function disableStickys(){
@@ -223,6 +224,7 @@ jQuery(document).ready(function($){
       setTimeout(function(){
         waq.$stickys.removeClass('contained fixed');
       },240);
+      if(waq.$program.length && waq.$program.$tabs) waq.$program.$tabs.isSticky = false;
     }
   }
 
@@ -364,7 +366,7 @@ jQuery(document).ready(function($){
       $schedule.addClass('active');
       // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
-      if(waq.$program.$sticky) waq.$program.$sticky.sticky('update');
+      if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
 
       e.stopPropagation();
 

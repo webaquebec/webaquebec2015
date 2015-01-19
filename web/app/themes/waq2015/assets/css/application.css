@@ -3842,6 +3842,8 @@ footer .logo-o2 {
       padding: 0 0 0; }
   .features .infos {
     font-size: 1em; }
+  .features .image img {
+    max-width: 100%; }
 
   .event-location {
     background: transparent;
