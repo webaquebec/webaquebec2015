@@ -1556,13 +1556,13 @@ a[href].profile {
     transform: translate3d(0, 0, 0); }
     .days .sticky.fixed {
       top: 110px;
-      position: fixed;
-      z-index: 4; }
+      position: fixed; }
     .days .sticky.contained {
       top: auto;
       bottom: 10px; }
     .days .sticky.fixed, .days .sticky.contained {
-      margin-top: 0; }
+      margin-top: 0;
+      z-index: 4; }
       .days .sticky.fixed:before, .days .sticky.contained:before {
         background: #303030;
         position: absolute;
@@ -3516,7 +3516,12 @@ footer .logo-o2 {
     width: 80%;
     padding-right: 0; }
   .single .content {
-    font-size: 1.25em; } }
+    font-size: 1.25em; }
+
+  .schedules tbody tr,
+  .schedules tbody td,
+  .schedules tbody th {
+    display: block; } }
 @media screen and (max-width: 1023px) {
   .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main {
     font-size: 2em; }

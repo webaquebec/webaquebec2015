@@ -233,6 +233,34 @@ jQuery(document).ready(function($){
     });
   }
 
+
+
+
+  //
+  //
+  // MOBILE SCHEDULES
+
+  function initMobileSchedule(){
+
+  }
+
+  function destroyMobileSchedule(){
+
+  }
+
+
+  function enableMobileSchedules(){
+    waq.$schedules.isMobile = true;
+    initMobileSchedule(waq.$schedules.filter('.active'));
+  }
+
+  function disableMobileSchedules(){
+    waq.$schedules.isMobile = false;
+    destroyMobileSchedule(waq.$schedules.filter('.active'));
+  }
+
+
+
   //
   //
   // TOGGLE HANDLER
@@ -278,16 +306,14 @@ jQuery(document).ready(function($){
 
       $previousTab.removeClass('active');
       $previousSchedule.removeClass('active');
+      if(waq.$schedules.isMobile) destroyMobileSchedule($previousSchedule);
 
       $trigger.addClass('active');
       $schedule.addClass('active');
+      if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
-      if(waq.$program.$sticky){
-        setTimeout(function(){
-          console.log('update');
-          waq.$program.$sticky.sticky('update');
-        }, 200);
-      }
+      if(waq.$program.$sticky) waq.$program.$sticky.sticky('update');
+
       e.stopPropagation();
 
     }
@@ -341,7 +367,6 @@ jQuery(document).ready(function($){
     }
 
     google.maps.event.addDomListener(window, 'load', launchInit);
-
   }
 
 
@@ -389,6 +414,20 @@ jQuery(document).ready(function($){
     if(waq.$intro.length) disableStickyNav();
   }
 
+
+  //
+  //
+  // > 1024px
+  function largerThan1024(e){
+    if(waq.$schedules.length) enableMobileSchedules();
+    if(e=='init') return; // Exit here at init --------------------------
+  }
+  // < 1024px
+  function smallerThan1024(e){
+    if(e=='init') return; // Exit here at init --------------------------
+    if(waq.$schedules.length) disableMobileSchedules();
+  }
+
   //
   //
   // > 768px
@@ -410,6 +449,13 @@ jQuery(document).ready(function($){
          callback: {
           larger: largerThan1200,
           smaller: smallerThan1200
+         }
+      },
+      {
+         width: 1024,
+         callback: {
+          larger: largerThan1024,
+          smaller: smallerThan1024
          }
       },
       {
