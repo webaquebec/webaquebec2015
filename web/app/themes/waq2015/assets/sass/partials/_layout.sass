@@ -46,9 +46,12 @@ article
   z-index: 999
   top: 0
   left: 0
-  height: 100% 
+  width: 100%
+  height: 100%
   background: #fff
-  
+  .ready &
+    display: none
+
 //
 //
 // HEADER
@@ -56,7 +59,7 @@ header[role="banner"],
 hgroup
   position: relative
   z-index: 10
-  
+
 nav[role="navigation"]
   position: fixed
   top: $small
@@ -67,7 +70,7 @@ nav[role="navigation"]
 section.intro+nav
   position: absolute
   top: auto
-  bottom: ($nav-height/-2) 
+  bottom: ($nav-height/-2)
   &.fixed
     position: fixed
     top: $small
@@ -93,18 +96,18 @@ footer
   &.small-margins
     +grid(2, $small)
   &.xsmall-margins
-    +grid(2, $xsmall) 
+    +grid(2, $xsmall)
   &.large-margins
-    +grid(2, $large) 
+    +grid(2, $large)
 .cols-3
   @extend .cols
   +grid(3, $medium)
   &.small-margins
     +grid(3, $small)
   &.xsmall-margins
-    +grid(3, $xsmall) 
+    +grid(3, $xsmall)
   &.large-margins
-    +grid(3, $large) 
+    +grid(3, $large)
 .cols-4
   @extend .cols
   +grid(4, $medium)
@@ -113,7 +116,7 @@ footer
   &.xsmall-margins
     +grid(4, $xsmall)
   &.large-margins
-    +grid(4, $large) 
+    +grid(4, $large)
 
 .col
   &:first-child

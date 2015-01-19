@@ -2,16 +2,29 @@
 //
 // MAIN JS
 
-// HASHBANG
+// HASHBANG & COOKIEBANG
 if(typeof(bang)!='undefined' && bang){
-  var host = window.location.host;
-  var parts = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
-  var slug = parts[0];
-  parts.shift();
-  console.log(parts);
-  if(typeof(parts)=="object") parts = parts.join('/');
-  var url = 'http://'+host+'/#!/'+slug+(parts.length>0?'/'+parts:'')
-  window.location = url;
+    if(typeof(cookiebang)!='undefined' && cookiebang){
+      if(window.innerWidth > 1024 || document.documentElement.clientWidth > 1024){
+        document.cookie = 'big-screen=1; path=/';
+      }
+      else{
+        document.cookie = 'big-screen=0; path=/';
+      }
+    }
+
+  if(typeof(hashbang)!='undefined' && hashbang){
+    var host = window.location.host;
+    var parts = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
+    var slug = parts[0];
+    parts.shift();
+    if(typeof(parts)=="object") parts = parts.join('/');
+    var url = 'http://'+host+'/#!/'+slug+(parts.length>0?'/'+parts:'')
+  }
+  else{
+    url = window.location.pathname;
+  }
+  window.location.replace(url);
 }
 
 //
@@ -21,6 +34,8 @@ window.waq = {};
 
 // Document ready
 jQuery(document).ready(function($){
+  // Don't execute JS if we will bang anyway
+  if(typeof(bang)!='undefined' && bang) return;
 
   //
   //
@@ -72,6 +87,7 @@ jQuery(document).ready(function($){
   if(waq.$loading.length){
     $win.on('load',function(){
       waq.$loading.removeClass('loading');
+      waq.$doc.eq(0).addClass('ready');
     });
   }
 
@@ -490,6 +506,7 @@ jQuery(document).ready(function($){
   function largerThan1024(e){
     if(waq.$stickys.length) enableStickys();
     if(e=='init') return; // Exit here at init --------------------------
+    $.cookie('big-screen', 1, { path: '/' });
     if(waq.$schedules.length) disableMobileSchedules();
     $win.scrollEvents('update');
   }
@@ -497,6 +514,7 @@ jQuery(document).ready(function($){
   function smallerThan1024(e){
     if(waq.$schedules.length) enableMobileSchedules();
     if(e=='init') return; // Exit here at init --------------------------
+    $.cookie('big-screen', 0, { path: '/' });
     if(waq.$stickys.length) disableStickys();
   }
 

@@ -12,7 +12,9 @@
     // SET VARIABLES
     $is404 = is_404();
     $is_home = get_page_template_slug()=="template-home.php";
-    $bang = get_post_type()=="page" && get_field('bang');
+    $needs_cookiebang =  !isset($_COOKIE['big-screen']);
+    $needs_hashbang = get_post_type()=="page" && get_field('bang');
+    $needs_bang = $needs_cookiebang || $needs_hashbang;
     $scheduleStatus = get_field('my_schedule', 'options');
 
     //
@@ -28,15 +30,27 @@
     //
     //
     // HASHBANG
-    if($bang): ?>
-    <script type="text/javascript">var bang = true;</script>
-    <div class"bang-coverall"></div>
+    if($needs_bang): ?>
+    <script type="text/javascript">
+      var bang = true;
+      <?php if($needs_cookiebang): ?>
+      var cookiebang = true;
+      <?php endif; ?>
+      <?php if($needs_hashbang): ?>
+      var hashbang = true;
+      <?php endif; ?>
+    </script>
     <?php endif; ?>
 
     <!-- css + javascript -->
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+
+    <?php if($needs_bang): ?>
+    <div class="bang-coverall"></div>
+    <?php endif; ?>
+
     <div class="wrapper<?php if(is_array($scheduleStatus)){echo ' ' . $scheduleStatus[0];} ?>">
       <header role="banner">
 
