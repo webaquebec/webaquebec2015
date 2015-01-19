@@ -396,6 +396,21 @@ jQuery(document).ready(function($){
   }
 
 
+  // //
+  // //
+  // // RESIZE HEADER
+  // $('#intro').css('height', $win.height() + "px");
+
+  // $win.resize(function() {
+  //     updateHeight();
+  // });
+
+  // function updateHeight() {
+  //   var windowHeight = $win.height();
+  //   $('#intro').css('height', windowHeight + 'px');
+  // }
+
+
   //
   //
   // GOOGLE MAP

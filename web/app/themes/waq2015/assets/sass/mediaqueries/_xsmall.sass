@@ -9,7 +9,7 @@
   //
   // INTRO
 
-  .intro
+  section.intro
     .col.main
       &.left
         text-align: center
@@ -18,6 +18,9 @@
         >*
           padding-left: 0
           padding-right: 0
+
+    .main.left
+      padding: $xlarge $medium $small $medium
 
     .main.right
       position: relative
@@ -33,18 +36,24 @@
         height: auto
         width: 100%
         .left
-          padding-right: $large
+          padding-right: $xlarge
           padding-left: 0
         .right
-          padding-left: $large
+          padding-left: $xlarge
           padding-right: 0
+        .title
+          font-size: 1.25em
 
       .middle
         top: auto
         height: auto
+        .title.main
+          font-size: 1.75em
       .bottom
         top: auto
         height: auto
+        .title.huge
+          font-size: 1.25em
 
 
   //

@@ -178,6 +178,12 @@
       &.right
         .top
           +align-children(middle)
+    .touch &
+      .bg
+        background: url(../img/video-bg-mobile.jpg) no-repeat center center
+        +prefix(background-size, cover)
+        video
+          display: none
 
 
   //
@@ -313,10 +319,47 @@
   //
   //
   // INTRO
-  .intro
+  section.intro
+    height: auto
+    .grid
+      position: relative
+      +grid(1, 0)
+      > *
+        position: relative !important
+        > *
+          position: relative !important
+    .container
+      padding-top: 0
+      padding-bottom: 0
+    .main.left
+      padding: $xxlarge $xlarge $large $xlarge
+    .main.right
+      > *
+        padding-top: $xlarge
+        padding-bottom: $xlarge
+      .top
+        padding-top: $medium
+        margin-top: $large
+      .middle
+        padding-top: $xxlarge
+        padding-bottom: $xxlarge
+        text-align: center
+      .title
+        &.huge
+          width: 100%
+        &.main
+          font-size: 2.5em
+      .border-top,
+      .border-bottom
+        width: 100%
+        &:after
+          width: 100% !important
+    .border-left
+      &:after
+        display: none
     .title
       &.main
-        font-size: 2em
+        font-size: 1.25em
     .top
       .huge
         font-size: 1.25em

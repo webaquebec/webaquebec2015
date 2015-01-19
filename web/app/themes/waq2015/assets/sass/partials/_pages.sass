@@ -17,11 +17,13 @@
 //
 // INTRO
 section.intro
-  padding: $medium 0 ($nav-height/2 + $medium)
+  padding: $xlarge 0 ($nav-height/2 + $xlarge)
+  height: 700px
   .container
     position: relative
     overflow: hidden
     max-width: 1200px
+    height: 100%
     z-index: 2
     padding: $xxlarge $medium
   .bg
@@ -37,6 +39,11 @@ section.intro
       min-width: 50%
       min-height: 100%
   .grid
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
     +grid(2, $medium)
   .col
     &.main>*
@@ -44,13 +51,29 @@ section.intro
     &.left
       text-align: right
 
+  // LEFT COLUMN
+  .main.left
+    position: absolute
+    height: 100%
+    .anniversary
+      height: 100%
+    .middle
+      position: absolute
+      top: 21%
+      left: 0
+      height: 33%
+      width: 100%
+      padding: $medium 0
+      img
+        padding: 0 $xlarge 0 $medium
+        max-height: 100%
+
+
   // RIGHT COLUMN
   .main.right
     position: absolute
-    top: $xxlarge
-    left: 50%
-    right: $medium
-    bottom: $xxlarge
+    height: 100%
+    right: 0
     >*
       position: absolute
       left: 0
@@ -68,7 +91,7 @@ section.intro
     // BOX RIGHT TOP
     .top
       +align-children(top)
-      height: 23%
+      height: 18%
       margin: 0
       background: url(../img/marker.png) no-repeat center top
       +grid(2, 0)
@@ -82,12 +105,14 @@ section.intro
         bottom: 0
       .border-bottom
         bottom: 0
+      .title
+        font-size: 1.75em
 
     // BOX RIGHT MIDDLE
     .middle
       +align-children(middle)
-      top: 23%
-      height: 28%
+      top: 18%
+      height: 33%
       padding-left: 0
 
     // BOX RIGHT BOTTOM
