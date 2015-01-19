@@ -43,7 +43,7 @@ get_header_once();
       <?php
 
       function has_social($member){
-        return has($member['facebook']) || has($member['facebook']) || has($member['facebook']);
+        return has($member['facebook']) || has($member['twitter']) || has($member['linked_in']);
       }
 
       function social_links($member){ ?>
