@@ -731,17 +731,22 @@ a[href].btn
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center
   background-size: cover
   +clearfix
+
   .schedule
     margin-right: -100%
     float: left
     width: 100%
     padding: $xxlarge $xxlarge
     z-index: 0
+    height: 0
+    overflow: visible
     +opacity(0)
     +prefix(transition, opacity 540ms $ease)
     &.active
       +opacity(1)
       z-index: 1
+      height: auto
+
 
   table
     width: 100%
@@ -879,7 +884,6 @@ a[href].btn
         +align-children(middle)
         display: block
 
-
     &.wide
       .thumb
         width: 6em
@@ -899,7 +903,8 @@ a[href].btn
           text-indent:  -6.25em
           >*
             text-indent: 0
-
+        &.favorite
+          text-indent: -9999px
 
 
   // PAUSE

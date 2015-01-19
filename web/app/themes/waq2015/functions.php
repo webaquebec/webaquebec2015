@@ -49,8 +49,8 @@ function include_page_part($ID){
     ));
     $template = str_replace('.php','',get_page_template_slug($ID));
     if(!has($template)) $template = 'page';
-    get_template_part($template); 
-    
+    get_template_part($template);
+
 }
 
 
@@ -64,46 +64,46 @@ function enable_style_select( $buttons ) {
     array_unshift( $buttons, 'styleselect' );
     return $buttons;
 }
-function custom_tiny_styles( $init_array ) {  
+function custom_tiny_styles( $init_array ) {
     // Define the style_formats array
-    $style_formats = array(  
+    $style_formats = array(
         // Each array child is a format with it's own settings
-        array(  
+        array(
             'title' => 'Main Title',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'main title' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'main title'
         ),
-        array(  
+        array(
             'title' => 'Big Title',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'huge title' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'huge title'
         ),
-        array(  
+        array(
             'title' => 'Title',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'title' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'title'
         ),
-        array(  
+        array(
             'title' => 'Sub Title',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'sub title' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'sub title'
         ),
-        array(  
+        array(
             'title' => 'Small Title',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'small title' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'small title'
         ),
-        array(  
+        array(
             'title' => 'Note',
-            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', 
-            'classes' => 'note' 
+            'selector' => 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table',
+            'classes' => 'note'
         )
-    );  
+    );
     // Insert the array, JSON ENCODED, into 'style_formats'
-    $init_array['style_formats'] = json_encode( $style_formats );  
-    return $init_array;  
-  
-} 
+    $init_array['style_formats'] = json_encode( $style_formats );
+    return $init_array;
+
+}
 
 /*------------------------------------*\
 	MENUS
@@ -132,7 +132,7 @@ add_image_size('wide retina', 1800, 900, true);
 add_image_size('blog-thumb', 200, 230, false); //200 pixels wide (and unlimited height)
 
 
-// RESIZE 
+// RESIZE
 // add_image_size('huge', 3600, 3600, false);
 
 add_theme_support( 'post-thumbnails' );
@@ -146,57 +146,57 @@ function header_scripts()
 {
     if (!is_admin() && !is_login_page()) {
         // wp_register_script('shim', '/js/html5shiv.js', array(), null);
-        // wp_enqueue_script('shim'); 
+        // wp_enqueue_script('shim');
 
         wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js', array(), null);
-        wp_enqueue_script('modernizr'); 
+        wp_enqueue_script('modernizr');
 
-        wp_register_script('googlemap', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), null); 
+        wp_register_script('googlemap', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), null);
         wp_enqueue_script('googlemap');
-        
+
         wp_deregister_script('jquery'); // Deregister WordPress jQuery
         // wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', array(), '1.10.1'); // Google CDN jQuery
         wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '1.11.1'); // fallback
         wp_enqueue_script('jquery'); // Enqueue it!
 
-        wp_register_script('easing', get_template_directory_uri() . '/assets/js/jquery.bez.js', array(), null); 
+        wp_register_script('easing', get_template_directory_uri() . '/assets/js/jquery.bez.js', array(), null);
         wp_enqueue_script('easing');
 
-        wp_register_script('cookies', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), null); 
-        wp_enqueue_script('cookies'); 
+        wp_register_script('cookies', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), null);
+        wp_enqueue_script('cookies');
 
-        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.min.js', array(), null); 
+        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.min.js', array(), null);
         wp_enqueue_script('scrollEvents');
 
-        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.min.js', array(), null); 
+        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.js', array(), null);
         wp_enqueue_script('sticky');
 
-        wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null); 
+        wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null);
         wp_enqueue_script('breakpoints');
-        
-        wp_register_script('grab', get_template_directory_uri() . '/assets/js/grab.min.js', array(), null); 
+
+        wp_register_script('grab', get_template_directory_uri() . '/assets/js/grab.min.js', array(), null);
         wp_enqueue_script('grab');
 
-        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.min.js', array(), null); 
+        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.min.js', array(), null);
         wp_enqueue_script('sides');
 
 
-        wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null); 
+        wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null);
         wp_enqueue_script('map');
 
-        
-        wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null); 
-        wp_enqueue_script('custom'); 
+
+        wp_register_script('custom', get_template_directory_uri() . '/assets/js/main.js', array(), null);
+        wp_enqueue_script('custom');
 
     }
     /* ---------------------------------------------------------------------------------------------- Admin JavaScript  ---------- */
     // SCRIPT ADMIN
     //
     // else{
-    //     wp_register_script('admin', '/assets/js/admin.js'); 
-    //     wp_enqueue_script('admin'); 
+    //     wp_register_script('admin', '/assets/js/admin.js');
+    //     wp_enqueue_script('admin');
     // }
-   
+
 }
 
 
@@ -239,7 +239,7 @@ function css_class_filter($classes, $item)
         else { array_push($klasses, ''); }
 
         return $klasses;
-    }  
+    }
     else{
         return $klasses;
     }
@@ -251,7 +251,7 @@ function my_css_attributes_filter($var)
     $klasses = array($var[0]);
     if(is_array($var)){
         if(in_array('current-menu-item', $var)){ array_push($klasses, 'active'); }
-    }  
+    }
     return is_array($var) ? $klasses : '';
 }
 
@@ -378,21 +378,21 @@ function enable_more_buttons($buttons) {
 //
 //
 
-function themes_dir_add_rewrites() {  
-  $theme_name = get_template(); 
-  
-  global $wp_rewrite;  
+function themes_dir_add_rewrites() {
+  $theme_name = get_template();
 
-  $new_non_wp_rules = array(  
+  global $wp_rewrite;
+
+  $new_non_wp_rules = array(
     '(.css)'       => 'app/themes/' . $theme_name . '/assets/$1',
-    'css/(.*)'       => 'app/themes/' . $theme_name . '/assets/css/$1',  
-    'js/(.*)'        => 'app/themes/' . $theme_name . '/assets/js/$1',  
+    'css/(.*)'       => 'app/themes/' . $theme_name . '/assets/css/$1',
+    'js/(.*)'        => 'app/themes/' . $theme_name . '/assets/js/$1',
     'img/(.*)'    => 'app/themes/' . $theme_name . '/assets/img/$1',
     'fonts/(.*)'       => 'app/themes/' . $theme_name . '/assets/fonts/$1',
     'svg/(.*)'       => 'app/themes/' . $theme_name . '/assets/svg/$1'
-  );  
-  $wp_rewrite->non_wp_rules += $new_non_wp_rules;  
-}  
+  );
+  $wp_rewrite->non_wp_rules += $new_non_wp_rules;
+}
 
 
 
@@ -420,7 +420,7 @@ function add_endpoint()
 add_action('wp_enqueue_scripts', 'header_styles');
 add_action('admin_enqueue_scripts', 'admin_style');   // Css pour l'admin
 add_action('init', 'header_scripts');
-add_action('init', 'register_menu'); 
+add_action('init', 'register_menu');
 add_action('init', 'remove_comment_support');
 add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
@@ -446,7 +446,7 @@ remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 //
-// 
+//
 // Add Filters
 
 
@@ -464,7 +464,7 @@ add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> inject
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
 // add_filter('request', 'set_endpoint_var');  // Ajout d'une variacle après le slug (voir aussi add_action)
-add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');  
+add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
 add_action('init', 'tiny_stylesheet' );
 

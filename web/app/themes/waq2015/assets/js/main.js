@@ -281,6 +281,13 @@ jQuery(document).ready(function($){
 
       $trigger.addClass('active');
       $schedule.addClass('active');
+
+      if(waq.$program.$sticky){
+        setTimeout(function(){
+          console.log('update');
+          waq.$program.$sticky.sticky('update');
+        }, 200);
+      }
       e.stopPropagation();
 
     }
