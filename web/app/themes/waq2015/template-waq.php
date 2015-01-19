@@ -19,7 +19,7 @@ get_header_once();
       <div class="top grid">
         <div class="waq-infos">
           <div class="description">
-            <?= get_the_content() ?>
+            <?php the_content() ?>
           </div>
         </div>
         <div class="volounteers">
