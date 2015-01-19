@@ -933,7 +933,29 @@ a[href].btn
     .session-title,
     .infos
       text-align: center
+    .favorite
+      &:before
+        background: $d-blue2
+      &:after
+        border-color: $d-blue3
+      .no-touch &:hover
+        &:before,
+          background: $d-blue2
+        &:after
+          border-color: $d-blue3
+      >*
+        &:after
+          color: #fff
 
+      &.active,
+      .no-touch &.active:hover
+        &:before
+          background: #fff
+        &:after
+          border-color: $l-grey
+        >*
+          &:after
+            color: $l-blue
 
 
   //

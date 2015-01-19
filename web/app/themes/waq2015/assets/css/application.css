@@ -1820,6 +1820,22 @@ a[href].profile {
     .schedules .keynote .session-title,
     .schedules .keynote .infos {
       text-align: center; }
+    .schedules .keynote .favorite:before {
+      background: #0D567E; }
+    .schedules .keynote .favorite:after {
+      border-color: #105073; }
+    .no-touch .schedules .keynote .favorite:hover:before {
+      background: #0D567E; }
+    .no-touch .schedules .keynote .favorite:hover:after {
+      border-color: #105073; }
+    .schedules .keynote .favorite > *:after {
+      color: #fff; }
+    .schedules .keynote .favorite.active:before, .no-touch .schedules .keynote .favorite.active:hover:before {
+      background: #fff; }
+    .schedules .keynote .favorite.active:after, .no-touch .schedules .keynote .favorite.active:hover:after {
+      border-color: #eeeef0; }
+    .schedules .keynote .favorite.active > *:after, .no-touch .schedules .keynote .favorite.active:hover > *:after {
+      color: #00bfdf; }
   .schedules .messages,
   .schedules .errors {
     padding: 20px;
