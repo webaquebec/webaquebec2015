@@ -47,8 +47,8 @@ global $current_user;
     </div>
   </hgroup>
 
-
- <!--  <nav class="filters dark">
+<?php if(false): ?>
+   <nav class="filters dark">
     <div class="container">
       <h3 class="title border-middle">
         <?= __('Filtrer par thématique', 'waq') ?>
@@ -60,8 +60,8 @@ global $current_user;
         </button>
       </div>
     </div>
-  </nav> -->
-
+  </nav>
+<?php endif; ?>
 
   <?php if($schedules->have_posts()): ?>
   <div class="schedules">
@@ -122,47 +122,49 @@ global $current_user;
         <?php
         $wide = $session->columns->span > 1;
         ?>
-        <a href="<?= $session->permalink ?>" class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
-          <div class="wrap">
+        <div>
+          <a href="<?= $session->permalink ?>" class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>">
+            <div class="wrap">
 
-            <?php if($wide && $session->speaker->image): ?>
-              <div class="thumb">
-                <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
-              </div>
-            <?php endif; ?>
-
-            <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="<?= $schedule->grid_ID ?>" session="<?= $session->ID ?>">
-              <span>
-                <?= __('Ajouter à mon horaire', 'waq') ?>
-              </span>
-            </button>
-
-            <div class="location border-bottom">
-              <span class="small sub title">
-                <?= __('Salle', 'waq').' '.$session->location->title ?>
-              </span>
-            </div>
-
-            <h3 class="session-title title"><?= $session->title ?></h3>
-
-            <div class="speaker">
-              <?php if(!$wide && $session->speaker->image): ?>
-              <div class="thumb">
-                <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
-              </div>
+              <?php if($wide && $session->speaker->image): ?>
+                <div class="thumb">
+                  <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+                </div>
               <?php endif; ?>
 
-              <h4 class="infos">
-                <span class="wrap">
-                  <span class="name small title"><?= $session->speaker->name ?></span>
-                  <?php if(has($session->speaker->job)) : ?>
-                  <span class="job note"><?= $session->speaker->job ?></span>
-                  <?php endif; ?>
+              <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="<?= $schedule->grid_ID ?>" session="<?= $session->ID ?>">
+                <span>
+                  <?= __('Ajouter à mon horaire', 'waq') ?>
                 </span>
-              </h4>
+              </button>
+
+              <div class="location border-bottom">
+                <span class="small sub title">
+                  <?= __('Salle', 'waq').' '.$session->location->title ?>
+                </span>
+              </div>
+
+              <h3 class="session-title title"><?= $session->title ?></h3>
+
+              <div class="speaker">
+                <?php if(!$wide && $session->speaker->image): ?>
+                <div class="thumb">
+                  <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+                </div>
+                <?php endif; ?>
+
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title"><?= $session->speaker->name ?></span>
+                    <?php if(has($session->speaker->job)) : ?>
+                    <span class="job note"><?= $session->speaker->job ?></span>
+                    <?php endif; ?>
+                  </span>
+                </h4>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
 
         <?php
         endif;
