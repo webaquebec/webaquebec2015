@@ -562,7 +562,7 @@ section.intro
 
 .logos
   +clearfix()
-  +grid(4,$xlarge)
+  +grid(3, $xxlarge)
   li
     margin: 3.5em 0 2.25em 0
     padding-bottom: 0
@@ -570,14 +570,40 @@ section.intro
   img
     max-width: 100%
     margin: 0 auto
+  a
+    display: block
   &.small
-    +grid(5,0)
+    +grid(4,$xlarge)
+    li
+      padding-bottom: 0
 
 .presenters
   .logos
     text-align: center
     li
       float: none
+
+// SPECIFIC SIZES FOR PARTNERS
+.presenters
+  img
+    max-height: 120px // fake 65%, tweaked because the logo is too narrow
+
+.main_partners
+  img
+    max-height: 94px // 60%
+
+.associates,
+.publics
+  img
+    max-height: 78px // 50%
+
+.supporters
+  img
+    max-height: 62px // 40%
+
+.medias
+  img
+    max-height: 54px // 35%
 
 
 //

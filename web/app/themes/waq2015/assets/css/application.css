@@ -2833,8 +2833,8 @@ section.intro {
   font-size: 0;
   word-spacing: 0;
   line-height: 0;
-  margin-left: -25px;
-  margin-right: -25px; }
+  margin-left: -50px;
+  margin-right: -50px; }
   .logos:before, .logos:after {
     content: " ";
     display: block;
@@ -2850,8 +2850,8 @@ section.intro {
     font-size: initial;
     word-spacing: normal;
     line-height: 1;
-    width: 25%;
-    padding: 0 25px 50px; }
+    width: 33.33%;
+    padding: 0 50px 100px; }
   .logos li {
     margin: 3.5em 0 2.25em 0;
     padding-bottom: 0;
@@ -2859,12 +2859,14 @@ section.intro {
   .logos img {
     max-width: 100%;
     margin: 0 auto; }
+  .logos a {
+    display: block; }
   .logos.small {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
-    margin-left: 0;
-    margin-right: 0; }
+    margin-left: -25px;
+    margin-right: -25px; }
     .logos.small > * {
       display: inline-block;
       *display: inline;
@@ -2873,13 +2875,31 @@ section.intro {
       font-size: initial;
       word-spacing: normal;
       line-height: 1;
-      width: 20%;
-      padding: 0 0 0; }
+      width: 25%;
+      padding: 0 25px 50px; }
+    .logos.small li {
+      padding-bottom: 0; }
 
 .presenters .logos {
   text-align: center; }
   .presenters .logos li {
     float: none; }
+
+.presenters img {
+  max-height: 120px; }
+
+.main_partners img {
+  max-height: 94px; }
+
+.associates img,
+.publics img {
+  max-height: 78px; }
+
+.supporters img {
+  max-height: 62px; }
+
+.medias img {
+  max-height: 54px; }
 
 .waq2015 .content {
   margin-top: 30px; }
