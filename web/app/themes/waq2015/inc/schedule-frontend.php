@@ -258,8 +258,8 @@ class session extends helper{
       //
       // TIME
       $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
-      $start = intval($frame[0]) % 86400;
-      $end = intval($frame[1]) % 86400;
+      $start = intval($frame[0]);
+      $end = intval($frame[1]);
       $time_start_key = array_search( $start , $grid->time_keys);
       $time_end_key = array_search( $end , $grid->time_keys);
       $span = $time_end_key - $time_start_key;
