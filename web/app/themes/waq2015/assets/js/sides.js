@@ -22,7 +22,7 @@
 				right: sides.left.triggerSize ? sides.left.triggerSize : 0,
 				left: 0,
 				top: 0,
-				bottom: 0	
+				bottom: 0
 			}
 		}
 		else if(sides.right && sides.right.active){
@@ -31,7 +31,7 @@
 				left: sides.right.triggerSize ? sides.right.triggerSize : 0,
 				right: 0,
 				top: 0,
-				bottom: 0	
+				bottom: 0
 			}
 		}
 		else if(sides.top && sides.top.active){
@@ -40,7 +40,7 @@
 				top: sides.bottom.triggerSize ? sides.bottom.triggerSize : 0,
 				left: 0,
 				right: 0,
-				bottom: 0	
+				bottom: 0
 			}
 		}
 		else if(sides.bottom && sides.bottom.active){
@@ -49,7 +49,7 @@
 				bottom: sides.top.triggerSize ? sides.top.triggerSize : 0,
 				left: 0,
 				right: 0,
-				top: 0	
+				top: 0
 			}
 		}else{
 			s.min = s.max = {x:0, y:0};
@@ -57,7 +57,7 @@
 				left: sides.left.triggerSize ? sides.left.triggerSize : 0,
 				right: sides.right.triggerSize ? sides.right.triggerSize : 0,
 				top: sides.top.triggerSize ? sides.top.triggerSize : 0,
-				bottom: sides.bottom.triggerSize ? sides.bottom.triggerSize : 0	
+				bottom: sides.bottom.triggerSize ? sides.bottom.triggerSize : 0
 			}
 		}
 
@@ -75,7 +75,7 @@
 	}
 
 	function toggleSide(o, side){
-		
+
 		var sides = o.moSides;
 		var s = o.moGrab.s;
 		var drag = o.moGrab.drag;
@@ -119,7 +119,7 @@
 
 		$(document).trigger('release', o);
 	}
-	
+
 	$.extend($.fn, {
 		moSides:function(args, done){
 			if($(this).length==0) return;
@@ -128,7 +128,7 @@
 
 			if(typeof(args)=='string'){
 				if(!$(this)[0].moSides) return;
-				
+
 				if(args=='destroy'){
 					for(var i=0; i<selection.length; i++){
 						var o = selection[i];
@@ -156,14 +156,14 @@
 					top:false,
 					right:false,
 					bottom:false,
-					left:false				
+					left:false
 				};
 
 				$.each(args, function(key, value){
 					if(value){
 						var side = o["moSides"][key];
 						if(side == false){
-							
+
 							var size = 0;
 							var triggerSize = null;
 							var toggle = null;
@@ -210,7 +210,7 @@
 
 				if(s.left || s.right || s.bottom || s.top){
 
-					
+
 					var clean = args.clean ? args.clean : false;
 					var preventScroll = args.preventScroll ? args.preventScroll : false;
 					var triggerLength = typeof(args.triggerLength)=="number" ? args.triggerLength : $win.width()/3;
@@ -227,7 +227,7 @@
 							bottom: s.bottom.triggerSize ? s.bottom.triggerSize : 0
 						};
 					}
-	
+
 					$(o).dragAndDrop({
 						lock: true,
 						clean: clean,
@@ -239,7 +239,7 @@
 						},
 						grabCallback: function(e){
 							updateMinMax(this.target[0]);
-							if(grabCallback) this.grabCallback(e);
+							if(grabCallback) grabCallback(e);
 						},
 						dragCallback: dragCallback,
 						dropCallback : dropCallback,

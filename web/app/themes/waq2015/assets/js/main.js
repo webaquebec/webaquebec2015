@@ -485,7 +485,8 @@ jQuery(document).ready(function($){
           toggle: waq.$menu.$toggle,
           callback: function(e){
             waq.$menu.$toggle.toggleClass('active');
-          }
+            waq.$page.toggleClass('active');
+        }
       },
       clean: true
     });

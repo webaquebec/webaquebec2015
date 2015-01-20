@@ -23,7 +23,7 @@
 	var isSafari = isTouch && !isAndroid && !!navigator.userAgent.match(/Safari/i);
 	var isGingerbread = isAndroid && navigator.userAgent.match(/2.3/i);
 
-	if(isChrome) 	
+	if(isChrome)
 		$(window).on('touchcancel', function(e){
 			e.preventDefault();
 		});
@@ -45,17 +45,17 @@
         }
     }
   }
-	
+
 	function grabIt(e){
 		var drag = this.moGrab.drag;
 		var s = this.moGrab.s;
 
 		e.stopPropagation();
 
-		document.ontouchstart = document.ondragstart = function(e){ 
+		document.ontouchstart = document.ondragstart = function(e){
 		    e.preventDefault();
 		}
-	
+
 		currentTarget = s.target[0];
 		$(document).attr('unselectable', 'on')
                  .css('user-select', 'none')
@@ -74,7 +74,7 @@
 		var transforms = $(document).getTransforms(this['style'][window.moGrab.transform]);
 		var scale = transforms.scale.length>0?transforms.scale:1;
 		drag.scale = transforms.scale.length>0?parseFloat(transforms.scale[0]):null;
-		
+
 		drag.offset = this.offset?this.offset:{x:0,y:0};
 
 		if(touches && touches.length == 2 && s.pinchable) {
@@ -87,7 +87,7 @@
 				original: dist.total,
 				current:dist.total
 			};
-			
+
 
 			$(window).off('touchmove mousemove').on('touchmove',pinchIt);
 			$(window).off('touchend touchcancel mouseup').on('touchend touchcancel',stopPinching);
@@ -122,7 +122,7 @@
 		$(window).on('touchmove mousemove',dragIt);
 		$(window).on('touchend mouseup touchcancel',dropIt);
 	}
-	
+
 	function dragIt(e){
 		e.stopPropagation();
 
@@ -145,10 +145,10 @@
 				preventDrag: s.preventDrag
 			});
 		}
-		
+
 
 	}
-	
+
 	function dropIt(e){
 		document.ontouchstart = document.ondragstart = undefined;
 		var drag = currentTarget.moGrab.drag;
@@ -176,7 +176,7 @@
 
 	function pinchIt(e){
 		e.stopPropagation(e);
-		
+
 		var touches = 	(e.type=='touchmove') ?
 						(e.targetTouches ? e.targetTouches : e.originalEvent.targetTouches) :
 						false;
@@ -187,7 +187,7 @@
 			var dist = {x:(two.x-one.x), y:(two.y-one.y), total:0};
 			dist.total = Math.round(Math.sqrt((dist.x*dist.x)+(dist.y*dist.y)));
 			drag.pinch.current = dist.total;
-	
+
 			var delta = Math.round(((drag.pinch.current/drag.pinch.original)-1)*100)/100;
 			var ratio = drag.scale + (delta/100);
 
@@ -251,7 +251,7 @@
 	}
 
 	function resolveBezier(curve, x, treshold){
-		
+
 		var bezier = curve.match(/([0-9\.]+)/g);
 		for(var i=0; i<bezier.length; i++)
 			bezier[i] = parseFloat(bezier[i]);
@@ -265,13 +265,13 @@
 		var pos = new coord();
 		var i=0;
 		while( Math.abs(pos.x - x) >= treshold && i<100){
-			
+
 			pos = getBezier(test.med , coord(0,0), coord(bezier[2],bezier[3]),  coord(bezier[0],bezier[1]), coord(1,1));
 			test.min = pos.x>x ? test.med : test.min;
 			test.max = pos.x>x ? test.max : test.med;
 			test.med = test.min + ((test.max - test.min) / 2 );
 			i++;
-		
+
 		}
 		return Math.round(pos.y/treshold)*treshold;
 	}
@@ -287,9 +287,9 @@
 
 		if(drag.duration>0)
 			target['style'][window.moGrab.transition] = 'all '+drag.duration+'ms '+s.easing;
-		
+
 		if(!s.preventDrag) target['style'][window.moGrab.transform] = window.moGrab.CSStranslate.start+'('+Math.round(drag.target.x)+'px,'+Math.round(drag.target.y)+'px'+window.moGrab.CSStranslate.end+')'+ (drag.scale?' scale('+drag.scale+')':'');
-		
+
 		if(drag.duration>0){
 			setTimeout(function(){
 				if(s.callback) s.callback();
@@ -322,7 +322,7 @@
 
 			var deltaTime =  Math.round((minMax( new Date()-last.time+30, 0, duration) / duration) / treshold ) * treshold;
 			var delta = resolveBezier( s.easing, deltaTime, treshold ) ;
-			
+
 			drag.target = {
 				x: real.x + ((target.x - real.x) * (delta)),
 				y: real.y + ((target.y - real.y) * (delta))
@@ -343,7 +343,7 @@
 	// 			  EXTEND JQUERY FN
 	// --------------------------------------- //
 	$.extend($.fn, {
-		
+
 		getTransforms: function(transform) {
 			// if(isIE&&isIE<9 ) return true;
 			var transforms = {
@@ -391,23 +391,23 @@
 			var e = s.event;
 			var type = e.type;
 			var touch;
-		
+
 			if(isTouch && type.match(/mouse/i)) return;
-	
+
 			if( (isTouch && !e.originalEvent && !e.pageX) || e.which == 3 || (e.touches!=undefined&&e.touches[1]!= undefined ? e.touches[1]:undefined) != undefined ) return ;
 
 			if(isTouch)
 				touch = e.originalEvent.changedTouches[0] || e.originalEvent.touches[0]
 			else
 				touch = e;
-			
+
 			var current = {x:touch.pageX, y:touch.pageY};
-		
+
 			if(type=='touchmove'
 			|| type=='mousemove'){
-			
+
 					if(drag.down){
-						
+
 						drag.delta.x = current.x - drag.start.x;
 						drag.delta.y = current.y - drag.start.y
 
@@ -426,7 +426,7 @@
 								e.stopPropagation();
 								if(!s.axis.y){
 									drag.down = drag.moved = false;
-									document.ontouchstart = undefined;		
+									document.ontouchstart = undefined;
 									o.children().css('pointer-events','');
 									document.oncontextmenu = undefined;
 									window.ontouchmove = undefined;
@@ -458,10 +458,10 @@
 								x:drag.origin.x+drag.delta.x-drag.offset.x + ( s.lockMargin * (drag.delta.x<0?1:-1)),
 								y:drag.origin.y+drag.delta.y-drag.offset.y + ( s.lockMargin * (drag.delta.y<0?1:-1))
 							};
-						var translate = {x:drag.real.x,y:drag.real.y}; 
+						var translate = {x:drag.real.x,y:drag.real.y};
 
 						if(s.axis.x && (drag.real.x < s.min.x || drag.real.x > s.max.x)){
-							
+
 							var tl = s.triggerLength;
 							if(typeof(s.triggerLength)=="object"){
 								if(drag.real.x < s.min.x ) tl = s.triggerLength.right
@@ -484,7 +484,7 @@
 							}
 						}
 						if(s.axis.y && (drag.real.y < s.min.y || drag.real.y > s.max.y)){
-							
+
 							var tl = s.triggerLength;
 							if(typeof(s.triggerLength)=="object"){
 								if(drag.real.y < s.min.y ) tl = s.triggerLength.bottom
@@ -496,11 +496,11 @@
 									s.elasticTrigger();
 									o.children().css('pointer-events','');
 									drag.down = drag.moved = false;
-									return;	
+									return;
 								}
 								if(drag.real.y <= s.min.y) translate.y  -= Math.round((drag.real.y - s.min.y)*s.elasticLength)
 								else if (drag.real.y >= s.max.y) translate.y -= Math.round((drag.real.y - s.max.y)*s.elasticLength);
-				
+
 							}else{
 								if(drag.real.y < s.min.y) translate.y  -= Math.round((drag.real.y - s.min.y)*s.elasticLength)
 								else if (drag.real.y > s.max.y) translate.y -= Math.round((drag.real.y - s.max.y)*s.elasticLength);
@@ -510,9 +510,9 @@
 						translate.y += drag.offset.y;
 						if(drag.locked.x || !s.axis.y) translate.y = 0;
 						if(drag.locked.y || !s.axis.x) translate.x = 0;
-						
+
 						var currentTransform = window.moGrab.CSStranslate.start+'('+translate.x+'px, '+translate.y+'px'+window.moGrab.CSStranslate.end+')';
-						
+
 						if(drag.scale) currentTransform +=' scale('+drag.scale+')';
 
 						if(!s.preventDrag) o[0].style[window.moGrab.transform] = currentTransform;
@@ -524,12 +524,12 @@
 
 			else if(type=='mousedown'
 					 || type=='touchstart'){
-		
+
 						drag.down = true;
 
 						var transforms = $(document).getTransforms(o[0]['style'][window.moGrab.transform]);
 						matrix = $.extend([0,0,0],transforms[window.moGrab.has3D?'translate3d':'translate']);
-						
+
 						var cw = o.width();
 						var ch = o.height();
 
@@ -540,7 +540,7 @@
 						}else{
 							drag.scale = null;
 						}
-				
+
 
 						drag.sizes.content = {h:ch,w:cw};
 						drag.start = current;
@@ -549,9 +549,9 @@
 						drag.real = {x:drag.origin.x+drag.delta.x-drag.offset.x,y:drag.origin.y+drag.delta.y-drag.offset.y};
 						drag.locked = {x:false,y:false};
 						drag.last = [{x:current.x,y:current.y, time:new Date()}];
-						
+
 						if(typeof s.fn == 'function') s.fn();
-		
+
 			}
 
 			else if(type=='mouseup'
@@ -559,13 +559,13 @@
 					 || type=='touchcancel'
 					 || type=='mouseleave'){
 					if(drag.down){
-		
+
 						drag.down = drag.moved = false;
-						document.ontouchstart = undefined;		
+						document.ontouchstart = undefined;
 						o.children().css('pointer-events','');
-	
+
 						if(drag.pinch){
-							return 
+							return
 						}
 
 						drag.delta.x = current.x - drag.start.x;
@@ -574,31 +574,31 @@
 						if((!s.axis.y && Math.abs(drag.delta.x) < s.lockMargin)
 							|| (!s.axis.x && Math.abs(drag.delta.y) < s.lockMargin)
 							|| (Math.abs(drag.delta.x) < s.lockMargin && Math.abs(drag.delta.y) < s.lockMargin)) return ;
-						
+
 						if(s.axis.x && Math.abs(drag.last[drag.last.length-1].x - drag.last[0].x)>10){
-							
+
 							var dist = (drag.last[drag.last.length-1].x - drag.last[0].x);
 							var time = drag.last[drag.last.length-1].time - drag.last[0].time;
 							var speed = dist/time;
-							var dec = drag.deceleration * ( dist<0 ? -1 : 1 );						
-							
+							var dec = drag.deceleration * ( dist<0 ? -1 : 1 );
+
 							drag.target.x = drag.real.x + ((speed*speed)/(2*dec)*100);
 							drag.duration = Math.round(Math.abs(speed/dec)*100);
-						
+
 						}else{
 							drag.target.x = drag.real.x;
 						}
-					
+
 						if(s.axis.y && Math.abs(drag.last[drag.last.length-1].y - drag.last[0].y)>10){
-							
+
 							var dist = (drag.last[drag.last.length-1].y - drag.last[0].y);
 							var time = drag.last[drag.last.length-1].time - drag.last[0].time;
 							var speed = dist/time;
-							var dec = drag.deceleration * ( dist<0 ? -1 : 1 );						
-							
+							var dec = drag.deceleration * ( dist<0 ? -1 : 1 );
+
 							drag.target.y = drag.real.y + ((speed*speed)/(2*dec)*200);
 							drag.duration = Math.round(Math.abs(speed/dec)*200);
-	
+
 						}else{
 							drag.target.y = drag.real.y;
 						}
@@ -617,19 +617,19 @@
 
 
 						if(typeof s.fn == 'function') s.fn()
-						else 
+						else
 							if(s.fn == 'release') $(document).trigger('release', $(o))
-						
+
 						drag.last[0].time = new Date();
 						drag.real.x += drag.offset.x;
 						drag.real.y += drag.offset.y;
-						drag.offset = {x:0 , y:0}; 
-						
+						drag.offset = {x:0 , y:0};
+
 						return ;
-					}	
+					}
 
 			}
-			
+
 		},
 
 		dragAndDrop : function(args){
@@ -642,7 +642,7 @@
 				$(this).removeAttr('style');
 				return ;
 			}
-			
+
 			var s = $.extend({
 				axis: {x:true, y:true},
 				container:$(this).parent(),
@@ -707,9 +707,9 @@
 			window.moGrab.transitionEnd = transitionEndEventName();
 			window.moGrab.transform = Modernizr ? Modernizr.prefixed('transform') : s.tranform;
 			window.moGrab.CSStranslate = {start:'translate'+(window.moGrab.has3D?'3d':''), end: (window.moGrab.has3D?', 0':'')};
-	
+
 			$(document).on("dragstart", function() {return false;});
-			
+
 			$(this).on('touchstart mousedown',grabIt);
 
 			if(s.moveTo && $(s.moveTo, this).length>0){
@@ -749,7 +749,7 @@
 				var vh = $(s.container).outerHeight(true);
 				var nw = $(this).outerWidth(true);
 				var nh = $(this).outerHeight(true);
-		
+
 				s.max = {
 						x:(nw>vw)?( s.align.x=='center'? (nw-vw)/2 : 0 ): 0,
 						y:(nh>vh)?( s.align.y=='center'? (nh-vh)/2 : 0 ): 0
@@ -768,7 +768,7 @@
 			var translation = {x: 0, y: 0};
 			translation.x = (sizes.container.w) - offset.x;
 			translation.y = (sizes.container.h) - offset.y;
-		
+
 			translation.x = minMax(translation.x, s.min.x, s.max.x);
 			translation.y = minMax(translation.y, s.min.y, s.max.y);
 
@@ -796,9 +796,9 @@
 					maxHeight:'none',
 					maxWidth:'none'
 				});
-	
+
 			drag.duration = s.duration;
-			
+
 			if(!o[0].s) o[0].s = {};
 			if(!o[0].s.scaleLimits)
 				o[0].s.scaleLimits = {min: 0, max: 9999};
@@ -809,7 +809,7 @@
 
 			if(s.ratio<o[0].s.scaleLimits.min) s.ratio = o[0].s.scaleLimits.min;
 			else if(s.ratio>o[0].s.scaleLimits.max) s.ratio = o[0].s.scaleLimits.max;
-			
+
 			drag.scale = s.ratio;
 
 			var transforms = $(document).getTransforms($(o)[0]['style'][window.moGrab.transform]);
@@ -840,27 +840,27 @@
 
 			var x = translation.length>0 ? (current.x<c.min.x?c.min.x:(current.x>c.max.x?c.max.x:current.x)) : 0;
 			var y = translation.length>0 ? (current.y<c.min.y?c.min.y:(current.y>c.max.y?c.max.y:current.y)) : 0;
-		
+
 			drag.target = {x:x+offset.x, y:y+offset.y};
-		
+
 			$(document).trigger('release', $(o));
-		
+
 		},
 
 		getImgRatio : function(){
-		
+
 			var style = $(this).attr('style');
 			$(this).attr('style','');
 			var ns = {height:1, width:1};
-		
+
  			if($(this)[0].naturalHeight )
  				ns = {height: this[0].naturalHeight, width: this[0].naturalWidth };
- 		
+
 			var ss = {height: $(this).height(), width : $(this).width()};
-		
+
 			$(this).attr('style',style);
 			return ss.height / ns.height;
-  			
+
 		}
 
 	});
