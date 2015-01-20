@@ -18,7 +18,6 @@ setup_postdata($post);
     // the conference
     $image = $featured_session['image']; // custom image
     if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
-
     ?>
 
     <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
@@ -47,7 +46,7 @@ setup_postdata($post);
               <span class="meta dark">
                 <time class="date" datetime="<?= $session->date ?>">
                   <span class="v-align">
-                    <span class="sub title"><?= substr($session->grid,0,3) ?></span>
+                    <span class="sub title"><?= substr($session->grid_title,0,3) ?></span>
                     <span class="small title"><?= strftime('%e', $session->date) ?></span>
                   </span>
                 </time>
