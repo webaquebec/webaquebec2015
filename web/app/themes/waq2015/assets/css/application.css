@@ -2101,7 +2101,8 @@ section.intro {
     word-spacing: 0;
     line-height: 0;
     margin-left: -10px;
-    margin-right: -10px; }
+    margin-right: -10px;
+    margin: 0; }
     section.intro .grid > * {
       display: inline-block;
       *display: inline;
