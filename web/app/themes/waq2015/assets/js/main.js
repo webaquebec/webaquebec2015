@@ -248,13 +248,18 @@ jQuery(document).ready(function($){
   //
   // ANIMATE EXPANDABLES
   if(waq.$expandables.length){
-    waq.$expandables.scrollEvents({
-      flag: 'expandable',
-      travel: function(e){
-        var delta = minMax(e.data.delta()/0.66, 0, 1);
-        e.data.selection[0].style.width = Math.round(delta*100)+'%';
-      }
-    });
+    function enableExpandables(){
+      waq.$expandables.scrollEvents({
+        flag: 'expandable',
+        travel: function(e){
+          var delta = minMax(e.data.delta()/0.66, 0, 1);
+          e.data.selection[0].style.width = Math.round(delta*100)+'%';
+        }
+      });
+    }
+    function disableExpandables(){
+      waq.$expandables.scrollEvents('destroy');
+    }
   }
 
 
@@ -263,15 +268,6 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
-
-  function initMobileSchedule(){
-
-  }
-
-  function destroyMobileSchedule(){
-
-  }
-
 
   function enableMobileSchedules(){
     waq.$schedules.isMobile = true;
@@ -505,6 +501,7 @@ jQuery(document).ready(function($){
   //
   // > 1024px
   function largerThan1024(e){
+    if(waq.$expandables.length) enableExpandables();
     if(waq.$stickys.length) enableStickys();
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 1, { path: '/' });
@@ -517,6 +514,7 @@ jQuery(document).ready(function($){
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 0, { path: '/' });
     if(waq.$stickys.length) disableStickys();
+    if(waq.$expandables.length) disableExpandables();
   }
 
   $win.breakpoints([
