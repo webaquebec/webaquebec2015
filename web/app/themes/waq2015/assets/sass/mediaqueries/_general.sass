@@ -23,6 +23,7 @@
       position: relative
       z-index: 1
       background: #fff
+      +prefix(transform, translate3d(0,0,0))
       &:before
         content: ""
         position: absolute
@@ -35,7 +36,7 @@
         +opacity(0)
         +prefix(transition, opacity 320ms ease 0, z-index 0 linear 320ms)
 
-      &[style]
+      &.active
         &:before
           +opacity(1)
           z-index: 20
@@ -156,7 +157,7 @@
   // SCHEDULES
   .schedules
     .schedule
-      padding: $xlarge $medium
+      padding: $xlarge $small
     table
       max-width: 960px
 
@@ -252,12 +253,15 @@
       font-size: 0
       width: 100%
       position: relative
-      overflow-x: auto
       overflow-y: hidden
+      overflow-x: scroll
+      -webkit-overflow-scrolling: touch
+      line-height: 0
       >*
         +inlineb
         white-space: normal
         font-size: 14px
+        line-height: 1.2
     thead
       display: none
       .no-js &
@@ -281,6 +285,7 @@
         height: $large
         .title
           +inlineb
+          font-size: 1.25em
       td
         height: auto
         width: 40%
@@ -294,6 +299,7 @@
           display: none
     .swiper
       .session
+        margin-bottom: 0
         .location.border-bottom
           &:before
             display: none
