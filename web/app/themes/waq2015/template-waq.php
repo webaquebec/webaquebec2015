@@ -57,6 +57,9 @@ get_header_once();
           <?php endif;
           if(has($member['linked_in'])): ?>
             <li><a href="<?= $member['linked_in'] ?>" target="_blank" class="linkedin">Linkedin</a></li>
+          <?php endif;
+          if(has($member['instagram'])): ?>
+            <li><a href="<?= $member['instagram'] ?>" target="_blank" class="instagram">Instagram</a></li>
           <?php endif; ?>
           </ul>
         </nav>

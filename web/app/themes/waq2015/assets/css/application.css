@@ -289,6 +289,7 @@ footer .contact-general .social a.twitter:after,
 .event-location .social a.linkedin:after,
 footer .contact-general .social a.linkedin:after,
 .icon-instagram:after,
+.profile .links a.instagram:after,
 .social a.instagram:after,
 .feed-post.instagram:before,
 .icon-retweet:after,
@@ -349,7 +350,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, .event-location .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
   content: "\f109"; }
 
-.icon-instagram:after, .social a.instagram:after, .feed-post.instagram:before {
+.icon-instagram:after, .profile .links a.instagram:after, .social a.instagram:after, .feed-post.instagram:before {
   content: "\f10a"; }
 
 .icon-retweet:after, .feed-post .actions a.retweet:after {
