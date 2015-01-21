@@ -354,13 +354,15 @@ jQuery(document).ready(function($){
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
+    
+    //
+    //
+    // TABS
     waq.$program.$tabs = $('.days .toggle', waq.$program);
     waq.$program.$sticky = $('.sticky', waq.$program);
     waq.$program.$header = $('hgroup', waq.$program);
-    waq..$program.activeFilters = [];
-    waq.$program.$filters = $('.filters .toggle', waq.$program);
-    waq.$program.$sessions = $('.session', waq.$program);
 
+    // loop setup for tabs
     for(var i=0; i<waq.$program.$tabs.length; i++){
       var $tab = $(waq.$program.$tabs[i]);
       $tab[0].$schedule = waq.$schedules.filter('[schedule='+$tab.attr('schedule')+']')
@@ -387,14 +389,55 @@ jQuery(document).ready(function($){
 
     }
 
-    function addFilter(e){
+    //
+    //
+    // FILTERS
+    waq.$program.activeFilters = [];
+    waq.$program.$filters = $('.filters .toggle', waq.$program);
+    waq.$program.$sessions = $('.session', waq.$program).not('.lunch, .pause');
 
+    //loop setup for sessions
+    for(var i=0; i<waq.$program.$sessions.length; i++){
+      waq.$program.$sessions[i].activeFilters = [];
     }
-    function removeFilter(e){
 
+    function toggleFilter(e){
+      var $toggle = $(this);
+      var id = $toggle.attr('theme');
+      if(id){
+
+        var active = waq.$program.activeFilters.indexOf(id);
+        console.log(active);
+        var $sessions = waq.$program.$sessions.filter('[themes*="|'+id+'|"]');
+        if(active==-1){
+          // was not active
+          waq.$program.activeFilters.push(id);
+          if(waq.$program.activeFilters.length==1)
+            waq.$program.$sessions.addClass('disabled');
+
+          for(var i=0; i<$sessions.length; i++)
+            $($sessions[i]).removeClass('disabled')[0].activeFilters.push(id);
+        }
+        else{
+          // was active
+          waq.$program.activeFilters.splice(active, 1);
+
+          for(var i=0; i<$sessions.length; i++){
+            for(var key in $sessions[i].activeFilters)
+              if(key==id)
+                $sessions[i].activeFilters.splice(key, 1);
+            if(!$sessions[i].activeFilters.length) $($sessions[i]).addClass('disabled');
+          }
+        }
+
+        if(waq.$program.activeFilters.length==0)
+          waq.$program.$sessions.removeClass('disabled');
+
+      }
     }
 
     waq.$program.$tabs.on('click', toggleSchedule);
+    waq.$program.$filters.on('click', toggleFilter);
   }
 
   //

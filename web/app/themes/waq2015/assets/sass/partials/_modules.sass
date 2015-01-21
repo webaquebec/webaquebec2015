@@ -821,6 +821,12 @@ a[href].btn
       .no-touch &:hover
         &:after
           +box-shadow($shadows)
+    &.disabled
+      &:after
+        background: rgba(#b2b2b2, 0.5)
+        z-index: 5
+      .title
+        color: $m-grey
 
     >.wrap
       padding: 0.75em
@@ -938,6 +944,13 @@ a[href].btn
       background: $d-blue
     &:after
       border-color: $d-blue2
+
+    &.disabled
+      &:after
+        background: rgba($d-blue, 0.5)
+      .title
+        color: $l-blue
+
     .title,
     .speaker
       color: #fff

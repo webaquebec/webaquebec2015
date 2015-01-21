@@ -64,7 +64,7 @@ if(has($filters)):
 
       <div class="group">
       <?php foreach($filters as $filter): ?>
-        <button class="btn toggle" themes="<?= $filter->term_id ?>">
+        <button class="btn toggle" theme="<?= $filter->term_id ?>">
           <span><?= $filter->name ?></span>
         </button>
       <?php endforeach; ?>
@@ -128,7 +128,7 @@ if(has($filters)):
 
         <?php elseif($session->location->class=='pause'||$session->location->class == 'lunch'): ?>
 
-        <div class="session <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?>">
+        <div class="session <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?>" themes>
           <h3 class="sub title">
             <span class="location">
               <?= ($session->location->class!='pause' ? __('Salle', 'waq').' ' : '').$session->location->title?>
@@ -138,13 +138,15 @@ if(has($filters)):
           </h3>
         </div>
 
-        <?php else: ?>
-
-        <?php
+        <?php else:
+        $themes = '|';
+        foreach($session->themes as $theme){
+          $themes .= $theme->term_id.'|';
+        }
         $wide = $session->columns->span > 1;
         ?>
         <div>
-          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>">
+          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" themes="<?= $themes ?>" >
             <div class="wrap">
 
               <?php if($wide && $session->speaker->image): ?>
