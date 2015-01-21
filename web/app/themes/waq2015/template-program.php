@@ -47,17 +47,27 @@ global $current_user;
     </div>
   </hgroup>
 
-<?php if(false): ?>
+<?php
+//
+//
+// FILTERS
+$filters = get_terms( 'theme', array(
+  'hide_empty' => 1,
+ ));
+if(has($filters)):
+?>
    <nav class="filters dark">
     <div class="container">
-      <h3 class="title border-middle">
+      <h3 class="title toggle">
         <?= __('Filtrer par thématique', 'waq') ?>
       </h3>
 
-      <div class="group">
-        <button class="btn toggle">
-          <span>Accessibilité</span>
+      <div class="content">
+      <?php foreach($filters as $filter): ?>
+        <button class="filter btn toggle" theme="<?= $filter->term_id ?>">
+          <span><?= $filter->name ?></span>
         </button>
+      <?php endforeach; ?>
       </div>
     </div>
   </nav>
@@ -72,7 +82,6 @@ global $current_user;
     ?>
     <article class="schedule<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>">
     <?php
-
     //
     // format for time labels
     $time_labels_format = '<div class="time">'.
@@ -119,7 +128,7 @@ global $current_user;
 
         <?php elseif($session->location->class=='pause'||$session->location->class == 'lunch'): ?>
 
-        <div class="session <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?>">
+        <div class="session <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?>" themes>
           <h3 class="sub title">
             <span class="location">
               <?= ($session->location->class!='pause' ? __('Salle', 'waq').' ' : '').$session->location->title?>
@@ -129,13 +138,15 @@ global $current_user;
           </h3>
         </div>
 
-        <?php else: ?>
-
-        <?php
+        <?php else:
+        $themes = '|';
+        foreach($session->themes as $theme){
+          $themes .= $theme->term_id.'|';
+        }
         $wide = $session->columns->span > 1;
         ?>
         <div>
-          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>">
+          <div class="session btn light <?= $session->location->class ?> <?= $wide ? 'wide' : 'small' ?><?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" themes="<?= $themes ?>" >
             <div class="wrap">
 
               <?php if($wide && $session->speaker->image): ?>

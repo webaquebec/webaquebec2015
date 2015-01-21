@@ -74,23 +74,22 @@ jQuery(document).ready(function($){
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
   waq.$stickys = $('.sticky');
-  waq.$loading = $('.loading');
-
+  waq.$profiles = $('.profile.has-social');
+  waq.url = {};
+  waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
+  waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
 
   waq.isTouch = $(document.documentElement).hasClass('touch');
 
 
-
   //
   //
-  // REMOVE LOADING CLASS
-  if(waq.$loading.length){
-    $win.on('load',function(){
-      waq.$loading.removeClass('loading');
-      waq.$doc.eq(0).addClass('ready');
-    });
+  // GET VAR FROM URL
+  function getVarFromUrl(varname, offset){
+    if(typeof offset == 'undefined') offset = 1;
+    var index = waq.url.parts.indexOf(varname);
+    return waq.url.parts[index+offset];
   }
-
 
   //
   //
@@ -343,10 +342,16 @@ jQuery(document).ready(function($){
     waq.$toggles.on('click', toggleBtn);
   }
 
+  if(waq.isTouch && waq.$profiles.length){
+    waq.$profiles.on('click', toggleBtn)
+      .find('a').on('click', function(e){
+        e.stopPropagation();
+      });
+  }
+
   function toggleMenu(){
     waq.$menu.$toggle.trigger('click');
   }
-
 
 
 
@@ -354,10 +359,14 @@ jQuery(document).ready(function($){
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
+    //
+    //
+    // TABS
     waq.$program.$tabs = $('.days .toggle', waq.$program);
     waq.$program.$sticky = $('.sticky', waq.$program);
     waq.$program.$header = $('hgroup', waq.$program);
 
+    // loop setup for tabs
     for(var i=0; i<waq.$program.$tabs.length; i++){
       var $tab = $(waq.$program.$tabs[i]);
       $tab[0].$schedule = waq.$schedules.filter('[schedule='+$tab.attr('schedule')+']')
@@ -379,12 +388,62 @@ jQuery(document).ready(function($){
       // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
       if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
-
       e.stopPropagation();
 
     }
 
+    //
+    //
+    // FILTERS
+    waq.$program.activeFilters = [];
+    waq.$program.$filters = $('.filters .filter.toggle', waq.$program);
+    waq.$program.$filtersNavToggle = $('.title.toggle', waq.$program);
+    waq.$program.$filtersNavContent = $('.content', waq.$program);
+    waq.$program.$sessions = $('.session', waq.$program).not('.lunch, .pause');
+
+    //loop setup for sessions
+    for(var i=0; i<waq.$program.$sessions.length; i++){
+      waq.$program.$sessions[i].activeFilters = [];
+    }
+
+    function toggleFiltersNav(e){
+      waq.$program.$filtersNavContent.slideToggle({duration:540, easing:$.bez([0.5, 0, 0.225, 1])});
+    }
+
+    function toggleFilter(e){
+      var $toggle = $(this);
+      var id = $toggle.attr('theme');
+      if(id){
+
+        var active = waq.$program.activeFilters.indexOf(id);
+        var $sessions = waq.$program.$sessions.filter('[themes*="|'+id+'|"]');
+        if(active==-1){
+          // was not active
+          waq.$program.activeFilters.push(id);
+          if(waq.$program.activeFilters.length==1)
+            waq.$program.$sessions.addClass('disabled');
+          for(var i=0; i<$sessions.length; i++)
+            $($sessions[i]).removeClass('disabled')[0].activeFilters.push(id);
+        }
+        else{
+          // was active
+          waq.$program.activeFilters.splice(active, 1);
+          for(var i=0; i<$sessions.length; i++){
+            for(var key in $sessions[i].activeFilters)
+              if(key==id)
+                $sessions[i].activeFilters.splice(key, 1);
+            if(!$sessions[i].activeFilters.length) $($sessions[i]).addClass('disabled');
+          }
+        }
+        // remove all class disabled if no filters enabled
+        if(waq.$program.activeFilters.length==0)
+          waq.$program.$sessions.removeClass('disabled');
+      }
+    }
+
     waq.$program.$tabs.on('click', toggleSchedule);
+    waq.$program.$filters.on('click', toggleFilter);
+    if(getVarFromUrl('filtre')) waq.$program.$filters.filter('[theme="'+getVarFromUrl('filtre')+'"]').trigger('click');
   }
 
   //
@@ -392,6 +451,7 @@ jQuery(document).ready(function($){
   //
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
+
     for(var i=0; i<waq.$schedules.$toggles.length; i++){
       var $trigger = $(waq.$schedules.$toggles[i]);
       $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
@@ -401,9 +461,7 @@ jQuery(document).ready(function($){
       var $trigger = $(this);
       var $toggles = $trigger[0].$toggles;
       var $previousFavorite = $toggles.filter('.active');
-
       $previousFavorite.removeClass('active');
-
     }
 
     waq.$schedules.$toggles.on('click', toggleFavorite);
@@ -431,7 +489,7 @@ jQuery(document).ready(function($){
 
   if(waq.$map.length && google){
 
-    function launchInit(){
+    function initGoogleMap(){
        waq.$map.latLng = new google.maps.LatLng(
         parseFloat(waq.$map.attr('lat')),
         parseFloat(waq.$map.attr('lng'))
@@ -447,7 +505,7 @@ jQuery(document).ready(function($){
       else window.setDesktopMap(waq.map);
     }
 
-    google.maps.event.addDomListener(window, 'load', launchInit);
+    google.maps.event.addDomListener(window, 'load', initGoogleMap);
   }
 
 
@@ -506,11 +564,19 @@ jQuery(document).ready(function($){
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 1, { path: '/' });
     if(waq.$schedules.length) disableMobileSchedules();
+    if(waq.$program.$filtersNavToggle.length){
+      waq.$program.$filtersNavContent.show();
+      waq.$program.$filtersNavToggle.removeClass('active').off('click',toggleFiltersNav);
+    }
     $win.scrollEvents('update');
   }
   // < 1024px
   function smallerThan1024(e){
     if(waq.$schedules.length) enableMobileSchedules();
+    if(waq.$program.$filtersNavToggle.length){
+      waq.$program.$filtersNavContent.hide();
+      waq.$program.$filtersNavToggle.removeClass('active').on('click',toggleFiltersNav);
+    }
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 0, { path: '/' });
     if(waq.$stickys.length) disableStickys();

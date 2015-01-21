@@ -18,7 +18,6 @@ setup_postdata($post);
     // the conference
     $image = $featured_session['image']; // custom image
     if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
-    var_dump($session->time);
     ?>
 
     <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">

@@ -301,6 +301,9 @@ nav[role="navigation"] .secondary a:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
+.filters .title.toggle:after,
+.filters nav[role="navigation"] ul a.toggle:after,
+nav[role="navigation"] ul .filters a.toggle:after,
 .icon-close:after,
 .btn.toggle.active > :after,
 .toggle.active.profile > :after,
@@ -358,7 +361,7 @@ nav[role="navigation"] .secondary a:after,
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
   content: "\f10d"; }
 
-.icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
+.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
   content: "\f10e"; }
 
 .icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after {
@@ -838,7 +841,7 @@ nav[role="navigation"] .secondary {
   transition-delay: 1080ms !important; }
 
 .expandable {
-  width: 100%;
+  width: 0%;
   -webkit-transition: width 200ms cubic-bezier(0.2, 0, 0.4, 1);
   -moz-transition: width 200ms cubic-bezier(0.2, 0, 0.4, 1);
   -ms-transition: width 200ms cubic-bezier(0.2, 0, 0.4, 1);
@@ -947,7 +950,7 @@ nav[role="navigation"] .secondary {
   .dark .btn, .dark .profile {
     color: white; }
     .dark .btn:before, .dark .profile:before {
-      background: #111111; }
+      background: #4b4b4d; }
     .dark .btn:after, .dark .profile:after {
       border-color: #3d3d3d; }
     .dark .btn > *, .dark .profile > * {
@@ -1587,6 +1590,9 @@ a[href].profile {
     background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
+.filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+  display: none; }
+
 .schedules {
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center;
   background-size: cover;
@@ -1692,6 +1698,11 @@ a[href].profile {
       -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
       box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
+  .schedules .session.disabled:after {
+    background: rgba(178, 178, 178, 0.5);
+    z-index: 5; }
+  .schedules .session.disabled .title, .schedules .session.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session.disabled a {
+    color: #3d3d3d; }
   .schedules .session > .wrap {
     padding: 0.75em; }
   .schedules .session a {
@@ -1834,6 +1845,10 @@ a[href].profile {
       background: #005f93; }
     .schedules .keynote:after {
       border-color: #0d567e; }
+    .schedules .keynote.disabled:after {
+      background: rgba(0, 95, 147, 0.5); }
+    .schedules .keynote.disabled .title, .schedules .keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote.disabled a {
+      color: #00bfdf; }
     .schedules .keynote .title, .schedules .keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote a,
     .schedules .keynote .speaker {
       color: white; }
@@ -2526,8 +2541,7 @@ section.intro {
 .program {
   padding-top: 0; }
   .program > nav {
-    padding-top: 50px;
-    padding-bottom: 30px; }
+    padding-bottom: 20px; }
   .program .days ul {
     font-size: 0;
     word-spacing: 0;
@@ -3357,12 +3371,7 @@ footer .logo-o2 {
   body > .wrapper {
     position: relative;
     z-index: 1;
-    background: white;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
+    background: white; }
     body > .wrapper:before {
       content: "";
       position: absolute;
@@ -3527,6 +3536,9 @@ footer .logo-o2 {
   section.intro .bg {
     background-image: url(../img/video-bg.jpg); } }
 @media screen and (max-width: 1024px) {
+  .expandable {
+    width: 100%; }
+
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }
   .intro .title.huge, .intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul .intro a.huge {
@@ -3587,6 +3599,44 @@ footer .logo-o2 {
     padding-right: 0; }
   .single .content {
     font-size: 1.25em; }
+
+  .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    position: relative;
+    cursor: pointer;
+    padding: 0 2em 0.15em 0; }
+    .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      width: 1em;
+      height: 1em;
+      margin: -0.5em;
+      line-height: 1em;
+      font-size: 0.75em;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: -webkit-transform 320ms ease;
+      -moz-transition: -moz-transform 320ms ease;
+      -ms-transition: -ms-transform 320ms ease;
+      -o-transition: -o-transform 320ms ease;
+      transition: transform 320ms ease; }
+    .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after {
+      -webkit-transform: rotate(405deg);
+      -moz-transform: rotate(405deg);
+      -ms-transform: rotate(405deg);
+      -o-transform: rotate(405deg);
+      transform: rotate(405deg); }
+  .filters .content {
+    display: none; }
 
   .schedules table, .schedules tbody, .schedules thead, .schedules tr, .schedules td, .schedules th {
     display: block; }
@@ -4208,11 +4258,18 @@ footer .logo-o2 {
       *display: inline;
       zoom: 1; }
 
+  .filters .content {
+    font-size: 0.75em; }
+
   .schedules tbody td {
     width: 80%; } }
 @media screen and (max-width: 480px) {
   .title.main, nav[role="navigation"] ul a.main {
     font-size: 1.875em; }
+
+  .filters .toggle {
+    display: block;
+    width: 100%; }
 
   .blog-page .posts {
     font-size: 0;

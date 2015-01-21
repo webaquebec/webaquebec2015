@@ -63,7 +63,7 @@ $session = new session($post->ID);
           <ul class="tags">
             <?php foreach($session->themes as $theme): ?>
             <li class="btn">
-                <a href="<?= get_permalink(4); ?>filtre/<?= $theme->slug ?>">
+                <a href="<?= get_permalink(4); ?>filtre/<?= $theme->term_id ?>/<?= $theme->slug ?>">
                   <?= $theme->name ?>
                 </a>
             </li>

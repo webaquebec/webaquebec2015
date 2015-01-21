@@ -26,7 +26,7 @@ setup_postdata($post);
             <h2 class="huge title"><?= $intro['top'][0]['location'] ?></h2>
           </div>
 
-          <div class="border-bottom expandable"></div>
+          <div class="border-bottom"></div>
         </div>
 
         <div class="middle">
@@ -34,7 +34,7 @@ setup_postdata($post);
         </div>
 
         <div class="bottom border-left">
-          <div class="border-top expandable"></div>
+          <div class="border-top"></div>
           <h3>
             <a class="btn seamless eventbrite" href="<?= get_field('eventbrite_url', 'options') ?>" target="_blank">
               <div class="huge title"><?= $intro['bottom'][0]['cta'] ?></div>
