@@ -357,6 +357,9 @@ jQuery(document).ready(function($){
     waq.$program.$tabs = $('.days .toggle', waq.$program);
     waq.$program.$sticky = $('.sticky', waq.$program);
     waq.$program.$header = $('hgroup', waq.$program);
+    waq..$program.activeFilters = [];
+    waq.$program.$filters = $('.filters .toggle', waq.$program);
+    waq.$program.$sessions = $('.session', waq.$program);
 
     for(var i=0; i<waq.$program.$tabs.length; i++){
       var $tab = $(waq.$program.$tabs[i]);
@@ -384,6 +387,13 @@ jQuery(document).ready(function($){
 
     }
 
+    function addFilter(e){
+
+    }
+    function removeFilter(e){
+
+    }
+
     waq.$program.$tabs.on('click', toggleSchedule);
   }
 
@@ -392,6 +402,7 @@ jQuery(document).ready(function($){
   //
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
+
     for(var i=0; i<waq.$schedules.$toggles.length; i++){
       var $trigger = $(waq.$schedules.$toggles[i]);
       $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
@@ -401,9 +412,7 @@ jQuery(document).ready(function($){
       var $trigger = $(this);
       var $toggles = $trigger[0].$toggles;
       var $previousFavorite = $toggles.filter('.active');
-
       $previousFavorite.removeClass('active');
-
     }
 
     waq.$schedules.$toggles.on('click', toggleFavorite);
@@ -431,7 +440,7 @@ jQuery(document).ready(function($){
 
   if(waq.$map.length && google){
 
-    function launchInit(){
+    function initGoogleMap(){
        waq.$map.latLng = new google.maps.LatLng(
         parseFloat(waq.$map.attr('lat')),
         parseFloat(waq.$map.attr('lng'))
@@ -447,7 +456,7 @@ jQuery(document).ready(function($){
       else window.setDesktopMap(waq.map);
     }
 
-    google.maps.event.addDomListener(window, 'load', launchInit);
+    google.maps.event.addDomListener(window, 'load', initGoogleMap);
   }
 
 

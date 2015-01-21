@@ -47,7 +47,15 @@ global $current_user;
     </div>
   </hgroup>
 
-<?php if(false): ?>
+<?php
+//
+//
+// FILTERS
+$filters = get_terms( 'theme', array(
+  'hide_empty' => 1,
+ ));
+if(has($filters)):
+?>
    <nav class="filters dark">
     <div class="container">
       <h3 class="title border-middle">
@@ -55,9 +63,11 @@ global $current_user;
       </h3>
 
       <div class="group">
-        <button class="btn toggle">
-          <span>Accessibilité</span>
+      <?php foreach($filters as $filter): ?>
+        <button class="btn toggle" themes="<?= $filter->term_id ?>">
+          <span><?= $filter->name ?></span>
         </button>
+      <?php endforeach; ?>
       </div>
     </div>
   </nav>
@@ -72,7 +82,6 @@ global $current_user;
     ?>
     <article class="schedule<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>">
     <?php
-
     //
     // format for time labels
     $time_labels_format = '<div class="time">'.
