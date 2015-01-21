@@ -74,6 +74,7 @@ jQuery(document).ready(function($){
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
   waq.$stickys = $('.sticky');
+  waq.$profiles = $('.profile.has-social');
   waq.url = {};
   waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
   waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
@@ -339,6 +340,13 @@ jQuery(document).ready(function($){
 
   if(waq.$toggles.length){
     waq.$toggles.on('click', toggleBtn);
+  }
+
+  if(waq.isTouch && waq.$profiles.length){
+    waq.$profiles.on('click', toggleBtn)
+      .find('a').on('click', function(e){
+        e.stopPropagation();
+      });
   }
 
   function toggleMenu(){
