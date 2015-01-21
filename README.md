@@ -7,10 +7,9 @@ Si vous aidez sur un projet déjà démarré, allez directement à **Aider sur u
 Pour contributeurs externes à O2 Web.
 On présume PHP Composer, MySQL et PHP déjà installé.
 
-		cp .env.min .env
+		composer run-script post-root-package-install
 		bundle install
 		composer install
-		composer update
 		mysql -u root -e "create database waq2015"
 		mysql -u root waq2015 < ~/Downloads/webaqueb_2015_prod.sql
 		gem install sass -v '~> 3.4'
