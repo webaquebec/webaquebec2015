@@ -3708,10 +3708,6 @@ footer .logo-o2 {
       display: none; }
   .schedules .swiper .session {
     margin-bottom: 0; }
-    .schedules .swiper .session .location.border-bottom:before {
-      display: none; }
-    .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a {
-      display: none; }
     .schedules .swiper .session .location[location] {
       position: relative; }
       .schedules .swiper .session .location[location] > * {
@@ -3906,6 +3902,11 @@ footer .logo-o2 {
 
   .content {
     font-size: 16px; }
+
+  .schedules .session.wide.has-thumb > * > * {
+    text-indent: 0; }
+    .schedules .session.wide.has-thumb > * > * .infos {
+      text-indent: 0; }
 
   .posts .sticky {
     position: static; }
@@ -4186,6 +4187,16 @@ footer .logo-o2 {
       padding: 10px; }
     .features .infos .favorite {
       font-size: 1em; }
+
+  .schedules .session.wide.has-thumb > * > * {
+    margin-left: 3.5em; }
+  .schedules .session.wide .thumb {
+    width: 2.5em;
+    height: 2.5em; }
+  .schedules .keynote .session-title,
+  .schedules .keynote .speaker,
+  .schedules .keynote .infos {
+    text-align: left; }
 
   .feed .right {
     display: none; }

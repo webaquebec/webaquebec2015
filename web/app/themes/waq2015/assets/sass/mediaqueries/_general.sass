@@ -329,10 +329,6 @@
       .session
         margin-bottom: 0
         .location.border-bottom
-          &:before
-            display: none
-          >.title
-            display: none
         .location[location]
           position: relative
           >*
@@ -481,6 +477,19 @@
 
   .content
     font-size: 16px
+
+
+  //
+  //
+  // SCHEDULE
+  .schedules
+    .session.wide.has-thumb
+      > * > *
+        text-indent: 0
+        .infos
+          text-indent: 0
+
+
 
   //
   //
