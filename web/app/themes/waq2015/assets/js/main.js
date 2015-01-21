@@ -388,12 +388,18 @@ jQuery(document).ready(function($){
     //
     // FILTERS
     waq.$program.activeFilters = [];
-    waq.$program.$filters = $('.filters .toggle', waq.$program);
+    waq.$program.$filters = $('.filters .filter.toggle', waq.$program);
+    waq.$program.$filtersNavToggle = $('.title.toggle', waq.$program);
+    waq.$program.$filtersNavContent = $('.content', waq.$program);
     waq.$program.$sessions = $('.session', waq.$program).not('.lunch, .pause');
 
     //loop setup for sessions
     for(var i=0; i<waq.$program.$sessions.length; i++){
       waq.$program.$sessions[i].activeFilters = [];
+    }
+
+    function toggleFiltersNav(e){
+      waq.$program.$filtersNavContent.slideToggle({duration:540, easing:$.bez([0.5, 0, 0.225, 1])});
     }
 
     function toggleFilter(e){
@@ -550,11 +556,19 @@ jQuery(document).ready(function($){
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 1, { path: '/' });
     if(waq.$schedules.length) disableMobileSchedules();
+    if(waq.$program.$filtersNavToggle.length){
+      waq.$program.$filtersNavContent.show();
+      waq.$program.$filtersNavToggle.removeClass('active').off('click',toggleFiltersNav);
+    }
     $win.scrollEvents('update');
   }
   // < 1024px
   function smallerThan1024(e){
     if(waq.$schedules.length) enableMobileSchedules();
+    if(waq.$program.$filtersNavToggle.length){
+      waq.$program.$filtersNavContent.hide();
+      waq.$program.$filtersNavToggle.removeClass('active').on('click',toggleFiltersNav);
+    }
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 0, { path: '/' });
     if(waq.$stickys.length) disableStickys();

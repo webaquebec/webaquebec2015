@@ -169,10 +169,10 @@
     .bg
       background-image: url(../img/video-bg.jpg)
 
-  .expandables
-    width: 100%
-
 @media screen and (max-width: 1024px)
+
+  .expandable
+    width: 100%
 
   //
   //
@@ -245,6 +245,32 @@
   //
   //
   // SCHEDULES
+  .filters
+    .title.toggle
+      +inlineb
+      position: relative
+      cursor: pointer
+      padding: 0 2em 0.15em 0
+      &:after
+        +inlineb
+        position: absolute
+        top: 50%
+        right: 1em
+        width: 1em
+        height: 1em
+        margin: -0.5em
+        line-height: 1em
+        font-size: 0.75em
+        +prefix(transform, rotate(0deg))
+        +prefix(transition, transform 320ms ease)
+      &.active:after
+        +prefix(transform, rotate(405deg))
+
+    .content
+      display: none
+
+
+
   .schedules
     table, tbody, thead, tr, td, th
       display: block

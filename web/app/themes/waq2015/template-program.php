@@ -58,13 +58,13 @@ if(has($filters)):
 ?>
    <nav class="filters dark">
     <div class="container">
-      <h3 class="title border-middle">
+      <h3 class="title toggle">
         <?= __('Filtrer par thématique', 'waq') ?>
       </h3>
 
-      <div class="group">
+      <div class="content">
       <?php foreach($filters as $filter): ?>
-        <button class="btn toggle" theme="<?= $filter->term_id ?>">
+        <button class="filter btn toggle" theme="<?= $filter->term_id ?>">
           <span><?= $filter->name ?></span>
         </button>
       <?php endforeach; ?>

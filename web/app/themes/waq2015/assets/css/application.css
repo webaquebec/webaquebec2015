@@ -301,6 +301,9 @@ nav[role="navigation"] .secondary a:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
+.filters .title.toggle:after,
+.filters nav[role="navigation"] ul a.toggle:after,
+nav[role="navigation"] ul .filters a.toggle:after,
 .icon-close:after,
 .btn.toggle.active > :after,
 .toggle.active.profile > :after,
@@ -358,7 +361,7 @@ nav[role="navigation"] .secondary a:after,
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
   content: "\f10d"; }
 
-.icon-more:after, .btn.toggle > :after, .toggle.profile > :after {
+.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
   content: "\f10e"; }
 
 .icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after {
@@ -1587,6 +1590,9 @@ a[href].profile {
     background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
+.filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+  display: none; }
+
 .schedules {
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center;
   background-size: cover;
@@ -2535,7 +2541,7 @@ section.intro {
 .program {
   padding-top: 0; }
   .program > nav {
-    padding-bottom: 10px; }
+    padding-bottom: 20px; }
   .program .days ul {
     font-size: 0;
     word-spacing: 0;
@@ -3533,11 +3539,11 @@ footer .logo-o2 {
     max-width: 960px; } }
 @media screen and (min-width: 1024px) {
   section.intro .bg {
-    background-image: url(../img/video-bg.jpg); }
-
-  .expandables {
-    width: 100%; } }
+    background-image: url(../img/video-bg.jpg); } }
 @media screen and (max-width: 1024px) {
+  .expandable {
+    width: 100%; }
+
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }
   .intro .title.huge, .intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul .intro a.huge {
@@ -3598,6 +3604,44 @@ footer .logo-o2 {
     padding-right: 0; }
   .single .content {
     font-size: 1.25em; }
+
+  .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    position: relative;
+    cursor: pointer;
+    padding: 0 2em 0.15em 0; }
+    .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      width: 1em;
+      height: 1em;
+      margin: -0.5em;
+      line-height: 1em;
+      font-size: 0.75em;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: -webkit-transform 320ms ease;
+      -moz-transition: -moz-transform 320ms ease;
+      -ms-transition: -ms-transform 320ms ease;
+      -o-transition: -o-transform 320ms ease;
+      transition: transform 320ms ease; }
+    .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after {
+      -webkit-transform: rotate(405deg);
+      -moz-transform: rotate(405deg);
+      -ms-transform: rotate(405deg);
+      -o-transform: rotate(405deg);
+      transform: rotate(405deg); }
+  .filters .content {
+    display: none; }
 
   .schedules table, .schedules tbody, .schedules thead, .schedules tr, .schedules td, .schedules th {
     display: block; }
@@ -4219,11 +4263,18 @@ footer .logo-o2 {
       *display: inline;
       zoom: 1; }
 
+  .filters .content {
+    font-size: 0.75em; }
+
   .schedules tbody td {
     width: 80%; } }
 @media screen and (max-width: 480px) {
   .title.main, nav[role="navigation"] ul a.main {
     font-size: 1.875em; }
+
+  .filters .toggle {
+    display: block;
+    width: 100%; }
 
   .blog-page .posts {
     font-size: 0;

@@ -727,8 +727,15 @@ a[href].btn
         background-color: transparent
         +gradient($l-blue, $d-blue)
 
-.schedules
+// Filters
+.filters
+  .title.toggle
+    @extend .icon-more
+    &:after
+      display: none
 
+// schedules
+.schedules
   background: url(../img/@2x/bg-schedule.jpg) no-repeat center center
   background-size: cover
   +clearfix
