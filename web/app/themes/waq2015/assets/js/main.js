@@ -3,17 +3,17 @@
 // MAIN JS
 
 // HASHBANG & COOKIEBANG
-if(typeof(bang)!='undefined' && bang){
-    if(typeof(cookiebang)!='undefined' && cookiebang){
-      if(window.innerWidth > 1024 || document.documentElement.clientWidth > 1024){
-        document.cookie = 'big-screen=1; path=/';
-      }
-      else{
-        document.cookie = 'big-screen=0; path=/';
-      }
+if(typeof bang != 'undefined' && bang){
+  if(typeof(cookiebang)!='undefined' && cookiebang){
+    if(window.innerWidth > 1024 || document.documentElement.clientWidth > 1024){
+      document.cookie = 'big-screen=1; path=/';
     }
+    else{
+      document.cookie = 'big-screen=0; path=/';
+    }
+  }
 
-  if(typeof(hashbang)!='undefined' && hashbang){
+  if(typeof hashbang !='undefined' && hashbang){
     var host = window.location.host;
     var parts = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
     var slug = parts[0];
@@ -24,7 +24,13 @@ if(typeof(bang)!='undefined' && bang){
   else{
     url = window.location.pathname;
   }
-  window.location.replace(url);
+
+  if(document.cookie.indexOf("big-screen=")!=-1 || (typeof hashbang !='undefined' && hashbang)){
+    window.location.replace(url);
+  }
+  else{
+    window.cookieDisabled = true;
+  }
 }
 
 //
@@ -35,7 +41,9 @@ window.waq = {};
 // Document ready
 jQuery(document).ready(function($){
   // Don't execute JS if we will bang anyway
-  if(typeof(bang)!='undefined' && bang) return;
+  // if cookies ar disabled, remove coverall
+  if(window.cookieDisabled) $('.bang-coverall').remove();
+  if(typeof(hashbang)!='undefined' && hashbang) return;
 
   //
   //
@@ -80,7 +88,6 @@ jQuery(document).ready(function($){
   waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
 
   waq.isTouch = $(document.documentElement).hasClass('touch');
-
 
   //
   //
