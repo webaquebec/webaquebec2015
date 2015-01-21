@@ -16,10 +16,10 @@ $session = new session($post->ID);
         <h1><?= $session->title ?></h1>
       </div>
       <div class="conference-info-container dark">
-        <div class="conferencer-info btn">
-            <span class="wrap ">
+        <div class="conferencer-info dark">
+            <span class="wrap room-border" style="border-left-color:<?= $session->location->color ?>;">
 
-              <span class="meta room-border" style="border-left-color:<?= $session->location->color ?>;">
+              <span class="meta">
                 <time class="date" datetime="">
                   <span class="v-align">
                     <span class="sub title"><?= substr($session->grid_title,0,3) ?></span>
