@@ -44,14 +44,14 @@ setup_postdata($post);
             <span class="wrap">
 
               <span class="meta dark">
-                <time class="date" datetime="<?= $session->date ?>">
+                <time class="date">
                   <span class="v-align">
                     <span class="sub title"><?= substr($session->grid_title,0,3) ?></span>
                     <span class="small title"><?= strftime('%e', $session->date) ?></span>
                   </span>
                 </time>
 
-                <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
+                <time class="time" itemprop="startDate" datetime="<?= strftime('%Y-%m-%e', $session->date) ?> <?= strftime('%k:%M', $session->time->start) ?>">
                   <span class="v-align">
                     <span class="sub title"><?= strftime('%k', $session->time->start) ?>h</span>
                     <span class="small title"><?= strftime('%M', $session->time->start) ?></span>

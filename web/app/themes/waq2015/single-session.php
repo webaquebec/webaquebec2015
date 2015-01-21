@@ -27,7 +27,7 @@ $session = new session($post->ID);
                   </span>
                 </time>
 
-                <time class="time" itemprop="startDate" datetime="2014-03-19 14:00">
+                <time class="time" itemprop="startDate" datetime="<?= strftime('%Y-%m-%e', $session->date) ?> <?= strftime('%k:%M', $session->time->start) ?>">
                   <span class="v-align">
                     <span class="sub title"><?= strftime('%k', $session->time->start) ?>h</span>
                     <span class="small title"><?= strftime('%M', $session->time->start) ?></span>
