@@ -571,7 +571,7 @@ jQuery(document).ready(function($){
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 1, { path: '/' });
     if(waq.$schedules.length) disableMobileSchedules();
-    if(waq.$program.$filtersNavToggle.length){
+    if(waq.$program.length && waq.$program.$filtersNavToggle.length){
       waq.$program.$filtersNavContent.show();
       waq.$program.$filtersNavToggle.removeClass('active').off('click',toggleFiltersNav);
     }
@@ -580,7 +580,7 @@ jQuery(document).ready(function($){
   // < 1024px
   function smallerThan1024(e){
     if(waq.$schedules.length) enableMobileSchedules();
-    if(waq.$program.$filtersNavToggle.length){
+    if(waq.$program.length && waq.$program.$filtersNavToggle.length){
       waq.$program.$filtersNavContent.hide();
       waq.$program.$filtersNavToggle.removeClass('active').on('click',toggleFiltersNav);
     }
