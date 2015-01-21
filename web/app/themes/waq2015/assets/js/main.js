@@ -74,23 +74,21 @@ jQuery(document).ready(function($){
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
   waq.$stickys = $('.sticky');
-  waq.$loading = $('.loading');
-
+  waq.url = {};
+  waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
+  waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
 
   waq.isTouch = $(document.documentElement).hasClass('touch');
 
 
-
   //
   //
-  // REMOVE LOADING CLASS
-  if(waq.$loading.length){
-    $win.on('load',function(){
-      waq.$loading.removeClass('loading');
-      waq.$doc.eq(0).addClass('ready');
-    });
+  // GET VAR FROM URL
+  function getVarFromUrl(varname, offset){
+    if(typeof offset == 'undefined') offset = 1;
+    var index = waq.url.parts.indexOf(varname);
+    return waq.url.parts[index+offset];
   }
-
 
   //
   //
@@ -349,12 +347,10 @@ jQuery(document).ready(function($){
 
 
 
-
   //
   //
   // PROGRAM (navigate between schedules)
   if(waq.$program.length && waq.$schedules.length){
-    
     //
     //
     // TABS
@@ -384,7 +380,6 @@ jQuery(document).ready(function($){
       // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
       if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
-
       e.stopPropagation();
 
     }
@@ -407,21 +402,18 @@ jQuery(document).ready(function($){
       if(id){
 
         var active = waq.$program.activeFilters.indexOf(id);
-        console.log(active);
         var $sessions = waq.$program.$sessions.filter('[themes*="|'+id+'|"]');
         if(active==-1){
           // was not active
           waq.$program.activeFilters.push(id);
           if(waq.$program.activeFilters.length==1)
             waq.$program.$sessions.addClass('disabled');
-
           for(var i=0; i<$sessions.length; i++)
             $($sessions[i]).removeClass('disabled')[0].activeFilters.push(id);
         }
         else{
           // was active
           waq.$program.activeFilters.splice(active, 1);
-
           for(var i=0; i<$sessions.length; i++){
             for(var key in $sessions[i].activeFilters)
               if(key==id)
@@ -429,15 +421,15 @@ jQuery(document).ready(function($){
             if(!$sessions[i].activeFilters.length) $($sessions[i]).addClass('disabled');
           }
         }
-
+        // remove all class disabled if no filters enabled
         if(waq.$program.activeFilters.length==0)
           waq.$program.$sessions.removeClass('disabled');
-
       }
     }
 
     waq.$program.$tabs.on('click', toggleSchedule);
     waq.$program.$filters.on('click', toggleFilter);
+    if(getVarFromUrl('filtre')) waq.$program.$filters.filter('[theme="'+getVarFromUrl('filtre')+'"]').trigger('click');
   }
 
   //
