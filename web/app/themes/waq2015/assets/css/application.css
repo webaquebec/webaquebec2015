@@ -1662,26 +1662,32 @@ a[href].profile {
         bottom: 10px;
         border-right: 10px solid white;
         border-color: inherit; }
-  .schedules tbody th {
-    border-top: 1px solid #3d3d3d;
-    width: 75px;
-    text-align: right;
-    background: #303030;
-    padding: 10px; }
-    .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
-      color: white; }
-  .schedules tbody td {
-    border-top: 1px solid #eeeef0;
-    height: 1px; }
-    .schedules tbody td > * {
+  .schedules tbody {
+    height: 100%; }
+    .schedules tbody tr {
       height: 100%; }
-      .schedules tbody td > * > * {
-        min-height: 100%;
-        -webkit-box-sizing: content-box;
-        -moz-box-sizing: content-box;
-        -ms-box-sizing: content-box;
-        -o-box-sizing: content-box;
-        box-sizing: content-box; }
+    .schedules tbody th {
+      border-top: 1px solid #3d3d3d;
+      width: 75px;
+      text-align: right;
+      background: #303030;
+      padding: 10px;
+      height: 100%; }
+      .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
+        color: white; }
+    .schedules tbody td {
+      border-top: 1px solid #eeeef0;
+      height: 100%;
+      -webkit-logical-height: 1px; }
+      .schedules tbody td > * {
+        height: 100%; }
+        .schedules tbody td > * > * {
+          min-height: 100%;
+          -webkit-box-sizing: content-box;
+          -moz-box-sizing: content-box;
+          -ms-box-sizing: content-box;
+          -o-box-sizing: content-box;
+          box-sizing: content-box; }
   .schedules .session.btn, .schedules .session.profile {
     margin: 0 0 -1.5em;
     display: block; }

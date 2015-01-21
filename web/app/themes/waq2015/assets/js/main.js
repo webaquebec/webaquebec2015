@@ -238,7 +238,7 @@ jQuery(document).ready(function($){
       waq.$stickys.sticky('destroy');
       setTimeout(function(){
         waq.$stickys.removeClass('contained fixed');
-      },240);
+      },300);
       if(waq.$program.length && waq.$program.$tabs) waq.$program.$tabs.isSticky = false;
     }
   }

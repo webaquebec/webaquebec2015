@@ -799,17 +799,22 @@ a[href].btn
 
   // BODY
   tbody
+    height: 100%
+    tr
+      height: 100%
     th
       border-top: 1px solid $m-grey
       width: $xxlarge*0.75
       text-align: right
       background: $d-grey
       padding: $small
+      height: 100%
       .title
         color: #fff
     td
       border-top: 1px solid $l-grey
-      height: 1px
+      height: 100%
+      -webkit-logical-height: 1px
       &>*
         height: 100%
         &>*
