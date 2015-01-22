@@ -9,7 +9,7 @@ set :branch, :master
 
 # Extended Server Syntax
 # ======================
-server 'webaquebec.org', user: 'webaqueb', roles: %w{web app db}
+server '66.147.244.160', user: 'webaqueb', roles: %w{web app db}
 # CHANGE FOR PRODUCTION ENVIRONMENT
 set :wpcli_remote_url, "http://webaquebec.org"
 
