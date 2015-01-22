@@ -192,11 +192,15 @@
   //
   // FEATURES
   .features
+    .grid
+      height: 450px
     .panel
       padding-top: 0
+      height: 100%
+      background-position: center center
+      +prefix(background-size, cover)
     .image
-      position: relative
-      +inlineb()
+      display: none
     .infos
       font-size: 0.688em
       .touch &
@@ -564,10 +568,13 @@
   // FEATURES
   .features
     .grid
+      height: auto
       +grid(1,0)
     .infos
       font-size: 1em
     .image
+      position: relative
+      +inlineb()
       img
         max-width: 100%
         min-height: 0

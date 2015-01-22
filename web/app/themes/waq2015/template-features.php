@@ -20,10 +20,10 @@ setup_postdata($post);
     if(!has($image)) $image = $this->speaker->image; // conferencer image fallback
     ?>
 
-    <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
+    <figure class="panel <?= $k%2==0 ? 'left' : 'right' ?> <?= $k<2 ? 'top' : 'bottom' ?>" style="background-image: url(<?= $image['sizes']['wide'] ?>);" itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
 
       <span class="image">
-        <img src="<?= $image['sizes']['wide'] ?>" alt="" itemprop="image"/>
+        <img src="<?= $image['sizes']['wide'] ?>" alt="<?= $session->speaker->name ?>" itemprop="image"/>
       </span>
 
       <figcaption class="infos">

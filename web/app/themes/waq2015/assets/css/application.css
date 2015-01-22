@@ -3577,13 +3577,19 @@ footer .logo-o2 {
       zoom: 1;
       vertical-align: middle; }
 
+  .features .grid {
+    height: 450px; }
   .features .panel {
-    padding-top: 0; }
+    padding-top: 0;
+    height: 100%;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
   .features .image {
-    position: relative;
-    display: inline-block;
-    *display: inline;
-    zoom: 1; }
+    display: none; }
   .features .infos {
     font-size: 0.688em; }
     .touch .features .infos {
@@ -3961,6 +3967,7 @@ footer .logo-o2 {
     font-size: 1em; }
 
   .features .grid {
+    height: auto;
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
@@ -3978,9 +3985,14 @@ footer .logo-o2 {
       padding: 0 0 0; }
   .features .infos {
     font-size: 1em; }
-  .features .image img {
-    max-width: 100%;
-    min-height: 0; }
+  .features .image {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+    .features .image img {
+      max-width: 100%;
+      min-height: 0; }
 
   .event-location {
     background: transparent;
