@@ -3714,6 +3714,8 @@ footer .logo-o2 {
       display: none; }
   .schedules .swiper .session {
     margin-bottom: 0; }
+    .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a, .schedules .swiper .session .location.border-bottom:before {
+      display: none; }
     .schedules .swiper .session .location[location] {
       position: relative; }
       .schedules .swiper .session .location[location] > * {
