@@ -8,31 +8,47 @@
 
 (function($){
 
-	function updateOptions(e){
-		var $el = (e.data && e.data.$el) ? e.data.$el : e;
-		var el = $el[0];
-		var tmpPos = el.style.position;
-		var tmpTop = el.style.top;
-		for(var i=0; i<el.ev.length; i++)
-			if(el.ev[i].flag=='sticked')
-				var options = el.ev[i];
-		if(!options) return;
-		el.style.position = el.initialStates.position;
-		el.style.top = el.initialStates.top;
-		$el.scrollEvents('set','contained', {
-			offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
-		});
-		el.style.position = tmpPos;
-		el.style.top = tmpTop;
+	window.sticky = {
+		selection: []
+	}
+
+	function updateContainedOffset(e){
+		var $selection = (e.data && e.data.$selection) ? e.data.$selection : e;
+		// loop throught selection
+		for(var s=0; s<$selection.length; s++){
+			var el = $selection[s];
+			var $el = $(el);
+			for(var i=0; i<el.ev.length; i++)
+				if(el.ev[i].flag=='sticked')
+					var options = el.ev[i];
+			if(options){
+				el.$stickyClone = $el.clone();
+				el.$stickyClone.insertBefore($el);
+				el.$stickyClone[0].style.visibility = 'hidden';
+				el.$stickyClone[0].style.position = el.initialStates.position;
+				el.$stickyClone[0].style.top = el.initialStates.top;
+				el.$stickyClone[0].style.marginBottom = '-'+el.$stickyClone.outerHeight()+'px';
+				options.topDown($.extend({selection:el.$stickyClone},options));
+				window.raf.on('nextframe', {$el:$el}, function(e){
+					var $el = e.data.$el;
+					var el = $el[0];
+					$el.scrollEvents('set','contained', {
+						offset: -(options.container.outerHeight() - el.$stickyClone.position().top - el.$stickyClone.outerHeight() - options.offsetBottom ) + options.offset
+					});
+					el.$stickyClone.remove();
+					el.$stickyClone = undefined;
+				});
+			}
+		}
 	}
 
 	$.extend($.fn, {
 		sticky :function(args, options){
 
 
-			var $el = $(this);
+			var $selection = $(this);
 			var type = typeof(args);
-			if(args=='update') updateOptions($el);
+			if(args=='update') updateContainedOffset($selection);
 			// Pass methods directly to scrollevents
 			if(type == 'string'){ return $(this).scrollEvents(args, options) }
 
@@ -57,33 +73,35 @@
 			// NORMAL STICKY
 			if(!options.inverted){
 
-
-				// STICKED
-				$el.scrollEvents({
-					order: 2,
-					flag: 'sticked',
-					container: options.container,
-					offset: options.offset,
-					topDown: options.reset,
-					topUp: options.fixed
-				});
-
-				// CONTAINED
-				if(options.container){
-
+				for(var s=0; s<$selection.length; s++){
+					var $el = $($selection[s]);
+					// STICKED
 					$el.scrollEvents({
-						order: 1,
-						flag: 'contained',
+						order: 2,
+						flag: 'sticked',
 						container: options.container,
-						offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
-						topDown: options.fixed,
-						topUp: options.contained
+						offset: options.offset,
+						offsetBottom: options.offsetBottom,
+						topDown: options.reset,
+						topUp: options.fixed
 					});
+
+						// CONTAINED
+					if(options.container){
+						$el.scrollEvents({
+							order: 1,
+							flag: 'contained',
+							offset: -(options.container.outerHeight() - $el.position().top - $el.outerHeight() - options.offsetBottom ) + options.offset,
+							container: options.container,
+							topDown: options.fixed,
+							topUp: options.contained,
+						});
+					}
 				}
 
-
 				if(options.container){
-					$(window).on('hardResize', {$el:$el}, updateOptions);
+					updateContainedOffset($selection);
+					window.raf.on('afterdocumentresize', {$selection:$selection}, updateContainedOffset);
 				}
 
 			}
@@ -93,25 +111,25 @@
 			// INVERTED STICKY
 			else{
 
-				$el.scrollEvents({
+				$selection.scrollEvents({
 					order: 2,
 					flag: 'inverted sticky top',
 					offset: options.offset,
 					topUp: options.fixedTop
 				});
-				$el.scrollEvents({
+				$selection.scrollEvents({
 					order: 1,
 					flag: 'scrolling top',
 					offset: options.offset,
 					topDown: options.scrolling,
 				});
-				$el.scrollEvents({
+				$selection.scrollEvents({
 					order: 1,
 					flag: 'scrolling bottom',
 					offsetBottom: options.offsetBottom,
 					bottomUp: options.scrolling,
 				});
-				$el.scrollEvents({
+				$selection.scrollEvents({
 					order: 2,
 					flag: 'inverted sticky bottom',
 					offsetBottom: options.offsetBottom,
@@ -119,6 +137,8 @@
 				});
 
 			}
+
 		}
 	});
+
 })(jQuery);
