@@ -333,9 +333,12 @@
       .session
         margin-bottom: 0
         .location.border-bottom
+          &>.title,
+          &:before
+            display: none
         .location[location]
           position: relative
-          >*
+          &>*
             display: block
             padding-left: $medium
           &:before

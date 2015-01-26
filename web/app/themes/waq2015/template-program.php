@@ -199,9 +199,10 @@ if(has($filters)):
 
     //
     // Print messages and errors
-    if(is_user_logged_in() && in_array('administrator', $current_user->roles))
+    if(is_user_logged_in() && in_array('administrator', $current_user->roles)){
       $schedule->print_messages();
       $schedule->print_errors();
+    }
     ?>
     </article>
   <?php endforeach; ?>
