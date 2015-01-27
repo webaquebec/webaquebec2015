@@ -12,7 +12,14 @@
 		selection: []
 	}
 
-	function updateContainedOffset(e){
+	cloneForResize = function($el){
+		var $clone = $el.clone();
+		$clone[0].style.visibility = 'hidden';
+		$clone[0].style.marginBottom = '-'+$clone.outerHeight()+'px';
+		return $clone;
+	};
+
+	updateContainedOffset = function(e){
 		var $selection = (e.data && e.data.$selection) ? e.data.$selection : e;
 		// loop throught selection
 		for(var s=0; s<$selection.length; s++){
@@ -22,21 +29,17 @@
 				if(el.ev[i].flag=='sticked')
 					var options = el.ev[i];
 			if(options){
-				el.$stickyClone = $el.clone();
+
 				el.$stickyClone.insertBefore($el);
-				el.$stickyClone[0].style.visibility = 'hidden';
-				el.$stickyClone[0].style.position = el.initialStates.position;
-				el.$stickyClone[0].style.top = el.initialStates.top;
 				el.$stickyClone[0].style.marginBottom = '-'+el.$stickyClone.outerHeight()+'px';
-				options.topDown($.extend({selection:el.$stickyClone},options));
 				window.raf.on('nextframe', {$el:$el}, function(e){
 					var $el = e.data.$el;
 					var el = $el[0];
+					if(!el.$stickyClone) return;
 					$el.scrollEvents('set','contained', {
 						offset: -(options.container.outerHeight() - el.$stickyClone.position().top - el.$stickyClone.outerHeight() - options.offsetBottom ) + options.offset
 					});
 					el.$stickyClone.remove();
-					el.$stickyClone = undefined;
 				});
 			}
 		}
@@ -88,6 +91,7 @@
 
 						// CONTAINED
 					if(options.container){
+						$el[0].$stickyClone = cloneForResize($el);
 						$el.scrollEvents({
 							order: 1,
 							flag: 'contained',
