@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "38780b8f9d774de7fe0fb4b2397cede0",
+    "hash": "9d3434fd2c80d482c636fdf5eb45a392",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -425,10 +425,34 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-fb-autoconnect",
+            "version": "4.0.8",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/wp-fb-autoconnect/",
+                "reference": "tags/4.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/wp-fb-autoconnect.4.0.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-fb-autoconnect/"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "koodimonni-language/fr": 20,
@@ -438,5 +462,7 @@
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": []
+    "platform-dev": [
+
+    ]
 }

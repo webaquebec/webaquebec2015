@@ -79,7 +79,8 @@
     "wpackagist-plugin/regenerate-thumbnails": "2.2.4",
     "wpackagist-plugin/acf-range-field": "1.1.4",
     "j7mbo/twitter-api-php": "dev-master",
-    "cosenary/instagram": "2.3"
+    "cosenary/instagram": "2.3",
+    "wpackagist-plugin/wp-fb-autoconnect": "4.0.8"
   },
   "extra": {
     "installer-paths": {
