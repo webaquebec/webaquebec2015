@@ -29,9 +29,33 @@
 				if(el.ev[i].flag=='sticked')
 					var options = el.ev[i];
 			if(options){
-
 				el.$stickyClone.insertBefore($el);
-				el.$stickyClone[0].style.marginBottom = '-'+el.$stickyClone.outerHeight()+'px';
+				var position = el.$stickyClone.position();
+				el.$stickyClone[0].style.width = el.$stickyClone.outerWidth()+'px';
+				el.$stickyClone[0].style.position = 'absolute';
+				el.$stickyClone[0].style.top = position.top+'px';
+				el.$stickyClone[0].style.left = position.left+'px';
+
+				if(!el.skipDisabling){
+					var stickyHeight = el.$stickyClone.outerHeight();
+					el.style.marginBottom = '-'+stickyHeight+'px';
+					var containerHeight = options.container.outerHeight();
+					el.style.marginBottom = '';
+					var sticky = $el.scrollEvents('get','sticked');
+					var contained = $el.scrollEvents('get','contained');
+					var disableIt = stickyHeight > containerHeight - options.offset - options.offsetBottom;
+					for(var e = 0; e<sticky.length; e++)
+						if( disableIt && !sticky[0].disabled && sticky[e].reset) sticky[e].reset(sticky[e]);
+					if(sticky.length && sticky[0].disabled == !disableIt)
+						$el.scrollEvents(disableIt ? 'disable' : 'enable','sticked');
+					if(contained.length && contained[0].disabled == !disableIt)
+						$el.scrollEvents(disableIt ? 'disable' : 'enable','contained');
+					el.skipDisabling = true;
+				}
+				else{
+					el.skipDisabling = null;
+				}
+
 				window.raf.on('nextframe', {$el:$el}, function(e){
 					var $el = e.data.$el;
 					var el = $el[0];
@@ -61,13 +85,13 @@
 					offset: 0,
 					offsetBottom: 0,
 					// standard sticky
-					reset: undefined,
-					fixed: undefined,
-					contained: undefined,
+					reset: null,
+					fixed: null,
+					contained: null,
 					// inverted sticky
-					fixedTop: undefined,
-					fixedBottom: undefined,
-					scrolling: undefined,
+					fixedTop: null,
+					fixedBottom: null,
+					scrolling: null,
 				}, args);
 
 
@@ -86,7 +110,9 @@
 						offset: options.offset,
 						offsetBottom: options.offsetBottom,
 						topDown: options.reset,
-						topUp: options.fixed
+						topUp: options.fixed,
+						disable: options.reset,
+						options: options
 					});
 
 						// CONTAINED
@@ -99,6 +125,7 @@
 							container: options.container,
 							topDown: options.fixed,
 							topUp: options.contained,
+							options: options
 						});
 					}
 				}
@@ -119,25 +146,29 @@
 					order: 2,
 					flag: 'inverted sticky top',
 					offset: options.offset,
-					topUp: options.fixedTop
+					topUp: options.fixedTop,
+					options: options
 				});
 				$selection.scrollEvents({
 					order: 1,
 					flag: 'scrolling top',
 					offset: options.offset,
 					topDown: options.scrolling,
+					options: options
 				});
 				$selection.scrollEvents({
 					order: 1,
 					flag: 'scrolling bottom',
 					offsetBottom: options.offsetBottom,
 					bottomUp: options.scrolling,
+					options: options
 				});
 				$selection.scrollEvents({
 					order: 2,
 					flag: 'inverted sticky bottom',
 					offsetBottom: options.offsetBottom,
-					bottomDown: options.fixedBottom
+					bottomDown: options.fixedBottom,
+					options: options
 				});
 
 			}
