@@ -50,7 +50,11 @@ function include_page_part($ID){
     $template = str_replace('.php','',get_page_template_slug($ID));
     if(!has($template)) $template = 'page';
     get_template_part($template);
+}
 
+function get_ID_from_slug($slug){
+    global $wpdb;
+    return $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '$slug'");
 }
 
 
