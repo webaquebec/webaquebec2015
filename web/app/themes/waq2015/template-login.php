@@ -21,18 +21,12 @@ if(have_posts()): while(have_posts()): the_post();
    <article>
       <div class="card form">
         <div class="tabs">
-          <nav>
-            <ul>
-              <li>
-                <button tab="login" class="tab-trigger"><?= __('J\'ai déjà un compte', 'waq') ?></button>
-              </li>
-              <li>
-                <button tab="register" class="tab-trigger"><?= __('Je veux me créer un compte', 'waq') ?></button>
-              </li>
-            </ul>
+          <nav class="tab-triggers">
+            <button tab="login" class="tab-trigger title"><?= __('J\'ai déjà un compte', 'waq') ?></button>
+            <button tab="register" class="tab-trigger title"><?= __('Je veux me créer un compte', 'waq') ?></button>
           </nav>
 
-          <div>
+          <div class="tab-contents">
             <?php
             $login =  isset($_GET['login']) ? explode(' ', $_GET['login']) : [];
             $registration =  isset($_GET['registration']) ? explode(' ', $_GET['registration']) : [];

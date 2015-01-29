@@ -2311,13 +2311,49 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
-.form {
-  padding-top: 20px; }
-  .form > .message {
-    margin: 10px 20px;
-    padding: 10px 20px;
-    border: 1px solid #005F93;
-    color: #005F93; }
+.form > .message {
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border: 1px solid #005F93;
+  color: #005F93; }
+.form .tabs {
+  padding: 1px; }
+.form .tab-triggers {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+  vertical-align: top; }
+  .form .tab-triggers > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 0 0; }
+.form .tab-trigger {
+  vertical-align: middle;
+  color: #005F93;
+  min-height: 4em;
+  background: #eeeef0;
+  padding: 0.5em 1em;
+  margin: 0;
+  border: none;
+  outline: none;
+  -webkit-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 240ms cubic-bezier(0.2, 0, 0.4, 1);
+  -moz-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 240ms cubic-bezier(0.2, 0, 0.4, 1);
+  -ms-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 240ms cubic-bezier(0.2, 0, 0.4, 1);
+  -o-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 240ms cubic-bezier(0.2, 0, 0.4, 1);
+  transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 240ms cubic-bezier(0.2, 0, 0.4, 1); }
+  .no-touch .form .tab-trigger:hover {
+    color: #0094C2; }
+  .form .tab-trigger.active {
+    background: #fff;
+    color: #0094C2; }
 
 .field {
   width: 100%;

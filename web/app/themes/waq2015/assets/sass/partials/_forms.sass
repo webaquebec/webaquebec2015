@@ -25,12 +25,34 @@ textarea
 //
 // field
 .form
-  padding-top: $medium
   &>.message
     margin: $small $medium
     padding: $small $medium
     border: 1px solid $d-blue
     color: $d-blue
+  .tabs
+    padding: 1px
+  .tab-triggers
+    +grid(2,0)
+    vertical-align: top
+  .tab-trigger
+    vertical-align: middle
+    color: $d-blue
+    min-height: 4em
+    background: $l-grey
+    padding: 0.5em 1em
+    margin: 0
+    border: none
+    outline: none
+    +prefix(transition, background 240ms $ease, color 240ms $ease)
+    .no-touch &:hover
+      color: $blue
+    &.active
+      background: #fff
+      color: $blue
+//
+//
+// FIELDS
 .field
   width: 100%
   padding: $small $medium
