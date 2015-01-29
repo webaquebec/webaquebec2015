@@ -230,17 +230,6 @@ function admin_style() {
 \*------------------------------------*/
 
 // http://www.danielauener.com/build-fully-customized-wordpress-login-annoying-redirects/
-function before_login_form(){
-    echo '<div class="facebook-account">';
-        __('Connectez-vous avec','waq');
-        do_action( 'wordpress_social_login' );
-    echo '</div>';
-    echo '<div class="wp-account">'.
-            '<span class="centered border-middle">'.__('Ou','waq').'</span>';
-}
-function after_login_form(){
-    echo '</div>';
-}
 function login_fail( $username ) {
     $referrer = $_SERVER['HTTP_REFERER'];
     if (!empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
@@ -547,7 +536,5 @@ add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
 add_action('init', 'tiny_stylesheet' );
 add_filter('authenticate', 'authenticate_user', 1, 3);
-add_filter('login_form_top','before_login_form',10,0);
-add_filter('login_form_bottom','after_login_form',10,0);
 add_filter('registration_errors', 'registration_form_errors', 10, 3);
 ?>

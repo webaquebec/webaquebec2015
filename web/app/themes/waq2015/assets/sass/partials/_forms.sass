@@ -104,6 +104,46 @@ textarea
         color: $blue
         border-color: $blue
 
+
+//
+//
+// SOCIAL LOGIN
+.social-account
+  padding: $medium $small
+  .wp-social-login-provider
+    @extend .btn
+    display: block
+    width: 100%
+    font-size: 1.5em
+    color: $l-grey
+    &:before
+      background: $d-blue2
+    &:after
+      border-color: $d-blue3
+    .no-touch &:hover
+      &:before,
+        background: $d-blue2
+      &:after
+        border-color: $d-blue3
+    >*
+      display: block
+      color: #fff
+      &:before
+        background: $d-blue
+      &:after
+        color: #fff
+
+    &:active,
+    &:focus,
+    .no-touch &:active:hover
+      color: #fff
+      &:before
+        background: $d-blue3
+      >*
+        &:after
+          color: #fff
+
+
 //
 //
 // wp_login_form()
@@ -112,6 +152,9 @@ textarea
   padding: $small 0
   p
     margin: 0
+
+
+
   .login-remember
     @extend .note
   .login-submit,

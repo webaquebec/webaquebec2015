@@ -265,6 +265,7 @@ hr {
 .btn.toggle.favorite > :after,
 .toggle.favorite.profile > :after,
 .toggle.favorite.card > :after,
+.social-account .toggle.favorite.wp-social-login-provider > :after,
 #loginform .toggle.favorite.login-submit > :after,
 #loginform .toggle.favorite.register-submit > :after,
 #registerform .toggle.favorite.login-submit > :after,
@@ -280,6 +281,7 @@ hr {
 .btn.link a > span:after,
 .link.profile a > span:after,
 .link.card a > span:after,
+.social-account .link.wp-social-login-provider a > span:after,
 #loginform .link.login-submit a > span:after,
 #loginform .link.register-submit a > span:after,
 #registerform .link.login-submit a > span:after,
@@ -293,6 +295,7 @@ nav[role="navigation"] ul .features .session .wrap > a:after,
 .btn.back a > span:after,
 .back.profile a > span:after,
 .back.card a > span:after,
+.social-account .back.wp-social-login-provider a > span:after,
 #loginform .back.login-submit a > span:after,
 #loginform .back.register-submit a > span:after,
 #registerform .back.login-submit a > span:after,
@@ -330,6 +333,7 @@ nav[role="navigation"] .secondary a:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
 .toggle.card > :after,
+.social-account .toggle.wp-social-login-provider > :after,
 #loginform .toggle.login-submit > :after,
 #loginform .toggle.register-submit > :after,
 #registerform .toggle.login-submit > :after,
@@ -343,6 +347,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .btn.toggle.active > :after,
 .toggle.active.profile > :after,
 .toggle.active.card > :after,
+.social-account .toggle.active.wp-social-login-provider > :after,
 #loginform .toggle.active.login-submit > :after,
 #loginform .toggle.active.register-submit > :after,
 #registerform .toggle.active.login-submit > :after,
@@ -362,7 +367,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-blank:after {
   content: ""; }
 
-.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, #loginform .toggle.favorite.login-submit > :after,
+.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, .social-account .toggle.favorite.wp-social-login-provider > :after, #loginform .toggle.favorite.login-submit > :after,
 #loginform .toggle.favorite.register-submit > :after,
 #registerform .toggle.favorite.login-submit > :after,
 #registerform .toggle.favorite.register-submit > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after, .toggle.favorite.active.card > :after {
@@ -371,13 +376,13 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-user:after {
   content: ""; }
 
-.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, #loginform .link.login-submit a > span:after,
+.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, .social-account .link.wp-social-login-provider a > span:after, #loginform .link.login-submit a > span:after,
 #loginform .link.register-submit a > span:after,
 #registerform .link.login-submit a > span:after,
 #registerform .link.register-submit a > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
   content: ""; }
 
-.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, #loginform .back.login-submit a > span:after,
+.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, .social-account .back.wp-social-login-provider a > span:after, #loginform .back.login-submit a > span:after,
 #loginform .back.register-submit a > span:after,
 #registerform .back.login-submit a > span:after,
 #registerform .back.register-submit a > span:after {
@@ -410,13 +415,13 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
   content: ""; }
 
-.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, #loginform .toggle.login-submit > :after,
+.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, .social-account .toggle.wp-social-login-provider > :after, #loginform .toggle.login-submit > :after,
 #loginform .toggle.register-submit > :after,
 #registerform .toggle.login-submit > :after,
 #registerform .toggle.register-submit > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
   content: ""; }
 
-.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after, #loginform .toggle.active.login-submit > :after,
+.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after, .social-account .toggle.active.wp-social-login-provider > :after, #loginform .toggle.active.login-submit > :after,
 #loginform .toggle.active.register-submit > :after,
 #registerform .toggle.active.login-submit > :after,
 #registerform .toggle.active.register-submit > :after {
@@ -919,7 +924,7 @@ nav[role="navigation"] .secondary {
   .thumb img {
     max-height: 100%; }
 
-.btn, .profile, .card, #loginform .login-submit,
+.btn, .profile, .card, .social-account .wp-social-login-provider, #loginform .login-submit,
 #loginform .register-submit,
 #registerform .login-submit,
 #registerform .register-submit {
@@ -937,16 +942,17 @@ nav[role="navigation"] .secondary {
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.3;
   z-index: 0; }
-  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
   #loginform .register-submit:before,
   #registerform .login-submit:before,
-  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
   #loginform .register-submit:after,
   #registerform .login-submit:after,
   #registerform .register-submit:after,
   .btn > *:before,
   .profile > *:before,
   .card > *:before,
+  .social-account .wp-social-login-provider > *:before,
   #loginform .login-submit > *:before,
   #loginform .register-submit > *:before,
   #registerform .login-submit > *:before,
@@ -954,6 +960,7 @@ nav[role="navigation"] .secondary {
   .btn > *:after,
   .profile > *:after,
   .card > *:after,
+  .social-account .wp-social-login-provider > *:after,
   #loginform .login-submit > *:after,
   #loginform .register-submit > *:after,
   #registerform .login-submit > *:after,
@@ -965,16 +972,17 @@ nav[role="navigation"] .secondary {
     left: 0;
     width: 100%;
     height: 100%; }
-  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
   #loginform .register-submit:before,
   #registerform .login-submit:before,
-  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
   #loginform .register-submit:after,
   #registerform .login-submit:after,
   #registerform .register-submit:after,
   .btn > *:before,
   .profile > *:before,
   .card > *:before,
+  .social-account .wp-social-login-provider > *:before,
   #loginform .login-submit > *:before,
   #loginform .register-submit > *:before,
   #registerform .login-submit > *:before,
@@ -985,7 +993,7 @@ nav[role="navigation"] .secondary {
     right: 0;
     top: 0;
     bottom: 1.5em; }
-  .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
   #loginform .register-submit:after,
   #registerform .login-submit:after,
   #registerform .register-submit:after {
@@ -1002,7 +1010,7 @@ nav[role="navigation"] .secondary {
     -ms-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
   #loginform .register-submit:before,
   #registerform .login-submit:before,
   #registerform .register-submit:before {
@@ -1017,7 +1025,7 @@ nav[role="navigation"] .secondary {
     -ms-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn > *, .profile > *, .card > *, #loginform .login-submit > *,
+  .btn > *, .profile > *, .card > *, .social-account .wp-social-login-provider > *, #loginform .login-submit > *,
   #loginform .register-submit > *,
   #registerform .login-submit > *,
   #registerform .register-submit > * {
@@ -1033,7 +1041,7 @@ nav[role="navigation"] .secondary {
     -ms-transition: color 120ms linear;
     -o-transition: color 120ms linear;
     transition: color 120ms linear; }
-    .btn > *:before, .profile > *:before, .card > *:before, #loginform .login-submit > *:before,
+    .btn > *:before, .profile > *:before, .card > *:before, .social-account .wp-social-login-provider > *:before, #loginform .login-submit > *:before,
     #loginform .register-submit > *:before,
     #registerform .login-submit > *:before,
     #registerform .register-submit > *:before {
@@ -1042,7 +1050,7 @@ nav[role="navigation"] .secondary {
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       border-radius: 4px; }
-    .btn > *:after, .profile > *:after, .card > *:after, #loginform .login-submit > *:after,
+    .btn > *:after, .profile > *:after, .card > *:after, .social-account .wp-social-login-provider > *:after, #loginform .login-submit > *:after,
     #loginform .register-submit > *:after,
     #registerform .login-submit > *:after,
     #registerform .register-submit > *:after {
@@ -1055,7 +1063,7 @@ nav[role="navigation"] .secondary {
       -ms-transition: color 120ms linear 60ms;
       -o-transition: color 120ms linear 60ms;
       transition: color 120ms linear 60ms; }
-  .dark .btn, .dark .profile, .dark .card, .dark #loginform .login-submit, #loginform .dark .login-submit,
+  .dark .btn, .dark .profile, .dark .card, .dark .social-account .wp-social-login-provider, .social-account .dark .wp-social-login-provider, .dark #loginform .login-submit, #loginform .dark .login-submit,
   .dark #loginform .register-submit,
   #loginform .dark .register-submit,
   .dark #registerform .login-submit,
@@ -1063,7 +1071,7 @@ nav[role="navigation"] .secondary {
   .dark #registerform .register-submit,
   #registerform .dark .register-submit {
     color: #fff; }
-    .dark .btn:before, .dark .profile:before, .dark .card:before, .dark #loginform .login-submit:before, #loginform .dark .login-submit:before,
+    .dark .btn:before, .dark .profile:before, .dark .card:before, .dark .social-account .wp-social-login-provider:before, .social-account .dark .wp-social-login-provider:before, .dark #loginform .login-submit:before, #loginform .dark .login-submit:before,
     .dark #loginform .register-submit:before,
     #loginform .dark .register-submit:before,
     .dark #registerform .login-submit:before,
@@ -1071,7 +1079,7 @@ nav[role="navigation"] .secondary {
     .dark #registerform .register-submit:before,
     #registerform .dark .register-submit:before {
       background: #4b4b4d; }
-    .dark .btn:after, .dark .profile:after, .dark .card:after, .dark #loginform .login-submit:after, #loginform .dark .login-submit:after,
+    .dark .btn:after, .dark .profile:after, .dark .card:after, .dark .social-account .wp-social-login-provider:after, .social-account .dark .wp-social-login-provider:after, .dark #loginform .login-submit:after, #loginform .dark .login-submit:after,
     .dark #loginform .register-submit:after,
     #loginform .dark .register-submit:after,
     .dark #registerform .login-submit:after,
@@ -1079,7 +1087,7 @@ nav[role="navigation"] .secondary {
     .dark #registerform .register-submit:after,
     #registerform .dark .register-submit:after {
       border-color: #3d3d3d; }
-    .dark .btn > *, .dark .profile > *, .dark .card > *, .dark #loginform .login-submit > *, #loginform .dark .login-submit > *,
+    .dark .btn > *, .dark .profile > *, .dark .card > *, .dark .social-account .wp-social-login-provider > *, .social-account .dark .wp-social-login-provider > *, .dark #loginform .login-submit > *, #loginform .dark .login-submit > *,
     .dark #loginform .register-submit > *,
     #loginform .dark .register-submit > *,
     .dark #registerform .login-submit > *,
@@ -1087,7 +1095,7 @@ nav[role="navigation"] .secondary {
     .dark #registerform .register-submit > *,
     #registerform .dark .register-submit > * {
       color: #fff; }
-      .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before, .dark #loginform .login-submit > *:before, #loginform .dark .login-submit > *:before,
+      .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before, .dark .social-account .wp-social-login-provider > *:before, .social-account .dark .wp-social-login-provider > *:before, .dark #loginform .login-submit > *:before, #loginform .dark .login-submit > *:before,
       .dark #loginform .register-submit > *:before,
       #loginform .dark .register-submit > *:before,
       .dark #registerform .login-submit > *:before,
@@ -1095,7 +1103,7 @@ nav[role="navigation"] .secondary {
       .dark #registerform .register-submit > *:before,
       #registerform .dark .register-submit > *:before {
         background: #303030; }
-    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after, .dark .toggle.active.card:after, .dark #loginform .toggle.active.login-submit:after, #loginform .dark .toggle.active.login-submit:after,
+    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after, .dark .toggle.active.card:after, .dark .social-account .toggle.active.wp-social-login-provider:after, .social-account .dark .toggle.active.wp-social-login-provider:after, .dark #loginform .toggle.active.login-submit:after, #loginform .dark .toggle.active.login-submit:after,
     .dark #loginform .toggle.active.register-submit:after,
     #loginform .dark .toggle.active.register-submit:after,
     .dark #registerform .toggle.active.login-submit:after,
@@ -1103,7 +1111,7 @@ nav[role="navigation"] .secondary {
     .dark #registerform .toggle.active.register-submit:after,
     #registerform .dark .toggle.active.register-submit:after {
       border-color: #005F93; }
-  .black .btn, .black .profile, .black .card, .black #loginform .login-submit, #loginform .black .login-submit,
+  .black .btn, .black .profile, .black .card, .black .social-account .wp-social-login-provider, .social-account .black .wp-social-login-provider, .black #loginform .login-submit, #loginform .black .login-submit,
   .black #loginform .register-submit,
   #loginform .black .register-submit,
   .black #registerform .login-submit,
@@ -1111,7 +1119,7 @@ nav[role="navigation"] .secondary {
   .black #registerform .register-submit,
   #registerform .black .register-submit {
     color: #fff; }
-    .black .btn:before, .black .profile:before, .black .card:before, .black #loginform .login-submit:before, #loginform .black .login-submit:before,
+    .black .btn:before, .black .profile:before, .black .card:before, .black .social-account .wp-social-login-provider:before, .social-account .black .wp-social-login-provider:before, .black #loginform .login-submit:before, #loginform .black .login-submit:before,
     .black #loginform .register-submit:before,
     #loginform .black .register-submit:before,
     .black #registerform .login-submit:before,
@@ -1119,7 +1127,7 @@ nav[role="navigation"] .secondary {
     .black #registerform .register-submit:before,
     #registerform .black .register-submit:before {
       background: #111; }
-    .black .btn:after, .black .profile:after, .black .card:after, .black #loginform .login-submit:after, #loginform .black .login-submit:after,
+    .black .btn:after, .black .profile:after, .black .card:after, .black .social-account .wp-social-login-provider:after, .social-account .black .wp-social-login-provider:after, .black #loginform .login-submit:after, #loginform .black .login-submit:after,
     .black #loginform .register-submit:after,
     #loginform .black .register-submit:after,
     .black #registerform .login-submit:after,
@@ -1127,7 +1135,7 @@ nav[role="navigation"] .secondary {
     .black #registerform .register-submit:after,
     #registerform .black .register-submit:after {
       border-color: #3d3d3d; }
-    .black .btn > *:before, .black .profile > *:before, .black .card > *:before, .black #loginform .login-submit > *:before, #loginform .black .login-submit > *:before,
+    .black .btn > *:before, .black .profile > *:before, .black .card > *:before, .black .social-account .wp-social-login-provider > *:before, .social-account .black .wp-social-login-provider > *:before, .black #loginform .login-submit > *:before, #loginform .black .login-submit > *:before,
     .black #loginform .register-submit > *:before,
     #loginform .black .register-submit > *:before,
     .black #registerform .login-submit > *:before,
@@ -1135,7 +1143,7 @@ nav[role="navigation"] .secondary {
     .black #registerform .register-submit > *:before,
     #registerform .black .register-submit > *:before {
       background: #303030; }
-    .black .btn.toggle.active:after, .black .toggle.active.profile:after, .black .toggle.active.card:after, .black #loginform .toggle.active.login-submit:after, #loginform .black .toggle.active.login-submit:after,
+    .black .btn.toggle.active:after, .black .toggle.active.profile:after, .black .toggle.active.card:after, .black .social-account .toggle.active.wp-social-login-provider:after, .social-account .black .toggle.active.wp-social-login-provider:after, .black #loginform .toggle.active.login-submit:after, #loginform .black .toggle.active.login-submit:after,
     .black #loginform .toggle.active.register-submit:after,
     #loginform .black .toggle.active.register-submit:after,
     .black #registerform .toggle.active.login-submit:after,
@@ -1143,13 +1151,13 @@ nav[role="navigation"] .secondary {
     .black #registerform .toggle.active.register-submit:after,
     #registerform .black .toggle.active.register-submit:after {
       border-color: #005F93; }
-  .light .btn, .light .profile, .light .card, .light #loginform .login-submit, #loginform .light .login-submit,
+  .light .btn, .light .profile, .light .card, .light .social-account .wp-social-login-provider, .social-account .light .wp-social-login-provider, .light #loginform .login-submit, #loginform .light .login-submit,
   .light #loginform .register-submit,
   #loginform .light .register-submit,
   .light #registerform .login-submit,
   #registerform .light .login-submit,
   .light #registerform .register-submit,
-  #registerform .light .register-submit, .l-grey .btn, .l-grey .profile, .l-grey .card, .l-grey #loginform .login-submit, #loginform .l-grey .login-submit,
+  #registerform .light .register-submit, .l-grey .btn, .l-grey .profile, .l-grey .card, .l-grey .social-account .wp-social-login-provider, .social-account .l-grey .wp-social-login-provider, .l-grey #loginform .login-submit, #loginform .l-grey .login-submit,
   .l-grey #loginform .register-submit,
   #loginform .l-grey .register-submit,
   .l-grey #registerform .login-submit,
@@ -1157,13 +1165,13 @@ nav[role="navigation"] .secondary {
   .l-grey #registerform .register-submit,
   #registerform .l-grey .register-submit {
     color: #303030; }
-    .light .btn > *, .light .profile > *, .light .card > *, .light #loginform .login-submit > *, #loginform .light .login-submit > *,
+    .light .btn > *, .light .profile > *, .light .card > *, .light .social-account .wp-social-login-provider > *, .social-account .light .wp-social-login-provider > *, .light #loginform .login-submit > *, #loginform .light .login-submit > *,
     .light #loginform .register-submit > *,
     #loginform .light .register-submit > *,
     .light #registerform .login-submit > *,
     #registerform .light .login-submit > *,
     .light #registerform .register-submit > *,
-    #registerform .light .register-submit > *, .l-grey .btn > *, .l-grey .profile > *, .l-grey .card > *, .l-grey #loginform .login-submit > *, #loginform .l-grey .login-submit > *,
+    #registerform .light .register-submit > *, .l-grey .btn > *, .l-grey .profile > *, .l-grey .card > *, .l-grey .social-account .wp-social-login-provider > *, .social-account .l-grey .wp-social-login-provider > *, .l-grey #loginform .login-submit > *, #loginform .l-grey .login-submit > *,
     .l-grey #loginform .register-submit > *,
     #loginform .l-grey .register-submit > *,
     .l-grey #registerform .login-submit > *,
@@ -1171,13 +1179,13 @@ nav[role="navigation"] .secondary {
     .l-grey #registerform .register-submit > *,
     #registerform .l-grey .register-submit > * {
       color: #303030; }
-    .light .btn:before, .light .profile:before, .light .card:before, .light #loginform .login-submit:before, #loginform .light .login-submit:before,
+    .light .btn:before, .light .profile:before, .light .card:before, .light .social-account .wp-social-login-provider:before, .social-account .light .wp-social-login-provider:before, .light #loginform .login-submit:before, #loginform .light .login-submit:before,
     .light #loginform .register-submit:before,
     #loginform .light .register-submit:before,
     .light #registerform .login-submit:before,
     #registerform .light .login-submit:before,
     .light #registerform .register-submit:before,
-    #registerform .light .register-submit:before, .l-grey .btn:before, .l-grey .profile:before, .l-grey .card:before, .l-grey #loginform .login-submit:before, #loginform .l-grey .login-submit:before,
+    #registerform .light .register-submit:before, .l-grey .btn:before, .l-grey .profile:before, .l-grey .card:before, .l-grey .social-account .wp-social-login-provider:before, .social-account .l-grey .wp-social-login-provider:before, .l-grey #loginform .login-submit:before, #loginform .l-grey .login-submit:before,
     .l-grey #loginform .register-submit:before,
     #loginform .l-grey .register-submit:before,
     .l-grey #registerform .login-submit:before,
@@ -1185,13 +1193,13 @@ nav[role="navigation"] .secondary {
     .l-grey #registerform .register-submit:before,
     #registerform .l-grey .register-submit:before {
       background: #eeeef0; }
-    .light .btn:after, .light .profile:after, .light .card:after, .light #loginform .login-submit:after, #loginform .light .login-submit:after,
+    .light .btn:after, .light .profile:after, .light .card:after, .light .social-account .wp-social-login-provider:after, .social-account .light .wp-social-login-provider:after, .light #loginform .login-submit:after, #loginform .light .login-submit:after,
     .light #loginform .register-submit:after,
     #loginform .light .register-submit:after,
     .light #registerform .login-submit:after,
     #registerform .light .login-submit:after,
     .light #registerform .register-submit:after,
-    #registerform .light .register-submit:after, .l-grey .btn:after, .l-grey .profile:after, .l-grey .card:after, .l-grey #loginform .login-submit:after, #loginform .l-grey .login-submit:after,
+    #registerform .light .register-submit:after, .l-grey .btn:after, .l-grey .profile:after, .l-grey .card:after, .l-grey .social-account .wp-social-login-provider:after, .social-account .l-grey .wp-social-login-provider:after, .l-grey #loginform .login-submit:after, #loginform .l-grey .login-submit:after,
     .l-grey #loginform .register-submit:after,
     #loginform .l-grey .register-submit:after,
     .l-grey #registerform .login-submit:after,
@@ -1199,13 +1207,13 @@ nav[role="navigation"] .secondary {
     .l-grey #registerform .register-submit:after,
     #registerform .l-grey .register-submit:after {
       border-color: #B8B9C2; }
-    .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .light #loginform .login-submit > *:before, #loginform .light .login-submit > *:before,
+    .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .light .social-account .wp-social-login-provider > *:before, .social-account .light .wp-social-login-provider > *:before, .light #loginform .login-submit > *:before, #loginform .light .login-submit > *:before,
     .light #loginform .register-submit > *:before,
     #loginform .light .register-submit > *:before,
     .light #registerform .login-submit > *:before,
     #registerform .light .login-submit > *:before,
     .light #registerform .register-submit > *:before,
-    #registerform .light .register-submit > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before, .l-grey .card > *:before, .l-grey #loginform .login-submit > *:before, #loginform .l-grey .login-submit > *:before,
+    #registerform .light .register-submit > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before, .l-grey .card > *:before, .l-grey .social-account .wp-social-login-provider > *:before, .social-account .l-grey .wp-social-login-provider > *:before, .l-grey #loginform .login-submit > *:before, #loginform .l-grey .login-submit > *:before,
     .l-grey #loginform .register-submit > *:before,
     #loginform .l-grey .register-submit > *:before,
     .l-grey #registerform .login-submit > *:before,
@@ -1213,22 +1221,22 @@ nav[role="navigation"] .secondary {
     .l-grey #registerform .register-submit > *:before,
     #registerform .l-grey .register-submit > *:before {
       background: #eeeef0; }
-  .btn.light:before, .light.profile:before, .light.card:before, #loginform .light.login-submit:before,
+  .btn.light:before, .light.profile:before, .light.card:before, .social-account .light.wp-social-login-provider:before, #loginform .light.login-submit:before,
   #loginform .light.register-submit:before,
   #registerform .light.login-submit:before,
   #registerform .light.register-submit:before {
     background: #fff; }
-  .btn.light:after, .light.profile:after, .light.card:after, #loginform .light.login-submit:after,
+  .btn.light:after, .light.profile:after, .light.card:after, .social-account .light.wp-social-login-provider:after, #loginform .light.login-submit:after,
   #loginform .light.register-submit:after,
   #registerform .light.login-submit:after,
   #registerform .light.register-submit:after {
     border-color: #eeeef0; }
-  .btn.light > *:before, .light.profile > *:before, .light.card > *:before, #loginform .light.login-submit > *:before,
+  .btn.light > *:before, .light.profile > *:before, .light.card > *:before, .social-account .light.wp-social-login-provider > *:before, #loginform .light.login-submit > *:before,
   #loginform .light.register-submit > *:before,
   #registerform .light.login-submit > *:before,
   #registerform .light.register-submit > *:before {
     background: #fff; }
-  .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before, .no-touch #loginform .login-submit:hover:before, #loginform .no-touch .login-submit:hover:before,
+  .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before, .no-touch .social-account .wp-social-login-provider:hover:before, .social-account .no-touch .wp-social-login-provider:hover:before, .no-touch #loginform .login-submit:hover:before, #loginform .no-touch .login-submit:hover:before,
   .no-touch #loginform .register-submit:hover:before,
   #loginform .no-touch .register-submit:hover:before,
   .no-touch #registerform .login-submit:hover:before,
@@ -1236,7 +1244,7 @@ nav[role="navigation"] .secondary {
   .no-touch #registerform .register-submit:hover:before,
   #registerform .no-touch .register-submit:hover:before {
     right: 1px; }
-  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after, .no-touch .card:hover > *:after, .no-touch #loginform .login-submit:hover > *:after, #loginform .no-touch .login-submit:hover > *:after,
+  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after, .no-touch .card:hover > *:after, .no-touch .social-account .wp-social-login-provider:hover > *:after, .social-account .no-touch .wp-social-login-provider:hover > *:after, .no-touch #loginform .login-submit:hover > *:after, #loginform .no-touch .login-submit:hover > *:after,
   .no-touch #loginform .register-submit:hover > *:after,
   #loginform .no-touch .register-submit:hover > *:after,
   .no-touch #registerform .login-submit:hover > *:after,
@@ -1246,6 +1254,8 @@ nav[role="navigation"] .secondary {
   .no-touch .btn:hover > * > *:after,
   .no-touch .profile:hover > * > *:after,
   .no-touch .card:hover > * > *:after,
+  .no-touch .social-account .wp-social-login-provider:hover > * > *:after,
+  .social-account .no-touch .wp-social-login-provider:hover > * > *:after,
   .no-touch #loginform .login-submit:hover > * > *:after,
   #loginform .no-touch .login-submit:hover > * > *:after,
   .no-touch #loginform .register-submit:hover > * > *:after,
@@ -1255,17 +1265,17 @@ nav[role="navigation"] .secondary {
   .no-touch #registerform .register-submit:hover > * > *:after,
   #registerform .no-touch .register-submit:hover > * > *:after {
     color: #00bfdf; }
-  .btn.big, .big.profile, .big.card, #loginform .big.login-submit,
+  .btn.big, .big.profile, .big.card, .social-account .big.wp-social-login-provider, #loginform .big.login-submit,
   #loginform .big.register-submit,
   #registerform .big.login-submit,
   #registerform .big.register-submit {
     font-size: 1.25em; }
-    .btn.big.toggle > *:after, .big.toggle.profile > *:after, .big.toggle.card > *:after, #loginform .big.toggle.login-submit > *:after,
+    .btn.big.toggle > *:after, .big.toggle.profile > *:after, .big.toggle.card > *:after, .social-account .big.toggle.wp-social-login-provider > *:after, #loginform .big.toggle.login-submit > *:after,
     #loginform .big.toggle.register-submit > *:after,
     #registerform .big.toggle.login-submit > *:after,
     #registerform .big.toggle.register-submit > *:after {
       line-height: 2.7em; }
-  .btn.back, .back.profile, .back.card, #loginform .back.login-submit,
+  .btn.back, .back.profile, .back.card, .social-account .back.wp-social-login-provider, #loginform .back.login-submit,
   #loginform .back.register-submit,
   #registerform .back.login-submit,
   #registerform .back.register-submit {
@@ -1273,29 +1283,29 @@ nav[role="navigation"] .secondary {
     display: inline-block;
     *display: inline;
     zoom: 1; }
-  .btn.toggle, .toggle.profile, .toggle.card, #loginform .toggle.login-submit,
+  .btn.toggle, .toggle.profile, .toggle.card, .social-account .toggle.wp-social-login-provider, #loginform .toggle.login-submit,
   #loginform .toggle.register-submit,
   #registerform .toggle.login-submit,
   #registerform .toggle.register-submit {
     padding-right: 1.2em; }
-    .btn.toggle > *:after, .toggle.profile > *:after, .toggle.card > *:after, #loginform .toggle.login-submit > *:after,
+    .btn.toggle > *:after, .toggle.profile > *:after, .toggle.card > *:after, .social-account .toggle.wp-social-login-provider > *:after, #loginform .toggle.login-submit > *:after,
     #loginform .toggle.register-submit > *:after,
     #registerform .toggle.login-submit > *:after,
     #registerform .toggle.register-submit > *:after {
       text-align: right;
       line-height: 2.5em; }
-    .btn.toggle.active, .toggle.active.profile, .toggle.active.card, #loginform .toggle.active.login-submit,
+    .btn.toggle.active, .toggle.active.profile, .toggle.active.card, .social-account .toggle.active.wp-social-login-provider, #loginform .toggle.active.login-submit,
     #loginform .toggle.active.register-submit,
     #registerform .toggle.active.login-submit,
     #registerform .toggle.active.register-submit {
       color: #fff; }
-      .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before, #loginform .toggle.active.login-submit:before,
+      .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before, .social-account .toggle.active.wp-social-login-provider:before, #loginform .toggle.active.login-submit:before,
       #loginform .toggle.active.register-submit:before,
       #registerform .toggle.active.login-submit:before,
       #registerform .toggle.active.register-submit:before {
         background: #005F93;
         right: 1px; }
-      .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after, #loginform .toggle.active.login-submit:after,
+      .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after, .social-account .toggle.active.wp-social-login-provider:after, #loginform .toggle.active.login-submit:after,
       #loginform .toggle.active.register-submit:after,
       #registerform .toggle.active.login-submit:after,
       #registerform .toggle.active.register-submit:after {
@@ -1303,17 +1313,17 @@ nav[role="navigation"] .secondary {
         filter: alpha(opacity=100);
         opacity: 1;
         border-color: #005F93; }
-      .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before, #loginform .toggle.active.login-submit > *:before,
+      .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before, .social-account .toggle.active.wp-social-login-provider > *:before, #loginform .toggle.active.login-submit > *:before,
       #loginform .toggle.active.register-submit > *:before,
       #registerform .toggle.active.login-submit > *:before,
       #registerform .toggle.active.register-submit > *:before {
         background: #005F93; }
-      .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after, #loginform .toggle.active.login-submit > *:after,
+      .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after, .social-account .toggle.active.wp-social-login-provider > *:after, #loginform .toggle.active.login-submit > *:after,
       #loginform .toggle.active.register-submit > *:after,
       #registerform .toggle.active.login-submit > *:after,
       #registerform .toggle.active.register-submit > *:after {
         color: #eeeef0; }
-      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover, .no-touch .toggle.active.card:hover, .no-touch #loginform .toggle.active.login-submit:hover, #loginform .no-touch .toggle.active.login-submit:hover,
+      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover, .no-touch .toggle.active.card:hover, .no-touch .social-account .toggle.active.wp-social-login-provider:hover, .social-account .no-touch .toggle.active.wp-social-login-provider:hover, .no-touch #loginform .toggle.active.login-submit:hover, #loginform .no-touch .toggle.active.login-submit:hover,
       .no-touch #loginform .toggle.active.register-submit:hover,
       #loginform .no-touch .toggle.active.register-submit:hover,
       .no-touch #registerform .toggle.active.login-submit:hover,
@@ -1321,7 +1331,7 @@ nav[role="navigation"] .secondary {
       .no-touch #registerform .toggle.active.register-submit:hover,
       #registerform .no-touch .toggle.active.register-submit:hover {
         color: #fff; }
-        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after, .no-touch #loginform .toggle.active.login-submit:hover > *:after, #loginform .no-touch .toggle.active.login-submit:hover > *:after,
+        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after, .no-touch .social-account .toggle.active.wp-social-login-provider:hover > *:after, .social-account .no-touch .toggle.active.wp-social-login-provider:hover > *:after, .no-touch #loginform .toggle.active.login-submit:hover > *:after, #loginform .no-touch .toggle.active.login-submit:hover > *:after,
         .no-touch #loginform .toggle.active.register-submit:hover > *:after,
         #loginform .no-touch .toggle.active.register-submit:hover > *:after,
         .no-touch #registerform .toggle.active.login-submit:hover > *:after,
@@ -1329,12 +1339,12 @@ nav[role="navigation"] .secondary {
         .no-touch #registerform .toggle.active.register-submit:hover > *:after,
         #registerform .no-touch .toggle.active.register-submit:hover > *:after {
           color: #00bfdf; }
-    .btn.toggle.favorite, .toggle.favorite.profile, .toggle.favorite.card, #loginform .toggle.favorite.login-submit,
+    .btn.toggle.favorite, .toggle.favorite.profile, .toggle.favorite.card, .social-account .toggle.favorite.wp-social-login-provider, #loginform .toggle.favorite.login-submit,
     #loginform .toggle.favorite.register-submit,
     #registerform .toggle.favorite.login-submit,
     #registerform .toggle.favorite.register-submit {
       color: #005F93; }
-      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after, #loginform .toggle.favorite.login-submit > *:after,
+      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after, .social-account .toggle.favorite.wp-social-login-provider > *:after, #loginform .toggle.favorite.login-submit > *:after,
       #loginform .toggle.favorite.register-submit > *:after,
       #registerform .toggle.favorite.login-submit > *:after,
       #registerform .toggle.favorite.register-submit > *:after {
@@ -1344,12 +1354,12 @@ nav[role="navigation"] .secondary {
         -ms-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -o-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > *, .toggle.favorite.active.card > *, #loginform .toggle.favorite.active.login-submit > *,
+      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > *, .toggle.favorite.active.card > *, .social-account .toggle.favorite.active.wp-social-login-provider > *, #loginform .toggle.favorite.active.login-submit > *,
       #loginform .toggle.favorite.active.register-submit > *,
       #registerform .toggle.favorite.active.login-submit > *,
       #registerform .toggle.favorite.active.register-submit > * {
         color: #fff; }
-        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after, #loginform .toggle.favorite.active.login-submit > *:after,
+        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after, .social-account .toggle.favorite.active.wp-social-login-provider > *:after, #loginform .toggle.favorite.active.login-submit > *:after,
         #loginform .toggle.favorite.active.register-submit > *:after,
         #registerform .toggle.favorite.active.login-submit > *:after,
         #registerform .toggle.favorite.active.register-submit > *:after {
@@ -1357,7 +1367,7 @@ nav[role="navigation"] .secondary {
           font-size: 1em;
           line-height: 2em;
           padding: 0.2em 0.75em; }
-      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile, .dark .toggle.favorite.card, .dark #loginform .toggle.favorite.login-submit, #loginform .dark .toggle.favorite.login-submit,
+      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile, .dark .toggle.favorite.card, .dark .social-account .toggle.favorite.wp-social-login-provider, .social-account .dark .toggle.favorite.wp-social-login-provider, .dark #loginform .toggle.favorite.login-submit, #loginform .dark .toggle.favorite.login-submit,
       .dark #loginform .toggle.favorite.register-submit,
       #loginform .dark .toggle.favorite.register-submit,
       .dark #registerform .toggle.favorite.login-submit,
@@ -1365,7 +1375,7 @@ nav[role="navigation"] .secondary {
       .dark #registerform .toggle.favorite.register-submit,
       #registerform .dark .toggle.favorite.register-submit {
         color: #00bfdf; }
-        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile, .dark .toggle.favorite.active.card, .dark #loginform .toggle.favorite.active.login-submit, #loginform .dark .toggle.favorite.active.login-submit,
+        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile, .dark .toggle.favorite.active.card, .dark .social-account .toggle.favorite.active.wp-social-login-provider, .social-account .dark .toggle.favorite.active.wp-social-login-provider, .dark #loginform .toggle.favorite.active.login-submit, #loginform .dark .toggle.favorite.active.login-submit,
         .dark #loginform .toggle.favorite.active.register-submit,
         #loginform .dark .toggle.favorite.active.register-submit,
         .dark #registerform .toggle.favorite.active.login-submit,
@@ -1373,7 +1383,7 @@ nav[role="navigation"] .secondary {
         .dark #registerform .toggle.favorite.active.register-submit,
         #registerform .dark .toggle.favorite.active.register-submit {
           color: #B8B9C2; }
-      .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card, .black #loginform .toggle.favorite.login-submit, #loginform .black .toggle.favorite.login-submit,
+      .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card, .black .social-account .toggle.favorite.wp-social-login-provider, .social-account .black .toggle.favorite.wp-social-login-provider, .black #loginform .toggle.favorite.login-submit, #loginform .black .toggle.favorite.login-submit,
       .black #loginform .toggle.favorite.register-submit,
       #loginform .black .toggle.favorite.register-submit,
       .black #registerform .toggle.favorite.login-submit,
@@ -1381,7 +1391,7 @@ nav[role="navigation"] .secondary {
       .black #registerform .toggle.favorite.register-submit,
       #registerform .black .toggle.favorite.register-submit {
         color: #00bfdf; }
-        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile, .black .toggle.favorite.active.card, .black #loginform .toggle.favorite.active.login-submit, #loginform .black .toggle.favorite.active.login-submit,
+        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile, .black .toggle.favorite.active.card, .black .social-account .toggle.favorite.active.wp-social-login-provider, .social-account .black .toggle.favorite.active.wp-social-login-provider, .black #loginform .toggle.favorite.active.login-submit, #loginform .black .toggle.favorite.active.login-submit,
         .black #loginform .toggle.favorite.active.register-submit,
         #loginform .black .toggle.favorite.active.register-submit,
         .black #registerform .toggle.favorite.active.login-submit,
@@ -1389,19 +1399,19 @@ nav[role="navigation"] .secondary {
         .black #registerform .toggle.favorite.active.register-submit,
         #registerform .black .toggle.favorite.active.register-submit {
           color: #B8B9C2; }
-  .btn.link a, .link.profile a, .link.card a, #loginform .link.login-submit a,
+  .btn.link a, .link.profile a, .link.card a, .social-account .link.wp-social-login-provider a, #loginform .link.login-submit a,
   #loginform .link.register-submit a,
   #registerform .link.login-submit a,
   #registerform .link.register-submit a {
     padding-right: 0; }
-    .btn.link a > span, .link.profile a > span, .link.card a > span, #loginform .link.login-submit a > span,
+    .btn.link a > span, .link.profile a > span, .link.card a > span, .social-account .link.wp-social-login-provider a > span, #loginform .link.login-submit a > span,
     #loginform .link.register-submit a > span,
     #registerform .link.login-submit a > span,
     #registerform .link.register-submit a > span {
       display: block;
       padding-right: 2em;
       position: relative; }
-      .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, #loginform .link.login-submit a > span:after,
+      .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, .social-account .link.wp-social-login-provider a > span:after, #loginform .link.login-submit a > span:after,
       #loginform .link.register-submit a > span:after,
       #registerform .link.login-submit a > span:after,
       #registerform .link.register-submit a > span:after {
@@ -1411,19 +1421,19 @@ nav[role="navigation"] .secondary {
         position: absolute;
         top: 50%;
         right: 1em; }
-  .btn.back a, .back.profile a, .back.card a, #loginform .back.login-submit a,
+  .btn.back a, .back.profile a, .back.card a, .social-account .back.wp-social-login-provider a, #loginform .back.login-submit a,
   #loginform .back.register-submit a,
   #registerform .back.login-submit a,
   #registerform .back.register-submit a {
     padding-left: 0; }
-    .btn.back a > span, .back.profile a > span, .back.card a > span, #loginform .back.login-submit a > span,
+    .btn.back a > span, .back.profile a > span, .back.card a > span, .social-account .back.wp-social-login-provider a > span, #loginform .back.login-submit a > span,
     #loginform .back.register-submit a > span,
     #registerform .back.login-submit a > span,
     #registerform .back.register-submit a > span {
       display: block;
       padding-left: 2em;
       position: relative; }
-      .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, #loginform .back.login-submit a > span:after,
+      .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, .social-account .back.wp-social-login-provider a > span:after, #loginform .back.login-submit a > span:after,
       #loginform .back.register-submit a > span:after,
       #registerform .back.login-submit a > span:after,
       #registerform .back.register-submit a > span:after {
@@ -1433,19 +1443,20 @@ nav[role="navigation"] .secondary {
         position: absolute;
         top: 50%;
         left: 1em; }
-  .btn.seamless:before, .seamless.profile:before, .seamless.card:before, #loginform .seamless.login-submit:before,
+  .btn.seamless:before, .seamless.profile:before, .seamless.card:before, .social-account .seamless.wp-social-login-provider:before, #loginform .seamless.login-submit:before,
   #loginform .seamless.register-submit:before,
   #registerform .seamless.login-submit:before,
   #registerform .seamless.register-submit:before,
   .btn.seamless > *:before,
   .seamless.profile > *:before,
   .seamless.card > *:before,
+  .social-account .seamless.wp-social-login-provider > *:before,
   #loginform .seamless.login-submit > *:before,
   #loginform .seamless.register-submit > *:before,
   #registerform .seamless.login-submit > *:before,
   #registerform .seamless.register-submit > *:before {
     display: none; }
-  .btn.seamless:after, .seamless.profile:after, .seamless.card:after, #loginform .seamless.login-submit:after,
+  .btn.seamless:after, .seamless.profile:after, .seamless.card:after, .social-account .seamless.wp-social-login-provider:after, #loginform .seamless.login-submit:after,
   #loginform .seamless.register-submit:after,
   #registerform .seamless.login-submit:after,
   #registerform .seamless.register-submit:after {
@@ -1457,7 +1468,7 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out;
     -o-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out; }
-  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after, .no-touch .seamless.card:hover:after, .no-touch #loginform .seamless.login-submit:hover:after, #loginform .no-touch .seamless.login-submit:hover:after,
+  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after, .no-touch .seamless.card:hover:after, .no-touch .social-account .seamless.wp-social-login-provider:hover:after, .social-account .no-touch .seamless.wp-social-login-provider:hover:after, .no-touch #loginform .seamless.login-submit:hover:after, #loginform .no-touch .seamless.login-submit:hover:after,
   .no-touch #loginform .seamless.register-submit:hover:after,
   #loginform .no-touch .seamless.register-submit:hover:after,
   .no-touch #registerform .seamless.login-submit:hover:after,
@@ -1467,19 +1478,20 @@ nav[role="navigation"] .secondary {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, #loginform .seamless.toggle.login-submit:before,
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, .social-account .seamless.toggle.wp-social-login-provider:before, #loginform .seamless.toggle.login-submit:before,
   #loginform .seamless.toggle.register-submit:before,
   #registerform .seamless.toggle.login-submit:before,
   #registerform .seamless.toggle.register-submit:before,
   .btn.seamless.toggle > *:before,
   .seamless.toggle.profile > *:before,
   .seamless.toggle.card > *:before,
+  .social-account .seamless.toggle.wp-social-login-provider > *:before,
   #loginform .seamless.toggle.login-submit > *:before,
   #loginform .seamless.toggle.register-submit > *:before,
   #registerform .seamless.toggle.login-submit > *:before,
   #registerform .seamless.toggle.register-submit > *:before {
     display: block; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, #loginform .seamless.toggle.login-submit:before,
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, .social-account .seamless.toggle.wp-social-login-provider:before, #loginform .seamless.toggle.login-submit:before,
   #loginform .seamless.toggle.register-submit:before,
   #registerform .seamless.toggle.login-submit:before,
   #registerform .seamless.toggle.register-submit:before {
@@ -1492,18 +1504,18 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before, .seamless.toggle.card > *:before, #loginform .seamless.toggle.login-submit > *:before,
+  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before, .seamless.toggle.card > *:before, .social-account .seamless.toggle.wp-social-login-provider > *:before, #loginform .seamless.toggle.login-submit > *:before,
   #loginform .seamless.toggle.register-submit > *:before,
   #registerform .seamless.toggle.login-submit > *:before,
   #registerform .seamless.toggle.register-submit > *:before {
     background: none; }
-  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .no-touch .seamless.toggle.card:hover:before, .no-touch #loginform .seamless.toggle.login-submit:hover:before, #loginform .no-touch .seamless.toggle.login-submit:hover:before,
+  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .no-touch .seamless.toggle.card:hover:before, .no-touch .social-account .seamless.toggle.wp-social-login-provider:hover:before, .social-account .no-touch .seamless.toggle.wp-social-login-provider:hover:before, .no-touch #loginform .seamless.toggle.login-submit:hover:before, #loginform .no-touch .seamless.toggle.login-submit:hover:before,
   .no-touch #loginform .seamless.toggle.register-submit:hover:before,
   #loginform .no-touch .seamless.toggle.register-submit:hover:before,
   .no-touch #registerform .seamless.toggle.login-submit:hover:before,
   #registerform .no-touch .seamless.toggle.login-submit:hover:before,
   .no-touch #registerform .seamless.toggle.register-submit:hover:before,
-  #registerform .no-touch .seamless.toggle.register-submit:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before, .seamless.toggle.active.card:before, #loginform .seamless.toggle.active.login-submit:before,
+  #registerform .no-touch .seamless.toggle.register-submit:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before, .seamless.toggle.active.card:before, .social-account .seamless.toggle.active.wp-social-login-provider:before, #loginform .seamless.toggle.active.login-submit:before,
   #loginform .seamless.toggle.active.register-submit:before,
   #registerform .seamless.toggle.active.login-submit:before,
   #registerform .seamless.toggle.active.register-submit:before {
@@ -1511,7 +1523,7 @@ nav[role="navigation"] .secondary {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.autowidth, .autowidth.profile, .autowidth.card, #loginform .autowidth.login-submit,
+  .btn.autowidth, .autowidth.profile, .autowidth.card, .social-account .autowidth.wp-social-login-provider, #loginform .autowidth.login-submit,
   #loginform .autowidth.register-submit,
   #registerform .autowidth.login-submit,
   #registerform .autowidth.register-submit {
@@ -1519,34 +1531,36 @@ nav[role="navigation"] .secondary {
     *display: inline;
     zoom: 1;
     width: auto; }
-  .btn.bold, .bold.profile, .bold.card, #loginform .bold.login-submit,
+  .btn.bold, .bold.profile, .bold.card, .social-account .bold.wp-social-login-provider, #loginform .bold.login-submit,
   #loginform .bold.register-submit,
   #registerform .bold.login-submit,
   #registerform .bold.register-submit {
     font-weight: bold; }
 
-button.btn, button.profile, button.card, #loginform button.login-submit,
+button.btn, button.profile, button.card, .social-account button.wp-social-login-provider, #loginform button.login-submit,
 #loginform button.register-submit,
 #registerform button.login-submit,
 #registerform button.register-submit,
 a[href].btn,
 a[href].profile,
 a[href].card,
+.social-account a[href].wp-social-login-provider,
 #loginform a[href].login-submit,
 #loginform a[href].register-submit,
 #registerform a[href].login-submit,
 #registerform a[href].register-submit {
   cursor: pointer; }
-  button.btn:before, button.profile:before, button.card:before, #loginform button.login-submit:before,
+  button.btn:before, button.profile:before, button.card:before, .social-account button.wp-social-login-provider:before, #loginform button.login-submit:before,
   #loginform button.register-submit:before,
   #registerform button.login-submit:before,
-  #registerform button.register-submit:before, button.btn:after, button.profile:after, button.card:after, #loginform button.login-submit:after,
+  #registerform button.register-submit:before, button.btn:after, button.profile:after, button.card:after, .social-account button.wp-social-login-provider:after, #loginform button.login-submit:after,
   #loginform button.register-submit:after,
   #registerform button.login-submit:after,
   #registerform button.register-submit:after,
   button.btn > *:before,
   button.profile > *:before,
   button.card > *:before,
+  .social-account button.wp-social-login-provider > *:before,
   #loginform button.login-submit > *:before,
   #loginform button.register-submit > *:before,
   #registerform button.login-submit > *:before,
@@ -1554,6 +1568,7 @@ a[href].card,
   button.btn > *:after,
   button.profile > *:after,
   button.card > *:after,
+  .social-account button.wp-social-login-provider > *:after,
   #loginform button.login-submit > *:after,
   #loginform button.register-submit > *:after,
   #registerform button.login-submit > *:after,
@@ -1561,6 +1576,7 @@ a[href].card,
   a[href].btn:before,
   a[href].profile:before,
   a[href].card:before,
+  .social-account a[href].wp-social-login-provider:before,
   #loginform a[href].login-submit:before,
   #loginform a[href].register-submit:before,
   #registerform a[href].login-submit:before,
@@ -1568,6 +1584,7 @@ a[href].card,
   a[href].btn:after,
   a[href].profile:after,
   a[href].card:after,
+  .social-account a[href].wp-social-login-provider:after,
   #loginform a[href].login-submit:after,
   #loginform a[href].register-submit:after,
   #registerform a[href].login-submit:after,
@@ -1575,6 +1592,7 @@ a[href].card,
   a[href].btn > *:before,
   a[href].profile > *:before,
   a[href].card > *:before,
+  .social-account a[href].wp-social-login-provider > *:before,
   #loginform a[href].login-submit > *:before,
   #loginform a[href].register-submit > *:before,
   #registerform a[href].login-submit > *:before,
@@ -1582,6 +1600,7 @@ a[href].card,
   a[href].btn > *:after,
   a[href].profile > *:after,
   a[href].card > *:after,
+  .social-account a[href].wp-social-login-provider > *:after,
   #loginform a[href].login-submit > *:after,
   #loginform a[href].register-submit > *:after,
   #registerform a[href].login-submit > *:after,
@@ -2044,7 +2063,7 @@ a[href].card,
         left: -100%;
         right: -100%;
         height: auto; }
-  .days .btn.toggle > *:after, .days .toggle.profile > *:after, .days .toggle.card > *:after, .days #loginform .toggle.login-submit > *:after, #loginform .days .toggle.login-submit > *:after,
+  .days .btn.toggle > *:after, .days .toggle.profile > *:after, .days .toggle.card > *:after, .days .social-account .toggle.wp-social-login-provider > *:after, .social-account .days .toggle.wp-social-login-provider > *:after, .days #loginform .toggle.login-submit > *:after, #loginform .days .toggle.login-submit > *:after,
   .days #loginform .toggle.register-submit > *:after,
   #loginform .days .toggle.register-submit > *:after,
   .days #registerform .toggle.login-submit > *:after,
@@ -2052,13 +2071,13 @@ a[href].card,
   .days #registerform .toggle.register-submit > *:after,
   #registerform .days .toggle.register-submit > *:after {
     content: ""; }
-  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days #loginform .toggle.active.login-submit:before, #loginform .days .toggle.active.login-submit:before,
+  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days .social-account .toggle.active.wp-social-login-provider:before, .social-account .days .toggle.active.wp-social-login-provider:before, .days #loginform .toggle.active.login-submit:before, #loginform .days .toggle.active.login-submit:before,
   .days #loginform .toggle.active.register-submit:before,
   #loginform .days .toggle.active.register-submit:before,
   .days #registerform .toggle.active.login-submit:before,
   #registerform .days .toggle.active.login-submit:before,
   .days #registerform .toggle.active.register-submit:before,
-  #registerform .days .toggle.active.register-submit:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before, .days .toggle.active.card > *:before, .days #loginform .toggle.active.login-submit > *:before, #loginform .days .toggle.active.login-submit > *:before,
+  #registerform .days .toggle.active.register-submit:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before, .days .toggle.active.card > *:before, .days .social-account .toggle.active.wp-social-login-provider > *:before, .social-account .days .toggle.active.wp-social-login-provider > *:before, .days #loginform .toggle.active.login-submit > *:before, #loginform .days .toggle.active.login-submit > *:before,
   .days #loginform .toggle.active.register-submit > *:before,
   #loginform .days .toggle.active.register-submit > *:before,
   .days #registerform .toggle.active.login-submit > *:before,
@@ -2172,7 +2191,7 @@ a[href].card,
           -ms-box-sizing: content-box;
           -o-box-sizing: content-box;
           box-sizing: content-box; }
-  .schedules .session.btn, .schedules .session.profile, .schedules .session.card, .schedules #loginform .session.login-submit, #loginform .schedules .session.login-submit,
+  .schedules .session.btn, .schedules .session.profile, .schedules .session.card, .schedules .social-account .session.wp-social-login-provider, .social-account .schedules .session.wp-social-login-provider, .schedules #loginform .session.login-submit, #loginform .schedules .session.login-submit,
   .schedules #loginform .session.register-submit,
   #loginform .schedules .session.register-submit,
   .schedules #registerform .session.login-submit,
@@ -2181,7 +2200,7 @@ a[href].card,
   #registerform .schedules .session.register-submit {
     margin: 0 0 -1.5em;
     display: block; }
-    .schedules .session.btn:after, .schedules .session.profile:after, .schedules .session.card:after, .schedules #loginform .session.login-submit:after, #loginform .schedules .session.login-submit:after,
+    .schedules .session.btn:after, .schedules .session.profile:after, .schedules .session.card:after, .schedules .social-account .session.wp-social-login-provider:after, .social-account .schedules .session.wp-social-login-provider:after, .schedules #loginform .session.login-submit:after, #loginform .schedules .session.login-submit:after,
     .schedules #loginform .session.register-submit:after,
     #loginform .schedules .session.register-submit:after,
     .schedules #registerform .session.login-submit:after,
@@ -2196,7 +2215,7 @@ a[href].card,
       -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
       -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
       transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after, .no-touch .schedules .session.card:hover:after, .no-touch .schedules #loginform .session.login-submit:hover:after, #loginform .no-touch .schedules .session.login-submit:hover:after,
+    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after, .no-touch .schedules .session.card:hover:after, .no-touch .schedules .social-account .session.wp-social-login-provider:hover:after, .social-account .no-touch .schedules .session.wp-social-login-provider:hover:after, .no-touch .schedules #loginform .session.login-submit:hover:after, #loginform .no-touch .schedules .session.login-submit:hover:after,
     .no-touch .schedules #loginform .session.register-submit:hover:after,
     #loginform .no-touch .schedules .session.register-submit:hover:after,
     .no-touch .schedules #registerform .session.login-submit:hover:after,
@@ -2687,6 +2706,35 @@ textarea {
         color: #0094C2;
         border-color: #0094C2; }
 
+.social-account {
+  padding: 20px 10px; }
+  .social-account .wp-social-login-provider {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    color: #eeeef0; }
+    .social-account .wp-social-login-provider:before {
+      background: #0D567E; }
+    .social-account .wp-social-login-provider:after {
+      border-color: #105073; }
+    .no-touch .social-account .wp-social-login-provider:hover:before {
+      background: #0D567E; }
+    .no-touch .social-account .wp-social-login-provider:hover:after {
+      border-color: #105073; }
+    .social-account .wp-social-login-provider > * {
+      display: block;
+      color: #fff; }
+      .social-account .wp-social-login-provider > *:before {
+        background: #005F93; }
+      .social-account .wp-social-login-provider > *:after {
+        color: #fff; }
+    .social-account .wp-social-login-provider:active, .social-account .wp-social-login-provider:focus, .no-touch .social-account .wp-social-login-provider:active:hover {
+      color: #fff; }
+      .social-account .wp-social-login-provider:active:before, .social-account .wp-social-login-provider:focus:before, .no-touch .social-account .wp-social-login-provider:active:hover:before {
+        background: #105073; }
+      .social-account .wp-social-login-provider:active > *:after, .social-account .wp-social-login-provider:focus > *:after, .no-touch .social-account .wp-social-login-provider:active:hover > *:after {
+        color: #fff; }
+
 #loginform,
 #registerform {
   padding: 10px 0; }
@@ -2896,7 +2944,7 @@ section.intro {
     margin: 0; }
   section.intro img {
     max-width: 100%; }
-  section.intro .btn.eventbrite, section.intro .eventbrite.profile, section.intro .eventbrite.card, section.intro #loginform .eventbrite.login-submit, #loginform section.intro .eventbrite.login-submit,
+  section.intro .btn.eventbrite, section.intro .eventbrite.profile, section.intro .eventbrite.card, section.intro .social-account .eventbrite.wp-social-login-provider, .social-account section.intro .eventbrite.wp-social-login-provider, section.intro #loginform .eventbrite.login-submit, #loginform section.intro .eventbrite.login-submit,
   section.intro #loginform .eventbrite.register-submit,
   #loginform section.intro .eventbrite.register-submit,
   section.intro #registerform .eventbrite.login-submit,
@@ -2905,13 +2953,13 @@ section.intro {
   #registerform section.intro .eventbrite.register-submit {
     text-align: center;
     display: block; }
-    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .eventbrite.card .title, section.intro #loginform .eventbrite.login-submit .title, #loginform section.intro .eventbrite.login-submit .title,
+    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .eventbrite.card .title, section.intro .social-account .eventbrite.wp-social-login-provider .title, .social-account section.intro .eventbrite.wp-social-login-provider .title, section.intro #loginform .eventbrite.login-submit .title, #loginform section.intro .eventbrite.login-submit .title,
     section.intro #loginform .eventbrite.register-submit .title,
     #loginform section.intro .eventbrite.register-submit .title,
     section.intro #registerform .eventbrite.login-submit .title,
     #registerform section.intro .eventbrite.login-submit .title,
     section.intro #registerform .eventbrite.register-submit .title,
-    #registerform section.intro .eventbrite.register-submit .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a, section.intro .eventbrite.card nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.card a, section.intro #loginform .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro #loginform .eventbrite.login-submit a, #loginform section.intro .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul #loginform section.intro .eventbrite.login-submit a,
+    #registerform section.intro .eventbrite.register-submit .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a, section.intro .eventbrite.card nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.card a, section.intro .social-account .eventbrite.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .social-account .eventbrite.wp-social-login-provider a, .social-account section.intro .eventbrite.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul .social-account section.intro .eventbrite.wp-social-login-provider a, section.intro #loginform .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro #loginform .eventbrite.login-submit a, #loginform section.intro .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul #loginform section.intro .eventbrite.login-submit a,
     section.intro #loginform .eventbrite.register-submit nav[role="navigation"] ul a,
     nav[role="navigation"] ul section.intro #loginform .eventbrite.register-submit a,
     #loginform section.intro .eventbrite.register-submit nav[role="navigation"] ul a,
@@ -2923,7 +2971,7 @@ section.intro {
     section.intro #registerform .eventbrite.register-submit nav[role="navigation"] ul a,
     nav[role="navigation"] ul section.intro #registerform .eventbrite.register-submit a,
     #registerform section.intro .eventbrite.register-submit nav[role="navigation"] ul a,
-    nav[role="navigation"] ul #registerform section.intro .eventbrite.register-submit a, section.intro .btn.eventbrite .field label, .field section.intro .btn.eventbrite label, section.intro .eventbrite.profile .field label, .field section.intro .eventbrite.profile label, section.intro .eventbrite.card .field label, .field section.intro .eventbrite.card label, section.intro #loginform .eventbrite.login-submit .field label, .field section.intro #loginform .eventbrite.login-submit label, #loginform section.intro .eventbrite.login-submit .field label, .field #loginform section.intro .eventbrite.login-submit label,
+    nav[role="navigation"] ul #registerform section.intro .eventbrite.register-submit a, section.intro .btn.eventbrite .field label, .field section.intro .btn.eventbrite label, section.intro .eventbrite.profile .field label, .field section.intro .eventbrite.profile label, section.intro .eventbrite.card .field label, .field section.intro .eventbrite.card label, section.intro .social-account .eventbrite.wp-social-login-provider .field label, .field section.intro .social-account .eventbrite.wp-social-login-provider label, .social-account section.intro .eventbrite.wp-social-login-provider .field label, .field .social-account section.intro .eventbrite.wp-social-login-provider label, section.intro #loginform .eventbrite.login-submit .field label, .field section.intro #loginform .eventbrite.login-submit label, #loginform section.intro .eventbrite.login-submit .field label, .field #loginform section.intro .eventbrite.login-submit label,
     section.intro #loginform .eventbrite.register-submit .field label,
     .field section.intro #loginform .eventbrite.register-submit label,
     #loginform section.intro .eventbrite.register-submit .field label,
@@ -2937,7 +2985,7 @@ section.intro {
     #registerform section.intro .eventbrite.register-submit .field label,
     .field #registerform section.intro .eventbrite.register-submit label {
       padding: 30px 30px 20px; }
-    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img, section.intro .eventbrite.card img, section.intro #loginform .eventbrite.login-submit img, #loginform section.intro .eventbrite.login-submit img,
+    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img, section.intro .eventbrite.card img, section.intro .social-account .eventbrite.wp-social-login-provider img, .social-account section.intro .eventbrite.wp-social-login-provider img, section.intro #loginform .eventbrite.login-submit img, #loginform section.intro .eventbrite.login-submit img,
     section.intro #loginform .eventbrite.register-submit img,
     #loginform section.intro .eventbrite.register-submit img,
     section.intro #registerform .eventbrite.login-submit img,
@@ -2945,7 +2993,7 @@ section.intro {
     section.intro #registerform .eventbrite.register-submit img,
     #registerform section.intro .eventbrite.register-submit img {
       margin-bottom: 30px; }
-    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before, section.intro .eventbrite.card:before, section.intro #loginform .eventbrite.login-submit:before, #loginform section.intro .eventbrite.login-submit:before,
+    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before, section.intro .eventbrite.card:before, section.intro .social-account .eventbrite.wp-social-login-provider:before, .social-account section.intro .eventbrite.wp-social-login-provider:before, section.intro #loginform .eventbrite.login-submit:before, #loginform section.intro .eventbrite.login-submit:before,
     section.intro #loginform .eventbrite.register-submit:before,
     #loginform section.intro .eventbrite.register-submit:before,
     section.intro #registerform .eventbrite.login-submit:before,
@@ -2954,7 +3002,7 @@ section.intro {
     #registerform section.intro .eventbrite.register-submit:before {
       display: block;
       background: #00bfdf; }
-    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after, section.intro .eventbrite.card:after, section.intro #loginform .eventbrite.login-submit:after, #loginform section.intro .eventbrite.login-submit:after,
+    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after, section.intro .eventbrite.card:after, section.intro .social-account .eventbrite.wp-social-login-provider:after, .social-account section.intro .eventbrite.wp-social-login-provider:after, section.intro #loginform .eventbrite.login-submit:after, #loginform section.intro .eventbrite.login-submit:after,
     section.intro #loginform .eventbrite.register-submit:after,
     #loginform section.intro .eventbrite.register-submit:after,
     section.intro #registerform .eventbrite.login-submit:after,
@@ -3240,7 +3288,7 @@ section.intro {
       line-height: 1;
       width: 33.33%;
       padding: 0 10px 20px; }
-  .program .days .btn, .program .days .profile, .program .days .card, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+  .program .days .btn, .program .days .profile, .program .days .card, .program .days .social-account .wp-social-login-provider, .social-account .program .days .wp-social-login-provider, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
   .program .days #loginform .register-submit,
   #loginform .program .days .register-submit,
   .program .days #registerform .login-submit,
@@ -3700,7 +3748,7 @@ section.intro {
   .waq2015 .group > ul {
     margin-top: 20px; }
 
-.single hgroup .btn, .single hgroup .profile, .single hgroup .card, .single hgroup #loginform .login-submit, #loginform .single hgroup .login-submit,
+.single hgroup .btn, .single hgroup .profile, .single hgroup .card, .single hgroup .social-account .wp-social-login-provider, .social-account .single hgroup .wp-social-login-provider, .single hgroup #loginform .login-submit, #loginform .single hgroup .login-submit,
 .single hgroup #loginform .register-submit,
 #loginform .single hgroup .register-submit,
 .single hgroup #registerform .login-submit,
@@ -4983,7 +5031,7 @@ footer .logo-o2 {
         line-height: 1;
         width: 100%;
         padding: 0 0 0; }
-    .program .days .btn, .program .days .profile, .program .days .card, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+    .program .days .btn, .program .days .profile, .program .days .card, .program .days .social-account .wp-social-login-provider, .social-account .program .days .wp-social-login-provider, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
     .program .days #loginform .register-submit,
     #loginform .program .days .register-submit,
     .program .days #registerform .login-submit,

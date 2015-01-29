@@ -37,20 +37,37 @@ if(have_posts()): while(have_posts()): the_post();
             ?>
 
             <div tab="login" class="tab-content <?php if(!isset($_GET['registration'])) echo ' active' ?>">
-              <?php
-              $loginForm = wp_login_form( array(
-                'echo' => false,
-                'id_submit' => 'submit-login',
-                'redirect'       => get_permalink(get_ID_from_slug('mon-horaire')),
-                'label_username' => __( 'Nom d\'utilisateur', 'waq' ),
-                    'label_password' => __( 'Mot de passe', 'waq' ),
-                    'label_remember' => __( 'Rester connecté', 'waq' ),
-                    'label_log_in'   => __( 'Connexion','waq' ),
-                    'value_username' =>isset($_GET['user']) ? urldecode($_GET['user']) : NULL
-              ));
-              $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"field\"><p$1>$2</p></div>", $loginForm);
-              echo $loginForm;
-              ?>
+
+              <div class="social-account">
+                <?php
+                  ob_start();
+                  do_action( 'wordpress_social_login' );
+                  $loginForm = ob_get_contents();
+                  ob_end_clean();
+                  $loginForm = preg_replace('/<a(.*?)>(.*?)<\/a>/is', "<a$1 tab-index=\"2\"><span>$2</span></a>", $loginForm);
+                  echo $loginForm;
+                ?>
+              </div>
+
+              <div class="centered border-middle"><?= __('ou','waq') ?></div>
+
+              <div class="wp-account">
+                <?php
+                $loginForm = wp_login_form( array(
+                  'echo' => false,
+                  'id_submit' => 'submit-login',
+                  'redirect'       => get_permalink(get_ID_from_slug('mon-horaire')),
+                  'label_username' => __( 'Nom d\'utilisateur', 'waq' ),
+                      'label_password' => __( 'Mot de passe', 'waq' ),
+                      'label_remember' => __( 'Rester connecté', 'waq' ),
+                      'label_log_in'   => __( 'Connexion','waq' ),
+                      'value_username' =>isset($_GET['user']) ? urldecode($_GET['user']) : NULL
+                ));
+                $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"field\"><p$1>$2</p></div>", $loginForm);
+                echo $loginForm;
+                ?>
+              </div>
+
             </div>
 
             <div tab="register" class="tab-content<?php if(isset($_GET['registration'])) echo ' active' ?>">
