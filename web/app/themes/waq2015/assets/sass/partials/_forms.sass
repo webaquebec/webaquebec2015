@@ -26,11 +26,29 @@ textarea
 // field
 .field
   width: 100%
-  padding: $medium
-  border-top: 1px solid $l-grey
+  padding: $small $medium
+  // border-top: 1px solid $l-grey
   &:first-child
     border-top: none
   label
     @extend .title
     @extend .sub.title
+  input
+    display: block
+    width: 100%
+    border: 1px solid $grey
+    padding: $small
+    +prefix(transition, border 120ms linear, padding 120ms linear)
+    .no-touch &:hover
+      border-color: $blue
+    &:focus
+      border: 3px solid $blue
+      padding: $small - 2px
+      color: $blue
 
+//
+//
+// wp_login_form()
+#loginform
+  p
+    margin: 0

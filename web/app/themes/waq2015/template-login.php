@@ -33,8 +33,7 @@ get_header();
               'label_remember' => __( 'Rester connecté', 'waq' ),
               'label_log_in'   => __( 'Connexion','waq' )
         ));
-        $loginForm = preg_replace('/<input(.*?)>/is', "<span class=\"input\"><input$1/></span>", $loginForm);
-        $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"wrap\"><p$1>$2</p></div>", $loginForm);
+        $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"field\"><p$1>$2</p></div>", $loginForm);
         echo $loginForm;
         ?>
       </article>

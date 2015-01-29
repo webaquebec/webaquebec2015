@@ -2132,10 +2132,28 @@ textarea {
 
 .field {
   width: 100%;
-  padding: 20px;
-  border-top: 1px solid #eeeef0; }
+  padding: 10px 20px; }
   .field:first-child {
     border-top: none; }
+  .field input {
+    display: block;
+    width: 100%;
+    border: 1px solid #B8B9C2;
+    padding: 10px;
+    -webkit-transition: border 120ms linear, padding 120ms linear;
+    -moz-transition: border 120ms linear, padding 120ms linear;
+    -ms-transition: border 120ms linear, padding 120ms linear;
+    -o-transition: border 120ms linear, padding 120ms linear;
+    transition: border 120ms linear, padding 120ms linear; }
+    .no-touch .field input:hover {
+      border-color: #0094C2; }
+    .field input:focus {
+      border: 3px solid #0094C2;
+      padding: 8px;
+      color: #0094C2; }
+
+#loginform p {
+  margin: 0; }
 
 .no-schedule .favorite,
 .no-schedule #menu-mon-horaire {

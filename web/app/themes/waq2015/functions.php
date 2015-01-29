@@ -214,13 +214,36 @@ function header_styles()
 }
 
 
-/* --------------------------------------------------------------------------------------------------- Admin CSS ------------- */
+/* ---------------------------- */
 // CSS POUR L'ADMIN
 
 function admin_style() {
     wp_register_style('admin', get_template_directory_uri() . '/assets/css/admin.css');
     wp_enqueue_style('admin');
 }
+
+/*------------------------------------*\
+     REDIRECT FALIED LOGIN
+\*------------------------------------*/
+
+// http://www.danielauener.com/build-fully-customized-wordpress-login-annoying-redirects/
+function front_end_login_fail( $username ) {
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+        // redirect to your login page, you might want to add a parameter login_failed
+        // to show an error message or something like that
+        wp_redirect( strtok($referrer, '?').'?login-failed' );
+    }
+    exit;
+}
+function verify_username_password( $user, $username, $password ) {
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if( $username == "" || $password == "" ) {
+        wp_redirect( strtok($referrer, '?').'?login-empty' );
+        exit;
+    }
+}
+
 
 
 /*------------------------------------*\
@@ -433,8 +456,8 @@ add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/v
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
-// add_action('acf/save_post', 'create_css');  // Creation custom de css pour chaque post
-
+add_action('wp_login_failed', 'front_end_login_fail');
+add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 //
 //  Remove Actions
