@@ -241,33 +241,43 @@ function before_login_form(){
 function after_login_form(){
     echo '</div>';
 }
-function frontend_login_fail( $username ) {
+function login_fail( $username ) {
     $referrer = $_SERVER['HTTP_REFERER'];
-    if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
-        // redirect to your login page, you might want to add a parameter login_failed
-        // to show an error message or something like that
+    if (!empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
         wp_redirect( strtok($referrer, '?').'?login=failed' );
+        exit;
     }
-    exit;
 }
-function authenticate_user( $user, $username, $password ) {
-    if(!isset($_SERVER['HTTP_REFERER'])) return;
+function redirect_login($redirect_to, $url, $user) {
+    if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
-    if(isset($user)){
-        $errors_keys = [];
-        if( $username == "" || $password == "" ){
-            wp_redirect( strtok($referrer, '?').'?login=empty' );
-            exit;
-        }
+    $errors_keys = [];
+    foreach($user->errors as $error=>$message)
+        $errors_keys[] = $error;
+    if(count($errors_keys)>0){
+        wp_redirect(    strtok($referrer, '?').
+                        '?login='.implode('+', $errors_keys).
+                        (has($_POST['log'])?'&user='.urlencode($_POST['log']):'')
+                    );
+        exit;
     }else{
+        wp_redirect( strtok($referrer, '?').'?login=empty');
+        exit;
+    }
+}
+function authenticate_user($user, $username, $password ) {
+    if(empty($_SERVER['HTTP_REFERER'])) return;
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if(!isset($_POST['log'])){
         wp_redirect( strtok($referrer, '?').'?registration=success' );
+        exit;
     }
     return $user;
 }
 
 
 function registration_form_errors($errors, $user_login, $user_email) {
-    if(!isset($_SERVER['HTTP_REFERER'])) return;
+    if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     $errors_keys = [];
     foreach($errors->errors as $error=>$message)
@@ -496,8 +506,9 @@ add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/v
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
-add_action('wp_login_failed', 'frontend_login_fail');
-add_action('user_register', 'register_user', 10, 1 );
+add_action('wp_login_failed', 'login_fail');
+add_action('user_register', 'register_user', 10, 1);
+add_action('login_redirect', 'redirect_login', 10, 3);
 //
 //  Remove Actions
 //
@@ -539,5 +550,4 @@ add_filter('authenticate', 'authenticate_user', 1, 3);
 add_filter('login_form_top','before_login_form',10,0);
 add_filter('login_form_bottom','after_login_form',10,0);
 add_filter('registration_errors', 'registration_form_errors', 10, 3);
-
 ?>

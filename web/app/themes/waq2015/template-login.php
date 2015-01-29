@@ -45,7 +45,8 @@ if(have_posts()): while(have_posts()): the_post();
                 'label_username' => __( 'Nom d\'utilisateur', 'waq' ),
                     'label_password' => __( 'Mot de passe', 'waq' ),
                     'label_remember' => __( 'Rester connecté', 'waq' ),
-                    'label_log_in'   => __( 'Connexion','waq' )
+                    'label_log_in'   => __( 'Connexion','waq' ),
+                    'value_username' =>isset($_GET['user']) ? urldecode($_GET['user']) : NULL
               ));
               $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"field\"><p$1>$2</p></div>", $loginForm);
               echo $loginForm;
