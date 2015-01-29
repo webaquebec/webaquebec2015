@@ -22,8 +22,12 @@ if(have_posts()): while(have_posts()): the_post();
       <div class="card form">
         <div class="tabs">
           <nav class="tab-triggers">
-            <button tab="login" class="tab-trigger title"><?= __('J\'ai déjà un compte', 'waq') ?></button>
-            <button tab="register" class="tab-trigger title"><?= __('Je veux me créer un compte', 'waq') ?></button>
+            <button tab="login" class="tab-trigger title<?php if(!isset($_GET['registration'])) echo ' active' ?>">
+              <?= __('J\'ai déjà <br>un compte', 'waq') ?>
+            </button>
+            <button tab="register" class="tab-trigger title<?php if(isset($_GET['registration'])) echo ' active' ?>">
+              <?= __('Je veux me créer <br>un compte', 'waq') ?>
+            </button>
           </nav>
 
           <div class="tab-contents">
@@ -31,7 +35,8 @@ if(have_posts()): while(have_posts()): the_post();
             $login =  isset($_GET['login']) ? explode(' ', $_GET['login']) : [];
             $registration =  isset($_GET['registration']) ? explode(' ', $_GET['registration']) : [];
             ?>
-            <div tab="login" class="tab-content">
+
+            <div tab="login" class="tab-content <?php if(!isset($_GET['registration'])) echo ' active' ?>">
               <?php
               $loginForm = wp_login_form( array(
                 'echo' => false,
@@ -47,7 +52,7 @@ if(have_posts()): while(have_posts()): the_post();
               ?>
             </div>
 
-            <div tab="register" class="tab-content">
+            <div tab="register" class="tab-content<?php if(isset($_GET['registration'])) echo ' active' ?>">
               <form id="registerform" class="form" action="<?= site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
               <?php
               // Success
@@ -97,7 +102,9 @@ if(have_posts()): while(have_posts()): the_post();
                 </div>
                 <?php do_action('register_form'); ?>
                 <div class="field">
-                  <input type="submit" value="<?= __( 'Envoyer', 'waq' ) ?>" id="register" />
+                  <div class="register-submit">
+                    <input type="submit" value="<?= __( 'Envoyer', 'waq' ) ?>" id="register" />
+                  </div>
                   <p class="small title"><?= __( 'Un mot de passe vous sera envoyé par courriel.', 'waq' ) ?></p>
                 </div>
               </form>

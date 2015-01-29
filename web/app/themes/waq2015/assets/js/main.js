@@ -480,6 +480,7 @@ jQuery(document).ready(function($){
   // TABS
   if(waq.$tabs.length){
     waq.$tabs.tabs({
+      activate: waq.$tabs.index(waq.$tabs.filter('.active')),
       type: 'tabs',
       animation: false,
       content: $('.tab-content')

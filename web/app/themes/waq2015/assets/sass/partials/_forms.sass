@@ -44,9 +44,11 @@ textarea
     margin: 0
     border: none
     outline: none
-    +prefix(transition, background 240ms $ease, color 240ms $ease)
+    cursor: pointer
+    line-height: 1.2
+    +prefix(transition, background 240ms $ease, color 120ms $ease)
     .no-touch &:hover
-      color: $blue
+      color: $l-blue
     &.active
       background: #fff
       color: $blue
@@ -85,6 +87,7 @@ textarea
       background: $blue
       color: $l-grey
       border: none
+      cursor: pointer
       .no-touch &:hover,
       &:active,
       &:focus
@@ -111,5 +114,10 @@ textarea
     margin: 0
   .login-remember
     @extend .note
-  .login-submit
+  .login-submit,
+  .register-submit
     @extend .btn
+  .register-submit
+    &+.title
+      text-align: center
+      margin-top: 0.5em

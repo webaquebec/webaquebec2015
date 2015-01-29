@@ -101,13 +101,13 @@
   function tabs(triggers){
     var s = triggers[0].tabs;
     var contents = getContents(triggers);
-    var trigger = $(triggers[0]);
-    var content = $(contents[triggers.index(trigger[0])]);
+    var trigger = $(triggers[s.activate]);
+    var content = $(contents[s.activate]);
     if(s.type=='accordion' || s.wrapped) unwrap(triggers);
     changeValue(triggers, 'type', 'tabs');
     if(s.wrap) wrap(triggers);
-    showTabs($(triggers[0]), content);
-    hideTabs(triggers.not(triggers[0]), contents.not(contents[0]));
+    showTabs(trigger, content);
+    hideTabs(triggers.not(trigger[0]), contents.not(content[0]));
   }
   function accordion(triggers, type){
     var s = triggers[0].tabs;
@@ -143,11 +143,12 @@
     }
   }
   function enable(triggers){
+    var s = triggers[0].tabs;
     var contents = getContents(triggers);
-    if(triggers[0].tabs.hide) contents.hide();
-    if(triggers[0].tabs.type=='tabs'){
-      $(contents[0]).show().addClass('active');
-      $(triggers[0]).addClass('active');
+    if(s.hide) contents.hide();
+    if(s.type=='tabs'){
+      $(contents[s.activate]).show().addClass('active');
+      $(triggers[s.activate]).addClass('active');
     }
     changeValue(triggers, 'enabled', true);
     triggers.off('click', handleClick).on('click', {triggers: triggers, contents: contents}, handleClick);
@@ -177,6 +178,7 @@
       var triggers;
       var deadTriggers = $();
       var s = {
+        activate: 0,
         type: 'accordion',
         collapsable: true,
         animation: 'slide',
@@ -259,6 +261,7 @@
         t[0].tabs = t[0].tabs ? t[0].tabs : {};
         var data = $.extend(true, t[0].tabs, {
           i: i,
+          activate: s.activate,
           content: s.content,
           collapsable: s.collapsable,
           trigger: t,
