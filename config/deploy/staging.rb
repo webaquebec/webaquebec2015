@@ -1,5 +1,6 @@
 set :stage, :staging
 set :branch, :staging
+set :username, 'waq'
 
 # Simple Role Syntax
 # ==================
@@ -9,7 +10,7 @@ set :branch, :staging
 
 # Extended Server Syntax
 # ======================
-server 'waq.o2web.biz', user: 'waq', roles: %w{web app db}
+server 'waq.o2web.biz', user: fetch(:username), roles: %w{web app db}
 set :wpcli_remote_url, "http://dev.waq.o2web.biz"
 
 # you can set custom ssh options

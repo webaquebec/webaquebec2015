@@ -1,5 +1,7 @@
 set :stage, :production
 set :branch, :master
+set :home_folder, 'home3'
+set :username, 'webaqueb'
 
 # Simple Role Syntax
 # ==================
@@ -9,8 +11,7 @@ set :branch, :master
 
 # Extended Server Syntax
 # ======================
-server '66.147.244.160', user: 'webaqueb', roles: %w{web app db}
-# CHANGE FOR PRODUCTION ENVIRONMENT
+server '66.147.244.160', user: fetch(:username), roles: %w{web app db}
 set :wpcli_remote_url, "http://webaquebec.org"
 
 # you can set custom ssh options

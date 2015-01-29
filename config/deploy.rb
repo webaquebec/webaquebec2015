@@ -1,9 +1,5 @@
 set :application, 'webaquebec2015'
 set :repo_url, 'git@github.com:webaquebec/webaquebec2015.git'
-set :user, 'webaqueb'
-
-# Because of bluehost "home#"
-set :home, 'home3'
 
 # Thoses options are for the WP-CLI. if you use it, uncomment the related line in the Capfile
 #
@@ -31,8 +27,9 @@ set :wpcli_local_url, "http://localhost:8888"
 set :branch, :master
 
 # Set the default deploy path to use different folders for different environments
-set :deploy_to, "/#{fetch(:home)}/#{fetch(:user)}/#{fetch(:application)}/#{fetch(:stage)}"
-set :tmp_dir, "/#{fetch(:home)}/#{fetch(:user)}/tmp"
+set :deploy_to, -> { "/#{fetch(:home, 'home')}/#{fetch(:username)}/#{fetch(:application)}/#{fetch(:stage)}" }
+set :home_folder, -> { "/#{fetch(:home, 'home')}/#{fetch(:username)}/" }
+set :tmp_dir, -> { "/#{fetch(:home, 'home')}/#{fetch(:username)}/tmp" }
 
 # Set the default symlink folders to symlink after the deployment cycle is done.
 set :bedrock_staging_symlink, 'dev'
@@ -44,7 +41,7 @@ set :log_level, :debug
 # Apache users with .htaccess files:
 # it needs to be added to linked_files so it persists across deploys:
 # set :linked_files, fetch(:linked_files, []).push('.env', 'web/.htaccess')
-set :linked_files, fetch(:linked_files, []).push('.env')
+set :linked_files, fetch(:linked_files, []).push('.env', 'web/.htaccess')
 set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
 
 set :pty, true
@@ -53,7 +50,7 @@ namespace :deploy do
   desc "Link the code folder to the webserver folder"
   task :link_release_to_public do
     on roles(:app) do
-      within "/#{fetch(:home)}/#{fetch(:user)}" do
+      within "#{fetch(:home_folder)}" do
         if fetch(:stage) == :staging
           info " Symlinking to Staging"
           execute "rm -rf #{fetch(:bedrock_staging_symlink)} && ln -sf #{current_path}/web #{fetch(:bedrock_staging_symlink)}"
