@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9d3434fd2c80d482c636fdf5eb45a392",
+    "hash": "7c769e7a8a2c7a46f6ce5eab8cfa8c50",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -427,16 +427,16 @@
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
         },
         {
-            "name": "wpackagist-plugin/wp-fb-autoconnect",
-            "version": "4.0.8",
+            "name": "wpackagist-plugin/wordpress-social-login",
+            "version": "2.2.3",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-fb-autoconnect/",
-                "reference": "tags/4.0.8"
+                "url": "http://plugins.svn.wordpress.org/wordpress-social-login/",
+                "reference": "tags/2.2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/wp-fb-autoconnect.4.0.8.zip",
+                "url": "http://downloads.wordpress.org/plugin/wordpress-social-login.2.2.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -444,7 +444,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-fb-autoconnect/"
+            "homepage": "https://wordpress.org/plugins/wordpress-social-login/"
         }
     ],
     "packages-dev": [

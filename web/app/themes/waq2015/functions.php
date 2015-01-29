@@ -223,29 +223,62 @@ function admin_style() {
 }
 
 /*------------------------------------*\
-     REDIRECT FALIED LOGIN
+    LOGIN/REGISTER FORM
 \*------------------------------------*/
 
 // http://www.danielauener.com/build-fully-customized-wordpress-login-annoying-redirects/
-function front_end_login_fail( $username ) {
+function before_login_form(){
+    echo '<div class="facebook-account">';
+        __('Connectez-vous avec','waq');
+        do_action( 'wordpress_social_login' );
+    echo '</div>';
+    echo '<div class="wp-account">'.
+            '<span class="centered border-middle">'.__('Ou','waq').'</span>';
+}
+function after_login_form(){
+    echo '</div>';
+}
+function frontend_login_fail( $username ) {
     $referrer = $_SERVER['HTTP_REFERER'];
     if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
         // redirect to your login page, you might want to add a parameter login_failed
         // to show an error message or something like that
-        wp_redirect( strtok($referrer, '?').'?login-failed' );
+        wp_redirect( strtok($referrer, '?').'?login=failed' );
     }
     exit;
 }
-function verify_username_password( $user, $username, $password ) {
+function authenticate_user( $user, $username, $password ) {
+    if(!isset($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
-    if( $username == "" || $password == "" ) {
-        wp_redirect( strtok($referrer, '?').'?login-empty' );
-        exit;
+    if(isset($user)){
+        $errors_keys = [];
+        if( $username == "" || $password == "" ){
+            wp_redirect( strtok($referrer, '?').'?login=empty' );
+            exit;
+        }
+    }else{
+        wp_redirect( strtok($referrer, '?').'?registration=success' );
     }
+    return $user;
 }
 
 
-
+function registration_form_errors($errors, $sanitized_user_login, $user_email) {
+    if(!isset($_SERVER['HTTP_REFERER'])) return;
+    $referrer = $_SERVER['HTTP_REFERER'];
+    $errors_keys = [];
+    foreach($errors->errors as $error=>$message)
+        $errors_keys[] = $error;
+    if(count($errors_keys)>0){
+        wp_redirect( strtok($referrer, '?').'?registration='.implode('+', $errors_keys));
+        exit;
+    }
+    return $errors;
+}
+function register_user( $user_id ) {
+    if(isset( $_POST['user_name']))
+        update_user_meta($user_id, 'first_name', $_POST['user_name']);
+}
 /*------------------------------------*\
      OPTIONS EN VRAC
 \*------------------------------------*/
@@ -456,9 +489,8 @@ add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/v
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
-add_action('wp_login_failed', 'front_end_login_fail');
-add_filter( 'authenticate', 'verify_username_password', 1, 3);
-
+add_action('wp_login_failed', 'frontend_login_fail');
+add_action('user_register', 'register_user', 10, 1 );
 //
 //  Remove Actions
 //
@@ -493,10 +525,12 @@ add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navi
 add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> injected classes (Commented out by default)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
-// add_filter('request', 'set_endpoint_var');  // Ajout d'une variacle après le slug (voir aussi add_action)
 add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
 add_action('init', 'tiny_stylesheet' );
-
+add_filter('authenticate', 'authenticate_user', 1, 3);
+add_filter('login_form_top','before_login_form',10,0);
+add_filter('login_form_bottom','after_login_form',10,0);
+add_filter('registration_errors', 'registration_form_errors', 10, 3);
 
 ?>

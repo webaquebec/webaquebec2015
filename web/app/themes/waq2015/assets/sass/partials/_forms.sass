@@ -24,6 +24,13 @@ textarea
 //
 //
 // field
+.form
+  padding-top: $medium
+  &>.message
+    margin: $small $medium
+    padding: $small $medium
+    border: 1px solid $d-blue
+    color: $d-blue
 .field
   width: 100%
   padding: $small $medium
@@ -33,22 +40,52 @@ textarea
   label
     @extend .title
     @extend .sub.title
+    input
+      +inlineb
+      width: auto
+      height: auto
+
   input
     display: block
     width: 100%
     border: 1px solid $grey
-    padding: $small
-    +prefix(transition, border 120ms linear, padding 120ms linear)
+    padding: 0.5em
+    height: 3em
+    line-height: 1
+    +prefix(transition, border 120ms linear)
     .no-touch &:hover
       border-color: $blue
     &:focus
       border: 3px solid $blue
-      padding: $small - 2px
       color: $blue
+
+    &[type="submit"]
+      background: $blue
+      color: $l-grey
+      border: none
+      .no-touch &:hover,
+      &:active,
+      &:focus
+        background: $d-blue
+        color: #fff
+        border: none
+  .error
+    color: $red
+    &+input
+      border-color: $red
+      &:focus,
+      .no-touch &:hover
+        border-color: $red
 
 //
 //
 // wp_login_form()
-#loginform
+#loginform,
+#registerform
+  padding: $small 0
   p
     margin: 0
+  .login-remember
+    @extend .note
+  .login-submit
+    @extend .btn

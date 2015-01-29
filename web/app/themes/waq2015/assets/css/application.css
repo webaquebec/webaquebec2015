@@ -211,13 +211,21 @@ hr {
   position: relative;
   top: -0.1em; }
 
-.note {
+.note, #loginform .login-remember,
+#registerform .login-remember {
   color: #B8B9C2;
   font-size: 0.875em;
   display: block; }
-  .dark .note {
+  .dark .note, .dark #loginform .login-remember, #loginform .dark .login-remember,
+  .dark #registerform .login-remember,
+  #registerform .dark .login-remember {
     color: #eeeef0; }
-  .title + .note, nav[role="navigation"] ul a + .note, .field label + .note {
+  .title + .note, nav[role="navigation"] ul a + .note, .field label + .note, #loginform .title + .login-remember, nav[role="navigation"] ul #loginform a + .login-remember, #loginform nav[role="navigation"] ul a + .login-remember, .field #loginform label + .login-remember, #loginform .field label + .login-remember,
+  #registerform .title + .login-remember,
+  nav[role="navigation"] ul #registerform a + .login-remember,
+  #registerform nav[role="navigation"] ul a + .login-remember,
+  .field #registerform label + .login-remember,
+  #registerform .field label + .login-remember {
     margin-top: -0.375em;
     margin-bottom: 1em; }
 
@@ -257,6 +265,8 @@ hr {
 .btn.toggle.favorite > :after,
 .toggle.favorite.profile > :after,
 .toggle.favorite.card > :after,
+#loginform .toggle.favorite.login-submit > :after,
+#registerform .toggle.favorite.login-submit > :after,
 .btn.toggle.favorite.active > :after,
 .toggle.favorite.active.profile > :after,
 .toggle.favorite.active.card > :after,
@@ -268,6 +278,8 @@ hr {
 .btn.link a > span:after,
 .link.profile a > span:after,
 .link.card a > span:after,
+#loginform .link.login-submit a > span:after,
+#registerform .link.login-submit a > span:after,
 .features .session .wrap > .title:after,
 .features .session nav[role="navigation"] ul .wrap > a:after,
 nav[role="navigation"] ul .features .session .wrap > a:after,
@@ -277,6 +289,8 @@ nav[role="navigation"] ul .features .session .wrap > a:after,
 .btn.back a > span:after,
 .back.profile a > span:after,
 .back.card a > span:after,
+#loginform .back.login-submit a > span:after,
+#registerform .back.login-submit a > span:after,
 .icon-arrow-top:after,
 .icon-arrow-bottom:after,
 .icon-facebook:after,
@@ -310,6 +324,8 @@ nav[role="navigation"] .secondary a:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
 .toggle.card > :after,
+#loginform .toggle.login-submit > :after,
+#registerform .toggle.login-submit > :after,
 .filters .title.toggle:after,
 .filters nav[role="navigation"] ul a.toggle:after,
 nav[role="navigation"] ul .filters a.toggle:after,
@@ -319,6 +335,8 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .btn.toggle.active > :after,
 .toggle.active.profile > :after,
 .toggle.active.card > :after,
+#loginform .toggle.active.login-submit > :after,
+#registerform .toggle.active.login-submit > :after,
 .icon-website:after,
 .social a.website:after,
 .icon-menu:after {
@@ -334,16 +352,19 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-blank:after {
   content: ""; }
 
-.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after, .toggle.favorite.active.card > :after {
+.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, #loginform .toggle.favorite.login-submit > :after,
+#registerform .toggle.favorite.login-submit > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after, .toggle.favorite.active.card > :after {
   content: ""; }
 
 .icon-user:after {
   content: ""; }
 
-.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
+.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, #loginform .link.login-submit a > span:after,
+#registerform .link.login-submit a > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
   content: ""; }
 
-.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after {
+.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, #loginform .back.login-submit a > span:after,
+#registerform .back.login-submit a > span:after {
   content: ""; }
 
 .icon-arrow-top:after {
@@ -373,10 +394,12 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
   content: ""; }
 
-.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
+.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, #loginform .toggle.login-submit > :after,
+#registerform .toggle.login-submit > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
   content: ""; }
 
-.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after {
+.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after, #loginform .toggle.active.login-submit > :after,
+#registerform .toggle.active.login-submit > :after {
   content: ""; }
 
 .icon-website:after, .social a.website:after {
@@ -488,6 +511,8 @@ article {
     overflow: hidden; }
   .container:after, .sticky.fixed:after, .days .sticky:after {
     clear: both; }
+  .container.narrow, .narrow.sticky.fixed, .days .narrow.sticky {
+    max-width: 540px; }
 
 .group {
   margin-bottom: 1em; }
@@ -874,7 +899,8 @@ nav[role="navigation"] .secondary {
   .thumb img {
     max-height: 100%; }
 
-.btn, .profile, .card {
+.btn, .profile, .card, #loginform .login-submit,
+#registerform .login-submit {
   background: transparent;
   border: none;
   outline: none;
@@ -889,13 +915,19 @@ nav[role="navigation"] .secondary {
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.3;
   z-index: 0; }
-  .btn:before, .profile:before, .card:before, .btn:after, .profile:after, .card:after,
+  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  #registerform .login-submit:before, .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  #registerform .login-submit:after,
   .btn > *:before,
   .profile > *:before,
   .card > *:before,
+  #loginform .login-submit > *:before,
+  #registerform .login-submit > *:before,
   .btn > *:after,
   .profile > *:after,
-  .card > *:after {
+  .card > *:after,
+  #loginform .login-submit > *:after,
+  #registerform .login-submit > *:after {
     content: "";
     display: block;
     position: absolute;
@@ -903,17 +935,22 @@ nav[role="navigation"] .secondary {
     left: 0;
     width: 100%;
     height: 100%; }
-  .btn:before, .profile:before, .card:before, .btn:after, .profile:after, .card:after,
+  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  #registerform .login-submit:before, .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  #registerform .login-submit:after,
   .btn > *:before,
   .profile > *:before,
-  .card > *:before {
+  .card > *:before,
+  #loginform .login-submit > *:before,
+  #registerform .login-submit > *:before {
     height: auto;
     width: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 1.5em; }
-  .btn:after, .profile:after, .card:after {
+  .btn:after, .profile:after, .card:after, #loginform .login-submit:after,
+  #registerform .login-submit:after {
     z-index: -1;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -927,7 +964,8 @@ nav[role="navigation"] .secondary {
     -ms-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn:before, .profile:before, .card:before {
+  .btn:before, .profile:before, .card:before, #loginform .login-submit:before,
+  #registerform .login-submit:before {
     right: 100%;
     z-index: -1;
     background: #eeeef0;
@@ -939,7 +977,8 @@ nav[role="navigation"] .secondary {
     -ms-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn > *, .profile > *, .card > * {
+  .btn > *, .profile > *, .card > *, #loginform .login-submit > *,
+  #registerform .login-submit > * {
     padding: 0.5em 1em 0.5em 1em;
     display: inline-block;
     *display: inline;
@@ -952,13 +991,15 @@ nav[role="navigation"] .secondary {
     -ms-transition: color 120ms linear;
     -o-transition: color 120ms linear;
     transition: color 120ms linear; }
-    .btn > *:before, .profile > *:before, .card > *:before {
+    .btn > *:before, .profile > *:before, .card > *:before, #loginform .login-submit > *:before,
+    #registerform .login-submit > *:before {
       background: #fff;
       z-index: -2;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       border-radius: 4px; }
-    .btn > *:after, .profile > *:after, .card > *:after {
+    .btn > *:after, .profile > *:after, .card > *:after, #loginform .login-submit > *:after,
+    #registerform .login-submit > *:after {
       text-align: right;
       font-size: 0.8em;
       padding: 0.2em 1em;
@@ -968,139 +1009,228 @@ nav[role="navigation"] .secondary {
       -ms-transition: color 120ms linear 60ms;
       -o-transition: color 120ms linear 60ms;
       transition: color 120ms linear 60ms; }
-  .dark .btn, .dark .profile, .dark .card {
+  .dark .btn, .dark .profile, .dark .card, .dark #loginform .login-submit, #loginform .dark .login-submit,
+  .dark #registerform .login-submit,
+  #registerform .dark .login-submit {
     color: #fff; }
-    .dark .btn:before, .dark .profile:before, .dark .card:before {
+    .dark .btn:before, .dark .profile:before, .dark .card:before, .dark #loginform .login-submit:before, #loginform .dark .login-submit:before,
+    .dark #registerform .login-submit:before,
+    #registerform .dark .login-submit:before {
       background: #4b4b4d; }
-    .dark .btn:after, .dark .profile:after, .dark .card:after {
+    .dark .btn:after, .dark .profile:after, .dark .card:after, .dark #loginform .login-submit:after, #loginform .dark .login-submit:after,
+    .dark #registerform .login-submit:after,
+    #registerform .dark .login-submit:after {
       border-color: #3d3d3d; }
-    .dark .btn > *, .dark .profile > *, .dark .card > * {
+    .dark .btn > *, .dark .profile > *, .dark .card > *, .dark #loginform .login-submit > *, #loginform .dark .login-submit > *,
+    .dark #registerform .login-submit > *,
+    #registerform .dark .login-submit > * {
       color: #fff; }
-      .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before {
+      .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before, .dark #loginform .login-submit > *:before, #loginform .dark .login-submit > *:before,
+      .dark #registerform .login-submit > *:before,
+      #registerform .dark .login-submit > *:before {
         background: #303030; }
-    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after, .dark .toggle.active.card:after {
+    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after, .dark .toggle.active.card:after, .dark #loginform .toggle.active.login-submit:after, #loginform .dark .toggle.active.login-submit:after,
+    .dark #registerform .toggle.active.login-submit:after,
+    #registerform .dark .toggle.active.login-submit:after {
       border-color: #005F93; }
-  .black .btn, .black .profile, .black .card {
+  .black .btn, .black .profile, .black .card, .black #loginform .login-submit, #loginform .black .login-submit,
+  .black #registerform .login-submit,
+  #registerform .black .login-submit {
     color: #fff; }
-    .black .btn:before, .black .profile:before, .black .card:before {
+    .black .btn:before, .black .profile:before, .black .card:before, .black #loginform .login-submit:before, #loginform .black .login-submit:before,
+    .black #registerform .login-submit:before,
+    #registerform .black .login-submit:before {
       background: #111; }
-    .black .btn:after, .black .profile:after, .black .card:after {
+    .black .btn:after, .black .profile:after, .black .card:after, .black #loginform .login-submit:after, #loginform .black .login-submit:after,
+    .black #registerform .login-submit:after,
+    #registerform .black .login-submit:after {
       border-color: #3d3d3d; }
-    .black .btn > *:before, .black .profile > *:before, .black .card > *:before {
+    .black .btn > *:before, .black .profile > *:before, .black .card > *:before, .black #loginform .login-submit > *:before, #loginform .black .login-submit > *:before,
+    .black #registerform .login-submit > *:before,
+    #registerform .black .login-submit > *:before {
       background: #303030; }
-    .black .btn.toggle.active:after, .black .toggle.active.profile:after, .black .toggle.active.card:after {
+    .black .btn.toggle.active:after, .black .toggle.active.profile:after, .black .toggle.active.card:after, .black #loginform .toggle.active.login-submit:after, #loginform .black .toggle.active.login-submit:after,
+    .black #registerform .toggle.active.login-submit:after,
+    #registerform .black .toggle.active.login-submit:after {
       border-color: #005F93; }
-  .light .btn, .light .profile, .light .card, .l-grey .btn, .l-grey .profile, .l-grey .card {
+  .light .btn, .light .profile, .light .card, .light #loginform .login-submit, #loginform .light .login-submit,
+  .light #registerform .login-submit,
+  #registerform .light .login-submit, .l-grey .btn, .l-grey .profile, .l-grey .card, .l-grey #loginform .login-submit, #loginform .l-grey .login-submit,
+  .l-grey #registerform .login-submit,
+  #registerform .l-grey .login-submit {
     color: #303030; }
-    .light .btn > *, .light .profile > *, .light .card > *, .l-grey .btn > *, .l-grey .profile > *, .l-grey .card > * {
+    .light .btn > *, .light .profile > *, .light .card > *, .light #loginform .login-submit > *, #loginform .light .login-submit > *,
+    .light #registerform .login-submit > *,
+    #registerform .light .login-submit > *, .l-grey .btn > *, .l-grey .profile > *, .l-grey .card > *, .l-grey #loginform .login-submit > *, #loginform .l-grey .login-submit > *,
+    .l-grey #registerform .login-submit > *,
+    #registerform .l-grey .login-submit > * {
       color: #303030; }
-    .light .btn:before, .light .profile:before, .light .card:before, .l-grey .btn:before, .l-grey .profile:before, .l-grey .card:before {
+    .light .btn:before, .light .profile:before, .light .card:before, .light #loginform .login-submit:before, #loginform .light .login-submit:before,
+    .light #registerform .login-submit:before,
+    #registerform .light .login-submit:before, .l-grey .btn:before, .l-grey .profile:before, .l-grey .card:before, .l-grey #loginform .login-submit:before, #loginform .l-grey .login-submit:before,
+    .l-grey #registerform .login-submit:before,
+    #registerform .l-grey .login-submit:before {
       background: #eeeef0; }
-    .light .btn:after, .light .profile:after, .light .card:after, .l-grey .btn:after, .l-grey .profile:after, .l-grey .card:after {
+    .light .btn:after, .light .profile:after, .light .card:after, .light #loginform .login-submit:after, #loginform .light .login-submit:after,
+    .light #registerform .login-submit:after,
+    #registerform .light .login-submit:after, .l-grey .btn:after, .l-grey .profile:after, .l-grey .card:after, .l-grey #loginform .login-submit:after, #loginform .l-grey .login-submit:after,
+    .l-grey #registerform .login-submit:after,
+    #registerform .l-grey .login-submit:after {
       border-color: #B8B9C2; }
-    .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before, .l-grey .card > *:before {
+    .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .light #loginform .login-submit > *:before, #loginform .light .login-submit > *:before,
+    .light #registerform .login-submit > *:before,
+    #registerform .light .login-submit > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before, .l-grey .card > *:before, .l-grey #loginform .login-submit > *:before, #loginform .l-grey .login-submit > *:before,
+    .l-grey #registerform .login-submit > *:before,
+    #registerform .l-grey .login-submit > *:before {
       background: #eeeef0; }
-  .btn.light:before, .light.profile:before, .light.card:before {
+  .btn.light:before, .light.profile:before, .light.card:before, #loginform .light.login-submit:before,
+  #registerform .light.login-submit:before {
     background: #fff; }
-  .btn.light:after, .light.profile:after, .light.card:after {
+  .btn.light:after, .light.profile:after, .light.card:after, #loginform .light.login-submit:after,
+  #registerform .light.login-submit:after {
     border-color: #eeeef0; }
-  .btn.light > *:before, .light.profile > *:before, .light.card > *:before {
+  .btn.light > *:before, .light.profile > *:before, .light.card > *:before, #loginform .light.login-submit > *:before,
+  #registerform .light.login-submit > *:before {
     background: #fff; }
-  .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before {
+  .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before, .no-touch #loginform .login-submit:hover:before, #loginform .no-touch .login-submit:hover:before,
+  .no-touch #registerform .login-submit:hover:before,
+  #registerform .no-touch .login-submit:hover:before {
     right: 1px; }
-  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after, .no-touch .card:hover > *:after,
+  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after, .no-touch .card:hover > *:after, .no-touch #loginform .login-submit:hover > *:after, #loginform .no-touch .login-submit:hover > *:after,
+  .no-touch #registerform .login-submit:hover > *:after,
+  #registerform .no-touch .login-submit:hover > *:after,
   .no-touch .btn:hover > * > *:after,
   .no-touch .profile:hover > * > *:after,
-  .no-touch .card:hover > * > *:after {
+  .no-touch .card:hover > * > *:after,
+  .no-touch #loginform .login-submit:hover > * > *:after,
+  #loginform .no-touch .login-submit:hover > * > *:after,
+  .no-touch #registerform .login-submit:hover > * > *:after,
+  #registerform .no-touch .login-submit:hover > * > *:after {
     color: #00bfdf; }
-  .btn.big, .big.profile, .big.card {
+  .btn.big, .big.profile, .big.card, #loginform .big.login-submit,
+  #registerform .big.login-submit {
     font-size: 1.25em; }
-    .btn.big.toggle > *:after, .big.toggle.profile > *:after, .big.toggle.card > *:after {
+    .btn.big.toggle > *:after, .big.toggle.profile > *:after, .big.toggle.card > *:after, #loginform .big.toggle.login-submit > *:after,
+    #registerform .big.toggle.login-submit > *:after {
       line-height: 2.7em; }
-  .btn.back, .back.profile, .back.card {
+  .btn.back, .back.profile, .back.card, #loginform .back.login-submit,
+  #registerform .back.login-submit {
     margin-top: 1.25em;
     display: inline-block;
     *display: inline;
     zoom: 1; }
-  .btn.toggle, .toggle.profile, .toggle.card {
+  .btn.toggle, .toggle.profile, .toggle.card, #loginform .toggle.login-submit,
+  #registerform .toggle.login-submit {
     padding-right: 1.2em; }
-    .btn.toggle > *:after, .toggle.profile > *:after, .toggle.card > *:after {
+    .btn.toggle > *:after, .toggle.profile > *:after, .toggle.card > *:after, #loginform .toggle.login-submit > *:after,
+    #registerform .toggle.login-submit > *:after {
       text-align: right;
       line-height: 2.5em; }
-    .btn.toggle.active, .toggle.active.profile, .toggle.active.card {
+    .btn.toggle.active, .toggle.active.profile, .toggle.active.card, #loginform .toggle.active.login-submit,
+    #registerform .toggle.active.login-submit {
       color: #fff; }
-      .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before {
+      .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before, #loginform .toggle.active.login-submit:before,
+      #registerform .toggle.active.login-submit:before {
         background: #005F93;
         right: 1px; }
-      .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after {
+      .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after, #loginform .toggle.active.login-submit:after,
+      #registerform .toggle.active.login-submit:after {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
         opacity: 1;
         border-color: #005F93; }
-      .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before {
+      .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before, #loginform .toggle.active.login-submit > *:before,
+      #registerform .toggle.active.login-submit > *:before {
         background: #005F93; }
-      .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after {
+      .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after, #loginform .toggle.active.login-submit > *:after,
+      #registerform .toggle.active.login-submit > *:after {
         color: #eeeef0; }
-      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover, .no-touch .toggle.active.card:hover {
+      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover, .no-touch .toggle.active.card:hover, .no-touch #loginform .toggle.active.login-submit:hover, #loginform .no-touch .toggle.active.login-submit:hover,
+      .no-touch #registerform .toggle.active.login-submit:hover,
+      #registerform .no-touch .toggle.active.login-submit:hover {
         color: #fff; }
-        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after {
+        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after, .no-touch #loginform .toggle.active.login-submit:hover > *:after, #loginform .no-touch .toggle.active.login-submit:hover > *:after,
+        .no-touch #registerform .toggle.active.login-submit:hover > *:after,
+        #registerform .no-touch .toggle.active.login-submit:hover > *:after {
           color: #00bfdf; }
-    .btn.toggle.favorite, .toggle.favorite.profile, .toggle.favorite.card {
+    .btn.toggle.favorite, .toggle.favorite.profile, .toggle.favorite.card, #loginform .toggle.favorite.login-submit,
+    #registerform .toggle.favorite.login-submit {
       color: #005F93; }
-      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after {
+      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after, #loginform .toggle.favorite.login-submit > *:after,
+      #registerform .toggle.favorite.login-submit > *:after {
         color: #005F93;
         -webkit-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -moz-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -ms-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -o-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > *, .toggle.favorite.active.card > * {
+      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > *, .toggle.favorite.active.card > *, #loginform .toggle.favorite.active.login-submit > *,
+      #registerform .toggle.favorite.active.login-submit > * {
         color: #fff; }
-        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after {
+        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after, #loginform .toggle.favorite.active.login-submit > *:after,
+        #registerform .toggle.favorite.active.login-submit > *:after {
           color: #00bfdf;
           font-size: 1em;
           line-height: 2em;
           padding: 0.2em 0.75em; }
-      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile, .dark .toggle.favorite.card {
+      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile, .dark .toggle.favorite.card, .dark #loginform .toggle.favorite.login-submit, #loginform .dark .toggle.favorite.login-submit,
+      .dark #registerform .toggle.favorite.login-submit,
+      #registerform .dark .toggle.favorite.login-submit {
         color: #00bfdf; }
-        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile, .dark .toggle.favorite.active.card {
+        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile, .dark .toggle.favorite.active.card, .dark #loginform .toggle.favorite.active.login-submit, #loginform .dark .toggle.favorite.active.login-submit,
+        .dark #registerform .toggle.favorite.active.login-submit,
+        #registerform .dark .toggle.favorite.active.login-submit {
           color: #B8B9C2; }
-      .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card {
+      .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card, .black #loginform .toggle.favorite.login-submit, #loginform .black .toggle.favorite.login-submit,
+      .black #registerform .toggle.favorite.login-submit,
+      #registerform .black .toggle.favorite.login-submit {
         color: #00bfdf; }
-        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile, .black .toggle.favorite.active.card {
+        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile, .black .toggle.favorite.active.card, .black #loginform .toggle.favorite.active.login-submit, #loginform .black .toggle.favorite.active.login-submit,
+        .black #registerform .toggle.favorite.active.login-submit,
+        #registerform .black .toggle.favorite.active.login-submit {
           color: #B8B9C2; }
-  .btn.link a, .link.profile a, .link.card a {
+  .btn.link a, .link.profile a, .link.card a, #loginform .link.login-submit a,
+  #registerform .link.login-submit a {
     padding-right: 0; }
-    .btn.link a > span, .link.profile a > span, .link.card a > span {
+    .btn.link a > span, .link.profile a > span, .link.card a > span, #loginform .link.login-submit a > span,
+    #registerform .link.login-submit a > span {
       display: block;
       padding-right: 2em;
       position: relative; }
-      .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after {
+      .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, #loginform .link.login-submit a > span:after,
+      #registerform .link.login-submit a > span:after {
         font-size: 0.6em;
         text-align: right;
         line-height: 0;
         position: absolute;
         top: 50%;
         right: 1em; }
-  .btn.back a, .back.profile a, .back.card a {
+  .btn.back a, .back.profile a, .back.card a, #loginform .back.login-submit a,
+  #registerform .back.login-submit a {
     padding-left: 0; }
-    .btn.back a > span, .back.profile a > span, .back.card a > span {
+    .btn.back a > span, .back.profile a > span, .back.card a > span, #loginform .back.login-submit a > span,
+    #registerform .back.login-submit a > span {
       display: block;
       padding-left: 2em;
       position: relative; }
-      .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after {
+      .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, #loginform .back.login-submit a > span:after,
+      #registerform .back.login-submit a > span:after {
         font-size: 0.6em;
         text-align: left;
         line-height: 0;
         position: absolute;
         top: 50%;
         left: 1em; }
-  .btn.seamless:before, .seamless.profile:before, .seamless.card:before,
+  .btn.seamless:before, .seamless.profile:before, .seamless.card:before, #loginform .seamless.login-submit:before,
+  #registerform .seamless.login-submit:before,
   .btn.seamless > *:before,
   .seamless.profile > *:before,
-  .seamless.card > *:before {
+  .seamless.card > *:before,
+  #loginform .seamless.login-submit > *:before,
+  #registerform .seamless.login-submit > *:before {
     display: none; }
-  .btn.seamless:after, .seamless.profile:after, .seamless.card:after {
+  .btn.seamless:after, .seamless.profile:after, .seamless.card:after, #loginform .seamless.login-submit:after,
+  #registerform .seamless.login-submit:after {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -1109,16 +1239,22 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out;
     -o-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out; }
-  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after, .no-touch .seamless.card:hover:after {
+  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after, .no-touch .seamless.card:hover:after, .no-touch #loginform .seamless.login-submit:hover:after, #loginform .no-touch .seamless.login-submit:hover:after,
+  .no-touch #registerform .seamless.login-submit:hover:after,
+  #registerform .no-touch .seamless.login-submit:hover:after {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before,
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, #loginform .seamless.toggle.login-submit:before,
+  #registerform .seamless.toggle.login-submit:before,
   .btn.seamless.toggle > *:before,
   .seamless.toggle.profile > *:before,
-  .seamless.toggle.card > *:before {
+  .seamless.toggle.card > *:before,
+  #loginform .seamless.toggle.login-submit > *:before,
+  #registerform .seamless.toggle.login-submit > *:before {
     display: block; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before {
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, #loginform .seamless.toggle.login-submit:before,
+  #registerform .seamless.toggle.login-submit:before {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -1128,45 +1264,68 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before, .seamless.toggle.card > *:before {
+  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before, .seamless.toggle.card > *:before, #loginform .seamless.toggle.login-submit > *:before,
+  #registerform .seamless.toggle.login-submit > *:before {
     background: none; }
-  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .no-touch .seamless.toggle.card:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before, .seamless.toggle.active.card:before {
+  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .no-touch .seamless.toggle.card:hover:before, .no-touch #loginform .seamless.toggle.login-submit:hover:before, #loginform .no-touch .seamless.toggle.login-submit:hover:before,
+  .no-touch #registerform .seamless.toggle.login-submit:hover:before,
+  #registerform .no-touch .seamless.toggle.login-submit:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before, .seamless.toggle.active.card:before, #loginform .seamless.toggle.active.login-submit:before,
+  #registerform .seamless.toggle.active.login-submit:before {
     width: 100%;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.autowidth, .autowidth.profile, .autowidth.card {
+  .btn.autowidth, .autowidth.profile, .autowidth.card, #loginform .autowidth.login-submit,
+  #registerform .autowidth.login-submit {
     display: inline-block;
     *display: inline;
     zoom: 1;
     width: auto; }
-  .btn.bold, .bold.profile, .bold.card {
+  .btn.bold, .bold.profile, .bold.card, #loginform .bold.login-submit,
+  #registerform .bold.login-submit {
     font-weight: bold; }
 
-button.btn, button.profile, button.card,
+button.btn, button.profile, button.card, #loginform button.login-submit,
+#registerform button.login-submit,
 a[href].btn,
 a[href].profile,
-a[href].card {
+a[href].card,
+#loginform a[href].login-submit,
+#registerform a[href].login-submit {
   cursor: pointer; }
-  button.btn:before, button.profile:before, button.card:before, button.btn:after, button.profile:after, button.card:after,
+  button.btn:before, button.profile:before, button.card:before, #loginform button.login-submit:before,
+  #registerform button.login-submit:before, button.btn:after, button.profile:after, button.card:after, #loginform button.login-submit:after,
+  #registerform button.login-submit:after,
   button.btn > *:before,
   button.profile > *:before,
   button.card > *:before,
+  #loginform button.login-submit > *:before,
+  #registerform button.login-submit > *:before,
   button.btn > *:after,
   button.profile > *:after,
   button.card > *:after,
+  #loginform button.login-submit > *:after,
+  #registerform button.login-submit > *:after,
   a[href].btn:before,
   a[href].profile:before,
   a[href].card:before,
+  #loginform a[href].login-submit:before,
+  #registerform a[href].login-submit:before,
   a[href].btn:after,
   a[href].profile:after,
   a[href].card:after,
+  #loginform a[href].login-submit:after,
+  #registerform a[href].login-submit:after,
   a[href].btn > *:before,
   a[href].profile > *:before,
   a[href].card > *:before,
+  #loginform a[href].login-submit > *:before,
+  #registerform a[href].login-submit > *:before,
   a[href].btn > *:after,
   a[href].profile > *:after,
-  a[href].card > *:after {
+  a[href].card > *:after,
+  #loginform a[href].login-submit > *:after,
+  #registerform a[href].login-submit > *:after {
     cursor: pointer; }
 
 .profile {
@@ -1625,9 +1784,15 @@ a[href].card {
         left: -100%;
         right: -100%;
         height: auto; }
-  .days .btn.toggle > *:after, .days .toggle.profile > *:after, .days .toggle.card > *:after {
+  .days .btn.toggle > *:after, .days .toggle.profile > *:after, .days .toggle.card > *:after, .days #loginform .toggle.login-submit > *:after, #loginform .days .toggle.login-submit > *:after,
+  .days #registerform .toggle.login-submit > *:after,
+  #registerform .days .toggle.login-submit > *:after {
     content: ""; }
-  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before, .days .toggle.active.card > *:before {
+  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days #loginform .toggle.active.login-submit:before, #loginform .days .toggle.active.login-submit:before,
+  .days #registerform .toggle.active.login-submit:before,
+  #registerform .days .toggle.active.login-submit:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before, .days .toggle.active.card > *:before, .days #loginform .toggle.active.login-submit > *:before, #loginform .days .toggle.active.login-submit > *:before,
+  .days #registerform .toggle.active.login-submit > *:before,
+  #registerform .days .toggle.active.login-submit > *:before {
     background-color: transparent;
     background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005F93));
     background-image: -o-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
@@ -1735,10 +1900,14 @@ a[href].card {
           -ms-box-sizing: content-box;
           -o-box-sizing: content-box;
           box-sizing: content-box; }
-  .schedules .session.btn, .schedules .session.profile, .schedules .session.card {
+  .schedules .session.btn, .schedules .session.profile, .schedules .session.card, .schedules #loginform .session.login-submit, #loginform .schedules .session.login-submit,
+  .schedules #registerform .session.login-submit,
+  #registerform .schedules .session.login-submit {
     margin: 0 0 -1.5em;
     display: block; }
-    .schedules .session.btn:after, .schedules .session.profile:after, .schedules .session.card:after {
+    .schedules .session.btn:after, .schedules .session.profile:after, .schedules .session.card:after, .schedules #loginform .session.login-submit:after, #loginform .schedules .session.login-submit:after,
+    .schedules #registerform .session.login-submit:after,
+    #registerform .schedules .session.login-submit:after {
       -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
       -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
       box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -1747,7 +1916,9 @@ a[href].card {
       -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
       -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
       transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after, .no-touch .schedules .session.card:hover:after {
+    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after, .no-touch .schedules .session.card:hover:after, .no-touch .schedules #loginform .session.login-submit:hover:after, #loginform .no-touch .schedules .session.login-submit:hover:after,
+    .no-touch .schedules #registerform .session.login-submit:hover:after,
+    #registerform .no-touch .schedules .session.login-submit:hover:after {
       -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
       box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
@@ -1815,10 +1986,16 @@ a[href].card {
   .schedules .session .speaker {
     margin-top: 0.25em; }
     .schedules .session .speaker .title, .schedules .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .speaker a, .schedules .session .speaker .field label, .field .schedules .session .speaker label,
-    .schedules .session .speaker .note {
+    .schedules .session .speaker .note,
+    .schedules .session .speaker #loginform .login-remember,
+    #loginform .schedules .session .speaker .login-remember,
+    .schedules .session .speaker #registerform .login-remember,
+    #registerform .schedules .session .speaker .login-remember {
       color: #303030;
       text-transform: none; }
-    .schedules .session .speaker .note {
+    .schedules .session .speaker .note, .schedules .session .speaker #loginform .login-remember, #loginform .schedules .session .speaker .login-remember,
+    .schedules .session .speaker #registerform .login-remember,
+    #registerform .schedules .session .speaker .login-remember {
       margin: -0.125em 0 0; }
   .schedules .session .thumb {
     width: 3em;
@@ -1908,7 +2085,11 @@ a[href].card {
     .schedules .keynote .speaker {
       color: #fff; }
     .schedules .keynote .speaker .title, .schedules .keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote .speaker a, .schedules .keynote .speaker .field label, .field .schedules .keynote .speaker label,
-    .schedules .keynote .speaker .note {
+    .schedules .keynote .speaker .note,
+    .schedules .keynote .speaker #loginform .login-remember,
+    #loginform .schedules .keynote .speaker .login-remember,
+    .schedules .keynote .speaker #registerform .login-remember,
+    #registerform .schedules .keynote .speaker .login-remember {
       color: #eeeef0;
       width: auto;
       display: inline-block;
@@ -2130,30 +2311,63 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
+.form {
+  padding-top: 20px; }
+  .form > .message {
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border: 1px solid #005F93;
+    color: #005F93; }
+
 .field {
   width: 100%;
   padding: 10px 20px; }
   .field:first-child {
     border-top: none; }
+  .field label input {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: auto;
+    height: auto; }
   .field input {
     display: block;
     width: 100%;
     border: 1px solid #B8B9C2;
-    padding: 10px;
-    -webkit-transition: border 120ms linear, padding 120ms linear;
-    -moz-transition: border 120ms linear, padding 120ms linear;
-    -ms-transition: border 120ms linear, padding 120ms linear;
-    -o-transition: border 120ms linear, padding 120ms linear;
-    transition: border 120ms linear, padding 120ms linear; }
+    padding: 0.5em;
+    height: 3em;
+    line-height: 1;
+    -webkit-transition: border 120ms linear;
+    -moz-transition: border 120ms linear;
+    -ms-transition: border 120ms linear;
+    -o-transition: border 120ms linear;
+    transition: border 120ms linear; }
     .no-touch .field input:hover {
       border-color: #0094C2; }
     .field input:focus {
       border: 3px solid #0094C2;
-      padding: 8px;
       color: #0094C2; }
+    .field input[type="submit"] {
+      background: #0094C2;
+      color: #eeeef0;
+      border: none; }
+      .no-touch .field input[type="submit"]:hover, .field input[type="submit"]:active, .field input[type="submit"]:focus {
+        background: #005F93;
+        color: #fff;
+        border: none; }
+  .field .error {
+    color: #d22630; }
+    .field .error + input {
+      border-color: #d22630; }
+      .field .error + input:focus, .no-touch .field .error + input:hover {
+        border-color: #d22630; }
 
-#loginform p {
-  margin: 0; }
+#loginform,
+#registerform {
+  padding: 10px 0; }
+  #loginform p,
+  #registerform p {
+    margin: 0; }
 
 .no-schedule .favorite,
 .no-schedule #menu-mon-horaire {
@@ -2163,7 +2377,8 @@ textarea {
 
 section.intro {
   padding: 50px 0 95px;
-  height: 700px; }
+  height: 700px;
+  min-height: 90vh; }
   section.intro .container, section.intro .sticky.fixed, section.intro .days .sticky, .days section.intro .sticky {
     position: relative;
     overflow: hidden;
@@ -2348,17 +2563,35 @@ section.intro {
     margin: 0; }
   section.intro img {
     max-width: 100%; }
-  section.intro .btn.eventbrite, section.intro .eventbrite.profile, section.intro .eventbrite.card {
+  section.intro .btn.eventbrite, section.intro .eventbrite.profile, section.intro .eventbrite.card, section.intro #loginform .eventbrite.login-submit, #loginform section.intro .eventbrite.login-submit,
+  section.intro #registerform .eventbrite.login-submit,
+  #registerform section.intro .eventbrite.login-submit {
     text-align: center;
     display: block; }
-    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .eventbrite.card .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a, section.intro .eventbrite.card nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.card a, section.intro .btn.eventbrite .field label, .field section.intro .btn.eventbrite label, section.intro .eventbrite.profile .field label, .field section.intro .eventbrite.profile label, section.intro .eventbrite.card .field label, .field section.intro .eventbrite.card label {
+    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .eventbrite.card .title, section.intro #loginform .eventbrite.login-submit .title, #loginform section.intro .eventbrite.login-submit .title,
+    section.intro #registerform .eventbrite.login-submit .title,
+    #registerform section.intro .eventbrite.login-submit .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a, section.intro .eventbrite.card nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.card a, section.intro #loginform .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro #loginform .eventbrite.login-submit a, #loginform section.intro .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul #loginform section.intro .eventbrite.login-submit a,
+    section.intro #registerform .eventbrite.login-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul section.intro #registerform .eventbrite.login-submit a,
+    #registerform section.intro .eventbrite.login-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul #registerform section.intro .eventbrite.login-submit a, section.intro .btn.eventbrite .field label, .field section.intro .btn.eventbrite label, section.intro .eventbrite.profile .field label, .field section.intro .eventbrite.profile label, section.intro .eventbrite.card .field label, .field section.intro .eventbrite.card label, section.intro #loginform .eventbrite.login-submit .field label, .field section.intro #loginform .eventbrite.login-submit label, #loginform section.intro .eventbrite.login-submit .field label, .field #loginform section.intro .eventbrite.login-submit label,
+    section.intro #registerform .eventbrite.login-submit .field label,
+    .field section.intro #registerform .eventbrite.login-submit label,
+    #registerform section.intro .eventbrite.login-submit .field label,
+    .field #registerform section.intro .eventbrite.login-submit label {
       padding: 30px 30px 20px; }
-    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img, section.intro .eventbrite.card img {
+    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img, section.intro .eventbrite.card img, section.intro #loginform .eventbrite.login-submit img, #loginform section.intro .eventbrite.login-submit img,
+    section.intro #registerform .eventbrite.login-submit img,
+    #registerform section.intro .eventbrite.login-submit img {
       margin-bottom: 30px; }
-    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before, section.intro .eventbrite.card:before {
+    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before, section.intro .eventbrite.card:before, section.intro #loginform .eventbrite.login-submit:before, #loginform section.intro .eventbrite.login-submit:before,
+    section.intro #registerform .eventbrite.login-submit:before,
+    #registerform section.intro .eventbrite.login-submit:before {
       display: block;
       background: #00bfdf; }
-    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after, section.intro .eventbrite.card:after {
+    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after, section.intro .eventbrite.card:after, section.intro #loginform .eventbrite.login-submit:after, #loginform section.intro .eventbrite.login-submit:after,
+    section.intro #registerform .eventbrite.login-submit:after,
+    #registerform section.intro .eventbrite.login-submit:after {
       border-color: #0094C2; }
   section.intro [class*="delay"] {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -2638,7 +2871,9 @@ section.intro {
       line-height: 1;
       width: 33.33%;
       padding: 0 10px 20px; }
-  .program .days .btn, .program .days .profile, .program .days .card {
+  .program .days .btn, .program .days .profile, .program .days .card, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+  .program .days #registerform .login-submit,
+  #registerform .program .days .login-submit {
     width: 100%;
     text-align: right;
     padding-right: 0; }
@@ -3092,7 +3327,9 @@ section.intro {
   .waq2015 .group > ul {
     margin-top: 20px; }
 
-.single hgroup .btn, .single hgroup .profile, .single hgroup .card {
+.single hgroup .btn, .single hgroup .profile, .single hgroup .card, .single hgroup #loginform .login-submit, #loginform .single hgroup .login-submit,
+.single hgroup #registerform .login-submit,
+#registerform .single hgroup .login-submit {
   float: right;
   position: relative;
   z-index: 100;
@@ -3439,6 +3676,13 @@ footer .logo-o2 {
     height: auto;
     position: relative;
     top: -0.25em; }
+
+.account .dashboard-link {
+  display: block;
+  float: right;
+  position: relative;
+  z-index: 1;
+  padding: 0.5em 0; }
 
 @media screen and (max-width: 1200px) {
   html,
@@ -4362,7 +4606,9 @@ footer .logo-o2 {
         line-height: 1;
         width: 100%;
         padding: 0 0 0; }
-    .program .days .btn, .program .days .profile, .program .days .card {
+    .program .days .btn, .program .days .profile, .program .days .card, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+    .program .days #registerform .login-submit,
+    #registerform .program .days .login-submit {
       text-align: center; }
     .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a, .program .days .field label, .field .program .days label {
       display: inline-block;

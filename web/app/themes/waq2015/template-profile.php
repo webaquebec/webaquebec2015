@@ -14,13 +14,20 @@ get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>">
+<section id="<?= $post->post_name ?>" class="account">
 
   <header>
 
     <div class="container">
+
+      <?php
+      // echo link to dashboard
+      if(is_user_logged_in() && in_array('administrator', $current_user->roles)): ?>
+      <a class="dashboard-link note" href="/admin"><?= __('Administration du site','waq') ?></a>
+      <?php endif; ?>
+
       <h1 class="main title border-left">
-        <?= get_the_title() ?>
+        <?= $current_user->data->display_name ?>
         <div class="border-bottom"></div>
       </h1>
 
