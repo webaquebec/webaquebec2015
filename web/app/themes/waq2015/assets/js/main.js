@@ -81,6 +81,7 @@ jQuery(document).ready(function($){
 
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
+  waq.$tabs = $('.tab-trigger');  // Tabs
   waq.$stickys = $('.sticky');
   waq.$profiles = $('.profile.has-social');
   waq.url = {};
@@ -274,7 +275,6 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
-
   function enableMobileSchedules(){
     waq.$schedules.isMobile = true;
     for(var i=0; i<waq.$schedules.length; i++){
@@ -455,7 +455,7 @@ jQuery(document).ready(function($){
 
   //
   //
-  //
+  // FAVORITES
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
 
@@ -475,20 +475,16 @@ jQuery(document).ready(function($){
   }
 
 
-  // //
-  // //
-  // // RESIZE HEADER
-  // $('#intro').css('height', $win.height() + "px");
-
-  // $win.resize(function() {
-  //     updateHeight();
-  // });
-
-  // function updateHeight() {
-  //   var windowHeight = $win.height();
-  //   $('#intro').css('height', windowHeight + 'px');
-  // }
-
+  //
+  //
+  // TABS
+  if(waq.$tabs.length){
+    waq.$tabs.tabs({
+      type: 'tabs',
+      animation: false,
+      content: $('.tab-content')
+    });
+  }
 
   //
   //

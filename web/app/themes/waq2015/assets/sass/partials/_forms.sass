@@ -73,9 +73,11 @@ textarea
     color: $red
     &+input
       border-color: $red
-      &:focus,
-      .no-touch &:hover
-        border-color: $red
+      color: $red
+      .no-touch &:hover,
+      &:focus
+        color: $blue
+        border-color: $blue
 
 //
 //

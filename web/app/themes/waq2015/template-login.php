@@ -24,10 +24,10 @@ if(have_posts()): while(have_posts()): the_post();
           <nav>
             <ul>
               <li>
-                <button tab="login" class="tag-trigger"><?= __('J\'ai déjà un compte', 'waq') ?></button>
+                <button tab="login" class="tab-trigger"><?= __('J\'ai déjà un compte', 'waq') ?></button>
               </li>
               <li>
-                <button tab="register" class="tag-trigger"><?= __('Je veux me créer un compte', 'waq') ?></button>
+                <button tab="register" class="tab-trigger"><?= __('Je veux me créer un compte', 'waq') ?></button>
               </li>
             </ul>
           </nav>
@@ -55,13 +55,14 @@ if(have_posts()): while(have_posts()): the_post();
 
             <div tab="register" class="tab-content">
               <form id="registerform" class="form" action="<?= site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
-                <?php
+              <?php
               // Success
               if(in_array('success', $registration)):?>
               <h3 class="message success sub title">
                 <?= __( 'Votre compte a bien été créé. Vérifiez vos courriels pour récupérer votre mot de passe', 'waq' ) ?>
               </h3>
               <?php endif; ?>
+
                 <div class="field required">
                   <label for="user_login"><?= __( 'Nom d\'utilisateur', 'waq' ) ?></label>
                   <?php
@@ -74,8 +75,9 @@ if(have_posts()): while(have_posts()): the_post();
                   if(in_array('username_exists', $registration)):?>
                     <p class="error message note"><?= __( 'Le nom d\'utilisateur est déjà utilisé', 'waq' ) ?></p>
                   <?php endif; ?>
-                  <input type="text" name="user_login" id="user_login" class="input" />
+                  <input type="text" name="user_login" id="user_login" class="input" <?php if(isset($_GET['user'])) echo 'value="'.urldecode($_GET['user']).'"'; ?>/>
                 </div>
+
                 <div class="field">
                   <label for="user_name"><?= __( 'Nom complet (affiché sur le site)', 'waq' ) ?></label>
                   <input type="text" name="user_name" id="user_name" class="input" />
@@ -90,14 +92,14 @@ if(have_posts()): while(have_posts()): the_post();
                   <?php
                   // email is invalid
                   if(in_array('invalid_email', $registration)):?>
-                    <p class="error message note"><?= __('L\'adresse courrielle est invalide','waq') ?></p>
+                    <p class="error message note"><?= __('Veuillez entrer une adresse courriel valide','waq') ?></p>
                   <?php endif; ?>
                   <?php
                   // email already exists
                   if(in_array('email_exists', $registration)):?>
                     <p class="error message note"><?= __( 'L\'adresse courriel est déjà utilisée', 'waq' ) ?></p>
                   <?php endif; ?>
-                  <input type="text" name="user_email" id="user_email" class="input"  />
+                  <input type="text" name="user_email" id="user_email" class="input" <?php if(isset($_GET['email'])) echo 'value="'.urldecode($_GET['email']).'"'; ?> />
                 </div>
                 <?php do_action('register_form'); ?>
                 <div class="field">

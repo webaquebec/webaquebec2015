@@ -2358,9 +2358,11 @@ textarea {
   .field .error {
     color: #d22630; }
     .field .error + input {
-      border-color: #d22630; }
-      .field .error + input:focus, .no-touch .field .error + input:hover {
-        border-color: #d22630; }
+      border-color: #d22630;
+      color: #d22630; }
+      .no-touch .field .error + input:hover, .field .error + input:focus {
+        color: #0094C2;
+        border-color: #0094C2; }
 
 #loginform,
 #registerform {

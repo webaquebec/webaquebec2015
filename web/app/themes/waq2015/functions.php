@@ -169,6 +169,9 @@ function header_scripts()
         wp_register_script('cookies', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), null);
         wp_enqueue_script('cookies');
 
+        wp_register_script('tabs', get_template_directory_uri() . '/assets/js/tabs.js', array(), null);
+        wp_enqueue_script('tabs');
+
         wp_register_script('raf', get_template_directory_uri() . '/assets/js/raf.js', array(), null);
         wp_enqueue_script('raf');
 
@@ -263,14 +266,18 @@ function authenticate_user( $user, $username, $password ) {
 }
 
 
-function registration_form_errors($errors, $sanitized_user_login, $user_email) {
+function registration_form_errors($errors, $user_login, $user_email) {
     if(!isset($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     $errors_keys = [];
     foreach($errors->errors as $error=>$message)
         $errors_keys[] = $error;
     if(count($errors_keys)>0){
-        wp_redirect( strtok($referrer, '?').'?registration='.implode('+', $errors_keys));
+        wp_redirect(    strtok($referrer, '?').
+                        '?registration='.implode('+', $errors_keys).
+                        (has($user_login)?'&user='.urlencode($user_login):'').
+                        (has($user_email)?'&email='.urlencode($user_email):'')
+                    );
         exit;
     }
     return $errors;
