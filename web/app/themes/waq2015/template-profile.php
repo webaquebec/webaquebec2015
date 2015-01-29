@@ -21,7 +21,7 @@ get_header_once();
     <div class="container">
       <h1 class="main title border-left">
         <?= get_the_title() ?>
-        <div class="border-bottom expandable"></div>
+        <div class="border-bottom"></div>
       </h1>
 
     </div>
@@ -32,39 +32,13 @@ get_header_once();
 </section>
 
 <section class="program dark">
-
-  <hgroup>
-    <div class="container">
-      <?php $schedules = new WP_query(array(
-        'post_type' => 'grid',
-        'posts_per_page' => -1,
-        'orderby'=> 'menu_order',
-      ));
-      if($schedules->have_posts()): ?>
-
-      <div class="days">
-        <nav class="sticky">
-          <ul>
-            <?php foreach($schedules->posts as $k=>$post): ?>
-            <li>
-              <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
-                <div class="wrap">
-                  <span class="sub title"><?= get_the_title($post->ID) ?></span>
-                  <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
-                </div>
-              </button>
-            </li>
-            <?php endforeach; ?>
-          </ul>
-        </nav>
-      </div>
-    <?php
-    wp_reset_postdata();
-    endif;
-    ?>
-
-    </div>
-  </hgroup>
+  <?php
+  $schedules = new WP_query(array(
+    'post_type' => 'grid',
+    'posts_per_page' => -1,
+    'orderby'=> 'menu_order',
+  ));
+  ?>
 
   <?php if($schedules->have_posts()): ?>
   <div class="schedules">

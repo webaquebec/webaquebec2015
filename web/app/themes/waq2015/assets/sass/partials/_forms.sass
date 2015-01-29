@@ -4,7 +4,7 @@
 
 // RESET
 form
-    @extend .clearfix
+  @extend .clearfix
 
 input[type="submit"],
 input[type="text"],
@@ -12,13 +12,25 @@ input[type="password"],
 input[type="file"],
 select,
 textarea
-    border: none
-    outline: none
-    outline-color: transparent
-    height: auto
-    -webkit-appearance: none
-    background-color: transparent
-    -webkit-font-smoothing: inherit !important
+  border: none
+  outline: none
+  outline-color: transparent
+  height: auto
+  -webkit-appearance: none
+  background-color: transparent
+  -webkit-font-smoothing: inherit !important
 
 
-// GENERIC STYLES
+//
+//
+// field
+.field
+  width: 100%
+  padding: $medium
+  border-top: 1px solid $l-grey
+  &:first-child
+    border-top: none
+  label
+    @extend .title
+    @extend .sub.title
+

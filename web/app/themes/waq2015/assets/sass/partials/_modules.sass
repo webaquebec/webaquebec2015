@@ -47,7 +47,8 @@
     height: 1px
     background: $l-blue
     position: absolute
-
+  &:empty
+    width: 100%
 .border-left
   @extend .border
   &:after
@@ -533,6 +534,25 @@ a[href].btn
       left: -100%
     .links
       left: 0
+
+//
+//
+// CARDS
+.card
+  @extend .btn
+  padding-top: 0
+  padding-left: 0
+  padding-right: 0
+  &>*
+    padding: 0
+    display: block
+  &:before,
+  &>:after
+    display: none
+
+
+
+
 //
 //
 // CONFERENCER INFOS
