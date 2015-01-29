@@ -52,6 +52,8 @@ textarea
     &.active
       background: #fff
       color: $blue
+  .border-middle
+    padding: 0 $medium
 //
 //
 // FIELDS
@@ -68,6 +70,8 @@ textarea
       +inlineb
       width: auto
       height: auto
+  &.required label:after
+    content: " *"
 
   input
     display: block
@@ -109,7 +113,7 @@ textarea
 //
 // SOCIAL LOGIN
 .social-account
-  padding: $medium $small
+  padding: $small
   .wp-social-login-provider
     @extend .btn
     display: block
@@ -142,6 +146,12 @@ textarea
       >*
         &:after
           color: #fff
+    &[data-provider="Facebook"]
+      >*:after
+        @extend .icon-facebook:after
+        font-size: 1em
+        line-height: 1.9
+        color: #fff !important
 
 
 //
@@ -153,13 +163,14 @@ textarea
   p
     margin: 0
 
-
-
   .login-remember
     @extend .note
   .login-submit,
   .register-submit
     @extend .btn
+    >*
+      @extend .small.title
+    font-size: 1.25em
   .register-submit
     &+.title
       text-align: center

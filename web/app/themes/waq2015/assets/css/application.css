@@ -156,7 +156,10 @@ hr {
     font-size: 1.125em;
     font-weight: 300;
     text-transform: uppercase; }
-  .title.small, nav[role="navigation"] ul a, .field label.small {
+  .title.small, nav[role="navigation"] ul a, .field label.small, #loginform .login-submit > *,
+  #loginform .register-submit > *,
+  #registerform .login-submit > *,
+  #registerform .register-submit > * {
     font-size: 1em;
     text-transform: uppercase; }
   .title.huge, nav[role="navigation"] ul a.huge, .field label.huge {
@@ -305,6 +308,7 @@ nav[role="navigation"] ul .features .session .wrap > a:after,
 .icon-facebook:after,
 .profile .links a.facebook:after,
 .social a.facebook:after,
+.social-account .wp-social-login-provider[data-provider="Facebook"] > *:after,
 .event-location .social a.facebook:after,
 footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
@@ -394,7 +398,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-arrow-bottom:after {
   content: ""; }
 
-.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
+.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: ""; }
 
 .icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .event-location .social a.twitter:after, .feed-post.twitter:before, footer .contact-general .social a.twitter:after {
@@ -880,6 +884,26 @@ nav[role="navigation"] .secondary {
   left: 0;
   top: 0;
   width: 100%; }
+
+.border-middle {
+  white-space: nowrap; }
+  .border-middle.centered {
+    text-align: center; }
+  .border-middle:after, .border-middle.centered:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 100%;
+    height: 1px;
+    margin: 0 2em;
+    background: #B8B9C2;
+    vertical-align: middle;
+    margin-top: -0.25em; }
+  .border-middle.centered:before {
+    margin-left: -100%; }
+  .border-middle:after {
+    margin-right: -100%; }
 
 .sticky {
   position: absolute;
@@ -1907,7 +1931,13 @@ a[href].card,
         line-height: 1;
         text-align: right;
         float: left; }
-        .conferencer-info .conference-room > * .title.small, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a, .conferencer-info .conference-room > * .field label.small, .field .conferencer-info .conference-room > * label.small {
+        .conferencer-info .conference-room > * .title.small, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a, .conferencer-info .conference-room > * .field label.small, .field .conferencer-info .conference-room > * label.small, .conferencer-info .conference-room > * #loginform .login-submit > *, #loginform .conferencer-info .conference-room > * .login-submit > *,
+        .conferencer-info .conference-room > * #loginform .register-submit > *,
+        #loginform .conferencer-info .conference-room > * .register-submit > *,
+        .conferencer-info .conference-room > * #registerform .login-submit > *,
+        #registerform .conferencer-info .conference-room > * .login-submit > *,
+        .conferencer-info .conference-room > * #registerform .register-submit > *,
+        #registerform .conferencer-info .conference-room > * .register-submit > * {
           text-transform: none; }
 
 .tags {
@@ -2659,6 +2689,8 @@ textarea {
   .form .tab-trigger.active {
     background: #fff;
     color: #0094C2; }
+.form .border-middle {
+  padding: 0 20px; }
 
 .field {
   width: 100%;
@@ -2671,6 +2703,8 @@ textarea {
     zoom: 1;
     width: auto;
     height: auto; }
+  .field.required label:after {
+    content: " *"; }
   .field input {
     display: block;
     width: 100%;
@@ -2707,7 +2741,7 @@ textarea {
         border-color: #0094C2; }
 
 .social-account {
-  padding: 20px 10px; }
+  padding: 10px; }
   .social-account .wp-social-login-provider {
     display: block;
     width: 100%;
@@ -2734,6 +2768,10 @@ textarea {
         background: #105073; }
       .social-account .wp-social-login-provider:active > *:after, .social-account .wp-social-login-provider:focus > *:after, .no-touch .social-account .wp-social-login-provider:active:hover > *:after {
         color: #fff; }
+    .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after {
+      font-size: 1em;
+      line-height: 1.9;
+      color: #fff !important; }
 
 #loginform,
 #registerform {
@@ -2741,6 +2779,11 @@ textarea {
   #loginform p,
   #registerform p {
     margin: 0; }
+  #loginform .login-submit,
+  #loginform .register-submit,
+  #registerform .login-submit,
+  #registerform .register-submit {
+    font-size: 1.25em; }
   #loginform .register-submit + .title, #loginform nav[role="navigation"] ul .register-submit + a, nav[role="navigation"] ul #loginform .register-submit + a, #loginform .field .register-submit + label, .field #loginform .register-submit + label,
   #registerform .register-submit + .title,
   #registerform nav[role="navigation"] ul .register-submit + a,
@@ -3333,7 +3376,13 @@ section.intro {
 .event-location .content {
   position: relative;
   z-index: 2; }
-.event-location .title.small, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a, .event-location .field label.small, .field .event-location label.small {
+.event-location .title.small, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a, .event-location .field label.small, .field .event-location label.small, .event-location #loginform .login-submit > *, #loginform .event-location .login-submit > *,
+.event-location #loginform .register-submit > *,
+#loginform .event-location .register-submit > *,
+.event-location #registerform .login-submit > *,
+#registerform .event-location .login-submit > *,
+.event-location #registerform .register-submit > *,
+#registerform .event-location .register-submit > * {
   text-transform: none;
   margin: 1em 0 0 0;
   line-height: 1.25em; }

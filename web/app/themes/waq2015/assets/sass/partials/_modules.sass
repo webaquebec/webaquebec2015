@@ -77,6 +77,25 @@
     top: 0
     width: 100%
 
+.border-middle
+  white-space: nowrap
+  &.centered
+    text-align: center
+  &:after,
+  &.centered:before
+    content: ""
+    +inlineb
+    width: 100%
+    height: 1px
+    margin: 0 2em
+    background: $grey
+    vertical-align: middle
+    margin-top: -0.25em
+  &.centered:before
+    margin-left: -100%
+  &:after
+    margin-right: -100%
+
 
 //
 //
