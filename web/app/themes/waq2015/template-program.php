@@ -12,7 +12,7 @@ if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="program dark">
+<section id="<?= $post->post_name ?>" class="program">
 
   <hgroup>
     <div class="container">
@@ -62,7 +62,7 @@ $filters = get_terms( 'theme', array(
  ));
 if(has($filters)):
 ?>
-   <nav class="filters dark">
+   <nav class="filters">
     <div class="container">
       <h3 class="title toggle">
         <?= __('Filtrer par thématique', 'waq') ?>

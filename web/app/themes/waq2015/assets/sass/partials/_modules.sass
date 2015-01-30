@@ -752,17 +752,23 @@ a[href].btn
       margin-top: 0
       z-index: 4
       &:before
-        background: $d-grey
+        background: #fff
         position: absolute
         top: -130px
         bottom: -$small
         left: -100%
         right: -100%
         height: auto
+        .dark &
+          background: $d-grey
   .btn.toggle
     &>*:after
       content: ""
     &.active
+      .title
+        color: #fff
+      &:after
+        border-color: $m-blue
       &:before,
       &>*:before
         background-color: transparent
@@ -777,7 +783,7 @@ a[href].btn
 
 // schedules
 .schedules
-  background: url(../img/@2x/bg-schedule.jpg) no-repeat center center
+  background: url(../img/@2x/bg-schedule-light.jpg) no-repeat center center
   background-size: cover
   +clearfix
 

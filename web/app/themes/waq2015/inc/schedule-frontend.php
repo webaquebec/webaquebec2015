@@ -249,15 +249,15 @@ class session extends helper{
 
       //
       // GRID
-      $grid_ID = get_field('grid', $this->ID);
-      $this->date = DateTime::createFromFormat('d/m/y', get_field('date', $grid_ID))->getTimestamp();
-      $this->grid_title = get_the_title($grid_ID);
+      $this->grid_ID = get_field('grid', $this->ID);
+      $this->date = DateTime::createFromFormat('d/m/y', get_field('date', $this->grid_ID))->getTimestamp();
+      $this->grid_title = get_the_title($this->grid_ID);
 
-      $grid = new grid($grid_ID);
+      $grid = new grid($this->grid_ID);
 
       //
       // TIME
-      $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
+      $frame = explode('.', get_field('frame_'.$this->grid_ID, $this->ID));
       $start = intval($frame[0]);
       $end = intval($frame[1]);
       $time_start_key = array_search( $start , $grid->time_keys);

@@ -63,9 +63,10 @@ jQuery(document).ready(function($){
   // SETUP
   $win = $(window);
 
-  waq.$doc = $('html,body');
-  waq.$page = $('.wrapper', document.body);
-  waq.$header = $('>header', waq.$page);
+  waq.$doc = $(document.documentElement);
+  waq.$page = $('html,body');
+  waq.$wrapper = $('.wrapper', document.body);
+  waq.$header = $('>header', waq.$wrapper);
 
   waq.$menu = $('nav', waq.$header);
   waq.$menu.$links = $('a', waq.$menu);
@@ -89,7 +90,8 @@ jQuery(document).ready(function($){
   waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
   waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
 
-  waq.isTouch = $(document.documentElement).hasClass('touch');
+  waq.loggedin = waq.$wrapper.hasClass('logged-in');
+  waq.isTouch = waq.$doc.hasClass('touch');
 
   //
   //
@@ -118,7 +120,7 @@ jQuery(document).ready(function($){
       if(!$target.length) return;
     }
 
-    waq.$doc.stop().animate({
+    waq.$page.stop().animate({
         scrollTop: $target.offset().top - (waq.loggedin ? 142 : 110)
     }, 800, $.bez([0.5, 0, 0.225, 1]));
 
@@ -179,7 +181,7 @@ jQuery(document).ready(function($){
     if(parts.length>1){
       var slug = parts[1];
       $win.on('load',function(){
-        scrollTo(slug);
+        if(window.se.t < 5) scrollTo(slug);
       });
     }
   }
@@ -465,6 +467,15 @@ jQuery(document).ready(function($){
     var activated = $trigger.hasClass('active');
     var added = [];
     var removed = [];
+
+    if(!waq.loggedin){
+      // pop dialog box here...
+      if(activated) $trigger.trigger('click');
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
     if($toggles){
       var $previousFavorites = $toggles.filter('.active');
       $previousFavorites.removeClass('active');
@@ -549,7 +560,7 @@ jQuery(document).ready(function($){
   function largerThan1200(e){
     if(waq.$intro.length) enableStickyNav();
     if(e=='init') return; // Exit here at init --------------------------
-    waq.$page.moSides('destroy');
+    waq.$wrapper.moSides('destroy');
     waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
     waq.$logo.prependTo(waq.$menu);
@@ -558,18 +569,18 @@ jQuery(document).ready(function($){
   }
   // < 1200px
   function smallerThan1200(e){
-    waq.$menu.insertBefore(waq.$page);
+    waq.$menu.insertBefore(waq.$wrapper);
     waq.$logo.insertBefore(waq.$menu);
     waq.$menu.$toggle.addClass('hidden').prependTo(waq.$logo);
     waq.$menu.$links.on('click', toggleMenu);
     setTimeout(function(){waq.$menu.$toggle.removeClass('hidden')},32);
-    waq.$page.moSides({
+    waq.$wrapper.moSides({
       right:{
           size:240,
           toggle: waq.$menu.$toggle,
           callback: function(e){
             waq.$menu.$toggle.toggleClass('active');
-            waq.$page.toggleClass('active');
+            waq.$wrapper.toggleClass('active');
         }
       },
       clean: true
