@@ -39,14 +39,17 @@ if(have_posts()): while(have_posts()): the_post();
             <div tab="login" class="tab-content <?php if(!isset($_GET['registration'])) echo ' active' ?>">
 
               <div class="social-account">
-                <?php
-                  ob_start();
-                  do_action( 'wordpress_social_login' );
-                  $loginForm = ob_get_contents();
-                  ob_end_clean();
-                  $loginForm = preg_replace('/<a(.*?)>(.*?)<\/a>/is', "<a$1 tab-index=\"2\"><span>$2</span></a>", $loginForm);
-                  echo $loginForm;
-                ?>
+                <h3>
+                  <div><?= __('Connectez-vous avec') ?></div>
+                  <?php
+                    ob_start();
+                    do_action( 'wordpress_social_login' );
+                    $loginForm = ob_get_contents();
+                    ob_end_clean();
+                    $loginForm = preg_replace('/<a(.*?)>(.*?)<\/a>/is', "<a$1 tab-index=\"2\"><span>$2</span></a>", $loginForm);
+                    echo $loginForm;
+                  ?>
+                </h3>
               </div>
 
               <div class="centered border-middle"><?= __('ou','waq') ?></div>
@@ -82,13 +85,11 @@ if(have_posts()): while(have_posts()): the_post();
 
                 <div class="field required">
                   <label for="user_login"><?= __( 'Nom d\'utilisateur', 'waq' ) ?></label>
-                  <?php
-                  // empty username
+                  <?php // empty username
                   if(in_array('empty_username', $registration)):?>
                     <p class="error message note"><?= __( 'Un nom d\'utilisateur est requis', 'waq' ) ?></p>
                   <?php endif; ?>
-                  <?php
-                  // username already exists
+                  <?php // username already exists
                   if(in_array('username_exists', $registration)):?>
                     <p class="error message note"><?= __( 'Le nom d\'utilisateur est déjà utilisé', 'waq' ) ?></p>
                   <?php endif; ?>
@@ -99,25 +100,42 @@ if(have_posts()): while(have_posts()): the_post();
                   <label for="user_name"><?= __( 'Nom complet (affiché sur le site)', 'waq' ) ?></label>
                   <input type="text" name="user_name" id="user_name" class="input" />
                 </div>
-                 <div class="field required">
+
+                <div class="field required">
                   <label for="user_email"><?= __( 'Adresse courriel', 'waq' ) ?></label>
-                  <?php
-                  // email is empty
+                  <?php // email is empty
                   if(in_array('empty_email', $registration)):?>
                     <p class="error message note"><?= __( 'Une adresse courriel est requise', 'waq' ) ?></p>
                   <?php endif; ?>
-                  <?php
-                  // email is invalid
+                  <?php // email is invalid
                   if(in_array('invalid_email', $registration)):?>
                     <p class="error message note"><?= __('Veuillez entrer une adresse courriel valide','waq') ?></p>
                   <?php endif; ?>
-                  <?php
-                  // email already exists
+                  <?php // email already exists
                   if(in_array('email_exists', $registration)):?>
                     <p class="error message note"><?= __( 'L\'adresse courriel est déjà utilisée', 'waq' ) ?></p>
                   <?php endif; ?>
                   <input type="text" name="user_email" id="user_email" class="input" <?php if(isset($_GET['email'])) echo 'value="'.urldecode($_GET['email']).'"'; ?> />
                 </div>
+
+                <div class="field required">
+                  <label for="user_password"><?= __( 'Mot de passe', 'waq' ) ?></label>
+                  <?php // passowrd is empty
+                  if(in_array('password_missing', $registration)):?>
+                    <p class="error message note"><?= __( 'Un mot de passe est requis', 'waq' ) ?></p>
+                  <?php endif; ?>
+                  <input type="password" name="user_password" id="user_password" class="input" />
+                </div>
+
+                <div class="field required">
+                  <label for="user_password_repeat"><?= __( 'Répétez le mot de passe', 'waq' ) ?></label>
+                  <?php // passowrd_repeat is empty
+                  if(in_array('password_repeat_missing', $registration)):?>
+                    <p class="error message note"><?= __( 'Rétépez le mot de passe ici', 'waq' ) ?></p>
+                  <?php endif; ?>
+                  <input type="password" name="user_password_repeat" id="user_password_repeat" class="input"/>
+                </div>
+
                 <?php do_action('register_form'); ?>
                 <div class="field">
                   <div class="register-submit">
@@ -125,6 +143,7 @@ if(have_posts()): while(have_posts()): the_post();
                   </div>
                   <p class="small title"><?= __( 'Un mot de passe vous sera envoyé par courriel.', 'waq' ) ?></p>
                 </div>
+
               </form>
 
             </div>

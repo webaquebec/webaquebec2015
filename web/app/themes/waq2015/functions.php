@@ -241,8 +241,9 @@ function redirect_login($redirect_to, $url, $user) {
     if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     $errors_keys = [];
-    foreach($user->errors as $error=>$message)
-        $errors_keys[] = $error;
+    if(isset($user->errors))
+        foreach($user->errors as $error=>$message)
+            $errors_keys[] = $error;
     if(count($errors_keys)>0){
         wp_redirect(    strtok($referrer, '?').
                         '?login='.implode('+', $errors_keys).
@@ -250,7 +251,7 @@ function redirect_login($redirect_to, $url, $user) {
                     );
         exit;
     }else{
-        wp_redirect( strtok($referrer, '?').'?login=empty');
+        wp_redirect('/mon-horaire');
         exit;
     }
 }
@@ -269,6 +270,15 @@ function registration_form_errors($errors, $user_login, $user_email) {
     if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     $errors_keys = [];
+
+    if(!has($_POST['user_password']))
+        $errors->add( 'password_missing', __('Vous devez entrer un mot de passe', 'waq') );
+    if(!has($_POST['user_password_repeat']))
+        $errors->add( 'password_repeat_missing', __('Répétez le mot de passe ici', 'waq') );
+    if(has($_POST['user_password']) && has($_POST['user_password_repeat']))
+        if($_POST['user_password'] != $_POST['user_password_repeat'])
+            $errors->add( 'passwords_not_matched', __('Les mots de passe entrés ne sont pas identiques.', 'waq') );
+
     foreach($errors->errors as $error=>$message)
         $errors_keys[] = $error;
     if(count($errors_keys)>0){
@@ -282,8 +292,10 @@ function registration_form_errors($errors, $user_login, $user_email) {
     return $errors;
 }
 function register_user( $user_id ) {
-    if(isset( $_POST['user_name']))
+    if( has($_POST['user_name']) )
         update_user_meta($user_id, 'first_name', $_POST['user_name']);
+    if( has($_POST['user_password']) )
+        wp_set_password( $_POST['user_password'], $user_id );
 }
 /*------------------------------------*\
      OPTIONS EN VRAC
@@ -496,7 +508,7 @@ add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des 
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
 add_action('wp_login_failed', 'login_fail');
-add_action('user_register', 'register_user', 10, 1);
+add_action('user_register', 'register_user', 1, 1);
 add_action('login_redirect', 'redirect_login', 10, 3);
 //
 //  Remove Actions
@@ -536,5 +548,5 @@ add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
 add_action('init', 'tiny_stylesheet' );
 add_filter('authenticate', 'authenticate_user', 1, 3);
-add_filter('registration_errors', 'registration_form_errors', 10, 3);
+add_filter('registration_errors', 'registration_form_errors', 20, 3);
 ?>

@@ -4216,8 +4216,6 @@ footer .logo-o2 {
     body > nav[role="navigation"] .main,
     body > nav[role="navigation"] .secondary {
       display: block; }
-    body > nav[role="navigation"] .secondary {
-      display: none; }
 
   nav[role="navigation"] .logo.waq,
   body > .logo.waq {
