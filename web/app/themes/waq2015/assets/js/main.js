@@ -74,6 +74,7 @@ jQuery(document).ready(function($){
 
   waq.$intro = $('#intro', waq.$header);
   waq.$program = $('.program');
+  waq.$favorite = $('.single.session .toggle.favorite');
   waq.$schedules = $('.schedule');
   waq.$map = $('#gmap');
   waq.$map.$viewport = $('.map-container .viewport');
@@ -457,6 +458,37 @@ jQuery(document).ready(function($){
   //
   //
   // FAVORITES
+
+  function toggleFavorite(e){
+    var $trigger = $(this);
+    var $toggles = $trigger[0].$toggles;
+    var activated = $trigger.hasClass('active');
+    var added = [];
+    var removed = [];
+    if($toggles){
+      var $previousFavorites = $toggles.filter('.active');
+      $previousFavorites.removeClass('active');
+      for(var p=0; p<$previousFavorites.length; p++)
+        removed.push($($previousFavorites[p]).attr('session'));
+    }
+
+    if(activated) added.push($trigger.attr('session'))
+    else removed.push($trigger.attr('session'));
+
+    $.ajax({
+        type: "POST",
+        url: '/mon-horaire/update',
+        datatype: 'json',
+        data: {
+          add: added,
+          remove: removed
+        },
+        success: function(data){
+          // $.cookie('favorites', data, { path: '/' });
+        }
+    })
+  }
+
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
 
@@ -464,38 +496,10 @@ jQuery(document).ready(function($){
       var $trigger = $(waq.$schedules.$toggles[i]);
       $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
     }
-
-    function toggleFavorite(e){
-      var $trigger = $(this);
-      var $toggles = $trigger[0].$toggles;
-      var $previousFavorites = $toggles.filter('.active');
-      var activated = $trigger.hasClass('active');
-      var added = [];
-      var removed = [];
-      $previousFavorites.removeClass('active');
-      if(activated) added.push($trigger.attr('session'))
-      else removed.push($trigger.attr('session'));
-      for(var p=0; p<$previousFavorites.length; p++)
-        removed.push($($previousFavorites[p]).attr('session'));
-
-
-      $.ajax({
-          type: "POST",
-          url: '/mon-horaire/update',
-          datatype: 'json',
-          data: {
-            add: added,
-            remove: removed
-          },
-          success: function(data){
-            // $.cookie('favorites', data, { path: '/' });
-          }
-      })
-    }
-
     waq.$schedules.$toggles.on('click', toggleFavorite);
   }
 
+  if(waq.$favorite.length) waq.$favorite.on('click', toggleFavorite);
 
   //
   //
