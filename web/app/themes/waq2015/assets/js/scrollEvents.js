@@ -49,19 +49,7 @@
 					: 0
 	}
 
-	// // sort events by closest to top
-	// sortEventsByClosest = function(a,b){
-	// 	var distA = a.topUp || a.topDown ?
-	// 								Math.abs(se.t - a.t) :
-	// 								Math.abs(se.b - a.b) ;
-	// 	var distB = b.topUp || b.topDown ?
-	// 								Math.abs(se.t - b.t) :
-	// 								Math.abs(se.b - b.b) ;
-	// 	return 	distA < distB ? -1
-	// 				: distA > distB ? 1
-	// 				: 0
-	// }
-	// sort checks by closest to top
+	// sort callbacks by closest to top
 	sortCallbacksByDistance = function(a,b){
 		var distA = a.e.topUp || a.e.topDown ?
 									Math.abs(se.t - a.e.t) :
@@ -286,7 +274,7 @@
 				}
 			})(el.ev[j]);
 		};
-		//if update, sort callbacks by distance from element
+		//if update, sort callbacks by distance from
 		if(update && stack.length){
 			stack.sort(sortCallbacksByDistance);
 			for(var s=0; s<stack.length; s++)
@@ -544,8 +532,8 @@
 			resizeScroller();
 	})
 
-	// $win.on('load', function(){
-	// 	resizeScroller('update');
-	// });
+	$win.on('load', function(){
+		resizeScroller('update');
+	});
 
 })(jQuery);

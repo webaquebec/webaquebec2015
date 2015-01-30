@@ -2200,7 +2200,7 @@ a[href].card,
   display: none; }
 
 .schedules {
-  background: url(../img/@2x/bg-schedule-light.jpg) no-repeat center center;
+  background: url(../img/@2x/bg-schedule.jpg) no-repeat center center;
   background-size: cover;
   zoom: 1; }
   .schedules:before, .schedules:after {
@@ -2273,7 +2273,7 @@ a[href].card,
     .schedules tbody tr {
       height: 100%; }
     .schedules tbody th {
-      border-top: 1px solid #b8b9c2;
+      border-top: 1px solid #d2d4e2;
       width: 75px;
       text-align: right;
       background: #eeeef0;

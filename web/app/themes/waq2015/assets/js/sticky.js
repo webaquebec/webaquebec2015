@@ -11,6 +11,7 @@
 	window.sticky = {
 		selection: []
 	}
+	$win = $(window);
 
 	cloneForResize = function($el){
 		var $clone = $el.clone();
@@ -69,6 +70,20 @@
 		}
 	}
 
+
+	resetSticky = function ($selection) {
+		for(var s=0; s<$selection.length; s++){
+			var el = $selection[s];
+			var $el = $(el);
+			for(var i=0; i<el.ev.length; i++)
+				if(el.ev[i].flag=='sticked')
+					var options = el.ev[i];
+			if(options){
+				options.reset(options);
+			}
+		}
+	}
+
 	$.extend($.fn, {
 		sticky :function(args, options){
 
@@ -76,7 +91,7 @@
 			var $selection = $(this);
 			var type = typeof(args);
 			if(args=='update') updateContainedOffset($selection);
-			// Pass methods directly to scrollevents
+			if(args=='destroy') resetSticky($selection);
 			if(type == 'string'){ return $(this).scrollEvents(args, options) }
 
 			var options = $.extend(true,{
@@ -111,7 +126,7 @@
 						offsetBottom: options.offsetBottom,
 						topDown: options.reset,
 						topUp: options.fixed,
-						disable: options.reset,
+						reset: options.reset,
 						options: options
 					});
 
@@ -174,6 +189,10 @@
 			}
 
 		}
+	});
+
+	$win.on('load', function(){
+		updateContainedOffset($(window.sticky.selection));
 	});
 
 })(jQuery);
