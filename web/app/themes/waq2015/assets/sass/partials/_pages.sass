@@ -706,7 +706,7 @@ section.intro
     position: relative
     z-index: 100
     position: relative
-    margin-top: -100px
+    margin-top: -4em
     &.has-thumb
       .name
         margin-left: $medium+100
@@ -715,7 +715,7 @@ section.intro
   .single-article
     .image-une
       padding-bottom: 1.25em
-  &.session,
+  &.single-session,
   &.article
     padding: $xlarge 0
     font-size: 1.25em
@@ -887,4 +887,37 @@ footer
     z-index: 1
     padding: 0.5em 0
     margin-left: 1em
+
+.account-sessions
+  .session
+    margin-top: $small
+    &:first-child
+      margin-top: 0
+    >.wrap
+      width: 100%
+    .location
+      margin-right: 0
+    .session-title
+      font-size: 1.5em
+    .speaker
+      font-size: 1.125em
+      .title,
+      .note
+        +inlineb
+    &.keynote
+      font-size: 1em
+      .session-title,
+      .infos
+        text-align: left
+    &.has-thumb
+      >.wrap
+        &>*
+          margin-left: 8em
+      .thumb
+        float: left
+        width: 7em
+        height: 7em
+        margin-left: 0
+        img
+          width: 100%
 

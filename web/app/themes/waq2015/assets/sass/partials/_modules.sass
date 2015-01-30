@@ -853,14 +853,14 @@ a[href].btn
     tr
       height: 100%
     th
-      border-top: 1px solid $m-grey
+      border-top: 1px solid $grey
       width: $xxlarge*0.75
       text-align: right
-      background: $d-grey
+      background: $l-grey
       padding: $small
       height: 100%
       .title
-        color: #fff
+        color: $d-blue
     td
       border-top: 1px solid $l-grey
       height: 100%
@@ -870,111 +870,6 @@ a[href].btn
         &>*
           min-height: 100%
           +prefix(box-sizing, content-box)
-
-
-  // SESSION
-  .session
-    &.btn
-      margin: 0 0 -1.5em
-      display: block
-      &:after
-        +box-shadow($l-shadows)
-        +prefix(transition, box-shadow 120ms $ease)
-      .no-touch &:hover
-        &:after
-          +box-shadow($shadows)
-    &.disabled
-      &:after
-        background: rgba(#b2b2b2, 0.5)
-        z-index: 5
-      .title
-        color: $m-grey
-
-    >.wrap
-      padding: 0.75em
-
-    a
-      display: block
-      position: relative
-      z-index: 2
-
-    .session-title
-      font-size: 1em
-      line-height: 1.2
-      color: $d-blue
-    .favorite
-      position: relative
-      z-index: 2
-      text-indent: -9999px
-      float: right
-      text-align: left
-      padding-left: 0
-      padding-right: 0
-      padding-top: 0
-      margin-top: 0
-      margin-right: 0
-      >*
-        display: block
-        height: 2.5em
-        width: 2.5em
-        line-height: 2.75em
-    .location
-      margin-right: 3em
-      min-height: 2.5em
-      margin-bottom: 0.5em
-      +align-children(middle)
-      display: block
-      .title
-        font-size: 0.875em
-      .no-schedule &
-        margin-right: 0
-    .border-bottom
-      &:after
-        background: $grey
-
-    .speaker
-      margin-top: 0.25em
-      .title,
-      .note
-        color: $d-grey
-        text-transform: none
-      .note
-        margin: -0.125em 0 0
-
-    .thumb
-      width: 3em
-      height: 3em
-      float: left
-      &+*
-        margin-left: 4em
-      &+.infos
-        min-height: 3em
-        margin-top: 0.5em
-        +align-children(middle)
-        display: block
-
-    &.wide
-      .thumb
-        width: 6em
-        height: 6em
-      &.has-thumb>*>*
-        margin-left: 7em
-        text-indent: -7em
-
-        &.thumb
-          margin-left: 0
-          text-indent: 0
-        &.location
-          text-indent: 0
-        &.session-title
-          margin-left: 6.25em
-        .infos
-          text-indent:  -6.25em
-          >*
-            text-indent: 0
-        &.favorite
-          text-indent: -9999px
-
 
   // PAUSE
   .pause,
@@ -996,10 +891,114 @@ a[href].btn
     .separator
       margin: 0 0.25em
 
+
+// SESSION
+.session
+  &.btn
+    margin: 0 0 -1.5em
+    display: block
+    &:after
+      +box-shadow($l-shadows)
+      +prefix(transition, box-shadow 120ms $ease)
+    .no-touch &:hover
+      &:after
+        +box-shadow($shadows)
+  &.disabled
+    &:after
+      background: rgba(#b2b2b2, 0.5)
+      z-index: 5
+    .title
+      color: $m-grey
+
+  >.wrap
+    padding: 0.75em
+
+  a
+    display: block
+    position: relative
+    z-index: 2
+
+  .session-title
+    font-size: 1em
+    line-height: 1.2
+    color: $d-blue
+  .favorite
+    position: relative
+    z-index: 2
+    text-indent: -9999px
+    float: right
+    text-align: left
+    padding-left: 0
+    padding-right: 0
+    padding-top: 0
+    margin-top: 0
+    margin-right: 0
+    >*
+      display: block
+      height: 2.5em
+      width: 2.5em
+      line-height: 2.75em
+  .location
+    margin-right: 3em
+    min-height: 2.5em
+    margin-bottom: 0.5em
+    +align-children(middle)
+    display: block
+    .title
+      font-size: 0.875em
+    .no-schedule &
+      margin-right: 0
+  .border-bottom
+    &:after
+      background: $grey
+
+  .speaker
+    margin-top: 0.25em
+    .title,
+    .note
+      color: $d-grey
+      text-transform: none
+    .note
+      margin: -0.125em 0 0
+
+  .thumb
+    width: 3em
+    height: 3em
+    float: left
+    &+*
+      margin-left: 4em
+    &+.infos
+      min-height: 3em
+      margin-top: 0.5em
+      +align-children(middle)
+      display: block
+
+  &.wide
+    .thumb
+      width: 6em
+      height: 6em
+    &.has-thumb>*>*
+      margin-left: 7em
+      text-indent: -7em
+
+      &.thumb
+        margin-left: 0
+        text-indent: 0
+      &.location
+        text-indent: 0
+      &.session-title
+        margin-left: 6.25em
+      .infos
+        text-indent:  -6.25em
+        >*
+          text-indent: 0
+      &.favorite
+        text-indent: -9999px
+
   //
   //
   // KEYNOTES
-  .keynote
+  &.keynote
     font-size: 1.25em
     &:before,
     &>*:before

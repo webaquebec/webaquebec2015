@@ -19,7 +19,7 @@ $schedules = new WP_query(array(
 
 ?>
 
-<section class="my-schedule">
+<section class="account-schedule">
   <div class="container">
     <?php if($schedules->have_posts()): while($schedules->have_posts()): $schedules->the_post(); ?>
 
@@ -32,15 +32,17 @@ $schedules = new WP_query(array(
           <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
         </span>
       </h2>
-      <div class="my-sessions">
+      <div class="account-sessions">
         <ul>
         <?php foreach($sessions[$post->ID] as $session): ?>
-          <li class="session btn light <?= $session->location->class ?> <?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" themes="<?= $themes ?>" >
+          <li class="session btn light <?= $session->location->class ?> <?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" >
             <div class="wrap">
 
+             <?php if($session->speaker->image): ?>
               <div class="thumb">
                 <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
               </div>
+              <?php endif; ?>
 
               <div class="location border-bottom">
                 <span class="small sub title">

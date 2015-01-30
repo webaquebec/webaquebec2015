@@ -44,7 +44,6 @@ jQuery(document).ready(function($){
   // if cookies ar disabled, remove coverall
   if(window.cookieDisabled) $('.bang-coverall').remove();
   if(typeof(hashbang)!='undefined' && hashbang) return;
-
   //
   //
   // USEFUL FUNCTIONS
@@ -75,7 +74,7 @@ jQuery(document).ready(function($){
 
   waq.$intro = $('#intro', waq.$header);
   waq.$program = $('.program');
-  waq.$favorite = $('.single.session .toggle.favorite');
+  waq.$favorite = $('.single-session .toggle.favorite');
   waq.$schedules = $('.schedule');
   waq.$map = $('#gmap');
   waq.$map.$viewport = $('.map-container .viewport');

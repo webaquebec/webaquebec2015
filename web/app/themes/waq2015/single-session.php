@@ -8,7 +8,7 @@ $session = new session($post->ID);
 $is_favorite = session_is_favorite($session->ID, $favorites_str);
 ?>
 
-<article class="session single no-padding">
+<article class="single-session single no-padding">
 
   <hgroup class="">
     <div class="container">

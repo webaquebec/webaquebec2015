@@ -26,7 +26,7 @@ get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="account">
+<section id="<?= $post->post_name ?>" class="account single">
 
   <header>
 

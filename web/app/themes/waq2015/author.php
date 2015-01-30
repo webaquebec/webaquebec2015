@@ -5,7 +5,7 @@ $profile = isset($vars['author_name']) ? get_user_by('slug', $vars['author_name'
 $user_ID = $profile->ID;
 get_header();
 ?>
-<section class="account">
+<section class="account single">
 
   <header>
 

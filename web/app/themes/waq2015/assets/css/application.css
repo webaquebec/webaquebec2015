@@ -517,7 +517,7 @@ html {
 
 section,
 article {
-  padding: 30px 0;
+  padding: 30px 0 30px;
   position: relative;
   z-index: 1;
   overflow: hidden; }
@@ -530,7 +530,11 @@ article {
   section.single hgroup,
   article.single header,
   article.single hgroup {
-    padding: 140px 0 30px; }
+    padding: 140px 0 0; }
+  section.single + section, section.single + article,
+  article.single + section,
+  article.single + article {
+    padding-top: 0; }
 
 .container, .sticky.fixed, .days .sticky {
   max-width: 1000px;
@@ -2269,14 +2273,14 @@ a[href].card,
     .schedules tbody tr {
       height: 100%; }
     .schedules tbody th {
-      border-top: 1px solid #3d3d3d;
+      border-top: 1px solid #b8b9c2;
       width: 75px;
       text-align: right;
-      background: #303030;
+      background: #eeeef0;
       padding: 10px;
       height: 100%; }
       .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a, .schedules tbody th .field label, .field .schedules tbody th label {
-        color: white; }
+        color: #005f93; }
     .schedules tbody td {
       border-top: 1px solid #eeeef0;
       height: 100%;
@@ -2290,163 +2294,6 @@ a[href].card,
           -ms-box-sizing: content-box;
           -o-box-sizing: content-box;
           box-sizing: content-box; }
-  .schedules .session.btn, .schedules .session.profile, .schedules .session.card, .schedules .social-account .session.wp-social-login-provider, .social-account .schedules .session.wp-social-login-provider, .schedules #loginform .session.login-submit, #loginform .schedules .session.login-submit,
-  .schedules #loginform .session.register-submit,
-  #loginform .schedules .session.register-submit,
-  .schedules #registerform .session.login-submit,
-  #registerform .schedules .session.login-submit,
-  .schedules #registerform .session.register-submit,
-  #registerform .schedules .session.register-submit {
-    margin: 0 0 -1.5em;
-    display: block; }
-    .schedules .session.btn:after, .schedules .session.profile:after, .schedules .session.card:after, .schedules .social-account .session.wp-social-login-provider:after, .social-account .schedules .session.wp-social-login-provider:after, .schedules #loginform .session.login-submit:after, #loginform .schedules .session.login-submit:after,
-    .schedules #loginform .session.register-submit:after,
-    #loginform .schedules .session.register-submit:after,
-    .schedules #registerform .session.login-submit:after,
-    #registerform .schedules .session.login-submit:after,
-    .schedules #registerform .session.register-submit:after,
-    #registerform .schedules .session.register-submit:after {
-      -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      -webkit-transition: -webkit-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -moz-transition: -moz-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after, .no-touch .schedules .session.card:hover:after, .no-touch .schedules .social-account .session.wp-social-login-provider:hover:after, .social-account .no-touch .schedules .session.wp-social-login-provider:hover:after, .no-touch .schedules #loginform .session.login-submit:hover:after, #loginform .no-touch .schedules .session.login-submit:hover:after,
-    .no-touch .schedules #loginform .session.register-submit:hover:after,
-    #loginform .no-touch .schedules .session.register-submit:hover:after,
-    .no-touch .schedules #registerform .session.login-submit:hover:after,
-    #registerform .no-touch .schedules .session.login-submit:hover:after,
-    .no-touch .schedules #registerform .session.register-submit:hover:after,
-    #registerform .no-touch .schedules .session.register-submit:hover:after {
-      -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
-      box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
-  .schedules .session.disabled:after {
-    background: rgba(178, 178, 178, 0.5);
-    z-index: 5; }
-  .schedules .session.disabled .title, .schedules .session.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session.disabled a, .schedules .session.disabled .field label, .field .schedules .session.disabled label {
-    color: #3d3d3d; }
-  .schedules .session > .wrap {
-    padding: 0.75em; }
-  .schedules .session a {
-    display: block;
-    position: relative;
-    z-index: 2; }
-  .schedules .session .session-title {
-    font-size: 1em;
-    line-height: 1.2;
-    color: #005f93; }
-  .schedules .session .favorite {
-    position: relative;
-    z-index: 2;
-    text-indent: -9999px;
-    float: right;
-    text-align: left;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-top: 0;
-    margin-right: 0; }
-    .schedules .session .favorite > * {
-      display: block;
-      height: 2.5em;
-      width: 2.5em;
-      line-height: 2.75em; }
-  .schedules .session .location {
-    margin-right: 3em;
-    min-height: 2.5em;
-    margin-bottom: 0.5em;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: middle;
-    display: block; }
-    .schedules .session .location:before {
-      content: "";
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      height: 100%;
-      min-height: inherit;
-      width: 0;
-      vertical-align: middle;
-      margin-right: -0.25em; }
-    .schedules .session .location > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      vertical-align: middle; }
-    .schedules .session .location .title, .schedules .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .location a, .schedules .session .location .field label, .field .schedules .session .location label {
-      font-size: 0.875em; }
-    .no-schedule .schedules .session .location {
-      margin-right: 0; }
-  .schedules .session .border-bottom:after {
-    background: #b8b9c2; }
-  .schedules .session .speaker {
-    margin-top: 0.25em; }
-    .schedules .session .speaker .title, .schedules .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .speaker a, .schedules .session .speaker .field label, .field .schedules .session .speaker label,
-    .schedules .session .speaker .note,
-    .schedules .session .speaker #loginform .login-remember,
-    #loginform .schedules .session .speaker .login-remember,
-    .schedules .session .speaker #registerform .login-remember,
-    #registerform .schedules .session .speaker .login-remember {
-      color: #303030;
-      text-transform: none; }
-    .schedules .session .speaker .note, .schedules .session .speaker #loginform .login-remember, #loginform .schedules .session .speaker .login-remember,
-    .schedules .session .speaker #registerform .login-remember,
-    #registerform .schedules .session .speaker .login-remember {
-      margin: -0.125em 0 0; }
-  .schedules .session .thumb {
-    width: 3em;
-    height: 3em;
-    float: left; }
-    .schedules .session .thumb + * {
-      margin-left: 4em; }
-    .schedules .session .thumb + .infos {
-      min-height: 3em;
-      margin-top: 0.5em;
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      vertical-align: middle;
-      display: block; }
-      .schedules .session .thumb + .infos:before {
-        content: "";
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        height: 100%;
-        min-height: inherit;
-        width: 0;
-        vertical-align: middle;
-        margin-right: -0.25em; }
-      .schedules .session .thumb + .infos > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        vertical-align: middle; }
-  .schedules .session.wide .thumb {
-    width: 6em;
-    height: 6em; }
-  .schedules .session.wide.has-thumb > * > * {
-    margin-left: 7em;
-    text-indent: -7em; }
-    .schedules .session.wide.has-thumb > * > *.thumb {
-      margin-left: 0;
-      text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.location {
-      text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.session-title {
-      margin-left: 6.25em; }
-    .schedules .session.wide.has-thumb > * > * .infos {
-      text-indent: -6.25em; }
-      .schedules .session.wide.has-thumb > * > * .infos > * {
-        text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.favorite {
-      text-indent: -9999px; }
   .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a, .schedules .pause .field label, .field .schedules .pause label,
   .schedules .lunch .title,
   .schedules .lunch nav[role="navigation"] ul a,
@@ -2473,58 +2320,210 @@ a[href].card,
   .schedules .pause .separator,
   .schedules .lunch .separator {
     margin: 0 0.25em; }
-  .schedules .keynote {
-    font-size: 1.25em; }
-    .schedules .keynote:before, .schedules .keynote > *:before {
-      background: #005f93; }
-    .schedules .keynote:after {
-      border-color: #0d567e; }
-    .schedules .keynote.disabled:after {
-      background: rgba(0, 95, 147, 0.5); }
-    .schedules .keynote.disabled .title, .schedules .keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote.disabled a, .schedules .keynote.disabled .field label, .field .schedules .keynote.disabled label {
-      color: #00bfdf; }
-    .schedules .keynote .title, .schedules .keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote a, .schedules .keynote .field label, .field .schedules .keynote label,
-    .schedules .keynote .speaker {
-      color: white; }
-    .schedules .keynote .speaker .title, .schedules .keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote .speaker a, .schedules .keynote .speaker .field label, .field .schedules .keynote .speaker label,
-    .schedules .keynote .speaker .note,
-    .schedules .keynote .speaker #loginform .login-remember,
-    #loginform .schedules .keynote .speaker .login-remember,
-    .schedules .keynote .speaker #registerform .login-remember,
-    #registerform .schedules .keynote .speaker .login-remember {
-      color: #eeeef0;
-      width: auto;
+
+.session.btn, .session.profile, .session.card, .social-account .session.wp-social-login-provider, #loginform .session.login-submit,
+#loginform .session.register-submit,
+#registerform .session.login-submit,
+#registerform .session.register-submit {
+  margin: 0 0 -1.5em;
+  display: block; }
+  .session.btn:after, .session.profile:after, .session.card:after, .social-account .session.wp-social-login-provider:after, #loginform .session.login-submit:after,
+  #loginform .session.register-submit:after,
+  #registerform .session.login-submit:after,
+  #registerform .session.register-submit:after {
+    -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    -webkit-transition: -webkit-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -moz-transition: -moz-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
+  .no-touch .session.btn:hover:after, .no-touch .session.profile:hover:after, .no-touch .session.card:hover:after, .no-touch .social-account .session.wp-social-login-provider:hover:after, .social-account .no-touch .session.wp-social-login-provider:hover:after, .no-touch #loginform .session.login-submit:hover:after, #loginform .no-touch .session.login-submit:hover:after,
+  .no-touch #loginform .session.register-submit:hover:after,
+  #loginform .no-touch .session.register-submit:hover:after,
+  .no-touch #registerform .session.login-submit:hover:after,
+  #registerform .no-touch .session.login-submit:hover:after,
+  .no-touch #registerform .session.register-submit:hover:after,
+  #registerform .no-touch .session.register-submit:hover:after {
+    -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
+.session.disabled:after {
+  background: rgba(178, 178, 178, 0.5);
+  z-index: 5; }
+.session.disabled .title, .session.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .session.disabled a, .session.disabled .field label, .field .session.disabled label {
+  color: #3d3d3d; }
+.session > .wrap {
+  padding: 0.75em; }
+.session a {
+  display: block;
+  position: relative;
+  z-index: 2; }
+.session .session-title {
+  font-size: 1em;
+  line-height: 1.2;
+  color: #005f93; }
+.session .favorite {
+  position: relative;
+  z-index: 2;
+  text-indent: -9999px;
+  float: right;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-top: 0;
+  margin-right: 0; }
+  .session .favorite > * {
+    display: block;
+    height: 2.5em;
+    width: 2.5em;
+    line-height: 2.75em; }
+.session .location {
+  margin-right: 3em;
+  min-height: 2.5em;
+  margin-bottom: 0.5em;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+  display: block; }
+  .session .location:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: middle;
+    margin-right: -0.25em; }
+  .session .location > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+  .session .location .title, .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .session .location a, .session .location .field label, .field .session .location label {
+    font-size: 0.875em; }
+  .no-schedule .session .location {
+    margin-right: 0; }
+.session .border-bottom:after {
+  background: #b8b9c2; }
+.session .speaker {
+  margin-top: 0.25em; }
+  .session .speaker .title, .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session .speaker a, .session .speaker .field label, .field .session .speaker label,
+  .session .speaker .note,
+  .session .speaker #loginform .login-remember,
+  #loginform .session .speaker .login-remember,
+  .session .speaker #registerform .login-remember,
+  #registerform .session .speaker .login-remember {
+    color: #303030;
+    text-transform: none; }
+  .session .speaker .note, .session .speaker #loginform .login-remember, #loginform .session .speaker .login-remember,
+  .session .speaker #registerform .login-remember,
+  #registerform .session .speaker .login-remember {
+    margin: -0.125em 0 0; }
+.session .thumb {
+  width: 3em;
+  height: 3em;
+  float: left; }
+  .session .thumb + * {
+    margin-left: 4em; }
+  .session .thumb + .infos {
+    min-height: 3em;
+    margin-top: 0.5em;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    display: block; }
+    .session .thumb + .infos:before {
+      content: "";
       display: inline-block;
       *display: inline;
-      zoom: 1; }
-    .schedules .keynote .session-title,
-    .schedules .keynote .infos {
-      text-align: center; }
-    .schedules .keynote .favorite:before {
-      background: #0d567e; }
-    .schedules .keynote .favorite:after {
-      border-color: #105073; }
-    .no-touch .schedules .keynote .favorite:hover:before {
-      background: #0d567e; }
-    .no-touch .schedules .keynote .favorite:hover:after {
-      border-color: #105073; }
-    .schedules .keynote .favorite > *:after {
-      color: white; }
-    .schedules .keynote .favorite.active:before, .no-touch .schedules .keynote .favorite.active:hover:before {
-      background: white; }
-    .schedules .keynote .favorite.active:after, .no-touch .schedules .keynote .favorite.active:hover:after {
-      border-color: #eeeef0; }
-    .schedules .keynote .favorite.active > *:after, .no-touch .schedules .keynote .favorite.active:hover > *:after {
-      color: #00bfdf; }
-  .schedules .messages,
-  .schedules .errors {
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid #00bfdf;
-    position: relative;
-    z-index: 3; }
-  .schedules .errors {
-    border-color: #d22630; }
+      zoom: 1;
+      height: 100%;
+      min-height: inherit;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -0.25em; }
+    .session .thumb + .infos > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+.session.wide .thumb {
+  width: 6em;
+  height: 6em; }
+.session.wide.has-thumb > * > * {
+  margin-left: 7em;
+  text-indent: -7em; }
+  .session.wide.has-thumb > * > *.thumb {
+    margin-left: 0;
+    text-indent: 0; }
+  .session.wide.has-thumb > * > *.location {
+    text-indent: 0; }
+  .session.wide.has-thumb > * > *.session-title {
+    margin-left: 6.25em; }
+  .session.wide.has-thumb > * > * .infos {
+    text-indent: -6.25em; }
+    .session.wide.has-thumb > * > * .infos > * {
+      text-indent: 0; }
+  .session.wide.has-thumb > * > *.favorite {
+    text-indent: -9999px; }
+.session.keynote {
+  font-size: 1.25em; }
+  .session.keynote:before, .session.keynote > *:before {
+    background: #005f93; }
+  .session.keynote:after {
+    border-color: #0d567e; }
+  .session.keynote.disabled:after {
+    background: rgba(0, 95, 147, 0.5); }
+  .session.keynote.disabled .title, .session.keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote.disabled a, .session.keynote.disabled .field label, .field .session.keynote.disabled label {
+    color: #00bfdf; }
+  .session.keynote .title, .session.keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote a, .session.keynote .field label, .field .session.keynote label,
+  .session.keynote .speaker {
+    color: white; }
+  .session.keynote .speaker .title, .session.keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote .speaker a, .session.keynote .speaker .field label, .field .session.keynote .speaker label,
+  .session.keynote .speaker .note,
+  .session.keynote .speaker #loginform .login-remember,
+  #loginform .session.keynote .speaker .login-remember,
+  .session.keynote .speaker #registerform .login-remember,
+  #registerform .session.keynote .speaker .login-remember {
+    color: #eeeef0;
+    width: auto;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+  .session.keynote .session-title,
+  .session.keynote .infos {
+    text-align: center; }
+  .session.keynote .favorite:before {
+    background: #0d567e; }
+  .session.keynote .favorite:after {
+    border-color: #105073; }
+  .no-touch .session.keynote .favorite:hover:before {
+    background: #0d567e; }
+  .no-touch .session.keynote .favorite:hover:after {
+    border-color: #105073; }
+  .session.keynote .favorite > *:after {
+    color: white; }
+  .session.keynote .favorite.active:before, .no-touch .session.keynote .favorite.active:hover:before {
+    background: white; }
+  .session.keynote .favorite.active:after, .no-touch .session.keynote .favorite.active:hover:after {
+    border-color: #eeeef0; }
+  .session.keynote .favorite.active > *:after, .no-touch .session.keynote .favorite.active:hover > *:after {
+    color: #00bfdf; }
+.session .messages,
+.session .errors {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #00bfdf;
+  position: relative;
+  z-index: 3; }
+.session .errors {
+  border-color: #d22630; }
 
 nav[role="navigation"] .logo {
   position: absolute;
@@ -3903,19 +3902,19 @@ section.intro {
   position: relative;
   z-index: 100;
   position: relative;
-  margin-top: -100px; }
+  margin-top: -4em; }
   .single .conferencer.has-thumb .name {
     margin-left: 120px; }
   .single .conferencer .social {
     font-size: 0.75em; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
-.single.session, .single.article {
+.single.single-session, .single.article {
   padding: 50px 0;
   font-size: 1.25em; }
-  .single.session .tags, .single.article .tags {
+  .single.single-session .tags, .single.article .tags {
     font-size: 0.875em; }
-  .single.session .content, .single.article .content {
+  .single.single-session .content, .single.article .content {
     padding-top: 20px;
     margin-top: 20px;
     padding-bottom: 2em;
@@ -4234,6 +4233,42 @@ footer .logo-o2 {
   z-index: 1;
   padding: 0.5em 0;
   margin-left: 1em; }
+
+.account-sessions .session {
+  margin-top: 10px; }
+  .account-sessions .session:first-child {
+    margin-top: 0; }
+  .account-sessions .session > .wrap {
+    width: 100%; }
+  .account-sessions .session .location {
+    margin-right: 0; }
+  .account-sessions .session .session-title {
+    font-size: 1.5em; }
+  .account-sessions .session .speaker {
+    font-size: 1.125em; }
+    .account-sessions .session .speaker .title, .account-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .speaker a, .account-sessions .session .speaker .field label, .field .account-sessions .session .speaker label,
+    .account-sessions .session .speaker .note,
+    .account-sessions .session .speaker #loginform .login-remember,
+    #loginform .account-sessions .session .speaker .login-remember,
+    .account-sessions .session .speaker #registerform .login-remember,
+    #registerform .account-sessions .session .speaker .login-remember {
+      display: inline-block;
+      *display: inline;
+      zoom: 1; }
+  .account-sessions .session.keynote {
+    font-size: 1em; }
+    .account-sessions .session.keynote .session-title,
+    .account-sessions .session.keynote .infos {
+      text-align: left; }
+  .account-sessions .session.has-thumb > .wrap > * {
+    margin-left: 8em; }
+  .account-sessions .session.has-thumb .thumb {
+    float: left;
+    width: 7em;
+    height: 7em;
+    margin-left: 0; }
+    .account-sessions .session.has-thumb .thumb img {
+      width: 100%; }
 
 @media screen and (max-width: 1200px) {
   html,
@@ -4690,13 +4725,13 @@ footer .logo-o2 {
     .touch .waq2015 .group .profile {
       font-size: 0.75em; }
 
-  .session .cols, .session .cols-2, .session .cols-3, .session .cols-4 {
+  .single-session .cols, .single-session .cols-2, .single-session .cols-3, .single-session .cols-4 {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
     margin-left: 0;
     margin-right: 0; }
-    .session .cols > *, .session .cols-2 > *, .session .cols-3 > *, .session .cols-4 > * {
+    .single-session .cols > *, .single-session .cols-2 > *, .single-session .cols-3 > *, .single-session .cols-4 > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -4706,26 +4741,26 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; }
-  .session .col.narrow, .session .col.wide {
+  .single-session .col.narrow, .single-session .col.wide {
     padding: 0; }
-  .session .col.narrow {
+  .single-session .col.narrow {
     margin-top: 1em;
     padding-top: 2em;
     border-top: 1px solid #cacaca; }
-  .session .conferencer {
+  .single-session .conferencer {
     margin-top: 0;
     float: none;
     width: 100%; }
-    .session .conferencer .about {
+    .single-session .conferencer .about {
       font-size: 0.875em;
       padding-bottom: 0;
       margin-bottom: 0; }
-    .session .conferencer .social li,
-    .session .conferencer .social a {
+    .single-session .conferencer .social li,
+    .single-session .conferencer .social a {
       display: inline-block;
       *display: inline;
       zoom: 1; }
-    .session .conferencer .social li {
+    .single-session .conferencer .social li {
       margin-right: 2em; }
 
   .blog-page .posts {

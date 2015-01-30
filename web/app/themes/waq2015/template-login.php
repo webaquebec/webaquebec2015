@@ -7,7 +7,7 @@ if(have_posts()): while(have_posts()): the_post();
 ?>
 
 
-<section id="login">
+<section id="login" class="single">
 
   <header>
     <div class="container narrow">
