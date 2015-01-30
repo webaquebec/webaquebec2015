@@ -554,7 +554,6 @@ add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
 add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
-add_filter( 'author_link', 'wpse17106_author_link', 10, 2 );
 add_filter('authenticate', 'authenticate_user', 1, 3);
 add_filter('registration_errors', 'registration_form_errors', 20, 3);
 add_filter('author_rewrite_rules', 'rewrite_author' );

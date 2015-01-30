@@ -63,7 +63,7 @@ get_header_once();
 //
 //
 // get user_schedule
-get_template_part( 'user-schedule' );
+include( 'user-schedule.php' );
 ?> 
 
 <?php endwhile; endif; ?>

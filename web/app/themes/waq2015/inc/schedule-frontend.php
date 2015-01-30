@@ -198,7 +198,6 @@ class session extends helper{
 
   public function __construct($ID) {
     if(isset($ID)){
-
       //
       // SESSION
       $this->ID = $ID;
@@ -206,9 +205,8 @@ class session extends helper{
       $this->is_linked = get_field('link_to_post', $this->ID);
       $this->permalink = get_the_permalink($this->ID);
       $this->excerpt = get_field('excerpt', $this->ID);
-      $this->content = apply_filters('the_content',get_the_content($this->ID));
+      $this->content = apply_filters('the_content', get_post_field('post_content',$this->ID));
       $this->themes = wp_get_post_terms($this->ID, 'theme');
-
       //
       // SPEAKER
       $about = get_field('about', $this->ID);
@@ -279,7 +277,6 @@ class session extends helper{
         'span' => intval($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
       );
     }
-    return false;
   }
 }
 

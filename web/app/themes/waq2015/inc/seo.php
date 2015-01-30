@@ -8,21 +8,27 @@ if( function_exists('register_field_group') ):
 
   function acf_seo(){
     global $post;
-    setup_postdata($post);
-    $description = get_field('description');
-    if(!has($description)) $description = get_field('description', 'options');
-    $keywords = get_field('keywords');
-    if(!has($keywords)) $keywords = get_field('keywords', 'options');
-    $og_image = get_field('og_image');
-    if(!has($og_image)) $og_image = get_field('og_image', 'options');
-    $title = get_field('title');
-    if(!has($title)) $title = get_field('title', 'options');
-
     $title = get_bloginfo('name');
-    $pageTitle = get_field('title');
-    if(!$pageTitle && !is_front_page()){ $pageTitle = get_the_title(); }
-    if(has($pageTitle)){ $title = $pageTitle." • ".$title; }
+    $description = '';
+    $keywords = '';
+    $og_image = '';
+    $pageTitle = '';
 
+    if(isset($post)){
+      setup_postdata($post);
+      $description = get_field('description');
+      $keywords = get_field('keywords');
+      $og_image = get_field('og_image');
+      $pageTitle = get_field('title');
+    }
+
+    if(!has($description)) $description = get_field('description', 'options');
+    if(!has($keywords)) $keywords = get_field('keywords', 'options');
+    if(!has($og_image)) $og_image = get_field('og_image', 'options');
+    if(!has($pageTitle)) $pageTitle = get_field('title', 'options');
+    if(!has($pageTitle) && !is_front_page()){ $pageTitle = get_the_title(); }
+
+    if(has($pageTitle)) $title = $pageTitle." • ".$title;
     ?>
 
     <title><?= $title?></title>
@@ -35,7 +41,6 @@ if( function_exists('register_field_group') ):
     <meta property="og:description" content="<?= $description ?>"/>
     <meta property="og:image" content="<?= $og_image['url'] ?>" />
     <?php
-
   }
 
 
@@ -134,6 +139,13 @@ if( function_exists('register_field_group') ):
           'param' => 'post_type',
           'operator' => '==',
           'value' => 'post',
+        ),
+      ),
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page',
         ),
       ),
       array (
