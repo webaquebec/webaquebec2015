@@ -50,7 +50,7 @@
   <body>
 
     <?php if($needs_bang): ?>
-    <div class="bang-coverall"></div>
+    <div class="bang-coverall" style=" position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: #fff;"></div>
     <?php endif; ?>
 
     <div class="wrapper <?= $is_loggedin ? 'logged-in' : 'not-logged-in' ?> <?php if(is_array($scheduleStatus)){echo ' ' . $scheduleStatus[0];} ?>">
