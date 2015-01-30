@@ -37,7 +37,7 @@ textarea
     vertical-align: top
   .tab-trigger
     vertical-align: middle
-    color: $d-blue
+    color: $d-grey
     min-height: 4em
     background: $l-grey
     padding: 0.5em 1em
@@ -46,7 +46,7 @@ textarea
     outline: none
     cursor: pointer
     line-height: 1.2
-    +prefix(transition, background 240ms $ease, color 120ms $ease)
+    +prefix(transition, background 120ms $ease, color 120ms $ease)
     .no-touch &:hover
       color: $l-blue
     &.active
@@ -66,6 +66,7 @@ textarea
   label
     @extend .title
     @extend .sub.title
+    font-size: 1em
     input
       +inlineb
       width: auto
@@ -113,7 +114,11 @@ textarea
 //
 // SOCIAL LOGIN
 .social-account
-  padding: $small
+  padding: $small $medium
+  .message
+    margin: 1em 0 0.75em
+  .wp-social-login-provider-list
+    padding: 0
   .wp-social-login-provider
     @extend .btn
     display: block

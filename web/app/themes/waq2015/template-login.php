@@ -40,7 +40,7 @@ if(have_posts()): while(have_posts()): the_post();
 
               <div class="social-account">
                 <h3>
-                  <div><?= __('Connectez-vous avec') ?></div>
+                  <div class="message"><?= __('Connectez-vous avec') ?></div>
                   <?php
                     ob_start();
                     do_action( 'wordpress_social_login' );
@@ -141,7 +141,6 @@ if(have_posts()): while(have_posts()): the_post();
                   <div class="register-submit">
                     <input type="submit" value="<?= __( 'Envoyer', 'waq' ) ?>" id="register" />
                   </div>
-                  <p class="small title"><?= __( 'Un mot de passe vous sera envoyé par courriel.', 'waq' ) ?></p>
                 </div>
 
               </form>

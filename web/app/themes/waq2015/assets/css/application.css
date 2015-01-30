@@ -2670,7 +2670,7 @@ textarea {
     padding: 0 0 0; }
 .form .tab-trigger {
   vertical-align: middle;
-  color: #005F93;
+  color: #303030;
   min-height: 4em;
   background: #eeeef0;
   padding: 0.5em 1em;
@@ -2679,11 +2679,11 @@ textarea {
   outline: none;
   cursor: pointer;
   line-height: 1.2;
-  -webkit-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
-  -moz-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
-  -ms-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
-  -o-transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
-  transition: background 240ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
+  -webkit-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -moz-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -ms-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -o-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
   .no-touch .form .tab-trigger:hover {
     color: #00bfdf; }
   .form .tab-trigger.active {
@@ -2697,12 +2697,14 @@ textarea {
   padding: 10px 20px; }
   .field:first-child {
     border-top: none; }
-  .field label input {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    width: auto;
-    height: auto; }
+  .field label {
+    font-size: 1em; }
+    .field label input {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      width: auto;
+      height: auto; }
   .field.required label:after {
     content: " *"; }
   .field input {
@@ -2741,7 +2743,11 @@ textarea {
         border-color: #0094C2; }
 
 .social-account {
-  padding: 10px; }
+  padding: 10px 20px; }
+  .social-account .message {
+    margin: 1em 0 0.75em; }
+  .social-account .wp-social-login-provider-list {
+    padding: 0; }
   .social-account .wp-social-login-provider {
     display: block;
     width: 100%;
@@ -4151,12 +4157,14 @@ footer .logo-o2 {
     position: relative;
     top: -0.25em; }
 
-.account .dashboard-link {
+.account .dashboard-link,
+.account .logout-link {
   display: block;
   float: right;
   position: relative;
   z-index: 1;
-  padding: 0.5em 0; }
+  padding: 0.5em 0;
+  margin-left: 1em; }
 
 @media screen and (max-width: 1200px) {
   html,
