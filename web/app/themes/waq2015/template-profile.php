@@ -4,7 +4,6 @@
  */
 global  $wp_query, $current_user, $user_ID;
 $vars = $wp_query->query_vars;
-get_currentuserinfo();
 $user_ID = $current_user->ID;
 $loggedin = is_user_logged_in();
 $favorites_str = '';

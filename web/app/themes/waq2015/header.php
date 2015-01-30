@@ -11,7 +11,6 @@
     <?php
     // SET VARIABLES
     global $current_user;
-    get_currentuserinfo();
     $is404 = is_404();
     $is_home = get_page_template_slug()=="template-home.php";
     $is_loggedin = is_user_logged_in();
