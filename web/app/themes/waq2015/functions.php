@@ -142,7 +142,6 @@ add_image_size('blog-thumb', 200, 230, false); //200 pixels wide (and unlimited 
 
 add_theme_support( 'post-thumbnails' );
 
-
 /*------------------------------------*\
 	HEAD
 \*------------------------------------*/
@@ -463,10 +462,9 @@ function enable_more_buttons($buttons) {
 //
 
 function themes_dir_add_rewrites() {
-  $theme_name = get_template();
 
   global $wp_rewrite;
-
+  $theme_name = get_template();
   $new_non_wp_rules = array(
     '(.css)'       => 'app/themes/' . $theme_name . '/assets/$1',
     'css/(.*)'       => 'app/themes/' . $theme_name . '/assets/css/$1',
@@ -478,7 +476,13 @@ function themes_dir_add_rewrites() {
   $wp_rewrite->non_wp_rules += $new_non_wp_rules;
 }
 
-
+function rewrite_author($rules){
+  foreach($rules as $rule=>$value){
+    unset($rules[$rule]);
+    $rules[str_replace('author', 'horaire', $rule)] = $value;
+  }
+  return $rules;
+}
 
 /* -------------------------------------------------------------------------------------------------- Variable après le slug ------- */
 //
@@ -488,7 +492,6 @@ function themes_dir_add_rewrites() {
 function add_endpoint()
 {
     add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('horaire', EP_PERMALINK | EP_PAGES );
     add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
 }
 
@@ -507,6 +510,7 @@ add_action('admin_enqueue_scripts', 'admin_style');   // Css pour l'admin
 add_action('init', 'header_scripts');
 add_action('init', 'register_menu');
 add_action('init', 'remove_comment_support');
+add_action('init', 'tiny_stylesheet');
 add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
@@ -550,7 +554,9 @@ add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
 add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
-add_action('init', 'tiny_stylesheet' );
+add_filter( 'author_link', 'wpse17106_author_link', 10, 2 );
 add_filter('authenticate', 'authenticate_user', 1, 3);
 add_filter('registration_errors', 'registration_form_errors', 20, 3);
+add_filter('author_rewrite_rules', 'rewrite_author' );
+// add_filter('author_link', 'author_link', 10, 2 );
 ?>

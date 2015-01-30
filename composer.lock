@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c769e7a8a2c7a46f6ce5eab8cfa8c50",
+    "hash": "58b0f09e3ca14f35c949f1c35cf295c1",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -388,7 +388,7 @@
         },
         {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
-            "version": "2.1.0",
+            "version": "3.0.3",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/intuitive-custom-post-order/",
@@ -447,12 +447,8 @@
             "homepage": "https://wordpress.org/plugins/wordpress-social-login/"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "koodimonni-language/fr": 20,
@@ -462,7 +458,5 @@
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

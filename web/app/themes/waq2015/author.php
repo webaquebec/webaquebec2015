@@ -1,75 +1,44 @@
-<?php get_header(); ?>
+<?php
+global $user_ID;
+$user_ID = $post->ID;
+$favorites_str = get_field('favorites','user_'.$user_ID);
 
-	<!-- section -->
-	<section>
-	
-	<?php if (have_posts()): the_post(); ?>
-	
-		<h1><?php _e( 'Author Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
+get_header_once();
+?>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-	<?php if ( get_the_author_meta('description')) : ?>
-	
-	<?php echo get_avatar(get_the_author_meta('user_email')); ?>
-	
-		<h2><?php _e( 'About', 'html5blank' ); echo get_the_author() ; ?></h2>
-	
-	<?php the_author_meta('description'); ?>
-	
-	<?php endif; ?>
-	
-	<?php rewind_posts(); while (have_posts()) : the_post(); ?>
-	
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
-			
-			<!-- post title -->
-			<h2>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h2>
-			<!-- /Post title -->
-			
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
-			
-			<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-			
-			<br class="clear">
-			
-			<?php edit_post_link(); ?>
-			
-		</article>
-		<!-- /article -->
-		
-	<?php endwhile; ?>
-	
-	<?php else: ?>
-	
-		<!-- article -->
-		<article>
-			
-			<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-			
-		</article>
-		<!-- /article -->
-	
-	<?php endif; ?>
-		
-		<?php get_template_part('pagination'); ?>
-	
-	</section>
-	<!-- /section -->
-	
-<?php get_sidebar(); ?>
+<section id="<?= $post->post_name ?>" class="account">
 
-<?php get_footer(); ?>
+  <header>
+
+    <div class="container">
+
+      <?php var_dump($post); ?>
+      <h1 class="main title border-left">
+        <small><?= __('L\'horaire de', 'waq') ?></small>
+        <?= $current_user->data->display_name ?>
+        <div class="border-bottom"></div>
+      </h1>
+
+    </div>
+
+
+  </header>
+
+</section>
+
+<?php
+//
+//
+// get user_schedule
+get_template_part( 'user-schedule' );
+?> 
+
+<?php endwhile; endif; ?>
+
+<?php
+wp_reset_query();
+get_footer_once();
+?>
+
+

@@ -98,7 +98,6 @@ function create_schedules()
             'editor'
         ),
         'can_export' => true,
-        'rewrite' => array( 'slug' => 'horaire'),
     ));
 
 
