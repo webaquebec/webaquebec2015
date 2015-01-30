@@ -1053,7 +1053,6 @@ function create_sessions()
 } // END CREATE_CONFERENCERS
 
 
-
 //
 //
 // ADMIN SESISONS LIST COLUMNS

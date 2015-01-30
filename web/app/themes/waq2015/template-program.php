@@ -4,6 +4,10 @@
  */
 get_header_once();
 global $current_user;
+get_currentuserinfo();
+$loggedin = is_user_logged_in();
+$favorites_str = '';
+if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
 ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
@@ -155,7 +159,7 @@ if(has($filters)):
                 </div>
               <?php endif; ?>
 
-              <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="<?= $schedule->grid_ID ?>" session="<?= $session->ID ?>">
+              <button class="btn seamless toggle favorite icon-only<?php if(session_is_favorite($session->ID, $favorites_str)) echo ' active' ?>" session="<?= $session->ID ?>">
                 <span>
                   <?= __('Ajouter à mon horaire', 'waq') ?>
                 </span>

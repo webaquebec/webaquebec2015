@@ -467,8 +467,29 @@ jQuery(document).ready(function($){
     function toggleFavorite(e){
       var $trigger = $(this);
       var $toggles = $trigger[0].$toggles;
-      var $previousFavorite = $toggles.filter('.active');
-      $previousFavorite.removeClass('active');
+      var $previousFavorites = $toggles.filter('.active');
+      var activated = $trigger.hasClass('active');
+      var added = [];
+      var removed = [];
+      $previousFavorites.removeClass('active');
+      if(activated) added.push($trigger.attr('session'))
+      else removed.push($trigger.attr('session'));
+      for(var p=0; p<$previousFavorites.length; p++)
+        removed.push($($previousFavorites[p]).attr('session'));
+
+
+      $.ajax({
+          type: "POST",
+          url: '/mon-horaire/update',
+          datatype: 'json',
+          data: {
+            add: added,
+            remove: removed
+          },
+          success: function(data){
+            // $.cookie('favorites', data, { path: '/' });
+          }
+      })
     }
 
     waq.$schedules.$toggles.on('click', toggleFavorite);

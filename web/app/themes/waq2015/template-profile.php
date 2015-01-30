@@ -2,14 +2,24 @@
 /*
  * Template Name: Profile
  */
-global $current_user;
+global $current_user, $wp_query;
+$vars = $wp_query->query_vars;
 get_currentuserinfo();
 $loggedin = is_user_logged_in();
-$isTeam = current_user_can( 'edit_posts' );
 if(!$loggedin){
   wp_redirect(get_permalink(get_ID_from_slug('connexion')));
   exit;
 }
+
+if(isset($vars['update'])){
+  $add = isset($_POST['add']) ? $_POST['add'] : [];
+  $remove = isset($_POST['remove']) ? $_POST['remove'] : [];
+  echo update_favorites($current_user->ID, $add, $remove);
+  exit;
+};
+
+
+
 get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
@@ -47,7 +57,7 @@ get_header_once();
 </section>
 
 <section class="program">
-
+  <?= get_template_directory_uri() ?>
 </section>
 
 <?php endwhile; endif; ?>

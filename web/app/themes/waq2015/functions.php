@@ -4,6 +4,7 @@ require_once('inc/seo.php');
 require_once('inc/hashbang.php');
 require_once('inc/schedule-frontend.php');
 require_once('inc/schedule-backend.php');
+require_once('inc/schedule-favorites.php');
 require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
@@ -292,8 +293,10 @@ function registration_form_errors($errors, $user_login, $user_email) {
     return $errors;
 }
 function register_user( $user_id ) {
-    if( has($_POST['user_name']) )
+    if( has($_POST['user_name']) ){
         update_user_meta($user_id, 'first_name', $_POST['user_name']);
+        update_user_meta($user_id, 'display_name', $_POST['user_name']);
+    }
     if( has($_POST['user_password']) )
         wp_set_password( $_POST['user_password'], $user_id );
 }
@@ -486,6 +489,7 @@ function add_endpoint()
 {
     add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
     add_rewrite_endpoint('horaire', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
 }
 
 
