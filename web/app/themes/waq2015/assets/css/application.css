@@ -4240,8 +4240,6 @@ footer .logo-o2 {
     margin-top: 0; }
   .account-sessions .session > .wrap {
     width: 100%; }
-  .account-sessions .session .location {
-    margin-right: 0; }
   .account-sessions .session .session-title {
     font-size: 1.5em; }
   .account-sessions .session .speaker {
@@ -4254,7 +4252,27 @@ footer .logo-o2 {
     #registerform .account-sessions .session .speaker .login-remember {
       display: inline-block;
       *display: inline;
-      zoom: 1; }
+      zoom: 1;
+      margin-bottom: 0; }
+  .account-sessions .session .location {
+    margin-right: 0; }
+    .account-sessions .session .location:before {
+      display: none; }
+    .account-sessions .session .location .title, .account-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .location a, .account-sessions .session .location .field label, .field .account-sessions .session .location label {
+      margin: 0;
+      display: block; }
+    .account-sessions .session .location[style] {
+      position: relative;
+      padding-left: 20px; }
+      .account-sessions .session .location[style]:before {
+        display: block;
+        content: "";
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        border-right: 10px solid #eeeef0;
+        border-color: inherit; }
   .account-sessions .session.keynote {
     font-size: 1em; }
     .account-sessions .session.keynote .session-title,

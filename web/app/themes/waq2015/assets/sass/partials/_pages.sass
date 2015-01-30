@@ -895,8 +895,6 @@ footer
       margin-top: 0
     >.wrap
       width: 100%
-    .location
-      margin-right: 0
     .session-title
       font-size: 1.5em
     .speaker
@@ -904,6 +902,26 @@ footer
       .title,
       .note
         +inlineb
+        margin-bottom: 0
+    .location
+      margin-right: 0
+      &:before
+        display: none
+      .title
+        margin: 0
+        display: block
+      &[style]
+        position: relative
+        padding-left: $medium
+        &:before
+          display: block
+          content: ""
+          height: 100%
+          left: 0
+          top: 0
+          position: absolute
+          border-right: $small solid $l-grey
+          border-color: inherit
     &.keynote
       font-size: 1em
       .session-title,
