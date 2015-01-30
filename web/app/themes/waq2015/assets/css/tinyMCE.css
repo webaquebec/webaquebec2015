@@ -1,8 +1,7 @@
-@charset "UTF-8";
 @import url(reset.css);
-@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700";
-@import "http://weloveiconfonts.com/api/?family=typicons";
-@import "http://weloveiconfonts.com/api/?family=entypo";
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700);
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 *,
 *:before,
 *:after {
@@ -16,13 +15,13 @@ button,
 input,
 select,
 textarea {
-  color: #000; }
+  color: black; }
 
 html {
   font-size: 16px; }
 
 body {
-  background: #fff;
+  background: white;
   position: relative;
   margin: 0;
   padding: 0; }
@@ -46,14 +45,14 @@ ul {
 
 ::-moz-selection {
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: white;
   border: none;
   outline: none;
   text-shadow: none; }
 
 ::selection {
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: white;
   border: none;
   outline: none;
   text-shadow: none; }
@@ -71,7 +70,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0; }
 
@@ -95,12 +94,12 @@ input, button, select, option, textarea {
 
 .chromeframe {
   margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
+  background: #cccccc;
+  color: black;
   padding: 0.2em 0; }
 
 body {
-  color: #111;
+  color: #111111;
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300; }
 
@@ -113,17 +112,17 @@ b {
   font-weight: 700; }
 
 a {
-  color: #0094C2; }
+  color: #0094c2; }
   .no-touch a:hover {
     color: #00bfdf; }
   .dark a {
     color: #00bfdf; }
     .no-touch .dark a:hover {
-      color: #fff; }
+      color: white; }
 
 hr {
   margin: 1.5em 0;
-  border-color: #B8B9C2; }
+  border-color: #b8b9c2; }
   .dark hr {
     border-color: #4b4b4d; }
 
@@ -137,13 +136,13 @@ hr {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
   .dark .title {
-    color: #fff;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .dark .title.lined {
     background: #303030; }
   .black .title {
-    color: #fff;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .light .title {
@@ -155,7 +154,8 @@ hr {
   .title.sub {
     font-size: 1.125em;
     font-weight: 300;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin-top: 0; }
   .title.small {
     font-size: 1em;
     text-transform: uppercase; }
@@ -177,7 +177,7 @@ hr {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    background: #fff;
+    background: white;
     padding-right: 1em;
     position: relative;
     z-index: 10; }
@@ -205,7 +205,7 @@ hr {
   display: block;
   margin: 0.5em 0;
   font-size: 0.85em;
-  color: #B8B9C2;
+  color: #b8b9c2;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
 
@@ -216,7 +216,7 @@ hr {
   top: -0.1em; }
 
 .note {
-  color: #B8B9C2;
+  color: #b8b9c2;
   font-size: 0.875em;
   display: block; }
   .dark .note {
@@ -287,60 +287,58 @@ hr {
   text-indent: 0; }
 
 .icon-blank:after {
-  content: ""; }
+  content: "\f100"; }
 
 .icon-star:after {
-  content: ""; }
+  content: "\f101"; }
 
 .icon-user:after {
-  content: ""; }
+  content: "\f102"; }
 
 .icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after {
-  content: ""; }
+  content: "\f103"; }
 
 .icon-arrow-left:after {
-  content: ""; }
+  content: "\f104"; }
 
 .icon-arrow-top:after {
-  content: ""; }
+  content: "\f105"; }
 
 .icon-arrow-bottom:after {
-  content: ""; }
+  content: "\f106"; }
 
 .icon-facebook:after {
-  content: ""; }
+  content: "\f107"; }
 
 .icon-twitter:after {
-  content: ""; }
+  content: "\f108"; }
 
 .icon-linkedin:after {
-  content: ""; }
+  content: "\f109"; }
 
 .icon-instagram:after {
-  content: ""; }
+  content: "\f10a"; }
 
 .icon-retweet:after {
-  content: ""; }
+  content: "\f10b"; }
 
 .icon-reply:after {
-  content: ""; }
+  content: "\f10c"; }
 
 .icon-favorite:after {
-  content: ""; }
+  content: "\f10d"; }
 
 .icon-more:after {
-  content: ""; }
+  content: "\f10e"; }
 
 .icon-close:after {
-  content: ""; }
+  content: "\f10f"; }
 
 .icon-website:after {
-  content: ""; }
+  content: "\f110"; }
 
 .icon-menu:after {
-  content: ""; }
+  content: "\f111"; }
 
 body.wp-autoresize {
   padding: 20px !important; }
-
-/*# sourceMappingURL=tinymce.css.map */

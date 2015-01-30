@@ -82,9 +82,11 @@ $schedules = new WP_query(array(
     <?php if(isset($sessions[$post->ID])): ?>
 
     <article class="schedule">
-      <h2 class="title">
-        <span class="sub title"><?= get_the_title($post->ID) ?></span>
-        <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
+      <h2 class="title border-middle">
+        <span>
+          <span class="sub title"><?= get_the_title($post->ID) ?></span>
+          <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
+        </span>
       </h2>
       <div class="my-sessions">
         <ul>
@@ -132,6 +134,7 @@ $schedules = new WP_query(array(
 <?php endwhile; endif; ?>
 
 <?php
+wp_reset_query();
 get_footer_once();
 ?>
 
