@@ -80,6 +80,11 @@ function create_users()
             'location' => array (
                 array (
                     array (
+                        'param' => 'user_type',
+                        'operator' => '==',
+                        'value' => 'administrator',
+                    ),
+                    array (
                         'param' => 'user_role',
                         'operator' => '==',
                         'value' => 'all',
