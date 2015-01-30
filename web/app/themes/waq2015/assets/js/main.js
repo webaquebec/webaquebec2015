@@ -226,7 +226,7 @@ jQuery(document).ready(function($){
         var is_tabs = (!waq.$program.$sticky || $sticky[0] == waq.$program.$sticky[0]);
         $sticky.sticky({
           offset: is_tabs ? 110 : 120,
-          offsetBottom: is_tabs ? 40 : 30,
+          offsetBottom: is_tabs ? 30 : 30,
           container: is_tabs ? waq.$program : $sticky.parent(),
           reset: function(e){
             e.selection.removeClass('fixed contained');
@@ -395,6 +395,7 @@ jQuery(document).ready(function($){
       // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
       if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
+      $.cookie('schedule', $schedule.attr('schedule'), { path: '/' });
       e.stopPropagation();
 
     }

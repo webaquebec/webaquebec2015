@@ -25,14 +25,16 @@ if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
         'posts_per_page' => -1,
         'orderby'=> 'menu_order',
       ));
-      if($schedules->have_posts()): ?>
+      if($schedules->have_posts()):
+        $activeSchedule = isset($_COOKIE['schedule']) ? $_COOKIE['schedule'] : $schedules->posts[0]->ID;
+        ?>
 
       <div class="days">
         <nav class="sticky">
           <ul>
             <?php foreach($schedules->posts as $k=>$post): ?>
             <li>
-              <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
+              <button class="btn toggle<?php if($post->ID==$activeSchedule) echo ' active' ?>" schedule="<?= $post->ID ?>" >
                 <div class="wrap">
                   <span class="sub title"><?= get_the_title($post->ID) ?></span>
                   <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
@@ -80,11 +82,10 @@ if(has($filters)):
   <?php if($schedules->have_posts()): ?>
   <div class="schedules">
   <?php
-
   // loop throught schedules
-  foreach($schedules->posts as $k=>$post):
+  foreach($schedules->posts as $post):
     ?>
-    <article class="schedule<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>">
+    <article class="schedule<?php if($post->ID==$activeSchedule) echo ' active' ?>" schedule="<?= $post->ID ?>">
     <?php
     //
     // format for time labels
