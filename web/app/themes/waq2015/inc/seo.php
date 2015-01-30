@@ -7,22 +7,47 @@
 if( function_exists('register_field_group') ):
 
   function acf_seo(){
-    global $post;
-    setup_postdata($post);
-    $description = get_field('description');
-    if(!has($description)) $description = get_field('description', 'options');
-    $keywords = get_field('keywords');
-    if(!has($keywords)) $keywords = get_field('keywords', 'options');
-    $og_image = get_field('og_image');
-    if(!has($og_image)) $og_image = get_field('og_image', 'options');
-    $title = get_field('title');
-    if(!has($title)) $title = get_field('title', 'options');
-
+    global $post, $wp_query, $current_user;
+    $vars = $wp_query->query_vars;
     $title = get_bloginfo('name');
-    $pageTitle = get_field('title');
-    if(!$pageTitle && !is_front_page()){ $pageTitle = get_the_title(); }
-    if(has($pageTitle)){ $title = $pageTitle." • ".$title; }
+    $description = '';
+    $keywords = '';
+    $og_image = '';
+    $pageTitle = '';
+    $url = get_home_url();
 
+    if(isset($post)){
+      setup_postdata($post);
+      $description = get_field('description');
+      $keywords = get_field('keywords');
+      $og_image = get_field('og_image');
+      if($post->post_name=='mon-horaire'){
+        $url .= '/horaire/'.$current_user->user_login;
+        $pageTitle = __('L\'horaire de', 'waq').' '.$current_user->data->display_name;
+      }
+      else{
+        $url = get_permalink();
+        $pageTitle = get_field('title');
+      }
+    }
+
+    elseif(isset($vars['author_name']) || isset($vars['author'])){
+      $profile = isset($vars['author_name']) ? get_user_by('slug', $vars['author_name']) : $vars['author'];
+      $account_page_ID = get_ID_from_slug('mon-horaire');
+      $url .= '/horaire/'.$profile->user_login;
+      $description = get_field('description', $account_page_ID);
+      $keywords = get_field('keywords', $account_page_ID);
+      $og_image = get_field('og_image', $account_page_ID);
+      $pageTitle = __('L\'horaire de', 'waq').' '.$profile->data->display_name;
+    }
+
+    if(!has($description)) $description = get_field('description', 'options');
+    if(!has($keywords)) $keywords = get_field('keywords', 'options');
+    if(!has($og_image)) $og_image = get_field('og_image', 'options');
+    if(!has($pageTitle)) $pageTitle = get_field('title', 'options');
+    if(!has($pageTitle) && !is_front_page()){ $pageTitle = get_the_title(); }
+
+    if(has($pageTitle)) $title = $pageTitle." • ".$title;
     ?>
 
     <title><?= $title?></title>
@@ -30,12 +55,11 @@ if( function_exists('register_field_group') ):
     <meta name="keyword" content="<?= $keywords ?>" />
     <meta property="og:title" content="<?= $title ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?= get_permalink() ?>" />
+    <meta property="og:url" content="<?= $url ?>" />
     <meta property="og:site_name" content="<?= get_bloginfo('name') ?>"/>
     <meta property="og:description" content="<?= $description ?>"/>
     <meta property="og:image" content="<?= $og_image['url'] ?>" />
     <?php
-
   }
 
 
@@ -134,6 +158,13 @@ if( function_exists('register_field_group') ):
           'param' => 'post_type',
           'operator' => '==',
           'value' => 'post',
+        ),
+      ),
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page',
         ),
       ),
       array (

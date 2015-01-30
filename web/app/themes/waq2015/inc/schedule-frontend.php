@@ -198,7 +198,6 @@ class session extends helper{
 
   public function __construct($ID) {
     if(isset($ID)){
-
       //
       // SESSION
       $this->ID = $ID;
@@ -206,9 +205,8 @@ class session extends helper{
       $this->is_linked = get_field('link_to_post', $this->ID);
       $this->permalink = get_the_permalink($this->ID);
       $this->excerpt = get_field('excerpt', $this->ID);
-      $this->content = apply_filters('the_content',get_the_content($this->ID));
+      $this->content = apply_filters('the_content', get_post_field('post_content',$this->ID));
       $this->themes = wp_get_post_terms($this->ID, 'theme');
-
       //
       // SPEAKER
       $about = get_field('about', $this->ID);
@@ -249,15 +247,15 @@ class session extends helper{
 
       //
       // GRID
-      $grid_ID = get_field('grid', $this->ID);
-      $this->date = DateTime::createFromFormat('d/m/y', get_field('date', $grid_ID))->getTimestamp();
-      $this->grid_title = get_the_title($grid_ID);
+      $this->grid_ID = get_field('grid', $this->ID);
+      $this->date = DateTime::createFromFormat('d/m/y', get_field('date', $this->grid_ID))->getTimestamp();
+      $this->grid_title = get_the_title($this->grid_ID);
 
-      $grid = new grid($grid_ID);
+      $grid = new grid($this->grid_ID);
 
       //
       // TIME
-      $frame = explode('.', get_field('frame_'.$grid_ID, $this->ID));
+      $frame = explode('.', get_field('frame_'.$this->grid_ID, $this->ID));
       $start = intval($frame[0]);
       $end = intval($frame[1]);
       $time_start_key = array_search( $start , $grid->time_keys);
@@ -279,7 +277,6 @@ class session extends helper{
         'span' => intval($location_settings[0]['range']['max'] - $location_settings[0]['range']['min']) + 1,
       );
     }
-    return false;
   }
 }
 

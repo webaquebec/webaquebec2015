@@ -56,9 +56,6 @@
       .secondary
         display: block
 
-      // dirty fix
-      .secondary
-        display: none
   nav[role="navigation"],
   body >
     .logo.waq
@@ -315,8 +312,11 @@
         left: 0
         padding: 0.25em
         height: $large
+        background: $l-grey
+        border-color: $l-grey
         .title
           +inlineb
+          color: $d-blue
           font-size: 1.25em
       td
         height: auto
@@ -425,7 +425,7 @@
   //
   //
   // SESSION
-  .session
+  .single-session
     .cols
       +grid(1, 0)
     .col

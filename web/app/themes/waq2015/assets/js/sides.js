@@ -1,9 +1,5 @@
-
 // moSides.js
 // o2web.ca
-
-// Tous droits réservés
-// All rights reserved
 // 2013
 
 (function($) {

@@ -10,8 +10,10 @@
 
     <?php
     // SET VARIABLES
+    global $current_user;
     $is404 = is_404();
     $is_home = get_page_template_slug()=="template-home.php";
+    $is_loggedin = is_user_logged_in();
     $needs_cookiebang =  !isset($_COOKIE['big-screen']);
     $needs_hashbang = get_post_type()=="page" && get_field('bang');
     $needs_bang = $needs_cookiebang || $needs_hashbang;
@@ -45,13 +47,13 @@
     <!-- css + javascript -->
     <?php wp_head(); ?>
   </head>
-  <body <?php body_class(); ?>>
+  <body>
 
     <?php if($needs_bang): ?>
-    <div class="bang-coverall"></div>
+    <div class="bang-coverall" style=" position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: #fff;"></div>
     <?php endif; ?>
 
-    <div class="wrapper<?php if(is_array($scheduleStatus)){echo ' ' . $scheduleStatus[0];} ?>">
+    <div class="wrapper <?= $is_loggedin ? 'logged-in' : 'not-logged-in' ?> <?php if(is_array($scheduleStatus)){echo ' ' . $scheduleStatus[0];} ?>">
       <header role="banner">
 
         <?php

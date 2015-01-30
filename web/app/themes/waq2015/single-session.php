@@ -1,13 +1,19 @@
 <?php get_header();
+global $current_user;
+get_currentuserinfo();
+$loggedin = is_user_logged_in();
+$favorites_str = '';
+if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
 $session = new session($post->ID);
+$is_favorite = session_is_favorite($session->ID, $favorites_str);
 ?>
 
-<article class="session single no-padding">
+<article class="single-session single no-padding">
 
   <hgroup class="">
     <div class="container">
 
-      <button class="btn seamless toggle favorite" toggle-content="<?= __('J\'y serai','waq') ?>"><span><?= __('Ajouter à mon horaire','waq') ?></span></button>
+      <button class="btn seamless toggle favorite<?php if($is_favorite) echo ' active' ?>" session="<?= $session->ID ?>" toggle-content="<?= $is_favorite ? __('Ajouter à mon horaire','waq') : __('J\'y serai','waq') ?>"><span><?= $is_favorite ? __('J\'y serai','waq') :  __('Ajouter à mon horaire','waq')  ?></span></button>
 
       <div class="main title">
         <div class="name">

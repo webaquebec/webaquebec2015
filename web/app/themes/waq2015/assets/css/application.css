@@ -126,7 +126,7 @@ hr {
   .dark hr {
     border-color: #4b4b4d; }
 
-.title, nav[role="navigation"] ul a {
+.title, nav[role="navigation"] ul a, .field label {
   color: #303030;
   font-weight: 700;
   font-size: 1.5em;
@@ -135,44 +135,48 @@ hr {
   text-transform: none;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
-  .dark .title, .dark nav[role="navigation"] ul a, nav[role="navigation"] ul .dark a {
+  .dark .title, .dark nav[role="navigation"] ul a, nav[role="navigation"] ul .dark a, .dark .field label, .field .dark label {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
-  .dark .title.lined, .dark nav[role="navigation"] ul a.lined, nav[role="navigation"] ul .dark a.lined {
+  .dark .title.lined, .dark nav[role="navigation"] ul a.lined, nav[role="navigation"] ul .dark a.lined, .dark .field label.lined, .field .dark label.lined {
     background: #303030; }
-  .black .title, .black nav[role="navigation"] ul a, nav[role="navigation"] ul .black a {
+  .black .title, .black nav[role="navigation"] ul a, nav[role="navigation"] ul .black a, .black .field label, .field .black label {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
-  .light .title, .light nav[role="navigation"] ul a, nav[role="navigation"] ul .light a {
+  .light .title, .light nav[role="navigation"] ul a, nav[role="navigation"] ul .light a, .light .field label, .field .light label {
     color: #303030; }
-  .title.main, nav[role="navigation"] ul a.main {
+  .title.main, nav[role="navigation"] ul a.main, .field label.main {
     font-size: 3em;
     font-weight: 300;
     text-transform: uppercase; }
-  .title.sub, nav[role="navigation"] ul a.sub {
+  .title.sub, nav[role="navigation"] ul a.sub, .field label {
     font-size: 1.125em;
     font-weight: 300;
-    text-transform: uppercase; }
-  .title.small, nav[role="navigation"] ul a {
+    text-transform: uppercase;
+    margin-top: 0; }
+  .title.small, nav[role="navigation"] ul a, .field label.small, #loginform .login-submit > *,
+  #loginform .register-submit > *,
+  #registerform .login-submit > *,
+  #registerform .register-submit > * {
     font-size: 1em;
     text-transform: uppercase; }
-  .title.huge, nav[role="navigation"] ul a.huge {
+  .title.huge, nav[role="navigation"] ul a.huge, .field label.huge {
     font-size: 2em;
     text-transform: uppercase; }
-  .title.lower, nav[role="navigation"] ul a.lower {
+  .title.lower, nav[role="navigation"] ul a.lower, .field label.lower {
     font-size: 1em; }
-  .title.thin, nav[role="navigation"] ul a.thin {
+  .title.thin, nav[role="navigation"] ul a.thin, .field label.thin {
     font-size: 1em;
     font-weight: 300; }
-  .title.border-left, nav[role="navigation"] ul a.border-left {
+  .title.border-left, nav[role="navigation"] ul a.border-left, .field label.border-left {
     padding: 20px 30px 20px; }
-    .title.border-left .border-bottom, nav[role="navigation"] ul a.border-left .border-bottom {
+    .title.border-left .border-bottom, nav[role="navigation"] ul a.border-left .border-bottom, .field label.border-left .border-bottom {
       position: absolute;
       left: 0;
       bottom: 0; }
-  .title.lined, nav[role="navigation"] ul a.lined {
+  .title.lined, nav[role="navigation"] ul a.lined, .field label.lined {
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -180,6 +184,10 @@ hr {
     padding-right: 1em;
     position: relative;
     z-index: 10; }
+  .title small, nav[role="navigation"] ul a small, .field label small {
+    display: block;
+    font-size: 0.5em;
+    margin-bottom: 0.4em; }
 
 .sub-line {
   border-color: #cacaca;
@@ -188,7 +196,7 @@ hr {
   position: relative;
   top: -0.5em; }
 
-.main.title .meta, nav[role="navigation"] ul a.main .meta {
+.main.title .meta, nav[role="navigation"] ul a.main .meta, .field label.main .meta {
   font-size: 0.5em; }
 .dark .meta {
   -webkit-font-smoothing: antialiased;
@@ -210,13 +218,21 @@ hr {
   position: relative;
   top: -0.1em; }
 
-.note {
+.note, #loginform .login-remember,
+#registerform .login-remember {
   color: #b8b9c2;
   font-size: 0.875em;
   display: block; }
-  .dark .note {
+  .dark .note, .dark #loginform .login-remember, #loginform .dark .login-remember,
+  .dark #registerform .login-remember,
+  #registerform .dark .login-remember {
     color: #eeeef0; }
-  .title + .note, nav[role="navigation"] ul a + .note {
+  .title + .note, nav[role="navigation"] ul a + .note, .field label + .note, #loginform .title + .login-remember, nav[role="navigation"] ul #loginform a + .login-remember, #loginform nav[role="navigation"] ul a + .login-remember, .field #loginform label + .login-remember, #loginform .field label + .login-remember,
+  #registerform .title + .login-remember,
+  nav[role="navigation"] ul #registerform a + .login-remember,
+  #registerform nav[role="navigation"] ul a + .login-remember,
+  .field #registerform label + .login-remember,
+  #registerform .field label + .login-remember {
     margin-top: -0.375em;
     margin-bottom: 1em; }
 
@@ -255,8 +271,15 @@ hr {
 .icon-star:after,
 .btn.toggle.favorite > :after,
 .toggle.favorite.profile > :after,
+.toggle.favorite.card > :after,
+.social-account .toggle.favorite.wp-social-login-provider > :after,
+#loginform .toggle.favorite.login-submit > :after,
+#loginform .toggle.favorite.register-submit > :after,
+#registerform .toggle.favorite.login-submit > :after,
+#registerform .toggle.favorite.register-submit > :after,
 .btn.toggle.favorite.active > :after,
 .toggle.favorite.active.profile > :after,
+.toggle.favorite.active.card > :after,
 .icon-user:after,
 .icon-arrow-right:after,
 .list.bullets li:after,
@@ -264,17 +287,32 @@ hr {
 .content ol.bullets li:after,
 .btn.link a > span:after,
 .link.profile a > span:after,
+.link.card a > span:after,
+.social-account .link.wp-social-login-provider a > span:after,
+#loginform .link.login-submit a > span:after,
+#loginform .link.register-submit a > span:after,
+#registerform .link.login-submit a > span:after,
+#registerform .link.register-submit a > span:after,
 .features .session .wrap > .title:after,
 .features .session nav[role="navigation"] ul .wrap > a:after,
 nav[role="navigation"] ul .features .session .wrap > a:after,
+.features .session .field .wrap > label:after,
+.field .features .session .wrap > label:after,
 .icon-arrow-left:after,
 .btn.back a > span:after,
 .back.profile a > span:after,
+.back.card a > span:after,
+.social-account .back.wp-social-login-provider a > span:after,
+#loginform .back.login-submit a > span:after,
+#loginform .back.register-submit a > span:after,
+#registerform .back.login-submit a > span:after,
+#registerform .back.register-submit a > span:after,
 .icon-arrow-top:after,
 .icon-arrow-bottom:after,
 .icon-facebook:after,
 .profile .links a.facebook:after,
 .social a.facebook:after,
+.social-account .wp-social-login-provider[data-provider="Facebook"] > *:after,
 .event-location .social a.facebook:after,
 footer .contact-general .social a.facebook:after,
 .icon-twitter:after,
@@ -302,12 +340,26 @@ nav[role="navigation"] .secondary a:after,
 .icon-more:after,
 .btn.toggle > :after,
 .toggle.profile > :after,
+.toggle.card > :after,
+.social-account .toggle.wp-social-login-provider > :after,
+#loginform .toggle.login-submit > :after,
+#loginform .toggle.register-submit > :after,
+#registerform .toggle.login-submit > :after,
+#registerform .toggle.register-submit > :after,
 .filters .title.toggle:after,
 .filters nav[role="navigation"] ul a.toggle:after,
 nav[role="navigation"] ul .filters a.toggle:after,
+.filters .field label.toggle:after,
+.field .filters label.toggle:after,
 .icon-close:after,
 .btn.toggle.active > :after,
 .toggle.active.profile > :after,
+.toggle.active.card > :after,
+.social-account .toggle.active.wp-social-login-provider > :after,
+#loginform .toggle.active.login-submit > :after,
+#loginform .toggle.active.register-submit > :after,
+#registerform .toggle.active.login-submit > :after,
+#registerform .toggle.active.register-submit > :after,
 .icon-website:after,
 .social a.website:after,
 .icon-menu:after {
@@ -323,16 +375,25 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-blank:after {
   content: "\f100"; }
 
-.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after {
+.icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, .social-account .toggle.favorite.wp-social-login-provider > :after, #loginform .toggle.favorite.login-submit > :after,
+#loginform .toggle.favorite.register-submit > :after,
+#registerform .toggle.favorite.login-submit > :after,
+#registerform .toggle.favorite.register-submit > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after, .toggle.favorite.active.card > :after {
   content: "\f101"; }
 
 .icon-user:after {
   content: "\f102"; }
 
-.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after {
+.icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, .social-account .link.wp-social-login-provider a > span:after, #loginform .link.login-submit a > span:after,
+#loginform .link.register-submit a > span:after,
+#registerform .link.login-submit a > span:after,
+#registerform .link.register-submit a > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
   content: "\f103"; }
 
-.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after {
+.icon-arrow-left:after, .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, .social-account .back.wp-social-login-provider a > span:after, #loginform .back.login-submit a > span:after,
+#loginform .back.register-submit a > span:after,
+#registerform .back.login-submit a > span:after,
+#registerform .back.register-submit a > span:after {
   content: "\f104"; }
 
 .icon-arrow-top:after {
@@ -341,7 +402,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-arrow-bottom:after {
   content: "\f106"; }
 
-.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
+.icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
   content: "\f107"; }
 
 .icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .event-location .social a.twitter:after, .feed-post.twitter:before, footer .contact-general .social a.twitter:after {
@@ -362,10 +423,16 @@ nav[role="navigation"] ul .filters a.toggle:after,
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
   content: "\f10d"; }
 
-.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+.icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, .social-account .toggle.wp-social-login-provider > :after, #loginform .toggle.login-submit > :after,
+#loginform .toggle.register-submit > :after,
+#registerform .toggle.login-submit > :after,
+#registerform .toggle.register-submit > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
   content: "\f10e"; }
 
-.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after {
+.icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after, .social-account .toggle.active.wp-social-login-provider > :after, #loginform .toggle.active.login-submit > :after,
+#loginform .toggle.active.register-submit > :after,
+#registerform .toggle.active.login-submit > :after,
+#registerform .toggle.active.register-submit > :after {
   content: "\f10f"; }
 
 .icon-website:after, .social a.website:after {
@@ -450,7 +517,7 @@ html {
 
 section,
 article {
-  padding: 30px 0;
+  padding: 30px 0 30px;
   position: relative;
   z-index: 1;
   overflow: hidden; }
@@ -463,7 +530,11 @@ article {
   section.single hgroup,
   article.single header,
   article.single hgroup {
-    padding: 140px 0 30px; }
+    padding: 140px 0 0; }
+  section.single + section, section.single + article,
+  article.single + section,
+  article.single + article {
+    padding-top: 0; }
 
 .container, .sticky.fixed, .days .sticky {
   max-width: 1000px;
@@ -477,6 +548,8 @@ article {
     overflow: hidden; }
   .container:after, .sticky.fixed:after, .days .sticky:after {
     clear: both; }
+  .container.narrow, .narrow.sticky.fixed, .days .narrow.sticky {
+    max-width: 540px; }
 
 .group {
   margin-bottom: 1em; }
@@ -515,6 +588,10 @@ section.intro + nav {
     section.intro + nav.fixed.bottom {
       top: auto;
       bottom: 10px; }
+
+section:first-child header,
+section:first-child hgroup {
+  padding-top: 100px; }
 
 footer {
   padding: 20px 0; }
@@ -793,6 +870,8 @@ nav[role="navigation"] .secondary {
     height: 1px;
     background: #00bfdf;
     position: absolute; }
+  .border:empty, .border-left:empty, .border-right:empty, .border-bottom:empty, .border-top:empty {
+    width: 100%; }
 
 .border-left:after {
   top: 0;
@@ -813,6 +892,46 @@ nav[role="navigation"] .secondary {
   left: 0;
   top: 0;
   width: 100%; }
+
+.border-middle {
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle; }
+  .border-middle:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: middle;
+    margin-right: -0.25em; }
+  .border-middle > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+  .border-middle.centered {
+    text-align: center; }
+  .border-middle:after, .border-middle.centered:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 100%;
+    height: 1px;
+    margin: 0 2em;
+    background: #b8b9c2;
+    vertical-align: middle;
+    margin-top: -0.5em; }
+  .border-middle.centered:before {
+    margin-left: -100%; }
+  .border-middle:after {
+    margin-right: -100%; }
 
 .sticky {
   position: absolute;
@@ -857,7 +976,10 @@ nav[role="navigation"] .secondary {
   .thumb img {
     max-height: 100%; }
 
-.btn, .profile {
+.btn, .profile, .card, .social-account .wp-social-login-provider, #loginform .login-submit,
+#loginform .register-submit,
+#registerform .login-submit,
+#registerform .register-submit {
   background: transparent;
   border: none;
   outline: none;
@@ -872,11 +994,29 @@ nav[role="navigation"] .secondary {
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.3;
   z-index: 0; }
-  .btn:before, .profile:before, .btn:after, .profile:after,
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
+  #loginform .register-submit:before,
+  #registerform .login-submit:before,
+  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
+  #loginform .register-submit:after,
+  #registerform .login-submit:after,
+  #registerform .register-submit:after,
   .btn > *:before,
   .profile > *:before,
+  .card > *:before,
+  .social-account .wp-social-login-provider > *:before,
+  #loginform .login-submit > *:before,
+  #loginform .register-submit > *:before,
+  #registerform .login-submit > *:before,
+  #registerform .register-submit > *:before,
   .btn > *:after,
-  .profile > *:after {
+  .profile > *:after,
+  .card > *:after,
+  .social-account .wp-social-login-provider > *:after,
+  #loginform .login-submit > *:after,
+  #loginform .register-submit > *:after,
+  #registerform .login-submit > *:after,
+  #registerform .register-submit > *:after {
     content: "";
     display: block;
     position: absolute;
@@ -884,16 +1024,31 @@ nav[role="navigation"] .secondary {
     left: 0;
     width: 100%;
     height: 100%; }
-  .btn:before, .profile:before, .btn:after, .profile:after,
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
+  #loginform .register-submit:before,
+  #registerform .login-submit:before,
+  #registerform .register-submit:before, .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
+  #loginform .register-submit:after,
+  #registerform .login-submit:after,
+  #registerform .register-submit:after,
   .btn > *:before,
-  .profile > *:before {
+  .profile > *:before,
+  .card > *:before,
+  .social-account .wp-social-login-provider > *:before,
+  #loginform .login-submit > *:before,
+  #loginform .register-submit > *:before,
+  #registerform .login-submit > *:before,
+  #registerform .register-submit > *:before {
     height: auto;
     width: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 1.5em; }
-  .btn:after, .profile:after {
+  .btn:after, .profile:after, .card:after, .social-account .wp-social-login-provider:after, #loginform .login-submit:after,
+  #loginform .register-submit:after,
+  #registerform .login-submit:after,
+  #registerform .register-submit:after {
     z-index: -1;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -907,7 +1062,10 @@ nav[role="navigation"] .secondary {
     -ms-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: border-color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn:before, .profile:before {
+  .btn:before, .profile:before, .card:before, .social-account .wp-social-login-provider:before, #loginform .login-submit:before,
+  #loginform .register-submit:before,
+  #registerform .login-submit:before,
+  #registerform .register-submit:before {
     right: 100%;
     z-index: -1;
     background: #eeeef0;
@@ -919,7 +1077,10 @@ nav[role="navigation"] .secondary {
     -ms-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: right 120ms cubic-bezier(0.2, 0, 0.4, 1), background 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn > *, .profile > * {
+  .btn > *, .profile > *, .card > *, .social-account .wp-social-login-provider > *, #loginform .login-submit > *,
+  #loginform .register-submit > *,
+  #registerform .login-submit > *,
+  #registerform .register-submit > * {
     padding: 0.5em 1em 0.5em 1em;
     display: inline-block;
     *display: inline;
@@ -932,13 +1093,19 @@ nav[role="navigation"] .secondary {
     -ms-transition: color 120ms linear;
     -o-transition: color 120ms linear;
     transition: color 120ms linear; }
-    .btn > *:before, .profile > *:before {
+    .btn > *:before, .profile > *:before, .card > *:before, .social-account .wp-social-login-provider > *:before, #loginform .login-submit > *:before,
+    #loginform .register-submit > *:before,
+    #registerform .login-submit > *:before,
+    #registerform .register-submit > *:before {
       background: white;
       z-index: -2;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       border-radius: 4px; }
-    .btn > *:after, .profile > *:after {
+    .btn > *:after, .profile > *:after, .card > *:after, .social-account .wp-social-login-provider > *:after, #loginform .login-submit > *:after,
+    #loginform .register-submit > *:after,
+    #registerform .login-submit > *:after,
+    #registerform .register-submit > *:after {
       text-align: right;
       font-size: 0.8em;
       padding: 0.2em 1em;
@@ -948,137 +1115,403 @@ nav[role="navigation"] .secondary {
       -ms-transition: color 120ms linear 60ms;
       -o-transition: color 120ms linear 60ms;
       transition: color 120ms linear 60ms; }
-  .dark .btn, .dark .profile {
+  .dark .btn, .dark .profile, .dark .card, .dark .social-account .wp-social-login-provider, .social-account .dark .wp-social-login-provider, .dark #loginform .login-submit, #loginform .dark .login-submit,
+  .dark #loginform .register-submit,
+  #loginform .dark .register-submit,
+  .dark #registerform .login-submit,
+  #registerform .dark .login-submit,
+  .dark #registerform .register-submit,
+  #registerform .dark .register-submit {
     color: white; }
-    .dark .btn:before, .dark .profile:before {
+    .dark .btn:before, .dark .profile:before, .dark .card:before, .dark .social-account .wp-social-login-provider:before, .social-account .dark .wp-social-login-provider:before, .dark #loginform .login-submit:before, #loginform .dark .login-submit:before,
+    .dark #loginform .register-submit:before,
+    #loginform .dark .register-submit:before,
+    .dark #registerform .login-submit:before,
+    #registerform .dark .login-submit:before,
+    .dark #registerform .register-submit:before,
+    #registerform .dark .register-submit:before {
       background: #4b4b4d; }
-    .dark .btn:after, .dark .profile:after {
+    .dark .btn:after, .dark .profile:after, .dark .card:after, .dark .social-account .wp-social-login-provider:after, .social-account .dark .wp-social-login-provider:after, .dark #loginform .login-submit:after, #loginform .dark .login-submit:after,
+    .dark #loginform .register-submit:after,
+    #loginform .dark .register-submit:after,
+    .dark #registerform .login-submit:after,
+    #registerform .dark .login-submit:after,
+    .dark #registerform .register-submit:after,
+    #registerform .dark .register-submit:after {
       border-color: #3d3d3d; }
-    .dark .btn > *, .dark .profile > * {
+    .dark .btn > *, .dark .profile > *, .dark .card > *, .dark .social-account .wp-social-login-provider > *, .social-account .dark .wp-social-login-provider > *, .dark #loginform .login-submit > *, #loginform .dark .login-submit > *,
+    .dark #loginform .register-submit > *,
+    #loginform .dark .register-submit > *,
+    .dark #registerform .login-submit > *,
+    #registerform .dark .login-submit > *,
+    .dark #registerform .register-submit > *,
+    #registerform .dark .register-submit > * {
       color: white; }
-      .dark .btn > *:before, .dark .profile > *:before {
+      .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before, .dark .social-account .wp-social-login-provider > *:before, .social-account .dark .wp-social-login-provider > *:before, .dark #loginform .login-submit > *:before, #loginform .dark .login-submit > *:before,
+      .dark #loginform .register-submit > *:before,
+      #loginform .dark .register-submit > *:before,
+      .dark #registerform .login-submit > *:before,
+      #registerform .dark .login-submit > *:before,
+      .dark #registerform .register-submit > *:before,
+      #registerform .dark .register-submit > *:before {
         background: #303030; }
-    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after {
+    .dark .btn.toggle.active:after, .dark .toggle.active.profile:after, .dark .toggle.active.card:after, .dark .social-account .toggle.active.wp-social-login-provider:after, .social-account .dark .toggle.active.wp-social-login-provider:after, .dark #loginform .toggle.active.login-submit:after, #loginform .dark .toggle.active.login-submit:after,
+    .dark #loginform .toggle.active.register-submit:after,
+    #loginform .dark .toggle.active.register-submit:after,
+    .dark #registerform .toggle.active.login-submit:after,
+    #registerform .dark .toggle.active.login-submit:after,
+    .dark #registerform .toggle.active.register-submit:after,
+    #registerform .dark .toggle.active.register-submit:after {
       border-color: #005f93; }
-  .black .btn, .black .profile {
+  .black .btn, .black .profile, .black .card, .black .social-account .wp-social-login-provider, .social-account .black .wp-social-login-provider, .black #loginform .login-submit, #loginform .black .login-submit,
+  .black #loginform .register-submit,
+  #loginform .black .register-submit,
+  .black #registerform .login-submit,
+  #registerform .black .login-submit,
+  .black #registerform .register-submit,
+  #registerform .black .register-submit {
     color: white; }
-    .black .btn:before, .black .profile:before {
+    .black .btn:before, .black .profile:before, .black .card:before, .black .social-account .wp-social-login-provider:before, .social-account .black .wp-social-login-provider:before, .black #loginform .login-submit:before, #loginform .black .login-submit:before,
+    .black #loginform .register-submit:before,
+    #loginform .black .register-submit:before,
+    .black #registerform .login-submit:before,
+    #registerform .black .login-submit:before,
+    .black #registerform .register-submit:before,
+    #registerform .black .register-submit:before {
       background: #111111; }
-    .black .btn:after, .black .profile:after {
+    .black .btn:after, .black .profile:after, .black .card:after, .black .social-account .wp-social-login-provider:after, .social-account .black .wp-social-login-provider:after, .black #loginform .login-submit:after, #loginform .black .login-submit:after,
+    .black #loginform .register-submit:after,
+    #loginform .black .register-submit:after,
+    .black #registerform .login-submit:after,
+    #registerform .black .login-submit:after,
+    .black #registerform .register-submit:after,
+    #registerform .black .register-submit:after {
       border-color: #3d3d3d; }
-    .black .btn > *:before, .black .profile > *:before {
+    .black .btn > *:before, .black .profile > *:before, .black .card > *:before, .black .social-account .wp-social-login-provider > *:before, .social-account .black .wp-social-login-provider > *:before, .black #loginform .login-submit > *:before, #loginform .black .login-submit > *:before,
+    .black #loginform .register-submit > *:before,
+    #loginform .black .register-submit > *:before,
+    .black #registerform .login-submit > *:before,
+    #registerform .black .login-submit > *:before,
+    .black #registerform .register-submit > *:before,
+    #registerform .black .register-submit > *:before {
       background: #303030; }
-    .black .btn.toggle.active:after, .black .toggle.active.profile:after {
+    .black .btn.toggle.active:after, .black .toggle.active.profile:after, .black .toggle.active.card:after, .black .social-account .toggle.active.wp-social-login-provider:after, .social-account .black .toggle.active.wp-social-login-provider:after, .black #loginform .toggle.active.login-submit:after, #loginform .black .toggle.active.login-submit:after,
+    .black #loginform .toggle.active.register-submit:after,
+    #loginform .black .toggle.active.register-submit:after,
+    .black #registerform .toggle.active.login-submit:after,
+    #registerform .black .toggle.active.login-submit:after,
+    .black #registerform .toggle.active.register-submit:after,
+    #registerform .black .toggle.active.register-submit:after {
       border-color: #005f93; }
-  .light .btn, .light .profile, .l-grey .btn, .l-grey .profile {
+  .light .btn, .light .profile, .light .card, .light .social-account .wp-social-login-provider, .social-account .light .wp-social-login-provider, .light #loginform .login-submit, #loginform .light .login-submit,
+  .light #loginform .register-submit,
+  #loginform .light .register-submit,
+  .light #registerform .login-submit,
+  #registerform .light .login-submit,
+  .light #registerform .register-submit,
+  #registerform .light .register-submit, .l-grey .btn, .l-grey .profile, .l-grey .card, .l-grey .social-account .wp-social-login-provider, .social-account .l-grey .wp-social-login-provider, .l-grey #loginform .login-submit, #loginform .l-grey .login-submit,
+  .l-grey #loginform .register-submit,
+  #loginform .l-grey .register-submit,
+  .l-grey #registerform .login-submit,
+  #registerform .l-grey .login-submit,
+  .l-grey #registerform .register-submit,
+  #registerform .l-grey .register-submit {
     color: #303030; }
-    .light .btn > *, .light .profile > *, .l-grey .btn > *, .l-grey .profile > * {
+    .light .btn > *, .light .profile > *, .light .card > *, .light .social-account .wp-social-login-provider > *, .social-account .light .wp-social-login-provider > *, .light #loginform .login-submit > *, #loginform .light .login-submit > *,
+    .light #loginform .register-submit > *,
+    #loginform .light .register-submit > *,
+    .light #registerform .login-submit > *,
+    #registerform .light .login-submit > *,
+    .light #registerform .register-submit > *,
+    #registerform .light .register-submit > *, .l-grey .btn > *, .l-grey .profile > *, .l-grey .card > *, .l-grey .social-account .wp-social-login-provider > *, .social-account .l-grey .wp-social-login-provider > *, .l-grey #loginform .login-submit > *, #loginform .l-grey .login-submit > *,
+    .l-grey #loginform .register-submit > *,
+    #loginform .l-grey .register-submit > *,
+    .l-grey #registerform .login-submit > *,
+    #registerform .l-grey .login-submit > *,
+    .l-grey #registerform .register-submit > *,
+    #registerform .l-grey .register-submit > * {
       color: #303030; }
-    .light .btn:before, .light .profile:before, .l-grey .btn:before, .l-grey .profile:before {
+    .light .btn:before, .light .profile:before, .light .card:before, .light .social-account .wp-social-login-provider:before, .social-account .light .wp-social-login-provider:before, .light #loginform .login-submit:before, #loginform .light .login-submit:before,
+    .light #loginform .register-submit:before,
+    #loginform .light .register-submit:before,
+    .light #registerform .login-submit:before,
+    #registerform .light .login-submit:before,
+    .light #registerform .register-submit:before,
+    #registerform .light .register-submit:before, .l-grey .btn:before, .l-grey .profile:before, .l-grey .card:before, .l-grey .social-account .wp-social-login-provider:before, .social-account .l-grey .wp-social-login-provider:before, .l-grey #loginform .login-submit:before, #loginform .l-grey .login-submit:before,
+    .l-grey #loginform .register-submit:before,
+    #loginform .l-grey .register-submit:before,
+    .l-grey #registerform .login-submit:before,
+    #registerform .l-grey .login-submit:before,
+    .l-grey #registerform .register-submit:before,
+    #registerform .l-grey .register-submit:before {
       background: #eeeef0; }
-    .light .btn:after, .light .profile:after, .l-grey .btn:after, .l-grey .profile:after {
+    .light .btn:after, .light .profile:after, .light .card:after, .light .social-account .wp-social-login-provider:after, .social-account .light .wp-social-login-provider:after, .light #loginform .login-submit:after, #loginform .light .login-submit:after,
+    .light #loginform .register-submit:after,
+    #loginform .light .register-submit:after,
+    .light #registerform .login-submit:after,
+    #registerform .light .login-submit:after,
+    .light #registerform .register-submit:after,
+    #registerform .light .register-submit:after, .l-grey .btn:after, .l-grey .profile:after, .l-grey .card:after, .l-grey .social-account .wp-social-login-provider:after, .social-account .l-grey .wp-social-login-provider:after, .l-grey #loginform .login-submit:after, #loginform .l-grey .login-submit:after,
+    .l-grey #loginform .register-submit:after,
+    #loginform .l-grey .register-submit:after,
+    .l-grey #registerform .login-submit:after,
+    #registerform .l-grey .login-submit:after,
+    .l-grey #registerform .register-submit:after,
+    #registerform .l-grey .register-submit:after {
       border-color: #b8b9c2; }
-    .light .btn > *:before, .light .profile > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before {
+    .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .light .social-account .wp-social-login-provider > *:before, .social-account .light .wp-social-login-provider > *:before, .light #loginform .login-submit > *:before, #loginform .light .login-submit > *:before,
+    .light #loginform .register-submit > *:before,
+    #loginform .light .register-submit > *:before,
+    .light #registerform .login-submit > *:before,
+    #registerform .light .login-submit > *:before,
+    .light #registerform .register-submit > *:before,
+    #registerform .light .register-submit > *:before, .l-grey .btn > *:before, .l-grey .profile > *:before, .l-grey .card > *:before, .l-grey .social-account .wp-social-login-provider > *:before, .social-account .l-grey .wp-social-login-provider > *:before, .l-grey #loginform .login-submit > *:before, #loginform .l-grey .login-submit > *:before,
+    .l-grey #loginform .register-submit > *:before,
+    #loginform .l-grey .register-submit > *:before,
+    .l-grey #registerform .login-submit > *:before,
+    #registerform .l-grey .login-submit > *:before,
+    .l-grey #registerform .register-submit > *:before,
+    #registerform .l-grey .register-submit > *:before {
       background: #eeeef0; }
-  .btn.light:before, .light.profile:before {
+  .btn.light:before, .light.profile:before, .light.card:before, .social-account .light.wp-social-login-provider:before, #loginform .light.login-submit:before,
+  #loginform .light.register-submit:before,
+  #registerform .light.login-submit:before,
+  #registerform .light.register-submit:before {
     background: white; }
-  .btn.light:after, .light.profile:after {
+  .btn.light:after, .light.profile:after, .light.card:after, .social-account .light.wp-social-login-provider:after, #loginform .light.login-submit:after,
+  #loginform .light.register-submit:after,
+  #registerform .light.login-submit:after,
+  #registerform .light.register-submit:after {
     border-color: #eeeef0; }
-  .btn.light > *:before, .light.profile > *:before {
+  .btn.light > *:before, .light.profile > *:before, .light.card > *:before, .social-account .light.wp-social-login-provider > *:before, #loginform .light.login-submit > *:before,
+  #loginform .light.register-submit > *:before,
+  #registerform .light.login-submit > *:before,
+  #registerform .light.register-submit > *:before {
     background: white; }
-  .no-touch .btn:hover:before, .no-touch .profile:hover:before {
+  .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before, .no-touch .social-account .wp-social-login-provider:hover:before, .social-account .no-touch .wp-social-login-provider:hover:before, .no-touch #loginform .login-submit:hover:before, #loginform .no-touch .login-submit:hover:before,
+  .no-touch #loginform .register-submit:hover:before,
+  #loginform .no-touch .register-submit:hover:before,
+  .no-touch #registerform .login-submit:hover:before,
+  #registerform .no-touch .login-submit:hover:before,
+  .no-touch #registerform .register-submit:hover:before,
+  #registerform .no-touch .register-submit:hover:before {
     right: 1px; }
-  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after,
+  .no-touch .btn:hover > *:after, .no-touch .profile:hover > *:after, .no-touch .card:hover > *:after, .no-touch .social-account .wp-social-login-provider:hover > *:after, .social-account .no-touch .wp-social-login-provider:hover > *:after, .no-touch #loginform .login-submit:hover > *:after, #loginform .no-touch .login-submit:hover > *:after,
+  .no-touch #loginform .register-submit:hover > *:after,
+  #loginform .no-touch .register-submit:hover > *:after,
+  .no-touch #registerform .login-submit:hover > *:after,
+  #registerform .no-touch .login-submit:hover > *:after,
+  .no-touch #registerform .register-submit:hover > *:after,
+  #registerform .no-touch .register-submit:hover > *:after,
   .no-touch .btn:hover > * > *:after,
-  .no-touch .profile:hover > * > *:after {
+  .no-touch .profile:hover > * > *:after,
+  .no-touch .card:hover > * > *:after,
+  .no-touch .social-account .wp-social-login-provider:hover > * > *:after,
+  .social-account .no-touch .wp-social-login-provider:hover > * > *:after,
+  .no-touch #loginform .login-submit:hover > * > *:after,
+  #loginform .no-touch .login-submit:hover > * > *:after,
+  .no-touch #loginform .register-submit:hover > * > *:after,
+  #loginform .no-touch .register-submit:hover > * > *:after,
+  .no-touch #registerform .login-submit:hover > * > *:after,
+  #registerform .no-touch .login-submit:hover > * > *:after,
+  .no-touch #registerform .register-submit:hover > * > *:after,
+  #registerform .no-touch .register-submit:hover > * > *:after {
     color: #00bfdf; }
-  .btn.big, .big.profile {
+  .btn.big, .big.profile, .big.card, .social-account .big.wp-social-login-provider, #loginform .big.login-submit,
+  #loginform .big.register-submit,
+  #registerform .big.login-submit,
+  #registerform .big.register-submit {
     font-size: 1.25em; }
-    .btn.big.toggle > *:after, .big.toggle.profile > *:after {
+    .btn.big.toggle > *:after, .big.toggle.profile > *:after, .big.toggle.card > *:after, .social-account .big.toggle.wp-social-login-provider > *:after, #loginform .big.toggle.login-submit > *:after,
+    #loginform .big.toggle.register-submit > *:after,
+    #registerform .big.toggle.login-submit > *:after,
+    #registerform .big.toggle.register-submit > *:after {
       line-height: 2.7em; }
-  .btn.back, .back.profile {
+  .btn.back, .back.profile, .back.card, .social-account .back.wp-social-login-provider, #loginform .back.login-submit,
+  #loginform .back.register-submit,
+  #registerform .back.login-submit,
+  #registerform .back.register-submit {
     margin-top: 1.25em;
     display: inline-block;
     *display: inline;
     zoom: 1; }
-  .btn.toggle, .toggle.profile {
+  .btn.toggle, .toggle.profile, .toggle.card, .social-account .toggle.wp-social-login-provider, #loginform .toggle.login-submit,
+  #loginform .toggle.register-submit,
+  #registerform .toggle.login-submit,
+  #registerform .toggle.register-submit {
     padding-right: 1.2em; }
-    .btn.toggle > *:after, .toggle.profile > *:after {
+    .btn.toggle > *:after, .toggle.profile > *:after, .toggle.card > *:after, .social-account .toggle.wp-social-login-provider > *:after, #loginform .toggle.login-submit > *:after,
+    #loginform .toggle.register-submit > *:after,
+    #registerform .toggle.login-submit > *:after,
+    #registerform .toggle.register-submit > *:after {
       text-align: right;
       line-height: 2.5em; }
-    .btn.toggle.active, .toggle.active.profile {
+    .btn.toggle.active, .toggle.active.profile, .toggle.active.card, .social-account .toggle.active.wp-social-login-provider, #loginform .toggle.active.login-submit,
+    #loginform .toggle.active.register-submit,
+    #registerform .toggle.active.login-submit,
+    #registerform .toggle.active.register-submit {
       color: white; }
-      .btn.toggle.active:before, .toggle.active.profile:before {
+      .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before, .social-account .toggle.active.wp-social-login-provider:before, #loginform .toggle.active.login-submit:before,
+      #loginform .toggle.active.register-submit:before,
+      #registerform .toggle.active.login-submit:before,
+      #registerform .toggle.active.register-submit:before {
         background: #005f93;
         right: 1px; }
-      .btn.toggle.active:after, .toggle.active.profile:after {
+      .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after, .social-account .toggle.active.wp-social-login-provider:after, #loginform .toggle.active.login-submit:after,
+      #loginform .toggle.active.register-submit:after,
+      #registerform .toggle.active.login-submit:after,
+      #registerform .toggle.active.register-submit:after {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
         opacity: 1;
         border-color: #005f93; }
-      .btn.toggle.active > *:before, .toggle.active.profile > *:before {
+      .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before, .social-account .toggle.active.wp-social-login-provider > *:before, #loginform .toggle.active.login-submit > *:before,
+      #loginform .toggle.active.register-submit > *:before,
+      #registerform .toggle.active.login-submit > *:before,
+      #registerform .toggle.active.register-submit > *:before {
         background: #005f93; }
-      .btn.toggle.active > *:after, .toggle.active.profile > *:after {
+      .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after, .social-account .toggle.active.wp-social-login-provider > *:after, #loginform .toggle.active.login-submit > *:after,
+      #loginform .toggle.active.register-submit > *:after,
+      #registerform .toggle.active.login-submit > *:after,
+      #registerform .toggle.active.register-submit > *:after {
         color: #eeeef0; }
-      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover {
+      .no-touch .btn.toggle.active:hover, .no-touch .toggle.active.profile:hover, .no-touch .toggle.active.card:hover, .no-touch .social-account .toggle.active.wp-social-login-provider:hover, .social-account .no-touch .toggle.active.wp-social-login-provider:hover, .no-touch #loginform .toggle.active.login-submit:hover, #loginform .no-touch .toggle.active.login-submit:hover,
+      .no-touch #loginform .toggle.active.register-submit:hover,
+      #loginform .no-touch .toggle.active.register-submit:hover,
+      .no-touch #registerform .toggle.active.login-submit:hover,
+      #registerform .no-touch .toggle.active.login-submit:hover,
+      .no-touch #registerform .toggle.active.register-submit:hover,
+      #registerform .no-touch .toggle.active.register-submit:hover {
         color: white; }
-        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after {
+        .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after, .no-touch .social-account .toggle.active.wp-social-login-provider:hover > *:after, .social-account .no-touch .toggle.active.wp-social-login-provider:hover > *:after, .no-touch #loginform .toggle.active.login-submit:hover > *:after, #loginform .no-touch .toggle.active.login-submit:hover > *:after,
+        .no-touch #loginform .toggle.active.register-submit:hover > *:after,
+        #loginform .no-touch .toggle.active.register-submit:hover > *:after,
+        .no-touch #registerform .toggle.active.login-submit:hover > *:after,
+        #registerform .no-touch .toggle.active.login-submit:hover > *:after,
+        .no-touch #registerform .toggle.active.register-submit:hover > *:after,
+        #registerform .no-touch .toggle.active.register-submit:hover > *:after {
           color: #00bfdf; }
-    .btn.toggle.favorite, .toggle.favorite.profile {
+    .btn.toggle.favorite, .toggle.favorite.profile, .toggle.favorite.card, .social-account .toggle.favorite.wp-social-login-provider, #loginform .toggle.favorite.login-submit,
+    #loginform .toggle.favorite.register-submit,
+    #registerform .toggle.favorite.login-submit,
+    #registerform .toggle.favorite.register-submit {
       color: #005f93; }
-      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after {
+      .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after, .social-account .toggle.favorite.wp-social-login-provider > *:after, #loginform .toggle.favorite.login-submit > *:after,
+      #loginform .toggle.favorite.register-submit > *:after,
+      #registerform .toggle.favorite.login-submit > *:after,
+      #registerform .toggle.favorite.register-submit > *:after {
         color: #005f93;
         -webkit-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -moz-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -ms-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -o-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > * {
+      .btn.toggle.favorite.active > *, .toggle.favorite.active.profile > *, .toggle.favorite.active.card > *, .social-account .toggle.favorite.active.wp-social-login-provider > *, #loginform .toggle.favorite.active.login-submit > *,
+      #loginform .toggle.favorite.active.register-submit > *,
+      #registerform .toggle.favorite.active.login-submit > *,
+      #registerform .toggle.favorite.active.register-submit > * {
         color: white; }
-        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after {
+        .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after, .social-account .toggle.favorite.active.wp-social-login-provider > *:after, #loginform .toggle.favorite.active.login-submit > *:after,
+        #loginform .toggle.favorite.active.register-submit > *:after,
+        #registerform .toggle.favorite.active.login-submit > *:after,
+        #registerform .toggle.favorite.active.register-submit > *:after {
           color: #00bfdf;
           font-size: 1em;
           line-height: 2em;
           padding: 0.2em 0.75em; }
-      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile {
+      .dark .btn.toggle.favorite, .dark .toggle.favorite.profile, .dark .toggle.favorite.card, .dark .social-account .toggle.favorite.wp-social-login-provider, .social-account .dark .toggle.favorite.wp-social-login-provider, .dark #loginform .toggle.favorite.login-submit, #loginform .dark .toggle.favorite.login-submit,
+      .dark #loginform .toggle.favorite.register-submit,
+      #loginform .dark .toggle.favorite.register-submit,
+      .dark #registerform .toggle.favorite.login-submit,
+      #registerform .dark .toggle.favorite.login-submit,
+      .dark #registerform .toggle.favorite.register-submit,
+      #registerform .dark .toggle.favorite.register-submit {
         color: #00bfdf; }
-        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile {
+        .dark .btn.toggle.favorite.active, .dark .toggle.favorite.active.profile, .dark .toggle.favorite.active.card, .dark .social-account .toggle.favorite.active.wp-social-login-provider, .social-account .dark .toggle.favorite.active.wp-social-login-provider, .dark #loginform .toggle.favorite.active.login-submit, #loginform .dark .toggle.favorite.active.login-submit,
+        .dark #loginform .toggle.favorite.active.register-submit,
+        #loginform .dark .toggle.favorite.active.register-submit,
+        .dark #registerform .toggle.favorite.active.login-submit,
+        #registerform .dark .toggle.favorite.active.login-submit,
+        .dark #registerform .toggle.favorite.active.register-submit,
+        #registerform .dark .toggle.favorite.active.register-submit {
           color: #b8b9c2; }
-      .black .btn.toggle.favorite, .black .toggle.favorite.profile {
+      .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card, .black .social-account .toggle.favorite.wp-social-login-provider, .social-account .black .toggle.favorite.wp-social-login-provider, .black #loginform .toggle.favorite.login-submit, #loginform .black .toggle.favorite.login-submit,
+      .black #loginform .toggle.favorite.register-submit,
+      #loginform .black .toggle.favorite.register-submit,
+      .black #registerform .toggle.favorite.login-submit,
+      #registerform .black .toggle.favorite.login-submit,
+      .black #registerform .toggle.favorite.register-submit,
+      #registerform .black .toggle.favorite.register-submit {
         color: #00bfdf; }
-        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile {
+        .black .btn.toggle.favorite.active, .black .toggle.favorite.active.profile, .black .toggle.favorite.active.card, .black .social-account .toggle.favorite.active.wp-social-login-provider, .social-account .black .toggle.favorite.active.wp-social-login-provider, .black #loginform .toggle.favorite.active.login-submit, #loginform .black .toggle.favorite.active.login-submit,
+        .black #loginform .toggle.favorite.active.register-submit,
+        #loginform .black .toggle.favorite.active.register-submit,
+        .black #registerform .toggle.favorite.active.login-submit,
+        #registerform .black .toggle.favorite.active.login-submit,
+        .black #registerform .toggle.favorite.active.register-submit,
+        #registerform .black .toggle.favorite.active.register-submit {
           color: #b8b9c2; }
-  .btn.link a, .link.profile a {
+  .btn.link a, .link.profile a, .link.card a, .social-account .link.wp-social-login-provider a, #loginform .link.login-submit a,
+  #loginform .link.register-submit a,
+  #registerform .link.login-submit a,
+  #registerform .link.register-submit a {
     padding-right: 0; }
-    .btn.link a > span, .link.profile a > span {
+    .btn.link a > span, .link.profile a > span, .link.card a > span, .social-account .link.wp-social-login-provider a > span, #loginform .link.login-submit a > span,
+    #loginform .link.register-submit a > span,
+    #registerform .link.login-submit a > span,
+    #registerform .link.register-submit a > span {
       display: block;
       padding-right: 2em;
       position: relative; }
-      .btn.link a > span:after, .link.profile a > span:after {
+      .btn.link a > span:after, .link.profile a > span:after, .link.card a > span:after, .social-account .link.wp-social-login-provider a > span:after, #loginform .link.login-submit a > span:after,
+      #loginform .link.register-submit a > span:after,
+      #registerform .link.login-submit a > span:after,
+      #registerform .link.register-submit a > span:after {
         font-size: 0.6em;
         text-align: right;
         line-height: 0;
         position: absolute;
         top: 50%;
         right: 1em; }
-  .btn.back a, .back.profile a {
+  .btn.back a, .back.profile a, .back.card a, .social-account .back.wp-social-login-provider a, #loginform .back.login-submit a,
+  #loginform .back.register-submit a,
+  #registerform .back.login-submit a,
+  #registerform .back.register-submit a {
     padding-left: 0; }
-    .btn.back a > span, .back.profile a > span {
+    .btn.back a > span, .back.profile a > span, .back.card a > span, .social-account .back.wp-social-login-provider a > span, #loginform .back.login-submit a > span,
+    #loginform .back.register-submit a > span,
+    #registerform .back.login-submit a > span,
+    #registerform .back.register-submit a > span {
       display: block;
       padding-left: 2em;
       position: relative; }
-      .btn.back a > span:after, .back.profile a > span:after {
+      .btn.back a > span:after, .back.profile a > span:after, .back.card a > span:after, .social-account .back.wp-social-login-provider a > span:after, #loginform .back.login-submit a > span:after,
+      #loginform .back.register-submit a > span:after,
+      #registerform .back.login-submit a > span:after,
+      #registerform .back.register-submit a > span:after {
         font-size: 0.6em;
         text-align: left;
         line-height: 0;
         position: absolute;
         top: 50%;
         left: 1em; }
-  .btn.seamless:before, .seamless.profile:before,
+  .btn.seamless:before, .seamless.profile:before, .seamless.card:before, .social-account .seamless.wp-social-login-provider:before, #loginform .seamless.login-submit:before,
+  #loginform .seamless.register-submit:before,
+  #registerform .seamless.login-submit:before,
+  #registerform .seamless.register-submit:before,
   .btn.seamless > *:before,
-  .seamless.profile > *:before {
+  .seamless.profile > *:before,
+  .seamless.card > *:before,
+  .social-account .seamless.wp-social-login-provider > *:before,
+  #loginform .seamless.login-submit > *:before,
+  #loginform .seamless.register-submit > *:before,
+  #registerform .seamless.login-submit > *:before,
+  #registerform .seamless.register-submit > *:before {
     display: none; }
-  .btn.seamless:after, .seamless.profile:after {
+  .btn.seamless:after, .seamless.profile:after, .seamless.card:after, .social-account .seamless.wp-social-login-provider:after, #loginform .seamless.login-submit:after,
+  #loginform .seamless.register-submit:after,
+  #registerform .seamless.login-submit:after,
+  #registerform .seamless.register-submit:after {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -1087,15 +1520,33 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out;
     -o-transition: opacity 240ms ease-in-out;
     transition: opacity 240ms ease-in-out; }
-  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after {
+  .no-touch .btn.seamless:hover:after, .no-touch .seamless.profile:hover:after, .no-touch .seamless.card:hover:after, .no-touch .social-account .seamless.wp-social-login-provider:hover:after, .social-account .no-touch .seamless.wp-social-login-provider:hover:after, .no-touch #loginform .seamless.login-submit:hover:after, #loginform .no-touch .seamless.login-submit:hover:after,
+  .no-touch #loginform .seamless.register-submit:hover:after,
+  #loginform .no-touch .seamless.register-submit:hover:after,
+  .no-touch #registerform .seamless.login-submit:hover:after,
+  #registerform .no-touch .seamless.login-submit:hover:after,
+  .no-touch #registerform .seamless.register-submit:hover:after,
+  #registerform .no-touch .seamless.register-submit:hover:after {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before,
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, .social-account .seamless.toggle.wp-social-login-provider:before, #loginform .seamless.toggle.login-submit:before,
+  #loginform .seamless.toggle.register-submit:before,
+  #registerform .seamless.toggle.login-submit:before,
+  #registerform .seamless.toggle.register-submit:before,
   .btn.seamless.toggle > *:before,
-  .seamless.toggle.profile > *:before {
+  .seamless.toggle.profile > *:before,
+  .seamless.toggle.card > *:before,
+  .social-account .seamless.toggle.wp-social-login-provider > *:before,
+  #loginform .seamless.toggle.login-submit > *:before,
+  #loginform .seamless.toggle.register-submit > *:before,
+  #registerform .seamless.toggle.login-submit > *:before,
+  #registerform .seamless.toggle.register-submit > *:before {
     display: block; }
-  .btn.seamless.toggle:before, .seamless.toggle.profile:before {
+  .btn.seamless.toggle:before, .seamless.toggle.profile:before, .seamless.toggle.card:before, .social-account .seamless.toggle.wp-social-login-provider:before, #loginform .seamless.toggle.login-submit:before,
+  #loginform .seamless.toggle.register-submit:before,
+  #registerform .seamless.toggle.login-submit:before,
+  #registerform .seamless.toggle.register-submit:before {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -1105,38 +1556,107 @@ nav[role="navigation"] .secondary {
     -ms-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     -o-transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1);
     transition: opacity 240ms ease-in-out, width 240ms cubic-bezier(0.2, 0, 0.4, 1); }
-  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before {
+  .btn.seamless.toggle > *:before, .seamless.toggle.profile > *:before, .seamless.toggle.card > *:before, .social-account .seamless.toggle.wp-social-login-provider > *:before, #loginform .seamless.toggle.login-submit > *:before,
+  #loginform .seamless.toggle.register-submit > *:before,
+  #registerform .seamless.toggle.login-submit > *:before,
+  #registerform .seamless.toggle.register-submit > *:before {
     background: none; }
-  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before {
+  .no-touch .btn.seamless.toggle:hover:before, .no-touch .seamless.toggle.profile:hover:before, .no-touch .seamless.toggle.card:hover:before, .no-touch .social-account .seamless.toggle.wp-social-login-provider:hover:before, .social-account .no-touch .seamless.toggle.wp-social-login-provider:hover:before, .no-touch #loginform .seamless.toggle.login-submit:hover:before, #loginform .no-touch .seamless.toggle.login-submit:hover:before,
+  .no-touch #loginform .seamless.toggle.register-submit:hover:before,
+  #loginform .no-touch .seamless.toggle.register-submit:hover:before,
+  .no-touch #registerform .seamless.toggle.login-submit:hover:before,
+  #registerform .no-touch .seamless.toggle.login-submit:hover:before,
+  .no-touch #registerform .seamless.toggle.register-submit:hover:before,
+  #registerform .no-touch .seamless.toggle.register-submit:hover:before, .btn.seamless.toggle.active:before, .seamless.toggle.active.profile:before, .seamless.toggle.active.card:before, .social-account .seamless.toggle.active.wp-social-login-provider:before, #loginform .seamless.toggle.active.login-submit:before,
+  #loginform .seamless.toggle.active.register-submit:before,
+  #registerform .seamless.toggle.active.login-submit:before,
+  #registerform .seamless.toggle.active.register-submit:before {
     width: 100%;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
     opacity: 1; }
-  .btn.autowidth, .autowidth.profile {
+  .btn.autowidth, .autowidth.profile, .autowidth.card, .social-account .autowidth.wp-social-login-provider, #loginform .autowidth.login-submit,
+  #loginform .autowidth.register-submit,
+  #registerform .autowidth.login-submit,
+  #registerform .autowidth.register-submit {
     display: inline-block;
     *display: inline;
     zoom: 1;
     width: auto; }
-  .btn.bold, .bold.profile {
+  .btn.bold, .bold.profile, .bold.card, .social-account .bold.wp-social-login-provider, #loginform .bold.login-submit,
+  #loginform .bold.register-submit,
+  #registerform .bold.login-submit,
+  #registerform .bold.register-submit {
     font-weight: bold; }
 
-button.btn, button.profile,
+button.btn, button.profile, button.card, .social-account button.wp-social-login-provider, #loginform button.login-submit,
+#loginform button.register-submit,
+#registerform button.login-submit,
+#registerform button.register-submit,
 a[href].btn,
-a[href].profile {
+a[href].profile,
+a[href].card,
+.social-account a[href].wp-social-login-provider,
+#loginform a[href].login-submit,
+#loginform a[href].register-submit,
+#registerform a[href].login-submit,
+#registerform a[href].register-submit {
   cursor: pointer; }
-  button.btn:before, button.profile:before, button.btn:after, button.profile:after,
+  button.btn:before, button.profile:before, button.card:before, .social-account button.wp-social-login-provider:before, #loginform button.login-submit:before,
+  #loginform button.register-submit:before,
+  #registerform button.login-submit:before,
+  #registerform button.register-submit:before, button.btn:after, button.profile:after, button.card:after, .social-account button.wp-social-login-provider:after, #loginform button.login-submit:after,
+  #loginform button.register-submit:after,
+  #registerform button.login-submit:after,
+  #registerform button.register-submit:after,
   button.btn > *:before,
   button.profile > *:before,
+  button.card > *:before,
+  .social-account button.wp-social-login-provider > *:before,
+  #loginform button.login-submit > *:before,
+  #loginform button.register-submit > *:before,
+  #registerform button.login-submit > *:before,
+  #registerform button.register-submit > *:before,
   button.btn > *:after,
   button.profile > *:after,
+  button.card > *:after,
+  .social-account button.wp-social-login-provider > *:after,
+  #loginform button.login-submit > *:after,
+  #loginform button.register-submit > *:after,
+  #registerform button.login-submit > *:after,
+  #registerform button.register-submit > *:after,
   a[href].btn:before,
   a[href].profile:before,
+  a[href].card:before,
+  .social-account a[href].wp-social-login-provider:before,
+  #loginform a[href].login-submit:before,
+  #loginform a[href].register-submit:before,
+  #registerform a[href].login-submit:before,
+  #registerform a[href].register-submit:before,
   a[href].btn:after,
   a[href].profile:after,
+  a[href].card:after,
+  .social-account a[href].wp-social-login-provider:after,
+  #loginform a[href].login-submit:after,
+  #loginform a[href].register-submit:after,
+  #registerform a[href].login-submit:after,
+  #registerform a[href].register-submit:after,
   a[href].btn > *:before,
   a[href].profile > *:before,
+  a[href].card > *:before,
+  .social-account a[href].wp-social-login-provider > *:before,
+  #loginform a[href].login-submit > *:before,
+  #loginform a[href].register-submit > *:before,
+  #registerform a[href].login-submit > *:before,
+  #registerform a[href].register-submit > *:before,
   a[href].btn > *:after,
-  a[href].profile > *:after {
+  a[href].profile > *:after,
+  a[href].card > *:after,
+  .social-account a[href].wp-social-login-provider > *:after,
+  #loginform a[href].login-submit > *:after,
+  #loginform a[href].register-submit > *:after,
+  #registerform a[href].login-submit > *:after,
+  #registerform a[href].register-submit > *:after {
     cursor: pointer; }
 
 .profile {
@@ -1296,6 +1816,16 @@ a[href].profile {
   .profile.has-social.active .links, .no-touch .profile.has-social:hover .links {
     left: 0; }
 
+.card {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0; }
+  .card > * {
+    padding: 0;
+    display: block; }
+  .card:before, .card > :after {
+    display: none; }
+
 .conferencer-info {
   display: inline-block;
   *display: inline;
@@ -1371,7 +1901,7 @@ a[href].profile {
         vertical-align: middle; }
       .conferencer-info .meta > * + * {
         border-left: 1px solid #3d3d3d; }
-    .conferencer-info .meta .title, .conferencer-info .meta nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .meta a {
+    .conferencer-info .meta .title, .conferencer-info .meta nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .meta a, .conferencer-info .meta .field label, .field .conferencer-info .meta label {
       margin: 0;
       line-height: 1;
       text-align: right; }
@@ -1424,12 +1954,18 @@ a[href].profile {
         *display: inline;
         zoom: 1;
         vertical-align: middle; }
-      .conferencer-info .conference-room > * .title, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a {
+      .conferencer-info .conference-room > * .title, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a, .conferencer-info .conference-room > * .field label, .field .conferencer-info .conference-room > * label {
         margin: 0;
         line-height: 1;
         text-align: right;
         float: left; }
-        .conferencer-info .conference-room > * .title.small, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a {
+        .conferencer-info .conference-room > * .title.small, .conferencer-info .conference-room > * nav[role="navigation"] ul a, nav[role="navigation"] ul .conferencer-info .conference-room > * a, .conferencer-info .conference-room > * .field label.small, .field .conferencer-info .conference-room > * label.small, .conferencer-info .conference-room > * #loginform .login-submit > *, #loginform .conferencer-info .conference-room > * .login-submit > *,
+        .conferencer-info .conference-room > * #loginform .register-submit > *,
+        #loginform .conferencer-info .conference-room > * .register-submit > *,
+        .conferencer-info .conference-room > * #registerform .login-submit > *,
+        #registerform .conferencer-info .conference-room > * .login-submit > *,
+        .conferencer-info .conference-room > * #registerform .register-submit > *,
+        #registerform .conferencer-info .conference-room > * .register-submit > * {
           text-transform: none; }
 
 .tags {
@@ -1578,16 +2114,79 @@ a[href].profile {
       margin-top: 0;
       z-index: 4; }
       .days .sticky.fixed:before, .days .sticky.contained:before {
-        background: #303030;
+        background: white;
         position: absolute;
         top: -130px;
         bottom: -10px;
         left: -100%;
         right: -100%;
-        height: auto; }
-  .days .btn.toggle > *:after, .days .toggle.profile > *:after {
+        height: auto;
+        -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+        -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06); }
+        .dark .days .sticky.fixed:before, .dark .days .sticky.contained:before {
+          background: #303030; }
+  .days .btn.toggle > *:after, .days .toggle.profile > *:after, .days .toggle.card > *:after, .days .social-account .toggle.wp-social-login-provider > *:after, .social-account .days .toggle.wp-social-login-provider > *:after, .days #loginform .toggle.login-submit > *:after, #loginform .days .toggle.login-submit > *:after,
+  .days #loginform .toggle.register-submit > *:after,
+  #loginform .days .toggle.register-submit > *:after,
+  .days #registerform .toggle.login-submit > *:after,
+  #registerform .days .toggle.login-submit > *:after,
+  .days #registerform .toggle.register-submit > *:after,
+  #registerform .days .toggle.register-submit > *:after {
     content: ""; }
-  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before {
+  .days .btn.toggle.active .title, .days .toggle.active.profile .title, .days .toggle.active.card .title, .days .social-account .toggle.active.wp-social-login-provider .title, .social-account .days .toggle.active.wp-social-login-provider .title, .days #loginform .toggle.active.login-submit .title, #loginform .days .toggle.active.login-submit .title,
+  .days #loginform .toggle.active.register-submit .title,
+  #loginform .days .toggle.active.register-submit .title,
+  .days #registerform .toggle.active.login-submit .title,
+  #registerform .days .toggle.active.login-submit .title,
+  .days #registerform .toggle.active.register-submit .title,
+  #registerform .days .toggle.active.register-submit .title, .days .btn.toggle.active nav[role="navigation"] ul a, nav[role="navigation"] ul .days .btn.toggle.active a, .days .toggle.active.profile nav[role="navigation"] ul a, nav[role="navigation"] ul .days .toggle.active.profile a, .days .toggle.active.card nav[role="navigation"] ul a, nav[role="navigation"] ul .days .toggle.active.card a, .days .social-account .toggle.active.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul .days .social-account .toggle.active.wp-social-login-provider a, .social-account .days .toggle.active.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul .social-account .days .toggle.active.wp-social-login-provider a, .days #loginform .toggle.active.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul .days #loginform .toggle.active.login-submit a, #loginform .days .toggle.active.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul #loginform .days .toggle.active.login-submit a,
+  .days #loginform .toggle.active.register-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul .days #loginform .toggle.active.register-submit a,
+  #loginform .days .toggle.active.register-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul #loginform .days .toggle.active.register-submit a,
+  .days #registerform .toggle.active.login-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul .days #registerform .toggle.active.login-submit a,
+  #registerform .days .toggle.active.login-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul #registerform .days .toggle.active.login-submit a,
+  .days #registerform .toggle.active.register-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul .days #registerform .toggle.active.register-submit a,
+  #registerform .days .toggle.active.register-submit nav[role="navigation"] ul a,
+  nav[role="navigation"] ul #registerform .days .toggle.active.register-submit a, .days .btn.toggle.active .field label, .field .days .btn.toggle.active label, .days .toggle.active.profile .field label, .field .days .toggle.active.profile label, .days .toggle.active.card .field label, .field .days .toggle.active.card label, .days .social-account .toggle.active.wp-social-login-provider .field label, .field .days .social-account .toggle.active.wp-social-login-provider label, .social-account .days .toggle.active.wp-social-login-provider .field label, .field .social-account .days .toggle.active.wp-social-login-provider label, .days #loginform .toggle.active.login-submit .field label, .field .days #loginform .toggle.active.login-submit label, #loginform .days .toggle.active.login-submit .field label, .field #loginform .days .toggle.active.login-submit label,
+  .days #loginform .toggle.active.register-submit .field label,
+  .field .days #loginform .toggle.active.register-submit label,
+  #loginform .days .toggle.active.register-submit .field label,
+  .field #loginform .days .toggle.active.register-submit label,
+  .days #registerform .toggle.active.login-submit .field label,
+  .field .days #registerform .toggle.active.login-submit label,
+  #registerform .days .toggle.active.login-submit .field label,
+  .field #registerform .days .toggle.active.login-submit label,
+  .days #registerform .toggle.active.register-submit .field label,
+  .field .days #registerform .toggle.active.register-submit label,
+  #registerform .days .toggle.active.register-submit .field label,
+  .field #registerform .days .toggle.active.register-submit label {
+    color: white; }
+  .days .btn.toggle.active:after, .days .toggle.active.profile:after, .days .toggle.active.card:after, .days .social-account .toggle.active.wp-social-login-provider:after, .social-account .days .toggle.active.wp-social-login-provider:after, .days #loginform .toggle.active.login-submit:after, #loginform .days .toggle.active.login-submit:after,
+  .days #loginform .toggle.active.register-submit:after,
+  #loginform .days .toggle.active.register-submit:after,
+  .days #registerform .toggle.active.login-submit:after,
+  #registerform .days .toggle.active.login-submit:after,
+  .days #registerform .toggle.active.register-submit:after,
+  #registerform .days .toggle.active.register-submit:after {
+    border-color: #23729d; }
+  .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days .social-account .toggle.active.wp-social-login-provider:before, .social-account .days .toggle.active.wp-social-login-provider:before, .days #loginform .toggle.active.login-submit:before, #loginform .days .toggle.active.login-submit:before,
+  .days #loginform .toggle.active.register-submit:before,
+  #loginform .days .toggle.active.register-submit:before,
+  .days #registerform .toggle.active.login-submit:before,
+  #registerform .days .toggle.active.login-submit:before,
+  .days #registerform .toggle.active.register-submit:before,
+  #registerform .days .toggle.active.register-submit:before, .days .btn.toggle.active > *:before, .days .toggle.active.profile > *:before, .days .toggle.active.card > *:before, .days .social-account .toggle.active.wp-social-login-provider > *:before, .social-account .days .toggle.active.wp-social-login-provider > *:before, .days #loginform .toggle.active.login-submit > *:before, #loginform .days .toggle.active.login-submit > *:before,
+  .days #loginform .toggle.active.register-submit > *:before,
+  #loginform .days .toggle.active.register-submit > *:before,
+  .days #registerform .toggle.active.login-submit > *:before,
+  #registerform .days .toggle.active.login-submit > *:before,
+  .days #registerform .toggle.active.register-submit > *:before,
+  #registerform .days .toggle.active.register-submit > *:before {
     background-color: transparent;
     background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
     background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
@@ -1597,7 +2196,7 @@ a[href].profile {
     background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
-.filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+.filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
   display: none; }
 
 .schedules {
@@ -1645,7 +2244,7 @@ a[href].profile {
   .schedules th {
     padding: 3px;
     vertical-align: top; }
-  .schedules .title, .schedules nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules a {
+  .schedules .title, .schedules nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules a, .schedules .field label, .field .schedules label {
     margin: 0; }
   .schedules .wrap {
     width: 100%; }
@@ -1657,7 +2256,7 @@ a[href].profile {
     .schedules thead th {
       padding: 10px 10px 10px 0;
       position: relative; }
-    .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a {
+    .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a, .schedules thead .field label, .field .schedules thead label {
       color: white; }
     .schedules thead .location {
       padding-left: 20px; }
@@ -1674,14 +2273,14 @@ a[href].profile {
     .schedules tbody tr {
       height: 100%; }
     .schedules tbody th {
-      border-top: 1px solid #3d3d3d;
+      border-top: 1px solid #d2d4e2;
       width: 75px;
       text-align: right;
-      background: #303030;
+      background: #eeeef0;
       padding: 10px;
       height: 100%; }
-      .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
-        color: white; }
+      .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a, .schedules tbody th .field label, .field .schedules tbody th label {
+        color: #005f93; }
     .schedules tbody td {
       border-top: 1px solid #eeeef0;
       height: 100%;
@@ -1695,143 +2294,12 @@ a[href].profile {
           -ms-box-sizing: content-box;
           -o-box-sizing: content-box;
           box-sizing: content-box; }
-  .schedules .session.btn, .schedules .session.profile {
-    margin: 0 0 -1.5em;
-    display: block; }
-    .schedules .session.btn:after, .schedules .session.profile:after {
-      -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
-      -webkit-transition: -webkit-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -moz-transition: -moz-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
-      transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
-    .no-touch .schedules .session.btn:hover:after, .no-touch .schedules .session.profile:hover:after {
-      -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
-      box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
-  .schedules .session.disabled:after {
-    background: rgba(178, 178, 178, 0.5);
-    z-index: 5; }
-  .schedules .session.disabled .title, .schedules .session.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session.disabled a {
-    color: #3d3d3d; }
-  .schedules .session > .wrap {
-    padding: 0.75em; }
-  .schedules .session a {
-    display: block;
-    position: relative;
-    z-index: 2; }
-  .schedules .session .session-title {
-    font-size: 1em;
-    line-height: 1.2;
-    color: #005f93; }
-  .schedules .session .favorite {
-    position: relative;
-    z-index: 2;
-    text-indent: -9999px;
-    float: right;
-    text-align: left;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-top: 0;
-    margin-right: 0; }
-    .schedules .session .favorite > * {
-      display: block;
-      height: 2.5em;
-      width: 2.5em;
-      line-height: 2.75em; }
-  .schedules .session .location {
-    margin-right: 3em;
-    min-height: 2.5em;
-    margin-bottom: 0.5em;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: middle;
-    display: block; }
-    .schedules .session .location:before {
-      content: "";
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      height: 100%;
-      min-height: inherit;
-      width: 0;
-      vertical-align: middle;
-      margin-right: -0.25em; }
-    .schedules .session .location > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      vertical-align: middle; }
-    .schedules .session .location .title, .schedules .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .location a {
-      font-size: 0.875em; }
-    .no-schedule .schedules .session .location {
-      margin-right: 0; }
-  .schedules .session .border-bottom:after {
-    background: #b8b9c2; }
-  .schedules .session .speaker {
-    margin-top: 0.25em; }
-    .schedules .session .speaker .title, .schedules .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .session .speaker a,
-    .schedules .session .speaker .note {
-      color: #303030;
-      text-transform: none; }
-    .schedules .session .speaker .note {
-      margin: -0.125em 0 0; }
-  .schedules .session .thumb {
-    width: 3em;
-    height: 3em;
-    float: left; }
-    .schedules .session .thumb + * {
-      margin-left: 4em; }
-    .schedules .session .thumb + .infos {
-      min-height: 3em;
-      margin-top: 0.5em;
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      vertical-align: middle;
-      display: block; }
-      .schedules .session .thumb + .infos:before {
-        content: "";
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        height: 100%;
-        min-height: inherit;
-        width: 0;
-        vertical-align: middle;
-        margin-right: -0.25em; }
-      .schedules .session .thumb + .infos > * {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        vertical-align: middle; }
-  .schedules .session.wide .thumb {
-    width: 6em;
-    height: 6em; }
-  .schedules .session.wide.has-thumb > * > * {
-    margin-left: 7em;
-    text-indent: -7em; }
-    .schedules .session.wide.has-thumb > * > *.thumb {
-      margin-left: 0;
-      text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.location {
-      text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.session-title {
-      margin-left: 6.25em; }
-    .schedules .session.wide.has-thumb > * > * .infos {
-      text-indent: -6.25em; }
-      .schedules .session.wide.has-thumb > * > * .infos > * {
-        text-indent: 0; }
-    .schedules .session.wide.has-thumb > * > *.favorite {
-      text-indent: -9999px; }
-  .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a,
+  .schedules .pause .title, .schedules .pause nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .pause a, .schedules .pause .field label, .field .schedules .pause label,
   .schedules .lunch .title,
   .schedules .lunch nav[role="navigation"] ul a,
-  nav[role="navigation"] ul .schedules .lunch a {
+  nav[role="navigation"] ul .schedules .lunch a,
+  .schedules .lunch .field label,
+  .field .schedules .lunch label {
     text-align: center;
     color: #005f93;
     padding: 20px;
@@ -1852,54 +2320,210 @@ a[href].profile {
   .schedules .pause .separator,
   .schedules .lunch .separator {
     margin: 0 0.25em; }
-  .schedules .keynote {
-    font-size: 1.25em; }
-    .schedules .keynote:before, .schedules .keynote > *:before {
-      background: #005f93; }
-    .schedules .keynote:after {
-      border-color: #0d567e; }
-    .schedules .keynote.disabled:after {
-      background: rgba(0, 95, 147, 0.5); }
-    .schedules .keynote.disabled .title, .schedules .keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote.disabled a {
-      color: #00bfdf; }
-    .schedules .keynote .title, .schedules .keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote a,
-    .schedules .keynote .speaker {
-      color: white; }
-    .schedules .keynote .speaker .title, .schedules .keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules .keynote .speaker a,
-    .schedules .keynote .speaker .note {
-      color: #eeeef0;
-      width: auto;
+
+.session.btn, .session.profile, .session.card, .social-account .session.wp-social-login-provider, #loginform .session.login-submit,
+#loginform .session.register-submit,
+#registerform .session.login-submit,
+#registerform .session.register-submit {
+  margin: 0 0 -1.5em;
+  display: block; }
+  .session.btn:after, .session.profile:after, .session.card:after, .social-account .session.wp-social-login-provider:after, #loginform .session.login-submit:after,
+  #loginform .session.register-submit:after,
+  #registerform .session.login-submit:after,
+  #registerform .session.register-submit:after {
+    -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+    -webkit-transition: -webkit-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -moz-transition: -moz-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -ms-transition: -ms-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    -o-transition: -o-box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1);
+    transition: box-shadow 120ms cubic-bezier(0.2, 0, 0.4, 1); }
+  .no-touch .session.btn:hover:after, .no-touch .session.profile:hover:after, .no-touch .session.card:hover:after, .no-touch .social-account .session.wp-social-login-provider:hover:after, .social-account .no-touch .session.wp-social-login-provider:hover:after, .no-touch #loginform .session.login-submit:hover:after, #loginform .no-touch .session.login-submit:hover:after,
+  .no-touch #loginform .session.register-submit:hover:after,
+  #loginform .no-touch .session.register-submit:hover:after,
+  .no-touch #registerform .session.login-submit:hover:after,
+  #registerform .no-touch .session.login-submit:hover:after,
+  .no-touch #registerform .session.register-submit:hover:after,
+  #registerform .no-touch .session.register-submit:hover:after {
+    -webkit-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2), 0px 2px 3px 0 rgba(0, 0, 0, 0.1); }
+.session.disabled:after {
+  background: rgba(178, 178, 178, 0.5);
+  z-index: 5; }
+.session.disabled .title, .session.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .session.disabled a, .session.disabled .field label, .field .session.disabled label {
+  color: #3d3d3d; }
+.session > .wrap {
+  padding: 0.75em; }
+.session a {
+  display: block;
+  position: relative;
+  z-index: 2; }
+.session .session-title {
+  font-size: 1em;
+  line-height: 1.2;
+  color: #005f93; }
+.session .favorite {
+  position: relative;
+  z-index: 2;
+  text-indent: -9999px;
+  float: right;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-top: 0;
+  margin-right: 0; }
+  .session .favorite > * {
+    display: block;
+    height: 2.5em;
+    width: 2.5em;
+    line-height: 2.75em; }
+.session .location {
+  margin-right: 3em;
+  min-height: 2.5em;
+  margin-bottom: 0.5em;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+  display: block; }
+  .session .location:before {
+    content: "";
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    min-height: inherit;
+    width: 0;
+    vertical-align: middle;
+    margin-right: -0.25em; }
+  .session .location > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle; }
+  .session .location .title, .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .session .location a, .session .location .field label, .field .session .location label {
+    font-size: 0.875em; }
+  .no-schedule .session .location {
+    margin-right: 0; }
+.session .border-bottom:after {
+  background: #b8b9c2; }
+.session .speaker {
+  margin-top: 0.25em; }
+  .session .speaker .title, .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session .speaker a, .session .speaker .field label, .field .session .speaker label,
+  .session .speaker .note,
+  .session .speaker #loginform .login-remember,
+  #loginform .session .speaker .login-remember,
+  .session .speaker #registerform .login-remember,
+  #registerform .session .speaker .login-remember {
+    color: #303030;
+    text-transform: none; }
+  .session .speaker .note, .session .speaker #loginform .login-remember, #loginform .session .speaker .login-remember,
+  .session .speaker #registerform .login-remember,
+  #registerform .session .speaker .login-remember {
+    margin: -0.125em 0 0; }
+.session .thumb {
+  width: 3em;
+  height: 3em;
+  float: left; }
+  .session .thumb + * {
+    margin-left: 4em; }
+  .session .thumb + .infos {
+    min-height: 3em;
+    margin-top: 0.5em;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    display: block; }
+    .session .thumb + .infos:before {
+      content: "";
       display: inline-block;
       *display: inline;
-      zoom: 1; }
-    .schedules .keynote .session-title,
-    .schedules .keynote .infos {
-      text-align: center; }
-    .schedules .keynote .favorite:before {
-      background: #0d567e; }
-    .schedules .keynote .favorite:after {
-      border-color: #105073; }
-    .no-touch .schedules .keynote .favorite:hover:before {
-      background: #0d567e; }
-    .no-touch .schedules .keynote .favorite:hover:after {
-      border-color: #105073; }
-    .schedules .keynote .favorite > *:after {
-      color: white; }
-    .schedules .keynote .favorite.active:before, .no-touch .schedules .keynote .favorite.active:hover:before {
-      background: white; }
-    .schedules .keynote .favorite.active:after, .no-touch .schedules .keynote .favorite.active:hover:after {
-      border-color: #eeeef0; }
-    .schedules .keynote .favorite.active > *:after, .no-touch .schedules .keynote .favorite.active:hover > *:after {
-      color: #00bfdf; }
-  .schedules .messages,
-  .schedules .errors {
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid #00bfdf;
-    position: relative;
-    z-index: 3; }
-  .schedules .errors {
-    border-color: #d22630; }
+      zoom: 1;
+      height: 100%;
+      min-height: inherit;
+      width: 0;
+      vertical-align: middle;
+      margin-right: -0.25em; }
+    .session .thumb + .infos > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle; }
+.session.wide .thumb {
+  width: 6em;
+  height: 6em; }
+.session.wide.has-thumb > * > * {
+  margin-left: 7em;
+  text-indent: -7em; }
+  .session.wide.has-thumb > * > *.thumb {
+    margin-left: 0;
+    text-indent: 0; }
+  .session.wide.has-thumb > * > *.location {
+    text-indent: 0; }
+  .session.wide.has-thumb > * > *.session-title {
+    margin-left: 6.25em; }
+  .session.wide.has-thumb > * > * .infos {
+    text-indent: -6.25em; }
+    .session.wide.has-thumb > * > * .infos > * {
+      text-indent: 0; }
+  .session.wide.has-thumb > * > *.favorite {
+    text-indent: -9999px; }
+.session.keynote {
+  font-size: 1.25em; }
+  .session.keynote:before, .session.keynote > *:before {
+    background: #005f93; }
+  .session.keynote:after {
+    border-color: #0d567e; }
+  .session.keynote.disabled:after {
+    background: rgba(0, 95, 147, 0.5); }
+  .session.keynote.disabled .title, .session.keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote.disabled a, .session.keynote.disabled .field label, .field .session.keynote.disabled label {
+    color: #00bfdf; }
+  .session.keynote .title, .session.keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote a, .session.keynote .field label, .field .session.keynote label,
+  .session.keynote .speaker {
+    color: white; }
+  .session.keynote .speaker .title, .session.keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote .speaker a, .session.keynote .speaker .field label, .field .session.keynote .speaker label,
+  .session.keynote .speaker .note,
+  .session.keynote .speaker #loginform .login-remember,
+  #loginform .session.keynote .speaker .login-remember,
+  .session.keynote .speaker #registerform .login-remember,
+  #registerform .session.keynote .speaker .login-remember {
+    color: #eeeef0;
+    width: auto;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+  .session.keynote .session-title,
+  .session.keynote .infos {
+    text-align: center; }
+  .session.keynote .favorite:before {
+    background: #0d567e; }
+  .session.keynote .favorite:after {
+    border-color: #105073; }
+  .no-touch .session.keynote .favorite:hover:before {
+    background: #0d567e; }
+  .no-touch .session.keynote .favorite:hover:after {
+    border-color: #105073; }
+  .session.keynote .favorite > *:after {
+    color: white; }
+  .session.keynote .favorite.active:before, .no-touch .session.keynote .favorite.active:hover:before {
+    background: white; }
+  .session.keynote .favorite.active:after, .no-touch .session.keynote .favorite.active:hover:after {
+    border-color: #eeeef0; }
+  .session.keynote .favorite.active > *:after, .no-touch .session.keynote .favorite.active:hover > *:after {
+    color: #00bfdf; }
+.session .messages,
+.session .errors {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #00bfdf;
+  position: relative;
+  z-index: 3; }
+.session .errors {
+  border-color: #d22630; }
 
 nav[role="navigation"] .logo {
   position: absolute;
@@ -2088,6 +2712,161 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
+.form > .message {
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border: 1px solid #005f93;
+  color: #005f93; }
+.form .tabs {
+  padding: 1px; }
+.form .tab-triggers {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+  vertical-align: top; }
+  .form .tab-triggers > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 0 0; }
+.form .tab-trigger {
+  vertical-align: middle;
+  color: #303030;
+  min-height: 4em;
+  background: #eeeef0;
+  padding: 0.5em 1em;
+  margin: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  line-height: 1.2;
+  -webkit-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -moz-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -ms-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  -o-transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1);
+  transition: background 120ms cubic-bezier(0.2, 0, 0.4, 1), color 120ms cubic-bezier(0.2, 0, 0.4, 1); }
+  .no-touch .form .tab-trigger:hover {
+    color: #00bfdf; }
+  .form .tab-trigger.active {
+    background: white;
+    color: #0094c2; }
+.form .border-middle {
+  padding: 0 20px; }
+
+.field {
+  width: 100%;
+  padding: 10px 20px; }
+  .field:first-child {
+    border-top: none; }
+  .field label {
+    font-size: 1em; }
+    .field label input {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      width: auto;
+      height: auto; }
+  .field.required label:after {
+    content: " *"; }
+  .field input {
+    display: block;
+    width: 100%;
+    border: 1px solid #b8b9c2;
+    padding: 0.5em;
+    height: 3em;
+    line-height: 1;
+    -webkit-transition: border 120ms linear;
+    -moz-transition: border 120ms linear;
+    -ms-transition: border 120ms linear;
+    -o-transition: border 120ms linear;
+    transition: border 120ms linear; }
+    .no-touch .field input:hover {
+      border-color: #0094c2; }
+    .field input:focus {
+      border: 3px solid #0094c2;
+      color: #0094c2; }
+    .field input[type="submit"] {
+      background: #0094c2;
+      color: #eeeef0;
+      border: none;
+      cursor: pointer; }
+      .no-touch .field input[type="submit"]:hover, .field input[type="submit"]:active, .field input[type="submit"]:focus {
+        background: #005f93;
+        color: white;
+        border: none; }
+  .field .error {
+    color: #d22630; }
+    .field .error + input {
+      border-color: #d22630;
+      color: #d22630; }
+      .no-touch .field .error + input:hover, .field .error + input:focus {
+        color: #0094c2;
+        border-color: #0094c2; }
+
+.social-account {
+  padding: 10px 20px; }
+  .social-account .message {
+    margin: 1em 0 0.75em; }
+  .social-account .wp-social-login-provider-list {
+    padding: 0; }
+  .social-account .wp-social-login-provider {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    color: #eeeef0; }
+    .social-account .wp-social-login-provider:before {
+      background: #0d567e; }
+    .social-account .wp-social-login-provider:after {
+      border-color: #105073; }
+    .no-touch .social-account .wp-social-login-provider:hover:before {
+      background: #0d567e; }
+    .no-touch .social-account .wp-social-login-provider:hover:after {
+      border-color: #105073; }
+    .social-account .wp-social-login-provider > * {
+      display: block;
+      color: white; }
+      .social-account .wp-social-login-provider > *:before {
+        background: #005f93; }
+      .social-account .wp-social-login-provider > *:after {
+        color: white; }
+    .social-account .wp-social-login-provider:active, .social-account .wp-social-login-provider:focus, .no-touch .social-account .wp-social-login-provider:active:hover {
+      color: white; }
+      .social-account .wp-social-login-provider:active:before, .social-account .wp-social-login-provider:focus:before, .no-touch .social-account .wp-social-login-provider:active:hover:before {
+        background: #105073; }
+      .social-account .wp-social-login-provider:active > *:after, .social-account .wp-social-login-provider:focus > *:after, .no-touch .social-account .wp-social-login-provider:active:hover > *:after {
+        color: white; }
+    .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after {
+      font-size: 1em;
+      line-height: 1.9;
+      color: white !important; }
+
+#loginform,
+#registerform {
+  padding: 10px 0; }
+  #loginform p,
+  #registerform p {
+    margin: 0; }
+  #loginform .login-submit,
+  #loginform .register-submit,
+  #registerform .login-submit,
+  #registerform .register-submit {
+    font-size: 1.25em; }
+  #loginform .register-submit + .title, #loginform nav[role="navigation"] ul .register-submit + a, nav[role="navigation"] ul #loginform .register-submit + a, #loginform .field .register-submit + label, .field #loginform .register-submit + label,
+  #registerform .register-submit + .title,
+  #registerform nav[role="navigation"] ul .register-submit + a,
+  nav[role="navigation"] ul #registerform .register-submit + a,
+  #registerform .field .register-submit + label,
+  .field #registerform .register-submit + label {
+    text-align: center;
+    margin-top: 0.5em; }
+
 .no-schedule .favorite,
 .no-schedule #menu-mon-horaire {
   display: none; }
@@ -2096,7 +2875,8 @@ textarea {
 
 section.intro {
   padding: 50px 0 95px;
-  height: 700px; }
+  height: 700px;
+  min-height: 90vh; }
   section.intro .container, section.intro .sticky.fixed, section.intro .days .sticky, .days section.intro .sticky {
     position: relative;
     overflow: hidden;
@@ -2225,7 +3005,7 @@ section.intro {
         bottom: 0; }
       section.intro .main.right .top .border-bottom {
         bottom: 0; }
-      section.intro .main.right .top .title, section.intro .main.right .top nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .main.right .top a {
+      section.intro .main.right .top .title, section.intro .main.right .top nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .main.right .top a, section.intro .main.right .top .field label, .field section.intro .main.right .top label {
         font-size: 1.75em; }
     section.intro .main.right .middle {
       display: inline-block;
@@ -2277,21 +3057,75 @@ section.intro {
         height: 300%; }
       section.intro .main.right .bottom .border-top {
         top: 0; }
-  section.intro .title, section.intro nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro a {
+  section.intro .title, section.intro nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro a, section.intro .field label, .field section.intro label {
     margin: 0; }
   section.intro img {
     max-width: 100%; }
-  section.intro .btn.eventbrite, section.intro .eventbrite.profile {
+  section.intro .btn.eventbrite, section.intro .eventbrite.profile, section.intro .eventbrite.card, section.intro .social-account .eventbrite.wp-social-login-provider, .social-account section.intro .eventbrite.wp-social-login-provider, section.intro #loginform .eventbrite.login-submit, #loginform section.intro .eventbrite.login-submit,
+  section.intro #loginform .eventbrite.register-submit,
+  #loginform section.intro .eventbrite.register-submit,
+  section.intro #registerform .eventbrite.login-submit,
+  #registerform section.intro .eventbrite.login-submit,
+  section.intro #registerform .eventbrite.register-submit,
+  #registerform section.intro .eventbrite.register-submit {
     text-align: center;
     display: block; }
-    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a {
+    section.intro .btn.eventbrite .title, section.intro .eventbrite.profile .title, section.intro .eventbrite.card .title, section.intro .social-account .eventbrite.wp-social-login-provider .title, .social-account section.intro .eventbrite.wp-social-login-provider .title, section.intro #loginform .eventbrite.login-submit .title, #loginform section.intro .eventbrite.login-submit .title,
+    section.intro #loginform .eventbrite.register-submit .title,
+    #loginform section.intro .eventbrite.register-submit .title,
+    section.intro #registerform .eventbrite.login-submit .title,
+    #registerform section.intro .eventbrite.login-submit .title,
+    section.intro #registerform .eventbrite.register-submit .title,
+    #registerform section.intro .eventbrite.register-submit .title, section.intro .btn.eventbrite nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .btn.eventbrite a, section.intro .eventbrite.profile nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.profile a, section.intro .eventbrite.card nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .eventbrite.card a, section.intro .social-account .eventbrite.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .social-account .eventbrite.wp-social-login-provider a, .social-account section.intro .eventbrite.wp-social-login-provider nav[role="navigation"] ul a, nav[role="navigation"] ul .social-account section.intro .eventbrite.wp-social-login-provider a, section.intro #loginform .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro #loginform .eventbrite.login-submit a, #loginform section.intro .eventbrite.login-submit nav[role="navigation"] ul a, nav[role="navigation"] ul #loginform section.intro .eventbrite.login-submit a,
+    section.intro #loginform .eventbrite.register-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul section.intro #loginform .eventbrite.register-submit a,
+    #loginform section.intro .eventbrite.register-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul #loginform section.intro .eventbrite.register-submit a,
+    section.intro #registerform .eventbrite.login-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul section.intro #registerform .eventbrite.login-submit a,
+    #registerform section.intro .eventbrite.login-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul #registerform section.intro .eventbrite.login-submit a,
+    section.intro #registerform .eventbrite.register-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul section.intro #registerform .eventbrite.register-submit a,
+    #registerform section.intro .eventbrite.register-submit nav[role="navigation"] ul a,
+    nav[role="navigation"] ul #registerform section.intro .eventbrite.register-submit a, section.intro .btn.eventbrite .field label, .field section.intro .btn.eventbrite label, section.intro .eventbrite.profile .field label, .field section.intro .eventbrite.profile label, section.intro .eventbrite.card .field label, .field section.intro .eventbrite.card label, section.intro .social-account .eventbrite.wp-social-login-provider .field label, .field section.intro .social-account .eventbrite.wp-social-login-provider label, .social-account section.intro .eventbrite.wp-social-login-provider .field label, .field .social-account section.intro .eventbrite.wp-social-login-provider label, section.intro #loginform .eventbrite.login-submit .field label, .field section.intro #loginform .eventbrite.login-submit label, #loginform section.intro .eventbrite.login-submit .field label, .field #loginform section.intro .eventbrite.login-submit label,
+    section.intro #loginform .eventbrite.register-submit .field label,
+    .field section.intro #loginform .eventbrite.register-submit label,
+    #loginform section.intro .eventbrite.register-submit .field label,
+    .field #loginform section.intro .eventbrite.register-submit label,
+    section.intro #registerform .eventbrite.login-submit .field label,
+    .field section.intro #registerform .eventbrite.login-submit label,
+    #registerform section.intro .eventbrite.login-submit .field label,
+    .field #registerform section.intro .eventbrite.login-submit label,
+    section.intro #registerform .eventbrite.register-submit .field label,
+    .field section.intro #registerform .eventbrite.register-submit label,
+    #registerform section.intro .eventbrite.register-submit .field label,
+    .field #registerform section.intro .eventbrite.register-submit label {
       padding: 30px 30px 20px; }
-    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img {
+    section.intro .btn.eventbrite img, section.intro .eventbrite.profile img, section.intro .eventbrite.card img, section.intro .social-account .eventbrite.wp-social-login-provider img, .social-account section.intro .eventbrite.wp-social-login-provider img, section.intro #loginform .eventbrite.login-submit img, #loginform section.intro .eventbrite.login-submit img,
+    section.intro #loginform .eventbrite.register-submit img,
+    #loginform section.intro .eventbrite.register-submit img,
+    section.intro #registerform .eventbrite.login-submit img,
+    #registerform section.intro .eventbrite.login-submit img,
+    section.intro #registerform .eventbrite.register-submit img,
+    #registerform section.intro .eventbrite.register-submit img {
       margin-bottom: 30px; }
-    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before {
+    section.intro .btn.eventbrite:before, section.intro .eventbrite.profile:before, section.intro .eventbrite.card:before, section.intro .social-account .eventbrite.wp-social-login-provider:before, .social-account section.intro .eventbrite.wp-social-login-provider:before, section.intro #loginform .eventbrite.login-submit:before, #loginform section.intro .eventbrite.login-submit:before,
+    section.intro #loginform .eventbrite.register-submit:before,
+    #loginform section.intro .eventbrite.register-submit:before,
+    section.intro #registerform .eventbrite.login-submit:before,
+    #registerform section.intro .eventbrite.login-submit:before,
+    section.intro #registerform .eventbrite.register-submit:before,
+    #registerform section.intro .eventbrite.register-submit:before {
       display: block;
       background: #00bfdf; }
-    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after {
+    section.intro .btn.eventbrite:after, section.intro .eventbrite.profile:after, section.intro .eventbrite.card:after, section.intro .social-account .eventbrite.wp-social-login-provider:after, .social-account section.intro .eventbrite.wp-social-login-provider:after, section.intro #loginform .eventbrite.login-submit:after, #loginform section.intro .eventbrite.login-submit:after,
+    section.intro #loginform .eventbrite.register-submit:after,
+    #loginform section.intro .eventbrite.register-submit:after,
+    section.intro #registerform .eventbrite.login-submit:after,
+    #registerform section.intro .eventbrite.login-submit:after,
+    section.intro #registerform .eventbrite.register-submit:after,
+    #registerform section.intro .eventbrite.register-submit:after {
       border-color: #0094c2; }
   section.intro [class*="delay"] {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -2389,7 +3223,7 @@ section.intro {
       padding-left: 0.438em; }
   .features .speaker {
     margin-bottom: 0.5em; }
-    .features .speaker .title, .features .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .features .speaker a {
+    .features .speaker .title, .features .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .features .speaker a, .features .speaker .field label, .field .features .speaker label {
       margin-bottom: 0.2em;
       font-size: 1.5em;
       font-weight: 300;
@@ -2466,9 +3300,9 @@ section.intro {
         padding-right: 0.75em;
         line-height: 2.5em;
         content: ""; }
-      .features .session .wrap > .title, .features .session nav[role="navigation"] ul .wrap > a, nav[role="navigation"] ul .features .session .wrap > a {
+      .features .session .wrap > .title, .features .session nav[role="navigation"] ul .wrap > a, nav[role="navigation"] ul .features .session .wrap > a, .features .session .field .wrap > label, .field .features .session .wrap > label {
         position: relative; }
-        .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after {
+        .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
           display: block;
           font-size: 1em;
           line-height: 0;
@@ -2481,7 +3315,7 @@ section.intro {
           -ms-transition: color 120ms linear 60ms;
           -o-transition: color 120ms linear 60ms;
           transition: color 120ms linear 60ms; }
-    .no-touch .features .session:hover .wrap > .title:after, .no-touch .features .session:hover nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .no-touch .features .session:hover .wrap > a:after, .features .session:active .wrap > .title:after, .features .session:active nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session:active .wrap > a:after {
+    .no-touch .features .session:hover .wrap > .title:after, .no-touch .features .session:hover nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .no-touch .features .session:hover .wrap > a:after, .no-touch .features .session:hover .field .wrap > label:after, .field .no-touch .features .session:hover .wrap > label:after, .features .session:active .wrap > .title:after, .features .session:active nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session:active .wrap > a:after, .features .session:active .field .wrap > label:after, .field .features .session:active .wrap > label:after {
       color: #005f93; }
     .features .session .meta {
       position: absolute;
@@ -2540,7 +3374,7 @@ section.intro {
           vertical-align: middle; }
         .features .session .meta > * + * {
           border-left: 1px solid #3d3d3d; }
-      .features .session .meta .title, .features .session .meta nav[role="navigation"] ul a, nav[role="navigation"] ul .features .session .meta a {
+      .features .session .meta .title, .features .session .meta nav[role="navigation"] ul a, nav[role="navigation"] ul .features .session .meta a, .features .session .meta .field label, .field .features .session .meta label {
         margin: 0;
         line-height: 1;
         text-align: right; }
@@ -2571,11 +3405,17 @@ section.intro {
       line-height: 1;
       width: 33.33%;
       padding: 0 10px 20px; }
-  .program .days .btn, .program .days .profile {
+  .program .days .btn, .program .days .profile, .program .days .card, .program .days .social-account .wp-social-login-provider, .social-account .program .days .wp-social-login-provider, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+  .program .days #loginform .register-submit,
+  #loginform .program .days .register-submit,
+  .program .days #registerform .login-submit,
+  #registerform .program .days .login-submit,
+  .program .days #registerform .register-submit,
+  #registerform .program .days .register-submit {
     width: 100%;
     text-align: right;
     padding-right: 0; }
-  .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a {
+  .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a, .program .days .field label, .field .program .days label {
     margin: 0; }
 
 .event-location:after {
@@ -2606,11 +3446,17 @@ section.intro {
     padding: 0 15px 30px; }
 .event-location a {
   color: #005f93; }
-.event-location .title, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a,
+.event-location .title, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a, .event-location .field label, .field .event-location label,
 .event-location .content {
   position: relative;
   z-index: 2; }
-.event-location .title.small, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a {
+.event-location .title.small, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a, .event-location .field label.small, .field .event-location label.small, .event-location #loginform .login-submit > *, #loginform .event-location .login-submit > *,
+.event-location #loginform .register-submit > *,
+#loginform .event-location .register-submit > *,
+.event-location #registerform .login-submit > *,
+#registerform .event-location .login-submit > *,
+.event-location #registerform .register-submit > *,
+#registerform .event-location .register-submit > * {
   text-transform: none;
   margin: 1em 0 0 0;
   line-height: 1.25em; }
@@ -2727,7 +3573,7 @@ section.intro {
     .posts .post .meta, .posts .featured .meta {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
-    .posts .post .title, .posts .featured .title, .posts .post nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .post a, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a {
+    .posts .post .title, .posts .featured .title, .posts .post nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .post a, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a, .posts .post .field label, .field .posts .post label, .posts .featured .field label, .field .posts .featured label {
       margin-top: 0; }
   .posts .featured {
     margin-bottom: 0.25em; }
@@ -3025,7 +3871,13 @@ section.intro {
   .waq2015 .group > ul {
     margin-top: 20px; }
 
-.single hgroup .btn, .single hgroup .profile {
+.single hgroup .btn, .single hgroup .profile, .single hgroup .card, .single hgroup .social-account .wp-social-login-provider, .social-account .single hgroup .wp-social-login-provider, .single hgroup #loginform .login-submit, #loginform .single hgroup .login-submit,
+.single hgroup #loginform .register-submit,
+#loginform .single hgroup .register-submit,
+.single hgroup #registerform .login-submit,
+#registerform .single hgroup .login-submit,
+.single hgroup #registerform .register-submit,
+#registerform .single hgroup .register-submit {
   float: right;
   position: relative;
   z-index: 100;
@@ -3036,7 +3888,7 @@ section.intro {
   font-size: 0.5em; }
 .single hgroup .favorite {
   margin-top: 0; }
-.single hgroup .main.title, .single hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .single hgroup a.main {
+.single hgroup .main.title, .single hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .single hgroup a.main, .single hgroup .field label.main, .field .single hgroup label.main {
   width: 75%; }
 .single .conference {
   font-size: 1.25em;
@@ -3050,19 +3902,19 @@ section.intro {
   position: relative;
   z-index: 100;
   position: relative;
-  margin-top: -100px; }
+  margin-top: -4em; }
   .single .conferencer.has-thumb .name {
     margin-left: 120px; }
   .single .conferencer .social {
     font-size: 0.75em; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
-.single.session, .single.article {
+.single.single-session, .single.article {
   padding: 50px 0;
   font-size: 1.25em; }
-  .single.session .tags, .single.article .tags {
+  .single.single-session .tags, .single.article .tags {
     font-size: 0.875em; }
-  .single.session .content, .single.article .content {
+  .single.single-session .content, .single.article .content {
     padding-top: 20px;
     margin-top: 20px;
     padding-bottom: 2em;
@@ -3111,7 +3963,7 @@ section.intro {
     vertical-align: middle; }
   .single .about > * {
     display: inline-block; }
-  .single .about .name .title, .single .about .name nav[role="navigation"] ul a, nav[role="navigation"] ul .single .about .name a {
+  .single .about .name .title, .single .about .name nav[role="navigation"] ul a, nav[role="navigation"] ul .single .about .name a, .single .about .name .field label, .field .single .about .name label {
     margin-top: 3px; }
 .single .thumb {
   width: 100px;
@@ -3132,7 +3984,7 @@ section.intro {
       left: 0;
       line-height: 0; }
 
-.actualites hgroup .main.title, .actualites hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .actualites hgroup a.main {
+.actualites hgroup .main.title, .actualites hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .actualites hgroup a.main, .actualites hgroup .field label.main, .field .actualites hgroup label.main {
   width: 100%; }
 
 footer .top-footer {
@@ -3275,7 +4127,7 @@ footer .contact-general {
       *display: inline;
       zoom: 1;
       vertical-align: middle; }
-  footer .contact-general .title, footer .contact-general nav[role="navigation"] ul a, nav[role="navigation"] ul footer .contact-general a {
+  footer .contact-general .title, footer .contact-general nav[role="navigation"] ul a, nav[role="navigation"] ul footer .contact-general a, footer .contact-general .field label, .field footer .contact-general label {
     margin: 0 0 10px 0; }
   footer .contact-general .hashtag {
     height: 2.625em;
@@ -3373,6 +4225,69 @@ footer .logo-o2 {
     position: relative;
     top: -0.25em; }
 
+.account .dashboard-link,
+.account .logout-link {
+  display: block;
+  float: right;
+  position: relative;
+  z-index: 1;
+  padding: 0.5em 0;
+  margin-left: 1em; }
+
+.account-sessions .session {
+  margin-top: 10px; }
+  .account-sessions .session:first-child {
+    margin-top: 0; }
+  .account-sessions .session > .wrap {
+    width: 100%; }
+  .account-sessions .session .session-title {
+    font-size: 1.5em; }
+  .account-sessions .session .speaker {
+    font-size: 1.125em; }
+    .account-sessions .session .speaker .title, .account-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .speaker a, .account-sessions .session .speaker .field label, .field .account-sessions .session .speaker label,
+    .account-sessions .session .speaker .note,
+    .account-sessions .session .speaker #loginform .login-remember,
+    #loginform .account-sessions .session .speaker .login-remember,
+    .account-sessions .session .speaker #registerform .login-remember,
+    #registerform .account-sessions .session .speaker .login-remember {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      margin-bottom: 0; }
+  .account-sessions .session .location {
+    margin-right: 0; }
+    .account-sessions .session .location:before {
+      display: none; }
+    .account-sessions .session .location .title, .account-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .location a, .account-sessions .session .location .field label, .field .account-sessions .session .location label {
+      margin: 0;
+      display: block; }
+    .account-sessions .session .location[style] {
+      position: relative;
+      padding-left: 20px; }
+      .account-sessions .session .location[style]:before {
+        display: block;
+        content: "";
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        border-right: 10px solid #eeeef0;
+        border-color: inherit; }
+  .account-sessions .session.keynote {
+    font-size: 1em; }
+    .account-sessions .session.keynote .session-title,
+    .account-sessions .session.keynote .infos {
+      text-align: left; }
+  .account-sessions .session.has-thumb > .wrap > * {
+    margin-left: 8em; }
+  .account-sessions .session.has-thumb .thumb {
+    float: left;
+    width: 7em;
+    height: 7em;
+    margin-left: 0; }
+    .account-sessions .session.has-thumb .thumb img {
+      width: 100%; }
+
 @media screen and (max-width: 1200px) {
   html,
   .grid > * > * {
@@ -3431,8 +4346,6 @@ footer .logo-o2 {
     body > nav[role="navigation"] .main,
     body > nav[role="navigation"] .secondary {
       display: block; }
-    body > nav[role="navigation"] .secondary {
-      display: none; }
 
   nav[role="navigation"] .logo.waq,
   body > .logo.waq {
@@ -3538,7 +4451,7 @@ footer .logo-o2 {
   section.intro {
     padding-top: 110px;
     padding-bottom: 10px; }
-    section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
+    section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main, section.intro .field label.main, .field section.intro label.main {
       font-size: 2.5em; }
 
   .schedules .schedule {
@@ -3554,7 +4467,7 @@ footer .logo-o2 {
 
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }
-  .intro .title.huge, .intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul .intro a.huge {
+  .intro .title.huge, .intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul .intro a.huge, .intro .field label.huge, .field .intro label.huge {
     font-size: 1.5em; }
   .intro .main.right .top {
     display: inline-block;
@@ -3619,14 +4532,14 @@ footer .logo-o2 {
   .single .content {
     font-size: 1.25em; }
 
-  .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle {
+  .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle, .filters .field label.toggle, .field .filters label.toggle {
     display: inline-block;
     *display: inline;
     zoom: 1;
     position: relative;
     cursor: pointer;
     padding: 0 2em 0.15em 0; }
-    .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after {
+    .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -3648,7 +4561,7 @@ footer .logo-o2 {
       -ms-transition: -ms-transform 320ms ease;
       -o-transition: -o-transform 320ms ease;
       transition: transform 320ms ease; }
-    .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after {
+    .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after, .filters .field label.toggle.active:after, .field .filters label.toggle.active:after {
       -webkit-transform: rotate(405deg);
       -moz-transform: rotate(405deg);
       -ms-transform: rotate(405deg);
@@ -3695,11 +4608,14 @@ footer .logo-o2 {
     top: 0;
     left: 0;
     padding: 0.25em;
-    height: 30px; }
-    .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a {
+    height: 30px;
+    background: #eeeef0;
+    border-color: #eeeef0; }
+    .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a, .schedules tbody th .field label, .field .schedules tbody th label {
       display: inline-block;
       *display: inline;
       zoom: 1;
+      color: #005f93;
       font-size: 1.25em; }
   .schedules tbody td {
     height: auto;
@@ -3714,7 +4630,7 @@ footer .logo-o2 {
       display: none; }
   .schedules .swiper .session {
     margin-bottom: 0; }
-    .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a, .schedules .swiper .session .location.border-bottom:before {
+    .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a, .schedules .swiper .session .field .location.border-bottom > label, .field .schedules .swiper .session .location.border-bottom > label, .schedules .swiper .session .location.border-bottom:before {
       display: none; }
     .schedules .swiper .session .location[location] {
       position: relative; }
@@ -3771,9 +4687,9 @@ footer .logo-o2 {
     section.intro .main.right .bottom {
       padding-top: 30px;
       padding-bottom: 30px; }
-    section.intro .main.right .title.huge, section.intro .main.right nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro .main.right a.huge {
+    section.intro .main.right .title.huge, section.intro .main.right nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro .main.right a.huge, section.intro .main.right .field label.huge, .field section.intro .main.right label.huge {
       width: 100%; }
-    section.intro .main.right .title.main, section.intro .main.right nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro .main.right a.main {
+    section.intro .main.right .title.main, section.intro .main.right nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro .main.right a.main, section.intro .main.right .field label.main, .field section.intro .main.right label.main {
       font-size: 2.5em; }
     section.intro .main.right .border-top,
     section.intro .main.right .border-bottom {
@@ -3783,7 +4699,7 @@ footer .logo-o2 {
         width: 100% !important; }
     section.intro .border-left:after {
       display: none; }
-    section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
+    section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main, section.intro .field label.main, .field section.intro label.main {
       font-size: 1.25em; }
     section.intro .top .huge {
       font-size: 1.25em; }
@@ -3827,13 +4743,13 @@ footer .logo-o2 {
     .touch .waq2015 .group .profile {
       font-size: 0.75em; }
 
-  .session .cols, .session .cols-2, .session .cols-3, .session .cols-4 {
+  .single-session .cols, .single-session .cols-2, .single-session .cols-3, .single-session .cols-4 {
     font-size: 0;
     word-spacing: 0;
     line-height: 0;
     margin-left: 0;
     margin-right: 0; }
-    .session .cols > *, .session .cols-2 > *, .session .cols-3 > *, .session .cols-4 > * {
+    .single-session .cols > *, .single-session .cols-2 > *, .single-session .cols-3 > *, .single-session .cols-4 > * {
       display: inline-block;
       *display: inline;
       zoom: 1;
@@ -3843,26 +4759,26 @@ footer .logo-o2 {
       line-height: 1;
       width: 100%;
       padding: 0 0 0; }
-  .session .col.narrow, .session .col.wide {
+  .single-session .col.narrow, .single-session .col.wide {
     padding: 0; }
-  .session .col.narrow {
+  .single-session .col.narrow {
     margin-top: 1em;
     padding-top: 2em;
     border-top: 1px solid #cacaca; }
-  .session .conferencer {
+  .single-session .conferencer {
     margin-top: 0;
     float: none;
     width: 100%; }
-    .session .conferencer .about {
+    .single-session .conferencer .about {
       font-size: 0.875em;
       padding-bottom: 0;
       margin-bottom: 0; }
-    .session .conferencer .social li,
-    .session .conferencer .social a {
+    .single-session .conferencer .social li,
+    .single-session .conferencer .social a {
       display: inline-block;
       *display: inline;
       zoom: 1; }
-    .session .conferencer .social li {
+    .single-session .conferencer .social li {
       margin-right: 2em; }
 
   .blog-page .posts {
@@ -3963,7 +4879,7 @@ footer .logo-o2 {
   footer .contact-general .social {
     font-size: 1.5em; } }
 @media screen and (max-width: 767px) {
-  .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main {
+  .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main, .intro .field label.main, .field .intro label.main {
     font-size: 1.5em; }
   .intro .top .huge {
     font-size: 1em; }
@@ -4188,11 +5104,11 @@ footer .logo-o2 {
     section.intro .main.right .top .right {
       padding-left: 50px;
       padding-right: 0; }
-    section.intro .main.right .top .title, section.intro .main.right .top nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .main.right .top a {
+    section.intro .main.right .top .title, section.intro .main.right .top nav[role="navigation"] ul a, nav[role="navigation"] ul section.intro .main.right .top a, section.intro .main.right .top .field label, .field section.intro .main.right .top label {
       font-size: 1.25em; }
-    section.intro .main.right .middle .title.main, section.intro .main.right .middle nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro .main.right .middle a.main {
+    section.intro .main.right .middle .title.main, section.intro .main.right .middle nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro .main.right .middle a.main, section.intro .main.right .middle .field label.main, .field section.intro .main.right .middle label.main {
       font-size: 1.75em; }
-    section.intro .main.right .bottom .title.huge, section.intro .main.right .bottom nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro .main.right .bottom a.huge {
+    section.intro .main.right .bottom .title.huge, section.intro .main.right .bottom nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro .main.right .bottom a.huge, section.intro .main.right .bottom .field label.huge, .field section.intro .main.right .bottom label.huge {
       font-size: 1.25em; }
 
   .features .infos {
@@ -4295,9 +5211,15 @@ footer .logo-o2 {
         line-height: 1;
         width: 100%;
         padding: 0 0 0; }
-    .program .days .btn, .program .days .profile {
+    .program .days .btn, .program .days .profile, .program .days .card, .program .days .social-account .wp-social-login-provider, .social-account .program .days .wp-social-login-provider, .program .days #loginform .login-submit, #loginform .program .days .login-submit,
+    .program .days #loginform .register-submit,
+    #loginform .program .days .register-submit,
+    .program .days #registerform .login-submit,
+    #registerform .program .days .login-submit,
+    .program .days #registerform .register-submit,
+    #registerform .program .days .register-submit {
       text-align: center; }
-    .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a {
+    .program .days .title, .program .days nav[role="navigation"] ul a, nav[role="navigation"] ul .program .days a, .program .days .field label, .field .program .days label {
       display: inline-block;
       *display: inline;
       zoom: 1; }
@@ -4308,7 +5230,7 @@ footer .logo-o2 {
   .schedules tbody td {
     width: 80%; } }
 @media screen and (max-width: 480px) {
-  .title.main, nav[role="navigation"] ul a.main {
+  .title.main, nav[role="navigation"] ul a.main, .field label.main {
     font-size: 1.875em; }
 
   .filters .toggle {
@@ -4350,7 +5272,7 @@ footer .logo-o2 {
       padding: 0 0 0; }
     footer .info-general > * {
       padding-top: 0; }
-    footer .info-general .title, footer .info-general nav[role="navigation"] ul a, nav[role="navigation"] ul footer .info-general a {
+    footer .info-general .title, footer .info-general nav[role="navigation"] ul a, nav[role="navigation"] ul footer .info-general a, footer .info-general .field label, .field footer .info-general label {
       margin-top: 1em; }
     footer .info-general p:last-child {
       margin-bottom: 0; }
@@ -4370,7 +5292,7 @@ footer .logo-o2 {
   .container, .sticky.fixed, .days .sticky {
     max-width: 1280px; }
 
-  section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
+  section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main, section.intro .field label.main, .field section.intro label.main {
     font-size: 2.25em; }
 
   .profile .infos:before {
@@ -4386,9 +5308,9 @@ footer .logo-o2 {
   .container, .sticky.fixed, .days .sticky {
     max-width: 1440px; }
 
-  section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main {
+  section.intro .title.main, section.intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul section.intro a.main, section.intro .field label.main, .field section.intro label.main {
     font-size: 2em; }
-  section.intro .title.huge, section.intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro a.huge {
+  section.intro .title.huge, section.intro nav[role="navigation"] ul a.huge, nav[role="navigation"] ul section.intro a.huge, section.intro .field label.huge, .field section.intro label.huge {
     font-size: 1.75em; } }
 @media print {
   * {

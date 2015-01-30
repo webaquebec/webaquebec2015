@@ -19,6 +19,7 @@
 section.intro
   padding: $xlarge 0 ($nav-height/2 + $xlarge)
   height: 700px
+  min-height: 90vh
   .container
     position: relative
     overflow: hidden
@@ -705,7 +706,7 @@ section.intro
     position: relative
     z-index: 100
     position: relative
-    margin-top: -100px
+    margin-top: -4em
     &.has-thumb
       .name
         margin-left: $medium+100
@@ -714,7 +715,7 @@ section.intro
   .single-article
     .image-une
       padding-bottom: 1.25em
-  &.session,
+  &.single-session,
   &.article
     padding: $xlarge 0
     font-size: 1.25em
@@ -874,4 +875,67 @@ footer
       position: relative
       top: -0.25em
 
+//
+//
+// PROFILE
+.account
+  .dashboard-link,
+  .logout-link
+    display: block
+    float: right
+    position: relative
+    z-index: 1
+    padding: 0.5em 0
+    margin-left: 1em
+
+.account-sessions
+  .session
+    margin-top: $small
+    &:first-child
+      margin-top: 0
+    >.wrap
+      width: 100%
+    .session-title
+      font-size: 1.5em
+    .speaker
+      font-size: 1.125em
+      .title,
+      .note
+        +inlineb
+        margin-bottom: 0
+    .location
+      margin-right: 0
+      &:before
+        display: none
+      .title
+        margin: 0
+        display: block
+      &[style]
+        position: relative
+        padding-left: $medium
+        &:before
+          display: block
+          content: ""
+          height: 100%
+          left: 0
+          top: 0
+          position: absolute
+          border-right: $small solid $l-grey
+          border-color: inherit
+    &.keynote
+      font-size: 1em
+      .session-title,
+      .infos
+        text-align: left
+    &.has-thumb
+      >.wrap
+        &>*
+          margin-left: 8em
+      .thumb
+        float: left
+        width: 7em
+        height: 7em
+        margin-left: 0
+        img
+          width: 100%
 

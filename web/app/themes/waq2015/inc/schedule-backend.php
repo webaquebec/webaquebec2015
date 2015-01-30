@@ -98,7 +98,6 @@ function create_schedules()
             'editor'
         ),
         'can_export' => true,
-        'rewrite' => array( 'slug' => 'horaire'),
     ));
 
 
@@ -1051,7 +1050,6 @@ function create_sessions()
     endif;
 
 } // END CREATE_CONFERENCERS
-
 
 
 //

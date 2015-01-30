@@ -44,7 +44,6 @@ jQuery(document).ready(function($){
   // if cookies ar disabled, remove coverall
   if(window.cookieDisabled) $('.bang-coverall').remove();
   if(typeof(hashbang)!='undefined' && hashbang) return;
-
   //
   //
   // USEFUL FUNCTIONS
@@ -63,9 +62,10 @@ jQuery(document).ready(function($){
   // SETUP
   $win = $(window);
 
-  waq.$doc = $('html,body');
-  waq.$page = $('.wrapper', document.body);
-  waq.$header = $('>header', waq.$page);
+  waq.$doc = $(document.documentElement);
+  waq.$page = $('html,body');
+  waq.$wrapper = $('.wrapper', document.body);
+  waq.$header = $('>header', waq.$wrapper);
 
   waq.$menu = $('nav', waq.$header);
   waq.$menu.$links = $('a', waq.$menu);
@@ -74,6 +74,7 @@ jQuery(document).ready(function($){
 
   waq.$intro = $('#intro', waq.$header);
   waq.$program = $('.program');
+  waq.$favorite = $('.single-session .toggle.favorite');
   waq.$schedules = $('.schedule');
   waq.$map = $('#gmap');
   waq.$map.$viewport = $('.map-container .viewport');
@@ -81,13 +82,15 @@ jQuery(document).ready(function($){
 
   waq.$expandables = $('.expandable'); // Animated width
   waq.$toggles = $('.toggle');  // Toggles
+  waq.$tabs = $('.tab-trigger');  // Tabs
   waq.$stickys = $('.sticky');
   waq.$profiles = $('.profile.has-social');
   waq.url = {};
   waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
   waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
 
-  waq.isTouch = $(document.documentElement).hasClass('touch');
+  waq.loggedin = waq.$wrapper.hasClass('logged-in');
+  waq.isTouch = waq.$doc.hasClass('touch');
 
   //
   //
@@ -116,7 +119,7 @@ jQuery(document).ready(function($){
       if(!$target.length) return;
     }
 
-    waq.$doc.stop().animate({
+    waq.$page.stop().animate({
         scrollTop: $target.offset().top - (waq.loggedin ? 142 : 110)
     }, 800, $.bez([0.5, 0, 0.225, 1]));
 
@@ -149,7 +152,7 @@ jQuery(document).ready(function($){
               };
             },
             topDown: function(e){
-              var slug = $(se.items[minMax(e.i-1,0,100)]).attr('id')
+              var slug = $(se.selection[minMax(e.i-1,0,100)]).attr('id')
               var $target = waq.$menu.$links.parent().filter('.'+slug);
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
@@ -177,7 +180,7 @@ jQuery(document).ready(function($){
     if(parts.length>1){
       var slug = parts[1];
       $win.on('load',function(){
-        scrollTo(slug);
+        if(window.se.t < 5) scrollTo(slug);
       });
     }
   }
@@ -225,7 +228,7 @@ jQuery(document).ready(function($){
         var is_tabs = (!waq.$program.$sticky || $sticky[0] == waq.$program.$sticky[0]);
         $sticky.sticky({
           offset: is_tabs ? 110 : 120,
-          offsetBottom: is_tabs ? 40 : 30,
+          offsetBottom: is_tabs ? 30 : 30,
           container: is_tabs ? waq.$program : $sticky.parent(),
           reset: function(e){
             e.selection.removeClass('fixed contained');
@@ -274,7 +277,6 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
-
   function enableMobileSchedules(){
     waq.$schedules.isMobile = true;
     for(var i=0; i<waq.$schedules.length; i++){
@@ -395,6 +397,7 @@ jQuery(document).ready(function($){
       // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
 
       if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
+      $.cookie('schedule', $schedule.attr('schedule'), { path: '/' });
       e.stopPropagation();
 
     }
@@ -455,7 +458,47 @@ jQuery(document).ready(function($){
 
   //
   //
-  //
+  // FAVORITES
+
+  function toggleFavorite(e){
+    var $trigger = $(this);
+    var $toggles = $trigger[0].$toggles;
+    var activated = $trigger.hasClass('active');
+    var added = [];
+    var removed = [];
+
+    if(!waq.loggedin){
+      // pop dialog box here...
+      if(activated) $trigger.trigger('click');
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
+    if($toggles){
+      var $previousFavorites = $toggles.filter('.active');
+      $previousFavorites.removeClass('active');
+      for(var p=0; p<$previousFavorites.length; p++)
+        removed.push($($previousFavorites[p]).attr('session'));
+    }
+
+    if(activated) added.push($trigger.attr('session'))
+    else removed.push($trigger.attr('session'));
+
+    $.ajax({
+        type: "POST",
+        url: '/mon-horaire/update',
+        datatype: 'json',
+        data: {
+          add: added,
+          remove: removed
+        },
+        success: function(data){
+          // $.cookie('favorites', data, { path: '/' });
+        }
+    })
+  }
+
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
 
@@ -463,32 +506,22 @@ jQuery(document).ready(function($){
       var $trigger = $(waq.$schedules.$toggles[i]);
       $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
     }
-
-    function toggleFavorite(e){
-      var $trigger = $(this);
-      var $toggles = $trigger[0].$toggles;
-      var $previousFavorite = $toggles.filter('.active');
-      $previousFavorite.removeClass('active');
-    }
-
     waq.$schedules.$toggles.on('click', toggleFavorite);
   }
 
+  if(waq.$favorite.length) waq.$favorite.on('click', toggleFavorite);
 
-  // //
-  // //
-  // // RESIZE HEADER
-  // $('#intro').css('height', $win.height() + "px");
-
-  // $win.resize(function() {
-  //     updateHeight();
-  // });
-
-  // function updateHeight() {
-  //   var windowHeight = $win.height();
-  //   $('#intro').css('height', windowHeight + 'px');
-  // }
-
+  //
+  //
+  // TABS
+  if(waq.$tabs.length){
+    waq.$tabs.tabs({
+      activate: waq.$tabs.index(waq.$tabs.filter('.active')),
+      type: 'tabs',
+      animation: false,
+      content: $('.tab-content')
+    });
+  }
 
   //
   //
@@ -526,7 +559,7 @@ jQuery(document).ready(function($){
   function largerThan1200(e){
     if(waq.$intro.length) enableStickyNav();
     if(e=='init') return; // Exit here at init --------------------------
-    waq.$page.moSides('destroy');
+    waq.$wrapper.moSides('destroy');
     waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
     waq.$logo.prependTo(waq.$menu);
@@ -535,18 +568,18 @@ jQuery(document).ready(function($){
   }
   // < 1200px
   function smallerThan1200(e){
-    waq.$menu.insertBefore(waq.$page);
+    waq.$menu.insertBefore(waq.$wrapper);
     waq.$logo.insertBefore(waq.$menu);
     waq.$menu.$toggle.addClass('hidden').prependTo(waq.$logo);
     waq.$menu.$links.on('click', toggleMenu);
     setTimeout(function(){waq.$menu.$toggle.removeClass('hidden')},32);
-    waq.$page.moSides({
+    waq.$wrapper.moSides({
       right:{
           size:240,
           toggle: waq.$menu.$toggle,
           callback: function(e){
             waq.$menu.$toggle.toggleClass('active');
-            waq.$page.toggleClass('active');
+            waq.$wrapper.toggleClass('active');
         }
       },
       clean: true

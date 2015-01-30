@@ -4,11 +4,15 @@
  */
 get_header_once();
 global $current_user;
+get_currentuserinfo();
+$loggedin = is_user_logged_in();
+$favorites_str = '';
+if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
 ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="program dark">
+<section id="<?= $post->post_name ?>" class="program">
 
   <hgroup>
     <div class="container">
@@ -21,14 +25,16 @@ global $current_user;
         'posts_per_page' => -1,
         'orderby'=> 'menu_order',
       ));
-      if($schedules->have_posts()): ?>
+      if($schedules->have_posts()):
+        $activeSchedule = isset($_COOKIE['schedule']) ? $_COOKIE['schedule'] : $schedules->posts[0]->ID;
+        ?>
 
       <div class="days">
         <nav class="sticky">
           <ul>
             <?php foreach($schedules->posts as $k=>$post): ?>
             <li>
-              <button class="btn toggle<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>" >
+              <button class="btn toggle<?php if($post->ID==$activeSchedule) echo ' active' ?>" schedule="<?= $post->ID ?>" >
                 <div class="wrap">
                   <span class="sub title"><?= get_the_title($post->ID) ?></span>
                   <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
@@ -56,7 +62,7 @@ $filters = get_terms( 'theme', array(
  ));
 if(has($filters)):
 ?>
-   <nav class="filters dark">
+   <nav class="filters">
     <div class="container">
       <h3 class="title toggle">
         <?= __('Filtrer par thématique', 'waq') ?>
@@ -76,11 +82,10 @@ if(has($filters)):
   <?php if($schedules->have_posts()): ?>
   <div class="schedules">
   <?php
-
   // loop throught schedules
-  foreach($schedules->posts as $k=>$post):
+  foreach($schedules->posts as $post):
     ?>
-    <article class="schedule<?php if($k==0) echo ' active' ?>" schedule="<?= $post->ID ?>">
+    <article class="schedule<?php if($post->ID==$activeSchedule) echo ' active' ?>" schedule="<?= $post->ID ?>">
     <?php
     //
     // format for time labels
@@ -155,7 +160,7 @@ if(has($filters)):
                 </div>
               <?php endif; ?>
 
-              <button class="btn seamless toggle favorite icon-only" toggle-content="<?= __('À mon horaire', 'waq') ?>" schedule="<?= $schedule->grid_ID ?>" session="<?= $session->ID ?>">
+              <button class="btn seamless toggle favorite icon-only<?php if(session_is_favorite($session->ID, $favorites_str)) echo ' active' ?>" session="<?= $session->ID ?>">
                 <span>
                   <?= __('Ajouter à mon horaire', 'waq') ?>
                 </span>

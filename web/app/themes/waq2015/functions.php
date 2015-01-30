@@ -4,6 +4,7 @@ require_once('inc/seo.php');
 require_once('inc/hashbang.php');
 require_once('inc/schedule-frontend.php');
 require_once('inc/schedule-backend.php');
+require_once('inc/schedule-favorites.php');
 require_once('inc/socialfeed.php');
 
 if( function_exists('acf_add_options_page') ) {
@@ -50,7 +51,11 @@ function include_page_part($ID){
     $template = str_replace('.php','',get_page_template_slug($ID));
     if(!has($template)) $template = 'page';
     get_template_part($template);
+}
 
+function get_ID_from_slug($slug){
+    global $wpdb;
+    return $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '$slug'");
 }
 
 
@@ -137,7 +142,6 @@ add_image_size('blog-thumb', 200, 230, false); //200 pixels wide (and unlimited 
 
 add_theme_support( 'post-thumbnails' );
 
-
 /*------------------------------------*\
 	HEAD
 \*------------------------------------*/
@@ -165,10 +169,16 @@ function header_scripts()
         wp_register_script('cookies', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), null);
         wp_enqueue_script('cookies');
 
-        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.min.js', array(), null);
+        wp_register_script('tabs', get_template_directory_uri() . '/assets/js/tabs.js', array(), null);
+        wp_enqueue_script('tabs');
+
+        wp_register_script('raf', get_template_directory_uri() . '/assets/js/raf.js', array(), null);
+        wp_enqueue_script('raf');
+
+        wp_register_script('scrollEvents', get_template_directory_uri() . '/assets/js/scrollEvents.js', array(), null);
         wp_enqueue_script('scrollEvents');
 
-        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.min.js', array(), null);
+        wp_register_script('sticky', get_template_directory_uri() . '/assets/js/sticky.js', array(), null);
         wp_enqueue_script('sticky');
 
         wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null);
@@ -207,7 +217,7 @@ function header_styles()
 }
 
 
-/* --------------------------------------------------------------------------------------------------- Admin CSS ------------- */
+/* ---------------------------- */
 // CSS POUR L'ADMIN
 
 function admin_style() {
@@ -215,7 +225,80 @@ function admin_style() {
     wp_enqueue_style('admin');
 }
 
+/*------------------------------------*\
+    LOGIN/REGISTER FORM
+\*------------------------------------*/
 
+// http://www.danielauener.com/build-fully-customized-wordpress-login-annoying-redirects/
+function login_fail( $username ) {
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if (!empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+        wp_redirect( strtok($referrer, '?').'?login=failed' );
+        exit;
+    }
+}
+function redirect_login($redirect_to, $url, $user) {
+    if(empty($_SERVER['HTTP_REFERER'])) return;
+    $referrer = $_SERVER['HTTP_REFERER'];
+    $errors_keys = [];
+    if(isset($user->errors))
+        foreach($user->errors as $error=>$message)
+            $errors_keys[] = $error;
+    if(count($errors_keys)>0){
+        wp_redirect(    strtok($referrer, '?').
+                        '?login='.implode('+', $errors_keys).
+                        (has($_POST['log'])?'&user='.urlencode($_POST['log']):'')
+                    );
+        exit;
+    }else{
+        wp_redirect('/mon-horaire');
+        exit;
+    }
+}
+function authenticate_user($user, $username, $password ) {
+    if(empty($_SERVER['HTTP_REFERER'])) return;
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if(!isset($_POST['log'])){
+        wp_redirect( strtok($referrer, '?').'?registration=success' );
+        exit;
+    }
+    return $user;
+}
+
+
+function registration_form_errors($errors, $user_login, $user_email) {
+    if(empty($_SERVER['HTTP_REFERER'])) return;
+    $referrer = $_SERVER['HTTP_REFERER'];
+    $errors_keys = [];
+
+    if(!has($_POST['user_password']))
+        $errors->add( 'password_missing', __('Vous devez entrer un mot de passe', 'waq') );
+    if(!has($_POST['user_password_repeat']))
+        $errors->add( 'password_repeat_missing', __('Répétez le mot de passe ici', 'waq') );
+    if(has($_POST['user_password']) && has($_POST['user_password_repeat']))
+        if($_POST['user_password'] != $_POST['user_password_repeat'])
+            $errors->add( 'passwords_not_matched', __('Les mots de passe entrés ne sont pas identiques.', 'waq') );
+
+    foreach($errors->errors as $error=>$message)
+        $errors_keys[] = $error;
+    if(count($errors_keys)>0){
+        wp_redirect(    strtok($referrer, '?').
+                        '?registration='.implode('+', $errors_keys).
+                        (has($user_login)?'&user='.urlencode($user_login):'').
+                        (has($user_email)?'&email='.urlencode($user_email):'')
+                    );
+        exit;
+    }
+    return $errors;
+}
+function register_user( $user_id ) {
+    if( has($_POST['user_name']) ){
+        update_user_meta($user_id, 'first_name', $_POST['user_name']);
+        update_user_meta($user_id, 'display_name', $_POST['user_name']);
+    }
+    if( has($_POST['user_password']) )
+        wp_set_password( $_POST['user_password'], $user_id );
+}
 /*------------------------------------*\
      OPTIONS EN VRAC
 \*------------------------------------*/
@@ -379,10 +462,9 @@ function enable_more_buttons($buttons) {
 //
 
 function themes_dir_add_rewrites() {
-  $theme_name = get_template();
 
   global $wp_rewrite;
-
+  $theme_name = get_template();
   $new_non_wp_rules = array(
     '(.css)'       => 'app/themes/' . $theme_name . '/assets/$1',
     'css/(.*)'       => 'app/themes/' . $theme_name . '/assets/css/$1',
@@ -394,7 +476,13 @@ function themes_dir_add_rewrites() {
   $wp_rewrite->non_wp_rules += $new_non_wp_rules;
 }
 
-
+function rewrite_author($rules){
+  foreach($rules as $rule=>$value){
+    unset($rules[$rule]);
+    $rules[str_replace('author', 'horaire', $rule)] = $value;
+  }
+  return $rules;
+}
 
 /* -------------------------------------------------------------------------------------------------- Variable après le slug ------- */
 //
@@ -404,7 +492,7 @@ function themes_dir_add_rewrites() {
 function add_endpoint()
 {
     add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('horaire', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
 }
 
 
@@ -422,13 +510,14 @@ add_action('admin_enqueue_scripts', 'admin_style');   // Css pour l'admin
 add_action('init', 'header_scripts');
 add_action('init', 'register_menu');
 add_action('init', 'remove_comment_support');
+add_action('init', 'tiny_stylesheet');
 add_action('init', 'add_endpoint');   // Ajouter une variables domain.com/slug/var  (voir aussi add_filter)
 add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des URLs
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
-// add_action('acf/save_post', 'create_css');  // Creation custom de css pour chaque post
-
-
+add_action('wp_login_failed', 'login_fail');
+add_action('user_register', 'register_user', 1, 1);
+add_action('login_redirect', 'redirect_login', 10, 3);
 //
 //  Remove Actions
 //
@@ -463,10 +552,10 @@ add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navi
 add_filter('body_class', 'my_body_class_filter', 10, 2); // Remove <body> injected classes (Commented out by default)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter("mce_buttons", "enable_more_buttons"); // Ajouter des boutons custom au WYSIWYG
-// add_filter('request', 'set_endpoint_var');  // Ajout d'une variacle après le slug (voir aussi add_action)
 add_filter( 'tiny_mce_before_init', 'custom_tiny_styles');
 add_filter('mce_buttons_2', 'enable_style_select');
-add_action('init', 'tiny_stylesheet' );
-
-
+add_filter('authenticate', 'authenticate_user', 1, 3);
+add_filter('registration_errors', 'registration_form_errors', 20, 3);
+add_filter('author_rewrite_rules', 'rewrite_author' );
+// add_filter('author_link', 'author_link', 10, 2 );
 ?>

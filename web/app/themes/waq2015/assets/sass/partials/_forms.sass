@@ -4,7 +4,7 @@
 
 // RESET
 form
-    @extend .clearfix
+  @extend .clearfix
 
 input[type="submit"],
 input[type="text"],
@@ -12,13 +12,171 @@ input[type="password"],
 input[type="file"],
 select,
 textarea
+  border: none
+  outline: none
+  outline-color: transparent
+  height: auto
+  -webkit-appearance: none
+  background-color: transparent
+  -webkit-font-smoothing: inherit !important
+
+
+//
+//
+// field
+.form
+  &>.message
+    margin: $small $medium
+    padding: $small $medium
+    border: 1px solid $d-blue
+    color: $d-blue
+  .tabs
+    padding: 1px
+  .tab-triggers
+    +grid(2,0)
+    vertical-align: top
+  .tab-trigger
+    vertical-align: middle
+    color: $d-grey
+    min-height: 4em
+    background: $l-grey
+    padding: 0.5em 1em
+    margin: 0
     border: none
     outline: none
-    outline-color: transparent
-    height: auto
-    -webkit-appearance: none
-    background-color: transparent
-    -webkit-font-smoothing: inherit !important
+    cursor: pointer
+    line-height: 1.2
+    +prefix(transition, background 120ms $ease, color 120ms $ease)
+    .no-touch &:hover
+      color: $l-blue
+    &.active
+      background: #fff
+      color: $blue
+  .border-middle
+    padding: 0 $medium
+//
+//
+// FIELDS
+.field
+  width: 100%
+  padding: $small $medium
+  // border-top: 1px solid $l-grey
+  &:first-child
+    border-top: none
+  label
+    @extend .title
+    @extend .sub.title
+    font-size: 1em
+    input
+      +inlineb
+      width: auto
+      height: auto
+  &.required label:after
+    content: " *"
+
+  input
+    display: block
+    width: 100%
+    border: 1px solid $grey
+    padding: 0.5em
+    height: 3em
+    line-height: 1
+    +prefix(transition, border 120ms linear)
+    .no-touch &:hover
+      border-color: $blue
+    &:focus
+      border: 3px solid $blue
+      color: $blue
+
+    &[type="submit"]
+      background: $blue
+      color: $l-grey
+      border: none
+      cursor: pointer
+      .no-touch &:hover,
+      &:active,
+      &:focus
+        background: $d-blue
+        color: #fff
+        border: none
+  .error
+    color: $red
+    &+input
+      border-color: $red
+      color: $red
+      .no-touch &:hover,
+      &:focus
+        color: $blue
+        border-color: $blue
 
 
-// GENERIC STYLES
+//
+//
+// SOCIAL LOGIN
+.social-account
+  padding: $small $medium
+  .message
+    margin: 1em 0 0.75em
+  .wp-social-login-provider-list
+    padding: 0
+  .wp-social-login-provider
+    @extend .btn
+    display: block
+    width: 100%
+    font-size: 1.5em
+    color: $l-grey
+    &:before
+      background: $d-blue2
+    &:after
+      border-color: $d-blue3
+    .no-touch &:hover
+      &:before,
+        background: $d-blue2
+      &:after
+        border-color: $d-blue3
+    >*
+      display: block
+      color: #fff
+      &:before
+        background: $d-blue
+      &:after
+        color: #fff
+
+    &:active,
+    &:focus,
+    .no-touch &:active:hover
+      color: #fff
+      &:before
+        background: $d-blue3
+      >*
+        &:after
+          color: #fff
+    &[data-provider="Facebook"]
+      >*:after
+        @extend .icon-facebook:after
+        font-size: 1em
+        line-height: 1.9
+        color: #fff !important
+
+
+//
+//
+// wp_login_form()
+#loginform,
+#registerform
+  padding: $small 0
+  p
+    margin: 0
+
+  .login-remember
+    @extend .note
+  .login-submit,
+  .register-submit
+    @extend .btn
+    >*
+      @extend .small.title
+    font-size: 1.25em
+  .register-submit
+    &+.title
+      text-align: center
+      margin-top: 0.5em
