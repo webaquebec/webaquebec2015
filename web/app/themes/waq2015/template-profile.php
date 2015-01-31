@@ -30,8 +30,6 @@ get_header_once();
   <header>
 
     <div class="container">
-
-
       <?php
       // echo link to dashboard
       if(is_user_logged_in()): ?>
