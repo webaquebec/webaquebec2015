@@ -299,6 +299,8 @@ function register_user( $user_id ) {
     }
     if(isset($_POST['user_password']) && has($_POST['user_password']) )
         wp_set_password( $_POST['user_password'], $user_id );
+
+    // update_field('favorites', '1', 'user_'.$user_id);
 }
 /*------------------------------------*\
      OPTIONS EN VRAC

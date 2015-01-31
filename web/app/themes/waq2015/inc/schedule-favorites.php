@@ -28,7 +28,7 @@ function update_favorites($user_id, $add, $remove){
     $favorites = array_merge($favorites, $add);
     sort($favorites);
     $favorites_str = implode('|', $favorites);
-    update_field('favorites', $favorites_str, 'user_'.$user_id);
+    update_field('field_54cb0053a3812', $favorites_str, 'user_'.$user_id);
     return $favorites_str;
 }
 
