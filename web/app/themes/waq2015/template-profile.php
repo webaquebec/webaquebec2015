@@ -7,12 +7,13 @@ $vars = $wp_query->query_vars;
 $user_ID = $current_user->ID;
 $loggedin = is_user_logged_in();
 $favorites_str = '';
-if($loggedin) $favorites_str = get_field('favorites','user_'.$user_ID);
 
 if(!$loggedin){
   wp_redirect(get_permalink(get_ID_from_slug('connexion')));
   exit;
 }
+
+if($loggedin) $favorites_str = get_field('favorites','user_'.$user_ID);
 
 if(isset($vars['update'])){
   $add = isset($_POST['add']) ? $_POST['add'] : [];
@@ -30,8 +31,6 @@ get_header_once();
   <header>
 
     <div class="container">
-
-
       <?php
       // echo link to dashboard
       if(is_user_logged_in()): ?>
@@ -62,9 +61,19 @@ get_header_once();
 //
 //
 // get user_schedule
-include( 'user-schedule.php' );
+if(has($favorites_str)):
+  include( 'user-schedule.php' );
+else:
 ?> 
-
+<section>
+  <div class="container">
+    <span class="small title"><?= __('Vous êtes maintenant prêt à créer votre horaire WAQ.','waq') ?></span>
+    <span class="small title"><?= __('Retournez à la section','waq') ?> <a href="<?= get_home_url() ?>/#programmation" ><?= __('programmation','waq') ?></a> <?= __('pour ajouter des conférences à votre horaire.','waq') ?></span>
+  </div>
+</section>
+<?php
+endif;
+?>
 <?php endwhile; endif; ?>
 
 <?php

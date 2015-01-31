@@ -292,12 +292,15 @@ function registration_form_errors($errors, $user_login, $user_email) {
     return $errors;
 }
 function register_user( $user_id ) {
-    if( has($_POST['user_name']) ){
+
+    if(isset($_POST['user_name']) && has($_POST['user_name']) ){
         update_user_meta($user_id, 'first_name', $_POST['user_name']);
         update_user_meta($user_id, 'display_name', $_POST['user_name']);
     }
-    if( has($_POST['user_password']) )
+    if(isset($_POST['user_password']) && has($_POST['user_password']) )
         wp_set_password( $_POST['user_password'], $user_id );
+
+    // update_field('favorites', '1', 'user_'.$user_id);
 }
 /*------------------------------------*\
      OPTIONS EN VRAC

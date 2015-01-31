@@ -120,7 +120,7 @@ jQuery(document).ready(function($){
     }
 
     waq.$page.stop().animate({
-        scrollTop: $target.offset().top - (waq.loggedin ? 142 : 110)
+        scrollTop: $target.offset().top - 110
     }, 800, $.bez([0.5, 0, 0.225, 1]));
 
   }
@@ -260,6 +260,7 @@ jQuery(document).ready(function($){
     function enableExpandables(){
       waq.$expandables.scrollEvents({
         flag: 'expandable',
+        round: 1000,
         travel: function(e){
           var delta = minMax(e.data.delta()/0.66, 0, 1);
           e.data.selection[0].style.width = Math.round(delta*100)+'%';
@@ -494,6 +495,7 @@ jQuery(document).ready(function($){
           remove: removed
         },
         success: function(data){
+          // console.log(data);
           // $.cookie('favorites', data, { path: '/' });
         }
     })
