@@ -304,8 +304,6 @@ jQuery(document).ready(function($){
         }
       }
     }
-
-    // initMobileSchedule(waq.$schedules.filter('.active'));
   }
 
   function disableMobileSchedules(){
@@ -330,8 +328,6 @@ jQuery(document).ready(function($){
 
       }
     }
-
-    // destroyMobileSchedule(waq.$schedules.filter('.active'));
   }
 
 
@@ -498,16 +494,34 @@ jQuery(document).ready(function($){
           // console.log(data);
           // $.cookie('favorites', data, { path: '/' });
         }
-    })
+    });
   }
 
   if(waq.$schedules.length){
     waq.$schedules.$toggles = $('.favorite', waq.$schedules);
 
+    var spanned = 0;
+    // get toggles on the same row
     for(var i=0; i<waq.$schedules.$toggles.length; i++){
       var $trigger = $(waq.$schedules.$toggles[i]);
-      $trigger[0].$toggles = $trigger.closest('tr').find(waq.$schedules.$toggles).not($trigger);
+      var $row = $trigger.closest('tr');
+      var spanned = $trigger.closest('td').attr('rowspan');
+      if(!$trigger[0].$toggles) $trigger[0].$toggles = $();
+      $trigger[0].$toggles = $trigger[0].$toggles.add($row.find(waq.$schedules.$toggles).not($trigger));
+      if(spanned){
+        for(var r=1; r<spanned; r++){
+          $row = $row.next('tr');
+          var $next_triggers = $('.favorite', $row);
+          for(var t=0; t<$next_triggers.length; t++){
+            var $next_trigger = $next_triggers[t];
+            if(!$next_trigger.$toggles) $next_trigger.$toggles = $();
+            $trigger[0].$toggles = $trigger[0].$toggles.add($next_trigger);
+            $next_trigger.$toggles.push($trigger[0]);
+          }
+        }
+      }
     }
+
     waq.$schedules.$toggles.on('click', toggleFavorite);
   }
 
