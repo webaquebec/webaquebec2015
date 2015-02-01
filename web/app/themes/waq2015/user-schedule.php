@@ -2,6 +2,8 @@
 global $user_ID;
 $favorites_str = get_field('favorites','user_'.$user_ID);
 $session_IDs = explode('|', $favorites_str);
+
+// create sessions array width grid IDs and session objects
 $sessions = [];
 foreach($session_IDs as $session_ID){
   if(has($session_ID)){
@@ -9,6 +11,11 @@ foreach($session_IDs as $session_ID){
     if(!isset($sessions[$session->grid_ID])) $sessions[$session->grid_ID] = [];
     $sessions[$session->grid_ID][] = $session;
   }
+}
+// sort sessions by start time
+function sortByStartTime($a, $b){
+  if($a->time->start == $b->time->start) return 0;
+  return ($a->time->start < $b->time->start) ? -1 : 1;
 }
 
 $schedules = new WP_query(array(
@@ -23,7 +30,10 @@ $schedules = new WP_query(array(
   <div class="container">
     <?php if($schedules->have_posts()): while($schedules->have_posts()): $schedules->the_post(); ?>
 
-    <?php if(isset($sessions[$post->ID])): ?>
+    <?php
+    if(isset($sessions[$post->ID])):
+      usort($sessions[$post->ID], 'sortByStartTime');
+    ?>
 
     <article class="schedule">
       <h2 class="title border-middle">

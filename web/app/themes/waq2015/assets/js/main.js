@@ -508,6 +508,7 @@ jQuery(document).ready(function($){
       var spanned = $trigger.closest('td').attr('rowspan');
       if(!$trigger[0].$toggles) $trigger[0].$toggles = $();
       $trigger[0].$toggles = $trigger[0].$toggles.add($row.find(waq.$schedules.$toggles).not($trigger));
+      // if session spans on other rows, add toggles to $el.toggles
       if(spanned){
         for(var r=1; r<spanned; r++){
           $row = $row.next('tr');
