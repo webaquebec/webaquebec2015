@@ -59,6 +59,41 @@ function get_ID_from_slug($slug){
     return $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '$slug'");
 }
 
+function adjacent_post($nextprev = 'next', $meta_key=null, $meta_value=null){
+    global $post;
+    global $wpdb;
+    global $wp_query;
+    $vars = $wp_query->query_vars;
+    $orderby = isset($vars['orderby']) ? $vars['orderby'] : 'post_date';
+    $current = $post->$orderby;
+    if($nextprev == 'next' ) {
+            $sign = '>';
+            $order= 'ASC';
+    }
+    elseif($nextprev == 'prev' ) {
+            $sign = '<';
+            $order= 'DESC';
+    }
+    $querystr = "
+    SELECT $wpdb->posts.*
+    FROM $wpdb->posts, $wpdb->postmeta
+    WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id
+    AND $wpdb->posts.post_type = '".$post->post_type."'
+    ";
+    if(isset($meta_key)) $querystr .= "AND $wpdb->postmeta.meta_key = '".$meta_key."'
+    ";
+    if(isset($meta_value)) $querystr .= "AND $wpdb->postmeta.meta_value = '".$meta_value."'
+    ";
+    $querystr .= "AND $wpdb->posts.post_status = 'publish'
+    AND $wpdb->posts.".$orderby." ".$sign." '".$current."'
+    ORDER BY $wpdb->posts.".$orderby." ".$order."
+    LIMIT 1";
+    $postData = $wpdb->get_results($querystr, OBJECT);
+    if(empty($postData)) return false;
+    else return $postData[0];
+}
+
+
 
 /*------------------------------------*\
     TINY MCE

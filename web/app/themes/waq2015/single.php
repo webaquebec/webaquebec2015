@@ -34,6 +34,31 @@ $author = get_user_by('id', $author_ID);
           <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
             <?php the_tags('<ul class="tags"><li class="btn"><span>', '</span></li><li class="btn"><span>','</span></li></ul>'); ?>
         </div>
+
+        <nav>
+          <div class="left">
+            <a href="<?= get_permalink(43); ?>" class="btn back">
+              <span><?= __('blogue','waq') ?></span>
+            </a>
+          </div>
+
+          <div class="right">
+            <?php
+            $next = adjacent_post('next');
+            $prev = adjacent_post('prev');
+            if(!!$prev): ?>
+            <a href="<?= get_permalink($prev->ID); ?>" class="btn prev">
+              <span><?= __('Article précédent','waq') ?></span>
+            </a>
+            <?php endif;
+            if(!!$next): ?>
+            <a href="<?= get_permalink($next->ID); ?>" class="btn next">
+              <span><?= __('Article suivant','waq') ?></span>
+            </a>
+            <?php endif; ?>
+          </div>
+
+        </nav>
       </div>
 
     </section>

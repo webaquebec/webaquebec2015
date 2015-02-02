@@ -71,9 +71,13 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
             </li>
             <?php endforeach; ?>
           </ul>
+
+
           <a href="<?= get_permalink(4); ?>" class="btn back">
             <span><?= __('Retour à l\'horaire','waq') ?></span>
           </a>
+
+          
         </div>
       </div>
     </section>

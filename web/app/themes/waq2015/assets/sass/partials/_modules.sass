@@ -280,9 +280,7 @@
     &.toggle
       >*:after
         line-height: 2.7em
-  &.back
-    margin-top: 1.25em
-    +inlineb()
+
   //
   //
   // toggle
@@ -343,36 +341,32 @@
   //
   //
   // link (icon-arrow-right)
-  &.link
-    a
-      padding-right: 0
-      > span
-        display: block
-        padding-right: 2em
-        position: relative
-        @extend .icon-arrow-right
-        &:after
-          font-size: 0.6em
-          text-align: right
-          line-height: 0
-          position: absolute
-          top: 50%
-          right: 1em
-  &.back
-    a
-      padding-left: 0
-      > span
-        display: block
-        padding-left: 2em
-        position: relative
-        @extend .icon-arrow-left
-        &:after
-          font-size: 0.6em
-          text-align: left
-          line-height: 0
-          position: absolute
-          top: 50%
-          left: 1em
+  &.link,
+  &.next
+    padding-right: 0
+    +inlineb
+    > span
+      display: block
+      padding-right: 2em
+      position: relative
+      @extend .icon-arrow-right
+      &:after
+        font-size: 0.6em
+        text-align: right
+        line-height: 3.5em
+  &.back,
+  &.prev
+    padding-left: 0
+    +inlineb
+    > span
+      display: block
+      padding-left: 2em
+      position: relative
+      @extend .icon-arrow-left
+      &:after
+        font-size: 0.6em
+        text-align: left
+        line-height: 3.5em
 
   //
   //
