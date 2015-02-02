@@ -92,7 +92,7 @@ if(has($favorites_str)):
   <?php endwhile; endif; ?>
 
   <div class="share">
-    <h3 class="title border-middle"><?= __('Partager l \'horaire', 'waq') ?></h3>
+    <h3 class="title border-middle"><?= __('Partager l\'horaire', 'waq') ?></h3>
 
     <div class="share-container">
       <span class='st_facebook_large' displayText='Facebook'></span>

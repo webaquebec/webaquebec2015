@@ -6,7 +6,7 @@ $author = get_user_by('id', $author_ID);
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<article class="article single no-padding">
+<article class="article single single-article no-padding">
 
   <hgroup>
     <div class="container">
@@ -19,7 +19,7 @@ $author = get_user_by('id', $author_ID);
 
   <div class="cols container">
     <section class="col wide" role="main">
-      <div class="single-article">
+      <div class="post">
         <div class="content">
           <div class="article-image">
             <?php $image = get_field('featured');
@@ -30,35 +30,6 @@ $author = get_user_by('id', $author_ID);
           <?php the_content() ?>
         </div>
 
-        <div class="tags-section">
-          <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
-            <?php the_tags('<ul class="tags"><li class="btn"><span>', '</span></li><li class="btn"><span>','</span></li></ul>'); ?>
-        </div>
-
-        <nav>
-          <div class="left">
-            <a href="<?= get_permalink(43); ?>" class="btn back">
-              <span><?= __('blogue','waq') ?></span>
-            </a>
-          </div>
-
-          <div class="right">
-            <?php
-            $next = adjacent_post('next');
-            $prev = adjacent_post('prev');
-            if(!!$prev): ?>
-            <a href="<?= get_permalink($prev->ID); ?>" class="btn prev">
-              <span><?= __('Article précédent','waq') ?></span>
-            </a>
-            <?php endif;
-            if(!!$next): ?>
-            <a href="<?= get_permalink($next->ID); ?>" class="btn next">
-              <span><?= __('Article suivant','waq') ?></span>
-            </a>
-            <?php endif; ?>
-          </div>
-
-        </nav>
       </div>
 
     </section>
@@ -97,7 +68,59 @@ $author = get_user_by('id', $author_ID);
           <?php endif; ?>
       </div>
     </aside>
+  </div>
 
+  <?php
+  //
+  //
+  // CATEGORIES
+  $categories = get_the_category();
+  if(has($categories)):
+  ?>
+
+  <?php endif; ?>
+  <div class="cols container tags-section">
+    <div class="col wide">
+      <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
+      <ul class="tags">
+        <?php foreach($categories as $category): ?>
+        <li class="btn">
+          <a href="<?= get_permalink(get_id_from_slug('blogue')).$category->slug ?>">
+            <?= $category->name ?>
+          </a>
+        </li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+    <div class="col narrow">
+
+    </div>
+  </div>
+
+  <div class="container">
+    <nav>
+      <div class="left">
+        <a href="<?= get_permalink(43); ?>" class="btn back">
+          <span><?= __('blogue','waq') ?></span>
+        </a>
+      </div>
+
+      <div class="right">
+        <?php
+        $next = adjacent_post('next');
+        $prev = adjacent_post('prev');
+        if(!!$prev): ?>
+        <a href="<?= get_permalink($prev->ID); ?>" class="btn prev">
+          <span><?= __('Article précédent','waq') ?></span>
+        </a>
+        <?php endif;
+        if(!!$next): ?>
+        <a href="<?= get_permalink($next->ID); ?>" class="btn next">
+          <span><?= __('Article suivant','waq') ?></span>
+        </a>
+        <?php endif; ?>
+      </div>
+    </nav>
   </div>
 
 </article>

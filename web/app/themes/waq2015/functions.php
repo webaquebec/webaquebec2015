@@ -75,7 +75,7 @@ function adjacent_post($nextprev = 'next', $meta_key=null, $meta_value=null){
             $order= 'DESC';
     }
     $querystr = "
-    SELECT $wpdb->posts.*
+    SELECT $wpdb->posts.ID
     FROM $wpdb->posts, $wpdb->postmeta
     WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id
     AND $wpdb->posts.post_type = '".$post->post_type."'

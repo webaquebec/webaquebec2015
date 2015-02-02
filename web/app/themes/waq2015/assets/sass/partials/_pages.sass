@@ -698,8 +698,10 @@ section.intro
       &.title
         width: $wide
         padding-right: $large
+        margin-bottom: 0
+  .conference-info-container
+    margin-top: 1em
   .conference
-    font-size: 1.25em
     float: left
     margin-top: $xsmall
     margin-right: $medium
@@ -708,7 +710,7 @@ section.intro
     position: relative
     z-index: 100
     position: relative
-    margin-top: -4em
+    margin-top: -4.75em
     &.has-thumb
       .name
         margin-left: $medium+100
@@ -717,20 +719,15 @@ section.intro
   .tags-section
     padding: $large 0
     font-size: 0.875em
-  .single-article
-    .image-une
-      padding-bottom: 1.25em
+    border-top: 1px solid $l-grey1
   &.single-session,
-  &.article
+  &.single-article
     padding: $xlarge 0
-    font-size: 1.25em
     .tags
       font-size: 0.875em
     .content
       padding-top: $medium
-      margin-top: $medium
       padding-bottom: 2em
-      border-bottom: 1px solid $l-grey1
     nav
       font-size: 0.875em
       padding: $large 0
@@ -739,12 +736,20 @@ section.intro
         float: left
       .right
         float: right
+  &.single-article
+    .tags-section
+      padding: 0 $medium
+      &>*
+        +inlineb
+        margin : 0 0.5em 0
+
+
   .article-image
     margin-bottom: 2em
     img
       width: 100%
   .tags
-    margin: 0.5em 0
+    margin: 0.5em 0 -0.5em
     a
       color: $d-grey
   .about
@@ -752,7 +757,6 @@ section.intro
     text-align: left
     display: block
     padding-bottom: $medium
-    margin-bottom: 17px
     +clearfix()
     +align-children(middle)
     min-height: 100px

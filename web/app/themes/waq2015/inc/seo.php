@@ -8,6 +8,7 @@ if( function_exists('register_field_group') ):
 
   function acf_seo(){
     global $post, $wp_query, $current_user;
+    $is_author_page = is_author();
     $vars = $wp_query->query_vars;
     $title = get_bloginfo('name');
     $description = '';
@@ -15,15 +16,14 @@ if( function_exists('register_field_group') ):
     $og_image = '';
     $pageTitle = '';
     $url = get_home_url();
-
-    if(isset($post)){
+    if(isset($post) && !$is_author_page){
       setup_postdata($post);
       $description = get_field('description');
       $keywords = get_field('keywords');
       $og_image = get_field('og_image');
       if($post->post_name=='mon-horaire'){
         $url .= '/horaire/'.$current_user->user_login;
-        $pageTitle = __('L\'horaire de', 'waq').' '.$current_user->data->display_name;
+        $pageTitle = $current_user->data->display_name;
       }
       else{
         $url = get_permalink();

@@ -19,7 +19,7 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
         <h2 class="name title"><?= $session->speaker->name ?></h2>
         <h1><?= $session->title ?></h1>
       </div>
-      <div class="conference-info-container dark">
+      <div class="conference-info-container">
         <div class="conferencer-info dark">
             <span class="wrap room-border" style="border-left-color:<?= $session->location->color ?>;">
 
@@ -71,14 +71,13 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
             </li>
             <?php endforeach; ?>
           </ul>
-
-
-          <a href="<?= get_permalink(4); ?>" class="btn back">
-            <span><?= __('Retour à l\'horaire','waq') ?></span>
-          </a>
-
-          
         </div>
+        <nav>
+          <a href="<?= get_permalink(4); ?>" class="btn back">
+            <span><?= __('Programmation','waq') ?></span>
+          </a>
+        </nav>
+
       </div>
     </section>
 
