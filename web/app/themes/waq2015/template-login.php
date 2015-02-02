@@ -78,8 +78,8 @@ if(have_posts()): while(have_posts()): the_post();
               <?php
               // Success
               if(in_array('success', $registration)):?>
-              <h3 class="message success sub title">
-                <?= __( 'Votre compte a bien été créé. Connectez-vous pour commencer à faire votre horaire', 'waq' ) ?>
+              <h3 class="message success title">
+                <?= __( 'Votre compte a bien été créé.', 'waq' ) ?>
               </h3>
               <?php endif; ?>
 

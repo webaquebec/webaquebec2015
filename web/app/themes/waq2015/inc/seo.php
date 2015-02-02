@@ -23,7 +23,7 @@ if( function_exists('register_field_group') ):
       $og_image = get_field('og_image');
       if($post->post_name=='mon-horaire'){
         $url .= '/horaire/'.$current_user->user_login;
-        $pageTitle = $current_user->data->display_name;
+        $pageTitle = __('L\'horaire de', 'waq').' '.$current_user->data->display_name;
       }
       else{
         $url = get_permalink();

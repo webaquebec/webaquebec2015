@@ -333,8 +333,12 @@ function register_user( $user_id ) {
     }
     if(isset($_POST['user_password']) && has($_POST['user_password']) )
         wp_set_password( $_POST['user_password'], $user_id );
+}
 
-    // update_field('favorites', '1', 'user_'.$user_id);
+function disable_new_user_mail(){
+    if (!function_exists('wp_new_user_notification')) {
+        function wp_new_user_notification() {}
+    }
 }
 /*------------------------------------*\
      OPTIONS EN VRAC
@@ -555,6 +559,7 @@ add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu
 add_action('wp_login_failed', 'login_fail');
 add_action('user_register', 'register_user', 1, 1);
 add_action('login_redirect', 'redirect_login', 10, 3);
+add_action('registered_post_type', 'disable_new_user_mail');
 //
 //  Remove Actions
 //
