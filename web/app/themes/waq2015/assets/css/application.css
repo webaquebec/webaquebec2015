@@ -2741,11 +2741,15 @@ textarea {
   background-color: transparent;
   -webkit-font-smoothing: inherit !important; }
 
-.form > .message {
+.form > .message,
+.form .message.success {
   margin: 10px 20px;
   padding: 10px 20px;
   border: 1px solid #0094c2;
   color: #0094c2; }
+  .form > .message:first-child,
+  .form .message.success:first-child {
+    margin-top: 20px; }
 .form .tabs {
   padding: 1px; }
 .form .tab-triggers {

@@ -293,7 +293,7 @@ function authenticate_user($user, $username, $password ) {
     if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     if(!isset($_POST['log'])){
-        wp_redirect( strtok($referrer, '?').'?registration=success' );
+        wp_redirect( strtok($referrer, '?').'?success' );
         exit;
     }
     return $user;
