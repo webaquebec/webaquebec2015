@@ -21,12 +21,17 @@ get_header();
   </header>
 </section>
 
-<?php
-//
-//
-// get user_schedule
-include( 'user-schedule.php' );
-?>
+
+<section class="profile-schedule">
+  <div class="container">
+    <?php
+    //
+    //
+    // USER SCHEDULE
+    include( 'user-schedule.php' );
+    ?>
+  </div>
+</section>
 
 <?php
 get_footer();

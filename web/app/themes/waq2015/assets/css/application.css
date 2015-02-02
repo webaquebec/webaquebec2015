@@ -4233,37 +4233,37 @@ footer .logo-o2 {
   padding: 0.5em 0;
   margin-left: 1em; }
 
-.account-sessions .session {
+.profile-sessions .session {
   margin-top: 10px; }
-  .account-sessions .session:first-child {
+  .profile-sessions .session:first-child {
     margin-top: 0; }
-  .account-sessions .session > .wrap {
+  .profile-sessions .session > .wrap {
     width: 100%; }
-  .account-sessions .session .session-title {
+  .profile-sessions .session .session-title {
     font-size: 1.5em; }
-  .account-sessions .session .speaker {
+  .profile-sessions .session .speaker {
     font-size: 1.125em; }
-    .account-sessions .session .speaker .title, .account-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .speaker a, .account-sessions .session .speaker .field label, .field .account-sessions .session .speaker label,
-    .account-sessions .session .speaker .note,
-    .account-sessions .session .speaker #loginform .login-remember,
-    #loginform .account-sessions .session .speaker .login-remember,
-    .account-sessions .session .speaker #registerform .login-remember,
-    #registerform .account-sessions .session .speaker .login-remember {
+    .profile-sessions .session .speaker .title, .profile-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .speaker a, .profile-sessions .session .speaker .field label, .field .profile-sessions .session .speaker label,
+    .profile-sessions .session .speaker .note,
+    .profile-sessions .session .speaker #loginform .login-remember,
+    #loginform .profile-sessions .session .speaker .login-remember,
+    .profile-sessions .session .speaker #registerform .login-remember,
+    #registerform .profile-sessions .session .speaker .login-remember {
       display: inline-block;
       *display: inline;
       zoom: 1;
       margin-bottom: 0; }
-  .account-sessions .session .location {
+  .profile-sessions .session .location {
     margin-right: 0; }
-    .account-sessions .session .location:before {
+    .profile-sessions .session .location:before {
       display: none; }
-    .account-sessions .session .location .title, .account-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .account-sessions .session .location a, .account-sessions .session .location .field label, .field .account-sessions .session .location label {
+    .profile-sessions .session .location .title, .profile-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .location a, .profile-sessions .session .location .field label, .field .profile-sessions .session .location label {
       margin: 0;
       display: block; }
-    .account-sessions .session .location[style] {
+    .profile-sessions .session .location[style] {
       position: relative;
       padding-left: 20px; }
-      .account-sessions .session .location[style]:before {
+      .profile-sessions .session .location[style]:before {
         display: block;
         content: "";
         height: 100%;
@@ -4272,20 +4272,28 @@ footer .logo-o2 {
         position: absolute;
         border-right: 10px solid #eeeef0;
         border-color: inherit; }
-  .account-sessions .session.keynote {
+  .profile-sessions .session.keynote {
     font-size: 1em; }
-    .account-sessions .session.keynote .session-title,
-    .account-sessions .session.keynote .infos {
+    .profile-sessions .session.keynote .session-title,
+    .profile-sessions .session.keynote .infos {
       text-align: left; }
-  .account-sessions .session.has-thumb > .wrap > * {
+  .profile-sessions .session.has-thumb > .wrap > * {
     margin-left: 8em; }
-  .account-sessions .session.has-thumb .thumb {
+  .profile-sessions .session.has-thumb .thumb {
     float: left;
     width: 7em;
     height: 7em;
     margin-left: 0; }
-    .account-sessions .session.has-thumb .thumb img {
+    .profile-sessions .session.has-thumb .thumb img {
       width: 100%; }
+
+.my-profile .session .location {
+  float: right;
+  width: 100px; }
+.my-profile .session a {
+  margin-right: 100px;
+  padding: 20px;
+  display: block; }
 
 @media screen and (max-width: 1200px) {
   html,

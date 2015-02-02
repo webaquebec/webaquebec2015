@@ -26,7 +26,7 @@ get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="account single">
+<section id="<?= $post->post_name ?>" class="account single my-account">
 
   <header>
 
@@ -57,23 +57,18 @@ get_header_once();
 
 </section>
 
-<?php
-//
-//
-// get user_schedule
-if(has($favorites_str)):
-  include( 'user-schedule.php' );
-else:
-?> 
-<section>
+
+<section class="profile-schedule">
   <div class="container">
-    <span class="small title"><?= __('Vous êtes maintenant prêt à créer votre horaire WAQ.','waq') ?></span>
-    <span class="small title"><?= __('Retournez à la section','waq') ?> <a href="<?= get_home_url() ?>/#programmation" ><?= __('programmation','waq') ?></a> <?= __('pour ajouter des conférences à votre horaire.','waq') ?></span>
+    <?php
+    //
+    //
+    // USER SCHEDULE
+    include( 'user-schedule.php' );
+    ?>
   </div>
 </section>
-<?php
-endif;
-?>
+
 <?php endwhile; endif; ?>
 
 <?php
