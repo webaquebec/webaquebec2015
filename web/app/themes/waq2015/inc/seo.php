@@ -8,6 +8,7 @@ if( function_exists('register_field_group') ):
 
   function acf_seo(){
     global $post, $wp_query, $current_user;
+    $is_author_page = is_author();
     $vars = $wp_query->query_vars;
     $title = get_bloginfo('name');
     $description = '';
@@ -15,8 +16,7 @@ if( function_exists('register_field_group') ):
     $og_image = '';
     $pageTitle = '';
     $url = get_home_url();
-
-    if(isset($post)){
+    if(isset($post) && !$is_author_page){
       setup_postdata($post);
       $description = get_field('description');
       $keywords = get_field('keywords');
@@ -182,7 +182,7 @@ if( function_exists('register_field_group') ):
         ),
       ),
     ),
-    'menu_order' => 0,
+    'menu_order' => 10,
     'position' => 'side',
     'style' => 'default',
     'label_placement' => 'top',

@@ -2,7 +2,8 @@
 /*
  * Template Name: Profile
  */
-global  $wp_query, $current_user, $user_ID;
+global  $wp_query, $current_user, $user_ID, $has_share;
+$has_share = true;
 $vars = $wp_query->query_vars;
 $user_ID = $current_user->ID;
 $loggedin = is_user_logged_in();
@@ -26,7 +27,7 @@ get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-<section id="<?= $post->post_name ?>" class="account single">
+<section id="<?= $post->post_name ?>" class="account single my-account">
 
   <header>
 
@@ -45,7 +46,7 @@ get_header_once();
 
 
       <h1 class="main title border-left">
-        <small><?= __('L\'horaire de', 'waq') ?></small>
+        <small><?= __('Mon horaire', 'waq') ?></small>
         <?= $current_user->data->display_name ?>
         <div class="border-bottom"></div>
       </h1>
@@ -57,23 +58,18 @@ get_header_once();
 
 </section>
 
-<?php
-//
-//
-// get user_schedule
-if(has($favorites_str)):
-  include( 'user-schedule.php' );
-else:
-?> 
-<section>
+
+<section class="profile-schedule my-profile">
   <div class="container">
-    <span class="small title"><?= __('Vous êtes maintenant prêt à créer votre horaire WAQ.','waq') ?></span>
-    <span class="small title"><?= __('Retournez à la section','waq') ?> <a href="<?= get_home_url() ?>/#programmation" ><?= __('programmation','waq') ?></a> <?= __('pour ajouter des conférences à votre horaire.','waq') ?></span>
+    <?php
+    //
+    //
+    // USER SCHEDULE
+    include( 'user-schedule.php' );
+    ?>
   </div>
 </section>
-<?php
-endif;
-?>
+
 <?php endwhile; endif; ?>
 
 <?php

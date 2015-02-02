@@ -34,9 +34,17 @@ if(have_posts()): while(have_posts()): the_post();
             <?php
             $login =  isset($_GET['login']) ? explode(' ', $_GET['login']) : [];
             $registration =  isset($_GET['registration']) ? explode(' ', $_GET['registration']) : [];
+            $success =  isset($_GET['success']);
             ?>
 
             <div tab="login" class="tab-content <?php if(!isset($_GET['registration'])) echo ' active' ?>">
+               <?php
+              // Success
+              if($success):?>
+              <h3 class="message success title">
+                <?= __( 'Votre compte a bien été créé.', 'waq' ) ?>
+              </h3>
+              <?php else: ?>
 
               <div class="social-account">
                 <h3>
@@ -53,6 +61,8 @@ if(have_posts()): while(have_posts()): the_post();
               </div>
 
               <div class="centered border-middle"><?= __('ou','waq') ?></div>
+
+              <?php endif; ?>
 
               <div class="wp-account">
                 <?php
@@ -75,14 +85,6 @@ if(have_posts()): while(have_posts()): the_post();
 
             <div tab="register" class="tab-content<?php if(isset($_GET['registration'])) echo ' active' ?>">
               <form id="registerform" class="form" action="<?= site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
-              <?php
-              // Success
-              if(in_array('success', $registration)):?>
-              <h3 class="message success sub title">
-                <?= __( 'Votre compte a bien été créé. Vérifiez vos courriels pour récupérer votre mot de passe', 'waq' ) ?>
-              </h3>
-              <?php endif; ?>
-
                 <div class="field required">
                   <label for="user_login"><?= __( 'Nom d\'utilisateur', 'waq' ) ?></label>
                   <?php // empty username

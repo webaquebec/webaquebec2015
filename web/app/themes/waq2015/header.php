@@ -10,7 +10,7 @@
 
     <?php
     // SET VARIABLES
-    global $current_user;
+    global $current_user, $has_share;
     $is404 = is_404();
     $is_home = get_page_template_slug()=="template-home.php";
     $is_loggedin = is_user_logged_in();
@@ -45,7 +45,14 @@
     <?php endif; ?>
 
     <!-- css + javascript -->
-    <?php wp_head(); ?>
+    <?php
+    wp_head();
+    if($has_share):
+    ?>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "8f3aceb2-d786-4b13-bfcb-8dc5573191c1", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <?php endif; ?>
   </head>
   <body>
 

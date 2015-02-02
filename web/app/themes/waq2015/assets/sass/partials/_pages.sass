@@ -12,6 +12,9 @@
     display: none
   header[role="banner"] nav .main
     margin-right: 0
+.not-logged-in
+  .favorite
+    display: none
 
 //
 //
@@ -460,6 +463,7 @@ section.intro
         text-transform: uppercase
     .meta
       +font-smoothing(on)
+      line-height: 1.3
     .title
       margin-top: 0
   .featured
@@ -473,7 +477,7 @@ section.intro
 
 .blog-page
   .posts
-    +grid(4, $medium)
+    +grid(3, $medium)
     > *
       vertical-align: top
 
@@ -685,61 +689,76 @@ section.intro
       z-index: 100
       margin-top: 1em
       margin-bottom: -2em
-    .name,
-    .article-info
-      h2
-        font-size: 0.5em
+    h1
+      font-size: 0.875em
+    h2
+      font-size: 0.5em
     .favorite
       margin-top: 0
     .main
       &.title
-        width: 75%
+        width: $wide
+        padding-right: $large
+        margin-bottom: 0
+  .conference-info-container
+    margin-top: 1em
   .conference
-    font-size: 1.25em
     float: left
     margin-top: $xsmall
     margin-right: $medium
-    .tags-section
-      font-size: 0.8em
   .conferencer
     float: left
     position: relative
     z-index: 100
     position: relative
-    margin-top: -4em
+    margin-top: -4.75em
     &.has-thumb
       .name
         margin-left: $medium+100
     .social
       font-size: 0.75em
-  .single-article
-    .image-une
-      padding-bottom: 1.25em
+  .tags-section
+    padding: $large 0
+    font-size: 0.875em
+    border-top: 1px solid $l-grey1
   &.single-session,
-  &.article
+  &.single-article
     padding: $xlarge 0
-    font-size: 1.25em
     .tags
       font-size: 0.875em
     .content
       padding-top: $medium
-      margin-top: $medium
-      padding-bottom: 2em
-      border-bottom: 1px solid $l-grey1
+    nav
+      font-size: 0.875em
+      padding: $large 0
+      border-top: 1px solid $l-grey1
+      .left
+        float: left
+      .right
+        float: right
+  &.single-article
+    .tags-section
+      padding: 0 $medium
+      &>*
+        +inlineb
+        margin : 0 0.5em 0
+
+
   .article-image
     margin-bottom: 2em
     img
       width: 100%
   .tags
-    margin: 0.5em 0
+    margin: 0.5em 0 -0.5em
     a
-      color: $d-grey
+      color: $blue
+      .no-touch &:hover
+        color: $l-blue
   .about
     width: 100%
     text-align: left
     display: block
     padding-bottom: $medium
-    margin-bottom: 17px
     +clearfix()
     +align-children(middle)
     min-height: 100px
@@ -768,13 +787,41 @@ section.intro
         left: 0
         line-height: 0
 
+  .section-category
+    position: relative
+    padding: $medium $medium  $small
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: $medium
+      right: $medium
+      border-top: 1px solid $l-grey1
+    .cols
+      +grid(4,$medium)
+
+    .post
+      margin-bottom: 0
+    .article-info
+      border-color: $grey
+    .meta
+      color: $m-grey
+    p
+      font-size: 0.875em
+    .content
+      padding-top: 0
 //
 //
 // NEWS
-.actualites
+.news
   hgroup
     .main.title
       width: 100%
+  .filters
+    padding: $large 0
+    .btn
+      +inlineb
+
 
 //
 //
@@ -877,7 +924,10 @@ footer
 
 //
 //
-// PROFILE
+// USER
+.profile-schedule
+  padding-bottom: $xlarge
+
 .account
   .dashboard-link,
   .logout-link
@@ -888,7 +938,11 @@ footer
     padding: 0.5em 0
     margin-left: 1em
 
-.account-sessions
+//
+//
+// USER PROFILE
+.profile-sessions
+  margin-bottom: $xlarge
   .session
     margin-top: $small
     &:first-child
@@ -905,23 +959,27 @@ footer
         margin-bottom: 0
     .location
       margin-right: 0
+      float: right
+      width: 28%
+
       &:before
         display: none
-      .title
-        margin: 0
-        display: block
       &[style]
-        position: relative
-        padding-left: $medium
         &:before
           display: block
           content: ""
-          height: 100%
           left: 0
           top: 0
+          bottom: 1.5em
+          height: auto
           position: absolute
           border-right: $small solid $l-grey
           border-color: inherit
+          +border-radius(4px 0 0 4px)
+      .title
+        margin: 0
+        display: block
+
     &.keynote
       font-size: 1em
       .session-title,
@@ -935,7 +993,20 @@ footer
         float: left
         width: 7em
         height: 7em
-        margin-left: 0
+        margin-left: 0.7em
         img
           width: 100%
+    a
+      margin-right: 28%
+      padding: 1em
+      display: block
+
+//
+//
+// SHARE
+.share
+  overflow: hidden
+  padding-bottom: 1em
+  .title
+    margin-bottom: 1em
 

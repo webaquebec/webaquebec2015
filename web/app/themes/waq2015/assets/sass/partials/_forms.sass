@@ -25,11 +25,14 @@ textarea
 //
 // field
 .form
-  &>.message
+  &>.message,
+  .message.success
     margin: $small $medium
     padding: $small $medium
-    border: 1px solid $d-blue
-    color: $d-blue
+    border: 1px solid $blue
+    color: $blue
+    &:first-child
+      margin-top: $medium
   .tabs
     padding: 1px
   .tab-triggers

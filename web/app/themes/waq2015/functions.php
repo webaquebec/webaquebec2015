@@ -2,6 +2,7 @@
 setlocale(LC_TIME, 'fr_FR');
 require_once('inc/seo.php');
 require_once('inc/hashbang.php');
+require_once('inc/acf.php');
 require_once('inc/schedule-frontend.php');
 require_once('inc/schedule-backend.php');
 require_once('inc/schedule-favorites.php');
@@ -57,6 +58,41 @@ function get_ID_from_slug($slug){
     global $wpdb;
     return $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '$slug'");
 }
+
+function adjacent_post($nextprev = 'next', $meta_key=null, $meta_value=null){
+    global $post;
+    global $wpdb;
+    global $wp_query;
+    $vars = $wp_query->query_vars;
+    $orderby = isset($vars['orderby']) ? $vars['orderby'] : 'post_date';
+    $current = $post->$orderby;
+    if($nextprev == 'next' ) {
+            $sign = '>';
+            $order= 'ASC';
+    }
+    elseif($nextprev == 'prev' ) {
+            $sign = '<';
+            $order= 'DESC';
+    }
+    $querystr = "
+    SELECT $wpdb->posts.ID
+    FROM $wpdb->posts, $wpdb->postmeta
+    WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id
+    AND $wpdb->posts.post_type = '".$post->post_type."'
+    ";
+    if(isset($meta_key)) $querystr .= "AND $wpdb->postmeta.meta_key = '".$meta_key."'
+    ";
+    if(isset($meta_value)) $querystr .= "AND $wpdb->postmeta.meta_value = '".$meta_value."'
+    ";
+    $querystr .= "AND $wpdb->posts.post_status = 'publish'
+    AND $wpdb->posts.".$orderby." ".$sign." '".$current."'
+    ORDER BY $wpdb->posts.".$orderby." ".$order."
+    LIMIT 1";
+    $postData = $wpdb->get_results($querystr, OBJECT);
+    if(empty($postData)) return false;
+    else return $postData[0];
+}
+
 
 
 /*------------------------------------*\
@@ -134,13 +170,11 @@ function register_menu()
 // CROP
 add_image_size('wide', 900, 450, true);
 add_image_size('wide retina', 1800, 900, true);
-add_image_size('blog-thumb', 200, 230, false); //200 pixels wide (and unlimited height)
+add_image_size('blog-thumb', 450, 225, true); //200 pixels wide (and unlimited height)
 
 
 // RESIZE
 // add_image_size('huge', 3600, 3600, false);
-
-add_theme_support( 'post-thumbnails' );
 
 /*------------------------------------*\
 	HEAD
@@ -259,7 +293,7 @@ function authenticate_user($user, $username, $password ) {
     if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     if(!isset($_POST['log'])){
-        wp_redirect( strtok($referrer, '?').'?registration=success' );
+        wp_redirect( strtok($referrer, '?').'?success' );
         exit;
     }
     return $user;
@@ -299,8 +333,12 @@ function register_user( $user_id ) {
     }
     if(isset($_POST['user_password']) && has($_POST['user_password']) )
         wp_set_password( $_POST['user_password'], $user_id );
+}
 
-    // update_field('favorites', '1', 'user_'.$user_id);
+function disable_new_user_mail(){
+    if (!function_exists('wp_new_user_notification')) {
+        function wp_new_user_notification() {}
+    }
 }
 /*------------------------------------*\
      OPTIONS EN VRAC
@@ -496,6 +534,7 @@ function add_endpoint()
 {
     add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
     add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('categorie', EP_PERMALINK | EP_PAGES );
 }
 
 
@@ -521,6 +560,7 @@ add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu
 add_action('wp_login_failed', 'login_fail');
 add_action('user_register', 'register_user', 1, 1);
 add_action('login_redirect', 'redirect_login', 10, 3);
+add_action('registered_post_type', 'disable_new_user_mail');
 //
 //  Remove Actions
 //

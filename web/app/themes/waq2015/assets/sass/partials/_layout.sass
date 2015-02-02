@@ -31,7 +31,8 @@ article
   header,
   hgroup
     padding: $large 0 $large
-  &.single
+  &.single,
+  &:first-child
     header,
     hgroup
       padding: ($xxlarge + (2*$medium)) 0 0
@@ -85,14 +86,6 @@ section.intro+nav
     &.bottom
       top: auto
       bottom: $small
-
-//
-//
-// SECTIONS
-section:first-child
-  header,
-  hgroup
-    padding-top: $xxlarge
 
 
 //
