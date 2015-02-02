@@ -16,9 +16,7 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
       <button class="btn seamless toggle favorite<?php if($is_favorite) echo ' active' ?>" session="<?= $session->ID ?>" toggle-content="<?= $is_favorite ? __('Ajouter à mon horaire','waq') : __('J\'y serai','waq') ?>"><span><?= $is_favorite ? __('J\'y serai','waq') :  __('Ajouter à mon horaire','waq')  ?></span></button>
 
       <div class="main title">
-        <div class="name">
-          <h2 class="title"><?= $session->speaker->name ?></h2>
-        </div>
+        <h2 class="name title"><?= $session->speaker->name ?></h2>
         <h1><?= $session->title ?></h1>
       </div>
       <div class="conference-info-container dark">
@@ -59,11 +57,9 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
     <section class="col wide" role="main">
 
       <div class="conference">
-
         <div class="content">
           <?= $session->content ?>
         </div>
-
         <div class="tags-section">
           <h4 class="sub title"><?= __('Thématiques', 'waq') ?></h4>
           <ul class="tags">
@@ -75,11 +71,9 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
             </li>
             <?php endforeach; ?>
           </ul>
-
           <a href="<?= get_permalink(4); ?>" class="btn back">
             <span><?= __('Retour à l\'horaire','waq') ?></span>
           </a>
-
         </div>
       </div>
     </section>
@@ -98,7 +92,6 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
               <h2 class="title"><?= $session->speaker->name ?></h2>
             </div>
           </div>
-
           <div class="content">
             <?= $session->speaker->bio ?>
           </div>

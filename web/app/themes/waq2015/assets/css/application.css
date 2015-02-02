@@ -3883,20 +3883,20 @@ section.intro {
   z-index: 100;
   margin-top: 1em;
   margin-bottom: -2em; }
-.single hgroup .name h2,
-.single hgroup .article-info h2 {
+.single hgroup h1 {
+  font-size: 0.875em; }
+.single hgroup h2 {
   font-size: 0.5em; }
 .single hgroup .favorite {
   margin-top: 0; }
 .single hgroup .main.title, .single hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .single hgroup a.main, .single hgroup .field label.main, .field .single hgroup label.main {
-  width: 75%; }
+  width: 66%;
+  padding-right: 30px; }
 .single .conference {
   font-size: 1.25em;
   float: left;
   margin-top: 5px;
   margin-right: 20px; }
-  .single .conference .tags-section {
-    font-size: 0.8em; }
 .single .conferencer {
   float: left;
   position: relative;
@@ -3907,6 +3907,9 @@ section.intro {
     margin-left: 120px; }
   .single .conferencer .social {
     font-size: 0.75em; }
+.single .tags-section {
+  padding-top: 20px;
+  font-size: 0.8em; }
 .single .single-article .image-une {
   padding-bottom: 1.25em; }
 .single.single-session, .single.article {

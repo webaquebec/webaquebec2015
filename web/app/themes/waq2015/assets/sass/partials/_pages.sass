@@ -688,22 +688,21 @@ section.intro
       z-index: 100
       margin-top: 1em
       margin-bottom: -2em
-    .name,
-    .article-info
-      h2
-        font-size: 0.5em
+    h1
+      font-size: 0.875em
+    h2
+      font-size: 0.5em
     .favorite
       margin-top: 0
     .main
       &.title
-        width: 75%
+        width: $wide
+        padding-right: $large
   .conference
     font-size: 1.25em
     float: left
     margin-top: $xsmall
     margin-right: $medium
-    .tags-section
-      font-size: 0.8em
   .conferencer
     float: left
     position: relative
@@ -715,6 +714,9 @@ section.intro
         margin-left: $medium+100
     .social
       font-size: 0.75em
+  .tags-section
+    padding-top: $large
+    font-size: 0.8em
   .single-article
     .image-une
       padding-bottom: 1.25em
