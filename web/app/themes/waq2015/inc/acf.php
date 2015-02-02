@@ -8,6 +8,49 @@ if( function_exists('register_field_group') ):
 
   //
   //
+  // BLOG POST FEATURED IMAGE
+  register_field_group(array (
+    'key' => 'group_54cf82601847f',
+    'title' => 'Featured',
+    'fields' => array (
+      array (
+        'key' => 'field_54cf8264754a6',
+        'label' => 'Featured image',
+        'name' => 'featured',
+        'prefix' => '',
+        'type' => 'image',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array (
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'return_format' => 'array',
+        'preview_size' => 'blog-thumb',
+        'library' => 'all',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'post',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'side',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+  ));
+
+  //
+  //
   // PROFILES
   register_field_group(array (
     'key' => 'group_54cf8e1aa6d64',
@@ -103,11 +146,11 @@ if( function_exists('register_field_group') ):
                   'id' => '',
                 ),
                 'choices' => array (
-                  'facebook: Facebook' => 'facebook: Facebook',
-                  'twitter: Twitter' => 'twitter: Twitter',
-                  'linkedin: Linkedin' => 'linkedin: Linkedin',
-                  'instagram: Instagram' => 'instagram: Instagram',
-                  'website: Website' => 'website: Website',
+                  'facebook' => 'Facebook',
+                  'twitter' => 'Twitter',
+                  'linkedin' => 'Linkedin',
+                  'instagram' => 'Instagram',
+                  'website' => 'Website',
                 ),
                 'default_value' => array (
                   '' => '',

@@ -40,16 +40,17 @@ $author = get_user_by('id', $author_ID);
 
      <aside class="col narrow" role="complementary">
       <?php
-      // print_r($author);
       $profile_infos = get_field('profile_infos', 'user_'.$author_ID);
-      if(false):
+      $image = $profile_infos[0]['image'];
+      $bio = $profile_infos[0]['bio'];
+      $socials = $profile_infos[0]['social'];
       ?>
-      <?php $has_thumb = has($profile_picture); ?>
+      <?php $has_thumb = has($image); ?>
       <div class="conferencer<?php if($has_thumb) echo ' has-thumb' ?>">
           <div class="about">
             <?php if($has_thumb): ?>
             <div class="thumb">
-              <img src="<?= $profile_picture['sizes']['thumbnail'] ?>" alt="<?= $author->data->display_name ?>" />
+              <img src="<?= $image['sizes']['thumbnail'] ?>" alt="<?= $author->data->display_name ?>" />
             </div>
             <?php endif; ?>
             <div class="name">
@@ -58,11 +59,11 @@ $author = get_user_by('id', $author_ID);
             </div>
           </div>
           <div class="content">
-            <?= $session->speaker->bio ?>
+            <?= $bio ?>
           </div>
-          <?php if(has($session->speaker->social)): ?>
+          <?php if(has($socials)): ?>
             <ul class="social">
-            <?php foreach($session->speaker->social as $social): ?>
+            <?php foreach($socials as $social): ?>
               <li>
                 <a class="<?= $social['provider'] ?>" href="<?= $social['url'] ?>"><?= $social['label'] ?></a>
               </li>
@@ -70,7 +71,6 @@ $author = get_user_by('id', $author_ID);
             </ul>
           <?php endif; ?>
       </div>
-      <?php endif; ?>
     </aside>
 
   </div>
