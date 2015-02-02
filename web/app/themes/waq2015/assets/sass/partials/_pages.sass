@@ -908,23 +908,27 @@ footer
         margin-bottom: 0
     .location
       margin-right: 0
+      float: right
+      width: 28%
+
       &:before
         display: none
-      .title
-        margin: 0
-        display: block
       &[style]
-        position: relative
-        padding-left: $medium
         &:before
           display: block
           content: ""
-          height: 100%
           left: 0
           top: 0
+          bottom: 1.5em
+          height: auto
           position: absolute
           border-right: $small solid $l-grey
           border-color: inherit
+          +border-radius(4px 0 0 4px)
+      .title
+        margin: 0
+        display: block
+
     &.keynote
       font-size: 1em
       .session-title,
@@ -938,16 +942,13 @@ footer
         float: left
         width: 7em
         height: 7em
-        margin-left: 0
+        margin-left: 0.7em
         img
           width: 100%
-.my-profile
-  .session
-    .location
-      float: right
-      width: $xxlarge
     a
-      margin-right: $xxlarge
+      margin-right: 28%
       padding: $medium
       display: block
 
+.my-profile
+  .session

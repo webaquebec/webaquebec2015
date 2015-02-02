@@ -56,10 +56,13 @@ if(has($favorites_str)):
                 </div>
                 <?php endif; ?>
 
-                <div class="location border-bottom"  <?php if(has($session->location->color)) echo 'style="border-color:'.$session->location->color.'"'?> >
+                <div class="location"  <?php if(has($session->location->color)) echo 'style="border-color:'.$session->location->color.'"'?> >
                   <span class="small title"><?= strftime('%kH%M', $session->time->start) ?> <?= __('à')  ?> <?= strftime('%kH%M', $session->time->end) ?></span>
                   <span class="small sub title">
-                    <?= __('Salle', 'waq').' '.$session->location->title ?>  &#183; <?= $session->location->subtitle ?>
+                    <?= __('Salle', 'waq').' '.$session->location->title ?>
+                  </span>
+                  <span class="sub title">
+                    <?= $session->location->subtitle ?>
                   </span>
                 </div>
 

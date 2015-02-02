@@ -4254,24 +4254,27 @@ footer .logo-o2 {
       zoom: 1;
       margin-bottom: 0; }
   .profile-sessions .session .location {
-    margin-right: 0; }
+    margin-right: 0;
+    float: right;
+    width: 28%; }
     .profile-sessions .session .location:before {
       display: none; }
+    .profile-sessions .session .location[style]:before {
+      display: block;
+      content: "";
+      left: 0;
+      top: 0;
+      bottom: 1.5em;
+      height: auto;
+      position: absolute;
+      border-right: 10px solid #eeeef0;
+      border-color: inherit;
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      border-radius: 4px 0 0 4px; }
     .profile-sessions .session .location .title, .profile-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .location a, .profile-sessions .session .location .field label, .field .profile-sessions .session .location label {
       margin: 0;
       display: block; }
-    .profile-sessions .session .location[style] {
-      position: relative;
-      padding-left: 20px; }
-      .profile-sessions .session .location[style]:before {
-        display: block;
-        content: "";
-        height: 100%;
-        left: 0;
-        top: 0;
-        position: absolute;
-        border-right: 10px solid #eeeef0;
-        border-color: inherit; }
   .profile-sessions .session.keynote {
     font-size: 1em; }
     .profile-sessions .session.keynote .session-title,
@@ -4283,17 +4286,13 @@ footer .logo-o2 {
     float: left;
     width: 7em;
     height: 7em;
-    margin-left: 0; }
+    margin-left: 0.75em; }
     .profile-sessions .session.has-thumb .thumb img {
       width: 100%; }
-
-.my-profile .session .location {
-  float: right;
-  width: 100px; }
-.my-profile .session a {
-  margin-right: 100px;
-  padding: 20px;
-  display: block; }
+  .profile-sessions .session a {
+    margin-right: 28%;
+    padding: 20px;
+    display: block; }
 
 @media screen and (max-width: 1200px) {
   html,

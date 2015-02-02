@@ -58,7 +58,7 @@ get_header_once();
 </section>
 
 
-<section class="profile-schedule">
+<section class="profile-schedule my-profile">
   <div class="container">
     <?php
     //
