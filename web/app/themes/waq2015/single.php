@@ -75,24 +75,54 @@ $author = get_user_by('id', $author_ID);
   //
   // CATEGORIES
   $categories = get_the_category();
+  $categories_nums = array();
   if(has($categories)):
   ?>
-
   <?php endif; ?>
-  <div class="cols container tags-section">
-    <div class="col wide">
-      <h4 class="sub title"><?= __('Catégorie', 'waq') ?></h4>
-      <ul class="tags">
-        <?php foreach($categories as $category): ?>
-        <li class="btn">
-          <a href="<?= get_permalink(get_id_from_slug('blogue')).$category->slug ?>">
-            <?= $category->name ?>
-          </a>
-        </li>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-    <div class="col narrow">
+
+  <div class="container section-category">
+    <div class="cols posts">
+      <div class="col">
+        <h4 class="sub title"><?= __('Dans la catégorie', 'waq') ?></h4>
+        <ul class="tags">
+          <?php
+          foreach($categories as $category):
+            array_push($categories_nums, $category->term_id);
+          ?>
+          <li class="btn">
+            <a href="<?= get_permalink(get_id_from_slug('blogue')).$category->slug ?>">
+              <?= $category->name ?>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+
+
+      <?php
+
+      $related =  new WP_query(array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'category__in' => $categories_nums,
+        'post__not_in' => array($post->ID),
+      ));
+
+      if ($related->have_posts()) : while ($related->have_posts()) : $related->the_post();?>
+      <article class="col">
+        <div class="post">
+          <div class="content">
+              <div class="article-info">
+                <span class="meta small"><?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?></span>
+                <h1 class="sub title">
+                  <a href="<?php the_permalink(); ?>"><?= get_the_title(); ?></a>
+                </h2>
+              </div>
+              <p><?= get_the_excerpt(); ?></p>
+          </div>
+        </div>
+      </article>
+      <?php endwhile; endif; ?>
 
     </div>
   </div>

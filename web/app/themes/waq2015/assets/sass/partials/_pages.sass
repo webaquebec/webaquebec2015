@@ -727,7 +727,6 @@ section.intro
       font-size: 0.875em
     .content
       padding-top: $medium
-      padding-bottom: 2em
     nav
       font-size: 0.875em
       padding: $large 0
@@ -785,6 +784,29 @@ section.intro
         left: 0
         line-height: 0
 
+  .section-category
+    position: relative
+    padding: $medium $medium  $small
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: $medium
+      right: $medium
+      border-top: 1px solid $l-grey1
+    .cols
+      +grid(4,$medium)
+
+    .post
+      margin-bottom: 0
+    .article-info
+      border-color: $grey
+    .meta
+      color: $m-grey
+    p
+      font-size: 0.875em
+    .content
+      padding-top: 0
 //
 //
 // NEWS
