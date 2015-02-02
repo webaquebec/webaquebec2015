@@ -134,13 +134,11 @@ function register_menu()
 // CROP
 add_image_size('wide', 900, 450, true);
 add_image_size('wide retina', 1800, 900, true);
-add_image_size('blog-thumb', 200, 230, false); //200 pixels wide (and unlimited height)
+add_image_size('blog-thumb', 400, 900, false); //200 pixels wide (and unlimited height)
 
 
 // RESIZE
 // add_image_size('huge', 3600, 3600, false);
-
-add_theme_support( 'post-thumbnails' );
 
 /*------------------------------------*\
 	HEAD

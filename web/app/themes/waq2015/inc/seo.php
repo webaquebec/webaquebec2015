@@ -182,7 +182,7 @@ if( function_exists('register_field_group') ):
         ),
       ),
     ),
-    'menu_order' => 0,
+    'menu_order' => 10,
     'position' => 'side',
     'style' => 'default',
     'label_placement' => 'top',

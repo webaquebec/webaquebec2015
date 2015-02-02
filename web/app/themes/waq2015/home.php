@@ -18,21 +18,20 @@
     <div class="container">
       <div class="posts">
 
-        <?php if (have_posts()) : /*query_posts("posts_per_page=1");*/ while (have_posts()) : the_post();?>
+        <?php if (have_posts()) : while (have_posts()) : the_post();?>
         <article>
           <div class="post">
             <div class="image">
-              <?php
-                if ( has_post_thumbnail() ) {
-                    the_post_thumbnail('wide');
-                }
-              ?>
+              <?php $image = get_field('featured');
+              if($image): ?>
+              <img src="<?= $image['sizes']['blog-thumb'] ?>" alt="<?= __('Image de l\'article','waq') ?>" />
+              <?php endif; ?>
             </div>
             <div class="content">
                 <div class="article-info">
-                  <span class="meta small"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
+                  <span class="meta small"><?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?></span>
                   <h1 class="sub title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <a href="<?php the_permalink(); ?>"><?= get_the_title(); ?></a>
                   </h2>
                 </div>
                 <p><?= get_the_excerpt(); ?></p>
@@ -45,7 +44,7 @@
           <?php endif; ?>
       </div>
       <div class="btn back">
-        <a href="<?= get_permalink(4); ?>" class=""><span>Retour à l'accueil</span></a>
+        <a href="<?= get_permalink(7); ?>" class=""><span>Retour à l'accueil</span></a>
       </div>
     </div>
   </section>

@@ -4,18 +4,6 @@
 
 <article class="article single no-padding">
 
-<!--   <hgroup class="dark">
-    <div class="container">
-      <div class="main title border-left">
-        <div class="article-info">
-          <span class="meta"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
-        </div>
-        <h1><?= get_the_title() ?></h1>
-        <div class="border-bottom expandable"></div>
-      </div>
-    </div>
-  </hgroup> -->
-
   <hgroup>
     <div class="container">
       <div class="main title">
@@ -32,11 +20,10 @@
       <div class="single-article">
         <div class="content">
           <div class="article-image">
-            <?php
-              if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('large');
-              }
-            ?>
+            <?php $image = get_field('featured');
+              if($image): ?>
+              <img src="<?= $image['sizes']['large'] ?>" alt="<?= __('Image de l\'article','waq') ?>" />
+              <?php endif; ?>
           </div>
           <?php the_content() ?>
         </div>

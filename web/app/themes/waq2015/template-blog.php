@@ -29,11 +29,10 @@ get_header_once();
 
           <article class="featured">
             <div class="image">
-              <?php
-                if ( has_post_thumbnail() ) {
-                    the_post_thumbnail('wide');
-                }
-              ?>
+             <?php $image = get_field('featured');
+              if($image): ?>
+              <img src="<?= $image['sizes']['blog-thumb'] ?>" alt="<?= __('Image de l\'article','waq') ?>" />
+              <?php endif; ?>
             </div>
             <div class="content">
                 <div class="article-info">

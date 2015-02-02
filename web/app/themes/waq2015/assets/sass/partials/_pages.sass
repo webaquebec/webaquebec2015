@@ -12,6 +12,9 @@
     display: none
   header[role="banner"] nav .main
     margin-right: 0
+.not-logged-in
+  .favorite
+    display: none
 
 //
 //
@@ -473,7 +476,7 @@ section.intro
 
 .blog-page
   .posts
-    +grid(4, $medium)
+    +grid(3, $medium)
     > *
       vertical-align: top
 
@@ -951,7 +954,7 @@ footer
           width: 100%
     a
       margin-right: 28%
-      padding: $medium
+      padding: 1em
       display: block
 
 //
