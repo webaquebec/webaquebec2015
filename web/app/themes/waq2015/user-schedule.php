@@ -30,68 +30,78 @@ if(has($favorites_str)):
   ?>
 
 
-      <?php if($schedules->have_posts()): while($schedules->have_posts()): $schedules->the_post(); ?>
+  <?php if($schedules->have_posts()): while($schedules->have_posts()): $schedules->the_post(); ?>
 
-      <?php
-      if(isset($sessions[$post->ID])):
-        usort($sessions[$post->ID], 'sortByStartTime');
-        ?>
+  <?php
+  if(isset($sessions[$post->ID])):
+    usort($sessions[$post->ID], 'sortByStartTime');
+    ?>
 
-      <article class="schedule">
-        <h2 class="title border-middle">
-          <span>
-            <span class="sub title"><?= get_the_title($post->ID) ?></span>
-            <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
-          </span>
-        </h2>
-        <div class="profile-sessions">
-          <ul>
-          <?php foreach($sessions[$post->ID] as $session): ?>
-            <li class="session btn light <?= $session->location->class ?> <?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" >
-              <div class="wrap">
+  <article class="schedule">
+    <h2 class="title border-middle">
+      <span>
+        <span class="sub title"><?= get_the_title($post->ID) ?></span>
+        <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
+      </span>
+    </h2>
+    <div class="profile-sessions">
+      <ul>
+      <?php foreach($sessions[$post->ID] as $session): ?>
+        <li class="session btn light <?= $session->location->class ?> <?php if($session->speaker->image) echo ' has-thumb' ?>" location="<?= $session->location->ID ?>" >
+          <div class="wrap">
 
-               <?php if($session->speaker->image): ?>
-                <div class="thumb">
-                  <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
-                </div>
-                <?php endif; ?>
+           <?php if($session->speaker->image): ?>
+            <div class="thumb">
+              <img src="<?= $session->speaker->image['sizes']['thumbnail'] ?>" alt="<?= $session->speaker->name ?>" />
+            </div>
+            <?php endif; ?>
 
-                <div class="location"  <?php if(has($session->location->color)) echo 'style="border-color:'.$session->location->color.'"'?> >
-                  <span class="small title"><?= strftime('%kH%M', $session->time->start) ?> <?= __('à')  ?> <?= strftime('%kH%M', $session->time->end) ?></span>
-                  <span class="small sub title">
-                    <?= __('Salle', 'waq').' '.$session->location->title ?>
+            <div class="location"  <?php if(has($session->location->color)) echo 'style="border-color:'.$session->location->color.'"'?> >
+              <span class="small title"><?= strftime('%kH%M', $session->time->start) ?> <?= __('à')  ?> <?= strftime('%kH%M', $session->time->end) ?></span>
+              <span class="small sub title">
+                <?= __('Salle', 'waq').' '.$session->location->title ?>
+              </span>
+              <span class=" sub title">
+                <?= $session->location->subtitle ?>
+              </span>
+            </div>
+
+            <a href="<?= $session->permalink ?>">
+              <h3 class="session-title title"><?= $session->title ?></h3>
+
+              <div class="speaker">
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title"><?= $session->speaker->name ?></span>
+                    <?php if(has($session->speaker->job)) : ?>
+                    <span class="job note"><?= $session->speaker->job ?></span>
+                    <?php endif; ?>
                   </span>
-                  <span class="sub title">
-                    <?= $session->location->subtitle ?>
-                  </span>
-                </div>
-
-                <a href="<?= $session->permalink ?>">
-                  <h3 class="session-title title"><?= $session->title ?></h3>
-
-                  <div class="speaker">
-                    <h4 class="infos">
-                      <span class="wrap">
-                        <span class="name small title"><?= $session->speaker->name ?></span>
-                        <?php if(has($session->speaker->job)) : ?>
-                        <span class="job note"><?= $session->speaker->job ?></span>
-                        <?php endif; ?>
-                      </span>
-                    </h4>
-                  </div>
-                </a>
+                </h4>
               </div>
-            </li>
-          <?php endforeach ?>
-          </ul>
-        </div>
-      </article>
-
-      <?php endif; ?>
-
-      <?php endwhile; endif; ?>
+            </a>
+          </div>
+        </li>
+      <?php endforeach ?>
+      </ul>
     </div>
-  </section>
+  </article>
+
+  <?php endif; ?>
+
+  <?php endwhile; endif; ?>
+
+  <div class="share">
+    <h3 class="title border-middle"><?= __('Partager l \'horaire', 'waq') ?></h3>
+
+    <div class="share-container">
+      <span class='st_facebook_large' displayText='Facebook'></span>
+      <span class='st_twitter_large' displayText='Tweet'></span>
+      <span class='st_linkedin_large' displayText='LinkedIn'></span>
+      <span class='st_email_large' displayText='Email'></span>
+    </div>
+
+  </div>
 
 <?php else : ?>
   <span class="small title"><?= __('Vous êtes maintenant prêt à créer votre horaire WAQ.','waq') ?></span>

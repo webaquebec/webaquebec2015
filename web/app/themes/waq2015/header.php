@@ -45,7 +45,13 @@
     <?php endif; ?>
 
     <!-- css + javascript -->
-    <?php wp_head(); ?>
+    <?php
+    wp_head();
+    ?>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "8f3aceb2-d786-4b13-bfcb-8dc5573191c1", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
   </head>
   <body>
 

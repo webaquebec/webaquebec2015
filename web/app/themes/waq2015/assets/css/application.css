@@ -919,6 +919,8 @@ nav[role="navigation"] .secondary {
     *display: inline;
     zoom: 1;
     vertical-align: middle; }
+  .border-middle:before {
+    display: none; }
   .border-middle.centered {
     text-align: center; }
   .border-middle:after, .border-middle.centered:before {
@@ -928,10 +930,9 @@ nav[role="navigation"] .secondary {
     zoom: 1;
     width: 100%;
     height: 1px;
-    margin: 0 2em;
+    margin: -0.25em 2em 0;
     background: #B8B9C2;
-    vertical-align: middle;
-    margin-top: -0.5em; }
+    vertical-align: middle; }
   .border-middle.centered:before {
     margin-left: -100%; }
   .border-middle:after {
@@ -4224,6 +4225,9 @@ footer .logo-o2 {
     position: relative;
     top: -0.25em; }
 
+.profile-schedule {
+  padding-bottom: 50px; }
+
 .account .dashboard-link,
 .account .logout-link {
   display: block;
@@ -4233,66 +4237,74 @@ footer .logo-o2 {
   padding: 0.5em 0;
   margin-left: 1em; }
 
-.profile-sessions .session {
-  margin-top: 10px; }
-  .profile-sessions .session:first-child {
-    margin-top: 0; }
-  .profile-sessions .session > .wrap {
-    width: 100%; }
-  .profile-sessions .session .session-title {
-    font-size: 1.5em; }
-  .profile-sessions .session .speaker {
-    font-size: 1.125em; }
-    .profile-sessions .session .speaker .title, .profile-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .speaker a, .profile-sessions .session .speaker .field label, .field .profile-sessions .session .speaker label,
-    .profile-sessions .session .speaker .note,
-    .profile-sessions .session .speaker #loginform .login-remember,
-    #loginform .profile-sessions .session .speaker .login-remember,
-    .profile-sessions .session .speaker #registerform .login-remember,
-    #registerform .profile-sessions .session .speaker .login-remember {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      margin-bottom: 0; }
-  .profile-sessions .session .location {
-    margin-right: 0;
-    float: right;
-    width: 28%; }
-    .profile-sessions .session .location:before {
-      display: none; }
-    .profile-sessions .session .location[style]:before {
-      display: block;
-      content: "";
-      left: 0;
-      top: 0;
-      bottom: 1.5em;
-      height: auto;
-      position: absolute;
-      border-right: 10px solid #eeeef0;
-      border-color: inherit;
-      -webkit-border-radius: 4px 0 0 4px;
-      -moz-border-radius: 4px 0 0 4px;
-      border-radius: 4px 0 0 4px; }
-    .profile-sessions .session .location .title, .profile-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .location a, .profile-sessions .session .location .field label, .field .profile-sessions .session .location label {
-      margin: 0;
-      display: block; }
-  .profile-sessions .session.keynote {
-    font-size: 1em; }
-    .profile-sessions .session.keynote .session-title,
-    .profile-sessions .session.keynote .infos {
-      text-align: left; }
-  .profile-sessions .session.has-thumb > .wrap > * {
-    margin-left: 8em; }
-  .profile-sessions .session.has-thumb .thumb {
-    float: left;
-    width: 7em;
-    height: 7em;
-    margin-left: 0.75em; }
-    .profile-sessions .session.has-thumb .thumb img {
+.profile-sessions {
+  margin-bottom: 50px; }
+  .profile-sessions .session {
+    margin-top: 10px; }
+    .profile-sessions .session:first-child {
+      margin-top: 0; }
+    .profile-sessions .session > .wrap {
       width: 100%; }
-  .profile-sessions .session a {
-    margin-right: 28%;
-    padding: 20px;
-    display: block; }
+    .profile-sessions .session .session-title {
+      font-size: 1.5em; }
+    .profile-sessions .session .speaker {
+      font-size: 1.125em; }
+      .profile-sessions .session .speaker .title, .profile-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .speaker a, .profile-sessions .session .speaker .field label, .field .profile-sessions .session .speaker label,
+      .profile-sessions .session .speaker .note,
+      .profile-sessions .session .speaker #loginform .login-remember,
+      #loginform .profile-sessions .session .speaker .login-remember,
+      .profile-sessions .session .speaker #registerform .login-remember,
+      #registerform .profile-sessions .session .speaker .login-remember {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        margin-bottom: 0; }
+    .profile-sessions .session .location {
+      margin-right: 0;
+      float: right;
+      width: 28%; }
+      .profile-sessions .session .location:before {
+        display: none; }
+      .profile-sessions .session .location[style]:before {
+        display: block;
+        content: "";
+        left: 0;
+        top: 0;
+        bottom: 1.5em;
+        height: auto;
+        position: absolute;
+        border-right: 10px solid #eeeef0;
+        border-color: inherit;
+        -webkit-border-radius: 4px 0 0 4px;
+        -moz-border-radius: 4px 0 0 4px;
+        border-radius: 4px 0 0 4px; }
+      .profile-sessions .session .location .title, .profile-sessions .session .location nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .location a, .profile-sessions .session .location .field label, .field .profile-sessions .session .location label {
+        margin: 0;
+        display: block; }
+    .profile-sessions .session.keynote {
+      font-size: 1em; }
+      .profile-sessions .session.keynote .session-title,
+      .profile-sessions .session.keynote .infos {
+        text-align: left; }
+    .profile-sessions .session.has-thumb > .wrap > * {
+      margin-left: 8em; }
+    .profile-sessions .session.has-thumb .thumb {
+      float: left;
+      width: 7em;
+      height: 7em;
+      margin-left: 0.7em; }
+      .profile-sessions .session.has-thumb .thumb img {
+        width: 100%; }
+    .profile-sessions .session a {
+      margin-right: 28%;
+      padding: 20px;
+      display: block; }
+
+.share {
+  overflow: hidden;
+  padding-bottom: 1em; }
+  .share .title, .share nav[role="navigation"] ul a, nav[role="navigation"] ul .share a, .share .field label, .field .share label {
+    margin-bottom: 1em; }
 
 @media screen and (max-width: 1200px) {
   html,
