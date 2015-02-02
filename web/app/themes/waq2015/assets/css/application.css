@@ -550,13 +550,18 @@ article {
   article hgroup {
     padding: 30px 0 30px; }
   section.single header,
-  section.single hgroup,
+  section.single hgroup, section:first-child header,
+  section:first-child hgroup,
   article.single header,
-  article.single hgroup {
+  article.single hgroup,
+  article:first-child header,
+  article:first-child hgroup {
     padding: 140px 0 0; }
-  section.single + section, section.single + article,
+  section.single + section, section.single + article, section:first-child + section, section:first-child + article,
   article.single + section,
-  article.single + article {
+  article.single + article,
+  article:first-child + section,
+  article:first-child + article {
     padding-top: 0; }
 
 .container, .sticky.fixed, .days .sticky {
@@ -611,10 +616,6 @@ section.intro + nav {
     section.intro + nav.fixed.bottom {
       top: auto;
       bottom: 10px; }
-
-section:first-child header,
-section:first-child hgroup {
-  padding-top: 100px; }
 
 footer {
   padding: 20px 0; }
@@ -3608,7 +3609,8 @@ section.intro {
         text-transform: uppercase; }
     .posts .post .meta, .posts .featured .meta {
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.3; }
     .posts .post .title, .posts .featured .title, .posts .post nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .post a, .posts .featured nav[role="navigation"] ul a, nav[role="navigation"] ul .posts .featured a, .posts .post .field label, .field .posts .post label, .posts .featured .field label, .field .posts .featured label {
       margin-top: 0; }
   .posts .featured {
@@ -3977,7 +3979,9 @@ section.intro {
 .single .tags {
   margin: 0.5em 0 -0.5em; }
   .single .tags a {
-    color: #303030; }
+    color: #0094c2; }
+    .no-touch .single .tags a:hover {
+      color: #00bfdf; }
 .single .about {
   width: 100%;
   text-align: left;
@@ -4070,8 +4074,20 @@ section.intro {
   .single .section-category .content {
     padding-top: 0; }
 
-.actualites hgroup .main.title, .actualites hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .actualites hgroup a.main, .actualites hgroup .field label.main, .field .actualites hgroup label.main {
+.news hgroup .main.title, .news hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .news hgroup a.main, .news hgroup .field label.main, .field .news hgroup label.main {
   width: 100%; }
+.news .filters {
+  padding: 30px 0; }
+  .news .filters .btn, .news .filters .profile, .news .filters .card, .news .filters .social-account .wp-social-login-provider, .social-account .news .filters .wp-social-login-provider, .news .filters #loginform .login-submit, #loginform .news .filters .login-submit,
+  .news .filters #loginform .register-submit,
+  #loginform .news .filters .register-submit,
+  .news .filters #registerform .login-submit,
+  #registerform .news .filters .login-submit,
+  .news .filters #registerform .register-submit,
+  #registerform .news .filters .register-submit {
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
 
 footer .top-footer {
   font-size: 0;

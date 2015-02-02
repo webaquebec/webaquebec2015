@@ -7,7 +7,7 @@
 
 
       <div class="main title border-left">
-        <h1>Actualités</h1>
+        <h1><?= __('Blogue','waq') ?></h1>
         <div class="border-bottom expandable"></div>
 
       </div>
@@ -29,7 +29,10 @@
             </div>
             <div class="content">
                 <div class="article-info">
-                  <span class="meta small"><?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?></span>
+                  <span class="meta small">
+                    <div><?= get_the_category()[0]->name ?></div>
+                    <?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?>
+                  </span>
                   <h1 class="sub title">
                     <a href="<?php the_permalink(); ?>"><?= get_the_title(); ?></a>
                   </h2>

@@ -2,7 +2,6 @@
 /*
  * Template Name: Blogue
  */
-
 get_header_once();
 ?>
 
@@ -36,7 +35,10 @@ get_header_once();
             </div>
             <div class="content">
                 <div class="article-info">
-                  <span class="meta small"><?php echo get_the_author(); ?> <span class="separator">&#183;</span> <?php echo get_the_date(); ?></span>
+                  <span class="meta small">
+                    <div><?= get_the_category()[0]->name ?></div>
+                    <?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?>
+                  </span>
                   <h1 class="sub title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                   </h2>

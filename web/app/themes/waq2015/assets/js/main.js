@@ -341,7 +341,6 @@ jQuery(document).ready(function($){
     var active = $trigger.toggleClass('active').hasClass('active');
     var content = $trigger.attr('toggle-content');
     if(content) $trigger.attr('toggle-content', $trigger.children().eq(0).html()).children().eq(0).html(content);
-    return active;
   }
 
   if(waq.$toggles.length){

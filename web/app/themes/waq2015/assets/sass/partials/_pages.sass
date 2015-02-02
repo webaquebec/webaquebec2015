@@ -463,6 +463,7 @@ section.intro
         text-transform: uppercase
     .meta
       +font-smoothing(on)
+      line-height: 1.3
     .title
       margin-top: 0
   .featured
@@ -750,7 +751,9 @@ section.intro
   .tags
     margin: 0.5em 0 -0.5em
     a
-      color: $d-grey
+      color: $blue
+      .no-touch &:hover
+        color: $l-blue
   .about
     width: 100%
     text-align: left
@@ -810,10 +813,15 @@ section.intro
 //
 //
 // NEWS
-.actualites
+.news
   hgroup
     .main.title
       width: 100%
+  .filters
+    padding: $large 0
+    .btn
+      +inlineb
+
 
 //
 //

@@ -1,7 +1,9 @@
 <?php
 get_header();
+$url = get_permalink(get_id_from_slug('actualites'));
 $author_ID = $post->post_author;
 $author = get_user_by('id', $author_ID);
+$categories = get_the_category();
 ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
@@ -74,8 +76,7 @@ $author = get_user_by('id', $author_ID);
   //
   //
   // CATEGORIES
-  $categories = get_the_category();
-  $categories_nums = array();
+  $categories_ids = array();
   if(has($categories)):
   ?>
   <?php endif; ?>
@@ -87,10 +88,10 @@ $author = get_user_by('id', $author_ID);
         <ul class="tags">
           <?php
           foreach($categories as $category):
-            array_push($categories_nums, $category->term_id);
+            array_push($categories_ids, $category->term_id);
           ?>
           <li class="btn">
-            <a href="<?= get_permalink(get_id_from_slug('blogue')).$category->slug ?>">
+            <a href="<?= $url.'categorie/'.$category->slug ?>">
               <?= $category->name ?>
             </a>
           </li>
@@ -104,7 +105,7 @@ $author = get_user_by('id', $author_ID);
       $related =  new WP_query(array(
         'post_type' => 'post',
         'posts_per_page' => 3,
-        'category__in' => $categories_nums,
+        'category__in' => $categories_ids,
         'post__not_in' => array($post->ID),
       ));
 
@@ -113,7 +114,10 @@ $author = get_user_by('id', $author_ID);
         <div class="post">
           <div class="content">
               <div class="article-info">
-                <span class="meta small"><?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?></span>
+                <span class="meta small">
+                 <div><?= get_the_category()[0]->name ?></div>
+                  <?= get_the_author(); ?> <span class="separator">&#183;</span> <?= get_the_date(); ?>
+                </span>
                 <h1 class="sub title">
                   <a href="<?php the_permalink(); ?>"><?= get_the_title(); ?></a>
                 </h2>

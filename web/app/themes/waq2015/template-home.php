@@ -10,33 +10,32 @@ get_header_once();
 get_template_part('template-features');
 ?>
 
-<?php 
+<?php
 //  PROGRAMMATION ------> ID 4
 include_page_part(4);
 ?>
 
-<?php 
+<?php
 //  COORDONNEES ------> ID 43
 include_page_part(43);
 ?>
 
-<?php 
+<?php
 //  BLOGUE ------> ID 7
 include_page_part(7);
 ?>
 
-<?php 
+<?php
 //  PARTENAIRES ------> ID 47
 include_page_part(47);
 ?>
 
-<?php 
+<?php
 //  WAQ 2015 ------> ID 45
 include_page_part(45);
 ?>
 
-  
-<?php 
+<?php
 wp_reset_query();
 get_footer_once();
 ?>
