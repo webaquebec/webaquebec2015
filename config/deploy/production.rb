@@ -1,6 +1,6 @@
 set :stage, :production
 set :branch, :master
-set :home_folder, 'home3'
+set :home, 'home3'
 set :username, 'webaqueb'
 
 # Simple Role Syntax
