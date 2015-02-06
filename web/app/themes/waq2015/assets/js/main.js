@@ -413,7 +413,7 @@ jQuery(document).ready(function($){
     }
 
     function toggleFiltersNav(e){
-      waq.$program.$filtersNavContent.slideToggle({duration:540, easing:$.bez([0.5, 0, 0.225, 1])});
+      e.data.$contents.slideToggle({duration:540, easing:$.bez([0.5, 0, 0.225, 1])});
     }
 
     function toggleFilter(e){
@@ -541,6 +541,20 @@ jQuery(document).ready(function($){
 
   //
   //
+  // DRAWERS
+  function enableFiltersDrawer($triggers, $contents){
+    $contents.hide();
+    $triggers.removeClass('active').on('click', {$contents: $contents}, toggleFiltersNav);
+  }
+
+  function disableFiltersDrawer($triggers, $contents){
+    $contents.show();
+    $triggers.removeClass('active').off('click',toggleFiltersNav);
+  }
+
+
+  //
+  //
   // GOOGLE MAP
 
   if(waq.$map.length && google){
@@ -620,19 +634,13 @@ jQuery(document).ready(function($){
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 1, { path: '/' });
     if(waq.$schedules.length) disableMobileSchedules();
-    if(waq.$program.length && waq.$program.$filtersNavToggle.length){
-      waq.$program.$filtersNavContent.show();
-      waq.$program.$filtersNavToggle.removeClass('active').off('click',toggleFiltersNav);
-    }
+    if(waq.$program.length && waq.$program.$filtersNavToggle.length) disableFiltersDrawer(waq.$program.$filtersNavToggle, waq.$program.$filtersNavContent);
     $win.scrollEvents('update');
   }
   // < 1024px
   function smallerThan1024(e){
     if(waq.$schedules.length) enableMobileSchedules();
-    if(waq.$program.length && waq.$program.$filtersNavToggle.length){
-      waq.$program.$filtersNavContent.hide();
-      waq.$program.$filtersNavToggle.removeClass('active').on('click',toggleFiltersNav);
-    }
+    if(waq.$program.length && waq.$program.$filtersNavToggle.length) enableFiltersDrawer(waq.$program.$filtersNavToggle ,waq.$program.$filtersNavContent);
     if(e=='init') return; // Exit here at init --------------------------
     $.cookie('big-screen', 0, { path: '/' });
     if(waq.$stickys.length) disableStickys();

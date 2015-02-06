@@ -1,4 +1,4 @@
-// breakpoints.js
+// moBreakpoints.js
 // o2web.ca
 
 // Tous droits réservés
@@ -7,7 +7,7 @@
 
 (function($) {
 
-	if(!window.bpElements) window.bpElements = [];
+	if(!window.moBpElements) window.moBpElements = [];
 
 	$.extend($.fn,{
 		breakpoints: function(args){
@@ -42,18 +42,17 @@
 						},args);
 						el.moBp.push(bp);
 					}
-					
 				}
-				window.bpElements.push(el);
+				window.moBpElements.push(el);
 			}
-			$(window).off('resize', checkBp);
-			$(window).on('resize', checkBp);
+			if(!window.raf.events.resize)
+				window.raf.on('resize', checkBp);
 			checkBp('init');
 		}
 	});
 
 	function checkBp(option){
-		var els = window.bpElements;
+		var els = window.moBpElements;
 		var init = option=='init';
 		for(var i=0; i< els.length; i++){
 			var el  = els[i];
