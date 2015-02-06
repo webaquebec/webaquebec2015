@@ -24,7 +24,7 @@ register_field_group(array (
                 'id' => '',
             ),
             'message' => '',
-            'default_value' => 1,
+            'default_value' => 0,
         ),
     ),
     'location' => array (

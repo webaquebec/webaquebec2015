@@ -24,7 +24,6 @@ query_posts(array(
   <hgroup class="dark">
     <div class="container">
 
-
       <div class="main title border-left">
         <h1><?= __('Blogue','waq') ?></h1>
         <div class="border-bottom expandable"></div>

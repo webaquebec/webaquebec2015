@@ -3337,6 +3337,8 @@ section.intro {
         padding-right: 0.75em;
         line-height: 2.5em;
         content: ""; }
+      .features .session .wrap:before {
+        bottom: 0; }
       .features .session .wrap > .title, .features .session nav[role="navigation"] ul .wrap > a, nav[role="navigation"] ul .features .session .wrap > a, .features .session .field .wrap > label, .field .features .session .wrap > label {
         position: relative; }
         .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
@@ -3357,7 +3359,7 @@ section.intro {
     .features .session .meta {
       position: absolute;
       top: 0;
-      bottom: 1.5em;
+      bottom: 0;
       left: 0;
       width: 7.5em;
       text-align: right;
@@ -4949,6 +4951,8 @@ footer .logo-o2 {
 
   .schedules .session.wide.has-thumb > * > * {
     text-indent: 0; }
+    .schedules .session.wide.has-thumb > * > *.icon-only {
+      text-indent: -9999px; }
     .schedules .session.wide.has-thumb > * > * .infos {
       text-indent: 0; }
 
@@ -5301,6 +5305,23 @@ footer .logo-o2 {
       width: 100%;
       padding: 0 0 0; }
 
+  .blog-page .posts {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .blog-page .posts > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+
   .single.article .col.wide {
     width: 100%; }
   .single .content {
@@ -5356,23 +5377,6 @@ footer .logo-o2 {
   .filters .toggle {
     display: block;
     width: 100%; }
-
-  .blog-page .posts {
-    font-size: 0;
-    word-spacing: 0;
-    line-height: 0;
-    margin-left: 0;
-    margin-right: 0; }
-    .blog-page .posts > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      font-size: 16px;
-      font-size: initial;
-      word-spacing: normal;
-      line-height: 1;
-      width: 100%;
-      padding: 0 0 0; }
 
   footer .info-general {
     font-size: 0;
