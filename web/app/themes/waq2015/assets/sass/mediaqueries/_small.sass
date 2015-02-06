@@ -12,12 +12,34 @@
   //
   //
   // MOBILE NAV
-  nav[role="navigation"] .logo.waq,
-  body > .logo.waq
+  nav[role="navigation"],
+  body >
+    .logo.waq
+      font-size: 0.6em
+      a
+        padding: 0 2em
+      img
+        width: 75px
 
 
+  section,
+  article
+    &:first-child,
+    &.single
+      hgroup,
+      header
+        padding-top: $xlarge
 
-
+  .single
+    hgroup
+      .favorite
+        float: none
+        margin-bottom: 0
+        margin-left: -1.25em
+        &.active
+          margin-left: 0
+      .main.title
+        width: auto
 
   //
   //

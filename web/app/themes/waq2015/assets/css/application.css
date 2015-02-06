@@ -5006,6 +5006,34 @@ footer .logo-o2 {
   footer .contact-general .social {
     font-size: 1.5em; } }
 @media screen and (max-width: 767px) {
+  nav[role="navigation"] .logo.waq,
+  body > .logo.waq {
+    font-size: 0.6em; }
+    nav[role="navigation"] .logo.waq a,
+    body > .logo.waq a {
+      padding: 0 2em; }
+    nav[role="navigation"] .logo.waq img,
+    body > .logo.waq img {
+      width: 75px; }
+
+  section:first-child hgroup,
+  section:first-child header, section.single hgroup,
+  section.single header,
+  article:first-child hgroup,
+  article:first-child header,
+  article.single hgroup,
+  article.single header {
+    padding-top: 50px; }
+
+  .single hgroup .favorite {
+    float: none;
+    margin-bottom: 0;
+    margin-left: -1.25em; }
+    .single hgroup .favorite.active {
+      margin-left: 0; }
+  .single hgroup .main.title, .single hgroup nav[role="navigation"] ul a.main, nav[role="navigation"] ul .single hgroup a.main, .single hgroup .field label.main, .field .single hgroup label.main {
+    width: auto; }
+
   .intro .title.main, .intro nav[role="navigation"] ul a.main, nav[role="navigation"] ul .intro a.main, .intro .field label.main, .field .intro label.main {
     font-size: 1.5em; }
   .intro .top .huge {
