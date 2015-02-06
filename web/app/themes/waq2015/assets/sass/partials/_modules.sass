@@ -679,7 +679,8 @@ a[href].btn
   i
     top: 50%
     +opacity(1)
-    +prefix(transition, width 320ms $easeOut, margin 320ms $easeOut, opacity 320ms $easeOut)
+    .no-touch &
+      +prefix(transition, width 320ms $easeOut, margin 320ms $easeOut, opacity 320ms $easeOut)
 
 
   &:before,
@@ -689,10 +690,12 @@ a[href].btn
 
   &:before
     top: 0.9em
-    +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, top 320ms $easeOut)
+    .no-touch &
+      +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, top 320ms $easeOut)
   &:after
     bottom: 0.9em
-    +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, bottom 320ms $easeOut)
+    .no-touch &
+      +prefix(transition, width 320ms $easeOut, transform 320ms $easeOut, bottom 320ms $easeOut)
 
   &.active
     i
