@@ -22,7 +22,7 @@ if( function_exists('register_field_group') ):
       $keywords = get_field('keywords');
       $og_image = get_field('og_image');
       if($post->post_name=='mon-horaire'){
-        $url .= '/horaire/'.$current_user->user_login;
+        $url .= '/horaire/'.$current_user->user_login.'/';
         $pageTitle = __('L\'horaire de', 'waq').' '.$current_user->data->display_name;
       }
       else{
@@ -34,7 +34,7 @@ if( function_exists('register_field_group') ):
     elseif(isset($vars['author_name']) || isset($vars['author'])){
       $profile = isset($vars['author_name']) ? get_user_by('slug', $vars['author_name']) : $vars['author'];
       $account_page_ID = get_ID_from_slug('mon-horaire');
-      $url .= '/horaire/'.$profile->user_login;
+      $url .= '/horaire/'.$profile->user_login.'/';
       $description = get_field('description', $account_page_ID);
       $keywords = get_field('keywords', $account_page_ID);
       $og_image = get_field('og_image', $account_page_ID);
