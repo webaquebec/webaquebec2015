@@ -4,7 +4,7 @@
  */
 get_header();
 global $wp_query;
-$url = get_permalink(get_id_from_slug('actualites'));
+$url = get_permalink(get_id_from_slug('blogue'));
 $categories_ids = array();
 $activeCategory = false;
 if(isset($wp_query->query_vars['categorie'])){
