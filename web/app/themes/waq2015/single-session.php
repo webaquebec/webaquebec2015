@@ -102,7 +102,7 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
             <ul class="social">
             <?php foreach($session->speaker->social as $social): ?>
               <li>
-                <a class="<?= $social['provider'] ?>" href="http://<?= str_replace('http://', '', $social['url']) ?>"><?= $social['label'] ?></a>
+                <a class="<?= $social['provider'] ?>" href="http://<?= str_replace(array('http://', 'https://'), '', $social['url']) ?>" target="_blank"><?= $social['label'] ?></a>
               </li>
             <?php endforeach; ?>
             </ul>
