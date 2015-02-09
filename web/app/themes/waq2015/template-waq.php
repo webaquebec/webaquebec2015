@@ -50,16 +50,16 @@ get_header_once();
         <nav class="links">
           <ul>
           <?php if(has($member['facebook'])): ?>
-            <li><a href="http://<?= str_replace('http://', '', $member['facebook']) ?>" target="_blank" class="facebook">Facebook</a></li>
+            <li><a href="http://<?= str_replace(array('http://','https://'), '', $member['facebook']) ?>" target="_blank" class="facebook">Facebook</a></li>
           <?php endif;
           if(has($member['twitter'])): ?>
-            <li><a href="http://<?= str_replace('http://', '', $member['twitter']) ?>" target="_blank" class="twitter">Twitter</a></li>
+            <li><a href="http://<?= str_replace(array('http://','https://'), '', $member['twitter']) ?>" target="_blank" class="twitter">Twitter</a></li>
           <?php endif;
           if(has($member['linked_in'])): ?>
-            <li><a href="http://<?= str_replace('http://', '', $member['linked_in']) ?>" target="_blank" class="linkedin">Linkedin</a></li>
+            <li><a href="http://<?= str_replace(array('http://','https://'), '', $member['linked_in']) ?>" target="_blank" class="linkedin">Linkedin</a></li>
           <?php endif;
           if(has($member['instagram'])): ?>
-            <li><a href="http://<?= str_replace('http://', '', $member['instagram']) ?>" target="_blank" class="instagram">Instagram</a></li>
+            <li><a href="http://<?= str_replace(array('http://','https://'), '', $member['instagram']) ?>" target="_blank" class="instagram">Instagram</a></li>
           <?php endif; ?>
           </ul>
         </nav>
