@@ -4353,9 +4353,11 @@ footer .logo-o2 {
     .profile-sessions .session > .wrap {
       width: 100%; }
     .profile-sessions .session .session-title {
-      font-size: 1.5em; }
+      font-size: 1.5em;
+      margin-bottom: 0; }
     .profile-sessions .session .speaker {
-      font-size: 1.125em; }
+      font-size: 1.125em;
+      margin-top: 0; }
       .profile-sessions .session .speaker .title, .profile-sessions .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .profile-sessions .session .speaker a, .profile-sessions .session .speaker .field label, .field .profile-sessions .session .speaker label,
       .profile-sessions .session .speaker .note,
       .profile-sessions .session .speaker #loginform .login-remember,
@@ -5023,7 +5025,7 @@ footer .logo-o2 {
   article:first-child header,
   article.single hgroup,
   article.single header {
-    padding-top: 50px; }
+    padding-top: 60px; }
 
   .single hgroup .favorite {
     float: none;
@@ -5205,6 +5207,17 @@ footer .logo-o2 {
       line-height: 1;
       width: 50%;
       padding: 0 10px 20px; }
+
+  .profile-sessions .session a {
+    margin-right: 0; }
+  .profile-sessions .session .location {
+    float: none;
+    width: auto;
+    padding: 0 1em;
+    margin-bottom: 0; }
+    .profile-sessions .session .location .theme {
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #eeeef0; }
 
   footer .col {
     float: none;
@@ -5400,8 +5413,20 @@ footer .logo-o2 {
     font-size: 0.75em; }
 
   .schedules tbody td {
-    width: 80%; } }
+    width: 80%; }
+
+  .profile-sessions .session.has-thumb > .wrap > * {
+    margin-left: 4em; }
+  .profile-sessions .session.has-thumb .thumb {
+    width: 3.5em;
+    height: 3.5em;
+    margin-left: 0.5em; }
+  .profile-sessions .session .session-title {
+    font-size: 1.25em; } }
 @media screen and (max-width: 480px) {
+  .container, .sticky.fixed, .days .sticky {
+    padding: 0 10px; }
+
   .title.main, nav[role="navigation"] ul a.main, .field label.main {
     font-size: 1.875em; }
 
