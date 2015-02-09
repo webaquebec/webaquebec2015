@@ -4771,7 +4771,10 @@ footer .logo-o2 {
         left: 0;
         height: 100%;
         border-right: white 10px solid;
-        border-color: inherit; } }
+        border-color: inherit; }
+    .schedules .swiper .session.keynote .location.border-bottom > .title, .schedules .swiper .session.keynote nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session.keynote .location.border-bottom > a, .schedules .swiper .session.keynote .field .location.border-bottom > label, .field .schedules .swiper .session.keynote .location.border-bottom > label {
+      display: block;
+      padding-top: 0.75em; } }
 @media screen and (max-width: 1023px) {
   section.intro {
     height: auto; }
@@ -5288,9 +5291,10 @@ footer .logo-o2 {
 
   .schedules .session.wide.has-thumb > * > * {
     margin-left: 3.5em; }
-  .schedules .session.wide .thumb {
+  .schedules .session.wide.has-thumb .thumb {
     width: 2.5em;
-    height: 2.5em; }
+    height: 2.5em;
+    margin-left: 0; }
   .schedules .keynote .session-title,
   .schedules .keynote .speaker,
   .schedules .keynote .infos {
