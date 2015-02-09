@@ -1,6 +1,6 @@
 <?php
 get_header();
-$url = get_permalink(get_id_from_slug('actualites'));
+$url = get_permalink(get_id_from_slug('blogue'));
 $author_ID = $post->post_author;
 $author = get_user_by('id', $author_ID);
 $categories = get_the_category();
