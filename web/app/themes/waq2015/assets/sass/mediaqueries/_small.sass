@@ -28,7 +28,7 @@
     &.single
       hgroup,
       header
-        padding-top: $xlarge
+        padding-top: ($xlarge + $small)
 
   .single
     hgroup
@@ -144,6 +144,22 @@
   .blog-page
     .posts
       +grid(2, $medium)
+
+  //
+  //
+  // PROFILE
+  .profile-sessions
+    .session
+      a
+        margin-right: 0
+      .location
+        float: none
+        width: auto
+        padding: 0 1em
+        margin-bottom: 0
+        .theme
+          padding-bottom: 0.5em
+          border-bottom: 1px solid $l-grey
 
   //
   //

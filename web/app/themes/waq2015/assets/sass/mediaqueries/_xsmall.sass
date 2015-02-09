@@ -17,7 +17,6 @@
       > *
         float: left
 
-
   //
   //
   // INTRO
@@ -92,9 +91,10 @@
       &.has-thumb
         > * > *
           margin-left: 3.5em
-      .thumb
-        width: 2.5em
-        height: 2.5em
+        .thumb
+          width: 2.5em
+          height: 2.5em
+          margin-left: 0
     .keynote
       .session-title,
       .speaker,
@@ -172,9 +172,29 @@
       td
         width: 80%
 
+  //
+  //
+  // PROFILES
+  .profile-sessions
+    .session
+      &.has-thumb
+        >.wrap>*
+          margin-left: 4em
+        .thumb
+          width: 3.5em
+          height: 3.5em
+          margin-left: 0.5em
+      .session-title
+        font-size: 1.25em
 
 
 @media screen and (max-width: 480px)
+  //
+  //
+  // CONTAINER
+  .container
+    padding: 0 $small
+
 
   //
   //
@@ -190,6 +210,13 @@
     .toggle
       display: block
       width: 100%
+
+  //
+  //
+  // PROFILE
+  .profile-sessions
+    .session
+
 
   //
   //

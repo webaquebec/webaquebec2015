@@ -61,7 +61,7 @@ if(has($favorites_str)):
               <span class="small sub title">
                 <?= __('Salle', 'waq').' '.$session->location->title ?>
               </span>
-              <span class=" sub title">
+              <span class="theme sub title">
                 <?= $session->location->subtitle ?>
               </span>
             </div>

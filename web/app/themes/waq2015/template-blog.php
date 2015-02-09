@@ -91,7 +91,7 @@ get_header_once();
                     <span class="name"><?= $post->name ?></span>
                     <a href="<?= $post->profile_url ?>" class="username" target="_blank"><?= $post->username ?></a>
                     <span class="separator">&#183;</span>
-                    <span class="date"><?= strftime('%e %b %Y',$post->timestamp) ?></span>
+                    <span class="date"><?= strftime('%e %h %Y',$post->timestamp) ?></span>
                   </div>
                 </div>
                 <div class="content">
