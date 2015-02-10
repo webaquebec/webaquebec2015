@@ -532,9 +532,10 @@ function rewrite_author($rules){
 
 function add_endpoint()
 {
-    add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('categorie', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('filtre', EP_PAGES );
+    add_rewrite_endpoint('update', EP_PAGES );
+    add_rewrite_endpoint('export', EP_PAGES );
+    add_rewrite_endpoint('categorie', EP_PAGES );
 }
 
 

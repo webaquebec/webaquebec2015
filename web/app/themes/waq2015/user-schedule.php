@@ -91,18 +91,6 @@ if(has($favorites_str)):
 
   <?php endwhile; endif; ?>
 
-  <div class="share">
-    <h3 class="title border-middle"><?= __('Partager l\'horaire', 'waq') ?></h3>
-
-    <div class="share-container">
-      <span class='st_facebook_large' displayText='Facebook'></span>
-      <span class='st_twitter_large' displayText='Tweet'></span>
-      <span class='st_linkedin_large' displayText='LinkedIn'></span>
-      <span class='st_email_large' displayText='Email'></span>
-    </div>
-
-  </div>
-
 <?php else : ?>
   <span class="small title"><?= __('Vous êtes maintenant prêt à créer votre horaire WAQ.','waq') ?></span>
   <span class="small title"><?= __('Retournez à la section','waq') ?> <a href="<?= get_home_url() ?>/#programmation" ><?= __('programmation','waq') ?></a> <?= __('pour ajouter des conférences à votre horaire.','waq') ?></span>

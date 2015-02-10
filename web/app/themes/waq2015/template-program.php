@@ -26,7 +26,7 @@ if($loggedin) $favorites_str = get_field('favorites','user_'.$current_user->ID);
         'orderby'=> 'menu_order',
       ));
       if($schedules->have_posts()):
-        $activeSchedule = isset($_COOKIE['schedule']) ? $_COOKIE['schedule'] : $schedules->posts[0]->ID;
+        $activeSchedule = has($_COOKIE['schedule']) ? $_COOKIE['schedule'] : $schedules->posts[0]->ID;
         ?>
 
       <div class="days">
