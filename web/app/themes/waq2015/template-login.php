@@ -84,6 +84,34 @@ if(have_posts()): while(have_posts()): the_post();
             </div>
 
             <div tab="register" class="tab-content<?php if(isset($_GET['registration'])) echo ' active' ?>">
+
+              <?php
+              // Success
+              if($success):?>
+              <h3 class="message success title">
+                <?= __( 'Votre compte a bien été créé.', 'waq' ) ?>
+              </h3>
+              <?php else: ?>
+
+              <div class="social-account">
+                <h3>
+                  <div class="message"><?= __('Connectez-vous avec') ?></div>
+                  <?php
+                    ob_start();
+                    do_action( 'wordpress_social_login' );
+                    $loginForm = ob_get_contents();
+                    ob_end_clean();
+                    $loginForm = preg_replace('/<a(.*?)>(.*?)<\/a>/is', "<a$1 tab-index=\"2\"><span>$2</span></a>", $loginForm);
+                    echo $loginForm;
+                  ?>
+                </h3>
+              </div>
+
+              <div class="centered border-middle"><?= __('ou','waq') ?></div>
+
+              <?php endif; ?>
+
+
               <form id="registerform" class="form" action="<?= site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
                 <div class="field required">
                   <label for="user_login"><?= __( 'Nom d\'utilisateur', 'waq' ) ?></label>
