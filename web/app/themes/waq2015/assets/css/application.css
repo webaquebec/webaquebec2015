@@ -4409,11 +4409,39 @@ footer .logo-o2 {
       padding: 1em;
       display: block; }
 
-.share {
-  overflow: hidden;
-  padding-bottom: 1em; }
-  .share .title, .share nav[role="navigation"] ul a, nav[role="navigation"] ul .share a, .share .field label, .field .share label {
+.actions {
+  font-size: 0;
+  word-spacing: 0;
+  line-height: 0;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .actions > * {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 16px;
+    font-size: initial;
+    word-spacing: normal;
+    line-height: 1;
+    width: 50%;
+    padding: 0 10px 20px; }
+  .actions > * {
+    vertical-align: top; }
+  .actions .title, .actions nav[role="navigation"] ul a, nav[role="navigation"] ul .actions a, .actions .field label, .field .actions label {
     margin-bottom: 1em; }
+  .actions .btn, .actions .profile, .actions .card, .actions .social-account .wp-social-login-provider, .social-account .actions .wp-social-login-provider, .actions #loginform .login-submit, #loginform .actions .login-submit,
+  .actions #loginform .register-submit,
+  #loginform .actions .register-submit,
+  .actions #registerform .login-submit,
+  #registerform .actions .login-submit,
+  .actions #registerform .register-submit,
+  #registerform .actions .register-submit {
+    display: inline-block;
+    *display: inline;
+    zoom: 1; }
+  .actions .share {
+    overflow: hidden;
+    padding-bottom: 1em; }
 
 @media screen and (max-width: 1200px) {
   html,

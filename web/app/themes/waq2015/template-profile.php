@@ -25,7 +25,19 @@ if(isset($vars['update'])){
 
 if(isset($vars['export'])){
   $format = $vars['export'];
-  if($format=='ics') require_once('export-ics.php');
+  if($format=='ics'){
+    $calendar_path = $_SERVER['DOCUMENT_ROOT'].'/app/calendars';
+    $filename = $current_user->user_login.'.ics';
+    if (!file_exists($calendar_path)) mkdir($calendar_path, 0777, true);
+    ob_start();
+    require_once('export-ics.php');
+    $file_content = ob_get_contents();
+    ob_end_clean();
+    $file = fopen( $calendar_path.'/'.$filename,"w");
+    fwrite($file,$file_content);
+    fclose($file);
+    header('Location: '.$_ENV['WP_HOME'].'/app/calendars/'.$filename );
+  }
   exit;
 }
 
@@ -78,7 +90,7 @@ get_header_once();
     <div class="actions">
 
       <div class="share">
-        <h3 class="title border-middle"><?= __('Partager mon horaire', 'waq') ?></h3>
+        <h3 class="title"><?= __('Partager mon horaire', 'waq') ?></h3>
         <div class="share-container">
           <span class='st_facebook_large' displayText='Facebook'></span>
           <span class='st_twitter_large' displayText='Tweet'></span>
@@ -88,10 +100,10 @@ get_header_once();
       </div>
 
       <div class="export">
-        <h3 class="title border-middle"><?= __('Exporter mon horaire', 'waq') ?></h3>
+        <h3 class="title"><?= __('Exporter mon horaire', 'waq') ?></h3>
         <div class="export-container">
           <a href="/mon-horaire/export/ics" class="btn ics" target="_blank" rel="nofollow">
-            <span><?= __('Vers mon calendrier (.ics)') ?></span>
+            <span><?= __('Exporter vers mon calendrier (.ics)') ?></span>
           </a>
         </div>
       </div>
