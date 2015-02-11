@@ -22,7 +22,8 @@ if(has($favorites_str)):
   }
   function safeEscape($str){
     $str = strip_tags($str);
-    $str = str_replace(array("\r", "\n", "'", "’", ";", ":", ","), array('','','\'','\’','\;','\:','\,'), $str);
+    $str = html_entity_decode($str);
+    $str = str_replace(array("\r", "\n", "'", ";", ",", "—"), array('','','\'','\;','\,', '\—'), $str);
     return $str;
   }
 
@@ -47,12 +48,12 @@ METHOD:PUBLISH
         foreach($sessions[$post->ID] as $session):
 ?>
 BEGIN:VEVENT
-DTSTART:<?= strftime('%Y%m%d', $date) ?>T<?= strftime('%H%I%S', $session->time->start)."\r\n" ?>
-DTEND:<?= strftime('%Y%m%d', $date) ?>T<?= strftime('%H%I%S', $session->time->end)."\r\n" ?>
-DTSTAMP:<?= strftime('%Y%m%d', $now) ?>T<?= strftime('%H%I%S', $now)."\r\n" ?>
+DTSTART:<?= strftime('%Y%m%d', $date) ?>T<?= strftime('%H%M%S', $session->time->start)."\r\n" ?>
+DTEND:<?= strftime('%Y%m%d', $date) ?>T<?= strftime('%H%M%S', $session->time->end)."\r\n" ?>
+DTSTAMP:<?= strftime('%Y%m%d', $now) ?>T<?= strftime('%H%M%S', $now)."\r\n" ?>
 UID:<?= $session->ID ?>@webaquebec.org
-DESCRIPTION:<?= safeEscape($session->title)."\r\n" ?>
-SUMMARY:<?= safeEscape($session->excerpt)."\r\n" ?>
+SUMMARY:<?= safeEscape($session->title)."\r\n" ?>
+DESCRIPTION:<?= safeEscape($session->excerpt)."\r\n" ?>
 END:VEVENT
 <?php
         endforeach;
