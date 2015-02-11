@@ -28,7 +28,7 @@ if(isset($vars['export'])){
   if($format=='ics'){
     header("Content-type: text/ics");
     header("Cache-Control: no-store, no-cache");
-    header('Content-Disposition: attachment; filename="'.$filename.'"');
+    header('Content-Disposition: attachment; filename="'.$current_user->user_login.'.ics"');
     require_once('export-ics.php');
     $file = fopen('php://output','w');
   }
