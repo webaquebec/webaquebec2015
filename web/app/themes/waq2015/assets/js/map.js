@@ -14,7 +14,12 @@ jQuery(document).ready(function($){
   //
   //
   // STYLES
-  var iconURL = '/img/marker-with-shadow.png';
+  var iconURL = '/img/@2x/marker-with-shadow.png';
+  var markerImage = {
+    url: '/img/@2x/marker-with-shadow.png',
+    size: new google.maps.Size(64, 97),
+    scaledSize: new google.maps.Size(64, 97)
+  };
   var styles = [
     {
       "stylers": [
@@ -88,7 +93,7 @@ jQuery(document).ready(function($){
 
 
   }
-  
+
   //
   //
   // Calculate new center latLng
@@ -112,7 +117,7 @@ jQuery(document).ready(function($){
 
   //
   //
-  // Center map 
+  // Center map
   window.centerMap = function(e){
     var map =  e.data.map;
     var latLng = map.marker.latLng;
@@ -127,13 +132,13 @@ jQuery(document).ready(function($){
 
 
   window.initMap = function($container, latLng, $viewport, callback) {
-    var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });  
-    var map = new google.maps.Map($container[0], mapOptions);       
-    map.mapTypes.set('styled', styledMapType);  
+    var styledMapType = new google.maps.StyledMapType(styles, { name: 'styled' });
+    var map = new google.maps.Map($container[0], mapOptions);
+    map.mapTypes.set('styled', styledMapType);
     map.marker = new google.maps.Marker({
       position: latLng,
       map: map,
-      icon: iconURL 
+      icon: markerImage
     });
     map.marker.latLng = latLng;
     map.tilesReady = false;
@@ -160,5 +165,5 @@ jQuery(document).ready(function($){
 
   }
 
-  
+
 });

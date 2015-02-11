@@ -23,6 +23,24 @@ if(isset($vars['update'])){
   exit;
 };
 
+if(isset($vars['export'])){
+  $format = $vars['export'];
+  if($format=='ics'){
+    $calendar_path = $_SERVER['DOCUMENT_ROOT'].'/app/calendars';
+    $filename = $current_user->user_login.'.ics';
+    if (!file_exists($calendar_path)) mkdir($calendar_path, 0777, true);
+    ob_start();
+    require_once('export-ics.php');
+    $file_content = ob_get_contents();
+    ob_end_clean();
+    $file = fopen( $calendar_path.'/'.$filename,"w");
+    fwrite($file,$file_content);
+    fclose($file);
+    header('Location: '.$_ENV['WP_HOME'].'/app/calendars/'.$filename );
+  }
+  exit;
+}
+
 get_header_once();
 ?>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
@@ -61,12 +79,36 @@ get_header_once();
 
 <section class="profile-schedule my-profile">
   <div class="container">
+
     <?php
     //
     //
     // USER SCHEDULE
     include( 'user-schedule.php' );
     ?>
+
+    <div class="actions">
+
+      <div class="share">
+        <h3 class="title"><?= __('Partager mon horaire', 'waq') ?></h3>
+        <div class="share-container">
+          <span class='st_facebook_large' displayText='Facebook'></span>
+          <span class='st_twitter_large' displayText='Tweet'></span>
+          <span class='st_linkedin_large' displayText='LinkedIn'></span>
+          <span class='st_email_large' displayText='Email'></span>
+        </div>
+      </div>
+
+      <div class="export">
+        <h3 class="title"><?= __('Exporter mon horaire', 'waq') ?></h3>
+        <div class="export-container">
+          <a href="/mon-horaire/export/ics" class="btn ics" target="_blank" rel="nofollow">
+            <span><?= __('Exporter vers mon calendrier (.ics)') ?></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 

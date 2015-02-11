@@ -117,9 +117,14 @@
         padding-top: 0
         &.wide
           width: 100%
+        &.narrow
+          padding-left: 0
       .content
         margin-top: 0
         padding-top: 0
+      .conferencer
+        float: none
+        margin-top: 0
     .content
       font-size: 1em
       margin-top: 0
@@ -145,6 +150,15 @@
     .posts
       +grid(2, $medium)
 
+  //
+  //
+  // BLOG ARTICLE
+  .single
+    .section-category
+      .cols
+        +grid(2, $medium)
+      .col
+        text-align: left
   //
   //
   // PROFILE

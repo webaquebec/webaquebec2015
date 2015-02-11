@@ -143,7 +143,12 @@
         &.wide
           width: 100%
     .content
-      font-size: 0.75em
+      font-size: 0.875em
+  .single-article
+    .section-category
+      .content
+        font-size: 1em
+
 
   //
   //
@@ -217,6 +222,25 @@
   .profile-sessions
     .session
 
+
+  //
+  //
+  // SINGLE
+  .single-article
+    .section-category
+      .cols
+        +grid(1, 0)
+      .col
+        margin-bottom: $small
+        &:first-child
+          margin-bottom: $medium
+  .single.single-session,
+  .single.single-article
+    nav
+      padding: $small 0
+      .left,
+      .right
+        float: none
 
   //
   //

@@ -231,47 +231,10 @@
       .touch &
         font-size: 0.75em
 
-  //
-  //
-  // SINGLE
-  .single
-    &.article
-      .col
-        &.wide
-          width: 80%
-          padding-right: 0
-    .content
-      font-size: 1.25em
 
   //
   //
   // SCHEDULES
-  .filters
-    .title.toggle
-      +inlineb
-      position: relative
-      cursor: pointer
-      padding: 0 2em 0.15em 0
-      &:after
-        +inlineb
-        position: absolute
-        top: 50%
-        right: 1em
-        width: 1em
-        height: 1em
-        margin: -0.5em
-        line-height: 1em
-        font-size: 0.75em
-        +prefix(transform, rotate(0deg))
-        +prefix(transition, transform 320ms ease)
-      &.active:after
-        +prefix(transform, rotate(405deg))
-
-    .content
-      display: none
-
-
-
   .schedules
     table, tbody, thead, tr, td, th
       display: block
@@ -465,6 +428,23 @@
 
   //
   //
+  // BLOG ARTICLE
+  .single
+    .section-category
+      .cols
+        +grid(3, $medium)
+      .col:first-child
+        display: block
+        width: 100%
+        margin: 0
+        +align-children(middle)
+        text-align: left
+        >*
+          margin: 0 1em 0 0
+
+
+  //
+  //
   // FOOTER
   footer
     .top-footer
@@ -541,10 +521,6 @@
   //
   // SINGLE
   .single
-    &.article
-      .col
-        &.wide
-          width: 90%
     .content
       font-size: 1em
 
