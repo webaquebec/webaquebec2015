@@ -2,9 +2,10 @@
 global $user_ID;
 $favorites_str = get_field('favorites','user_'.$user_ID);
 if(has($favorites_str)):
+  $session_IDs = explode('|', $favorites_str);
   $today = new DateTime();
   $now = $today->getTimestamp();
-  $session_IDs = explode('|', $favorites_str);
+  $location = get_field('gmap', 43);
 
   // create sessions array width grid IDs and session objects
   $sessions = [];
@@ -54,6 +55,8 @@ DTSTAMP:<?= strftime('%Y%m%d', $now) ?>T<?= strftime('%H%M%S', $now)."\r\n" ?>
 UID:<?= $session->ID ?>@webaquebec.org
 SUMMARY:<?= safeEscape($session->title)."\r\n" ?>
 DESCRIPTION:<?= safeEscape($session->excerpt)."\r\n" ?>
+LOCATION: <?= 'Salle '.$session->location->title.' | '.$location['address']."\r\n" ?>
+GEO: <?= $location['lat'].';'.$location['lng']."\r\n" ?>
 END:VEVENT
 <?php
         endforeach;
