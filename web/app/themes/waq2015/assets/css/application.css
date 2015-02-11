@@ -2229,7 +2229,42 @@ a[href].card,
     background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
-.filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
+.filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle, .filters .field label.toggle, .field .filters label.toggle {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  position: relative;
+  cursor: pointer;
+  padding: 0 2em 0.15em 0; }
+  .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    width: 1em;
+    height: 1em;
+    margin: -0.5em;
+    line-height: 1em;
+    font-size: 0.75em;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 320ms ease;
+    -moz-transition: -moz-transform 320ms ease;
+    -ms-transition: -ms-transform 320ms ease;
+    -o-transition: -o-transform 320ms ease;
+    transition: transform 320ms ease; }
+  .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after, .filters .field label.toggle.active:after, .field .filters label.toggle.active:after {
+    -webkit-transform: rotate(405deg);
+    -moz-transform: rotate(405deg);
+    -ms-transform: rotate(405deg);
+    -o-transform: rotate(405deg);
+    transform: rotate(405deg); }
+.filters .content {
   display: none; }
 
 .schedules {
@@ -4680,44 +4715,6 @@ footer .logo-o2 {
 
   .touch .waq2015 .profile {
     font-size: 0.75em; }
-
-  .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle, .filters .field label.toggle, .field .filters label.toggle {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    position: relative;
-    cursor: pointer;
-    padding: 0 2em 0.15em 0; }
-    .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      position: absolute;
-      top: 50%;
-      right: 1em;
-      width: 1em;
-      height: 1em;
-      margin: -0.5em;
-      line-height: 1em;
-      font-size: 0.75em;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-      -webkit-transition: -webkit-transform 320ms ease;
-      -moz-transition: -moz-transform 320ms ease;
-      -ms-transition: -ms-transform 320ms ease;
-      -o-transition: -o-transform 320ms ease;
-      transition: transform 320ms ease; }
-    .filters .title.toggle.active:after, .filters nav[role="navigation"] ul a.toggle.active:after, nav[role="navigation"] ul .filters a.toggle.active:after, .filters .field label.toggle.active:after, .field .filters label.toggle.active:after {
-      -webkit-transform: rotate(405deg);
-      -moz-transform: rotate(405deg);
-      -ms-transform: rotate(405deg);
-      -o-transform: rotate(405deg);
-      transform: rotate(405deg); }
-  .filters .content {
-    display: none; }
 
   .schedules table, .schedules tbody, .schedules thead, .schedules tr, .schedules td, .schedules th {
     display: block; }
