@@ -81,6 +81,7 @@ get_header_once();
     include( 'user-schedule.php' );
     ?>
 
+    <?php if(has($favorites_str)): ?>
     <div class="actions">
 
       <div class="share">
@@ -103,6 +104,8 @@ get_header_once();
       </div>
 
     </div>
+    <?php endif; ?>
+
   </div>
 </section>
 
