@@ -23,12 +23,12 @@ $categories = get_the_category();
     <section class="col wide" role="main">
       <div class="post">
         <div class="content">
+          <?php $image = get_field('featured');
+          if($image): ?>
           <div class="article-image">
-            <?php $image = get_field('featured');
-              if($image): ?>
               <img src="<?= $image['sizes']['large'] ?>" alt="<?= __('Image de l\'article','waq') ?>" />
-              <?php endif; ?>
           </div>
+          <?php endif; ?>
           <?php the_content() ?>
         </div>
 

@@ -72,11 +72,6 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
             <?php endforeach; ?>
           </ul>
         </div>
-        <nav>
-          <a href="<?= get_permalink(4); ?>" class="btn back">
-            <span><?= __('Programmation','waq') ?></span>
-          </a>
-        </nav>
 
       </div>
     </section>
@@ -110,7 +105,14 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
       </div>
 
     </aside>
+  </div>
 
+  <div class="container">
+     <nav>
+        <a href="<?= get_permalink(4); ?>" class="btn back">
+          <span><?= __('Programmation','waq') ?></span>
+        </a>
+      </nav>
   </div>
 
 </article>

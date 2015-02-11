@@ -170,7 +170,7 @@ function register_menu()
 // CROP
 add_image_size('wide', 900, 450, true);
 add_image_size('wide retina', 1800, 900, true);
-add_image_size('blog-thumb', 450, 225, true); //200 pixels wide (and unlimited height)
+add_image_size('blog-thumb', 450, 450, false); //200 pixels wide (and unlimited height)
 
 
 // RESIZE
@@ -532,9 +532,10 @@ function rewrite_author($rules){
 
 function add_endpoint()
 {
-    add_rewrite_endpoint('filtre', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('update', EP_PERMALINK | EP_PAGES );
-    add_rewrite_endpoint('categorie', EP_PERMALINK | EP_PAGES );
+    add_rewrite_endpoint('filtre', EP_PAGES );
+    add_rewrite_endpoint('update', EP_PAGES );
+    add_rewrite_endpoint('export', EP_PAGES );
+    add_rewrite_endpoint('categorie', EP_PAGES );
 }
 
 

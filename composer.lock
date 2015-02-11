@@ -4,11 +4,11 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b1e273e50aae66ee39457bbb6c40755f",
+    "hash": "3af1165bd4b76853204f4f12ddff9ac4",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
-            "version": "5.1.7.1",
+            "version": "5.1.8",
             "dist": {
                 "type": "zip",
                 "url": "vendor-packages/advanced-custom-fields-pro.zip",
@@ -269,31 +269,64 @@
             "time": "2013-09-09 15:04:54"
         },
         {
-            "name": "koodimonni-language/fr",
-            "version": "dev-master",
+            "name": "koodimonni-language/core-fr_fr",
+            "version": "4.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/core/4.1/fr_FR.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "Wordpress core translation for French (France) - fr_fr",
+            "keywords": [
+                "Translation",
+                "Wordpress",
+                "core",
+                "fr_fr"
+            ]
+        },
+        {
+            "name": "koodimonni/composer-dropin-installer",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
-                "url": "https://bitbucket.org/koodimonni-languages/fr.git",
-                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c"
+                "url": "https://github.com/Koodimonni/Composer-Dropin-Installer.git",
+                "reference": "618b96fd3bc8c1532610b7f7baedc4e60736a340"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/koodimonni-languages/fr/get/e70f75ba9b2db25da9fe3676d1afd0316c5b923c.zip",
-                "reference": "e70f75ba9b2db25da9fe3676d1afd0316c5b923c",
+                "url": "https://api.github.com/repos/Koodimonni/Composer-Dropin-Installer/zipball/618b96fd3bc8c1532610b7f7baedc4e60736a340",
+                "reference": "618b96fd3bc8c1532610b7f7baedc4e60736a340",
                 "shasum": ""
             },
-            "type": "wordpress-language",
-            "authors": {
-                "name": "Wordpress translators",
-                "url": "http://translate.wordpress.org/projects/wp"
+            "require": {
+                "composer-plugin-api": "1.0.0"
             },
-            "description": "Wordpress language files for Français",
-            "homepage": "www.translate.wordpress.org",
-            "keywords": [
-                "language",
-                "wordpress"
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Koodimonni\\Composer\\Dropin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Koodimonni\\Composer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
             ],
-            "time": "2014-10-19 00:40:10"
+            "authors": [
+                {
+                    "name": "Onni Hakala",
+                    "email": "onni@koodimonni.fi"
+                }
+            ],
+            "description": "Do what the fuck you want with your composer packages aka. Composer Dropin installer. Install packages or part of packages into custom paths without overwriting existing stuff.",
+            "time": "2015-01-04 10:24:12"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -471,7 +504,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "koodimonni-language/fr": 20,
         "j7mbo/twitter-api-php": 20
     },
     "prefer-stable": false,

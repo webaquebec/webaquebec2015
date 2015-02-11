@@ -231,17 +231,6 @@
       .touch &
         font-size: 0.75em
 
-  //
-  //
-  // SINGLE
-  .single
-    &.article
-      .col
-        &.wide
-          width: 80%
-          padding-right: 0
-    .content
-      font-size: 1.25em
 
   //
   //
@@ -465,6 +454,23 @@
 
   //
   //
+  // BLOG ARTICLE
+  .single
+    .section-category
+      .cols
+        +grid(3, $medium)
+      .col:first-child
+        display: block
+        width: 100%
+        margin: 0
+        +align-children(middle)
+        text-align: left
+        >*
+          margin: 0 1em 0 0
+
+
+  //
+  //
   // FOOTER
   footer
     .top-footer
@@ -541,10 +547,6 @@
   //
   // SINGLE
   .single
-    &.article
-      .col
-        &.wide
-          width: 90%
     .content
       font-size: 1em
 

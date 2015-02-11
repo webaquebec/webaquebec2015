@@ -55,7 +55,7 @@
       "type": "package",
       "package": {
         "name": "acf/advanced-custom-fields",
-        "version": "5.1.7.1",
+        "version": "5.1.8",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -72,8 +72,8 @@
     "johnpbloch/wordpress": "4.1",
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "~1.0.9",
-    "koodimonni-language/fr": "dev-master",
-    "acf/advanced-custom-fields": "5.1.7.1",
+    "koodimonni-language/core-fr_fr": "*",
+    "acf/advanced-custom-fields": "5.1.8",
     "wpackagist-plugin/acf-field-date-time-picker": "2.0.18.1",
     "wpackagist-plugin/intuitive-custom-post-order": "3.0.3",
     "wpackagist-plugin/regenerate-thumbnails": "2.2.4",
@@ -90,6 +90,10 @@
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
     "wordpress-install-dir": "web/wp",
-    "wordpress-languages-dir":"web/app/languages"
+    "dropin-paths": {
+      "web/app/languages/": ["vendor:koodimonni-language"],
+      "web/app/languages/plugins/": ["vendor:koodimonni-plugin-language"],
+      "web/app/languages/themes/": ["vendor:koodimonni-theme-language"]
+    }
   }
 }
