@@ -4444,13 +4444,13 @@ footer .logo-o2 {
       padding: 1em;
       display: block; }
 
-.actions {
+.my-profile .actions {
   font-size: 0;
   word-spacing: 0;
   line-height: 0;
   margin-left: -10px;
   margin-right: -10px; }
-  .actions > * {
+  .my-profile .actions > * {
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -4460,21 +4460,21 @@ footer .logo-o2 {
     line-height: 1;
     width: 50%;
     padding: 0 10px 20px; }
-  .actions > * {
+  .my-profile .actions > * {
     vertical-align: top; }
-  .actions .title, .actions nav[role="navigation"] ul a, nav[role="navigation"] ul .actions a, .actions .field label, .field .actions label {
+  .my-profile .actions .title, .my-profile .actions nav[role="navigation"] ul a, nav[role="navigation"] ul .my-profile .actions a, .my-profile .actions .field label, .field .my-profile .actions label {
     margin-bottom: 1em; }
-  .actions .btn, .actions .profile, .actions .card, .actions .social-account .wp-social-login-provider, .social-account .actions .wp-social-login-provider, .actions #loginform .login-submit, #loginform .actions .login-submit,
-  .actions #loginform .register-submit,
-  #loginform .actions .register-submit,
-  .actions #registerform .login-submit,
-  #registerform .actions .login-submit,
-  .actions #registerform .register-submit,
-  #registerform .actions .register-submit {
+  .my-profile .actions .btn, .my-profile .actions .profile, .my-profile .actions .card, .my-profile .actions .social-account .wp-social-login-provider, .social-account .my-profile .actions .wp-social-login-provider, .my-profile .actions #loginform .login-submit, #loginform .my-profile .actions .login-submit,
+  .my-profile .actions #loginform .register-submit,
+  #loginform .my-profile .actions .register-submit,
+  .my-profile .actions #registerform .login-submit,
+  #registerform .my-profile .actions .login-submit,
+  .my-profile .actions #registerform .register-submit,
+  #registerform .my-profile .actions .register-submit {
     display: inline-block;
     *display: inline;
     zoom: 1; }
-  .actions .share {
+  .my-profile .actions .share {
     overflow: hidden;
     padding-bottom: 1em; }
 
@@ -5305,6 +5305,25 @@ footer .logo-o2 {
     .profile-sessions .session .location .theme {
       padding-bottom: 0.5em;
       border-bottom: 1px solid #eeeef0; }
+
+  .my-profile .actions {
+    font-size: 0;
+    word-spacing: 0;
+    line-height: 0;
+    margin-left: 0;
+    margin-right: 0; }
+    .my-profile .actions > * {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      font-size: 16px;
+      font-size: initial;
+      word-spacing: normal;
+      line-height: 1;
+      width: 100%;
+      padding: 0 0 0; }
+    .my-profile .actions .share {
+      padding-bottom: 2em; }
 
   footer .col {
     float: none;
