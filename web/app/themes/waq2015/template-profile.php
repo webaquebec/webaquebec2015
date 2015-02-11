@@ -26,17 +26,11 @@ if(isset($vars['update'])){
 if(isset($vars['export'])){
   $format = $vars['export'];
   if($format=='ics'){
-    $calendar_path = $_SERVER['DOCUMENT_ROOT'].'/app/calendars';
-    $filename = $current_user->user_login.'.ics';
-    if (!file_exists($calendar_path)) mkdir($calendar_path, 0777, true);
-    ob_start();
+    header("Content-type: text/ics");
+    header("Cache-Control: no-store, no-cache");
+    header('Content-Disposition: attachment; filename="'.$filename.'"');
     require_once('export-ics.php');
-    $file_content = ob_get_contents();
-    ob_end_clean();
-    $file = fopen( $calendar_path.'/'.$filename,"w");
-    fwrite($file,$file_content);
-    fclose($file);
-    header('Location: '.$_ENV['WP_HOME'].'/app/calendars/'.$filename );
+    $file = fopen('php://output','w');
   }
   exit;
 }
