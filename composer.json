@@ -29,18 +29,11 @@
   },
   "autoload": {
     "psr-0": {
-      "Roots\\Bedrock\\Installer": "scripts",
-      "Koodimonni\\Installer": "scripts"
+      "Roots\\Bedrock\\Installer": "scripts"
     }
   },
   "scripts": {
-    "post-root-package-install": ["Roots\\Bedrock\\Installer::addSalts"],
-    "post-install-cmd": [
-      "Koodimonni\\Installer::installLanguages"
-    ],
-    "post-update-cmd": [
-      "Koodimonni\\Installer::installLanguages"
-    ]
+    "post-root-package-install": ["Roots\\Bedrock\\Installer::addSalts"]
   },
   "repositories": [
     {
@@ -75,7 +68,7 @@
     "koodimonni-language/core-fr_fr": "*",
     "acf/advanced-custom-fields": "5.1.8",
     "wpackagist-plugin/acf-field-date-time-picker": "2.0.18.1",
-    "wpackagist-plugin/intuitive-custom-post-order": "3.0.3",
+    "wpackagist-plugin/intuitive-custom-post-order": "~3.0.4",
     "wpackagist-plugin/regenerate-thumbnails": "2.2.4",
     "wpackagist-plugin/acf-range-field": "1.1.4",
     "j7mbo/twitter-api-php": "dev-master",

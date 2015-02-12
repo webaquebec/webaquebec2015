@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3af1165bd4b76853204f4f12ddff9ac4",
+    "hash": "d70a39c817d90941b3879565179dbbd1",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -421,7 +421,7 @@
         },
         {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/intuitive-custom-post-order/",
