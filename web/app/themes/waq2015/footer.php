@@ -8,7 +8,7 @@
               <div class="content">
                 <h2 class="sub title">Le Terminal du Port de&nbsp;Québec</h2>
                 <p>
-                  84 Dalhousie (Bil) <br>
+                  84 Rue Dalhousie<br>
                   Québec (Québec), G1K 4C4
                 </p>
                 <div class="border-bottom"></div>
