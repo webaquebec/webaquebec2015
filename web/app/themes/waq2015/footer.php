@@ -6,7 +6,7 @@
           <div class="top-footer">
             <div class="left-section">
               <div class="content">
-                <h2 class="sub title">Espace dalhousie : le terminal</h2>
+                <h2 class="sub title">Le Terminal du Port de Québec</h2>
                 <p>
                   84 Dalhousie (Bil) <br>
                   Québec (Québec), G1K 4C4
