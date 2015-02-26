@@ -6,6 +6,8 @@ $author = get_user_by('id', $author_ID);
 $categories = get_the_category();
 ?>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ee9bd91f5ccd85" async="async"></script>
+
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
 <article class="article single single-article no-padding">
@@ -29,6 +31,7 @@ $categories = get_the_category();
               <img src="<?= $image['sizes']['large'] ?>" alt="<?= __('Image de l\'article','waq') ?>" />
           </div>
           <?php endif; ?>
+          <div class="addthis_sharing_toolbox"></div>
           <?php the_content() ?>
         </div>
 

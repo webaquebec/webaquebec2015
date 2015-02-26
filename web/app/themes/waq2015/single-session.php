@@ -8,6 +8,8 @@ $session = new session($post->ID);
 $is_favorite = session_is_favorite($session->ID, $favorites_str);
 ?>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54ee9bd91f5ccd85" async="async"></script>
+
 <article class="single-session single no-padding">
 
   <hgroup class="">
@@ -58,6 +60,7 @@ $is_favorite = session_is_favorite($session->ID, $favorites_str);
 
       <div class="conference">
         <div class="content">
+          <div class="addthis_sharing_toolbox"></div>
           <?= $session->content ?>
         </div>
         <div class="tags-section">
