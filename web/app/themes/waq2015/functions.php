@@ -262,11 +262,56 @@ function admin_style() {
     LOGIN/REGISTER FORM
 \*------------------------------------*/
 
+function fb_login_form(){
+    ob_start();
+    do_action( 'wordpress_social_login' );
+    $loginForm = ob_get_contents();
+    ob_end_clean();
+
+    $loginForm = preg_replace('/<a(.*?)>(.*?)<\/a>/is', "<a$1 tab-index=\"2\"><span>$2</span></a>", $loginForm);
+
+    return $loginForm;
+}
+
+function user_login_form($errors){
+    $loginForm = wp_login_form( array(
+      'echo' => false,
+      'id_submit' => 'submit-login',
+      'redirect'       => get_permalink(get_ID_from_slug('mon-horaire')),
+      'label_username' => __( 'Nom d\'utilisateur', 'waq' ),
+          'label_password' => __( 'Mot de passe', 'waq' ),
+          'label_remember' => __( 'Rester connecté', 'waq' ),
+          'label_log_in'   => __( 'Connexion','waq' ),
+          'value_username' =>isset($_GET['user']) ? urldecode($_GET['user']) : NULL
+    ));
+    $loginForm = preg_replace('/<p(.*?)>(.*?)<\/p>/is', "<div class=\"field\"><p$1>$2</p></div>", $loginForm);
+
+    if(has($errors)){
+
+        if(in_array('empty_password', $errors)){
+            $pos = strrpos($loginForm, '<input type="password"');
+            $loginForm = substr($loginForm, 0, $pos).
+                '<p class="error message note">'.__( 'Un mot de passe est requis', 'waq' ).'</p>'.
+                substr($loginForm, $pos);
+        }
+        if(in_array('failed', $errors)){
+            $pos = strrpos($loginForm, '<input type="password"');
+            $loginForm = substr($loginForm, 0, $pos).
+                '<p class="error message note">'.__( 'Le mot de passe est erroné', 'waq' ).'</p>'.
+                substr($loginForm, $pos);
+        }
+
+    }
+
+    return $loginForm;
+}
+
+
 // http://www.danielauener.com/build-fully-customized-wordpress-login-annoying-redirects/
 function login_fail( $username ) {
     $referrer = $_SERVER['HTTP_REFERER'];
     if (!empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
-        wp_redirect( strtok($referrer, '?').'?login=failed' );
+        wp_redirect( strtok($referrer, '?').'?login=failed&user='.$username );
         exit;
     }
 }
@@ -274,22 +319,32 @@ function redirect_login($redirect_to, $url, $user) {
     if(empty($_SERVER['HTTP_REFERER'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     $errors_keys = [];
-    if(isset($user->errors))
+    if(!empty($_GET['login'])) $previous_try = $_GET['login'];
+    if(isset($user->errors)){
         foreach($user->errors as $error=>$message)
             $errors_keys[] = $error;
+    }
     if(count($errors_keys)>0){
-        wp_redirect(    strtok($referrer, '?').
+        wp_redirect(    $_SERVER['PHP_SELF'].
                         '?login='.implode('+', $errors_keys).
                         (has($_POST['log'])?'&user='.urlencode($_POST['log']):'')
                     );
         exit;
-    }else{
+    }
+    else if(isset($previous_try)){
+        wp_redirect(    '/connexion'.
+                        '?login='.$previous_try.
+                        (has($_GET['user'])?'&user='.$_GET['user']:'')
+                    );
+        exit;
+    }
+    else{
         wp_redirect('/mon-horaire');
         exit;
     }
 }
 function authenticate_user($user, $username, $password ) {
-    if(empty($_SERVER['HTTP_REFERER'])) return;
+    if(empty($_SERVER['HTTP_REFERER']) || empty($_POST['redirect_to'])) return;
     $referrer = $_SERVER['HTTP_REFERER'];
     if(!isset($_POST['log'])){
         wp_redirect( strtok($referrer, '?').'?success' );
