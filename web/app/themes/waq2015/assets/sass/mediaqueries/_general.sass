@@ -339,16 +339,25 @@
   // INTRO
   section.intro
     height: auto
+    min-height: 0
     .grid
       position: relative
       +grid(1, 0)
+      height: auto
+      top: auto
+      left: auto
+      font-size: 16px
       > *
+        font-size: 16px
         position: relative !important
+        height: auto !important
         > *
           position: relative !important
+          height: auto !important
     .container
       padding-top: 0
       padding-bottom: 0
+      height: auto
     .main.left
       padding: $xxlarge $xlarge $large $xlarge
     .main.right

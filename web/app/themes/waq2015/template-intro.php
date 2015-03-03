@@ -3,7 +3,7 @@ global $post;
 setup_postdata($post);
 ?>
 
-<section id="<?= $post->post_name ?>" class="intro dark loading">
+<section id="<?= $post->post_name ?>" class="intro dark">
 
   <div class="container">
     <div class="grid">
