@@ -153,7 +153,7 @@ jQuery(document).ready(function($){
               };
             },
             topDown: function(e){
-              var slug = $(se.selection[minMax(e.i-1,0,100)]).attr('id')
+              var slug = $(scrollEvents.selection[minMax(e.i-1,0,100)]).attr('id')
               var $target = waq.$menu.$links.parent().filter('.'+slug);
               waq.$menu.$links.parent().removeClass('active');
               if($target.length){
