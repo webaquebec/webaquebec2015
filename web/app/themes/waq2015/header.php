@@ -14,9 +14,8 @@
     $is404 = is_404();
     $is_home = get_page_template_slug()=="template-home.php";
     $is_loggedin = is_user_logged_in();
-    $needs_cookiebang =  !isset($_COOKIE['big-screen']);
-    $needs_hashbang = get_post_type()=="page" && get_field('bang');
-    $needs_bang = $needs_cookiebang || $needs_hashbang;
+    $needs_bang =  !is_banged();
+    $needs_hashbang = $needs_bang && get_post_type()=="page" && get_field('bang');
     $scheduleStatus = get_field('my_schedule', 'options');
 
     //
@@ -35,9 +34,7 @@
     if($needs_bang): ?>
     <script type="text/javascript">
       var bang = true;
-      <?php if($needs_cookiebang): ?>
       var cookiebang = true;
-      <?php endif; ?>
       <?php if($needs_hashbang): ?>
       var hashbang = true;
       <?php endif; ?>

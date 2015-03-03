@@ -4,13 +4,14 @@
 
 // HASHBANG & COOKIEBANG
 if(typeof bang != 'undefined' && bang){
-  if(typeof(cookiebang)!='undefined' && cookiebang){
-    if(window.innerWidth > 1024 || document.documentElement.clientWidth > 1024){
-      document.cookie = 'big-screen=1; path=/';
-    }
-    else{
-      document.cookie = 'big-screen=0; path=/';
-    }
+
+  // cookie bang
+  // bangs only on first load
+  if(window.innerWidth > 1024 || document.documentElement.clientWidth > 1024){
+    document.cookie = 'big-screen=1; path=/';
+  }
+  else{
+    document.cookie = 'big-screen=0; path=/';
   }
 
   if(typeof hashbang !='undefined' && hashbang){
@@ -22,7 +23,7 @@ if(typeof bang != 'undefined' && bang){
     var url = 'http://'+host+'/#!/'+slug+(parts.length>0?'/'+parts:'')
   }
   else{
-    url = window.location.pathname;
+    var url = window.location.pathname;
   }
 
   if(document.cookie.indexOf("big-screen=")!=-1 || (typeof hashbang !='undefined' && hashbang)){
@@ -41,7 +42,7 @@ window.waq = {};
 // Document ready
 jQuery(document).ready(function($){
   // Don't execute JS if we will bang anyway
-  // if cookies ar disabled, remove coverall
+  // if cookies are disabled, remove coverall
   if(window.cookieDisabled) $('.bang-coverall').remove();
   if(typeof(hashbang)!='undefined' && hashbang) return;
   //
@@ -181,7 +182,7 @@ jQuery(document).ready(function($){
     if(parts.length>1){
       var slug = parts[1];
       $win.on('load',function(){
-        if(window.se.t < 5) scrollTo(slug);
+        if(window.scrollEvents.t < 5) scrollTo(slug);
       });
     }
   }

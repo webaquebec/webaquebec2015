@@ -26,6 +26,10 @@ function is_login_page() {
     return $GLOBALS['pagenow'] == 'wp-login.php';
 }
 
+function is_banged(){
+    return isset($_COOKIE['big-screen']);
+}
+
 function get_header_once(){
     global $post, $header_rendered, $main_ID;
     if(!has($header_rendered)){
@@ -92,6 +96,15 @@ function adjacent_post($nextprev = 'next', $meta_key=null, $meta_value=null){
     else return $postData[0];
 }
 
+
+function hashbang_page_link($url, $id, $leavename){
+    if( is_banged() && get_field('bang', $id)){
+        $site_url = $_ENV['WP_HOME'];
+        $pos = strpos($url, $site_url) + strlen($site_url);
+        $url = substr_replace($url, '/#!', $pos, 0);
+    }
+    return $url;
+}
 
 
 /*------------------------------------*\
@@ -655,5 +668,5 @@ add_filter('mce_buttons_2', 'enable_style_select');
 add_filter('authenticate', 'authenticate_user', 1, 3);
 add_filter('registration_errors', 'registration_form_errors', 20, 3);
 add_filter('author_rewrite_rules', 'rewrite_author' );
-// add_filter('author_link', 'author_link', 10, 2 );
+add_filter('page_link', 'hashbang_page_link', 10, 3 );
 ?>
