@@ -600,12 +600,9 @@ jQuery(document).ready(function($){
   function largerThan1200(e){
     if(waq.$intro.length) enableStickyNav();
     if(e=='init') return; // Exit here at init --------------------------
-    // waq.$wrapper.moSides('destroy');
-    // waq.$menu.dragAndDrop('destroy');
     waq.$menu.appendTo(waq.$header);
     waq.$logo.prependTo(waq.$menu);
     waq.$menu.$toggle.remove();
-    // $win.scrollEvents('update');
   }
   // < 1200px
   function smallerThan1200(e){
@@ -614,25 +611,7 @@ jQuery(document).ready(function($){
     waq.$menu.$toggle.addClass('hidden').prependTo(waq.$logo);
     waq.$menu.$toggle.on('click', toggleMenu);
     waq.$menu.$links.on('click', toggleMenu);
-    setTimeout(function(){waq.$menu.$toggle.removeClass('hidden')},32);
-
-    // waq.$wrapper.moSides({
-    //   right:{
-    //       size:240,
-    //       toggle: waq.$menu.$toggle,
-    //       callback: function(e){
-    //         waq.$menu.$toggle.toggleClass('active');
-    //         waq.$wrapper.toggleClass('active');
-    //     }
-    //   },
-    //   clean: true
-    // });
-
-    // waq.$menu.dragAndDrop({
-    //   axis: {x:false, y:true},
-    //   container: $(window)
-    // });
-
+    window.raf.on('nextframe', function(){waq.$menu.$toggle.removeClass('hidden')} );
     if(e=='init') return; // Exit here at init --------------------------
     if(waq.$intro.length) disableStickyNav();
   }
