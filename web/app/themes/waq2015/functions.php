@@ -195,8 +195,6 @@ add_image_size('blog-thumb', 450, 450, false); //200 pixels wide (and unlimited 
 function header_scripts()
 {
     if (!is_admin() && !is_login_page()) {
-        // wp_register_script('shim', '/js/html5shiv.js', array(), null);
-        // wp_enqueue_script('shim');
 
         wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js', array(), null);
         wp_enqueue_script('modernizr');
@@ -205,8 +203,7 @@ function header_scripts()
         wp_enqueue_script('googlemap');
 
         wp_deregister_script('jquery'); // Deregister WordPress jQuery
-        // wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', array(), '1.10.1'); // Google CDN jQuery
-        wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '1.11.1'); // fallback
+        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', array(), null); // fallback
         wp_enqueue_script('jquery'); // Enqueue it!
 
         wp_register_script('easing', get_template_directory_uri() . '/assets/js/jquery.bez.js', array(), null);
@@ -229,12 +226,6 @@ function header_scripts()
 
         wp_register_script('breakpoints', get_template_directory_uri() . '/assets/js/breakpoints.min.js', array(), null);
         wp_enqueue_script('breakpoints');
-
-        wp_register_script('grab', get_template_directory_uri() . '/assets/js/grab.min.js', array(), null);
-        wp_enqueue_script('grab');
-
-        wp_register_script('sides', get_template_directory_uri() . '/assets/js/sides.min.js', array(), null);
-        wp_enqueue_script('sides');
 
 
         wp_register_script('map', get_template_directory_uri() . '/assets/js/map.js', array(), null);

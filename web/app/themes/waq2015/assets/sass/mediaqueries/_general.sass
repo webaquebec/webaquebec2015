@@ -46,12 +46,20 @@
       top: 0
       right: 0
       left: auto
-      width: 240px
+      width: 100%
       height: auto
       min-height: 100%
-      z-index: 0
+      z-index: -1
       color: #fff
-      +gradient($l-blue, $d-blue)
+      background: $d-blue
+      +opacity(0)
+      +prefix(transition, opacity 360ms ease 0, z-index 0 linear 360ms)
+      .menu-active &
+        z-index: 3
+        +opacity(1)
+        +prefix(transition-delay, 0, 0)
+
+
       .main,
       .secondary
         display: block
@@ -75,7 +83,7 @@
         width: 130px
 
   nav[role="navigation"]
-    padding: ($nav-height + $medium) $small $medium
+    padding: $nav-height $small $medium
     .main,
     .secondary
       background: none
@@ -135,9 +143,13 @@
     .secondary
       float: none
       width: auto
-      padding-bottom: 0.5em
-      margin-bottom: 1em
-      border-bottom: 1px solid #fff
+      li
+        margin-bottom: 1em
+        padding: $small
+        background: $m-blue
+        &.active
+          background: $blue
+
 
   //
   //
