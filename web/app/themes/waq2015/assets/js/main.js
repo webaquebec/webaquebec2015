@@ -282,7 +282,7 @@ jQuery(document).ready(function($){
   //
   // MOBILE SCHEDULES
   waq.enableMobileSchedules = function($schedules){
-    waq.isMobile = true;
+    if(!waq.isMobile) return;
     for(var i=0; i<$schedules.length; i++){
       var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
@@ -309,10 +309,10 @@ jQuery(document).ready(function($){
     }
   }
 
-  waq.disableMobileSchedules = function(){
-    waq.isMobile = false;
-    for(var i=0; i<waq.$schedules.length; i++){
-      var $schedule = $(waq.$schedules[i]);
+  waq.disableMobileSchedules = function($schedules){
+    if(waq.isMobile) return;
+    for(var i=0; i<$schedules.length; i++){
+      var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
       $schedule.off('touchstart', cancelEvents);
@@ -688,16 +688,18 @@ jQuery(document).ready(function($){
   // > 1024px
   function largerThan1024(e){
     $.cookie('big-screen', 1, { path: '/' });
+    waq.isMobile = false;
     if(waq.$expandables.length) enableExpandables();
     if(waq.$stickys.length) enableStickys();
     if(e=='init') return; // Exit here at init --------------------------
-    if(waq.$schedules.length) waq.disableMobileSchedules();
+    if(waq.$schedules.length) waq.disableMobileSchedules(waq.$schedules);
     $win.scrollEvents('update');
   }
   //
   //
   // < 1024px
   function smallerThan1024(e){
+    waq.isMobile = true;
     $.cookie('big-screen', 0, { path: '/' });
     if(waq.$schedules.length) waq.enableMobileSchedules(waq.$schedules);
     if(e=='init') return; // Exit here at init --------------------------
