@@ -4624,7 +4624,7 @@ footer .logo-o2 {
       width: 130px; }
 
   nav[role="navigation"] {
-    padding: 90px 10px 20px; }
+    padding: 110px 10px 20px; }
     nav[role="navigation"] .main,
     nav[role="navigation"] .secondary {
       background: none;
@@ -4700,7 +4700,7 @@ footer .logo-o2 {
       float: none;
       width: auto; }
       nav[role="navigation"] .secondary li {
-        margin-bottom: 1em;
+        margin-bottom: 5px;
         padding: 10px;
         background: #23729d; }
         nav[role="navigation"] .secondary li.active {
@@ -4722,6 +4722,12 @@ footer .logo-o2 {
 @media screen and (max-width: 1024px) {
   .expandable {
     width: 100%; }
+
+  main {
+    min-height: 0; }
+
+  section.intro {
+    min-height: 0; }
 
   .intro .anniversary {
     padding: 0 2.5em 0 5em; }
@@ -5148,6 +5154,9 @@ footer .logo-o2 {
   footer .contact-general .social {
     font-size: 1.5em; } }
 @media screen and (max-width: 767px) {
+  nav[role="navigation"] {
+    padding-top: 90px; }
+
   nav[role="navigation"] .logo.waq,
   body > .logo.waq {
     font-size: 0.6em; }

@@ -83,7 +83,7 @@
         width: 130px
 
   nav[role="navigation"]
-    padding: $nav-height $small $medium
+    padding: ($nav-height + $medium) $small $medium
     .main,
     .secondary
       background: none
@@ -144,7 +144,7 @@
       float: none
       width: auto
       li
-        margin-bottom: 1em
+        margin-bottom: $xsmall
         padding: $small
         background: $m-blue
         &.active
@@ -182,10 +182,15 @@
 
   .expandable
     width: 100%
+  main
+    min-height: 0
 
   //
   //
   // INTRO
+  section.intro
+    min-height: 0
+
   .intro
     .anniversary
       padding: 0 2.5em 0 5em
