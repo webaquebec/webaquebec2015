@@ -35,6 +35,50 @@
 .shadows
   +box-shadow($l-shadows)
 
+
+//
+//
+// LOADER
+=animLoading($prefix: '')
+  0%
+    margin-left: ($xlarge/-2)
+    width: $xsmall
+  50%
+    margin-left: ($xlarge/-2)
+    width: $xlarge
+  100%
+    margin-left: ($xlarge/2)
+    width: $xsmall
+
+@-webkit-keyframes animLoading
+  +animLoading(-webkit-)
+@-moz-keyframes animLoading
+  +animLoading(-moz-)
+@-ms-keyframes animLoading
+  +animLoading(-ms-)
+@-o-keyframes animLoading
+  +animLoading(-o-)
+@keyframes animLoading
+  +animLoading()
+
+
+.loading
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    background: #fff
+    top: 50%
+    left: 50%
+    height: $xsmall
+    width: $xsmall
+    margin: ($xsmall/-2) 0
+    +border-radius($xsmall/2)
+    @include prefix(animation, animLoading 360ms $ease infinite alternate)
+
+[lazy-load]
+  @extend .loading
+
 //
 //
 // BORDERS

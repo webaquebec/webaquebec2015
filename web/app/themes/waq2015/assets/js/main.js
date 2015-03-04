@@ -602,6 +602,15 @@ jQuery(document).ready(function($){
 
   //
   //
+  // FORCE UPDATE STICKYS
+  waq.updateStickys = function(){
+    window.raf.on('nextframe', function(){
+      waq.$stickys.sticky('update');
+    });
+  }
+
+  //
+  //
   // LAZY LOAD
 
   waq.lazyLoad = function(lazy){
@@ -626,10 +635,8 @@ jQuery(document).ready(function($){
   }
 
   if(waq.$lazy.length){
-
     waq.lazyQueue = [];
     waq.lazyCounter = 0;
-
     // build queue
     for(var l=0; l<waq.$lazy.length; l++){
       var $lazy = $(waq.$lazy[l]);
@@ -639,10 +646,8 @@ jQuery(document).ready(function($){
         callback: $lazy.attr('lazy-callback')
       });
     }
-
     // init queue
     waq.lazyLoad(waq.lazyQueue[0]);
-
   }
 
 

@@ -885,6 +885,85 @@ nav[role="navigation"] .secondary {
   -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
   box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06); }
 
+@-webkit-keyframes animLoading {
+  0% {
+    margin-left: -25px;
+    width: 5px; }
+
+  50% {
+    margin-left: -25px;
+    width: 50px; }
+
+  100% {
+    margin-left: 25px;
+    width: 5px; } }
+@-moz-keyframes animLoading {
+  0% {
+    margin-left: -25px;
+    width: 5px; }
+
+  50% {
+    margin-left: -25px;
+    width: 50px; }
+
+  100% {
+    margin-left: 25px;
+    width: 5px; } }
+@-ms-keyframes animLoading {
+  0% {
+    margin-left: -25px;
+    width: 5px; }
+
+  50% {
+    margin-left: -25px;
+    width: 50px; }
+
+  100% {
+    margin-left: 25px;
+    width: 5px; } }
+@-o-keyframes animLoading {
+  0% {
+    margin-left: -25px;
+    width: 5px; }
+
+  50% {
+    margin-left: -25px;
+    width: 50px; }
+
+  100% {
+    margin-left: 25px;
+    width: 5px; } }
+@keyframes animLoading {
+  0% {
+    margin-left: -25px;
+    width: 5px; }
+
+  50% {
+    margin-left: -25px;
+    width: 50px; }
+
+  100% {
+    margin-left: 25px;
+    width: 5px; } }
+.loading:before, [lazy-load]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: white;
+  top: 50%;
+  left: 50%;
+  height: 5px;
+  width: 5px;
+  margin: -2.5px 0;
+  -webkit-border-radius: 2.5px;
+  -moz-border-radius: 2.5px;
+  border-radius: 2.5px;
+  -webkit-animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate;
+  -moz-animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate;
+  -ms-animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate;
+  -o-animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate;
+  animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate; }
+
 .border, .border-left, .border-right, .border-bottom, .border-top {
   position: relative; }
   .border:after, .border-left:after, .border-right:after, .border-bottom:after, .border-top:after {
@@ -3205,36 +3284,6 @@ section.intro {
     section.intro #registerform .eventbrite.register-submit:after,
     #registerform section.intro .eventbrite.register-submit:after {
       border-color: #0094c2; }
-  section.intro [class*="delay"] {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: alpha(opacity=100);
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-transform 1200ms cubic-bezier(0, 0.8, 0.34, 1), opacity 1200ms ease;
-    -moz-transition: -moz-transform 1200ms cubic-bezier(0, 0.8, 0.34, 1), opacity 1200ms ease;
-    -ms-transition: -ms-transform 1200ms cubic-bezier(0, 0.8, 0.34, 1), opacity 1200ms ease;
-    -o-transition: -o-transform 1200ms cubic-bezier(0, 0.8, 0.34, 1), opacity 1200ms ease;
-    transition: transform 1200ms cubic-bezier(0, 0.8, 0.34, 1), opacity 1200ms ease; }
-    section.intro [class*="delay"].loading {
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      opacity: 0; }
-      section.intro [class*="delay"].loading.top {
-        -webkit-transform: translate3d(0, 100px, 0);
-        -moz-transform: translate3d(0, 100px, 0);
-        -ms-transform: translate3d(0, 100px, 0);
-        -o-transform: translate3d(0, 100px, 0);
-        transform: translate3d(0, 100px, 0); }
-      section.intro [class*="delay"].loading.bottom {
-        -webkit-transform: translate3d(0, -100px, 0);
-        -moz-transform: translate3d(0, -100px, 0);
-        -ms-transform: translate3d(0, -100px, 0);
-        -o-transform: translate3d(0, -100px, 0);
-        transform: translate3d(0, -100px, 0); }
 
 .features {
   padding: 0; }
@@ -3618,7 +3667,8 @@ section.intro {
 
 .posts {
   zoom: 1;
-  position: relative; }
+  position: relative;
+  min-height: 600px; }
   .posts:before, .posts:after {
     content: "\0020";
     display: block;

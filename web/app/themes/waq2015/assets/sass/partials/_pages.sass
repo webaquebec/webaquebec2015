@@ -155,21 +155,6 @@ section.intro
     &:after
       border-color: $blue
 
-  // animate once loaded
-  [class*="delay"]
-    +opacity(1)
-    +prefix(transform, translate3d(0, 0, 0))
-    +prefix(transition, transform 1200ms $easeOut, opacity 1200ms ease)
-    &.loading
-      +opacity(0)
-      &.top
-        +prefix(transform, translate3d(0, 100px, 0))
-      &.bottom
-        +prefix(transform, translate3d(0, -100px, 0))
-
-
-
-
 //
 //
 // FEATURES
@@ -443,6 +428,7 @@ section.intro
 .posts
   +clearfix()
   position: relative
+  min-height: 600px
   .post
     border: 1px solid $l-blue
     +border-radius(4px)
