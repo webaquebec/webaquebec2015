@@ -97,7 +97,7 @@ if(has($filters)):
               schedule="<?= $post->ID ?>"
               <?php if($post->ID!=$activeSchedule): ?>
               lazy-load="<?= $self_url ?>ajax/<?= $post->ID ?>"
-              lazy-callback="initFavorites"
+              lazy-callback="initFavorites|enableMobileSchedules"
               <?php endif; ?>
     >
     <?php

@@ -281,10 +281,10 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
-  function enableMobileSchedules(){
-    waq.$schedules.isMobile = true;
-    for(var i=0; i<waq.$schedules.length; i++){
-      var $schedule = $(waq.$schedules[i]);
+  waq.enableMobileSchedules = function($schedules){
+    waq.isMobile = true;
+    for(var i=0; i<$schedules.length; i++){
+      var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
       $schedule.on('touchstart', cancelEvents);
@@ -309,8 +309,8 @@ jQuery(document).ready(function($){
     }
   }
 
-  function disableMobileSchedules(){
-    waq.$schedules.isMobile = false;
+  waq.disableMobileSchedules = function(){
+    waq.isMobile = false;
     for(var i=0; i<waq.$schedules.length; i++){
       var $schedule = $(waq.$schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
@@ -389,11 +389,11 @@ jQuery(document).ready(function($){
 
       $previousTab.removeClass('active');
       $previousSchedule.removeClass('active');
-      // if(waq.$schedules.isMobile) destroyMobileSchedule($previousSchedule);
+      // if(waq.isMobile) destroyMobileSchedule($previousSchedule);
 
       $trigger.addClass('active');
       $schedule.addClass('active');
-      // if(waq.$schedules.isMobile) initMobileSchedule($previousSchedule);
+      // if(waq.isMobile) initMobileSchedule($previousSchedule);
 
       if(waq.$program.$tabs.isSticky) waq.$program.$sticky.sticky('update');
       $.cookie('schedule', $schedule.attr('schedule'), { path: '/' });
@@ -619,8 +619,13 @@ jQuery(document).ready(function($){
       success: function(data){
         $data = $(data);
         lazy.$container.append($data);
-        if(lazy.callback && typeof waq[lazy.callback] == 'function'){
-          waq[lazy.callback](lazy.$container);
+        if(lazy.callbacks){
+          for(var c=0; c<lazy.callbacks.length; c++){
+            var callback = lazy.callbacks[c];
+            if(typeof waq[callback] == 'function'){
+              waq[callback](lazy.$container);
+            }
+          }
         }
         lazy.$container.removeAttr('lazy-load lazy-callback');
       },
@@ -643,15 +648,12 @@ jQuery(document).ready(function($){
       waq.lazyQueue.push({
         $container: $lazy,
         url: $lazy.attr('lazy-load'),
-        callback: $lazy.attr('lazy-callback')
+        callbacks: $lazy.attr('lazy-callback').split('|')
       });
     }
     // init queue
     waq.lazyLoad(waq.lazyQueue[0]);
   }
-
-
-
 
 
   //
@@ -685,19 +687,19 @@ jQuery(document).ready(function($){
   //
   // > 1024px
   function largerThan1024(e){
+    $.cookie('big-screen', 1, { path: '/' });
     if(waq.$expandables.length) enableExpandables();
     if(waq.$stickys.length) enableStickys();
-    $.cookie('big-screen', 1, { path: '/' });
     if(e=='init') return; // Exit here at init --------------------------
-    if(waq.$schedules.length) disableMobileSchedules();
-    // if(waq.$program.length && waq.$program.$filtersNavToggle.length) disableFiltersDrawer(waq.$program.$filtersNavToggle, waq.$program.$filtersNavContent);
+    if(waq.$schedules.length) waq.disableMobileSchedules();
     $win.scrollEvents('update');
   }
+  //
+  //
   // < 1024px
   function smallerThan1024(e){
-    if(waq.$schedules.length) enableMobileSchedules();
-    // if(waq.$program.length && waq.$program.$filtersNavToggle.length) enableFiltersDrawer(waq.$program.$filtersNavToggle ,waq.$program.$filtersNavContent);
     $.cookie('big-screen', 0, { path: '/' });
+    if(waq.$schedules.length) waq.enableMobileSchedules(waq.$schedules);
     if(e=='init') return; // Exit here at init --------------------------
     if(waq.$stickys.length) disableStickys();
     if(waq.$expandables.length) disableExpandables();
