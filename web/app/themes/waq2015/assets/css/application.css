@@ -964,6 +964,10 @@ nav[role="navigation"] .secondary {
   -o-animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate;
   animation: animLoading 360ms cubic-bezier(0.2, 0, 0.4, 1) infinite alternate; }
 
+[lazy-load] {
+  position: relative;
+  min-height: 200px; }
+
 .border, .border-left, .border-right, .border-bottom, .border-top {
   position: relative; }
   .border:after, .border-left:after, .border-right:after, .border-bottom:after, .border-top:after {
