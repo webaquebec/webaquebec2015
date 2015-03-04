@@ -101,6 +101,10 @@
       .infos
         text-align: left
 
+    .schedule
+      +prefix(transition, none)
+      // &.active
+      //   +prefix(transform, translate3d(0,0,0))
 
   //
   //
@@ -257,4 +261,12 @@
     .contact-general
       max-width: 90%
 
-
+@media screen and (max-height: 460px)
+  //
+  //
+  // MOBILE NAV
+  nav[role="navigation"]
+    .main,
+    .secondary
+      a
+        padding: 0.8em 0

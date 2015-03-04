@@ -2381,7 +2381,7 @@ a[href].card,
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
       filter: alpha(opacity=100);
       opacity: 1;
-      z-index: 1;
+      z-index: 2;
       height: auto; }
   .schedules table {
     width: 100%;
@@ -5492,6 +5492,12 @@ footer .logo-o2 {
   .schedules .keynote .speaker,
   .schedules .keynote .infos {
     text-align: left; }
+  .schedules .schedule {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none; }
 
   .feed .right {
     display: none; }
@@ -5688,6 +5694,10 @@ footer .logo-o2 {
       margin-bottom: 0; }
   footer .contact-general {
     max-width: 90%; } }
+@media screen and (max-height: 460px) {
+  nav[role="navigation"] .main a,
+  nav[role="navigation"] .secondary a {
+    padding: 0.8em 0; } }
 @media screen and (min-width: 1200px) {
   nav[role="navigation"] .main .acheter-mon-billet {
     display: block; } }
