@@ -594,6 +594,7 @@ function add_endpoint()
     add_rewrite_endpoint('update', EP_PAGES );
     add_rewrite_endpoint('export', EP_PAGES );
     add_rewrite_endpoint('categorie', EP_PAGES );
+    add_rewrite_endpoint('ajax', EP_PAGES );
 }
 
 

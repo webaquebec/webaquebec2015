@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d70a39c817d90941b3879565179dbbd1",
+    "hash": "b44db86fe133e4124c267857aa106dda",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -188,16 +188,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.1",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "fced41fbfeb6b6a1f48f505426da0cb392d44274"
+                "reference": "b6a0e3c2ef178f97ce8b709897fd4411420b3ccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/fced41fbfeb6b6a1f48f505426da0cb392d44274",
-                "reference": "fced41fbfeb6b6a1f48f505426da0cb392d44274",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/b6a0e3c2ef178f97ce8b709897fd4411420b3ccb",
+                "reference": "b6a0e3c2ef178f97ce8b709897fd4411420b3ccb",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +221,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2014-12-18 18:31:41"
+            "time": "2015-02-18 22:16:06"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -270,10 +270,10 @@
         },
         {
             "name": "koodimonni-language/core-fr_fr",
-            "version": "4.1",
+            "version": "4.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/core/4.1/fr_FR.zip",
+                "url": "https://downloads.wordpress.org/translation/core/4.1.1/fr_FR.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -429,7 +429,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/intuitive-custom-post-order.zip",
+                "url": "https://downloads.wordpress.org/plugin/intuitive-custom-post-order.zip",
                 "reference": null,
                 "shasum": null
             },
