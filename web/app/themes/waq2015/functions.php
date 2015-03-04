@@ -30,6 +30,15 @@ function is_banged(){
     return isset($_COOKIE['big-screen']);
 }
 
+function remove_hashbang($url){
+    return str_replace('#!/', '', $url);
+};
+
+function is_ajax(){
+   global $wp_query;
+   return isset($wp_query->query_vars['ajax']);
+}
+
 function get_header_once(){
     global $post, $header_rendered, $main_ID;
     if(!has($header_rendered)){

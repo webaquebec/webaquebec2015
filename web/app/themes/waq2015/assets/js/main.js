@@ -87,6 +87,7 @@ jQuery(document).ready(function($){
   waq.$tabs = $('.tab-trigger');  // Tabs
   waq.$stickys = $('.sticky');
   waq.$profiles = $('.profile.has-social');
+  waq.$lazy = $('[lazy-load]');
   waq.url = {};
   waq.url.parts = window.location.hash.replace(/^\/|\/$/g, '').split('/');
   waq.url.slug = waq.url.parts.indexOf('#!')==-1 ? waq.url.parts[0] : waq.url.parts[1];
@@ -463,6 +464,7 @@ jQuery(document).ready(function($){
     var added = [];
     var removed = [];
 
+
     if(!waq.loggedin){
       // pop dialog box here...
       if(activated) $trigger.trigger('click');
@@ -488,25 +490,28 @@ jQuery(document).ready(function($){
         data: {
           add: added,
           remove: removed
-        },
-        success: function(data){
-          // console.log(data);
-          // $.cookie('favorites', data, { path: '/' });
         }
     });
   }
 
-  if(waq.$schedules.length){
-    waq.$schedules.$toggles = $('.favorite', waq.$schedules);
+
+  //
+  //
+  // INIT SCHEDULE'S FAVORITE TOGGLES
+  waq.initFavorites = function($schedules){
+    if(!$schedules.length) return;
+
+    $schedules.$toggles = $('.favorite', $schedules);
+    $schedules.$toggles.off('click', toggleBtn).on('click', toggleBtn);
 
     var spanned = 0;
     // get toggles on the same row
-    for(var i=0; i<waq.$schedules.$toggles.length; i++){
-      var $trigger = $(waq.$schedules.$toggles[i]);
+    for(var i=0; i<$schedules.$toggles.length; i++){
+      var $trigger = $($schedules.$toggles[i]);
       var $row = $trigger.closest('tr');
       var spanned = $trigger.closest('td').attr('rowspan');
       if(!$trigger[0].$toggles) $trigger[0].$toggles = $();
-      $trigger[0].$toggles = $trigger[0].$toggles.add($row.find(waq.$schedules.$toggles).not($trigger));
+      $trigger[0].$toggles = $trigger[0].$toggles.add($row.find($schedules.$toggles).not($trigger));
       // if session spans on other rows, add toggles to $el.toggles
       if(spanned){
         for(var r=1; r<spanned; r++){
@@ -521,10 +526,14 @@ jQuery(document).ready(function($){
         }
       }
     }
-
-    waq.$schedules.$toggles.on('click', toggleFavorite);
+    // bind click event
+    $schedules.$toggles.on('click', toggleFavorite);
   }
+  waq.initFavorites(waq.$schedules);
 
+  //
+  //
+  // INIT SINGLE FAVORITE
   if(waq.$favorite.length) waq.$favorite.on('click', toggleFavorite);
 
   //
@@ -588,6 +597,56 @@ jQuery(document).ready(function($){
 
     google.maps.event.addDomListener(window, 'load', initGoogleMap);
   }
+
+
+
+  //
+  //
+  // LAZY LOAD
+
+  waq.lazyLoad = function(lazy){
+    $.ajax({
+      url: lazy.url,
+      success: function(data){
+        $data = $(data);
+        lazy.$container.append($data);
+        if(lazy.callback && typeof waq[lazy.callback] == 'function'){
+          waq[lazy.callback](lazy.$container);
+        }
+        lazy.$container.removeAttr('lazy-load lazy-callback');
+      },
+      complete: function(){
+       // start next lazy load
+        waq.lazyCounter++;
+        if(waq.lazyCounter<waq.lazyQueue.length){
+          waq.lazyLoad(waq.lazyQueue[waq.lazyCounter]);
+        }
+      }
+    });
+  }
+
+  if(waq.$lazy.length){
+
+    waq.lazyQueue = [];
+    waq.lazyCounter = 0;
+
+    // build queue
+    for(var l=0; l<waq.$lazy.length; l++){
+      var $lazy = $(waq.$lazy[l]);
+      waq.lazyQueue.push({
+        $container: $lazy,
+        url: $lazy.attr('lazy-load'),
+        callback: $lazy.attr('lazy-callback')
+      });
+    }
+
+    // init queue
+    waq.lazyLoad(waq.lazyQueue[0]);
+
+  }
+
+
+
 
 
   //
