@@ -288,7 +288,7 @@ if(has($schedule_ID)):
       <div class="location" style="border-color:<?= $header->color ?>;" location="<?= $header->ID ?>" >
         <span class="sub title"><?= __('Salle','waq') ?></span>
         <span class="title"><?= $header->title ?></span>
-        <span class="note title" style="color:<?= $header->color ?>;"><?= $header->subtitle ?></span>
+        <span class="note title"><?= $header->subtitle ?></span>
       </div>
       <?php
       $schedule->after_header();
