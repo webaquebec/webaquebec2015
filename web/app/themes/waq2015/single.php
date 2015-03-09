@@ -137,7 +137,7 @@ $categories = get_the_category();
   <div class="container">
     <nav>
       <div class="left">
-        <a href="<?= get_permalink(43); ?>" class="btn back">
+        <a href="<?= get_permalink(126); ?>" class="btn back">
           <span><?= __('blogue','waq') ?></span>
         </a>
       </div>
