@@ -27,7 +27,7 @@ function is_login_page() {
 }
 
 function is_banged(){
-    return isset($_COOKIE['big-screen']);
+    return isset($_COOKIE['big-screen']) && strpos($_SERVER['HTTP_REFERER'], $_SERVER['WP_HOME']) !== false;
 }
 
 function remove_hashbang($url){
