@@ -20,8 +20,7 @@
                         1 877 334-2547<br>
                         <a href="mailto:info@webaquebec.org">info@webaquebec.org</a>
                         <h3 class="lower title">Informations médias</h3>
-                        1 418 558-7455<br>
-                        <a href="mailto:medias@webaquebec.org">medias@webaquebec.org</a>
+                        <a href="/kit-media/">Plus d'information</a>
                       </p>
                     </div>
                   </div>
