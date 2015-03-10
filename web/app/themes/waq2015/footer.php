@@ -9,7 +9,7 @@
                 <h2 class="sub title">Le Terminal du Port de&nbsp;Québec</h2>
                 <p>
                   84 Rue Dalhousie<br>
-                  Québec (Québec), G1K 4C4
+                  Québec (Québec) G1K 4C4
                 </p>
                 <div class="border-bottom"></div>
                 <div class="info-general">
@@ -28,8 +28,8 @@
                     <div class="content">
                       <h4 class="lower title">Siège social</h4>
                       <p>
-                        305 Charest Est, bureau 901,<br>
-                        Québec, (Québec) G1K 3H3<br>
+                        305 Charest Est, bureau 901<br>
+                        Québec (Québec) G1K 3H3<br>
                         <a href="tel:1 418 647-3877">1 418 647-3877</a>
                       </p>
                     </div>
