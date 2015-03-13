@@ -56,7 +56,6 @@ UID:<?= $session->ID ?>@webaquebec.org
 SUMMARY:<?= safeEscape($session->title)."\r\n" ?>
 DESCRIPTION:<?= safeEscape($session->excerpt)."\r\n" ?>
 LOCATION: <?= 'Salle '.$session->location->title.' | '.$location['address']."\r\n" ?>
-GEO: <?= $location['lat'].';'.$location['lng']."\r\n" ?>
 END:VEVENT
 <?php
         endforeach;
