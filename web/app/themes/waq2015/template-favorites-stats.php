@@ -1,3 +1,9 @@
+<?php
+/*
+ * Template Name: Favorites stats
+ * Description: Show stats of users schedules
+ */
+?>
 <?php get_header_once(); ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
