@@ -18,7 +18,7 @@
 </section>
 
 <div class="cols container">
-  <section class="col wide" role="main">
+  <section role="main">
     <div class="post">
       <h2 class="title border-middle">
         <span>
