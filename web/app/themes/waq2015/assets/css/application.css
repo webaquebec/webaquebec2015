@@ -1,6 +1,5 @@
-@charset "UTF-8";
 @import url(reset.css);
-@import "http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700";
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700);
 *,
 *:before,
 *:after {
@@ -14,13 +13,13 @@ button,
 input,
 select,
 textarea {
-  color: #000; }
+  color: black; }
 
 html {
   font-size: 16px; }
 
 body {
-  background: #fff;
+  background: white;
   position: relative;
   margin: 0;
   padding: 0; }
@@ -44,14 +43,14 @@ ul {
 
 ::-moz-selection {
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: white;
   border: none;
   outline: none;
   text-shadow: none; }
 
 ::selection {
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: white;
   border: none;
   outline: none;
   text-shadow: none; }
@@ -69,7 +68,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0; }
 
@@ -93,12 +92,12 @@ input, button, select, option, textarea {
 
 .chromeframe {
   margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
+  background: #cccccc;
+  color: black;
   padding: 0.2em 0; }
 
 body {
-  color: #111;
+  color: #111111;
   font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300; }
 
@@ -111,17 +110,17 @@ b {
   font-weight: 700; }
 
 a {
-  color: #0094C2; }
+  color: #0094c2; }
   .no-touch a:hover {
     color: #00bfdf; }
   .dark a {
     color: #00bfdf; }
     .no-touch .dark a:hover {
-      color: #fff; }
+      color: white; }
 
 hr {
   margin: 1.5em 0;
-  border-color: #B8B9C2; }
+  border-color: #b8b9c2; }
   .dark hr {
     border-color: #4b4b4d; }
 
@@ -135,13 +134,13 @@ hr {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
   .dark .title, .dark nav[role="navigation"] ul a, nav[role="navigation"] ul .dark a, .dark .field label, .field .dark label {
-    color: #fff;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .dark .title.lined, .dark nav[role="navigation"] ul a.lined, nav[role="navigation"] ul .dark a.lined, .dark .field label.lined, .field .dark label.lined {
     background: #303030; }
   .black .title, .black nav[role="navigation"] ul a, nav[role="navigation"] ul .black a, .black .field label, .field .black label {
-    color: #fff;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .light .title, .light nav[role="navigation"] ul a, nav[role="navigation"] ul .light a, .light .field label, .field .light label {
@@ -179,7 +178,7 @@ hr {
     display: inline-block;
     *display: inline;
     zoom: 1;
-    background: #fff;
+    background: white;
     padding-right: 1em;
     position: relative;
     z-index: 10; }
@@ -207,7 +206,7 @@ hr {
   display: block;
   margin: 0.5em 0;
   font-size: 0.85em;
-  color: #B8B9C2;
+  color: #b8b9c2;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto; }
 
@@ -219,7 +218,7 @@ hr {
 
 .note, #loginform .login-remember,
 #registerform .login-remember {
-  color: #B8B9C2;
+  color: #b8b9c2;
   font-size: 0.875em;
   display: block; }
   .dark .note, .dark #loginform .login-remember, #loginform .dark .login-remember,
@@ -388,16 +387,16 @@ nav[role="navigation"] ul .filters a.toggle:after,
   text-indent: 0; }
 
 .icon-blank:after {
-  content: ""; }
+  content: "\f100"; }
 
 .icon-star:after, .btn.toggle.favorite > :after, .toggle.favorite.profile > :after, .toggle.favorite.card > :after, .social-account .toggle.favorite.wp-social-login-provider > :after, #loginform .toggle.favorite.login-submit > :after,
 #loginform .toggle.favorite.register-submit > :after,
 #registerform .toggle.favorite.login-submit > :after,
 #registerform .toggle.favorite.register-submit > :after, .btn.toggle.favorite.active > :after, .toggle.favorite.active.profile > :after, .toggle.favorite.active.card > :after {
-  content: ""; }
+  content: "\f101"; }
 
 .icon-user:after {
-  content: ""; }
+  content: "\f102"; }
 
 .icon-arrow-right:after, .list.bullets li:after, .content ul li:after, .content ol.bullets li:after, .btn.link > span:after, .link.profile > span:after, .link.card > span:after, .social-account .link.wp-social-login-provider > span:after, #loginform .link.login-submit > span:after,
 #loginform .link.register-submit > span:after,
@@ -406,7 +405,7 @@ nav[role="navigation"] ul .filters a.toggle:after,
 #loginform .next.register-submit > span:after,
 #registerform .next.login-submit > span:after,
 #registerform .next.register-submit > span:after, .features .session .wrap > .title:after, .features .session nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session .wrap > a:after, .features .session .field .wrap > label:after, .field .features .session .wrap > label:after {
-  content: ""; }
+  content: "\f103"; }
 
 .icon-arrow-left:after, .btn.back > span:after, .back.profile > span:after, .back.card > span:after, .social-account .back.wp-social-login-provider > span:after, #loginform .back.login-submit > span:after,
 #loginform .back.register-submit > span:after,
@@ -415,52 +414,52 @@ nav[role="navigation"] ul .filters a.toggle:after,
 #loginform .prev.register-submit > span:after,
 #registerform .prev.login-submit > span:after,
 #registerform .prev.register-submit > span:after {
-  content: ""; }
+  content: "\f104"; }
 
 .icon-arrow-top:after {
-  content: ""; }
+  content: "\f105"; }
 
 .icon-arrow-bottom:after {
-  content: ""; }
+  content: "\f106"; }
 
 .icon-facebook:after, .profile .links a.facebook:after, .social a.facebook:after, .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after, .event-location .social a.facebook:after, footer .contact-general .social a.facebook:after {
-  content: ""; }
+  content: "\f107"; }
 
 .icon-twitter:after, .profile .links a.twitter:after, .social a.twitter:after, .event-location .social a.twitter:after, .feed-post.twitter:before, footer .contact-general .social a.twitter:after {
-  content: ""; }
+  content: "\f108"; }
 
 .icon-linkedin:after, .profile .links a.linkedin:after, .social a.linkedin:after, .event-location .social a.linkedin:after, footer .contact-general .social a.linkedin:after {
-  content: ""; }
+  content: "\f109"; }
 
 .icon-instagram:after, .profile .links a.instagram:after, .social a.instagram:after, .feed-post.instagram:before {
-  content: ""; }
+  content: "\f10a"; }
 
 .icon-retweet:after, .feed-post .actions a.retweet:after {
-  content: ""; }
+  content: "\f10b"; }
 
 .icon-reply:after, .feed-post .actions a.reply:after {
-  content: ""; }
+  content: "\f10c"; }
 
 .icon-favorite:after, nav[role="navigation"] .secondary a:after, .feed-post .actions a.favorite:after {
-  content: ""; }
+  content: "\f10d"; }
 
 .icon-more:after, .btn.toggle > :after, .toggle.profile > :after, .toggle.card > :after, .social-account .toggle.wp-social-login-provider > :after, #loginform .toggle.login-submit > :after,
 #loginform .toggle.register-submit > :after,
 #registerform .toggle.login-submit > :after,
 #registerform .toggle.register-submit > :after, .filters .title.toggle:after, .filters nav[role="navigation"] ul a.toggle:after, nav[role="navigation"] ul .filters a.toggle:after, .filters .field label.toggle:after, .field .filters label.toggle:after {
-  content: ""; }
+  content: "\f10e"; }
 
 .icon-close:after, .btn.toggle.active > :after, .toggle.active.profile > :after, .toggle.active.card > :after, .social-account .toggle.active.wp-social-login-provider > :after, #loginform .toggle.active.login-submit > :after,
 #loginform .toggle.active.register-submit > :after,
 #registerform .toggle.active.login-submit > :after,
 #registerform .toggle.active.register-submit > :after {
-  content: ""; }
+  content: "\f10f"; }
 
 .icon-website:after, .social a.website:after {
-  content: ""; }
+  content: "\f110"; }
 
 .icon-menu:after {
-  content: ""; }
+  content: "\f111"; }
 
 .ir {
   background-color: transparent;
@@ -571,7 +570,7 @@ article {
   margin: 0 auto;
   zoom: 1; }
   .container:before, .sticky.fixed:before, .days .sticky:before, .container:after, .sticky.fixed:after, .days .sticky:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -590,7 +589,7 @@ article {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff; }
+  background: white; }
   .ready .bang-coverall {
     display: none; }
 
@@ -852,33 +851,33 @@ footer {
 
 .dark {
   background: #303030;
-  color: #fff;
+  color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 .black {
-  background: #111;
-  color: #fff;
+  background: #111111;
+  color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 .light {
-  background: #fff;
-  color: #111; }
+  background: white;
+  color: #111111; }
 
 .l-grey {
   background: #eeeef0;
-  color: #111; }
+  color: #111111; }
 
 .gradient {
-  color: #fff;
-  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005F93));
-  background-image: -o-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: linear-gradient(to right top, #00bfdf 0%, #005F93 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
+  color: white;
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
+  background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
 .shadows, .schedules table, nav[role="navigation"] .main,
 nav[role="navigation"] .secondary {
@@ -890,9 +889,11 @@ nav[role="navigation"] .secondary {
   0% {
     margin-left: -25px;
     width: 5px; }
+
   50% {
     margin-left: -25px;
     width: 50px; }
+
   100% {
     margin-left: 25px;
     width: 5px; } }
@@ -900,9 +901,11 @@ nav[role="navigation"] .secondary {
   0% {
     margin-left: -25px;
     width: 5px; }
+
   50% {
     margin-left: -25px;
     width: 50px; }
+
   100% {
     margin-left: 25px;
     width: 5px; } }
@@ -910,9 +913,11 @@ nav[role="navigation"] .secondary {
   0% {
     margin-left: -25px;
     width: 5px; }
+
   50% {
     margin-left: -25px;
     width: 50px; }
+
   100% {
     margin-left: 25px;
     width: 5px; } }
@@ -920,9 +925,11 @@ nav[role="navigation"] .secondary {
   0% {
     margin-left: -25px;
     width: 5px; }
+
   50% {
     margin-left: -25px;
     width: 50px; }
+
   100% {
     margin-left: 25px;
     width: 5px; } }
@@ -930,9 +937,11 @@ nav[role="navigation"] .secondary {
   0% {
     margin-left: -25px;
     width: 5px; }
+
   50% {
     margin-left: -25px;
     width: 50px; }
+
   100% {
     margin-left: 25px;
     width: 5px; } }
@@ -940,7 +949,7 @@ nav[role="navigation"] .secondary {
   content: "";
   display: block;
   position: absolute;
-  background: #fff;
+  background: white;
   top: 50%;
   left: 50%;
   height: 5px;
@@ -1025,7 +1034,7 @@ nav[role="navigation"] .secondary {
     width: 100%;
     height: 1px;
     margin: -0.25em 2em 0;
-    background: #B8B9C2;
+    background: #b8b9c2;
     vertical-align: middle; }
   .border-middle.centered:before {
     margin-left: -100%; }
@@ -1191,7 +1200,7 @@ nav[role="navigation"] .secondary {
     #loginform .register-submit > *:before,
     #registerform .login-submit > *:before,
     #registerform .register-submit > *:before {
-      background: #fff;
+      background: white;
       z-index: -2;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
@@ -1203,7 +1212,7 @@ nav[role="navigation"] .secondary {
       text-align: right;
       font-size: 0.8em;
       padding: 0.2em 1em;
-      color: #B8B9C2;
+      color: #b8b9c2;
       -webkit-transition: color 120ms linear 60ms;
       -moz-transition: color 120ms linear 60ms;
       -ms-transition: color 120ms linear 60ms;
@@ -1216,7 +1225,7 @@ nav[role="navigation"] .secondary {
   #registerform .dark .login-submit,
   .dark #registerform .register-submit,
   #registerform .dark .register-submit {
-    color: #fff; }
+    color: white; }
     .dark .btn:before, .dark .profile:before, .dark .card:before, .dark .social-account .wp-social-login-provider:before, .social-account .dark .wp-social-login-provider:before, .dark #loginform .login-submit:before, #loginform .dark .login-submit:before,
     .dark #loginform .register-submit:before,
     #loginform .dark .register-submit:before,
@@ -1240,7 +1249,7 @@ nav[role="navigation"] .secondary {
     #registerform .dark .login-submit > *,
     .dark #registerform .register-submit > *,
     #registerform .dark .register-submit > * {
-      color: #fff; }
+      color: white; }
       .dark .btn > *:before, .dark .profile > *:before, .dark .card > *:before, .dark .social-account .wp-social-login-provider > *:before, .social-account .dark .wp-social-login-provider > *:before, .dark #loginform .login-submit > *:before, #loginform .dark .login-submit > *:before,
       .dark #loginform .register-submit > *:before,
       #loginform .dark .register-submit > *:before,
@@ -1256,7 +1265,7 @@ nav[role="navigation"] .secondary {
     #registerform .dark .toggle.active.login-submit:after,
     .dark #registerform .toggle.active.register-submit:after,
     #registerform .dark .toggle.active.register-submit:after {
-      border-color: #005F93; }
+      border-color: #005f93; }
   .black .btn, .black .profile, .black .card, .black .social-account .wp-social-login-provider, .social-account .black .wp-social-login-provider, .black #loginform .login-submit, #loginform .black .login-submit,
   .black #loginform .register-submit,
   #loginform .black .register-submit,
@@ -1264,7 +1273,7 @@ nav[role="navigation"] .secondary {
   #registerform .black .login-submit,
   .black #registerform .register-submit,
   #registerform .black .register-submit {
-    color: #fff; }
+    color: white; }
     .black .btn:before, .black .profile:before, .black .card:before, .black .social-account .wp-social-login-provider:before, .social-account .black .wp-social-login-provider:before, .black #loginform .login-submit:before, #loginform .black .login-submit:before,
     .black #loginform .register-submit:before,
     #loginform .black .register-submit:before,
@@ -1272,7 +1281,7 @@ nav[role="navigation"] .secondary {
     #registerform .black .login-submit:before,
     .black #registerform .register-submit:before,
     #registerform .black .register-submit:before {
-      background: #111; }
+      background: #111111; }
     .black .btn:after, .black .profile:after, .black .card:after, .black .social-account .wp-social-login-provider:after, .social-account .black .wp-social-login-provider:after, .black #loginform .login-submit:after, #loginform .black .login-submit:after,
     .black #loginform .register-submit:after,
     #loginform .black .register-submit:after,
@@ -1296,7 +1305,7 @@ nav[role="navigation"] .secondary {
     #registerform .black .toggle.active.login-submit:after,
     .black #registerform .toggle.active.register-submit:after,
     #registerform .black .toggle.active.register-submit:after {
-      border-color: #005F93; }
+      border-color: #005f93; }
   .light .btn, .light .profile, .light .card, .light .social-account .wp-social-login-provider, .social-account .light .wp-social-login-provider, .light #loginform .login-submit, #loginform .light .login-submit,
   .light #loginform .register-submit,
   #loginform .light .register-submit,
@@ -1352,7 +1361,7 @@ nav[role="navigation"] .secondary {
     #registerform .l-grey .login-submit:after,
     .l-grey #registerform .register-submit:after,
     #registerform .l-grey .register-submit:after {
-      border-color: #B8B9C2; }
+      border-color: #b8b9c2; }
     .light .btn > *:before, .light .profile > *:before, .light .card > *:before, .light .social-account .wp-social-login-provider > *:before, .social-account .light .wp-social-login-provider > *:before, .light #loginform .login-submit > *:before, #loginform .light .login-submit > *:before,
     .light #loginform .register-submit > *:before,
     #loginform .light .register-submit > *:before,
@@ -1371,7 +1380,7 @@ nav[role="navigation"] .secondary {
   #loginform .light.register-submit:before,
   #registerform .light.login-submit:before,
   #registerform .light.register-submit:before {
-    background: #fff; }
+    background: white; }
   .btn.light:after, .light.profile:after, .light.card:after, .social-account .light.wp-social-login-provider:after, #loginform .light.login-submit:after,
   #loginform .light.register-submit:after,
   #registerform .light.login-submit:after,
@@ -1381,7 +1390,7 @@ nav[role="navigation"] .secondary {
   #loginform .light.register-submit > *:before,
   #registerform .light.login-submit > *:before,
   #registerform .light.register-submit > *:before {
-    background: #fff; }
+    background: white; }
   .no-touch .btn:hover:before, .no-touch .profile:hover:before, .no-touch .card:hover:before, .no-touch .social-account .wp-social-login-provider:hover:before, .social-account .no-touch .wp-social-login-provider:hover:before, .no-touch #loginform .login-submit:hover:before, #loginform .no-touch .login-submit:hover:before,
   .no-touch #loginform .register-submit:hover:before,
   #loginform .no-touch .register-submit:hover:before,
@@ -1436,12 +1445,12 @@ nav[role="navigation"] .secondary {
     #loginform .toggle.active.register-submit,
     #registerform .toggle.active.login-submit,
     #registerform .toggle.active.register-submit {
-      color: #fff; }
+      color: white; }
       .btn.toggle.active:before, .toggle.active.profile:before, .toggle.active.card:before, .social-account .toggle.active.wp-social-login-provider:before, #loginform .toggle.active.login-submit:before,
       #loginform .toggle.active.register-submit:before,
       #registerform .toggle.active.login-submit:before,
       #registerform .toggle.active.register-submit:before {
-        background: #005F93;
+        background: #005f93;
         right: 1px; }
       .btn.toggle.active:after, .toggle.active.profile:after, .toggle.active.card:after, .social-account .toggle.active.wp-social-login-provider:after, #loginform .toggle.active.login-submit:after,
       #loginform .toggle.active.register-submit:after,
@@ -1450,12 +1459,12 @@ nav[role="navigation"] .secondary {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
         opacity: 1;
-        border-color: #005F93; }
+        border-color: #005f93; }
       .btn.toggle.active > *:before, .toggle.active.profile > *:before, .toggle.active.card > *:before, .social-account .toggle.active.wp-social-login-provider > *:before, #loginform .toggle.active.login-submit > *:before,
       #loginform .toggle.active.register-submit > *:before,
       #registerform .toggle.active.login-submit > *:before,
       #registerform .toggle.active.register-submit > *:before {
-        background: #005F93; }
+        background: #005f93; }
       .btn.toggle.active > *:after, .toggle.active.profile > *:after, .toggle.active.card > *:after, .social-account .toggle.active.wp-social-login-provider > *:after, #loginform .toggle.active.login-submit > *:after,
       #loginform .toggle.active.register-submit > *:after,
       #registerform .toggle.active.login-submit > *:after,
@@ -1468,7 +1477,7 @@ nav[role="navigation"] .secondary {
       #registerform .no-touch .toggle.active.login-submit:hover,
       .no-touch #registerform .toggle.active.register-submit:hover,
       #registerform .no-touch .toggle.active.register-submit:hover {
-        color: #fff; }
+        color: white; }
         .no-touch .btn.toggle.active:hover > *:after, .no-touch .toggle.active.profile:hover > *:after, .no-touch .toggle.active.card:hover > *:after, .no-touch .social-account .toggle.active.wp-social-login-provider:hover > *:after, .social-account .no-touch .toggle.active.wp-social-login-provider:hover > *:after, .no-touch #loginform .toggle.active.login-submit:hover > *:after, #loginform .no-touch .toggle.active.login-submit:hover > *:after,
         .no-touch #loginform .toggle.active.register-submit:hover > *:after,
         #loginform .no-touch .toggle.active.register-submit:hover > *:after,
@@ -1481,12 +1490,12 @@ nav[role="navigation"] .secondary {
     #loginform .toggle.favorite.register-submit,
     #registerform .toggle.favorite.login-submit,
     #registerform .toggle.favorite.register-submit {
-      color: #005F93; }
+      color: #005f93; }
       .btn.toggle.favorite > *:after, .toggle.favorite.profile > *:after, .toggle.favorite.card > *:after, .social-account .toggle.favorite.wp-social-login-provider > *:after, #loginform .toggle.favorite.login-submit > *:after,
       #loginform .toggle.favorite.register-submit > *:after,
       #registerform .toggle.favorite.login-submit > *:after,
       #registerform .toggle.favorite.register-submit > *:after {
-        color: #005F93;
+        color: #005f93;
         -webkit-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -moz-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
         -ms-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
@@ -1496,7 +1505,7 @@ nav[role="navigation"] .secondary {
       #loginform .toggle.favorite.active.register-submit > *,
       #registerform .toggle.favorite.active.login-submit > *,
       #registerform .toggle.favorite.active.register-submit > * {
-        color: #fff; }
+        color: white; }
         .btn.toggle.favorite.active > *:after, .toggle.favorite.active.profile > *:after, .toggle.favorite.active.card > *:after, .social-account .toggle.favorite.active.wp-social-login-provider > *:after, #loginform .toggle.favorite.active.login-submit > *:after,
         #loginform .toggle.favorite.active.register-submit > *:after,
         #registerform .toggle.favorite.active.login-submit > *:after,
@@ -1520,7 +1529,7 @@ nav[role="navigation"] .secondary {
         #registerform .dark .toggle.favorite.active.login-submit,
         .dark #registerform .toggle.favorite.active.register-submit,
         #registerform .dark .toggle.favorite.active.register-submit {
-          color: #B8B9C2; }
+          color: #b8b9c2; }
       .black .btn.toggle.favorite, .black .toggle.favorite.profile, .black .toggle.favorite.card, .black .social-account .toggle.favorite.wp-social-login-provider, .social-account .black .toggle.favorite.wp-social-login-provider, .black #loginform .toggle.favorite.login-submit, #loginform .black .toggle.favorite.login-submit,
       .black #loginform .toggle.favorite.register-submit,
       #loginform .black .toggle.favorite.register-submit,
@@ -1536,7 +1545,7 @@ nav[role="navigation"] .secondary {
         #registerform .black .toggle.favorite.active.login-submit,
         .black #registerform .toggle.favorite.active.register-submit,
         #registerform .black .toggle.favorite.active.register-submit {
-          color: #B8B9C2; }
+          color: #b8b9c2; }
   .btn.link, .link.profile, .link.card, .social-account .link.wp-social-login-provider, #loginform .link.login-submit,
   #loginform .link.register-submit,
   #registerform .link.login-submit,
@@ -1819,7 +1828,7 @@ a[href].card,
     font-size: 1.25em;
     line-height: 1;
     font-weight: 700;
-    color: #005F93;
+    color: #005f93;
     text-transform: none;
     padding-right: 2.4em;
     position: relative;
@@ -1907,14 +1916,14 @@ a[href].card,
       .profile.mini .links:after {
         height: 1.5em;
         line-height: 1.75em;
-        color: #fff;
+        color: white;
         -webkit-transition: color 240ms linear;
         -moz-transition: color 240ms linear;
         -ms-transition: color 240ms linear;
         -o-transition: color 240ms linear;
         transition: color 240ms linear; }
     .no-touch .profile.mini:hover .links:after {
-      color: #B8B9C2; }
+      color: #b8b9c2; }
   .profile.has-social.active .name, .no-touch .profile.has-social:hover .name {
     left: -100%; }
   .profile.has-social.active .links, .no-touch .profile.has-social:hover .links {
@@ -2115,7 +2124,7 @@ a[href].card,
   .menu-toggle i, .menu-toggle:before, .menu-toggle:after {
     width: 2.4em;
     height: 0.3em;
-    background: #005F93;
+    background: #005f93;
     -webkit-border-radius: 0.16em;
     -moz-border-radius: 0.16em;
     border-radius: 0.16em;
@@ -2221,7 +2230,7 @@ a[href].card,
       margin-top: 0;
       z-index: 4; }
       .days .sticky.fixed:before, .days .sticky.contained:before {
-        background: #fff;
+        background: white;
         position: absolute;
         top: -130px;
         bottom: -10px;
@@ -2272,7 +2281,7 @@ a[href].card,
   .field .days #registerform .toggle.active.register-submit label,
   #registerform .days .toggle.active.register-submit .field label,
   .field #registerform .days .toggle.active.register-submit label {
-    color: #fff; }
+    color: white; }
   .days .btn.toggle.active:after, .days .toggle.active.profile:after, .days .toggle.active.card:after, .days .social-account .toggle.active.wp-social-login-provider:after, .social-account .days .toggle.active.wp-social-login-provider:after, .days #loginform .toggle.active.login-submit:after, #loginform .days .toggle.active.login-submit:after,
   .days #loginform .toggle.active.register-submit:after,
   #loginform .days .toggle.active.register-submit:after,
@@ -2280,7 +2289,7 @@ a[href].card,
   #registerform .days .toggle.active.login-submit:after,
   .days #registerform .toggle.active.register-submit:after,
   #registerform .days .toggle.active.register-submit:after {
-    border-color: #23729D; }
+    border-color: #23729d; }
   .days .btn.toggle.active:before, .days .toggle.active.profile:before, .days .toggle.active.card:before, .days .social-account .toggle.active.wp-social-login-provider:before, .social-account .days .toggle.active.wp-social-login-provider:before, .days #loginform .toggle.active.login-submit:before, #loginform .days .toggle.active.login-submit:before,
   .days #loginform .toggle.active.register-submit:before,
   #loginform .days .toggle.active.register-submit:before,
@@ -2295,13 +2304,13 @@ a[href].card,
   .days #registerform .toggle.active.register-submit > *:before,
   #registerform .days .toggle.active.register-submit > *:before {
     background-color: transparent;
-    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005F93));
-    background-image: -o-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-    background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-    background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-    background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-    background-image: linear-gradient(to right top, #00bfdf 0%, #005F93 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
+    background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
+    background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+    background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
 
 .filters .title.toggle, .filters nav[role="navigation"] ul a.toggle, nav[role="navigation"] ul .filters a.toggle, .filters .field label.toggle, .field .filters label.toggle {
   display: inline-block;
@@ -2346,7 +2355,7 @@ a[href].card,
   background-size: cover;
   zoom: 1; }
   .schedules:before, .schedules:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -2391,7 +2400,7 @@ a[href].card,
   .schedules .wrap {
     width: 100%; }
   .schedules thead {
-    background: #3D3D3D;
+    background: #3d3d3d;
     text-align: left; }
     .schedules thead td {
       width: 75px; }
@@ -2399,7 +2408,7 @@ a[href].card,
       padding: 10px 10px 10px 0;
       position: relative; }
     .schedules thead .title, .schedules thead nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules thead a, .schedules thead .field label, .field .schedules thead label {
-      color: #fff; }
+      color: white; }
       .schedules thead .title.note, .schedules thead nav[role="navigation"] ul a.note, nav[role="navigation"] ul .schedules thead a.note, .schedules thead nav[role="navigation"] ul #loginform a.login-remember, nav[role="navigation"] ul #loginform .schedules thead a.login-remember, .schedules thead #loginform nav[role="navigation"] ul a.login-remember, #loginform nav[role="navigation"] ul .schedules thead a.login-remember,
       .schedules thead nav[role="navigation"] ul #registerform a.login-remember,
       nav[role="navigation"] ul #registerform .schedules thead a.login-remember,
@@ -2411,7 +2420,7 @@ a[href].card,
       #registerform .field .schedules thead label.login-remember, .schedules thead #loginform .title.login-remember, #loginform .schedules thead .title.login-remember,
       .schedules thead #registerform .title.login-remember,
       #registerform .schedules thead .title.login-remember {
-        color: #C0C0C0; }
+        color: silver; }
     .schedules thead .location {
       padding-left: 20px; }
       .schedules thead .location:before {
@@ -2420,21 +2429,21 @@ a[href].card,
         top: 10px;
         left: 0;
         bottom: 10px;
-        border-right: 10px solid #fff;
+        border-right: 10px solid white;
         border-color: inherit; }
   .schedules tbody {
     height: 100%; }
     .schedules tbody tr {
       height: 100%; }
     .schedules tbody th {
-      border-top: 1px solid #D2D4E2;
+      border-top: 1px solid #d2d4e2;
       width: 75px;
       text-align: right;
       background: #eeeef0;
       padding: 10px;
       height: 100%; }
       .schedules tbody th .title, .schedules tbody th nav[role="navigation"] ul a, nav[role="navigation"] ul .schedules tbody th a, .schedules tbody th .field label, .field .schedules tbody th label {
-        color: #005F93; }
+        color: #005f93; }
     .schedules tbody td {
       border-top: 1px solid #eeeef0;
       height: 100%;
@@ -2455,7 +2464,7 @@ a[href].card,
   .schedules .lunch .field label,
   .field .schedules .lunch label {
     text-align: center;
-    color: #005F93;
+    color: #005f93;
     padding: 20px;
     font-weight: 400;
     font-size: 1.25em; }
@@ -2517,7 +2526,7 @@ a[href].card,
 .session .session-title {
   font-size: 1em;
   line-height: 1.2;
-  color: #005F93; }
+  color: #005f93; }
 .session .favorite {
   position: relative;
   z-index: 2;
@@ -2563,7 +2572,7 @@ a[href].card,
   .no-schedule .session .location, .not-logged-in .session .location {
     margin-right: 0; }
 .session .border-bottom:after {
-  background: #B8B9C2; }
+  background: #b8b9c2; }
 .session .speaker {
   margin-top: 0.25em; }
   .session .speaker .title, .session .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session .speaker a, .session .speaker .field label, .field .session .speaker label,
@@ -2629,16 +2638,16 @@ a[href].card,
 .session.keynote {
   font-size: 1.25em; }
   .session.keynote:before, .session.keynote > *:before {
-    background: #005F93; }
+    background: #005f93; }
   .session.keynote:after {
-    border-color: #0D567E; }
+    border-color: #0d567e; }
   .session.keynote.disabled:after {
     background: rgba(0, 95, 147, 0.5); }
   .session.keynote.disabled .title, .session.keynote.disabled nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote.disabled a, .session.keynote.disabled .field label, .field .session.keynote.disabled label {
     color: #00bfdf; }
   .session.keynote .title, .session.keynote nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote a, .session.keynote .field label, .field .session.keynote label,
   .session.keynote .speaker {
-    color: #fff; }
+    color: white; }
   .session.keynote .speaker .title, .session.keynote .speaker nav[role="navigation"] ul a, nav[role="navigation"] ul .session.keynote .speaker a, .session.keynote .speaker .field label, .field .session.keynote .speaker label,
   .session.keynote .speaker .note,
   .session.keynote .speaker #loginform .login-remember,
@@ -2654,17 +2663,17 @@ a[href].card,
   .session.keynote .infos {
     text-align: center; }
   .session.keynote .favorite:before {
-    background: #0D567E; }
+    background: #0d567e; }
   .session.keynote .favorite:after {
     border-color: #105073; }
   .no-touch .session.keynote .favorite:hover:before {
-    background: #0D567E; }
+    background: #0d567e; }
   .no-touch .session.keynote .favorite:hover:after {
     border-color: #105073; }
   .session.keynote .favorite > *:after {
-    color: #fff; }
+    color: white; }
   .session.keynote .favorite.active:before, .no-touch .session.keynote .favorite.active:hover:before {
-    background: #fff; }
+    background: white; }
   .session.keynote .favorite.active:after, .no-touch .session.keynote .favorite.active:hover:after {
     border-color: #eeeef0; }
   .session.keynote .favorite.active > *:after, .no-touch .session.keynote .favorite.active:hover > *:after {
@@ -2713,7 +2722,7 @@ nav[role="navigation"] ul a {
   zoom: 1;
   padding: 37px 0;
   margin: 0 0.5em;
-  border-bottom: 0 solid #fff;
+  border-bottom: 0 solid white;
   position: relative;
   -webkit-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
   -moz-transition: all 120ms cubic-bezier(0.2, 0, 0.4, 1);
@@ -2784,7 +2793,7 @@ nav[role="navigation"] .main .acheter-mon-billet {
     background-size: 1.25em; }
 nav[role="navigation"] .main,
 nav[role="navigation"] .secondary {
-  background: #fff;
+  background: white;
   height: 100%;
   z-index: 2;
   display: inline-block;
@@ -2810,7 +2819,7 @@ nav[role="navigation"] .secondary {
     vertical-align: middle; }
   nav[role="navigation"] .main a,
   nav[role="navigation"] .secondary a {
-    color: #005F93; }
+    color: #005f93; }
     .no-touch nav[role="navigation"] .main a:hover, .no-touch
     nav[role="navigation"] .secondary a:hover {
       color: #00bfdf; }
@@ -2825,13 +2834,13 @@ nav[role="navigation"] .secondary {
   float: right;
   width: 200px;
   padding: 0 30px;
-  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005F93));
-  background-image: -o-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005F93 100%);
-  background-image: linear-gradient(to right top, #00bfdf 0%, #005F93 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #00bfdf), color-stop(1, #005f93));
+  background-image: -o-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -moz-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -webkit-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: -ms-linear-gradient(right top, #00bfdf 0%, #005f93 100%);
+  background-image: linear-gradient(to right top, #00bfdf 0%, #005f93 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF00BFDF, endColorstr=#FF005F93,GradientType=0 ); }
   nav[role="navigation"] .secondary:before {
     margin: 0; }
   nav[role="navigation"] .secondary li {
@@ -2847,8 +2856,8 @@ nav[role="navigation"] .secondary {
       line-height: 1em;
       margin-right: 0.1em; }
   nav[role="navigation"] .secondary li.active a, .no-touch nav[role="navigation"] .secondary a:hover {
-    color: #fff;
-    border-color: #fff;
+    color: white;
+    border-color: white;
     margin-left: 0;
     margin-right: 0; }
 
@@ -2870,8 +2879,8 @@ textarea {
 .form .message.success {
   margin: 10px 20px;
   padding: 10px 20px;
-  border: 1px solid #0094C2;
-  color: #0094C2; }
+  border: 1px solid #0094c2;
+  color: #0094c2; }
   .form > .message:first-child,
   .form .message.success:first-child {
     margin-top: 20px; }
@@ -2913,8 +2922,8 @@ textarea {
   .no-touch .form .tab-trigger:hover {
     color: #00bfdf; }
   .form .tab-trigger.active {
-    background: #fff;
-    color: #0094C2; }
+    background: white;
+    color: #0094c2; }
 .form .border-middle {
   padding: 0 20px; }
 
@@ -2936,7 +2945,7 @@ textarea {
   .field input {
     display: block;
     width: 100%;
-    border: 1px solid #B8B9C2;
+    border: 1px solid #b8b9c2;
     padding: 0.5em;
     height: 3em;
     line-height: 1;
@@ -2946,18 +2955,18 @@ textarea {
     -o-transition: border 120ms linear;
     transition: border 120ms linear; }
     .no-touch .field input:hover {
-      border-color: #0094C2; }
+      border-color: #0094c2; }
     .field input:focus {
-      border: 3px solid #0094C2;
-      color: #0094C2; }
+      border: 3px solid #0094c2;
+      color: #0094c2; }
     .field input[type="submit"] {
-      background: #0094C2;
+      background: #0094c2;
       color: #eeeef0;
       border: none;
       cursor: pointer; }
       .no-touch .field input[type="submit"]:hover, .field input[type="submit"]:active, .field input[type="submit"]:focus {
-        background: #005F93;
-        color: #fff;
+        background: #005f93;
+        color: white;
         border: none; }
   .field .error {
     color: #d22630; }
@@ -2965,8 +2974,8 @@ textarea {
       border-color: #d22630;
       color: #d22630; }
       .no-touch .field .error + input:hover, .field .error + input:focus {
-        color: #0094C2;
-        border-color: #0094C2; }
+        color: #0094c2;
+        border-color: #0094c2; }
 
 .social-account {
   padding: 10px 20px; }
@@ -2980,30 +2989,30 @@ textarea {
     font-size: 1.5em;
     color: #eeeef0; }
     .social-account .wp-social-login-provider:before {
-      background: #0D567E; }
+      background: #0d567e; }
     .social-account .wp-social-login-provider:after {
       border-color: #105073; }
     .no-touch .social-account .wp-social-login-provider:hover:before {
-      background: #0D567E; }
+      background: #0d567e; }
     .no-touch .social-account .wp-social-login-provider:hover:after {
       border-color: #105073; }
     .social-account .wp-social-login-provider > * {
       display: block;
-      color: #fff; }
+      color: white; }
       .social-account .wp-social-login-provider > *:before {
-        background: #005F93; }
+        background: #005f93; }
       .social-account .wp-social-login-provider > *:after {
-        color: #fff; }
+        color: white; }
     .social-account .wp-social-login-provider:active, .social-account .wp-social-login-provider:focus, .no-touch .social-account .wp-social-login-provider:active:hover {
-      color: #fff; }
+      color: white; }
       .social-account .wp-social-login-provider:active:before, .social-account .wp-social-login-provider:focus:before, .no-touch .social-account .wp-social-login-provider:active:hover:before {
         background: #105073; }
       .social-account .wp-social-login-provider:active > *:after, .social-account .wp-social-login-provider:focus > *:after, .no-touch .social-account .wp-social-login-provider:active:hover > *:after {
-        color: #fff; }
+        color: white; }
     .social-account .wp-social-login-provider[data-provider="Facebook"] > *:after {
       font-size: 1em;
       line-height: 1.9;
-      color: #fff !important; }
+      color: white !important; }
 
 #loginform,
 #registerform {
@@ -3290,7 +3299,7 @@ section.intro {
     #registerform section.intro .eventbrite.login-submit:after,
     section.intro #registerform .eventbrite.register-submit:after,
     #registerform section.intro .eventbrite.register-submit:after {
-      border-color: #0094C2; }
+      border-color: #0094c2; }
 
 .features {
   padding: 0; }
@@ -3445,14 +3454,14 @@ section.intro {
           position: absolute;
           top: 50%;
           right: -1em;
-          color: #B8B9C2;
+          color: #b8b9c2;
           -webkit-transition: color 120ms linear 60ms;
           -moz-transition: color 120ms linear 60ms;
           -ms-transition: color 120ms linear 60ms;
           -o-transition: color 120ms linear 60ms;
           transition: color 120ms linear 60ms; }
     .no-touch .features .session:hover .wrap > .title:after, .no-touch .features .session:hover nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .no-touch .features .session:hover .wrap > a:after, .no-touch .features .session:hover .field .wrap > label:after, .field .no-touch .features .session:hover .wrap > label:after, .features .session:active .wrap > .title:after, .features .session:active nav[role="navigation"] ul .wrap > a:after, nav[role="navigation"] ul .features .session:active .wrap > a:after, .features .session:active .field .wrap > label:after, .field .features .session:active .wrap > label:after {
-      color: #005F93; }
+      color: #005f93; }
     .features .session .meta {
       position: absolute;
       top: 0;
@@ -3519,7 +3528,7 @@ section.intro {
       margin-top: 0;
       padding: 0.4em 0;
       font-weight: 500;
-      color: #005F93; }
+      color: #005f93; }
 
 .program {
   padding-top: 0; }
@@ -3561,7 +3570,7 @@ section.intro {
   left: 0;
   width: 50%;
   height: 100%;
-  background: #fff;
+  background: white;
   background: rgba(255, 255, 255, 0.8);
   z-index: 1; }
 .event-location .infos {
@@ -3581,7 +3590,7 @@ section.intro {
     width: 50%;
     padding: 0 15px 30px; }
 .event-location a {
-  color: #005F93; }
+  color: #005f93; }
 .event-location .title, .event-location nav[role="navigation"] ul a, nav[role="navigation"] ul .event-location a, .event-location .field label, .field .event-location label,
 .event-location .content {
   position: relative;
@@ -3619,7 +3628,7 @@ section.intro {
       display: block;
       position: absolute;
       height: 1px;
-      background: #B8B9C2;
+      background: #b8b9c2;
       width: 500px;
       top: 50%;
       margin-top: -1px; }
@@ -3646,7 +3655,7 @@ section.intro {
     width: 0.5em;
     height: 1.25em;
     position: relative;
-    color: #005F93; }
+    color: #005f93; }
     .event-location .social a:after {
       position: absolute;
       top: 0;
@@ -3655,7 +3664,7 @@ section.intro {
       height: 100%;
       width: 100%; }
     .no-touch .event-location .social a:hover {
-      color: #0094C2; }
+      color: #0094c2; }
 .event-location .map,
 .event-location .map-container {
   position: absolute;
@@ -3677,7 +3686,7 @@ section.intro {
   position: relative;
   min-height: 600px; }
   .posts:before, .posts:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -3822,12 +3831,12 @@ section.intro {
       line-height: 0.875em; }
   .feed-post .name {
     display: block;
-    color: #B8B9C2;
+    color: #b8b9c2;
     font-size: 0.875em; }
   .feed-post .username {
     font-size: 0.875em; }
   .feed-post .date {
-    color: #B8B9C2;
+    color: #b8b9c2;
     font-size: 0.875em; }
   .feed-post p {
     margin-bottom: 0; }
@@ -3850,7 +3859,7 @@ section.intro {
       display: block;
       text-indent: -9999px;
       line-height: 25px;
-      color: #B8B9C2;
+      color: #b8b9c2;
       height: 25px;
       position: relative; }
       .feed-post .actions a.reply:after, .feed-post .actions a.retweet:after, .feed-post .actions a.favorite:after {
@@ -3883,7 +3892,7 @@ section.intro {
   margin-left: -50px;
   margin-right: -50px; }
   .logos:before, .logos:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -3957,7 +3966,7 @@ section.intro {
   .waq2015 .top > *:before, .waq2015 .top > *:after,
   .waq2015 .bottom:before,
   .waq2015 .bottom:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -4078,7 +4087,7 @@ section.intro {
 .single .tags {
   margin: 0.5em 0 -0.5em; }
   .single .tags a {
-    color: #0094C2; }
+    color: #0094c2; }
     .no-touch .single .tags a:hover {
       color: #00bfdf; }
 .single .about {
@@ -4093,7 +4102,7 @@ section.intro {
   vertical-align: middle;
   min-height: 100px; }
   .single .about:before, .single .about:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -4165,7 +4174,7 @@ section.intro {
   .single .section-category .post, .single .section-category .posts .featured, .posts .single .section-category .featured {
     margin-bottom: 0; }
   .single .section-category .article-info {
-    border-color: #B8B9C2; }
+    border-color: #b8b9c2; }
   .single .section-category .meta {
     color: #3d3d3d; }
   .single .section-category p {
@@ -4229,7 +4238,7 @@ footer .sub-footer {
   padding-top: 20px;
   border-top: 1px solid #3d3d3d; }
   footer .sub-footer:before, footer .sub-footer:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -4335,7 +4344,7 @@ footer .contact-general {
     max-width: 100%;
     zoom: 1; }
     footer .contact-general .hashtag:before, footer .contact-general .hashtag:after {
-      content: " ";
+      content: "\0020";
       display: block;
       height: 0;
       overflow: hidden; }
@@ -4359,7 +4368,7 @@ footer .contact-general {
       width: 1.25em;
       height: 1.25em;
       position: relative;
-      color: #fff; }
+      color: white; }
       footer .contact-general .social a:after {
         position: absolute;
         top: 0;
@@ -4368,7 +4377,7 @@ footer .contact-general {
         height: 100%;
         width: 100%; }
       .no-touch footer .contact-general .social a:hover {
-        color: #0094C2; }
+        color: #0094c2; }
 footer .accessibility {
   display: inline-block;
   *display: inline;
@@ -4377,7 +4386,7 @@ footer .accessibility {
 footer .contribute, footer .archives {
   zoom: 1; }
   footer .contribute:before, footer .contribute:after, footer .archives:before, footer .archives:after {
-    content: " ";
+    content: "\0020";
     display: block;
     height: 0;
     overflow: hidden; }
@@ -4548,7 +4557,7 @@ footer .logo-o2 {
   body > .wrapper {
     position: relative;
     z-index: 1;
-    background: #fff; }
+    background: white; }
     body > .wrapper:before {
       content: "";
       position: absolute;
@@ -4584,8 +4593,8 @@ footer .logo-o2 {
     height: auto;
     min-height: 100%;
     z-index: -1;
-    color: #fff;
-    background: #005F93;
+    color: white;
+    background: #005f93;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -4615,7 +4624,7 @@ footer .logo-o2 {
     left: 10px;
     right: 10px;
     z-index: 5;
-    background: #fff;
+    background: white;
     padding: 20px 0;
     height: auto;
     display: block;
@@ -4649,7 +4658,7 @@ footer .logo-o2 {
         display: block;
         margin: 0;
         padding: 1em 0;
-        color: #fff; }
+        color: white; }
       nav[role="navigation"] .main li,
       nav[role="navigation"] .secondary li {
         display: block; }
@@ -4659,7 +4668,7 @@ footer .logo-o2 {
       nav[role="navigation"] .main .acheter-mon-billet a {
         margin-right: 0; }
     nav[role="navigation"] .main a:before, nav[role="navigation"] .main a:after {
-      background: #23729D;
+      background: #23729d;
       -webkit-transition: opacity 240ms, -webkit-transform 240ms, background 240ms;
       -moz-transition: opacity 240ms, -moz-transform 240ms, background 240ms;
       -ms-transition: opacity 240ms, -ms-transform 240ms, background 240ms;
@@ -4708,9 +4717,9 @@ footer .logo-o2 {
       nav[role="navigation"] .secondary li {
         margin-bottom: 5px;
         padding: 10px;
-        background: #23729D; }
+        background: #23729d; }
         nav[role="navigation"] .secondary li.active {
-          background: #0094C2; }
+          background: #0094c2; }
 
   section.intro {
     padding-top: 110px;
@@ -4841,7 +4850,7 @@ footer .logo-o2 {
       display: inline-block;
       *display: inline;
       zoom: 1;
-      color: #005F93;
+      color: #005f93;
       font-size: 1.25em; }
   .schedules tbody td {
     height: auto;
@@ -4869,7 +4878,7 @@ footer .logo-o2 {
         top: 0;
         left: 0;
         height: 100%;
-        border-right: #fff 10px solid;
+        border-right: white 10px solid;
         border-color: inherit; }
     .schedules .swiper .session.keynote .location.border-bottom > .title, .schedules .swiper .session.keynote nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session.keynote .location.border-bottom > a, .schedules .swiper .session.keynote .field .location.border-bottom > label, .field .schedules .swiper .session.keynote .location.border-bottom > label {
       display: block;
@@ -5386,6 +5395,12 @@ footer .logo-o2 {
       padding: 0 10px 20px; }
   .single .section-category .col {
     text-align: left; }
+  .single .about .thumb {
+    position: relative;
+    top: auto;
+    left: auto; }
+  .single .conferencer.has-thumb .name {
+    margin-left: 10px; }
 
   .profile-sessions .session a {
     margin-right: 0; }
@@ -5737,7 +5752,7 @@ footer .logo-o2 {
 @media print {
   * {
     background: transparent !important;
-    color: #000 !important;
+    color: black !important;
     box-shadow: none !important;
     text-shadow: none !important; }
 
@@ -5758,7 +5773,7 @@ footer .logo-o2 {
 
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     page-break-inside: avoid; }
 
   thead {
@@ -5782,5 +5797,3 @@ footer .logo-o2 {
   h2,
   h3 {
     page-break-after: avoid; } }
-
-/*# sourceMappingURL=application.css.map */
