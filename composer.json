@@ -58,6 +58,21 @@
           "composer/installers": "~1.0"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "custom/disable-wp-new-user-notification",
+        "version": "0.2",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "vendor-packages/disable-wp-new-user-notification.zip"
+        },
+        "require" : {
+          "composer/installers": "~1.0"
+        }
+      }
     }
   ],
   "require": {
@@ -75,7 +90,7 @@
     "cosenary/instagram": "2.3",
     "wpackagist-plugin/wordpress-social-login": "2.2.3",
     "wpackagist-plugin/rewrite-rules-inspector": "1.2.1",
-    "wpackagist-plugin/disable-wp-new-user-notification": "dev-trunk"
+    "custom/disable-wp-new-user-notification": "0.2"
   },
   "extra": {
     "installer-paths": {

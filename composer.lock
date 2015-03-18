@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60d5f97088d0f0d25d5192e424cb26c5",
+    "hash": "e146b8b97c1ba43dea84648c9aa324ee",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -146,6 +146,20 @@
                 "instagram"
             ],
             "time": "2014-11-29 13:10:42"
+        },
+        {
+            "name": "custom/disable-wp-new-user-notification",
+            "version": "0.2",
+            "dist": {
+                "type": "zip",
+                "url": "vendor-packages/disable-wp-new-user-notification.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin"
         },
         {
             "name": "j7mbo/twitter-api-php",
@@ -420,27 +434,6 @@
             "homepage": "https://wordpress.org/plugins/acf-range-field/"
         },
         {
-            "name": "wpackagist-plugin/disable-wp-new-user-notification",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/disable-wp-new-user-notification/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-wp-new-user-notification.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/disable-wp-new-user-notification/",
-            "time": "2010-03-24 14:52:18"
-        },
-        {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
             "version": "3.0.4",
             "source": {
@@ -525,8 +518,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "j7mbo/twitter-api-php": 20,
-        "wpackagist-plugin/disable-wp-new-user-notification": 20
+        "j7mbo/twitter-api-php": 20
     },
     "prefer-stable": false,
     "platform": {
