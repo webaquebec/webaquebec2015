@@ -292,8 +292,10 @@ jQuery(document).ready(function($){
   }
 
   waq.mobileSwiperSwipped = function(swiper){
-    var $tabs = swiper.tabs.children();
-    $tabs.removeClass('active').eq(swiper.snapIndex).addClass('active');
+    if(swiper.tabs){
+      var $tabs = swiper.tabs.children();
+      $tabs.removeClass('active').eq(swiper.snapIndex).addClass('active');
+    }
   }
 
 
@@ -314,10 +316,12 @@ jQuery(document).ready(function($){
           .addClass('swiper-slide')
           .wrapAll($wrap);
 
-        var $container = $('.swiper-container', row);
-        var $tabs = $('<div class="tabs"></div>');
-
         if($cells.length>1){
+          var $container = $('.swiper-container', row);
+          var $tabs = $('<div class="tabs"></div>');
+
+          $favorite = $('.favorite.active', $cells).closest('td');
+          active = $favorite.length ? $favorite.index() : 0;
           row.swiper = new Swiper($container[0],{
             initialSlide: active,
             slidesPerView: 1.1,

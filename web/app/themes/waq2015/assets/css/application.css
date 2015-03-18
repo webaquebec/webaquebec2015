@@ -4869,6 +4869,8 @@ footer .logo-o2 {
     .schedules .swiper-container .session.keynote .location.border-bottom > .title, .schedules .swiper-container .session.keynote nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper-container .session.keynote .location.border-bottom > a, .schedules .swiper-container .session.keynote .field .location.border-bottom > label, .field .schedules .swiper-container .session.keynote .location.border-bottom > label {
       display: block;
       padding-top: 0.75em; }
+    .schedules .swiper-container .session a {
+      margin-right: 3em; }
   .schedules tbody tr {
     padding-top: 0; }
   .schedules tbody th {
