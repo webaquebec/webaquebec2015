@@ -4807,21 +4807,18 @@ footer .logo-o2 {
 
   .schedules table, .schedules tbody, .schedules thead, .schedules tr, .schedules td, .schedules th {
     display: block; }
+  .schedules .swiper-wrapper,
+  .schedules .swiper-container {
+    width: 100%; }
   .schedules thead tr, .no-js .schedules tbody tr,
-  .schedules tbody .swiper {
+  .schedules tbody .swiper-container {
     white-space: nowrap;
     font-size: 0;
     width: 100%;
-    position: relative;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    line-height: 0; }
+    position: relative; }
     .schedules thead tr > *, .no-js .schedules tbody tr > *,
-    .schedules tbody .swiper > * {
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
+    .schedules tbody .swiper-container > * {
+      width: 100%;
       white-space: normal;
       font-size: 14px;
       line-height: 1.2; }
@@ -4863,26 +4860,77 @@ footer .logo-o2 {
         display: block; }
     .schedules tbody td.empty {
       display: none; }
-  .schedules .swiper .session {
+  .schedules .swiper-container td + td {
+    display: block; }
+  .schedules .swiper-container .session {
     margin-bottom: 0; }
-    .schedules .swiper .session .location.border-bottom > .title, .schedules .swiper .session nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session .location.border-bottom > a, .schedules .swiper .session .field .location.border-bottom > label, .field .schedules .swiper .session .location.border-bottom > label, .schedules .swiper .session .location.border-bottom:before {
+    .schedules .swiper-container .session .location.border-bottom {
       display: none; }
-    .schedules .swiper .session .location[location] {
-      position: relative; }
-      .schedules .swiper .session .location[location] > * {
-        display: block;
-        padding-left: 20px; }
-      .schedules .swiper .session .location[location]:before {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        height: 100%;
-        border-right: white 10px solid;
-        border-color: inherit; }
-    .schedules .swiper .session.keynote .location.border-bottom > .title, .schedules .swiper .session.keynote nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper .session.keynote .location.border-bottom > a, .schedules .swiper .session.keynote .field .location.border-bottom > label, .field .schedules .swiper .session.keynote .location.border-bottom > label {
+    .schedules .swiper-container .session.keynote .location.border-bottom > .title, .schedules .swiper-container .session.keynote nav[role="navigation"] ul .location.border-bottom > a, nav[role="navigation"] ul .schedules .swiper-container .session.keynote .location.border-bottom > a, .schedules .swiper-container .session.keynote .field .location.border-bottom > label, .field .schedules .swiper-container .session.keynote .location.border-bottom > label {
       display: block;
-      padding-top: 0.75em; } }
+      padding-top: 0.75em; }
+    .schedules .swiper-container .session a {
+      margin-right: 3em; }
+  .schedules tbody tr {
+    padding-top: 0; }
+  .schedules tbody th {
+    padding: 0 3em 0 0;
+    white-space: nowrap;
+    position: relative;
+    text-align: left;
+    height: auto;
+    min-height: 1.75em; }
+    .schedules tbody th > * {
+      display: inline-block;
+      vertical-align: top; }
+      .schedules tbody th > * > * {
+        display: inline-block;
+        white-space: normal;
+        vertical-align: top; }
+  .schedules tbody td {
+    border-top: none;
+    border-bottom: 1px solid #d5d5d5; }
+  .schedules .tabs .location {
+    white-space: normal;
+    position: relative;
+    width: 1em;
+    min-height: 3em;
+    cursor: pointer;
+    padding: 0.25em 0.5em 0.5em 0.25em;
+    margin: 0 0.25em; }
+    .schedules .tabs .location:before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0.25em;
+      left: 0;
+      height: 2.6em;
+      width: 1em;
+      z-index: 1;
+      border-right: white 1em solid;
+      border-color: inherit;
+      -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+      -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+      box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06); }
+    .schedules .tabs .location > * {
+      display: block;
+      padding-left: 0.75em;
+      display: none;
+      font-size: 0.875em;
+      color: #303030;
+      margin: 0; }
+    .schedules .tabs .location.active {
+      width: auto;
+      background: white; }
+      .schedules .tabs .location.active:before {
+        border-width: 0.5em;
+        width: 0.5em;
+        left: 0.25em; }
+      .schedules .tabs .location.active > * {
+        display: block; }
+  .schedules .time {
+    display: block;
+    padding: 0.25em; } }
 @media screen and (max-width: 1023px) {
   section.intro {
     height: auto;

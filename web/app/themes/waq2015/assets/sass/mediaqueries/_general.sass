@@ -255,19 +255,23 @@
   .schedules
     table, tbody, thead, tr, td, th
       display: block
+    .swiper-wrapper,
+    .swiper-container
+      width: 100%
     thead tr,
     .no-js & tbody tr,
-    tbody .swiper
+    tbody .swiper-container
       white-space: nowrap
       font-size: 0
       width: 100%
       position: relative
-      overflow-y: hidden
-      overflow-x: scroll
-      -webkit-overflow-scrolling: touch
-      line-height: 0
+      // overflow-y: hidden
+      // overflow-x: scroll
+      // -webkit-overflow-scrolling: touch
+      // line-height: 0
       >*
-        +inlineb
+        // +inlineb
+        width: 100%
         white-space: normal
         font-size: 14px
         line-height: 1.2
@@ -309,31 +313,89 @@
             display: block
         &.empty
           display: none
-    .swiper
+
+    //
+    //
+    // SWIPER
+    .swiper-container
+      td+td
+        display: block
       .session
         margin-bottom: 0
         .location.border-bottom
-          &>.title,
-          &:before
-            display: none
-        .location[location]
-          position: relative
-          &>*
-            display: block
-            padding-left: $medium
-          &:before
-            position: absolute
-            display: block
-            top: 0
-            left: 0
-            height: 100%
-            border-right: #fff $small solid
-            border-color: inherit
+          display: none
         &.keynote
           .location.border-bottom
             &>.title
               display: block
               padding-top: 0.75em
+        a
+          margin-right: 3em
+    tbody tr
+      padding-top: 0
+    tbody th
+      padding: 0 3em 0 0
+      white-space: nowrap
+      position: relative
+      text-align: left
+      height: auto
+      min-height: 1.75em
+      >*
+        display: inline-block
+        vertical-align: top
+        >*
+          display: inline-block
+          white-space: normal
+          vertical-align: top
+    tbody td
+      border-top: none
+      border-bottom: 1px solid #d5d5d5
+
+    .tabs
+      .location
+        white-space: normal
+        position: relative
+        width: 1em
+        min-height: 3em
+        cursor: pointer
+        padding: 0.25em 0.5em 0.5em 0.25em
+        margin: 0 0.25em
+        &:before
+          content: ""
+          position: absolute
+          display: block
+          top: 0.25em
+          left: 0
+          height: 2.6em
+          width: 1em
+          z-index: 1
+          border-right: #fff 1em solid
+          border-color: inherit
+          +box-shadow($l-shadows)
+        >*
+          display: block
+          padding-left: 0.75em
+          display: none
+          font-size: 0.875em
+          color: $d-grey
+          margin: 0
+
+        &.active
+          width: auto
+          background: #fff
+          &:before
+            border-width: 0.5em
+            width: 0.5em
+            left: 0.25em
+            // +box-shadow(none)
+          >*
+            display: block
+    .time
+      // position: absolute
+      // bottom: 0
+      // left: 0
+      display: block
+      padding: 0.25em
 
 
 

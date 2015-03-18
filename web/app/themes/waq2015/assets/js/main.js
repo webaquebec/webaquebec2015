@@ -281,6 +281,24 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
+  waq.mobileTabClicked = function(e){
+    var $this = $(this);
+    if(this.swiper && this.tabID!==false){
+      $this
+        .addClass('active')
+        .siblings().removeClass('active');
+      this.swiper.slideTo(this.tabID);
+    }
+  }
+
+  waq.mobileSwiperSwipped = function(swiper){
+    if(swiper.tabs){
+      var $tabs = swiper.tabs.children();
+      $tabs.removeClass('active').eq(swiper.snapIndex).addClass('active');
+    }
+  }
+
+
   waq.enableMobileSchedules = function($schedules){
     if(!waq.isMobile) return;
     for(var i=0; i<$schedules.length; i++){
@@ -289,21 +307,49 @@ jQuery(document).ready(function($){
       $schedule[0].$rows = $('tbody tr', $schedule);
       $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
-        var $row = $schedule[0].$rows[r];
-        var $cells = $('td',$row);
-        $cells.wrapAll('<div class="swiper"></div>');
-        for(var c=0; c<$cells.length; c++){
-          var $cell = $($cells[c]);
-          var $location = $cell.find('[location]');
-          if($location.length){
-            var locationID = $location.attr('location');
-            var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
-            if($refHeader){
-              var $clonedHeader = $refHeader.clone();
-              $cell.find('.location').prepend($clonedHeader);
-              $cell[0].$clonedHeader = $clonedHeader;
+        var active = 0;
+        var row = $schedule[0].$rows[r];
+        var $cells = $('td',row);
+        var $head = $('th',row);
+        var $wrap = $('<div class="swiper-container"><div class="swiper-wrapper"></div></div>')
+        $cells
+          .addClass('swiper-slide')
+          .wrapAll($wrap);
+
+        if($cells.length>1){
+          var $container = $('.swiper-container', row);
+          var $tabs = $('<div class="tabs"></div>');
+
+          $favorite = $('.favorite.active', $cells).closest('td');
+          active = $favorite.length ? $favorite.index() : 0;
+          row.swiper = new Swiper($container[0],{
+            initialSlide: active,
+            slidesPerView: 1.1,
+            onTransitionEnd: waq.mobileSwiperSwipped
+          });
+
+          for(var c=0; c<$cells.length; c++){
+            var $cell = $($cells[c]);
+            var $location = $cell.find('[location]');
+            if($location.length){
+              var locationID = $location.attr('location');
+              var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
+              if($refHeader){
+                var $clonedHeader = $refHeader.clone();
+                if($clonedHeader.length){
+                  $tabs.append($clonedHeader);
+                  $clonedHeader[0].swiper = row.swiper;
+                  $clonedHeader[0].tabID = c;
+                  $cell[0].$clonedHeader = $clonedHeader;
+                  if(c==active) $clonedHeader.addClass('active');
+                  $clonedHeader.on('click', waq.mobileTabClicked);
+                }
+              }
             }
           }
+
+          $head.append($tabs);
+          row.swiper.tabs = $tabs;
         }
       }
     }
@@ -317,18 +363,19 @@ jQuery(document).ready(function($){
       $schedule[0].$rows = $('tbody tr', $schedule);
       $schedule.off('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
-        var $row = $schedule[0].$rows[r];
-        var $cells = $('td',$row);
-
-        for(var c=0; c<$cells.length; c++){
-          var $cell = $($cells[c]);
-          if($cell[0].$clonedHeader){
-            $cell[0].$clonedHeader.remove();
+        var row = $schedule[0].$rows[r];
+        var $cells = $('td',row);
+        if($cells.length>1){
+          if(row.swiper){
+            row.swiper.tabs.remove();
+            row.swiper.destroy();
           }
         }
 
-        $cells.unwrap();
-
+        $cells
+          .removeClass('swiper-slide')
+          .unwrap()
+          .unwrap();
       }
     }
   }

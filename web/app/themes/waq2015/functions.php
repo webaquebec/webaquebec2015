@@ -224,6 +224,9 @@ function header_scripts()
         wp_register_script('tabs', get_template_directory_uri() . '/assets/js/tabs.js', array(), null);
         wp_enqueue_script('tabs');
 
+        wp_register_script('swiper', get_template_directory_uri() . '/assets/js/swiper.min.js', array(), null);
+        wp_enqueue_script('swiper');
+
         wp_register_script('raf', get_template_directory_uri() . '/assets/js/raf.min.js', array(), null);
         wp_enqueue_script('raf');
 
@@ -258,8 +261,12 @@ function header_scripts()
 
 function header_styles()
 {
+    wp_register_style('swiper', get_template_directory_uri() . '/assets/css/swiper.min.css');
+    wp_enqueue_style('swiper'); // Enqueue it!
+
     wp_register_style('main', get_template_directory_uri() . '/assets/css/application.css');
     wp_enqueue_style('main'); // Enqueue it!
+
 }
 
 
