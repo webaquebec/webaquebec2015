@@ -2616,6 +2616,8 @@ a[href].card,
       *display: inline;
       zoom: 1;
       vertical-align: middle; }
+    .session .thumb + .infos:before {
+      margin-left: -0.3em; }
 .session.wide .thumb {
   width: 6em;
   height: 6em; }

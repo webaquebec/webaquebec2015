@@ -305,7 +305,7 @@ jQuery(document).ready(function($){
       var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
-      $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
+      // $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
         var active = 0;
         var row = $schedule[0].$rows[r];
