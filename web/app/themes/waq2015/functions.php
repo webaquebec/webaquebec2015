@@ -27,7 +27,7 @@ function is_login_page() {
 }
 
 function is_banged(){
-    return isset($_COOKIE['big-screen']) && strpos($_SERVER['HTTP_REFERER'], $_SERVER['WP_HOME']) !== false;
+    return isset($_COOKIE['big-screen']) && isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $_SERVER['WP_HOME']) !== false;
 }
 
 function remove_hashbang($url){
@@ -409,10 +409,12 @@ function register_user( $user_id ) {
         wp_set_password( $_POST['user_password'], $user_id );
 }
 
-function disable_new_user_mail(){
-    if (!function_exists('wp_new_user_notification')) {
-        function wp_new_user_notification() {}
-    }
+function set_new_user_mail($login, $email, $errors){
+   if(count($errors->errors)==0){
+       if(isset($_POST['user_password']) && has($_POST['user_password']) ){
+            wp_set_password( $_POST['user_password'], $_POST['user_login'] );
+       }
+   }
 }
 /*------------------------------------*\
      OPTIONS EN VRAC
@@ -636,7 +638,7 @@ add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu
 add_action('wp_login_failed', 'login_fail');
 add_action('user_register', 'register_user', 20, 1);
 add_action('login_redirect', 'redirect_login', 10, 3);
-add_action('registered_taxonomy', 'disable_new_user_mail');
+add_action('register_post', 'set_new_user_mail', 1, 3);
 //
 //  Remove Actions
 //
