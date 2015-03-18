@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f1b44f75c6bfd70996bb2f4e9e5f937b",
+    "hash": "60d5f97088d0f0d25d5192e424cb26c5",
     "packages": [
         {
             "name": "acf/advanced-custom-fields",
@@ -420,6 +420,27 @@
             "homepage": "https://wordpress.org/plugins/acf-range-field/"
         },
         {
+            "name": "wpackagist-plugin/disable-wp-new-user-notification",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/disable-wp-new-user-notification/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-wp-new-user-notification.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-wp-new-user-notification/",
+            "time": "2010-03-24 14:52:18"
+        },
+        {
             "name": "wpackagist-plugin/intuitive-custom-post-order",
             "version": "3.0.4",
             "source": {
@@ -504,7 +525,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "j7mbo/twitter-api-php": 20
+        "j7mbo/twitter-api-php": 20,
+        "wpackagist-plugin/disable-wp-new-user-notification": 20
     },
     "prefer-stable": false,
     "platform": {

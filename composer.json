@@ -74,7 +74,8 @@
     "j7mbo/twitter-api-php": "dev-master",
     "cosenary/instagram": "2.3",
     "wpackagist-plugin/wordpress-social-login": "2.2.3",
-    "wpackagist-plugin/rewrite-rules-inspector": "1.2.1"
+    "wpackagist-plugin/rewrite-rules-inspector": "1.2.1",
+    "wpackagist-plugin/disable-wp-new-user-notification": "dev-trunk"
   },
   "extra": {
     "installer-paths": {
