@@ -634,9 +634,9 @@ add_action('generate_rewrite_rules', 'themes_dir_add_rewrites'); // Rewrite des 
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('admin_menu', 'remove_menus'); // Enlever des éléments dans le menu Admin
 add_action('wp_login_failed', 'login_fail');
-add_action('user_register', 'register_user', 1, 1);
+add_action('user_register', 'register_user', 20, 1);
 add_action('login_redirect', 'redirect_login', 10, 3);
-add_action('registered_post_type', 'disable_new_user_mail');
+add_action('registered_taxonomy', 'disable_new_user_mail');
 //
 //  Remove Actions
 //
