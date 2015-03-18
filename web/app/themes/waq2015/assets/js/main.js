@@ -287,11 +287,25 @@ jQuery(document).ready(function($){
       var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
-      $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
+      // $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
-        var $row = $schedule[0].$rows[r];
-        var $cells = $('td',$row);
-        $cells.wrapAll('<div class="swiper"></div>');
+        var row = $schedule[0].$rows[r];
+        var $cells = $('td',row);
+        var $head = $('th',row);
+        var $wrap = $('<div class="swiper-container"><div class="swiper-wrapper"></div></div>')
+        $cells
+          .addClass('swiper-slide')
+          .wrapAll($wrap);
+
+        var $container = $('.swiper-container', row);
+        var $pagination = $('<div class="swiper-pagination"></div>');
+
+        if($cells.length>1){
+          row.swiper = new Swiper($container[0],{
+            initialSlide: 0,
+          });
+        }
+
         for(var c=0; c<$cells.length; c++){
           var $cell = $($cells[c]);
           var $location = $cell.find('[location]');
@@ -300,7 +314,7 @@ jQuery(document).ready(function($){
             var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
             if($refHeader){
               var $clonedHeader = $refHeader.clone();
-              $cell.find('.location').prepend($clonedHeader);
+              $wrap.append($clonedHeader)
               $cell[0].$clonedHeader = $clonedHeader;
             }
           }
@@ -317,17 +331,20 @@ jQuery(document).ready(function($){
       $schedule[0].$rows = $('tbody tr', $schedule);
       $schedule.off('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
-        var $row = $schedule[0].$rows[r];
-        var $cells = $('td',$row);
+        var row = $schedule[0].$rows[r];
+        var $cells = $('td',row);
+        if(row.swiper) row.swiper.destroy();
+        // for(var c=0; c<$cells.length; c++){
+        //   var $cell = $($cells[c]);
+          // if($cell[0].$clonedHeader){
+          //   $cell[0].$clonedHeader.remove();
+          // }
+        // }
 
-        for(var c=0; c<$cells.length; c++){
-          var $cell = $($cells[c]);
-          if($cell[0].$clonedHeader){
-            $cell[0].$clonedHeader.remove();
-          }
-        }
-
-        $cells.unwrap();
+        $cells
+          .removeClass('swiper-slide')
+          .unwrap()
+          .unwrap();
 
       }
     }

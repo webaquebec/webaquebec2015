@@ -255,19 +255,23 @@
   .schedules
     table, tbody, thead, tr, td, th
       display: block
+    .swiper-wrapper,
+    .swiper-container
+      width: 100%
     thead tr,
     .no-js & tbody tr,
-    tbody .swiper
+    tbody .swiper-container
       white-space: nowrap
       font-size: 0
       width: 100%
       position: relative
-      overflow-y: hidden
-      overflow-x: scroll
-      -webkit-overflow-scrolling: touch
-      line-height: 0
+      // overflow-y: hidden
+      // overflow-x: scroll
+      // -webkit-overflow-scrolling: touch
+      // line-height: 0
       >*
-        +inlineb
+        // +inlineb
+        width: 100%
         white-space: normal
         font-size: 14px
         line-height: 1.2
@@ -309,7 +313,9 @@
             display: block
         &.empty
           display: none
-    .swiper
+    .swiper-container
+      td+td
+        display: block
       .session
         margin-bottom: 0
         .location.border-bottom
