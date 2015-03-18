@@ -281,6 +281,22 @@ jQuery(document).ready(function($){
   //
   //
   // MOBILE SCHEDULES
+  waq.mobileTabClicked = function(e){
+    var $this = $(this);
+    if(this.swiper && this.tabID!==false){
+      $this
+        .addClass('active')
+        .siblings().removeClass('active');
+      this.swiper.slideTo(this.tabID);
+    }
+  }
+
+  waq.mobileSwiperSwipped = function(swiper){
+    var $tabs = swiper.tabs.children();
+    $tabs.removeClass('active').eq(swiper.snapIndex).addClass('active');
+  }
+
+
   waq.enableMobileSchedules = function($schedules){
     if(!waq.isMobile) return;
     for(var i=0; i<$schedules.length; i++){
@@ -289,6 +305,7 @@ jQuery(document).ready(function($){
       $schedule[0].$rows = $('tbody tr', $schedule);
       // $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
+        var active = 0;
         var row = $schedule[0].$rows[r];
         var $cells = $('td',row);
         var $head = $('th',row);
@@ -302,25 +319,34 @@ jQuery(document).ready(function($){
 
         if($cells.length>1){
           row.swiper = new Swiper($container[0],{
-            initialSlide: 0
+            initialSlide: active,
+            slidesPerView: 1.1,
+            onTransitionEnd: waq.mobileSwiperSwipped
           });
-        }
 
-        for(var c=0; c<$cells.length; c++){
-          var $cell = $($cells[c]);
-          var $location = $cell.find('[location]');
-          if($location.length){
-            var locationID = $location.attr('location');
-            var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
-            if($refHeader){
-              var $clonedHeader = $refHeader.clone();
-              $wrap.append($clonedHeader)
-              $cell[0].$clonedHeader = $clonedHeader;
+          for(var c=0; c<$cells.length; c++){
+            var $cell = $($cells[c]);
+            var $location = $cell.find('[location]');
+            if($location.length){
+              var locationID = $location.attr('location');
+              var $refHeader = $schedule[0].$headers.find('[location="'+locationID+'"]');
+              if($refHeader){
+                var $clonedHeader = $refHeader.clone();
+                if($clonedHeader.length){
+                  $tabs.append($clonedHeader);
+                  $clonedHeader[0].swiper = row.swiper;
+                  $clonedHeader[0].tabID = c;
+                  $cell[0].$clonedHeader = $clonedHeader;
+                  if(c==active) $clonedHeader.addClass('active');
+                  $clonedHeader.on('click', waq.mobileTabClicked);
+                }
+              }
             }
           }
-        }
 
-        $head.prepend($tabs);
+          $head.append($tabs);
+          row.swiper.tabs = $tabs;
+        }
       }
     }
   }
