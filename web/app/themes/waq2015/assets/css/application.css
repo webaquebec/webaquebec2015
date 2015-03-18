@@ -4885,40 +4885,45 @@ footer .logo-o2 {
         display: inline-block;
         white-space: normal;
         vertical-align: top; }
+  .schedules tbody td {
+    border-top: none;
+    border-bottom: 1px solid #d5d5d5; }
   .schedules .tabs .location {
     white-space: normal;
     position: relative;
-    width: 2em;
-    min-height: 3.5em;
+    width: 1em;
+    min-height: 3em;
     cursor: pointer;
-    padding: 0.25em 1em 0.25em 0.25em;
-    margin-right: 5px; }
+    padding: 0.25em 0.5em 0.5em 0.25em;
+    margin: 0 0.25em; }
     .schedules .tabs .location:before {
       content: "";
       position: absolute;
       display: block;
-      top: 0;
+      top: 0.25em;
       left: 0;
-      height: 100%;
-      border-right: white 2em solid;
+      height: 2.6em;
+      width: 1em;
+      z-index: 1;
+      border-right: white 1em solid;
       border-color: inherit;
-      -webkit-transition: border 120ms ease;
-      -moz-transition: border 120ms ease;
-      -ms-transition: border 120ms ease;
-      -o-transition: border 120ms ease;
-      transition: border 120ms ease; }
+      -webkit-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+      -moz-box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06);
+      box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.06); }
     .schedules .tabs .location > * {
       display: block;
-      padding-left: 1.25em;
+      padding-left: 0.75em;
       display: none;
-      font-size: 1em;
+      font-size: 0.875em;
       color: #303030;
       margin: 0; }
     .schedules .tabs .location.active {
       width: auto;
       background: white; }
       .schedules .tabs .location.active:before {
-        border-width: 1em; }
+        border-width: 0.5em;
+        width: 0.5em;
+        left: 0.25em; }
       .schedules .tabs .location.active > * {
         display: block; }
   .schedules .time {

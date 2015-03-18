@@ -303,7 +303,7 @@ jQuery(document).ready(function($){
       var $schedule = $($schedules[i]);
       $schedule[0].$headers = $('thead th', $schedule);
       $schedule[0].$rows = $('tbody tr', $schedule);
-      // $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
+      $schedule.off('touchstart', cancelEvents).on('touchstart', cancelEvents);
       for(var r=0; r<$schedule[0].$rows.length; r++){
         var active = 0;
         var row = $schedule[0].$rows[r];
@@ -361,19 +361,17 @@ jQuery(document).ready(function($){
       for(var r=0; r<$schedule[0].$rows.length; r++){
         var row = $schedule[0].$rows[r];
         var $cells = $('td',row);
-        if(row.swiper) row.swiper.destroy();
-        // for(var c=0; c<$cells.length; c++){
-        //   var $cell = $($cells[c]);
-          // if($cell[0].$clonedHeader){
-          //   $cell[0].$clonedHeader.remove();
-          // }
-        // }
+        if($cells.length>1){
+          if(row.swiper){
+            row.swiper.tabs.remove();
+            row.swiper.destroy();
+          }
+        }
 
         $cells
           .removeClass('swiper-slide')
           .unwrap()
           .unwrap();
-
       }
     }
   }
