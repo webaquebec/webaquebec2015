@@ -35,14 +35,27 @@ $self_url = remove_hashbang(get_permalink());
       ));
       if($schedules->have_posts()):
         $activeSchedule = has(isset($_COOKIE['schedule'])&&!empty($_COOKIE['schedule'])) ? $_COOKIE['schedule'] : $schedules->posts[0]->ID;
+        $active = false;
+        $isToday = false;
+        $bypassCookie = false;
+        $today = date('d/m/y');
         ?>
 
       <div class="days">
         <nav class="sticky">
           <ul>
-            <?php foreach($schedules->posts as $k=>$post): ?>
+            <?php
+            foreach($schedules->posts as $k=>$post):
+              $date = strftime('%d/%m/%y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp() );
+              var_dump($today);
+              $isToday = $today == $date;
+              if($isToday){
+                $bypassCookie = true;
+              }
+              $active = (($bypassCookie && $isToday) || (!$bypassCookie && $post->ID==$activeSchedule) );
+            ?>
             <li>
-              <button class="btn toggle<?php if($post->ID==$activeSchedule) echo ' active' ?>" schedule="<?= $post->ID ?>" >
+              <button class="btn toggle<?php if($active) echo ' active' ?>" schedule="<?= $post->ID ?>" >
                 <div class="wrap">
                   <span class="sub title"><?= get_the_title($post->ID) ?></span>
                   <span class="small title"><?= strftime('%e %B %Y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp()) ?></span>
