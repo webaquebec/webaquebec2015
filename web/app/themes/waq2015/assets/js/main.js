@@ -298,11 +298,11 @@ jQuery(document).ready(function($){
           .wrapAll($wrap);
 
         var $container = $('.swiper-container', row);
-        var $pagination = $('<div class="swiper-pagination"></div>');
+        var $tabs = $('<div class="tabs"></div>');
 
         if($cells.length>1){
           row.swiper = new Swiper($container[0],{
-            initialSlide: 0,
+            initialSlide: 0
           });
         }
 
@@ -319,6 +319,8 @@ jQuery(document).ready(function($){
             }
           }
         }
+
+        $head.prepend($tabs);
       }
     }
   }
