@@ -139,7 +139,7 @@ get_header_once();
         <?php
         // logistics
         $logistics_members = get_field('logistics');
-        list_members(__('Logisitique','waq'), $logistics_members);
+        list_members(__('Logistique','waq'), $logistics_members);
         ?>
       </div>
 

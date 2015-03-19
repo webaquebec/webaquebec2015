@@ -48,7 +48,7 @@ $self_url = remove_hashbang(get_permalink());
             foreach($schedules->posts as $k=>$post):
               $date = strftime('%d/%m/%y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp() );
               $isToday = $today == $date;
-              if($isToday){
+              if($isToday  || $today > $date ){
                 $bypassCookie = true;
               }
               $active = (($bypassCookie && $isToday) || (!$bypassCookie && $post->ID==$activeSchedule) );
@@ -104,10 +104,16 @@ if(has($filters)):
   <?php
   // loop throught schedules
   foreach($schedules->posts as $post):
+    $date = strftime('%d/%m/%y', DateTime::createFromFormat('d/m/y', get_field('date', $post->ID))->getTimestamp() );
+    $isToday = $today == $date;
+    if($isToday  || $today > $date ){
+      $bypassCookie = true;
+    }
+    $active = (($bypassCookie && $isToday) || (!$bypassCookie && $post->ID==$activeSchedule) );
     ?>
     <article  class="schedule<?php if($post->ID==$activeSchedule) echo ' active' ?>"
               schedule="<?= $post->ID ?>"
-              <?php if($post->ID!=$activeSchedule): ?>
+              <?php if(!$active): ?>
               lazy-load="<?= $self_url ?>ajax/<?= $post->ID ?>"
               lazy-callback="initFavorites|enableMobileSchedules"
               <?php endif; ?>
