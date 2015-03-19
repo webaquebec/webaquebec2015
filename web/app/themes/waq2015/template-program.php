@@ -111,7 +111,7 @@ if(has($filters)):
     }
     $active = (($bypassCookie && $isToday) || (!$bypassCookie && $post->ID==$activeSchedule) );
     ?>
-    <article  class="schedule<?php if($post->ID==$activeSchedule) echo ' active' ?>"
+    <article  class="schedule<?php if($active) echo ' active' ?>"
               schedule="<?= $post->ID ?>"
               <?php if(!$active): ?>
               lazy-load="<?= $self_url ?>ajax/<?= $post->ID ?>"
@@ -121,7 +121,7 @@ if(has($filters)):
     <?php
     //
     // PRINT ONLY ACTIVE SCHEDULE
-    if($post->ID==$activeSchedule):
+    if($active):
 
       //
       // format for time labels
