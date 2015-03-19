@@ -234,8 +234,9 @@
     z-index: -1
     +border-radius(4px)
     border: 1px solid $l-grey
-    +box-shadow($shadows)
     +prefix(transition, border-color 120ms $ease)
+    .no-touch &
+      +box-shadow($shadows)
 
   &:before
     right: 100%
@@ -963,11 +964,11 @@ a[href].btn
     margin: 0 0 -1.5em
     display: block
     &:after
-      +box-shadow($l-shadows)
-      +prefix(transition, box-shadow 120ms $ease)
-    .no-touch &:hover
-      &:after
-        +box-shadow($shadows)
+      .no-touch &
+        +box-shadow($l-shadows)
+        +prefix(transition, box-shadow 120ms $ease)
+        &:hover
+          +box-shadow($shadows)
   &.disabled
     &:after
       background: rgba(#b2b2b2, 0.5)
