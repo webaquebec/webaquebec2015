@@ -1,0 +1,793 @@
+<table class="light"><thead>
+<tr>
+<td class="empty"></td><th>      <div class="location" style="border-color:#56b0c9;" location="276" >
+        <span class="sub title">Salle</span>
+        <span class="title">Savoir-Faire Linux</span>
+        <span class="note title">Développement</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#e30513;" location="258" >
+        <span class="sub title">Salle</span>
+        <span class="title">Libéo</span>
+        <span class="note title">Design</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#ffffff;" location="257" >
+        <span class="sub title">Salle</span>
+        <span class="title">IXmédia</span>
+        <span class="note title">Affaires et entrepreneuriat</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#000000;" location="260" >
+        <span class="sub title">Salle</span>
+        <span class="title">Crakmedia</span>
+        <span class="note title">Communication et marketing</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#0066a3;" location="345" >
+        <span class="sub title">Salle</span>
+        <span class="title">Bell</span>
+        <span class="note title">Keynotes et ateliers</span>
+      </div>
+      </th>
+</tr></thead><tbody>
+
+<tr><th><div class="time"><span class="sub title"> 7h</span><span class="small title">30</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">Accueil et petit déjeuner</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title"> 8h</span><span class="small title">30</span><div></th><td colspan="5">
+      <div>
+        <div class="session btn light keynote wide has-thumb" location="261" themes="|20|" >
+          <div class="wrap">
+
+                          <div class="thumb">
+                <img src="http://webaquebec.org/app/uploads/2015/01/Bernstein_Gregg-150x150.jpeg" alt="Gregg Bernstein" />
+              </div>
+            
+            <button class="btn seamless toggle favorite icon-only" session="298">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/full-stories/">
+              <h3 class="session-title title">Full Stories</h3>
+
+              <div class="speaker">
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Gregg Bernstein</span>
+                                        <span class="job note">Manager of Customer Research -  Mailchimp</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">10h</span><span class="small title">00</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Pause café</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">10h</span><span class="small title">25</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|16|29|17|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="304">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/developpement-web-moderne-methodes-de-travail-et-principes-eprouves/">
+              <h3 class="session-title title">Développement Web moderne : méthodes de travail et principes éprouvés</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Prevost_remi-150x150.jpg" alt="Rémi Prévost" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Rémi Prévost</span>
+                                        <span class="job note">Développeur Web - Mirego</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="571">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/entrevue-yannick-cimon-mattar-lepointdevente-com-et-les-productions-get-a-room/">
+              <h3 class="session-title title">Entrevue : Focus sur Yannick Cimon-Mattar, lepointdevente.com et les productions Get a Room!</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Cimon-Mattar_Yannick-150x150.jpg" alt="Yannick Cimon-Mattar" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Yannick Cimon-Mattar</span>
+                                        <span class="job note">Associé lepointdevente.com et propriétaire des productions Get a Room!</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|22|28|30|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="307">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/geographie-et-commerce-electronique-marche-local-ou-global-clientele-de-masse-ou-de-niche-visite-en-magasin-ou-livraison/">
+              <h3 class="session-title title">Géographie et commerce électronique : marché local ou global, clientèle de masse ou de niche, visite en magasin ou livraison</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Vaillancourt_Luc-150x150.jpg" alt="Luc Vaillancourt" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Luc Vaillancourt</span>
+                                        <span class="job note">Président Directeur Général - Spatialytics</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|22|23|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="310">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/est-ce-possible-de-reussir-une-solution-web-developpee-en-agile/">
+              <h3 class="session-title title">Est-ce possible de réussir une solution Web développée en Agile?</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/langlais_marcandre-150x150.jpg" alt="Marc-André Langlais" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Marc-André Langlais</span>
+                                        <span class="job note">Coach Agile et Facilitateur Intégral - Pyxis</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td rowspan="2">
+      <div>
+        <div class="session btn light  small has-thumb" location="345" themes="|19|24|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="530">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/l-apport-du-bodystorming-dans-les-activites-d-ideation-de-la-phase-initiale-de-conception-en-design-d-interaction/">
+              <h3 class="session-title title">Atelier (sur inscription) : L’apport du bodystorming dans les activités d’idéation de la phase initiale de conception en design d’interaction</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/photo-jacinthe-fred-HD-150x150.jpg" alt="Jacynthe Roberge et Frédéric Lépinay" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jacynthe Roberge et Frédéric Lépinay</span>
+                                        <span class="job note">Chargée d'enseignement en design et Professeur en design - Université Laval</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">11h</span><span class="small title">15</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|16|17|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="314">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/introduction-a-gwt-la-technologie-derriere-google-adwords-spreadsheet-inbox-et-plus-encore/">
+              <h3 class="session-title title">Introduction à GWT, la technologie derrière Google Ad​W​ords, Spreadsheet, Inbox et plus encore!</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Christian-Goudreau-150x150.jpg" alt="Christian Goudreau" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Christian Goudreau</span>
+                                        <span class="job note">CEO et cofondateur - Arcbees</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|19|20|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="315">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/design-hostile/">
+              <h3 class="session-title title">Design hostile</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Savard_Saucier_Cynthia-150x150.jpg" alt="Cynthia Savard Saucier" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Cynthia Savard Saucier</span>
+                                        <span class="job note">Designer UX - Shopify</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|22|23|13|15|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="317">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/le-pouvoir-du-marketing-video-en-2015/">
+              <h3 class="session-title title">Le pouvoir du marketing vidéo en 2015</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Savoie_Julien-150x150.jpg" alt="Julien Savoie" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Julien Savoie</span>
+                                        <span class="job note">Oranje Group</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|23|13|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="319">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/de-la-bullshit-et-autres-moeurs-numeriques-contemporaines/">
+              <h3 class="session-title title">De la bullshit et autres moeurs numériques contemporaines</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Gosselin_francis-150x150.jpg" alt="Francis Gosselin" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Francis Gosselin</span>
+                                        <span class="job note">f & co</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">12h</span><span class="small title">00</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Dîner</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">13h</span><span class="small title">00</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|30|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="326">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/wearable-robotique-democratisation-electronique/">
+              <h3 class="session-title title">Du wearable à la robotique &#8211; La démocratisation de l&rsquo;électronique est à votre portée</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/IMG_4810-150x150.jpg" alt="Phillipe Cantin" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Phillipe Cantin</span>
+                                        <span class="job note">Senior Agile Coach - Facilité Informatique</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|27|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="324">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/detruisons-les-mythes-les-artistes-du-design-de-la-programmation-et-de-lintegration-web-sont-ils-proprietaires-de-leurs-oeuvres-numeriques/">
+              <h3 class="session-title title">Détruisons les mythes : Les artistes du design, de la programmation et de l&rsquo;intégration Web sont-ils propriétaires de leurs oeuvres numériques?</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Bergeron_Vincent-150x150.jpg" alt="Vincent Bergeron" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Vincent Bergeron</span>
+                                        <span class="job note">Avocat - ROBIC, s.e.n.c.r.l.</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="572">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/entrevue-focus-karl-boulanger-tonresto-quoi-faire-quebec-libro/">
+              <h3 class="session-title title">Entrevue : Focus sur Karl Boulanger, Tonresto.ca, Quoi Faire à Québec et Libro.</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Boulanger_Karl-150x150.jpg" alt="Karl Boulanger" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Karl Boulanger</span>
+                                        <span class="job note">Président et associé - tonresto.ca, quoifaireaquebec.com et Libro</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|24|26|15|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="327">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/medias-sociaux-et-planification-deliberee-ou-creative/">
+              <h3 class="session-title title">Médias sociaux et planification : délibérée ou créative?</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Charest_Francine-150x150.jpg" alt="Francine Charest" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Francine Charest</span>
+                                        <span class="job note">Professeur agrégée et Directrice de l'Observatoire des médias sociaux en relations publiques - Université Laval</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">13h</span><span class="small title">50</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="330">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/startups-erreurs-et-astuces-dont-on-ne-vous-parle-jamais/">
+              <h3 class="session-title title">Startups : erreurs et astuces dont on ne vous parle jamais!</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Boily_Jean-Philippe-150x150.jpg" alt="Jean-Philippe Boily" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jean-Philippe Boily</span>
+                                        <span class="job note">Software Engineer - Rainforest QA</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|33|13|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="331">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/visites-virtuelles-des-musees-et-lieux-culturels-les-defis-technologiques-et-ergonomiques-pour-une-immersion-reussie/">
+              <h3 class="session-title title">Visites virtuelles des musées et lieux culturels : Les défis technologiques et ergonomiques pour une immersion réussie.</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Duinat_Benoit-150x150.jpg" alt="Benoît Duinat" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Benoît Duinat</span>
+                                        <span class="job note">Professionnel de Recherche - Université Laval</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|18|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="333">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/le-e-commerce-en-faire-pour-rester-en-affaires/">
+              <h3 class="session-title title">Le E-commerce: en faire pour rester en affaires</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Declomesnil_Sacha-150x150.jpg" alt="Sacha Declomesnil" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Sacha Declomesnil</span>
+                                        <span class="job note">Stratège et Associé - O2 Web</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|18|28|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="335">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/le-geo-ciblage-defis-performance-et-rentabilite/">
+              <h3 class="session-title title">Le géo-ciblage &#8211; défis, performance et rentabilité</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Vezina_Axel-150x150.jpg" alt="Axel Vézina" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Axel Vézina</span>
+                                        <span class="job note">Vice-président Monétisation - Crakmedia</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">14h</span><span class="small title">40</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Pause santé</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">15h</span><span class="small title">10</span><div></th><td colspan="5">
+      <div>
+        <div class="session btn light keynote wide has-thumb" location="261" themes="|23|13|28|29|17|" >
+          <div class="wrap">
+
+                          <div class="thumb">
+                <img src="http://webaquebec.org/app/uploads/2015/01/Nilson_Kevin-150x150-150x150.jpg" alt="Kevin Nilson" />
+              </div>
+            
+            <button class="btn seamless toggle favorite icon-only" session="300">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/the-new-web/">
+              <h3 class="session-title title">The New Web</h3>
+
+              <div class="speaker">
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Kevin Nilson</span>
+                                        <span class="job note">Team Lead and Chromecast Technical Solutions Engineer - Google</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">16h</span><span class="small title">30</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">5@7 présenté par Crakmedia &#8211; Une grande variété de saucisses et des bières de la micro l’Alchimiste vous attendent, préparez-vous à célébrer les 5 ans du WAQ en grand! Deux consommations incluses dans le billet du participant.</h3>
+      </div>
+
+      </td>
+</tr></tbody></table>

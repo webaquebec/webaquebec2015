@@ -1,0 +1,823 @@
+<table class="light"><thead>
+<tr>
+<td class="empty"></td><th>      <div class="location" style="border-color:#56b0c9;" location="276" >
+        <span class="sub title">Salle</span>
+        <span class="title">Savoir-Faire Linux</span>
+        <span class="note title">Développement</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#e30513;" location="258" >
+        <span class="sub title">Salle</span>
+        <span class="title">Libéo</span>
+        <span class="note title">Design</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#ffffff;" location="257" >
+        <span class="sub title">Salle</span>
+        <span class="title">IXmédia</span>
+        <span class="note title">Affaires et entrepreneuriat</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#000000;" location="260" >
+        <span class="sub title">Salle</span>
+        <span class="title">Crakmedia</span>
+        <span class="note title">Communication et marketing</span>
+      </div>
+      </th>
+<th>      <div class="location" style="border-color:#0066a3;" location="345" >
+        <span class="sub title">Salle</span>
+        <span class="title">Bell</span>
+        <span class="note title">Keynotes et ateliers</span>
+      </div>
+      </th>
+</tr></thead><tbody>
+
+<tr><th><div class="time"><span class="sub title"> 7h</span><span class="small title">30</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">Accueil et petit déjeuner</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title"> 8h</span><span class="small title">30</span><div></th><td colspan="5">
+      <div>
+        <div class="session btn light keynote wide has-thumb" location="261" themes="|33|24|" >
+          <div class="wrap">
+
+                          <div class="thumb">
+                <img src="http://webaquebec.org/app/uploads/2015/01/Capture-d’écran-2015-03-09-à-12.13.25-150x150.png" alt="Jean-Yves Fréchette" />
+              </div>
+            
+            <button class="btn seamless toggle favorite icon-only" session="305">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/creativemornings-encre/">
+              <h3 class="session-title title">CreativeMornings &#8211; Encre (sur inscription seulement)</h3>
+
+              <div class="speaker">
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jean-Yves Fréchette</span>
+                                        <span class="job note">Directeur de l’Institut de twittérature comparée de Québec-Bordeaux</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title"> 9h</span><span class="small title">10</span><div></th><td colspan="5">
+      <div>
+        <div class="session btn light keynote wide has-thumb" location="261" themes="|19|20|" >
+          <div class="wrap">
+
+                          <div class="thumb">
+                <img src="http://webaquebec.org/app/uploads/2015/01/jared-150x150.jpg" alt="Jared Spool" />
+              </div>
+            
+            <button class="btn seamless toggle favorite icon-only" session="306">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/jared-spool-great-time-to-be-ux-designer/">
+              <h3 class="session-title title">It’s a Great Time to Be A UX Designer</h3>
+
+              <div class="speaker">
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jared Spool</span>
+                                        <span class="job note">CEO & Founding Principal - User Interface Engineering</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">10h</span><span class="small title">10</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Pause café</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">10h</span><span class="small title">25</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|28|30|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="309">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/creer-de-la-valeur-pour-les-consommateurs-avec-les-technologies-de-demain/">
+              <h3 class="session-title title">Créer de la valeur pour les consommateurs avec les technologies de demain</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/tremblay_steve-150x150.jpg" alt="Steve Tremblay" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Steve Tremblay</span>
+                                        <span class="job note">EVP Technologies - Nurun</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|33|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="311">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/les-processus-de-la-pensee-creative/">
+              <h3 class="session-title title">Les processus de la pensée créative</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/ouellet_daniel-150x150.jpg" alt="Daniel Ouellet" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Daniel Ouellet</span>
+                                        <span class="job note">Directeur de création numérique - Cossette</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="312">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/les-perspectives-de-developpement-de-la-technologie-derriere-le-bitcoin/">
+              <h3 class="session-title title">Les perspectives de développement de la technologie derrière le Bitcoin</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Mbony_Julien-150x150.jpg" alt="Julien Mbony" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Julien Mbony</span>
+                                        <span class="job note">Aleny</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|13|26|16|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="313">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/du-planqc-au-bordelinformatique-pourquoi-les-geeks-et-les-politiciens-sont-ils-incapables-de-se-comprendre/">
+              <h3 class="session-title title">Du #PlanQc au #bordelinformatique : pourquoi les geeks et les politiciens sont-ils incapables de se comprendre</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/pbouchard-150x150.jpg" alt="Pierre Bouchard" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Pierre Bouchard</span>
+                                        <span class="job note">Président - Pierre Bouchard conseil stratégique</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td rowspan="2">
+      <div>
+        <div class="session btn light  small has-thumb" location="345" themes="|28|17|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="529">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/programmation-en-swift-pour-debutant/">
+              <h3 class="session-title title">Atelier (sur inscription) : Programmation en Swift pour débutant</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Lessard_Emilie-150x150.jpg" alt="Émilie Lessard" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Émilie Lessard</span>
+                                        <span class="job note">Développeure iOS sénior</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">11h</span><span class="small title">15</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|31|29|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="316">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/google-go-les-langages-de-programmation-en-emergence-pour-lere-du-cloud-computing/">
+              <h3 class="session-title title">Google Go: les langages de programmation en émergence pour l&rsquo;ère du cloud computing</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/jfn-150x150.jpg" alt="Jean-François Nadeau" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jean-François Nadeau</span>
+                                        <span class="job note">Vice président, Recherche et développement - Mailsquad</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|19|32|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="318">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/le-neuro-web-design-comment-les-neurosciences-peuvent-vous-aider-a-concevoir-un-site-web-efficace-en-tenant-compte-du-fonctionnement-du-cerveau/">
+              <h3 class="session-title title">Le Neuro Web design: comment les neurosciences peuvent vous aider à concevoir un site web efficace en tenant compte du fonctionnement du cerveau</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/boucher_stephane-150x150.jpg" alt="Stéphane Boucher" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Stéphane Boucher</span>
+                                        <span class="job note">Directeur général - Institut des neurosciences appliquées du Québec</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="320">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/profession-sniper-technologique-viser-juste-environnements-hostiles/">
+              <h3 class="session-title title">Profession : Sniper Technologique, apprendre à viser juste dans des environnements hostiles</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/jml-150x150.png" alt="Jean-Michel Lebeau" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jean-Michel Lebeau</span>
+                                        <span class="job note">Fondateur et copropriétaire - Cortex</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|23|33|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="321">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/comprendre-creativite-mieux-gerer/">
+              <h3 class="session-title title">Comprendre la créativité pour mieux la gérer</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/vincent-150x150.jpg" alt="Vincent Ramsay-Lemelin" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Vincent Ramsay-Lemelin</span>
+                                        <span class="job note">Directeur Expérience Web - Dentsubos</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">12h</span><span class="small title">00</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Dîner</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">13h</span><span class="small title">00</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|36|28|17|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="325">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/building-awesome-games-with-babylon-js-and-webgl/">
+              <h3 class="session-title title">Building Awesome Games with Babylon.js &#038; WebGL</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Sayar_Rami-150x150.jpg" alt="Rami Sayar" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Rami Sayar</span>
+                                        <span class="job note">Technical Evangelist and Developer - Microsoft</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|32|20|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="322">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/le-neuromarketing-applique-au-web-design-de-pages-qui-convertissent/">
+              <h3 class="session-title title">Le neuromarketing appliqué au web: design de pages qui convertissent</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Marcotte_audrey-150x150.jpg" alt="Audrey Marcotte" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Audrey Marcotte</span>
+                                        <span class="job note">Associée et chargé de projets - Evollia</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|23|15|28|20|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="596">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/reinventer-departement-marketing/">
+              <h3 class="session-title title">Réinventer le département marketing</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Morin_Sebastien-150x150.jpg" alt="Sébastien Morin" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Sébastien Morin</span>
+                                        <span class="job note">Vice-président, stratégie et expérience utilisateur</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|23|33|19|28|17|20|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="332">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/creer-sites-mobile-friendly/">
+              <h3 class="session-title title">Créer des sites mobile-friendly</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Ait_Bahajji_Zineb-150x150.jpg" alt="Zineb Ait Bahajji" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Zineb Ait Bahajji</span>
+                                        <span class="job note">Webmaster Trends Analyst - Google</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">13h</span><span class="small title">50</span><div></th><td>
+      <div>
+        <div class="session btn light  small has-thumb" location="276" themes="|17|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="334">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Savoir-Faire Linux              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/devenez-le-plus-heureux-des-front-end-avec-gulp-et-grunt/">
+              <h3 class="session-title title">Devenez le plus heureux des front-end avec Gulp et Grunt</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/savard_remy-150x150.jpg" alt="Rémy Savard" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Rémy Savard</span>
+                                        <span class="job note">Développeur front-end et enseignant - Cégep Sainte-Foy</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="258" themes="|23|19|15|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="336">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Libéo              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/publicite-web-le-secret-du-succes-est-dans-lequilibre-entre-le-message-la-forme-et-le-canal/">
+              <h3 class="session-title title">Publicité web: le secret du succès est dans l&rsquo;équilibre entre le message, la forme et le canal</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/sainthilaire_luc-150x150.jpg" alt="Luc St-Hilaire" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Luc St-Hilaire</span>
+                                        <span class="job note">Travailleur autonome - Université Laval</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="257" themes="|18|25|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="573">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle IXmédia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/intrapreneurship-startup-rock-n-roll/">
+              <h3 class="session-title title">Intrapreneurship : startup rock ‘n’ roll</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/photo_charles_francois-150x150.jpg" alt="Charles Ouellet et François Lanthier Nadeau" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Charles Ouellet et François Lanthier Nadeau</span>
+                                        <span class="job note">Co-fondateur et lead engineer / Stratège et copywriter - Snipcart</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+<td>
+      <div>
+        <div class="session btn light  small has-thumb" location="260" themes="|18|15|28|" >
+          <div class="wrap">
+
+            
+            <button class="btn seamless toggle favorite icon-only" session="340">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Crakmedia              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/plus-de-troc-moins-de-pixels/">
+              <h3 class="session-title title">Plus de troc, moins de pixels</h3>
+
+              <div class="speaker">
+                                <div class="thumb">
+                  <img src="http://webaquebec.org/app/uploads/2015/01/Lavoie-Levesque_Jonathan-150x150.png" alt="Jonathan Lavoie-Lévesque" />
+                </div>
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Jonathan Lavoie-Lévesque</span>
+                                        <span class="job note">Chef de Produit - Shopify</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">14h</span><span class="small title">40</span><div></th><td colspan="5">
+
+      <div class="pause">
+        <h3 class="sub title">2ᵉ étage &#8211; Pause santé</h3>
+      </div>
+
+      </td>
+</tr>
+<tr>
+<th><div class="time"><span class="sub title">15h</span><span class="small title">10</span><div></th><td colspan="5">
+      <div>
+        <div class="session btn light keynote wide has-thumb" location="261" themes="|13|30|" >
+          <div class="wrap">
+
+                          <div class="thumb">
+                <img src="http://webaquebec.org/app/uploads/2015/01/kalmar2-150x150.jpg" alt="Rachel Kalmar" />
+              </div>
+            
+            <button class="btn seamless toggle favorite icon-only" session="343">
+              <span>
+                Ajouter à mon horaire              </span>
+            </button>
+
+            <div class="location border-bottom">
+              <span class="small sub title">
+                Salle Bell              </span>
+            </div>
+
+            <a href="http://webaquebec.org/activite/wearables-data-changing-face-of-identity/">
+              <h3 class="session-title title">Wearables, Data, and the Changing Face of Identity</h3>
+
+              <div class="speaker">
+                
+                <h4 class="infos">
+                  <span class="wrap">
+                    <span class="name small title">Rachel Kalmar</span>
+                                        <span class="job note">Data Scientist, Founder & Community Organizer</span>
+                                      </span>
+                </h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </td>
+</tr></tbody></table>
