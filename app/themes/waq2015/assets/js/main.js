@@ -27,7 +27,7 @@ if(typeof bang != 'undefined' && bang){
   }
 
   if(document.cookie.indexOf("big-screen=")!=-1 || (typeof hashbang !='undefined' && hashbang)){
-    window.location.replace(url);
+    // window.location.replace(url);
   }
   else{
     window.cookieDisabled = true;
@@ -43,7 +43,7 @@ window.waq = {};
 jQuery(document).ready(function($){
   // Don't execute JS if we will bang anyway
   // if cookies are disabled, remove coverall
-  if(window.cookieDisabled) $('.bang-coverall').remove();
+  $('.bang-coverall').remove();
   if(typeof(hashbang)!='undefined' && hashbang) return;
   //
   //
