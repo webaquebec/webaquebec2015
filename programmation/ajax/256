@@ -47,9 +47,9 @@
           <div class="wrap">
 
                           <div class="thumb">
-                <img src="http://webaquebec.org/app/uploads/2015/01/Capture-d’écran-2015-03-09-à-12.13.25-150x150.png" alt="Jean-Yves Fréchette" />
+                <img src="/app/uploads/2015/01/Capture-d’écran-2015-03-09-à-12.13.25-150x150.png" alt="Jean-Yves Fréchette" />
               </div>
-            
+
             <button class="btn seamless toggle favorite icon-only" session="305">
               <span>
                 Ajouter à mon horaire              </span>
@@ -64,7 +64,7 @@
               <h3 class="session-title title">CreativeMornings &#8211; Encre (sur inscription seulement)</h3>
 
               <div class="speaker">
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Jean-Yves Fréchette</span>
@@ -86,9 +86,9 @@
           <div class="wrap">
 
                           <div class="thumb">
-                <img src="http://webaquebec.org/app/uploads/2015/01/jared-150x150.jpg" alt="Jared Spool" />
+                <img src="/app/uploads/2015/01/jared-150x150.jpg" alt="Jared Spool" />
               </div>
-            
+
             <button class="btn seamless toggle favorite icon-only" session="306">
               <span>
                 Ajouter à mon horaire              </span>
@@ -103,7 +103,7 @@
               <h3 class="session-title title">It’s a Great Time to Be A UX Designer</h3>
 
               <div class="speaker">
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Jared Spool</span>
@@ -133,7 +133,7 @@
         <div class="session btn light  small has-thumb" location="276" themes="|28|30|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="309">
               <span>
                 Ajouter à mon horaire              </span>
@@ -149,9 +149,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/tremblay_steve-150x150.jpg" alt="Steve Tremblay" />
+                  <img src="/app/uploads/2015/01/tremblay_steve-150x150.jpg" alt="Steve Tremblay" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Steve Tremblay</span>
@@ -170,7 +170,7 @@
         <div class="session btn light  small has-thumb" location="258" themes="|33|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="311">
               <span>
                 Ajouter à mon horaire              </span>
@@ -186,9 +186,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/ouellet_daniel-150x150.jpg" alt="Daniel Ouellet" />
+                  <img src="/app/uploads/2015/01/ouellet_daniel-150x150.jpg" alt="Daniel Ouellet" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Daniel Ouellet</span>
@@ -207,7 +207,7 @@
         <div class="session btn light  small has-thumb" location="257" themes="|25|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="312">
               <span>
                 Ajouter à mon horaire              </span>
@@ -223,9 +223,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Mbony_Julien-150x150.jpg" alt="Julien Mbony" />
+                  <img src="/app/uploads/2015/01/Mbony_Julien-150x150.jpg" alt="Julien Mbony" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Julien Mbony</span>
@@ -244,7 +244,7 @@
         <div class="session btn light  small has-thumb" location="260" themes="|13|26|16|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="313">
               <span>
                 Ajouter à mon horaire              </span>
@@ -260,9 +260,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/pbouchard-150x150.jpg" alt="Pierre Bouchard" />
+                  <img src="/app/uploads/2015/01/pbouchard-150x150.jpg" alt="Pierre Bouchard" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Pierre Bouchard</span>
@@ -281,7 +281,7 @@
         <div class="session btn light  small has-thumb" location="345" themes="|28|17|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="529">
               <span>
                 Ajouter à mon horaire              </span>
@@ -297,9 +297,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Lessard_Emilie-150x150.jpg" alt="Émilie Lessard" />
+                  <img src="/app/uploads/2015/01/Lessard_Emilie-150x150.jpg" alt="Émilie Lessard" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Émilie Lessard</span>
@@ -320,7 +320,7 @@
         <div class="session btn light  small has-thumb" location="276" themes="|31|29|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="316">
               <span>
                 Ajouter à mon horaire              </span>
@@ -336,9 +336,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/jfn-150x150.jpg" alt="Jean-François Nadeau" />
+                  <img src="/app/uploads/2015/01/jfn-150x150.jpg" alt="Jean-François Nadeau" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Jean-François Nadeau</span>
@@ -357,7 +357,7 @@
         <div class="session btn light  small has-thumb" location="258" themes="|19|32|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="318">
               <span>
                 Ajouter à mon horaire              </span>
@@ -373,9 +373,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/boucher_stephane-150x150.jpg" alt="Stéphane Boucher" />
+                  <img src="/app/uploads/2015/01/boucher_stephane-150x150.jpg" alt="Stéphane Boucher" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Stéphane Boucher</span>
@@ -394,7 +394,7 @@
         <div class="session btn light  small has-thumb" location="257" themes="|25|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="320">
               <span>
                 Ajouter à mon horaire              </span>
@@ -410,9 +410,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/jml-150x150.png" alt="Jean-Michel Lebeau" />
+                  <img src="/app/uploads/2015/01/jml-150x150.png" alt="Jean-Michel Lebeau" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Jean-Michel Lebeau</span>
@@ -431,7 +431,7 @@
         <div class="session btn light  small has-thumb" location="260" themes="|23|33|25|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="321">
               <span>
                 Ajouter à mon horaire              </span>
@@ -447,9 +447,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/vincent-150x150.jpg" alt="Vincent Ramsay-Lemelin" />
+                  <img src="/app/uploads/2015/01/vincent-150x150.jpg" alt="Vincent Ramsay-Lemelin" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Vincent Ramsay-Lemelin</span>
@@ -479,7 +479,7 @@
         <div class="session btn light  small has-thumb" location="276" themes="|36|28|17|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="325">
               <span>
                 Ajouter à mon horaire              </span>
@@ -495,9 +495,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Sayar_Rami-150x150.jpg" alt="Rami Sayar" />
+                  <img src="/app/uploads/2015/01/Sayar_Rami-150x150.jpg" alt="Rami Sayar" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Rami Sayar</span>
@@ -516,7 +516,7 @@
         <div class="session btn light  small has-thumb" location="258" themes="|32|20|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="322">
               <span>
                 Ajouter à mon horaire              </span>
@@ -532,9 +532,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Marcotte_audrey-150x150.jpg" alt="Audrey Marcotte" />
+                  <img src="/app/uploads/2015/01/Marcotte_audrey-150x150.jpg" alt="Audrey Marcotte" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Audrey Marcotte</span>
@@ -553,7 +553,7 @@
         <div class="session btn light  small has-thumb" location="257" themes="|23|15|28|20|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="596">
               <span>
                 Ajouter à mon horaire              </span>
@@ -569,9 +569,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Morin_Sebastien-150x150.jpg" alt="Sébastien Morin" />
+                  <img src="/app/uploads/2015/01/Morin_Sebastien-150x150.jpg" alt="Sébastien Morin" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Sébastien Morin</span>
@@ -590,7 +590,7 @@
         <div class="session btn light  small has-thumb" location="260" themes="|23|33|19|28|17|20|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="332">
               <span>
                 Ajouter à mon horaire              </span>
@@ -606,9 +606,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Ait_Bahajji_Zineb-150x150.jpg" alt="Zineb Ait Bahajji" />
+                  <img src="/app/uploads/2015/01/Ait_Bahajji_Zineb-150x150.jpg" alt="Zineb Ait Bahajji" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Zineb Ait Bahajji</span>
@@ -629,7 +629,7 @@
         <div class="session btn light  small has-thumb" location="276" themes="|17|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="334">
               <span>
                 Ajouter à mon horaire              </span>
@@ -645,9 +645,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/savard_remy-150x150.jpg" alt="Rémy Savard" />
+                  <img src="/app/uploads/2015/01/savard_remy-150x150.jpg" alt="Rémy Savard" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Rémy Savard</span>
@@ -666,7 +666,7 @@
         <div class="session btn light  small has-thumb" location="258" themes="|23|19|15|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="336">
               <span>
                 Ajouter à mon horaire              </span>
@@ -682,9 +682,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/sainthilaire_luc-150x150.jpg" alt="Luc St-Hilaire" />
+                  <img src="/app/uploads/2015/01/sainthilaire_luc-150x150.jpg" alt="Luc St-Hilaire" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Luc St-Hilaire</span>
@@ -703,7 +703,7 @@
         <div class="session btn light  small has-thumb" location="257" themes="|18|25|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="573">
               <span>
                 Ajouter à mon horaire              </span>
@@ -719,9 +719,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/photo_charles_francois-150x150.jpg" alt="Charles Ouellet et François Lanthier Nadeau" />
+                  <img src="/app/uploads/2015/01/photo_charles_francois-150x150.jpg" alt="Charles Ouellet et François Lanthier Nadeau" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Charles Ouellet et François Lanthier Nadeau</span>
@@ -740,7 +740,7 @@
         <div class="session btn light  small has-thumb" location="260" themes="|18|15|28|" >
           <div class="wrap">
 
-            
+
             <button class="btn seamless toggle favorite icon-only" session="340">
               <span>
                 Ajouter à mon horaire              </span>
@@ -756,9 +756,9 @@
 
               <div class="speaker">
                                 <div class="thumb">
-                  <img src="http://webaquebec.org/app/uploads/2015/01/Lavoie-Levesque_Jonathan-150x150.png" alt="Jonathan Lavoie-Lévesque" />
+                  <img src="/app/uploads/2015/01/Lavoie-Levesque_Jonathan-150x150.png" alt="Jonathan Lavoie-Lévesque" />
                 </div>
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Jonathan Lavoie-Lévesque</span>
@@ -789,9 +789,9 @@
           <div class="wrap">
 
                           <div class="thumb">
-                <img src="http://webaquebec.org/app/uploads/2015/01/kalmar2-150x150.jpg" alt="Rachel Kalmar" />
+                <img src="/app/uploads/2015/01/kalmar2-150x150.jpg" alt="Rachel Kalmar" />
               </div>
-            
+
             <button class="btn seamless toggle favorite icon-only" session="343">
               <span>
                 Ajouter à mon horaire              </span>
@@ -806,7 +806,7 @@
               <h3 class="session-title title">Wearables, Data, and the Changing Face of Identity</h3>
 
               <div class="speaker">
-                
+
                 <h4 class="infos">
                   <span class="wrap">
                     <span class="name small title">Rachel Kalmar</span>
